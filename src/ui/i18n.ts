@@ -1,0 +1,84 @@
+// 表示文言。世界のカメラを見せるアプリなので英語も最初から入れる。
+// 文言は「その操作で何が起きるか」をそのまま書く(Submit ではなく Save changes)。
+
+import type { CamCategory } from "../domain/cams";
+import type { Lang } from "../domain/weather";
+
+type Dict = Record<Lang, string>;
+
+const STRINGS = {
+  tagline: {
+    ja: "地球のライブカメラを、地図から覗く",
+    en: "Peek at Earth's live cameras from the map",
+  },
+  darknessHeadline: {
+    ja: "台が、いま夜の中にいます",
+    en: "cameras are in darkness right now",
+  },
+  search: { ja: "地名で絞り込む", en: "Filter by name" },
+  liveOnly: { ja: "配信中だけ", en: "Live only" },
+  nightOnly: { ja: "夜の場所だけ", en: "Night only" },
+  favoritesOnly: { ja: "お気に入りだけ", en: "Favorites" },
+  takeMeSomewhere: { ja: "どこかへ連れてって", en: "Take me somewhere" },
+  wall: { ja: "並べて見る", en: "Video wall" },
+  backToMap: { ja: "地図に戻る", en: "Back to map" },
+  focusThis: { ja: "これを見る", en: "Watch this" },
+  alsoOpen: { ja: "開いているカメラ", en: "Also open" },
+  removeFromView: { ja: "閉じる", en: "Close" },
+  favorite: { ja: "お気に入りに入れる", en: "Add to favorites" },
+  unfavorite: { ja: "お気に入りから外す", en: "Remove from favorites" },
+  watchOnYouTube: { ja: "YouTube で見る", en: "Watch on YouTube" },
+  emptyTitle: { ja: "まだ何も選んでいません", en: "Nothing selected yet" },
+  emptyBody: {
+    ja: "地図のマーカーを選ぶと、その場所の今が流れます。",
+    en: "Pick a marker on the map to see what it looks like there now.",
+  },
+  noMatch: {
+    ja: "条件に合うカメラがありません。絞り込みを緩めてください。",
+    en: "No cameras match. Try loosening the filters.",
+  },
+  statusLive: { ja: "配信中", en: "Live" },
+  statusOffline: { ja: "配信していません", en: "Off air" },
+  statusBlocked: { ja: "埋め込み不可", en: "Embedding blocked" },
+  statusUnknown: { ja: "状態を確認中", en: "Checking" },
+  offlineBody: {
+    ja: "この配信は今止まっています。次の確認で新しい配信が見つかれば戻ります。",
+    en: "This stream is down. It returns when the next check finds a new one.",
+  },
+  blockedBody: {
+    ja: "この配信は外部サイトでの再生が許可されていません。",
+    en: "This stream cannot be played outside YouTube.",
+  },
+  viewers: { ja: "人が視聴中", en: "watching" },
+  updatedAt: { ja: "状態の更新", en: "State updated" },
+  stateUnavailable: {
+    ja: "生存状態を取得できませんでした。地図と再生は使えます。",
+    en: "Could not load live state. The map and player still work.",
+  },
+  night: { ja: "夜", en: "Night" },
+  day: { ja: "昼", en: "Day" },
+} satisfies Record<string, Dict>;
+
+export type StringKey = keyof typeof STRINGS;
+
+export function t(key: StringKey, lang: Lang): string {
+  return STRINGS[key][lang];
+}
+
+const CATEGORY_LABELS: Record<CamCategory, Dict> = {
+  city: { ja: "街", en: "City" },
+  nature: { ja: "自然", en: "Nature" },
+  animal: { ja: "動物", en: "Animals" },
+  airport: { ja: "空港", en: "Airport" },
+  harbor: { ja: "港・海", en: "Harbor" },
+  volcano: { ja: "火山", en: "Volcano" },
+  railway: { ja: "鉄道", en: "Railway" },
+};
+
+export function categoryLabel(category: CamCategory, lang: Lang): string {
+  return CATEGORY_LABELS[category][lang];
+}
+
+export function camName(name: { ja: string; en: string }, lang: Lang): string {
+  return name[lang];
+}

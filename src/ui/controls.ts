@@ -1,0 +1,92 @@
+// 見出しの操作列。ラベルは「押すと何が起きるか」をそのまま書く。
+
+import { CAM_CATEGORIES, type CamCategory } from "../domain/cams";
+import type { ViewState } from "../domain/urlState";
+import { categoryLabel, t } from "./i18n";
+
+export interface ControlHandlers {
+  onChange(patch: Partial<ViewState>): void;
+  onRandom(): void;
+  onToggleWall(): void;
+}
+
+function chip(label: string, pressed: boolean, onClick: () => void): HTMLButtonElement {
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "chip";
+  button.textContent = label;
+  button.setAttribute("aria-pressed", String(pressed));
+  button.addEventListener("click", onClick);
+  return button;
+}
+
+function group(...children: readonly HTMLElement[]): HTMLElement {
+  const el = document.createElement("div");
+  el.className = "controls__group";
+  el.append(...children);
+  return el;
+}
+
+export function createControls(container: HTMLElement, handlers: ControlHandlers) {
+  return {
+    update(state: ViewState, wallOpen: boolean): void {
+      const { lang } = state;
+
+      const categories = CAM_CATEGORIES.map((category) =>
+        chip(categoryLabel(category, lang), state.categories.includes(category), () => {
+          const next = state.categories.includes(category)
+            ? state.categories.filter((c) => c !== category)
+            : [...state.categories, category];
+          handlers.onChange({ categories: next as CamCategory[] });
+        }),
+      );
+
+      const flags = [
+        chip(t("liveOnly", lang), state.liveOnly, () =>
+          handlers.onChange({ liveOnly: !state.liveOnly }),
+        ),
+        chip(t("nightOnly", lang), state.nightOnly, () =>
+          handlers.onChange({ nightOnly: !state.nightOnly }),
+        ),
+        chip(t("favoritesOnly", lang), state.favoritesOnly, () =>
+          handlers.onChange({ favoritesOnly: !state.favoritesOnly }),
+        ),
+      ];
+
+      const search = document.createElement("input");
+      search.type = "search";
+      search.className = "search";
+      search.placeholder = t("search", lang);
+      search.value = state.query;
+      search.setAttribute("aria-label", t("search", lang));
+      search.addEventListener("input", () => handlers.onChange({ query: search.value }));
+
+      const random = document.createElement("button");
+      random.type = "button";
+      random.className = "chip";
+      random.textContent = t("takeMeSomewhere", lang);
+      random.addEventListener("click", handlers.onRandom);
+
+      const wall = chip(t(wallOpen ? "backToMap" : "wall", lang), wallOpen, handlers.onToggleWall);
+
+      const langToggle = chip("JA / EN", false, () =>
+        handlers.onChange({ lang: lang === "ja" ? "en" : "ja" }),
+      );
+      langToggle.removeAttribute("aria-pressed");
+
+      container.replaceChildren(
+        group(...categories),
+        group(...flags),
+        group(search),
+        group(random, wall),
+        group(langToggle),
+      );
+
+      // 入力中に再描画が挟まってもカーソルが飛ばないようにする。
+      if (document.activeElement === document.body && state.query !== "") {
+        search.focus();
+        search.setSelectionRange(state.query.length, state.query.length);
+      }
+    },
+  };
+}

@@ -1,0 +1,22 @@
+{
+  // Worker は DOM ではなく Workers ランタイムの型で検査する。src/domain だけは
+  // 共有するので include に含める(UI 層は Worker から参照しない)。
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "lib": ["ES2022"],
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "types": ["vitest/globals", "@cloudflare/workers-types"]
+  },
+  "include": ["worker", "src/domain", "src/data"]
+}

@@ -1,0 +1,44 @@
+/**
+ * somewhere-now — Cloudflare Workers
+ * https://developers.cloudflare.com/workers/static-assets/
+ *
+ * 静的アセット(Vite の dist)に加えて Worker スクリプトを持つ:
+ *   - fetch     … /api/cams でライブ生存状態(KV)を返す
+ *   - scheduled … Cron Trigger から YouTube Data API を叩いて KV を更新する
+ *
+ * 静的アセットが先に解決され、マッチしないパスだけ Worker に来る。
+ * セキュリティヘッダーは public/_headers が dist へコピーされて効く
+ * (ただし _headers は静的アセットにしか効かないので、/api/* のヘッダは
+ *  worker/index.ts が自前で付ける)。
+ *
+ * YOUTUBE_API_KEY は `wrangler secret put YOUTUBE_API_KEY` で設定する
+ * (ローカルは .dev.vars。どちらも git に入れない)。
+ */
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "somewhere-now",
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-08-18",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    // 状態は全てクエリパラメータなので SPA ルーティングは不要。
+    "not_found_handling": "404-page",
+  },
+  "kv_namespaces": [
+    {
+      "binding": "CAM_STATE",
+      // `wrangler kv namespace create CAM_STATE` の出力で置き換えること。
+      "id": "PLACEHOLDER_REPLACE_ME",
+    },
+  ],
+  "triggers": {
+    "crons": [
+      "*/10 * * * *", // 生存スイープ: videos.list(1 unit / 50件)
+      "0 * * * *", // 再探索: search.list(100 units) を予算内で
+    ],
+  },
+  "observability": {
+    "enabled": true,
+  },
+}

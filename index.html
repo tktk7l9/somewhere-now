@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>somewhere-now — 地球のライブカメラを地図から覗く</title>
+    <meta
+      name="description"
+      content="世界のYouTubeライブカメラを地図から選んで覗くアプリ。昼夜の境界を地図に描き、いま夜の場所・昼の場所を選べます。"
+    />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:title" content="somewhere-now" />
+    <meta property="og:description" content="地球のライブカメラを、地図から覗く。" />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#0B1620" />
+  </head>
+  <body>
+    <div class="app" id="app" data-mode="map">
+      <header class="masthead">
+        <a class="brand" href="/">
+          <span class="brand__mark" aria-hidden="true"></span>
+          <span class="brand__name">Somewhere Now</span>
+        </a>
+        <div class="masthead__controls" id="controls"></div>
+      </header>
+
+      <main class="stage">
+        <div class="map" id="map"></div>
+        <section class="wall" id="wall" hidden aria-label="Video wall"></section>
+        <div class="dial" id="dial" aria-live="polite"></div>
+      </main>
+
+      <aside class="panel" id="panel"></aside>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
