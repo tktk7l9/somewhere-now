@@ -37,8 +37,19 @@ describe("utcOffsetLabel", () => {
     expect(utcOffsetLabel(T, "UTC")).toBe("UTC");
   });
 
-  it("オフセット 0 の地域も UTC と表す(Intl は素の GMT を返す)", () => {
+  // longOffset の表記は環境で揺れる(macOS は "GMT"、Linux は "GMT+00:00")。
+  // 文字列ではなく数値で求めているので、どちらでも同じ答えになる。
+  it("オフセット 0 の地域も UTC と表す", () => {
     expect(utcOffsetLabel(T, "Atlantic/Reykjavik")).toBe("UTC");
+  });
+
+  it("日付をまたぐ側のオフセットも正しく出る", () => {
+    // 2026-08-18T12:00Z はニュージーランドでは翌日 00:00。
+    expect(utcOffsetLabel(T, "Pacific/Auckland")).toBe("UTC+12");
+  });
+
+  it("秒までずれる歴史的なオフセットでも分単位に丸めて返す", () => {
+    expect(utcOffsetLabel(T, "Asia/Tehran")).toMatch(/^UTC\+3(:30)?$/);
   });
 
   it("30 分刻みのオフセットを分まで表す", () => {
