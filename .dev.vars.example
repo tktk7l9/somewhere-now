@@ -1,0 +1,9 @@
+# ローカルで Cron(生存確認・再探索)まで動かすときに使う。
+# このファイルをコピーして .dev.vars を作り、実際のキーを入れる(.dev.vars は git に入らない)。
+#
+#   cp .dev.vars.example .dev.vars
+#   npx wrangler dev --test-scheduled
+#   curl "http://localhost:8787/__scheduled?cron=*/10+*+*+*+*"
+#
+# 本番へは wrangler secret put YOUTUBE_API_KEY で入れる(このファイルは使われない)。
+YOUTUBE_API_KEY=

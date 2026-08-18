@@ -94,29 +94,33 @@ async function refresh(cron: string, env: Env): Promise<void> {
   const states = new Map(Object.entries(payload.cams));
   const client = createYouTubeClient(apiKey, fetch);
 
-  const result =
-    cron === SWEEP_CRON
-      ? await sweepLiveness(CAMS, states, client, now, budget)
-      : await rediscover(CAMS, states, client, now, {
-          maxChannels: REDISCOVER_PER_RUN,
-          unitBudget: budget,
-        });
+  try {
+    const result =
+      cron === SWEEP_CRON
+        ? await sweepLiveness(CAMS, states, client, now, budget)
+        : await rediscover(CAMS, states, client, now, {
+            maxChannels: REDISCOVER_PER_RUN,
+            unitBudget: budget,
+          });
 
-  for (const [camId, state] of result.states) states.set(camId, state);
+    for (const [camId, state] of result.states) states.set(camId, state);
+    await env.CAM_STATE.put(
+      STATE_KEY,
+      JSON.stringify({ updatedAt: now.toISOString(), cams: Object.fromEntries(states) }),
+    );
 
-  await env.CAM_STATE.put(
-    STATE_KEY,
-    JSON.stringify({ updatedAt: now.toISOString(), cams: Object.fromEntries(states) }),
-  );
-  await env.CAM_STATE.put(
-    LEDGER_KEY,
-    JSON.stringify({ day: ledger.day, used: ledger.used + result.unitsUsed }),
-  );
-
-  const live = [...states.values()].filter((s) => s.status === "live").length;
-  console.log(
-    `[cron ${cron}] 更新 ${result.states.size} 件 / ライブ ${live} 件 / ` +
-      `消費 ${result.unitsUsed} unit (本日計 ${ledger.used + result.unitsUsed}/${DAILY_UNIT_BUDGET})`,
-  );
-  for (const note of result.notes) console.warn(`[cron ${cron}] ${note}`);
+    const live = [...states.values()].filter((s) => s.status === "live").length;
+    console.log(`[cron ${cron}] 更新 ${result.states.size} 件 / ライブ ${live} 件`);
+    for (const note of result.notes) console.warn(`[cron ${cron}] ${note}`);
+  } catch (error) {
+    // 状態の更新は諦める。次の実行でやり直せばよい。
+    console.error(`[cron ${cron}] 更新に失敗`, error);
+  } finally {
+    // 失敗しても Google 側のクォータは減っているので、台帳は必ず書く。
+    // ここを try の中に置くと、キーが不正なまま Cron が回り続けたときに
+    // 上限ガードが気づかないまま 1 日ぶんの枠を焼くことになる。
+    const used = ledger.used + client.unitsUsed;
+    await env.CAM_STATE.put(LEDGER_KEY, JSON.stringify({ day: ledger.day, used }));
+    console.log(`[cron ${cron}] 消費 ${client.unitsUsed} unit (本日計 ${used}/${DAILY_UNIT_BUDGET})`);
+  }
 }

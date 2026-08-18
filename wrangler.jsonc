@@ -28,8 +28,7 @@
   "kv_namespaces": [
     {
       "binding": "CAM_STATE",
-      // `wrangler kv namespace create CAM_STATE` の出力で置き換えること。
-      "id": "PLACEHOLDER_REPLACE_ME",
+      "id": "3a47608f6d7e4e0a9bb43c824ee5dee8",
     },
   ],
   "triggers": {
