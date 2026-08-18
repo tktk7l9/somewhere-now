@@ -1,10 +1,16 @@
 import {
+  CHANNEL_LOOKUP_COST,
+  UPLOADS_MAX_PAGES,
+  nextPageToken,
   MAX_VIDEO_IDS_PER_CALL,
   UNIT_COST,
   createYouTubeClient,
-  parseSearchLive,
+  parsePlaylistItems,
+  parseSearchIds,
   parseVideosList,
+  playlistItemsUrl,
   searchLiveUrl,
+  uploadsPlaylistId,
   videosListUrl,
 } from "./youtube";
 
@@ -21,13 +27,84 @@ describe("videosListUrl", () => {
 });
 
 describe("searchLiveUrl", () => {
-  it("チャンネルのライブ配信だけを 1 件探す", () => {
+  it("チャンネルのライブ配信をまとめて探す", () => {
     const url = new URL(searchLiveUrl(KEY, "UC123"));
     expect(url.origin + url.pathname).toBe("https://www.googleapis.com/youtube/v3/search");
     expect(url.searchParams.get("channelId")).toBe("UC123");
     expect(url.searchParams.get("eventType")).toBe("live");
     expect(url.searchParams.get("type")).toBe("video");
-    expect(url.searchParams.get("maxResults")).toBe("1");
+    // 1 件だけ取ると、同じチャンネルの別のカメラを掴んでしまう。
+    expect(url.searchParams.get("maxResults")).toBe("50");
+  });
+});
+
+describe("uploadsPlaylistId", () => {
+  it("チャンネル id の UC を UU に置き換える", () => {
+    expect(uploadsPlaylistId("UC6qrG3W8SMK0jior2olka3g")).toBe("UU6qrG3W8SMK0jior2olka3g");
+  });
+});
+
+describe("playlistItemsUrl", () => {
+  it("プレイリストの直近をまとめて要求する", () => {
+    const url = new URL(playlistItemsUrl(KEY, "UU123"));
+    expect(url.origin + url.pathname).toBe("https://www.googleapis.com/youtube/v3/playlistItems");
+    expect(url.searchParams.get("playlistId")).toBe("UU123");
+    expect(url.searchParams.get("maxResults")).toBe("50");
+    expect(url.searchParams.get("pageToken")).toBeNull();
+  });
+
+  it("次ページを指定できる", () => {
+    const url = new URL(playlistItemsUrl(KEY, "UU123", "TOKEN"));
+    expect(url.searchParams.get("pageToken")).toBe("TOKEN");
+  });
+});
+
+describe("CHANNEL_LOOKUP_COST", () => {
+  it("uploads 経由はページ送りしても検索経由よりずっと安い", () => {
+    expect(CHANNEL_LOOKUP_COST.viaUploads).toBe(UPLOADS_MAX_PAGES * 2);
+    expect(CHANNEL_LOOKUP_COST.viaSearch).toBe(101);
+    expect(CHANNEL_LOOKUP_COST.viaUploads).toBeLessThan(CHANNEL_LOOKUP_COST.viaSearch);
+  });
+});
+
+describe("nextPageToken", () => {
+  it("次ページの目印を取り出す", () => {
+    expect(nextPageToken({ nextPageToken: "abc" })).toBe("abc");
+  });
+
+  it("無ければ undefined", () => {
+    expect(nextPageToken({})).toBeUndefined();
+    expect(nextPageToken(null)).toBeUndefined();
+    expect(nextPageToken({ nextPageToken: 1 })).toBeUndefined();
+  });
+});
+
+describe("parsePlaylistItems", () => {
+  it("動画 id を順に取り出す", () => {
+    expect(
+      parsePlaylistItems({
+        items: [{ contentDetails: { videoId: "a" } }, { contentDetails: { videoId: "b" } }],
+      }),
+    ).toEqual(["a", "b"]);
+  });
+
+  it("形の違う項目は捨てる", () => {
+    expect(parsePlaylistItems({ items: [{}, { contentDetails: {} }, null] })).toEqual([]);
+    expect(parsePlaylistItems(null)).toEqual([]);
+  });
+});
+
+describe("parseSearchIds", () => {
+  it("動画 id を順に取り出す", () => {
+    expect(parseSearchIds({ items: [{ id: { videoId: "x" } }, { id: { videoId: "y" } }] })).toEqual([
+      "x",
+      "y",
+    ]);
+  });
+
+  it("形の違う項目は捨てる", () => {
+    expect(parseSearchIds({ items: [{ id: {} }, {}, null] })).toEqual([]);
+    expect(parseSearchIds(null)).toEqual([]);
   });
 });
 
@@ -101,20 +178,6 @@ describe("parseVideosList", () => {
   });
 });
 
-describe("parseSearchLive", () => {
-  it("最初のヒットの videoId を返す", () => {
-    expect(parseSearchLive({ items: [{ id: { videoId: "abc" } }] })).toBe("abc");
-  });
-
-  it("ヒットが無ければ null", () => {
-    expect(parseSearchLive({ items: [] })).toBeNull();
-    expect(parseSearchLive({})).toBeNull();
-    expect(parseSearchLive(null)).toBeNull();
-    expect(parseSearchLive({ items: [{ id: {} }] })).toBeNull();
-    expect(parseSearchLive({ items: [{}] })).toBeNull();
-  });
-});
-
 describe("createYouTubeClient", () => {
   const jsonResponse = (body: unknown) =>
     new Response(JSON.stringify(body), { status: 200, headers: { "content-type": "application/json" } });
@@ -126,8 +189,121 @@ describe("createYouTubeClient", () => {
     await client.listVideos(["a"]);
     expect(client.unitsUsed).toBe(1);
 
-    await client.findLiveVideoId("UC1");
-    expect(client.unitsUsed).toBe(101);
+    // ヒットが無ければ videos.list は呼ばないので、プレイリスト分だけ。
+    await client.listChannelLiveStreamsViaUploads("UC1");
+    expect(client.unitsUsed).toBe(2);
+
+    await client.listChannelLiveStreamsViaSearch("UC1");
+    expect(client.unitsUsed).toBe(102);
+  });
+
+  it("uploads 経由でライブ中のものだけを返す", async () => {
+    const fetchImpl = async (url: string) => {
+      if (url.includes("/playlistItems")) {
+        return jsonResponse({
+          items: [{ contentDetails: { videoId: "live1" } }, { contentDetails: { videoId: "old1" } }],
+        });
+      }
+      return jsonResponse({
+        items: [
+          { id: "live1", snippet: { title: "Live", liveBroadcastContent: "live" } },
+          { id: "old1", snippet: { title: "Old", liveBroadcastContent: "none" } },
+        ],
+      });
+    };
+    const client = createYouTubeClient(KEY, fetchImpl as unknown as typeof fetch);
+    const streams = await client.listChannelLiveStreamsViaUploads("UC1");
+    expect(streams.map((s) => s.id)).toEqual(["live1"]);
+    // 次ページが無いので 1 ページで打ち切り = playlistItems 1 + videos 1。
+    expect(client.unitsUsed).toBe(2);
+  });
+
+  it("長く続いている配信は後ろのページに沈むので、ページを送って拾う", async () => {
+    let page = 0;
+    const fetchImpl = async (url: string) => {
+      if (url.includes("/playlistItems")) {
+        page += 1;
+        return jsonResponse({
+          items: [{ contentDetails: { videoId: `v${page}` } }],
+          ...(page < 2 ? { nextPageToken: `t${page}` } : {}),
+        });
+      }
+      const ids = decodeURIComponent(/id=([^&]+)/.exec(url)![1]!).split(",");
+      return jsonResponse({
+        items: ids.map((v) => ({
+          id: v,
+          snippet: { title: v, liveBroadcastContent: v === "v2" ? "live" : "none" },
+        })),
+      });
+    };
+    const client = createYouTubeClient(KEY, fetchImpl as unknown as typeof fetch);
+    const streams = await client.listChannelLiveStreamsViaUploads("UC1");
+    expect(streams.map((s) => s.id)).toEqual(["v2"]);
+    expect(page).toBe(2);
+  });
+
+  it("目当てが揃ったらページ送りをやめる", async () => {
+    let page = 0;
+    const fetchImpl = async (url: string) => {
+      if (url.includes("/playlistItems")) {
+        page += 1;
+        return jsonResponse({
+          items: [{ contentDetails: { videoId: `v${page}` } }],
+          nextPageToken: `t${page}`,
+        });
+      }
+      const id = /id=([^&]+)/.exec(url)![1]!;
+      return jsonResponse({
+        items: [{ id, snippet: { title: id, liveBroadcastContent: "live" } }],
+      });
+    };
+    const client = createYouTubeClient(KEY, fetchImpl as unknown as typeof fetch);
+    const streams = await client.listChannelLiveStreamsViaUploads("UC1", (live) => live.length >= 2);
+    expect(page).toBe(2);
+    expect(streams).toHaveLength(2);
+  });
+
+  it("ページ送りは上限で打ち切る(際限なく辿らない)", async () => {
+    let page = 0;
+    const fetchImpl = async (url: string) => {
+      if (url.includes("/playlistItems")) {
+        page += 1;
+        // ずっと次ページがある状態。
+        return jsonResponse({ items: [], nextPageToken: `t${page}` });
+      }
+      return jsonResponse({ items: [] });
+    };
+    const client = createYouTubeClient(KEY, fetchImpl as unknown as typeof fetch);
+    await client.listChannelLiveStreamsViaUploads("UC1");
+    expect(page).toBe(UPLOADS_MAX_PAGES);
+  });
+
+  it("検索経由でもライブ中のものだけを返す", async () => {
+    const fetchImpl = async (url: string) => {
+      if (url.includes("/search")) return jsonResponse({ items: [{ id: { videoId: "s1" } }] });
+      return jsonResponse({
+        items: [{ id: "s1", snippet: { title: "S", liveBroadcastContent: "live" } }],
+      });
+    };
+    const client = createYouTubeClient(KEY, fetchImpl as unknown as typeof fetch);
+    const streams = await client.listChannelLiveStreamsViaSearch("UC1");
+    expect(streams.map((s) => s.id)).toEqual(["s1"]);
+    expect(client.unitsUsed).toBe(CHANNEL_LOOKUP_COST.viaSearch);
+  });
+
+  it("50 件を超える動画は分割して問い合わせる", async () => {
+    const many = Array.from({ length: 60 }, (_, i) => `v${i}`);
+    let videoCalls = 0;
+    const fetchImpl = async (url: string) => {
+      if (url.includes("/playlistItems")) {
+        return jsonResponse({ items: many.map((v) => ({ contentDetails: { videoId: v } })) });
+      }
+      videoCalls += 1;
+      return jsonResponse({ items: [] });
+    };
+    const client = createYouTubeClient(KEY, fetchImpl as unknown as typeof fetch);
+    await client.listChannelLiveStreamsViaUploads("UC1");
+    expect(videoCalls).toBe(2);
   });
 
   it("1 回で扱える id 数を超えたら投げる(呼び出し側の分割漏れを潰す)", async () => {
@@ -153,7 +329,7 @@ describe("createYouTubeClient", () => {
   it("エラーでも消費ユニットは積む(クォータは失敗しても減る)", async () => {
     const fetchImpl = async () => new Response("boom", { status: 500 });
     const client = createYouTubeClient(KEY, fetchImpl as unknown as typeof fetch);
-    await expect(client.findLiveVideoId("UC1")).rejects.toThrow();
-    expect(client.unitsUsed).toBe(100);
+    await expect(client.listChannelLiveStreamsViaSearch("UC1")).rejects.toThrow();
+    expect(client.unitsUsed).toBe(UNIT_COST.searchLive);
   });
 });

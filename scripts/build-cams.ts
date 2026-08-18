@@ -47,6 +47,8 @@ interface GeocodeHit {
 
 interface Resolved {
   place: CamPlace;
+  /** 再探索でカメラを見分けるための配信タイトル。 */
+  titleKey: string;
   lat: number;
   lng: number;
   timeZone: string;
@@ -80,7 +82,7 @@ async function geocode(query: NonNullable<CamPlace["place"]>): Promise<GeocodeHi
 
 function serialize(resolved: readonly Resolved[]): string {
   const entries = resolved
-    .map(({ place, lat, lng, timeZone, country, channelId, origin }) => {
+    .map(({ place, lat, lng, timeZone, country, channelId, titleKey, origin }) => {
       const p = place;
       return `  {
     // ${origin}
@@ -91,7 +93,11 @@ function serialize(resolved: readonly Resolved[]): string {
     timeZone: ${JSON.stringify(timeZone)},
     category: ${JSON.stringify(p.category)},
     country: ${JSON.stringify(country)},
-    source: { videoId: ${JSON.stringify(p.videoId)}, channelId: ${JSON.stringify(channelId)} },
+    source: {
+      videoId: ${JSON.stringify(p.videoId)},
+      channelId: ${JSON.stringify(channelId)},
+      titleKey: ${JSON.stringify(titleKey)},
+    },
   },`;
     })
     .join("\n");
@@ -102,7 +108,9 @@ function serialize(resolved: readonly Resolved[]): string {
 // 生成: npm run cams:discover && npm run cams:build
 //
 // videoId は生成時点でライブだった配信。配信が変わっても Worker の再探索が
-// チャンネルから現在の配信を解決するので、ここが古くなっても地図は死なない。
+// titleKey を手がかりに現在の配信を解決するので、ここが古くなっても地図は死なない。
+// titleKey は「そのカメラの配信タイトル」で、1 チャンネルに何十台もある中から
+// 目当てのカメラを見分けるために要る。
 
 import type { Cam } from "../domain/cams";
 
@@ -116,6 +124,11 @@ async function main(): Promise<void> {
   const channels = JSON.parse(
     await readFile("scripts/out/candidates.json", "utf8"),
   ) as ChannelResult[];
+  // 配信タイトルは discover の結果から引く(1 チャンネルに何十台もぶら下がるので、
+  // 再探索のときこれが無いと別のカメラを掴む)。
+  const titleByVideoId = new Map(
+    channels.flatMap((c) => c.live.map((v) => [v.videoId, v.title] as const)),
+  );
   const channelIdByHandle = new Map(
     channels
       .filter((c): c is ChannelResult & { channelId: string } => c.channelId !== null)
@@ -143,11 +156,18 @@ async function main(): Promise<void> {
     }
     await new Promise((r) => setTimeout(r, EMBED_CHECK_DELAY_MS));
 
+    const titleKey = titleByVideoId.get(place.videoId);
+    if (titleKey === undefined) {
+      failures.push(`[${place.id}] candidates.json に配信タイトルが無い(先に cams:discover を回すこと)`);
+      continue;
+    }
+
     if (place.at !== undefined) {
       resolved.push({
         place,
         ...place.at,
         channelId,
+        titleKey,
         origin: "座標: 著名なランドマークとして明示指定",
       });
       continue;
@@ -162,6 +182,7 @@ async function main(): Promise<void> {
         timeZone: hit.timezone,
         country: hit.country_code,
         channelId,
+        titleKey,
         origin: `座標: Open-Meteo ジオコーディング "${hit.name}"${hit.admin1 === undefined ? "" : `, ${hit.admin1}`}`,
       });
     } catch (error) {

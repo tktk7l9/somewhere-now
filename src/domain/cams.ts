@@ -18,6 +18,12 @@ export interface CamSource {
   videoId: string | null;
   /** 配信元チャンネル。videoId が死んだときの再探索に使う。 */
   channelId: string;
+  /**
+   * 配信タイトル。1 つのチャンネルが何十本もライブを出しているので、
+   * 再探索のときに「どれがこのカメラか」を見分ける鍵になる
+   * (これが無いと、チャンネルの別のカメラの映像を割り当ててしまう)。
+   */
+  titleKey: string;
 }
 
 /** リポジトリにコミットされる不変のカメラ定義。 */
@@ -100,6 +106,9 @@ export function collectCamProblems(cams: readonly Cam[]): string[] {
     }
     if (cam.source.videoId !== null && !VIDEO_ID_RE.test(cam.source.videoId)) {
       problems.push(`${at} videoId が不正です: ${cam.source.videoId}`);
+    }
+    if (cam.source.titleKey.trim() === "") {
+      problems.push(`${at} titleKey が空です(再探索でカメラを見分けられません)`);
     }
   }
   return problems;

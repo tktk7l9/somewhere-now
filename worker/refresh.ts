@@ -10,7 +10,14 @@
 // 気をつける」ではなくコードに埋める。
 
 import type { Cam, CamState } from "../src/domain/cams";
-import { MAX_VIDEO_IDS_PER_CALL, UNIT_COST, type YouTubeClient } from "./youtube";
+import { matchStream } from "../src/domain/streamMatch";
+import {
+  CHANNEL_LOOKUP_COST,
+  MAX_VIDEO_IDS_PER_CALL,
+  UNIT_COST,
+  type YouTubeClient,
+  type YouTubeVideo,
+} from "./youtube";
 
 /**
  * 1 日に使ってよい上限。無料枠 10,000 に対して余裕を残す。
@@ -113,95 +120,141 @@ export async function sweepLiveness(
 export interface RediscoverOptions {
   /** 1 回の実行で探し直すチャンネル数の上限。 */
   maxChannels: number;
+  /**
+   * 高い検索経路(101 unit)に落とせる回数の上限。安い経路は全チャンネルに
+   * 掛けてよいが、こちらは配給制にしないと、全チャンネルが取りこぼした日に
+   * 1 日ぶんの枠を数時間で焼く。
+   */
+  maxSearches?: number;
   unitBudget?: number;
 }
 
 /** 状態が無いカメラを最優先にするための擬似的な確認時刻。 */
 const NEVER_CHECKED = "";
 
+function statusOf(video: YouTubeVideo): CamState["status"] {
+  return video.embeddable ? "live" : "blocked";
+}
+
 /**
- * ライブでないカメラのチャンネルから現在の配信を探し直す。確認時刻の古い順に
- * 拾うので、実行を重ねれば全カメラを一巡する。
+ * ライブでないカメラのチャンネルから、現在の配信を探し直す。
+ *
+ * 1 つのチャンネルが何十本もライブを出しているので、
+ *   - 問い合わせは**チャンネル単位**にまとめる(EarthCam の 25 台が 1 回で済む)
+ *   - どれがどのカメラかは**配信タイトル**で見分ける
+ * の 2 点が要になる。チャンネルから適当な 1 本を取ると、タイムズスクエアの
+ * ピンに別の街の映像を出してしまう。
+ *
+ * 経路は安い順に試す。uploads プレイリスト(2 unit)で足りなければ、
+ * 網羅できる検索(101 unit)に落とす。見分けがつかなかったカメラは、
+ * 間違った配信を割り当てず offline のままにする。
  */
 export async function rediscover(
   cams: readonly Cam[],
   states: ReadonlyMap<string, CamState>,
   client: YouTubeClient,
   now: Date,
-  { maxChannels, unitBudget = DAILY_UNIT_BUDGET }: RediscoverOptions,
+  { maxChannels, maxSearches = 1, unitBudget = DAILY_UNIT_BUDGET }: RediscoverOptions,
 ): Promise<RefreshResult> {
   const notes: string[] = [];
   const checkedAt = now.toISOString();
-
-  const affordable = Math.floor(unitBudget / UNIT_COST.searchLive);
-  if (affordable === 0) {
-    return { states: new Map(), unitsUsed: 0, notes: ["予算が足りず再探索を見送った"] };
-  }
-
-  const candidates = cams
-    .filter((cam) => states.get(cam.id)?.status !== "live")
-    .sort((a, b) => {
-      const at = states.get(a.id)?.checkedAt ?? NEVER_CHECKED;
-      const bt = states.get(b.id)?.checkedAt ?? NEVER_CHECKED;
-      return at < bt ? -1 : at > bt ? 1 : 0;
-    })
-    .slice(0, Math.min(maxChannels, affordable));
-
   const updated = new Map<string, CamState>();
-  const resolved = new Map<string, string>(); // camId -> 見つかった videoId
-  let unitsUsed = 0;
+  // 消費は必ずクライアントの実測から取る(自前で数えると失敗時にずれる)。
+  const startUnits = client.unitsUsed;
+  const spent = (): number => client.unitsUsed - startUnits;
 
-  for (const cam of candidates) {
-    let videoId: string | null;
+  const staleness = (cam: Cam): string => states.get(cam.id)?.checkedAt ?? NEVER_CHECKED;
+  let searchesUsed = 0;
+
+  const byChannel = new Map<string, Cam[]>();
+  for (const cam of cams) {
+    if (states.get(cam.id)?.status === "live") continue;
+    const list = byChannel.get(cam.source.channelId);
+    if (list === undefined) byChannel.set(cam.source.channelId, [cam]);
+    else list.push(cam);
+  }
+
+  // 最も長く放っておかれたカメラを抱えるチャンネルから片付ける。
+  const oldest = (list: readonly Cam[]): string =>
+    list.map(staleness).reduce((a, b) => (a < b ? a : b));
+  const channels = [...byChannel.entries()]
+    .sort(([, a], [, b]) => {
+      const [x, y] = [oldest(a), oldest(b)];
+      return x < y ? -1 : x > y ? 1 : 0;
+    })
+    .slice(0, maxChannels);
+
+  for (const [channelId, channelCams] of channels) {
+    if (spent() + CHANNEL_LOOKUP_COST.viaUploads > unitBudget) {
+      notes.push("予算が尽きたため再探索を打ち切った");
+      break;
+    }
+
+    // このチャンネルで探しているカメラが全部見つかったら、その先は要らない。
+    const foundAll = (live: readonly YouTubeVideo[]): boolean =>
+      channelCams.every((cam) => matchStream(cam.source.titleKey, live) !== null);
+
+    let streams: YouTubeVideo[];
     try {
-      videoId = await client.findLiveVideoId(cam.source.channelId);
+      streams = await client.listChannelLiveStreamsViaUploads(channelId, foundAll);
     } catch (error) {
-      unitsUsed += UNIT_COST.searchLive;
-      notes.push(`[${cam.id}] 再探索に失敗: ${String(error)}`);
-      updated.set(cam.id, {
-        videoId: null,
-        status: "unknown",
-        viewers: null,
-        title: states.get(cam.id)?.title ?? null,
-        checkedAt,
-      });
+      notes.push(`[${channelId}] 再探索に失敗: ${String(error)}`);
+      for (const cam of channelCams) {
+        updated.set(cam.id, {
+          videoId: null,
+          status: "unknown",
+          viewers: null,
+          title: states.get(cam.id)?.title ?? null,
+          checkedAt,
+        });
+      }
       continue;
     }
-    unitsUsed += UNIT_COST.searchLive;
 
-    if (videoId === null) {
-      updated.set(cam.id, {
-        videoId: null,
-        status: "offline",
-        viewers: null,
-        title: states.get(cam.id)?.title ?? null,
-        checkedAt,
-      });
-      continue;
+    let matched = new Map<string, YouTubeVideo>();
+    const resolve = (): string[] => {
+      matched = new Map();
+      const missing: string[] = [];
+      for (const cam of channelCams) {
+        const id = matchStream(cam.source.titleKey, streams);
+        const video = id === null ? undefined : streams.find((s) => s.id === id);
+        if (video === undefined) missing.push(cam.id);
+        else matched.set(cam.id, video);
+      }
+      return missing;
+    };
+
+    let missing = resolve();
+    // 直近 50 本に無かっただけかもしれないので、余裕があれば網羅する検索に落とす。
+    if (
+      missing.length > 0 &&
+      searchesUsed < maxSearches &&
+      spent() + CHANNEL_LOOKUP_COST.viaSearch <= unitBudget
+    ) {
+      searchesUsed += 1;
+      try {
+        streams = await client.listChannelLiveStreamsViaSearch(channelId);
+        missing = resolve();
+      } catch (error) {
+        notes.push(`[${channelId}] 検索での再探索に失敗: ${String(error)}`);
+      }
     }
-    resolved.set(cam.id, videoId);
-  }
+    if (missing.length > 0) {
+      notes.push(`[${channelId}] 見分けがつかず据え置き: ${missing.join(", ")}`);
+    }
 
-  // search.list は埋め込み可否も視聴者数も返さないので、見つかった分だけ
-  // まとめて 1 unit で確認する。
-  if (resolved.size > 0) {
-    const videos = await client.listVideos([...new Set(resolved.values())]);
-    unitsUsed += UNIT_COST.videosList;
-    const byId = new Map(videos.map((v) => [v.id, v]));
-
-    for (const [camId, videoId] of resolved) {
-      const video = byId.get(videoId);
-      const status: CamState["status"] =
-        video === undefined ? "offline" : !video.embeddable ? "blocked" : video.isLive ? "live" : "offline";
-      updated.set(camId, {
-        videoId,
-        status,
+    for (const cam of channelCams) {
+      const video = matched.get(cam.id);
+      updated.set(cam.id, {
+        videoId: video?.id ?? null,
+        // 見分けがつかないものに、別のカメラの配信を割り当てない。
+        status: video === undefined ? "offline" : statusOf(video),
         viewers: video?.viewers ?? null,
-        title: video?.title ?? null,
+        title: video?.title ?? states.get(cam.id)?.title ?? null,
         checkedAt,
       });
     }
   }
 
-  return { states: updated, unitsUsed, notes };
+  return { states: updated, unitsUsed: spent(), notes };
 }

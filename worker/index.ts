@@ -27,8 +27,13 @@ interface Env {
 const STATE_KEY = "cam-state:v1";
 const LEDGER_KEY = "quota-ledger:v1";
 
-/** 1 時間あたりに探し直すチャンネル数。100 unit/件 なので日に 4,800 unit。 */
-const REDISCOVER_PER_RUN = 2;
+/**
+ * 1 時間あたりに探し直すチャンネル数。カメラ 57 台がぶら下がるチャンネルは
+ * 8 本しかないので、毎時すべてを見直せる(安い経路なら 8 × 2 = 16 unit)。
+ */
+const REDISCOVER_CHANNELS_PER_RUN = 8;
+/** そのうち、高い検索経路(101 unit)に落としてよい回数。 */
+const REDISCOVER_SEARCHES_PER_RUN = 1;
 
 /** wrangler.jsonc の triggers.crons と対応させること。 */
 const SWEEP_CRON = "*/10 * * * *";
@@ -99,7 +104,8 @@ async function refresh(cron: string, env: Env): Promise<void> {
       cron === SWEEP_CRON
         ? await sweepLiveness(CAMS, states, client, now, budget)
         : await rediscover(CAMS, states, client, now, {
-            maxChannels: REDISCOVER_PER_RUN,
+            maxChannels: REDISCOVER_CHANNELS_PER_RUN,
+            maxSearches: REDISCOVER_SEARCHES_PER_RUN,
             unitBudget: budget,
           });
 

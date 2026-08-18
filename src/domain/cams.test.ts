@@ -16,7 +16,7 @@ const cam = (over: Partial<Cam> = {}): Cam => ({
   timeZone: "Asia/Tokyo",
   category: "city",
   country: "JP",
-  source: { videoId: "abcdefghijk", channelId: "UC0000000000000000000000" },
+  source: { videoId: "abcdefghijk", channelId: "UC0000000000000000000000", titleKey: "Shibuya Live" },
   ...over,
 });
 
@@ -74,18 +74,26 @@ describe("collectCamProblems", () => {
     expect(collectCamProblems([cam({ country: "jpn" })]).join(" ")).toContain("国コード");
   });
 
+  it("空の titleKey を検出する", () => {
+    expect(
+      collectCamProblems([
+        cam({ source: { videoId: "abcdefghijk", channelId: "UC0000000000000000000000", titleKey: " " } }),
+      ]).join(" "),
+    ).toContain("titleKey");
+  });
+
   it("channelId の書式違反を検出する", () => {
     expect(
-      collectCamProblems([cam({ source: { videoId: null, channelId: "bogus" } })]).join(" "),
+      collectCamProblems([cam({ source: { videoId: null, channelId: "bogus", titleKey: "t" } })]).join(" "),
     ).toContain("channelId");
   });
 
   it("videoId の書式違反を検出する（null は許容）", () => {
     expect(
-      collectCamProblems([cam({ source: { videoId: "short", channelId: "UC0000000000000000000000" } })]).join(" "),
+      collectCamProblems([cam({ source: { videoId: "short", channelId: "UC0000000000000000000000", titleKey: "t" } })]).join(" "),
     ).toContain("videoId");
     expect(
-      collectCamProblems([cam({ source: { videoId: null, channelId: "UC0000000000000000000000" } })]),
+      collectCamProblems([cam({ source: { videoId: null, channelId: "UC0000000000000000000000", titleKey: "t" } })]),
     ).toEqual([]);
   });
 });
@@ -160,7 +168,7 @@ describe("resolveEmbedUrl", () => {
   });
 
   it("videoId が一切無ければチャンネルのライブ配信にフォールバックする", () => {
-    const c = cam({ source: { videoId: null, channelId: "UC0000000000000000000000" } });
+    const c = cam({ source: { videoId: null, channelId: "UC0000000000000000000000", titleKey: "t" } });
     const url = resolveEmbedUrl(c, undefined);
     expect(url).toContain("/embed/live_stream");
     expect(url).toContain("channel=UC0000000000000000000000");

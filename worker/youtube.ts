@@ -14,7 +14,34 @@ export const MAX_VIDEO_IDS_PER_CALL = 50;
 
 export const UNIT_COST = {
   videosList: 1,
+  playlistItems: 1,
   searchLive: 100,
+} as const;
+
+/**
+ * uploads プレイリストを何ページまで遡るか。
+ *
+ * 深く遡っても意味は薄い。再探索が要るのは「配信が終わって**新しい配信**が
+ * 始まった」ときで、新しい配信は投稿履歴の先頭に来るから。奥に沈んでいるのは
+ * 何ヶ月も続いている配信で、それは videoId が変わらないので生存確認の側で拾える
+ * (VirtualRailfan は 400 本遡っても目当てに届かない配信があったが、それは
+ *  ずっとライブのままのもので、再探索の出番が無いものだった)。
+ *
+ * 一方で上限を上げると、二度と戻らないカメラを毎時ずっと高く探し続けることに
+ * なる。浅くしておく。目当てが揃えばさらに手前で打ち切る。
+ */
+export const UPLOADS_MAX_PAGES = 3;
+
+/** チャンネルの現在のライブを引く 2 つの経路の上限額。 */
+export const CHANNEL_LOOKUP_COST = {
+  /** uploads プレイリスト経由(ページ送り込み)。 */
+  viaUploads: UPLOADS_MAX_PAGES * (UNIT_COST.playlistItems + UNIT_COST.videosList),
+  /**
+   * 検索経由。**網羅は保証されない** — eventType=live の検索が、実際にライブ中の
+   * 配信を返さないことを実測で確認している(42 件返しつつ、ライブ中の 1 本が
+   * 欠けていた。次ページも無し)。uploads で見つからなかったときの当てにすぎない。
+   */
+  viaSearch: UNIT_COST.searchLive + UNIT_COST.videosList,
 } as const;
 
 export interface YouTubeVideo {
@@ -42,10 +69,58 @@ export function searchLiveUrl(apiKey: string, channelId: string): string {
     channelId,
     eventType: "live",
     type: "video",
-    maxResults: "1",
+    // 1 チャンネルが何十本もライブを出しているので、1 本だけ取ると
+    // 別のカメラを掴む。全部取ってタイトルで見分ける。
+    maxResults: String(MAX_VIDEO_IDS_PER_CALL),
     key: apiKey,
   });
   return `${API_BASE}/search?${params.toString()}`;
+}
+
+/**
+ * チャンネルの「アップロード」プレイリスト id。チャンネル id の接頭辞を
+ * UC → UU に変えたものになる(YouTube の仕様)。
+ */
+export function uploadsPlaylistId(channelId: string): string {
+  return `UU${channelId.slice(2)}`;
+}
+
+export function playlistItemsUrl(
+  apiKey: string,
+  playlistId: string,
+  pageToken?: string,
+): string {
+  const params = new URLSearchParams({
+    part: "contentDetails",
+    playlistId,
+    maxResults: String(MAX_VIDEO_IDS_PER_CALL),
+    key: apiKey,
+  });
+  if (pageToken !== undefined) params.set("pageToken", pageToken);
+  return `${API_BASE}/playlistItems?${params.toString()}`;
+}
+
+export function parsePlaylistItems(json: unknown): string[] {
+  const ids: string[] = [];
+  for (const raw of itemsOf(json)) {
+    const videoId = asRecord(asRecord(raw)?.["contentDetails"])?.["videoId"];
+    if (typeof videoId === "string") ids.push(videoId);
+  }
+  return ids;
+}
+
+export function nextPageToken(json: unknown): string | undefined {
+  const token = asRecord(json)?.["nextPageToken"];
+  return typeof token === "string" ? token : undefined;
+}
+
+export function parseSearchIds(json: unknown): string[] {
+  const ids: string[] = [];
+  for (const raw of itemsOf(json)) {
+    const videoId = asRecord(asRecord(raw)?.["id"])?.["videoId"];
+    if (typeof videoId === "string") ids.push(videoId);
+  }
+  return ids;
 }
 
 function itemsOf(json: unknown): unknown[] {
@@ -85,20 +160,22 @@ export function parseVideosList(json: unknown): YouTubeVideo[] {
   return videos;
 }
 
-export function parseSearchLive(json: unknown): string | null {
-  for (const raw of itemsOf(json)) {
-    const id = asRecord(asRecord(raw)?.["id"]);
-    if (id !== null && typeof id["videoId"] === "string") return id["videoId"];
-  }
-  return null;
-}
-
 export interface YouTubeClient {
   /** これまでに消費したクォータ(単位: unit)。 */
   readonly unitsUsed: number;
   /** ids は MAX_VIDEO_IDS_PER_CALL 件まで。 */
   listVideos(ids: readonly string[]): Promise<YouTubeVideo[]>;
-  findLiveVideoId(channelId: string): Promise<string | null>;
+  /**
+   * uploads プレイリストを遡って、いまライブ中のものを返す。
+   * shouldStop が true を返した時点でページ送りをやめる(目当てが 1 ページ目に
+   * 居るのが普通なので、これがあるかどうかで消費が 8 倍変わる)。
+   */
+  listChannelLiveStreamsViaUploads(
+    channelId: string,
+    shouldStop?: (live: readonly YouTubeVideo[]) => boolean,
+  ): Promise<YouTubeVideo[]>;
+  /** 検索でチャンネルのライブを網羅する。確実だが高い(101 unit)。 */
+  listChannelLiveStreamsViaSearch(channelId: string): Promise<YouTubeVideo[]>;
 }
 
 export function createYouTubeClient(apiKey: string, fetchImpl: typeof fetch): YouTubeClient {
@@ -129,8 +206,41 @@ export function createYouTubeClient(apiKey: string, fetchImpl: typeof fetch): Yo
       return parseVideosList(await call(videosListUrl(apiKey, ids), UNIT_COST.videosList));
     },
 
-    async findLiveVideoId(channelId) {
-      return parseSearchLive(await call(searchLiveUrl(apiKey, channelId), UNIT_COST.searchLive));
+    async listChannelLiveStreamsViaUploads(channelId, shouldStop) {
+      const playlistId = uploadsPlaylistId(channelId);
+      const live: YouTubeVideo[] = [];
+      let pageToken: string | undefined;
+
+      for (let page = 0; page < UPLOADS_MAX_PAGES; page += 1) {
+        const json = await call(
+          playlistItemsUrl(apiKey, playlistId, pageToken),
+          UNIT_COST.playlistItems,
+        );
+        live.push(...(await liveAmong(parsePlaylistItems(json))));
+
+        pageToken = nextPageToken(json);
+        if (pageToken === undefined) break;
+        if (shouldStop?.(live) === true) break;
+      }
+      return live;
+    },
+
+    async listChannelLiveStreamsViaSearch(channelId) {
+      const found = await call(searchLiveUrl(apiKey, channelId), UNIT_COST.searchLive);
+      return liveAmong(parseSearchIds(found));
     },
   };
+
+  /** 動画 id の集まりから、いまライブ中のものだけを返す。50 件ずつ問い合わせる。 */
+  async function liveAmong(ids: readonly string[]): Promise<YouTubeVideo[]> {
+    const live: YouTubeVideo[] = [];
+    for (let i = 0; i < ids.length; i += MAX_VIDEO_IDS_PER_CALL) {
+      const chunk = ids.slice(i, i + MAX_VIDEO_IDS_PER_CALL);
+      const videos = parseVideosList(
+        await call(videosListUrl(apiKey, chunk), UNIT_COST.videosList),
+      );
+      for (const video of videos) if (video.isLive) live.push(video);
+    }
+    return live;
+  }
 }

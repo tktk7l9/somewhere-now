@@ -4,7 +4,9 @@
 // 生成: npm run cams:discover && npm run cams:build
 //
 // videoId は生成時点でライブだった配信。配信が変わっても Worker の再探索が
-// チャンネルから現在の配信を解決するので、ここが古くなっても地図は死なない。
+// titleKey を手がかりに現在の配信を解決するので、ここが古くなっても地図は死なない。
+// titleKey は「そのカメラの配信タイトル」で、1 チャンネルに何十台もある中から
+// 目当てのカメラを見分けるために要る。
 
 import type { Cam } from "../domain/cams";
 
@@ -18,7 +20,11 @@ export const CAMS: Cam[] = [
     timeZone: "Asia/Tokyo",
     category: "city",
     country: "JP",
-    source: { videoId: "8H3nRCFVR6Y", channelId: "UCGCZAYq5Xxojl_tSXcVJhiQ" },
+    source: {
+      videoId: "8H3nRCFVR6Y",
+      channelId: "UCGCZAYq5Xxojl_tSXcVJhiQ",
+      titleKey: "【ライブ】渋谷スクランブル交差点 / Shibuya Scramble Crossing Live Camera【LIVE】ANN/テレ朝",
+    },
   },
   {
     // 座標: 著名なランドマークとして明示指定
@@ -29,7 +35,11 @@ export const CAMS: Cam[] = [
     timeZone: "Asia/Tokyo",
     category: "city",
     country: "JP",
-    source: { videoId: "BePkAsZnDjM", channelId: "UC6AG81pAkf6Lbi_1VC5NmPA" },
+    source: {
+      videoId: "BePkAsZnDjM",
+      channelId: "UC6AG81pAkf6Lbi_1VC5NmPA",
+      titleKey: "【LIVE】新宿駅前のライブカメラ 現在の様子は？ Shinjuku, Tokyo JAPAN | TBS NEWS DIG",
+    },
   },
   {
     // 座標: 著名なランドマークとして明示指定
@@ -40,7 +50,11 @@ export const CAMS: Cam[] = [
     timeZone: "Asia/Tokyo",
     category: "airport",
     country: "JP",
-    source: { videoId: "OyWPJhU-iI8", channelId: "UCGCZAYq5Xxojl_tSXcVJhiQ" },
+    source: {
+      videoId: "OyWPJhU-iI8",
+      channelId: "UCGCZAYq5Xxojl_tSXcVJhiQ",
+      titleKey: "【ライブ】羽田空港第2ターミナルを24時間配信中！  HANEDA,Tokyo International Airport Terminal2【LIVE】ANN/テレ朝",
+    },
   },
   {
     // 座標: 著名なランドマークとして明示指定
@@ -51,7 +65,11 @@ export const CAMS: Cam[] = [
     timeZone: "Asia/Tokyo",
     category: "airport",
     country: "JP",
-    source: { videoId: "2f9NOSw-FqM", channelId: "UC6AG81pAkf6Lbi_1VC5NmPA" },
+    source: {
+      videoId: "2f9NOSw-FqM",
+      channelId: "UC6AG81pAkf6Lbi_1VC5NmPA",
+      titleKey: "【ライブ】羽田空港 第1ターミナルのライブカメラ 現在の様子は？Haneda Airport's Terminal 1| TBS NEWS DIG",
+    },
   },
   {
     // 座標: 著名なランドマークとして明示指定
@@ -62,7 +80,11 @@ export const CAMS: Cam[] = [
     timeZone: "Europe/London",
     category: "city",
     country: "GB",
-    source: { videoId: "zMCea32gpmg", channelId: "UC6qrG3W8SMK0jior2olka3g" },
+    source: {
+      videoId: "zMCea32gpmg",
+      channelId: "UC6qrG3W8SMK0jior2olka3g",
+      titleKey: "EarthCam Live:  Abbey Road Crossing (London, England)",
+    },
   },
   {
     // 座標: Open-Meteo ジオコーディング "Palma", Balearic Islands
@@ -73,7 +95,11 @@ export const CAMS: Cam[] = [
     timeZone: "Europe/Madrid",
     category: "harbor",
     country: "ES",
-    source: { videoId: "jtdyLykT_XY", channelId: "UC6qrG3W8SMK0jior2olka3g" },
+    source: {
+      videoId: "jtdyLykT_XY",
+      channelId: "UC6qrG3W8SMK0jior2olka3g",
+      titleKey: "EarthCam Live:  Mallorca, Spain",
+    },
   },
   {
     // 座標: 著名なランドマークとして明示指定
@@ -84,7 +110,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/New_York",
     category: "city",
     country: "US",
-    source: { videoId: "JQ_jwk_7OVE", channelId: "UC6qrG3W8SMK0jior2olka3g" },
+    source: {
+      videoId: "JQ_jwk_7OVE",
+      channelId: "UC6qrG3W8SMK0jior2olka3g",
+      titleKey: "EarthCam Live:  Times Square North 4K",
+    },
   },
   {
     // 座標: 著名なランドマークとして明示指定
@@ -95,7 +125,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/New_York",
     category: "city",
     country: "US",
-    source: { videoId: "YHRYOL03ydw", channelId: "UC6qrG3W8SMK0jior2olka3g" },
+    source: {
+      videoId: "YHRYOL03ydw",
+      channelId: "UC6qrG3W8SMK0jior2olka3g",
+      titleKey: "EarthCam Live:  Statue of Liberty CrownCam",
+    },
   },
   {
     // 座標: 著名なランドマークとして明示指定
@@ -106,7 +140,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/New_York",
     category: "city",
     country: "US",
-    source: { videoId: "5C9oM7C2Q9k", channelId: "UC6qrG3W8SMK0jior2olka3g" },
+    source: {
+      videoId: "5C9oM7C2Q9k",
+      channelId: "UC6qrG3W8SMK0jior2olka3g",
+      titleKey: "EarthCam Live:  World Trade Center - New York City, NY",
+    },
   },
   {
     // 座標: 著名なランドマークとして明示指定
@@ -117,7 +155,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/New_York",
     category: "harbor",
     country: "US",
-    source: { videoId: "f_pX8XheLbY", channelId: "UC6qrG3W8SMK0jior2olka3g" },
+    source: {
+      videoId: "f_pX8XheLbY",
+      channelId: "UC6qrG3W8SMK0jior2olka3g",
+      titleKey: "EarthCam Live:  Lincoln Harbor (New York City)",
+    },
   },
   {
     // 座標: 著名なランドマークとして明示指定
@@ -128,7 +170,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/New_York",
     category: "city",
     country: "US",
-    source: { videoId: "5p_KGD4fJZs", channelId: "UCRuyAVeVd7oUwh0LWmxxBBQ" },
+    source: {
+      videoId: "5p_KGD4fJZs",
+      channelId: "UCRuyAVeVd7oUwh0LWmxxBBQ",
+      titleKey: "earthTV® White House Cam is back!",
+    },
   },
   {
     // 座標: 著名なランドマークとして明示指定
@@ -139,7 +185,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/New_York",
     category: "city",
     country: "US",
-    source: { videoId: "oDCAAfOSqvA", channelId: "UC6qrG3W8SMK0jior2olka3g" },
+    source: {
+      videoId: "oDCAAfOSqvA",
+      channelId: "UC6qrG3W8SMK0jior2olka3g",
+      titleKey: "EarthCam Live:  Washington Monument (Washington, D.C.)",
+    },
   },
   {
     // 座標: 著名なランドマークとして明示指定
@@ -150,7 +200,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/New_York",
     category: "city",
     country: "US",
-    source: { videoId: "F1EQEDL4ddU", channelId: "UC6qrG3W8SMK0jior2olka3g" },
+    source: {
+      videoId: "F1EQEDL4ddU",
+      channelId: "UC6qrG3W8SMK0jior2olka3g",
+      titleKey: "EarthCam Live:  Liberty Bell - Independence Hall (Philadelphia, PA)",
+    },
   },
   {
     // 座標: 著名なランドマークとして明示指定
@@ -161,7 +215,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/Chicago",
     category: "city",
     country: "US",
-    source: { videoId: "m38n8jVPUJ8", channelId: "UC6qrG3W8SMK0jior2olka3g" },
+    source: {
+      videoId: "m38n8jVPUJ8",
+      channelId: "UC6qrG3W8SMK0jior2olka3g",
+      titleKey: "EarthCam Live:  Wrigley Field",
+    },
   },
   {
     // 座標: Open-Meteo ジオコーディング "New Orleans", Louisiana
@@ -172,7 +230,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/Chicago",
     category: "city",
     country: "US",
-    source: { videoId: "6lFBKxt8kIo", channelId: "UC6qrG3W8SMK0jior2olka3g" },
+    source: {
+      videoId: "6lFBKxt8kIo",
+      channelId: "UC6qrG3W8SMK0jior2olka3g",
+      titleKey: "EarthCam Live: New Orleans Balcony View",
+    },
   },
   {
     // 座標: Open-Meteo ジオコーディング "Shanksville", Pennsylvania
@@ -183,7 +245,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/New_York",
     category: "nature",
     country: "US",
-    source: { videoId: "mjzA1Yxh7ZY", channelId: "UC6qrG3W8SMK0jior2olka3g" },
+    source: {
+      videoId: "mjzA1Yxh7ZY",
+      channelId: "UC6qrG3W8SMK0jior2olka3g",
+      titleKey: "EarthCam Live:  Flight 93 Memorial - Tower of Voices (Shanksville, PA)",
+    },
   },
   {
     // 座標: Open-Meteo ジオコーディング "Madison", Indiana
@@ -194,7 +260,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/Indiana/Indianapolis",
     category: "city",
     country: "US",
-    source: { videoId: "Ez6xC43MMTQ", channelId: "UC6qrG3W8SMK0jior2olka3g" },
+    source: {
+      videoId: "Ez6xC43MMTQ",
+      channelId: "UC6qrG3W8SMK0jior2olka3g",
+      titleKey: "EarthCam Live:  Madison, Indiana",
+    },
   },
   {
     // 座標: Open-Meteo ジオコーディング "Council Bluffs", Iowa
@@ -205,7 +275,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/Chicago",
     category: "city",
     country: "US",
-    source: { videoId: "qsrevo5Vdkw", channelId: "UC6qrG3W8SMK0jior2olka3g" },
+    source: {
+      videoId: "qsrevo5Vdkw",
+      channelId: "UC6qrG3W8SMK0jior2olka3g",
+      titleKey: "EarthCam Live:  Council Bluffs, Iowa",
+    },
   },
   {
     // 座標: Open-Meteo ジオコーディング "Jamestown", North Dakota
@@ -216,7 +290,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/Chicago",
     category: "city",
     country: "US",
-    source: { videoId: "VWDi2Po3ZsQ", channelId: "UC6qrG3W8SMK0jior2olka3g" },
+    source: {
+      videoId: "VWDi2Po3ZsQ",
+      channelId: "UC6qrG3W8SMK0jior2olka3g",
+      titleKey: "EarthCam Live:  World's Largest Buffalo Monument (Jamestown, North Dakota)",
+    },
   },
   {
     // 座標: Open-Meteo ジオコーディング "Roswell", New Mexico
@@ -227,7 +305,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/Denver",
     category: "city",
     country: "US",
-    source: { videoId: "kLoFxVhRWtQ", channelId: "UC6qrG3W8SMK0jior2olka3g" },
+    source: {
+      videoId: "kLoFxVhRWtQ",
+      channelId: "UC6qrG3W8SMK0jior2olka3g",
+      titleKey: "EarthCam Live:  Roswell, New Mexico",
+    },
   },
   {
     // 座標: Open-Meteo ジオコーディング "Ruidoso", New Mexico
@@ -238,7 +320,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/Denver",
     category: "nature",
     country: "US",
-    source: { videoId: "XoANQufSSXY", channelId: "UC6qrG3W8SMK0jior2olka3g" },
+    source: {
+      videoId: "XoANQufSSXY",
+      channelId: "UC6qrG3W8SMK0jior2olka3g",
+      titleKey: "EarthCam Live:  Ruidoso, New Mexico",
+    },
   },
   {
     // 座標: Open-Meteo ジオコーディング "Sanibel", Florida
@@ -249,7 +335,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/New_York",
     category: "nature",
     country: "US",
-    source: { videoId: "4LTSTw4jnZc", channelId: "UC6qrG3W8SMK0jior2olka3g" },
+    source: {
+      videoId: "4LTSTw4jnZc",
+      channelId: "UC6qrG3W8SMK0jior2olka3g",
+      titleKey: "EarthCam Live:  Sanibel Island",
+    },
   },
   {
     // 座標: Open-Meteo ジオコーディング "Lauderdale by the sea", Florida
@@ -260,7 +350,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/New_York",
     category: "harbor",
     country: "US",
-    source: { videoId: "aPo-gk0y9tg", channelId: "UC6qrG3W8SMK0jior2olka3g" },
+    source: {
+      videoId: "aPo-gk0y9tg",
+      channelId: "UC6qrG3W8SMK0jior2olka3g",
+      titleKey: "EarthCam Live:  Anglins Pier (Lauderdale-By-The-Sea, FL)",
+    },
   },
   {
     // 座標: Open-Meteo ジオコーディング "Seaside Heights", New Jersey
@@ -271,7 +365,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/New_York",
     category: "nature",
     country: "US",
-    source: { videoId: "OBgCrw-IyhE", channelId: "UC6qrG3W8SMK0jior2olka3g" },
+    source: {
+      videoId: "OBgCrw-IyhE",
+      channelId: "UC6qrG3W8SMK0jior2olka3g",
+      titleKey: "EarthCam Live:  Seaside Heights, NJ - North View",
+    },
   },
   {
     // 座標: Open-Meteo ジオコーディング "Wildwood", New Jersey
@@ -282,7 +380,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/New_York",
     category: "nature",
     country: "US",
-    source: { videoId: "cK71xhMRtds", channelId: "UC6qrG3W8SMK0jior2olka3g" },
+    source: {
+      videoId: "cK71xhMRtds",
+      channelId: "UC6qrG3W8SMK0jior2olka3g",
+      titleKey: "EarthCam Live:  Wildwoods Cam (Wildwood, NJ)",
+    },
   },
   {
     // 座標: Open-Meteo ジオコーディング "Spirit Lake", Iowa
@@ -293,7 +395,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/Chicago",
     category: "nature",
     country: "US",
-    source: { videoId: "XIe9vQkAd7Q", channelId: "UC6qrG3W8SMK0jior2olka3g" },
+    source: {
+      videoId: "XIe9vQkAd7Q",
+      channelId: "UC6qrG3W8SMK0jior2olka3g",
+      titleKey: "EarthCam Live:  Spirit Lake, Iowa",
+    },
   },
   {
     // 座標: 著名なランドマークとして明示指定
@@ -304,7 +410,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/Los_Angeles",
     category: "animal",
     country: "US",
-    source: { videoId: "abbR-Ttd-cA", channelId: "UCnM5iMGiKsZg-iOlIO2ZkdQ" },
+    source: {
+      videoId: "abbR-Ttd-cA",
+      channelId: "UCnM5iMGiKsZg-iOlIO2ZkdQ",
+      titleKey: "Live Sea Otter Cam | Monterey Bay Aquarium",
+    },
   },
   {
     // 座標: 著名なランドマークとして明示指定
@@ -315,7 +425,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/Los_Angeles",
     category: "nature",
     country: "US",
-    source: { videoId: "fVa6-zCBR7A", channelId: "UCnM5iMGiKsZg-iOlIO2ZkdQ" },
+    source: {
+      videoId: "fVa6-zCBR7A",
+      channelId: "UCnM5iMGiKsZg-iOlIO2ZkdQ",
+      titleKey: "Live Monterey Bay Cam | Monterey Bay Aquarium",
+    },
   },
   {
     // 座標: Open-Meteo ジオコーディング "Baltimore", Maryland
@@ -326,7 +440,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/New_York",
     category: "animal",
     country: "US",
-    source: { videoId: "KSxc-N67TU4", channelId: "UC6qrG3W8SMK0jior2olka3g" },
+    source: {
+      videoId: "KSxc-N67TU4",
+      channelId: "UC6qrG3W8SMK0jior2olka3g",
+      titleKey: "EarthCam Live:  Aquarium Cam (Baltimore, Maryland)",
+    },
   },
   {
     // 座標: Open-Meteo ジオコーディング "Greenville", South Carolina
@@ -337,7 +455,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/New_York",
     category: "animal",
     country: "US",
-    source: { videoId: "sLRtUoPNH2k", channelId: "UC6qrG3W8SMK0jior2olka3g" },
+    source: {
+      videoId: "sLRtUoPNH2k",
+      channelId: "UC6qrG3W8SMK0jior2olka3g",
+      titleKey: "EarthCam Live:  Giraffe Paddock  Cam - Greenville, SC",
+    },
   },
   {
     // 座標: Open-Meteo ジオコーディング "Gaylord", Michigan
@@ -348,7 +470,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/Detroit",
     category: "animal",
     country: "US",
-    source: { videoId: "IU_-Pl9O5jQ", channelId: "UC6qrG3W8SMK0jior2olka3g" },
+    source: {
+      videoId: "IU_-Pl9O5jQ",
+      channelId: "UC6qrG3W8SMK0jior2olka3g",
+      titleKey: "EarthCam Live: Snowman Cam - Animals and Wildlife (Gaylord, Michigan)",
+    },
   },
   {
     // 座標: Open-Meteo ジオコーディング "Kasane", Chobe District
@@ -359,7 +485,11 @@ export const CAMS: Cam[] = [
     timeZone: "Africa/Gaborone",
     category: "animal",
     country: "BW",
-    source: { videoId: "iqdRLSdSjWI", channelId: "UC6qrG3W8SMK0jior2olka3g" },
+    source: {
+      videoId: "iqdRLSdSjWI",
+      channelId: "UC6qrG3W8SMK0jior2olka3g",
+      titleKey: "EarthCam Live:  Hideaways Camp Kuzuma, African Watering Hole (Chobe, Botswana)",
+    },
   },
   {
     // 座標: Open-Meteo ジオコーディング "Manaus", Amazonas
@@ -370,7 +500,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/Manaus",
     category: "nature",
     country: "BR",
-    source: { videoId: "zAZ6S9pv0jA", channelId: "UCGCZAYq5Xxojl_tSXcVJhiQ" },
+    source: {
+      videoId: "zAZ6S9pv0jA",
+      channelId: "UCGCZAYq5Xxojl_tSXcVJhiQ",
+      titleKey: "【LIVE】癒しの熱帯 アマゾンのジャングルから配信　夜明けの空を横切るインコの群れ　夜の川に響くカエルと昆虫の声　#ネグロ川 #ブラジル【ライブ】ANN/テレ朝",
+    },
   },
   {
     // 座標: 著名なランドマークとして明示指定
@@ -381,7 +515,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/Mexico_City",
     category: "volcano",
     country: "MX",
-    source: { videoId: "z1DIktum4zo", channelId: "UColBcWm6ybTbQnNuQS8JaKg" },
+    source: {
+      videoId: "z1DIktum4zo",
+      channelId: "UColBcWm6ybTbQnNuQS8JaKg",
+      titleKey: "🌋 #POPOCATÉPETL | 🛸 Los objetos salen de su garita esta noche. El #volcán #EnVivo",
+    },
   },
   {
     // 座標: 著名なランドマークとして明示指定
@@ -392,7 +530,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/Mexico_City",
     category: "city",
     country: "MX",
-    source: { videoId: "qP-b5q9u018", channelId: "UColBcWm6ybTbQnNuQS8JaKg" },
+    source: {
+      videoId: "qP-b5q9u018",
+      channelId: "UColBcWm6ybTbQnNuQS8JaKg",
+      titleKey: "En vivo Zócalo de la Ciudad de México",
+    },
   },
   {
     // 座標: 著名なランドマークとして明示指定
@@ -403,7 +545,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/Mexico_City",
     category: "city",
     country: "MX",
-    source: { videoId: "ZH3jB650mcI", channelId: "UColBcWm6ybTbQnNuQS8JaKg" },
+    source: {
+      videoId: "ZH3jB650mcI",
+      channelId: "UColBcWm6ybTbQnNuQS8JaKg",
+      titleKey: "Paseo de la Reforma en vivo. Monumento Ángel de la Independencia",
+    },
   },
   {
     // 座標: 著名なランドマークとして明示指定
@@ -414,7 +560,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/Mexico_City",
     category: "city",
     country: "MX",
-    source: { videoId: "NmHkMgNwawg", channelId: "UColBcWm6ybTbQnNuQS8JaKg" },
+    source: {
+      videoId: "NmHkMgNwawg",
+      channelId: "UColBcWm6ybTbQnNuQS8JaKg",
+      titleKey: "Basílica de Guadalupe, Ciudad de México, en vivo",
+    },
   },
   {
     // 座標: 著名なランドマークとして明示指定
@@ -425,7 +575,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/Denver",
     category: "city",
     country: "US",
-    source: { videoId: "B_waF26In9o", channelId: "UCEpDjqeFIGTqHwk-uULx72Q" },
+    source: {
+      videoId: "B_waF26In9o",
+      channelId: "UCEpDjqeFIGTqHwk-uULx72Q",
+      titleKey: "Jackson Town Square Live PTZ webcam - SeeJH.ai",
+    },
   },
   {
     // 座標: 著名なランドマークとして明示指定
@@ -436,7 +590,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/Denver",
     category: "nature",
     country: "US",
-    source: { videoId: "j-0fhrHzEiM", channelId: "UCEpDjqeFIGTqHwk-uULx72Q" },
+    source: {
+      videoId: "j-0fhrHzEiM",
+      channelId: "UCEpDjqeFIGTqHwk-uULx72Q",
+      titleKey: "EGVB - Grand Teton Webcam",
+    },
   },
   {
     // 座標: Open-Meteo ジオコーディング "Gardiner", Montana
@@ -447,7 +605,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/Denver",
     category: "nature",
     country: "US",
-    source: { videoId: "IvZ22jZgvOI", channelId: "UCEpDjqeFIGTqHwk-uULx72Q" },
+    source: {
+      videoId: "IvZ22jZgvOI",
+      channelId: "UCEpDjqeFIGTqHwk-uULx72Q",
+      titleKey: "Montana Whitewater - Yellowstone River in Gardiner",
+    },
   },
   {
     // 座標: Open-Meteo ジオコーディング "Driggs", Idaho
@@ -458,7 +620,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/Boise",
     category: "nature",
     country: "US",
-    source: { videoId: "fQiA_DZT0cE", channelId: "UCEpDjqeFIGTqHwk-uULx72Q" },
+    source: {
+      videoId: "fQiA_DZT0cE",
+      channelId: "UCEpDjqeFIGTqHwk-uULx72Q",
+      titleKey: "Grand Targhee Resort Dreamcatcher - SeeJH.com",
+    },
   },
   {
     // 座標: Open-Meteo ジオコーディング "Plant City", Florida
@@ -469,7 +635,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/New_York",
     category: "railway",
     country: "US",
-    source: { videoId: "IVSoVgGXDoU", channelId: "UCOIkT9bq-1N2BvrsBjhNlag" },
+    source: {
+      videoId: "IVSoVgGXDoU",
+      channelId: "UCOIkT9bq-1N2BvrsBjhNlag",
+      titleKey: "Plant City, Florida, USA | LIVE Train Camera (PTZ)",
+    },
   },
   {
     // 座標: Open-Meteo ジオコーディング "Folkston", Georgia
@@ -480,7 +650,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/New_York",
     category: "railway",
     country: "US",
-    source: { videoId: "7DmivRg6FfQ", channelId: "UCOIkT9bq-1N2BvrsBjhNlag" },
+    source: {
+      videoId: "7DmivRg6FfQ",
+      channelId: "UCOIkT9bq-1N2BvrsBjhNlag",
+      titleKey: "Folkston, Georgia, USA | LIVE Train Camera (Turnout PTZ)",
+    },
   },
   {
     // 座標: Open-Meteo ジオコーディング "St Louis", Missouri
@@ -491,7 +665,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/Chicago",
     category: "railway",
     country: "US",
-    source: { videoId: "9eqVB3JbJHc", channelId: "UCOIkT9bq-1N2BvrsBjhNlag" },
+    source: {
+      videoId: "9eqVB3JbJHc",
+      channelId: "UCOIkT9bq-1N2BvrsBjhNlag",
+      titleKey: "Saint Louis, Missouri, USA  |  LIVE Train Camera  (PTZ - West)",
+    },
   },
   {
     // 座標: Open-Meteo ジオコーディング "Cresson", Pennsylvania
@@ -502,7 +680,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/New_York",
     category: "railway",
     country: "US",
-    source: { videoId: "9uPCPh8jWas", channelId: "UCOIkT9bq-1N2BvrsBjhNlag" },
+    source: {
+      videoId: "9uPCPh8jWas",
+      channelId: "UCOIkT9bq-1N2BvrsBjhNlag",
+      titleKey: "Cresson, Pennsylvania  |  LIVE Train Camera (PTZ)",
+    },
   },
   {
     // 座標: Open-Meteo ジオコーディング "Salt Lake City", Utah
@@ -513,7 +695,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/Denver",
     category: "railway",
     country: "US",
-    source: { videoId: "qJd7diix4eI", channelId: "UCOIkT9bq-1N2BvrsBjhNlag" },
+    source: {
+      videoId: "qJd7diix4eI",
+      channelId: "UCOIkT9bq-1N2BvrsBjhNlag",
+      titleKey: "Salt Lake City, Utah, USA | LIVE Train Camera (PTZ)",
+    },
   },
   {
     // 座標: Open-Meteo ジオコーディング "Cheyenne", Wyoming
@@ -524,7 +710,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/Denver",
     category: "railway",
     country: "US",
-    source: { videoId: "hV30GxkdTAs", channelId: "UCOIkT9bq-1N2BvrsBjhNlag" },
+    source: {
+      videoId: "hV30GxkdTAs",
+      channelId: "UCOIkT9bq-1N2BvrsBjhNlag",
+      titleKey: "Cheyenne, Wyoming, USA  |  LIVE Train Camera (PTZ)",
+    },
   },
   {
     // 座標: Open-Meteo ジオコーディング "Quanah", Texas
@@ -535,7 +725,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/Chicago",
     category: "railway",
     country: "US",
-    source: { videoId: "LInPY_D1Ln4", channelId: "UCOIkT9bq-1N2BvrsBjhNlag" },
+    source: {
+      videoId: "LInPY_D1Ln4",
+      channelId: "UCOIkT9bq-1N2BvrsBjhNlag",
+      titleKey: "Quanah, Texas, USA | LIVE Train Camera (PTZ)",
+    },
   },
   {
     // 座標: Open-Meteo ジオコーディング "Jesup", Georgia
@@ -546,7 +740,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/New_York",
     category: "railway",
     country: "US",
-    source: { videoId: "1AOrlYblQR8", channelId: "UCOIkT9bq-1N2BvrsBjhNlag" },
+    source: {
+      videoId: "1AOrlYblQR8",
+      channelId: "UCOIkT9bq-1N2BvrsBjhNlag",
+      titleKey: "Jesup, Georgia, USA | LIVE Train Camera | Virtual Railfan (PTZ)",
+    },
   },
   {
     // 座標: Open-Meteo ジオコーディング "Seattle", Washington
@@ -557,7 +755,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/Los_Angeles",
     category: "railway",
     country: "US",
-    source: { videoId: "pHqTDmH7H7c", channelId: "UCOIkT9bq-1N2BvrsBjhNlag" },
+    source: {
+      videoId: "pHqTDmH7H7c",
+      channelId: "UCOIkT9bq-1N2BvrsBjhNlag",
+      titleKey: "Seattle, Washington, USA | LIVE Train Camera (PTZ)",
+    },
   },
   {
     // 座標: Open-Meteo ジオコーディング "Deshler", Ohio
@@ -568,7 +770,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/New_York",
     category: "railway",
     country: "US",
-    source: { videoId: "TjMwpB8JRw8", channelId: "UCOIkT9bq-1N2BvrsBjhNlag" },
+    source: {
+      videoId: "TjMwpB8JRw8",
+      channelId: "UCOIkT9bq-1N2BvrsBjhNlag",
+      titleKey: "Deshler, Ohio, USA | LIVE Train Camera (PTZ)",
+    },
   },
   {
     // 座標: Open-Meteo ジオコーディング "La Grange", Kentucky
@@ -579,7 +785,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/New_York",
     category: "railway",
     country: "US",
-    source: { videoId: "OtssjZ3hdX0", channelId: "UCOIkT9bq-1N2BvrsBjhNlag" },
+    source: {
+      videoId: "OtssjZ3hdX0",
+      channelId: "UCOIkT9bq-1N2BvrsBjhNlag",
+      titleKey: "La Grange, Kentucky, USA |  LIVE Railcam Camera (Observation Platform PTZ)",
+    },
   },
   {
     // 座標: Open-Meteo ジオコーディング "Tucson", Arizona
@@ -590,7 +800,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/Phoenix",
     category: "railway",
     country: "US",
-    source: { videoId: "q5BQRwSh41Q", channelId: "UCOIkT9bq-1N2BvrsBjhNlag" },
+    source: {
+      videoId: "q5BQRwSh41Q",
+      channelId: "UCOIkT9bq-1N2BvrsBjhNlag",
+      titleKey: "Tucson, Arizona, USA | LIVE Train Camera (PTZ)",
+    },
   },
   {
     // 座標: Open-Meteo ジオコーディング "Cumberland", Maryland
@@ -601,7 +815,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/New_York",
     category: "railway",
     country: "US",
-    source: { videoId: "cR3kSHm7Ts0", channelId: "UCOIkT9bq-1N2BvrsBjhNlag" },
+    source: {
+      videoId: "cR3kSHm7Ts0",
+      channelId: "UCOIkT9bq-1N2BvrsBjhNlag",
+      titleKey: "CSX Mainline in Cumberland, Maryland, USA | LIVE Train Camera (PTZ – South)",
+    },
   },
   {
     // 座標: Open-Meteo ジオコーディング "Battle Creek", Michigan
@@ -612,7 +830,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/Detroit",
     category: "railway",
     country: "US",
-    source: { videoId: "m3iasBkPAbo", channelId: "UCOIkT9bq-1N2BvrsBjhNlag" },
+    source: {
+      videoId: "m3iasBkPAbo",
+      channelId: "UCOIkT9bq-1N2BvrsBjhNlag",
+      titleKey: "Battle Creek, Michigan, USA | LIVE Train Camera (PTZ)",
+    },
   },
   {
     // 座標: Open-Meteo ジオコーディング "Ashland", Virginia
@@ -623,7 +845,11 @@ export const CAMS: Cam[] = [
     timeZone: "America/New_York",
     category: "railway",
     country: "US",
-    source: { videoId: "_eArnSLGhSo", channelId: "UCOIkT9bq-1N2BvrsBjhNlag" },
+    source: {
+      videoId: "_eArnSLGhSo",
+      channelId: "UCOIkT9bq-1N2BvrsBjhNlag",
+      titleKey: "Ashland, Virginia, USA | LIVE Train Camera (PTZ)",
+    },
   },
   {
     // 座標: Open-Meteo ジオコーディング "Cordele", Georgia
@@ -634,6 +860,10 @@ export const CAMS: Cam[] = [
     timeZone: "America/New_York",
     category: "railway",
     country: "US",
-    source: { videoId: "ll3X1mH_g9Q", channelId: "UCOIkT9bq-1N2BvrsBjhNlag" },
+    source: {
+      videoId: "ll3X1mH_g9Q",
+      channelId: "UCOIkT9bq-1N2BvrsBjhNlag",
+      titleKey: "Cordele, Georgia, USA | LIVE Train Camera (Fixed View – Diamond)",
+    },
   },
 ];
