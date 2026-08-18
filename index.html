@@ -9,6 +9,19 @@
       content="世界のYouTubeライブカメラを地図から選んで覗くアプリ。昼夜の境界を地図に描き、いま夜の場所・昼の場所を選べます。"
     />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <!-- 最初に見えるのは地図のタイル(LCP 要素がこれ)。JS の評価が終わるまで
+         リクエストが始まらないので、その間に接続だけ張っておく。 -->
+    <link rel="preconnect" href="https://tile.openstreetmap.org" crossorigin />
+    <!-- 最初に見えるタイルが LCP 要素になる。JS の評価が終わるまでリクエストが
+         始まらないので、HTML の時点で並行して取りに行かせる(実測 LCP 3.3→2.8s)。
+         初期表示は src/domain/mapView.ts の INITIAL_VIEW が正本で、ここと
+         食い違うと mapView.test.ts が落ちる。 -->
+    <link rel="preload" as="image" href="https://tile.openstreetmap.org/2/1/1.png" crossorigin />
+    <link rel="preload" as="image" href="https://tile.openstreetmap.org/2/2/1.png" crossorigin />
+    <link rel="preload" as="image" href="https://tile.openstreetmap.org/2/1/0.png" crossorigin />
+    <link rel="preload" as="image" href="https://tile.openstreetmap.org/2/2/0.png" crossorigin />
+    <!-- 書体は font-display: swap なので描画を止めない。ファイル名が内容ハッシュ
+         付きで固定できないこともあり、preload はしない。 -->
     <meta property="og:title" content="somewhere-now" />
     <meta property="og:description" content="地球のライブカメラを、地図から覗く。" />
     <meta property="og:type" content="website" />

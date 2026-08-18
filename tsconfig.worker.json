@@ -18,5 +18,8 @@
     "forceConsistentCasingInFileNames": true,
     "types": ["vitest/globals", "@cloudflare/workers-types"]
   },
-  "include": ["worker", "src/domain", "src/data"]
+  "include": ["worker", "src/domain", "src/data"],
+  // src 側のテストは node や vite の型を使うので、本体の tsconfig に任せる
+  // (Worker の型だけで検査すると解決できない)。
+  "exclude": ["src/**/*.test.ts"]
 }

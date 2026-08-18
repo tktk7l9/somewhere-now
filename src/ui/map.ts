@@ -10,6 +10,7 @@ import "leaflet.markercluster";
 import "leaflet.markercluster/dist/MarkerCluster.css";
 
 import type { Cam, CamState } from "../domain/cams";
+import { INITIAL_VIEW } from "../domain/mapView";
 import { nightPolygon, terminatorLine } from "../domain/terminator";
 import { camName } from "./i18n";
 import type { Lang } from "../domain/weather";
@@ -44,8 +45,9 @@ export function createMapView(
   onSelect: (camId: string) => void,
 ): MapView {
   const map = L.map(container, {
-    center: [24, 8],
-    zoom: 2,
+    // index.html がこの初期表示のタイルを preload している(domain/mapView.ts)。
+    center: INITIAL_VIEW.center,
+    zoom: INITIAL_VIEW.zoom,
     minZoom: 2,
     maxZoom: 16,
     // 左上は署名(夜の割合)の場所なので、操作は右上へ逃がす。
