@@ -6,7 +6,7 @@
   "description": "世界中の YouTube ライブカメラを地図から選んで覗く。昼夜ターミネータ付き。",
   "scripts": {
     "dev": "vite",
-    "dev:worker": "wrangler dev",
+    "dev:worker": "wrangler dev --test-scheduled",
     "build": "npm run typecheck && vite build",
     "preview": "vite preview",
     "deploy": "npm run build && wrangler deploy",

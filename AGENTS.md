@@ -38,6 +38,9 @@
 
 ## 外部への依存と、その守り方
 
+- **wrangler は素の環境変数をバインディングとして読まない**(実測)。`.env` か `.dev.vars` の
+  **ファイル**が要る。よって `keyway run -- wrangler dev` は効かない。ローカルで Cron を
+  動かすときは `keyway pull -e development -f .env` で引いてきて、終わったら消す。
 - **YouTube Data API**: キーは Worker の secret のみ。クォータは KV の台帳で日毎に積み、
   `DAILY_UNIT_BUDGET` で止める。上限は「運用で気をつける」ではなくコードに埋める。
 - **OpenStreetMap タイル**: 帰属表示を消さない。CSS フィルタはタイル画像だけに掛ける。

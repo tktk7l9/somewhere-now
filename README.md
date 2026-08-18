@@ -1,5 +1,7 @@
 # somewhere-now
 
+[![Keyway Secrets](https://www.keyway.sh/badge.svg?repo=tktk7l9/somewhere-now)](https://www.keyway.sh/vaults/tktk7l9/somewhere-now)
+
 地球のライブカメラを、地図から覗く。
 
 世界の YouTube ライブカメラ配信を地図上のマーカーから選んで、アプリの中でそのまま見る。
@@ -42,11 +44,25 @@ Cron が 10 分ごとに全カメラの生存を確認し、配信が消えた�
 ```sh
 npm install
 npm run dev          # Vite。/api/cams は無いが地図と再生は動く
-npm run dev:worker   # wrangler。API と Cron まで含めて動かす
 npm test
 npm run coverage     # 純ロジック層は 100% でないと落ちる
 npm run build
 ```
+
+Cron（生存確認・再探索）まで動かすときだけ API キーが要る。キーは
+[Keyway](https://www.keyway.sh/) の vault にあるので、必要なときだけ引いてきて、
+終わったら消す（ディスクに生の鍵を置きっぱなしにしない）。
+
+```sh
+keyway pull -e development -f .env   # vault → .env（gitignore 済み）
+npm run dev:worker                   # wrangler dev --test-scheduled
+curl "http://localhost:8787/__scheduled?cron=*/10+*+*+*+*"
+rm .env
+```
+
+> `keyway run -- wrangler dev` は**効かない**。wrangler は素の環境変数を
+> Worker のバインディングとして読まず、`.env` か `.dev.vars` の**ファイル**しか
+> 見ないため（実測）。他アプリでの `keyway run -- npm run dev` 方式はここでは使えない。
 
 ### カメラを足す
 
@@ -66,6 +82,9 @@ npx wrangler kv namespace create CAM_STATE     # 出た id を wrangler.jsonc �
 npx wrangler secret put YOUTUBE_API_KEY        # Google Cloud で発行したキー
 npm run deploy
 ```
+
+本番のキーは Cloudflare の secret ストアが正本で、Keyway の vault は控え
+（新しい機械での復旧用）。
 
 API キーは Google Cloud 側で **YouTube Data API v3 のみ**に制限する
 （Worker からの呼び出しにリファラは付かないので、リファラ制限は使えない）。
