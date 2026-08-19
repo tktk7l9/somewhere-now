@@ -14,9 +14,9 @@ import { mkdir, writeFile } from "node:fs/promises";
 import { SEED_HANDLES } from "./seed-handles.ts";
 
 /** 1 回の実行で叩くページ数の上限。無制限のループを作らないための保険。 */
-const MAX_HANDLES = 40;
+const MAX_HANDLES = 90;
 /** 連続アクセスの間隔(ms)。 */
-const DELAY_MS = 1200;
+const DELAY_MS = 900;
 
 const UA =
   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 " +

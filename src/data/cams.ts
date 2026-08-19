@@ -866,4 +866,739 @@ export const CAMS: Cam[] = [
       titleKey: "Cordele, Georgia, USA | LIVE Train Camera (Fixed View – Diamond)",
     },
   },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "sydney-harbour",
+    name: { ja: "シドニー湾（ハーバーブリッジとオペラハウス）", en: "Sydney Harbour" },
+    lat: -33.845,
+    lng: 151.203,
+    timeZone: "Australia/Sydney",
+    category: "harbor",
+    country: "AU",
+    source: {
+      videoId: "VukSUsIGPGQ",
+      channelId: "UCS03bU2sY5_zu2j7LoSjAVA",
+      titleKey: "Sydney Harbour LIVE 🇦🇺 Bridge & Opera House 24/7 — McMahons Point, Australia",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "kilauea-volcano",
+    name: { ja: "キラウエア火山（ハレマウマウ火口）", en: "Kīlauea Volcano" },
+    lat: 19.4069,
+    lng: -155.2834,
+    timeZone: "Pacific/Honolulu",
+    category: "volcano",
+    country: "US",
+    source: {
+      videoId: "HggWKlZv9yk",
+      channelId: "UCeXH8GZyV3sVqAr45AvupOA",
+      titleKey: "[V1cam] Kīlauea volcano, Hawaii (west Halemaʻumaʻu crater)",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "rainbow-bridge",
+    name: { ja: "お台場・レインボーブリッジ", en: "Rainbow Bridge, Tokyo" },
+    lat: 35.636,
+    lng: 139.7635,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "kGG1CaeQ9oM",
+      channelId: "UCoQBJMzcwmXrRSHBFAlTsIw",
+      titleKey: "【ライブ】お台場・レインボーブリッジ - 首都高　ライブカメラ　Rainbow Bridge - Tokyo, Japan　 Live Cam",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "wildearth-safari",
+    name: { ja: "サビサンド動物保護区のサファリ中継", en: "WildEarth Safari, Sabi Sand" },
+    lat: -24.79,
+    lng: 31.45,
+    timeZone: "Africa/Johannesburg",
+    category: "animal",
+    country: "ZA",
+    source: {
+      videoId: "HRO9PwoduE8",
+      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
+      titleKey: "WildEarth Channel - AD FREE",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "osaka-dotonbori",
+    name: { ja: "大阪 道頓堀", en: "Dotonbori, Osaka" },
+    lat: 34.6687,
+    lng: 135.5013,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "i2PpmC1IeKk",
+      channelId: "UCQ2mmGKtrBp6rL8tSMJCCwA",
+      titleKey: "【LIVE】大阪 道頓堀 ライブカメラ　osaka Dotonbori LiveCamera",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "aso-nakadake",
+    name: { ja: "阿蘇中岳・草千里", en: "Mount Aso" },
+    lat: 32.8845,
+    lng: 131.104,
+    timeZone: "Asia/Tokyo",
+    category: "volcano",
+    country: "JP",
+    source: {
+      videoId: "-DDn7lAxR-8",
+      channelId: "UCey3hahtkbKG9VrXTSotZoQ",
+      titleKey: "阿蘇中岳・草千里 4Kライブカメラ / Aso Nakadake and Kusasenri 4K Live Camera",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Hakodate", Hokkaido
+    id: "hakodate-station",
+    name: { ja: "函館駅前", en: "Hakodate Station" },
+    lat: 41.7758,
+    lng: 140.7367,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "rCgvMJGdhNo",
+      channelId: "UCynX4LJTQ_H7_KPy7QiIS2A",
+      titleKey: "【Live-Japan】函館駅前ライブカメラ② ※20秒ごとにアングルが変わります #JR函館駅 #函館 #路面電車 #HAKODATE",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Naha", Okinawa
+    id: "naha-kokusai-dori",
+    name: { ja: "那覇 国際通り", en: "Kokusai-dori, Naha" },
+    lat: 26.213,
+    lng: 127.6785,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "D0hiHTAbu2A",
+      channelId: "UCVg0E1H6LZBhTt_2oSm2Hzg",
+      titleKey: "【LIVE】沖縄ライブカメラ・那覇 国際通り /Okinawa Live Camera 24/7",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "harajuku-station",
+    name: { ja: "原宿駅・表参道口", en: "Harajuku Station" },
+    lat: 35.6702,
+    lng: 139.7027,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "RUB0oL0SHl0",
+      channelId: "UCpweG_uuLZhAH9B_Spwmmzg",
+      titleKey: "【4KLIVE】原宿駅前ライブカメラ｜表参道口・明治神宮 / Harajuku Live Stream (Omotesando, Meiji Jingu)",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "yokohama-kishamichi",
+    name: { ja: "横浜 汽車道", en: "Kishamichi, Yokohama" },
+    lat: 35.455,
+    lng: 139.638,
+    timeZone: "Asia/Tokyo",
+    category: "harbor",
+    country: "JP",
+    source: {
+      videoId: "PEOE0ZpjdUg",
+      channelId: "UCKtFn0R-NGm6cocqdoGAQTA",
+      titleKey: "🔴Live Cam Yokohama Japan :横浜汽車道ライブカメラ",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "mount-fuji-kawaguchiko",
+    name: { ja: "富士山（河口湖）", en: "Mount Fuji from Lake Kawaguchi" },
+    lat: 35.517,
+    lng: 138.758,
+    timeZone: "Asia/Tokyo",
+    category: "nature",
+    country: "JP",
+    source: {
+      videoId: "Sv9hcJ3k5h4",
+      channelId: "UCwzJctz6m-0wG_evkheecZA",
+      titleKey: "【4K】富士山ライブカメラ / 4K Live Camera Mt.FUJI　～河口湖～富士山パノラマロープウェイ",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Chitose", Hokkaido
+    id: "new-chitose-airport",
+    name: { ja: "新千歳空港", en: "New Chitose Airport" },
+    lat: 42.8194,
+    lng: 141.6522,
+    timeZone: "Asia/Tokyo",
+    category: "airport",
+    country: "JP",
+    source: {
+      videoId: "Azbdr5jbN6o",
+      channelId: "UCuY1i-Tic2G2xmox2_0h-Fw",
+      titleKey: "【LIVE】いまの新千歳空港／Live streaming from Hokkaido　 New Chitose Airport　北海道ｏｎ天気カメラ",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "narita-airport",
+    name: { ja: "成田空港", en: "Narita Airport" },
+    lat: 35.7647,
+    lng: 140.3864,
+    timeZone: "Asia/Tokyo",
+    category: "airport",
+    country: "JP",
+    source: {
+      videoId: "OuCbntsMsWY",
+      channelId: "UCaHr0a1x8zmQ1dxanCeuesA",
+      titleKey: "【LIVE】成田空港ライブカメラ　A滑走路(南側）＠朝日新聞成田支局  LIVE at Narita International airport",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "itami-airport",
+    name: { ja: "大阪 伊丹空港", en: "Itami Airport" },
+    lat: 34.7855,
+    lng: 135.4382,
+    timeZone: "Asia/Tokyo",
+    category: "airport",
+    country: "JP",
+    source: {
+      videoId: "GwxeN9lQhnM",
+      channelId: "UCkKJhKO73xF1pK5h9R82ZGQ",
+      titleKey: "【LIVE】大阪・伊丹空港のライブカメラ 　飛行機の離着陸や空港の様子は？ OSAKA  Itami Airport【生配信】",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Ikeda", Osaka
+    id: "satsukiyama-wombat",
+    name: { ja: "五月山動物園のウォンバット", en: "Satsukiyama Zoo Wombats" },
+    lat: 34.8221,
+    lng: 135.4298,
+    timeZone: "Asia/Tokyo",
+    category: "animal",
+    country: "JP",
+    source: {
+      videoId: "m0zx7vPJtC0",
+      channelId: "UC3fDjbb2JVIX6rOLNNqctow",
+      titleKey: "Satsukiyama DAYZOO　ウォンバットライブカメラ　～世界で唯一のウォンバットのライブ映像をお届け～",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "shonan-kugenuma",
+    name: { ja: "湘南 鵠沼海岸", en: "Kugenuma Beach, Shonan" },
+    lat: 35.313,
+    lng: 139.477,
+    timeZone: "Asia/Tokyo",
+    category: "nature",
+    country: "JP",
+    source: {
+      videoId: "DZWA9Xicaxg",
+      channelId: "UCV3arNLjYmBubfETmAAzS4w",
+      titleKey: "湘南 鵠沼〜新江ノ島水族館前　ライブ配信",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "venice-rolling",
+    name: { ja: "ヴェネツィア", en: "Venice" },
+    lat: 45.4341,
+    lng: 12.3388,
+    timeZone: "Europe/Rome",
+    category: "city",
+    country: "IT",
+    source: {
+      videoId: "a1mcaV3Sf9U",
+      channelId: "UCMpn1qLudF-zb4M4bqxLIbw",
+      titleKey: "🔴 LIVE 24/7  Rolling Cam Venice - Live Cam in Venice Italy - Livecam en direct #venice",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Lourdes", Occitanie
+    id: "lourdes-sanctuary",
+    name: { ja: "ルルドの聖域", en: "Sanctuary of Lourdes" },
+    lat: 43.0946,
+    lng: -0.0461,
+    timeZone: "Europe/Paris",
+    category: "city",
+    country: "FR",
+    source: {
+      videoId: "ESNa1vdHcYY",
+      channelId: "UC7zlbnNCnuAPiC3goKcFgUg",
+      titleKey: "🔴Lourdes+ | Le Sanctuaire Notre-Dame de Lourdes en direct.",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Hamburg", Free and Hanseatic City of Hamburg
+    id: "hamburg-harbour",
+    name: { ja: "ハンブルク港", en: "Hamburg Harbour" },
+    lat: 53.5507,
+    lng: 9.993,
+    timeZone: "Europe/Berlin",
+    category: "harbor",
+    country: "DE",
+    source: {
+      videoId: "OmyDLXvaus4",
+      channelId: "UCzLB2h38nyHSIaALzwtPvfg",
+      titleKey: "🔴 LIVE: Hamburg Michel – Webcam mit Panoramablick auf Hafen",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Göttingen", Lower Saxony
+    id: "gottingen-market",
+    name: { ja: "ゲッティンゲン 市庁舎前広場", en: "Göttingen Market Square" },
+    lat: 51.5344,
+    lng: 9.9323,
+    timeZone: "Europe/Berlin",
+    category: "city",
+    country: "DE",
+    source: {
+      videoId: "cfCKCrOyHmw",
+      channelId: "UCFu4lC8Wlq4fOLpW3zf_4wg",
+      titleKey: "LIVE Webcam Germany: Göttingen - Historisches Rathaus und Gänseliesel-Brunnen",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Rees", North Rhine-Westphalia
+    id: "rees-rhine",
+    name: { ja: "ライン川（レース）", en: "River Rhine at Rees" },
+    lat: 51.7626,
+    lng: 6.3978,
+    timeZone: "Europe/Berlin",
+    category: "nature",
+    country: "DE",
+    source: {
+      videoId: "SeN3fw3R6-E",
+      channelId: "UCaLDNGnkbTjnpG7j00om-Qg",
+      titleKey: "Live Rhein bei Rees, rheinabwärts Richtung Emmerich",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "St Ives", England
+    id: "st-ives-harbour",
+    name: { ja: "セント・アイヴス港", en: "St Ives Harbour" },
+    lat: 50.2086,
+    lng: -5.4875,
+    timeZone: "Europe/London",
+    category: "harbor",
+    country: "GB",
+    source: {
+      videoId: "T83mKGf_c3k",
+      channelId: "UC683QcyNqiaLGAB3OidWtBw",
+      titleKey: "Live webcam of St Ives Harbour in Cornwall, UK.",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Dublin", Leinster
+    id: "dublin-port",
+    name: { ja: "ダブリン港", en: "Dublin Port" },
+    lat: 53.3331,
+    lng: -6.2489,
+    timeZone: "Europe/Dublin",
+    category: "harbor",
+    country: "IE",
+    source: {
+      videoId: "oxx7MqjhOpw",
+      channelId: "UCeGyo_v1ppwH-e77CVqLSJg",
+      titleKey: "Dublin Bay Live: Watch Ships Enter and Exit Dublin Port",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Helsinki", Uusimaa
+    id: "helsinki-port",
+    name: { ja: "ヘルシンキ港", en: "Port of Helsinki" },
+    lat: 60.1695,
+    lng: 24.9354,
+    timeZone: "Europe/Helsinki",
+    category: "harbor",
+    country: "FI",
+    source: {
+      videoId: "JnJhFYhIjFs",
+      channelId: "UCuaFFNhZkcEg2JjEPvzjzzw",
+      titleKey: "Port of Helsinki - West harbour - north cam",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Geiranger", Møre og Romsdal
+    id: "geirangerfjord",
+    name: { ja: "ガイランゲルフィヨルド", en: "Geirangerfjord" },
+    lat: 62.1019,
+    lng: 7.2072,
+    timeZone: "Europe/Oslo",
+    category: "nature",
+    country: "NO",
+    source: {
+      videoId: "yMSc-qqW3To",
+      channelId: "UCbYNIUYxdzeQTKdb9GfJl3w",
+      titleKey: "Geirangerfjord cruise port, Geiranger",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Hvar", Split-Dalmatia County
+    id: "hvar",
+    name: { ja: "フヴァル島（クロアチア）", en: "Hvar, Croatia" },
+    lat: 43.1725,
+    lng: 16.4428,
+    timeZone: "Europe/Zagreb",
+    category: "city",
+    country: "HR",
+    source: {
+      videoId: "0wHWHAFnNh0",
+      channelId: "UCQmlVF-VRx75AflM-9gJytg",
+      titleKey: "Hvar, Croatia ☀ LIVE 24/7 WebCam",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Arrecife", Canary Islands
+    id: "lanzarote-airport",
+    name: { ja: "ランサローテ空港", en: "Lanzarote Airport" },
+    lat: 28.963,
+    lng: -13.5477,
+    timeZone: "Atlantic/Canary",
+    category: "airport",
+    country: "ES",
+    source: {
+      videoId: "AAlo3eCPVbk",
+      channelId: "UCUaLy1_4rsLo4HyCLCPlD4g",
+      titleKey: "LIVE 🔴 WEBCAM from LANZAROTE AIRPORT - (Canary Islands, Spain)",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Portsmouth", England
+    id: "portsmouth-hms-warrior",
+    name: { ja: "ポーツマス HMSウォーリア", en: "HMS Warrior, Portsmouth" },
+    lat: 50.799,
+    lng: -1.0913,
+    timeZone: "Europe/London",
+    category: "harbor",
+    country: "GB",
+    source: {
+      videoId: "N9KCrI_-Zv0",
+      channelId: "UC3ppRbUdj-XrSIn-6YHGP3w",
+      titleKey: "HMS Warrior Webcam",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Oakham", England
+    id: "rutland-osprey",
+    name: { ja: "ラトランドのミサゴ", en: "Rutland Ospreys" },
+    lat: 52.6667,
+    lng: -0.7333,
+    timeZone: "Europe/London",
+    category: "animal",
+    country: "GB",
+    source: {
+      videoId: "CKvLj6ZFNcA",
+      channelId: "UCJ8DHJ5VCVLm-o_Wo65VBaA",
+      titleKey: "LRWT - Manton Bay Ospreys Live Webcam (Close-up)",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Bad Salzungen", Thuringia
+    id: "bad-salzungen-stork",
+    name: { ja: "バート・ザルツンゲンのコウノトリ", en: "Stork Nest, Bad Salzungen" },
+    lat: 50.8134,
+    lng: 10.2361,
+    timeZone: "Europe/Berlin",
+    category: "animal",
+    country: "DE",
+    source: {
+      videoId: "Dr5zebXpO-M",
+      channelId: "UCzAuBgdr5YC8ARNRMWgIAXg",
+      titleKey: "Storchennest Live Webcam in Bad Salzungen, Thüringen",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Chengdu", Sichuan
+    id: "chengdu-panda",
+    name: { ja: "成都 ジャイアントパンダ基地", en: "Chengdu Panda Base" },
+    lat: 30.6667,
+    lng: 104.0667,
+    timeZone: "Asia/Shanghai",
+    category: "animal",
+    country: "CN",
+    source: {
+      videoId: "SUXPnIEpbn4",
+      channelId: "UCtEgLf0_j1vJLz0aNEdO2SQ",
+      titleKey: "Panda 24/7 HD Live At Chengdu Panda Base",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Taoyuan", Taiwan
+    id: "taoyuan-airport",
+    name: { ja: "桃園国際空港", en: "Taoyuan International Airport" },
+    lat: 24.9937,
+    lng: 121.297,
+    timeZone: "Asia/Taipei",
+    category: "airport",
+    country: "TW",
+    source: {
+      videoId: "wWEnxWA7nnY",
+      channelId: "UC8nqJIBj9B4DimyFEtQ6RpA",
+      titleKey: "🔴 TPE 4K桃園國際機場 北跑道觀景台即時影像｜Taoyuan International Airport North Runway Live plane spotting",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "alishan",
+    name: { ja: "阿里山（奮起湖）", en: "Alishan, Taiwan" },
+    lat: 23.5085,
+    lng: 120.6975,
+    timeZone: "Asia/Taipei",
+    category: "nature",
+    country: "TW",
+    source: {
+      videoId: "B6eki-0-w0g",
+      channelId: "UCQqyZgPh9Lu0w_rmWWBvuNg",
+      titleKey: "4K Live cam-Alishan【阿里山美景4K直播】-奮起湖 Fenqihu",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "hongkong-aberdeen",
+    name: { ja: "香港 アバディーン港", en: "Aberdeen Harbour, Hong Kong" },
+    lat: 22.247,
+    lng: 114.155,
+    timeZone: "Asia/Hong_Kong",
+    category: "harbor",
+    country: "HK",
+    source: {
+      videoId: "DkmX5xQer1c",
+      channelId: "UCBDx32JFg9vk9VHtQppv5tg",
+      titleKey: "24/7 HK Live - Hong Kong Aberdeen Harbour Live Camera - 香港市景即時影像 香港仔海峽",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Ko Samui", Surat Thani
+    id: "koh-samui",
+    name: { ja: "サムイ島 ラマイビーチ", en: "Lamai Beach, Koh Samui" },
+    lat: 9.5357,
+    lng: 99.9357,
+    timeZone: "Asia/Bangkok",
+    category: "nature",
+    country: "TH",
+    source: {
+      videoId: "kkVrj2cr9Ko",
+      channelId: "UCmYyJaUxYiF5IbLx-0jFXHQ",
+      titleKey: "🔴 LIVE Crystal Bay Yacht Club Lamai | Koh Samui Beach Webcam | Thailand 24/7 | 1080p HD",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Davao City", Davao Region
+    id: "davao-market",
+    name: { ja: "ダバオ アグダオ市場", en: "Agdao Market, Davao" },
+    lat: 7.0731,
+    lng: 125.6128,
+    timeZone: "Asia/Manila",
+    category: "city",
+    country: "PH",
+    source: {
+      videoId: "u8CbGedbI08",
+      channelId: "UCa6T92S2NKwSdQw8rXLe2rQ",
+      titleKey: "🔴 LIVE: Agdao Market, Davao City Philippines|Real-Time CCTV|EdgeBabor Philippines",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Auckland", Auckland
+    id: "auckland-harbour",
+    name: { ja: "オークランド港", en: "Auckland Harbour" },
+    lat: -36.8485,
+    lng: 174.7635,
+    timeZone: "Pacific/Auckland",
+    category: "harbor",
+    country: "NZ",
+    source: {
+      videoId: "PaLDpyFxpXE",
+      channelId: "UCnuF5fiEc6DdbhDHCQoCAfA",
+      titleKey: "🔴 LIVE Auckland NOW 🌤️ Harbour, Skyline &amp; Cruise Ships | 4K 24/7 #livecam",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Newcastle", New South Wales
+    id: "newcastle-port",
+    name: { ja: "ニューカッスル港（豪）", en: "Port of Newcastle" },
+    lat: -32.9295,
+    lng: 151.7801,
+    timeZone: "Australia/Sydney",
+    category: "harbor",
+    country: "AU",
+    source: {
+      videoId: "dypAtzvl24s",
+      channelId: "UCTGhjtFloAPlbLy4_yrkoWg",
+      titleKey: "Port of Newcastle Harbour Cam",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "rio-copacabana",
+    name: { ja: "リオ コパカバーナ海岸", en: "Copacabana, Rio de Janeiro" },
+    lat: -22.9711,
+    lng: -43.1822,
+    timeZone: "America/Sao_Paulo",
+    category: "nature",
+    country: "BR",
+    source: {
+      videoId: "65lUphjTAro",
+      channelId: "UChWGYkK0I8U83C0FxAxWy4w",
+      titleKey: "Webcam Rio de Janeiro Copacabana Posto 6",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Buenos Aires", Buenos Aires F.D.
+    id: "buenos-aires-uade",
+    name: { ja: "ブエノスアイレス", en: "Buenos Aires" },
+    lat: -34.6131,
+    lng: -58.3772,
+    timeZone: "America/Argentina/Buenos_Aires",
+    category: "city",
+    country: "AR",
+    source: {
+      videoId: "NfsyRx50gAI",
+      channelId: "UCJbgNz5VfETvD_wd4KiF2yQ",
+      titleKey: "Cámara en vivo | UADE Campus Buenos Aires",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Montreal", Quebec
+    id: "montreal-airport",
+    name: { ja: "モントリオール空港", en: "Montréal–Trudeau Airport" },
+    lat: 45.5088,
+    lng: -73.5878,
+    timeZone: "America/Toronto",
+    category: "airport",
+    country: "CA",
+    source: {
+      videoId: "iJxeutc3QCI",
+      channelId: "UCmM8fJ5uDl8pqu8nnd8Ixlg",
+      titleKey: "LIVE Montreal Trudeau Airport CYUL 24/7 Webcam Runway 24L",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Vancouver", British Columbia
+    id: "vancouver-harbour",
+    name: { ja: "バンクーバー港", en: "Vancouver Harbour" },
+    lat: 49.2497,
+    lng: -123.1193,
+    timeZone: "America/Vancouver",
+    category: "harbor",
+    country: "CA",
+    source: {
+      videoId: "rxyNjFKwzJA",
+      channelId: "UCYky246qWfKe82NLQ9VXbgQ",
+      titleKey: "🔴🚢 Vancouver LIVE Cam | Cruise Ship LiveStream 24/7 | City Views &amp; Canada Place | Alaska Season 2026",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Philipsburg"
+    id: "maho-beach",
+    name: { ja: "マホビーチ（着陸機が頭上を通る）", en: "Maho Beach, St Maarten" },
+    lat: 18.026,
+    lng: -63.0458,
+    timeZone: "America/Lower_Princes",
+    category: "airport",
+    country: "SX",
+    source: {
+      videoId: "iSeH45R-8R0",
+      channelId: "UCRjMuOBDCfSsCNIe2p0_tdg",
+      titleKey: "✈️  Maho Beach Saint Martin | Princess Juliana Airport Beach 24/7 | LIVE Cam",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Toutle", Washington
+    id: "mount-st-helens",
+    name: { ja: "セント・ヘレンズ山", en: "Mount St. Helens" },
+    lat: 46.3248,
+    lng: -122.7365,
+    timeZone: "America/Los_Angeles",
+    category: "volcano",
+    country: "US",
+    source: {
+      videoId: "YTZe2eyO824",
+      channelId: "UC21fnDewX_begL0xw8U3ljg",
+      titleKey: "**LIVE** Mount St. Helens | Coldwater Lake Weather Cam",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "King Salmon", Alaska
+    id: "brooks-falls",
+    name: { ja: "ブルックス滝のヒグマ", en: "Brooks Falls Bears, Katmai" },
+    lat: 58.6883,
+    lng: -156.6614,
+    timeZone: "America/Anchorage",
+    category: "animal",
+    country: "US",
+    source: {
+      videoId: "J7ZrIDvqlic",
+      channelId: "UC-2KSeUU5SMCX6XLRD-AEvw",
+      titleKey: "LIVE Brooks Falls - Katmai National Park, Alaska 2026 | explore.org",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Big Bear Lake", California
+    id: "big-bear-eagle",
+    name: { ja: "ビッグベアのハクトウワシ", en: "Big Bear Bald Eagles" },
+    lat: 34.2439,
+    lng: -116.9114,
+    timeZone: "America/Los_Angeles",
+    category: "animal",
+    country: "US",
+    source: {
+      videoId: "41eq4VzCYc4",
+      channelId: "UCsFgbVuhRrPV5FqyN7kOD8g",
+      titleKey: "Big Bear Bald Eagle Wide View - Cam 2",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Gorham", New Hampshire
+    id: "mount-washington",
+    name: { ja: "ワシントン山観測所", en: "Mount Washington Observatory" },
+    lat: 44.3878,
+    lng: -71.1731,
+    timeZone: "America/New_York",
+    category: "nature",
+    country: "US",
+    source: {
+      videoId: "Z27ghRYocJ4",
+      channelId: "UCq-cqqXchflIRPLsf_n3wlg",
+      titleKey: "LIVE: Mount Washington Observatory Deck Cam",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Honolulu", Hawaii
+    id: "waikiki-beach",
+    name: { ja: "ワイキキビーチ", en: "Waikiki Beach" },
+    lat: 21.3069,
+    lng: -157.8583,
+    timeZone: "Pacific/Honolulu",
+    category: "nature",
+    country: "US",
+    source: {
+      videoId: "U_Jsbq9kYE8",
+      channelId: "UCspnu6n44ydqafj6nFIw5hw",
+      titleKey: "Park Shore Waikiki Hotel Live Cam | Waikiki Beach, Honolulu",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Los Angeles", California
+    id: "lax-airport",
+    name: { ja: "ロサンゼルス国際空港", en: "Los Angeles International Airport" },
+    lat: 34.0522,
+    lng: -118.2437,
+    timeZone: "America/Los_Angeles",
+    category: "airport",
+    country: "US",
+    source: {
+      videoId: "n4I0d44oBEs",
+      channelId: "UCox5yCEEjk4iYbhLgyj90EQ",
+      titleKey: "🔴LIVE 24/7 LAX Airport Action Runways 24L &amp; 24R | LIVE Plane Spotting with ATC!",
+    },
+  },
 ];

@@ -15,7 +15,8 @@
     "test:watch": "vitest",
     "coverage": "vitest run --coverage",
     "cams:discover": "node --experimental-strip-types scripts/discover-cams.ts",
-    "cams:build": "node --experimental-strip-types scripts/build-cams.ts"
+    "cams:build": "node --experimental-strip-types scripts/build-cams.ts",
+    "cams:search": "node --experimental-strip-types scripts/search-cams.ts"
   },
   "dependencies": {
     "@fontsource/barlow": "^5.3.0",
