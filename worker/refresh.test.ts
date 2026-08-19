@@ -245,6 +245,36 @@ describe("rediscover", () => {
     expect(unitsUsed).toBe(2);
   });
 
+  it("生存確認がまだ触っていないカメラには手を出さない", async () => {
+    // 状態が無い = 一度も生存確認していない。記録した videoId が生きている
+    // 可能性が高いので、当てにならない再探索で offline にしてはいけない。
+    const fresh = cam("fresh", { source: { videoId: "vid-fresh", channelId: CH, titleKey: "F" } });
+    const client = fakeClient({});
+    const { states, unitsUsed } = await rediscover([fresh], new Map(), client, NOW, {
+      maxChannels: 1,
+    });
+    expect(unitsUsed).toBe(0);
+    expect(states.size).toBe(0);
+  });
+
+  it("videoId を持たないカメラは、状態が無くても探しにいく", async () => {
+    // 生存確認は videoId が無いカメラを飛ばすので、こちらが動かないと永久に
+    // 解決しない。
+    const c = onChannel("a", "EarthCam Live: A");
+    const client = fakeClient({ uploads: { [CH]: [video({ id: "va", title: "EarthCam Live: A" })] } });
+    const { states } = await rediscover([c], new Map(), client, NOW, { maxChannels: 1 });
+    expect(states.get("a")!.videoId).toBe("va");
+  });
+
+  it("見分けがつかなくても、記録済みの videoId は消さない", async () => {
+    const c = cam("a", { source: { videoId: "vid-known", channelId: CH, titleKey: "A" } });
+    const prior = new Map([["a", offline("2026-08-17T00:00:00Z")]]);
+    const client = fakeClient({ uploads: { [CH]: [video({ id: "vz", title: "Z" })] } });
+    const { states } = await rediscover([c], prior, client, NOW, { maxChannels: 1 });
+    // 次の生存確認がこの videoId を直接確かめて拾い直せるようにしておく。
+    expect(states.get("a")).toMatchObject({ status: "offline", videoId: "vid-dead" });
+  });
+
   it("見分けがつかないときに、同じチャンネルの別の配信を掴まない", async () => {
     // これが最悪の失敗。タイムズスクエアのピンに別の街を映してはいけない。
     const times = onChannel("times-square", "EarthCam Live: Times Square North 4K");

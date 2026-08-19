@@ -168,7 +168,13 @@ export async function rediscover(
 
   const byChannel = new Map<string, Cam[]>();
   for (const cam of cams) {
-    if (states.get(cam.id)?.status === "live") continue;
+    const state = states.get(cam.id);
+    if (state?.status === "live") continue;
+    // 生存確認がまだ一度も触っていないカメラには手を出さない。再探索は
+    // 「記録した videoId が死んだ」ときのためのもので、チャンネルを浚う
+    // 都合上いつも取りこぼす(長く続いている配信は投稿履歴の奥に沈む)。
+    // 生きているカメラを先回りして offline にしてしまうのは本末転倒。
+    if (state === undefined && cam.source.videoId !== null) continue;
     const list = byChannel.get(cam.source.channelId);
     if (list === undefined) byChannel.set(cam.source.channelId, [cam]);
     else list.push(cam);
@@ -245,12 +251,16 @@ export async function rediscover(
 
     for (const cam of channelCams) {
       const video = matched.get(cam.id);
+      const prior = states.get(cam.id);
       updated.set(cam.id, {
-        videoId: video?.id ?? null,
+        // 見つからなかったときは、記録済みの videoId を消さずに残す。
+        // こちらの探索が取りこぼしただけかもしれないので、次の生存確認が
+        // その videoId を直接確かめて拾い直せるようにしておく。
+        videoId: video?.id ?? prior?.videoId ?? cam.source.videoId,
         // 見分けがつかないものに、別のカメラの配信を割り当てない。
         status: video === undefined ? "offline" : statusOf(video),
         viewers: video?.viewers ?? null,
-        title: video?.title ?? states.get(cam.id)?.title ?? null,
+        title: video?.title ?? prior?.title ?? null,
         checkedAt,
       });
     }
