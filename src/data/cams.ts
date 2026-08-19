@@ -2111,4 +2111,334 @@ export const CAMS: Cam[] = [
       titleKey: "Main Street Livecam, Canmore, Alberta",
     },
   },
+  {
+    // 座標: Open-Meteo ジオコーディング "Singapore"
+    id: "singapore-downtown",
+    name: { ja: "シンガポール ダウンタウン", en: "Downtown Singapore" },
+    lat: 1.2897,
+    lng: 103.8501,
+    timeZone: "Asia/Singapore",
+    category: "city",
+    country: "SG",
+    source: {
+      videoId: "9cfkyMzanbc",
+      channelId: "UCD-Hv0aJkZz0isAwOtFErVg",
+      titleKey: "【LIVE CAMERA】Downtown Singapore　シンガポール　ライブカメラ",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "rhine-falls",
+    name: { ja: "ラインの滝（スイス）", en: "Rhine Falls, Switzerland" },
+    lat: 47.6779,
+    lng: 8.6153,
+    timeZone: "Europe/Zurich",
+    category: "nature",
+    country: "CH",
+    source: {
+      videoId: "UCgLr29bxO8",
+      channelId: "UCuZhFhdPtslobdcZtGABKDA",
+      titleKey: "Rhine Falls live | Rheinfall live - Webcam",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Mamaia", Constanța County
+    id: "mamaia-beach",
+    name: { ja: "ママイア海岸（ルーマニア）", en: "Mamaia Beach, Romania" },
+    lat: 44.2101,
+    lng: 28.6436,
+    timeZone: "Europe/Bucharest",
+    category: "nature",
+    country: "RO",
+    source: {
+      videoId: "1ImMAzHB2EI",
+      channelId: "UCIN4PXb4H-G0Pi4R2A_ZEgA",
+      titleKey: "Webcam Mamaia Hotel Malibu  –  LIVE de pe plajă",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Koksijde", Flanders
+    id: "koksijde",
+    name: { ja: "コクシャイデ（ベルギー）", en: "Koksijde, Belgium" },
+    lat: 51.1164,
+    lng: 2.6377,
+    timeZone: "Europe/Brussels",
+    category: "nature",
+    country: "BE",
+    source: {
+      videoId: "5Uqw_G_IdjE",
+      channelId: "UCPAgksFpFLJDVyMcIYsbz3A",
+      titleKey: "Webcam Koksijde-Bad",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Itaura", Uttar Pradesh
+    id: "itaura-village",
+    name: { ja: "イタウラ村（インド）", en: "Itaura Village, India" },
+    lat: 25.5253,
+    lng: 79.1628,
+    timeZone: "Asia/Kolkata",
+    category: "city",
+    country: "IN",
+    source: {
+      videoId: "ss7rSdSTrwc",
+      channelId: "UChswY0TkLMxfTMQRfBpHhMQ",
+      titleKey: "🔴 24/7 Live: LS Jan Seva Kendra &amp; LIC Office | Itaura Village Cam",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "alma-atacama",
+    name: { ja: "アタカマ砂漠 ALMA望遠鏡群", en: "ALMA Observatory, Atacama" },
+    lat: -23.0294,
+    lng: -67.7548,
+    timeZone: "America/Santiago",
+    category: "nature",
+    country: "CL",
+    source: {
+      videoId: "BVKRAzTSnB0",
+      channelId: "UCiN7OwV8g8dMm_E0xphBVig",
+      titleKey: "The Atacama Large Millimeter/submillimeter Array (ALMA) and Starry sky LIVE, Chile",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Porto", Porto District
+    id: "porto-ribeira",
+    name: { ja: "ポルト リベイラ地区", en: "Ribeira, Porto" },
+    lat: 41.1485,
+    lng: -8.611,
+    timeZone: "Europe/Lisbon",
+    category: "city",
+    country: "PT",
+    source: {
+      videoId: "45wxTsNFPXw",
+      channelId: "UC1tBnbs03VJ34oLD8cmJSVw",
+      titleKey: "LIVE Porto Webcam Ribeira and Vila Nova de Gaia – Oporto, Portugal",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Funchal", Madeira
+    id: "funchal-marina",
+    name: { ja: "フンシャル港（マデイラ島）", en: "Funchal Marina, Madeira" },
+    lat: 32.6657,
+    lng: -16.9255,
+    timeZone: "Atlantic/Madeira",
+    category: "harbor",
+    country: "PT",
+    source: {
+      videoId: "f6D3Zq6J5A8",
+      channelId: "UCH_lKz2VXlfLPgYOE3biySg",
+      titleKey: "LIVE: Funchal Marina Webcam 2 Madeira Island | Madeira-Web",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Kittilä", Lapland
+    id: "levi-lapland",
+    name: { ja: "レヴィ（フィンランド・ラップランド）", en: "Levi, Finnish Lapland" },
+    lat: 67.6647,
+    lng: 24.8936,
+    timeZone: "Europe/Helsinki",
+    category: "nature",
+    country: "FI",
+    source: {
+      videoId: "LwihxyJ4V20",
+      channelId: "UC1HDQ1Q5nVHYF8e7dL4E-pw",
+      titleKey: "Zero Point Levi | Levi Ski Resort | Finland",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Fort William", Scotland
+    id: "fort-william",
+    name: { ja: "フォート・ウィリアム（スコットランド）", en: "Fort William, Scotland" },
+    lat: 56.8165,
+    lng: -5.1121,
+    timeZone: "Europe/London",
+    category: "nature",
+    country: "GB",
+    source: {
+      videoId: "2occtpoOu_w",
+      channelId: "UCAY-GlV3P5twjg7B9tjx_lg",
+      titleKey: "🔴LIVE - Fort William Live Webcam - Scotland - Loch Linnhe &amp; West End Car Park",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Windermere", England
+    id: "lake-windermere",
+    name: { ja: "ウィンダミア湖（湖水地方）", en: "Lake Windermere" },
+    lat: 54.3809,
+    lng: -2.9071,
+    timeZone: "Europe/London",
+    category: "nature",
+    country: "GB",
+    source: {
+      videoId: "MK6MjpRLPWs",
+      channelId: "UCFaNfBC_D28ZtqBH3jfcasQ",
+      titleKey: "Live Webcam from Low Wood Bay Resort &amp; Spa — Lake Windermere, UK",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Prague", Prague
+    id: "prague-airport",
+    name: { ja: "プラハ空港", en: "Prague Airport" },
+    lat: 50.088,
+    lng: 14.4208,
+    timeZone: "Europe/Prague",
+    category: "airport",
+    country: "CZ",
+    source: {
+      videoId: "kuOmmVkOGN8",
+      channelId: "UC3ewP9SczRIGGpDXDQvpPyQ",
+      titleKey: "🔴 LIVE: Planespotting at Prague Vaclav Havel Airport, Prague | 24/7 LIVE",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "amsterdam-dam",
+    name: { ja: "アムステルダム ダム広場", en: "Dam Square, Amsterdam" },
+    lat: 52.3731,
+    lng: 4.8926,
+    timeZone: "Europe/Amsterdam",
+    category: "city",
+    country: "NL",
+    source: {
+      videoId: "Gd9d4q6WvUY",
+      channelId: "UCWsoep0hJKhGbYosMeQIyXA",
+      titleKey: "Now4Rent.NL | Amsterdam De Dam | Pan Tilt Zoom Camera | Ultra HD (4K)",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Muizenberg", Western Cape
+    id: "muizenberg-beach",
+    name: { ja: "ムイゼンバーグ海岸（ケープタウン）", en: "Muizenberg Beach" },
+    lat: -34.097,
+    lng: 18.4797,
+    timeZone: "Africa/Johannesburg",
+    category: "nature",
+    country: "ZA",
+    source: {
+      videoId: "-dGHAohQcSc",
+      channelId: "UCef_Yfk6baScsTCcDxzXE5Q",
+      titleKey: "Muizenberg Beach Live Webcam | REEF South Africa  @Reef-SA",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "zenkoji",
+    name: { ja: "善光寺（長野）", en: "Zenkoji Temple, Nagano" },
+    lat: 36.6617,
+    lng: 138.1875,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "HvJdPF46kak",
+      channelId: "UCy9ww22FuUlXd0c6B8INJVQ",
+      titleKey: "善光寺LIVEカメラ（Zenkoji Temple Live Cam)　INC長野ケーブルテレビ",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "kyoto-kiyomizuzaka",
+    name: { ja: "京都 清水坂", en: "Kiyomizu-zaka, Kyoto" },
+    lat: 34.9948,
+    lng: 135.783,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "cUnYPpK7ENk",
+      channelId: "UCyVf8FIJ-kFpzUadi7_tgZQ",
+      titleKey: "【LIVE】京都 清水坂ライブ中継カメラ／Kiyomizu-zaka, Kyoto Live camera",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Kutchan", Hokkaido
+    id: "niseko-hanazono",
+    name: { ja: "ニセコ 花園", en: "Niseko Hanazono" },
+    lat: 42.9011,
+    lng: 140.7406,
+    timeZone: "Asia/Tokyo",
+    category: "nature",
+    country: "JP",
+    source: {
+      videoId: "1ksmiy6EsDo",
+      channelId: "UCrNyeY4kGLL0-Hs8wC98peg",
+      titleKey: "[4K] Live Camera - Niseko Hanazono Resort",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Beppu", Oita
+    id: "beppu-bay",
+    name: { ja: "別府湾", en: "Beppu Bay" },
+    lat: 33.2794,
+    lng: 131.4975,
+    timeZone: "Asia/Tokyo",
+    category: "harbor",
+    country: "JP",
+    source: {
+      videoId: "hdVgObFgBV8",
+      channelId: "UCd41Qao7-RbhcZeDywVfZ9w",
+      titleKey: "【4K  LIVE】Beppu Bay Cam　国道10号・別府湾　災害時の波、道路渋滞、地震、台風などの情報にお役立てください。　＃災害＃別府湾＃別大＃夕焼け",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "niagara-falls",
+    name: { ja: "ナイアガラの滝", en: "Niagara Falls" },
+    lat: 43.0828,
+    lng: -79.0742,
+    timeZone: "America/New_York",
+    category: "nature",
+    country: "US",
+    source: {
+      videoId: "7gBzLGlJnwk",
+      channelId: "UC15QFO-cdISk-4Sn5CPd78g",
+      titleKey: "Niagara Falls Live",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Miami", Florida
+    id: "miami-coral-city",
+    name: { ja: "マイアミ 水中のサンゴ礁", en: "Coral City Camera, Miami" },
+    lat: 25.7743,
+    lng: -80.1937,
+    timeZone: "America/New_York",
+    category: "animal",
+    country: "US",
+    source: {
+      videoId: "7i8ARjIeM2k",
+      channelId: "UCtllXAWa3EcfcsL5tvpqGSw",
+      titleKey: "Coral City Camera (Miami&#39;s Free-Range Aquarium Underwater Livestream)",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Yosemite Valley", California
+    id: "yosemite",
+    name: { ja: "ヨセミテ国立公園", en: "Yosemite National Park" },
+    lat: 37.7407,
+    lng: -119.5779,
+    timeZone: "America/Los_Angeles",
+    category: "nature",
+    country: "US",
+    source: {
+      videoId: "AvJl1Vbsg38",
+      channelId: "UCScswbWVOicLBZwD_6zfXkA",
+      titleKey: "🏔️ Yosemite National Park LIVE | El Capitan, Half Dome &amp; Yosemite Falls",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Calgary", Alberta
+    id: "calgary",
+    name: { ja: "カルガリー（カナダ）", en: "Calgary, Canada" },
+    lat: 51.0501,
+    lng: -114.0853,
+    timeZone: "America/Edmonton",
+    category: "city",
+    country: "CA",
+    source: {
+      videoId: "MwcqP3ta6RI",
+      channelId: "UCXab5AWv4FVoGCoVqDTq36w",
+      titleKey: "Calgary Live Camera",
+    },
+  },
 ];

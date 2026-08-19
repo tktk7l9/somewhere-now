@@ -24,20 +24,20 @@ interface Query {
 }
 
 const QUERIES: Query[] = [
-  { q: "live cam wildlife africa", note: "アフリカの野生動物" },
-  { q: "safari live cam waterhole", note: "サファリの水場" },
-  { q: "câmera ao vivo praia", regionCode: "BR", note: "ブラジル" },
-  { q: "cámara en vivo ciudad", regionCode: "AR", note: "アルゼンチン・中南米" },
-  { q: "webcam in diretta", regionCode: "IT", note: "イタリア" },
-  { q: "webcam en direct", regionCode: "FR", note: "フランス" },
-  { q: "livecam", regionCode: "NL", note: "オランダ・ベルギー" },
-  { q: "kamera na żywo", regionCode: "PL", note: "ポーランド" },
-  { q: "canlı kamera", regionCode: "TR", note: "トルコ" },
-  { q: "실시간 라이브 캠", regionCode: "KR", note: "韓国" },
-  { q: "即時影像 直播", regionCode: "TW", note: "台湾・中華圏" },
-  { q: "live cam india", regionCode: "IN", note: "インド" },
-  { q: "live cam city square europe", note: "欧州の広場" },
-  { q: "live cam volcano", note: "火山" },
+  { q: "كاميرا مباشرة", note: "中東(アラビア語)" },
+  { q: "लाइव कैमरा", regionCode: "IN", note: "インド(ヒンディー語)" },
+  { q: "camera trực tiếp", regionCode: "VN", note: "ベトナム" },
+  { q: "cctv live kamera", regionCode: "ID", note: "インドネシア" },
+  { q: "ζωντανή κάμερα", regionCode: "GR", note: "ギリシャ" },
+  { q: "webcam ao vivo", regionCode: "PT", note: "ポルトガル" },
+  { q: "livekamera", regionCode: "SE", note: "スウェーデン・北欧" },
+  { q: "webkamera živě", regionCode: "CZ", note: "チェコ" },
+  { q: "веб камера онлайн", regionCode: "RU", note: "ロシア語圏" },
+  { q: "กล้องสด", regionCode: "TH", note: "タイ" },
+  { q: "live cam desert", note: "砂漠" },
+  { q: "live cam waterfall", note: "滝" },
+  { q: "live cam temple shrine", note: "寺社・聖地" },
+  { q: "live cam tropical island", note: "島" },
 ];
 /** 使い切ってよいクォータの上限。search.list は 1 回 100 unit。 */
 const MAX_QUERIES = 14;
