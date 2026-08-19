@@ -2441,4 +2441,214 @@ export const CAMS: Cam[] = [
       titleKey: "Calgary Live Camera",
     },
   },
+  {
+    // 座標: Open-Meteo ジオコーディング "Reykjavik", Capital Region
+    id: "reykjavik",
+    name: { ja: "レイキャヴィク", en: "Reykjavík, Iceland" },
+    lat: 64.1355,
+    lng: -21.8954,
+    timeZone: "Atlantic/Reykjavik",
+    category: "city",
+    country: "IS",
+    source: {
+      videoId: "tYgGEC-ESTw",
+      channelId: "UCuVVqZu5AuRf3jaKHRy5-Sw",
+      titleKey: "Reykjavik, Iceland LIVE",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Grindavik", Southern Peninsula
+    id: "iceland-eruption",
+    name: { ja: "アイスランドの噴火（ハガフェル）", en: "Iceland Volcano Eruption" },
+    lat: 63.8385,
+    lng: -22.4393,
+    timeZone: "Atlantic/Reykjavik",
+    category: "volcano",
+    country: "IS",
+    source: {
+      videoId: "L8i9G8jhWao",
+      channelId: "UCpkcJlssp52fP6xHFUYT9ag",
+      titleKey: "LIVE from Hagafell - Close up - Iceland volcano eruption",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Akureyri", Northeast
+    id: "akureyri",
+    name: { ja: "アークレイリ（北アイスランド）", en: "Akureyri, Iceland" },
+    lat: 65.6835,
+    lng: -18.0878,
+    timeZone: "Atlantic/Reykjavik",
+    category: "city",
+    country: "IS",
+    source: {
+      videoId: "GXTycxKz_FQ",
+      channelId: "UC0aRUMUvwJ-7xx0mfNwhVZA",
+      titleKey: "Rósenborg",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Ilulissat", Avannaata
+    id: "ilulissat-icebergs",
+    name: { ja: "イルリサットの氷山（グリーンランド）", en: "Ilulissat Icebergs, Greenland" },
+    lat: 69.2198,
+    lng: -51.0986,
+    timeZone: "America/Nuuk",
+    category: "nature",
+    country: "GL",
+    source: {
+      videoId: "h8O0UXsL7uk",
+      channelId: "UCaG0IHN1RMOZ4-U3wDXAkwA",
+      titleKey: "🔴 Live Now: 24/7 Iceberg Cam of Ilulissat, Greenland in 4K Ultra HD",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Athens", Attica
+    id: "athens",
+    name: { ja: "アテネ", en: "Athens, Greece" },
+    lat: 37.9838,
+    lng: 23.7278,
+    timeZone: "Europe/Athens",
+    category: "city",
+    country: "GR",
+    source: {
+      videoId: "gf_B5-ZNByA",
+      channelId: "UCHM2Zp3HKkf2lQPItuIG6uA",
+      titleKey: "🟢Live Παράθυρο στην Αθήνα / Window in Athens | 4K-UHD",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Tinos", South Aegean
+    id: "tinos-port",
+    name: { ja: "ティノス島の港", en: "Port of Tinos" },
+    lat: 37.5375,
+    lng: 25.1634,
+    timeZone: "Europe/Athens",
+    category: "harbor",
+    country: "GR",
+    source: {
+      videoId: "PAK2GoHG7Hs",
+      channelId: "UCGYQwxgH5Nac7xlQW6MHPAQ",
+      titleKey: "Tinos live: Το λιμάνι της Τήνου - port of Tinos",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Rhodes", South Aegean
+    id: "rhodes-beach",
+    name: { ja: "ロードス島", en: "Rhodes, Greece" },
+    lat: 36.4356,
+    lng: 28.222,
+    timeZone: "Europe/Athens",
+    category: "nature",
+    country: "GR",
+    source: {
+      videoId: "kpyEOpLmXUk",
+      channelId: "UCVwale2XH1_In8HAlZIEfOA",
+      titleKey: "Rodos Palladium Beach Live",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Kathmandu", Bagmati Province
+    id: "kathmandu",
+    name: { ja: "カトマンズ", en: "Kathmandu, Nepal" },
+    lat: 27.7017,
+    lng: 85.3206,
+    timeZone: "Asia/Kathmandu",
+    category: "city",
+    country: "NP",
+    source: {
+      videoId: "6WWbTU6v3r0",
+      channelId: "UCp8FhsgzNmYR6F1HxTDMTvw",
+      titleKey: "KATHMANDU LIVE CAM 🇳🇵 | NEPAL&#39;S CAPITAL CITY LIVE | WEBCAM NEPAL",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Denpasar", Bali
+    id: "bali",
+    name: { ja: "バリ島", en: "Bali, Indonesia" },
+    lat: -8.65,
+    lng: 115.2167,
+    timeZone: "Asia/Makassar",
+    category: "nature",
+    country: "ID",
+    source: {
+      videoId: "L1duJDAqbJY",
+      channelId: "UCjc3XanPPTV1Ar1ec6ElXTg",
+      titleKey: "Bali Weather Today Live Webcam | Bali Weather Now with Temperature and Humidity | Bali Weather Live",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Arvidsjaur", Norrbotten County
+    id: "arvidsjaur",
+    name: { ja: "アルヴィッツヤウル（スウェーデン）", en: "Arvidsjaur, Sweden" },
+    lat: 65.5903,
+    lng: 19.1668,
+    timeZone: "Europe/Stockholm",
+    category: "nature",
+    country: "SE",
+    source: {
+      videoId: "Dnw_l8f9rUc",
+      channelId: "UCo9Ppp8AjdfXqocqcNI_krA",
+      titleKey: "Live Camera Arvidsjaur",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Rovaniemi", Lapland
+    id: "rovaniemi-santa",
+    name: { ja: "ロヴァニエミ サンタクロース村", en: "Santa Claus Village, Rovaniemi" },
+    lat: 66.499,
+    lng: 25.6887,
+    timeZone: "Europe/Helsinki",
+    category: "city",
+    country: "FI",
+    source: {
+      videoId: "Cp4RRAEgpeU",
+      channelId: "UCuarPSgSklrmX2z0iA-Ua4Q",
+      titleKey: "Live @ Santa Claus Village",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Groningen", Groningen
+    id: "groningen",
+    name: { ja: "フローニンゲン 大広場", en: "Grote Markt, Groningen" },
+    lat: 53.2192,
+    lng: 6.5667,
+    timeZone: "Europe/Amsterdam",
+    category: "city",
+    country: "NL",
+    source: {
+      videoId: "ZjfFGJlkjmE",
+      channelId: "UCoGAnM2Ek-KVDEQiyuN_XGg",
+      titleKey: "Webcam Grote Markt - Groningen",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Alghero", Sardinia
+    id: "alghero-beach",
+    name: { ja: "アルゲーロ（サルデーニャ島）", en: "Alghero, Sardinia" },
+    lat: 40.5597,
+    lng: 8.3195,
+    timeZone: "Europe/Rome",
+    category: "nature",
+    country: "IT",
+    source: {
+      videoId: "kGO2F0KogFQ",
+      channelId: "UC04KebJjRJz9Fo5-SF9VfeA",
+      titleKey: "🔴Maia Pia Beach - Sardinia, Italy - Live Cam",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Victoria", British Columbia
+    id: "victoria-bc",
+    name: { ja: "ヴィクトリア（カナダ BC州）", en: "Victoria, British Columbia" },
+    lat: 48.4359,
+    lng: -123.3516,
+    timeZone: "America/Vancouver",
+    category: "harbor",
+    country: "CA",
+    source: {
+      videoId: "sLixr8cThJo",
+      channelId: "UCcoQfizLr4MYgiAkkYnQobA",
+      titleKey: "Ross Bay, Victoria BC",
+    },
+  },
 ];

@@ -24,23 +24,23 @@ interface Query {
 }
 
 const QUERIES: Query[] = [
-  { q: "كاميرا مباشرة", note: "中東(アラビア語)" },
-  { q: "लाइव कैमरा", regionCode: "IN", note: "インド(ヒンディー語)" },
-  { q: "camera trực tiếp", regionCode: "VN", note: "ベトナム" },
-  { q: "cctv live kamera", regionCode: "ID", note: "インドネシア" },
-  { q: "ζωντανή κάμερα", regionCode: "GR", note: "ギリシャ" },
-  { q: "webcam ao vivo", regionCode: "PT", note: "ポルトガル" },
-  { q: "livekamera", regionCode: "SE", note: "スウェーデン・北欧" },
-  { q: "webkamera živě", regionCode: "CZ", note: "チェコ" },
-  { q: "веб камера онлайн", regionCode: "RU", note: "ロシア語圏" },
-  { q: "กล้องสด", regionCode: "TH", note: "タイ" },
-  { q: "live cam desert", note: "砂漠" },
-  { q: "live cam waterfall", note: "滝" },
-  { q: "live cam temple shrine", note: "寺社・聖地" },
-  { q: "live cam tropical island", note: "島" },
+  // 言語で掘ると、その言語圏に「たまたま人気の配信」が返るだけになる。
+  // 地名を直接指定すると、その土地のカメラを名指しで探せる。
+  { q: "Istanbul live cam", note: "トルコ" },
+  { q: "Dubai live cam", note: "UAE" },
+  { q: "Cairo live cam", note: "エジプト" },
+  { q: "Mumbai live cam", note: "インド" },
+  { q: "Colombo Sri Lanka live cam", note: "スリランカ" },
+  { q: "Kathmandu live cam", note: "ネパール" },
+  { q: "Lagos Nigeria live cam", note: "ナイジェリア" },
+  { q: "Marrakech Morocco live cam", note: "モロッコ" },
+  { q: "Reykjavik Iceland live cam", note: "アイスランド" },
+  { q: "Vienna live cam", note: "オーストリア" },
+  { q: "Athens Greece live cam", note: "ギリシャ" },
+  { q: "Jakarta live cam", note: "インドネシア" },
 ];
 /** 使い切ってよいクォータの上限。search.list は 1 回 100 unit。 */
-const MAX_QUERIES = 14;
+const MAX_QUERIES = 12;
 
 interface Hit {
   videoId: string;
