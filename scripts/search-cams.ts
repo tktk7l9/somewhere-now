@@ -12,18 +12,35 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import { CAM_PLACES } from "./cam-places.ts";
 
-const QUERIES = [
-  "live cam 24/7",
-  "ライブカメラ",
-  "webcam en vivo",
-  "live webcam beach",
-  "live cam harbour port",
-  "airport live cam",
-  "live kamera stadt",
-  "live cam mountain",
+/**
+ * 探す語。地域が偏るので、言語と regionCode を振って別々の井戸を掘る。
+ * 1 語 100 unit なので、増やすときは MAX_QUERIES と相談すること。
+ */
+interface Query {
+  q: string;
+  /** 検索結果をこの国向けに寄せる。 */
+  regionCode?: string;
+  note: string;
+}
+
+const QUERIES: Query[] = [
+  { q: "live cam wildlife africa", note: "アフリカの野生動物" },
+  { q: "safari live cam waterhole", note: "サファリの水場" },
+  { q: "câmera ao vivo praia", regionCode: "BR", note: "ブラジル" },
+  { q: "cámara en vivo ciudad", regionCode: "AR", note: "アルゼンチン・中南米" },
+  { q: "webcam in diretta", regionCode: "IT", note: "イタリア" },
+  { q: "webcam en direct", regionCode: "FR", note: "フランス" },
+  { q: "livecam", regionCode: "NL", note: "オランダ・ベルギー" },
+  { q: "kamera na żywo", regionCode: "PL", note: "ポーランド" },
+  { q: "canlı kamera", regionCode: "TR", note: "トルコ" },
+  { q: "실시간 라이브 캠", regionCode: "KR", note: "韓国" },
+  { q: "即時影像 直播", regionCode: "TW", note: "台湾・中華圏" },
+  { q: "live cam india", regionCode: "IN", note: "インド" },
+  { q: "live cam city square europe", note: "欧州の広場" },
+  { q: "live cam volcano", note: "火山" },
 ];
 /** 使い切ってよいクォータの上限。search.list は 1 回 100 unit。 */
-const MAX_QUERIES = 8;
+const MAX_QUERIES = 14;
 
 interface Hit {
   videoId: string;
@@ -33,16 +50,17 @@ interface Hit {
   query: string;
 }
 
-async function search(apiKey: string, q: string): Promise<Hit[]> {
+async function search(apiKey: string, query: Query): Promise<Hit[]> {
   const params = new URLSearchParams({
     part: "snippet",
-    q,
+    q: query.q,
     eventType: "live",
     type: "video",
     maxResults: "50",
     order: "viewCount",
     key: apiKey,
   });
+  if (query.regionCode !== undefined) params.set("regionCode", query.regionCode);
   const res = await fetch(`https://www.googleapis.com/youtube/v3/search?${params.toString()}`);
   if (!res.ok) throw new Error(`検索に失敗 HTTP ${res.status}: ${await res.text()}`);
   const json = (await res.json()) as {
@@ -55,7 +73,7 @@ async function search(apiKey: string, q: string): Promise<Hit[]> {
       title: i.snippet?.["title"] ?? "",
       channelId: i.snippet?.["channelId"] ?? "",
       channelTitle: i.snippet?.["channelTitle"] ?? "",
-      query: q,
+      query: query.q,
     }));
 }
 
@@ -67,11 +85,11 @@ async function main(): Promise<void> {
   const hits: Hit[] = [];
   let units = 0;
 
-  for (const q of QUERIES.slice(0, MAX_QUERIES)) {
-    const found = await search(apiKey, q);
+  for (const query of QUERIES.slice(0, MAX_QUERIES)) {
+    const found = await search(apiKey, query);
     units += 100;
     hits.push(...found);
-    console.log(`  "${q}" → ${found.length} 件`);
+    console.log(`  [${query.note}] "${query.q}" → ${found.length} 件`);
   }
 
   // 既に持っているチャンネルは除く。

@@ -1601,4 +1601,514 @@ export const CAMS: Cam[] = [
       titleKey: "🔴LIVE 24/7 LAX Airport Action Runways 24L &amp; 24R | LIVE Plane Spotting with ATC!",
     },
   },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "maasai-mara",
+    name: { ja: "マサイマラ国立保護区", en: "Maasai Mara, Kenya" },
+    lat: -1.4833,
+    lng: 35.15,
+    timeZone: "Africa/Nairobi",
+    category: "animal",
+    country: "KE",
+    source: {
+      videoId: "gVNpA3WNMyc",
+      channelId: "UCv7WvXfp-l07Z6IuComA36w",
+      titleKey: "🔴 LIVE African Safari | 6 Maasai Mara Wildlife Cameras | Kenya 24/7",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "etosha-okaukuejo",
+    name: { ja: "エトーシャ国立公園の水場", en: "Etosha Waterhole, Namibia" },
+    lat: -19.1817,
+    lng: 15.9128,
+    timeZone: "Africa/Windhoek",
+    category: "animal",
+    country: "NA",
+    source: {
+      videoId: "JMMoRwYo5kE",
+      channelId: "UCfn4vrrgKXCCg3rxxLRGOvg",
+      titleKey: "Okaukuejo Resort, Wildlife Waterhole: Live camera stream in the Etosha National Park in Namibia",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "stony-point-penguins",
+    name: { ja: "ストーニーポイントのペンギン", en: "African Penguins, Stony Point" },
+    lat: -34.3733,
+    lng: 18.8925,
+    timeZone: "Africa/Johannesburg",
+    category: "animal",
+    country: "ZA",
+    source: {
+      videoId: "NiwrvhQIHIo",
+      channelId: "UCgWh6X0Yop6k7X6ShWIBVsg",
+      titleKey: "Watch African Penguins LIVE | Stony Point Colony | South Africa",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Hoedspruit", Limpopo
+    id: "hoedspruit-rhino",
+    name: { ja: "ホードスプロイトのサイ", en: "Rhino Cam, Hoedspruit" },
+    lat: -24.3512,
+    lng: 30.9533,
+    timeZone: "Africa/Johannesburg",
+    category: "animal",
+    country: "ZA",
+    source: {
+      videoId: "wtylzrJvCKU",
+      channelId: "UCMfjW-9aZnsR-Rq-Ngo4CpQ",
+      titleKey: "LIVE Africam Rhino Cam at the Hoedspruit Endangered Species Centre - South Africa | explore.org",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Busan", Busan
+    id: "busan-haeundae",
+    name: { ja: "釜山 海雲台ビーチ", en: "Haeundae Beach, Busan" },
+    lat: 35.1017,
+    lng: 129.03,
+    timeZone: "Asia/Seoul",
+    category: "nature",
+    country: "KR",
+    source: {
+      videoId: "LGuktGeHQxI",
+      channelId: "UCZsIhpfgnO7nNrDWu7dj89g",
+      titleKey: "[실시간 해운대해수욕장] 4K Live Cam Haeundae Busan, Transmisión en vivo de la cámara de Haeundae",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Seogwipo", Jeju-do
+    id: "jeju-seongsan",
+    name: { ja: "済州島 城山", en: "Seongsan, Jeju Island" },
+    lat: 33.2533,
+    lng: 126.5618,
+    timeZone: "Asia/Seoul",
+    category: "nature",
+    country: "KR",
+    source: {
+      videoId: "NCzm0l_ZqzU",
+      channelId: "UC-cGXwzS7XwlVn6zaPa3CDw",
+      titleKey: "펀제주 제주도 서귀포 성산읍 지금 날씨 실시간 제주 오늘 라이브 캠,   Jeju Island in South Korea Live CCTV Cam Sungsanilchulbong",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Daejeon", Daejeon
+    id: "daejeon-expo",
+    name: { ja: "大田 エキスポ科学公園", en: "Expo Science Park, Daejeon" },
+    lat: 36.3491,
+    lng: 127.3849,
+    timeZone: "Asia/Seoul",
+    category: "city",
+    country: "KR",
+    source: {
+      videoId: "CQO1Ka7HqCg",
+      channelId: "UCsy6UOjk8q7Ajq9yQ7iDAbA",
+      titleKey: "대전실시간 대전라이브 대전엑스포과학공원 한빛광장 LiveCam I &quot;ExpoSciencePark,Hanbit Square&quot;,Daejeon,Korea I 대전관광공사 대전여행",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Jiufen", Taipei
+    id: "jiufen",
+    name: { ja: "九份", en: "Jiufen, Taiwan" },
+    lat: 25.1096,
+    lng: 121.8442,
+    timeZone: "Asia/Taipei",
+    category: "city",
+    country: "TW",
+    source: {
+      videoId: "XSD5ptYisw8",
+      channelId: "UCm8_3Nf9LFmPwuKSvYhhwLw",
+      titleKey: "九份即時影像 Jiufen Live Camera 실시간 주펀 라이브캠  | 新北觀光即時影像 | ライブカメラ",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Taipei", Taiwan
+    id: "taipei-xiangshan",
+    name: { ja: "台北 象山からの眺め", en: "Taipei from Xiangshan" },
+    lat: 25.0531,
+    lng: 121.5264,
+    timeZone: "Asia/Taipei",
+    category: "city",
+    country: "TW",
+    source: {
+      videoId: "z_fY1pj1VBw",
+      channelId: "UCJLjpq7pTJRbP3vtx0LxB9Q",
+      titleKey: "【Taipei Live Cam】象山看台北 - 4K即時影像 | Overlooking Taipei at the top of Xiangshan | 象山から望む台北 | Taipei 101",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "duoliang-station",
+    name: { ja: "台東 多良駅", en: "Duoliang Station, Taitung" },
+    lat: 22.423,
+    lng: 120.888,
+    timeZone: "Asia/Taipei",
+    category: "railway",
+    country: "TW",
+    source: {
+      videoId: "UCG1aXVO8H8",
+      channelId: "UCT4jEYvUdpdN9oUALaypGfQ",
+      titleKey: "【4K】台東多良車站即時影像 Taitung Duoliang Station Live Camera",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Assisi", Umbria
+    id: "assisi-basilica",
+    name: { ja: "アッシジ 聖フランチェスコ聖堂", en: "Basilica of San Francesco, Assisi" },
+    lat: 43.0667,
+    lng: 12.6211,
+    timeZone: "Europe/Rome",
+    category: "city",
+    country: "IT",
+    source: {
+      videoId: "5ka3YhVZgME",
+      channelId: "UC_FuR9GFVJE2A8H02sQmHWw",
+      titleKey: "🔴Assisi Live Webcam Basilica di San Francesco",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "mount-etna",
+    name: { ja: "エトナ火山", en: "Mount Etna" },
+    lat: 37.751,
+    lng: 14.9934,
+    timeZone: "Europe/Rome",
+    category: "volcano",
+    country: "IT",
+    source: {
+      videoId: "t4vlFU-ypIw",
+      channelId: "UC_LnSAP1K6UmVEVT1mGy_AQ",
+      titleKey: "🔴 Mount Etna Live Stream – Real-Time Volcano Webcam (Sicily, Italy) | 18 August 2026",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Dresden", Saxony
+    id: "dresden-elbe",
+    name: { ja: "ドレスデン エルベ川", en: "Elbe at Dresden" },
+    lat: 51.0509,
+    lng: 13.7383,
+    timeZone: "Europe/Berlin",
+    category: "city",
+    country: "DE",
+    source: {
+      videoId: "vTJGeIvg8EY",
+      channelId: "UCOl2i5KaGd2y_0CbSeS7TBA",
+      titleKey: "Livecam Elbufer Dresden / Live from the river Elbe &amp; Panorama of Dresden",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Berlin", State of Berlin
+    id: "berlin-webcam",
+    name: { ja: "ベルリン", en: "Berlin" },
+    lat: 52.5244,
+    lng: 13.4105,
+    timeZone: "Europe/Berlin",
+    category: "city",
+    country: "DE",
+    source: {
+      videoId: "4Xg-wkPazp4",
+      channelId: "UCpR-vq358IEHwt-FgPsEBpA",
+      titleKey: "BerlinWebcam1",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Hanover", Lower Saxony
+    id: "hannover-railway",
+    name: { ja: "ハノーファーの線路", en: "Hannover Railway" },
+    lat: 52.3705,
+    lng: 9.7332,
+    timeZone: "Europe/Berlin",
+    category: "railway",
+    country: "DE",
+    source: {
+      videoId: "0i1ZP_oc86w",
+      channelId: "UCKUb0TwifX_aQODQosDAfoA",
+      titleKey: "LIVE: Train Traffic in Hannover Germany | ICEs, REs, Freight Trains | 24/7 Live Stream",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Częstochowa", Silesia
+    id: "jasna-gora",
+    name: { ja: "ヤスナ・グラ修道院", en: "Jasna Góra Monastery" },
+    lat: 50.7965,
+    lng: 19.1241,
+    timeZone: "Europe/Warsaw",
+    category: "city",
+    country: "PL",
+    source: {
+      videoId: "yMxD3gdeXmk",
+      channelId: "UCKAtPxfE2RAHSCwDABMMeAg",
+      titleKey: "Jasna Góra Klasztor Ojców Paulinów – transmisja na żywo, ON-LINE, msza święta na żywo",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Scheveningen", South Holland
+    id: "scheveningen",
+    name: { ja: "スヘフェニンゲン海岸", en: "Scheveningen Beach" },
+    lat: 52.1046,
+    lng: 4.2756,
+    timeZone: "Europe/Amsterdam",
+    category: "nature",
+    country: "NL",
+    source: {
+      videoId: "A5kXiKzbBFs",
+      channelId: "UCgDKPUQWlxzaqPm6tOFrInw",
+      titleKey: "Live Scheveningen Boulevard en Beach Camera",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Amsterdam", North Holland
+    id: "amsterdam-bridges",
+    name: { ja: "アムステルダム 五つの橋", en: "De Vijf Bruggen, Amsterdam" },
+    lat: 52.374,
+    lng: 4.8897,
+    timeZone: "Europe/Amsterdam",
+    category: "railway",
+    country: "NL",
+    source: {
+      videoId: "2tgHBRFHMm8",
+      channelId: "UCn4oQ60oxfvq7aesEPYqpKw",
+      titleKey: "Amsterdam De Vijf Bruggen camera 1",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Hastings", England
+    id: "hastings-pier",
+    name: { ja: "ヘイスティングズ桟橋", en: "Hastings Pier" },
+    lat: 50.8557,
+    lng: 0.5801,
+    timeZone: "Europe/London",
+    category: "harbor",
+    country: "GB",
+    source: {
+      videoId: "5FBMg0K85Jg",
+      channelId: "UCBHhwpHuJR4ZSH8gvxT0DdQ",
+      titleKey: "Hastings Pier Webcam and English Channel LIVE HD",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Ságvár", Somogy County
+    id: "sagvar-stork",
+    name: { ja: "シャーグヴァールのコウノトリ", en: "Stork Nest, Ságvár" },
+    lat: 46.8366,
+    lng: 18.1014,
+    timeZone: "Europe/Budapest",
+    category: "animal",
+    country: "HU",
+    source: {
+      videoId: "AO5I5nNbbnE",
+      channelId: "UCU31-9qcY1RDuMad67dbuhw",
+      titleKey: "LIVE White Stork Nest Cam (Ságvár, Hungary)",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "rio-christ-redeemer",
+    name: { ja: "リオ コルコバードのキリスト像", en: "Christ the Redeemer, Rio" },
+    lat: -22.9519,
+    lng: -43.2105,
+    timeZone: "America/Sao_Paulo",
+    category: "city",
+    country: "BR",
+    source: {
+      videoId: "PhYE9txaPlo",
+      channelId: "UCfMOswhx9NN_laZ8Ukcm4-Q",
+      titleKey: "Cristo Redentor Ao Vivo En Vivo| Christ the Redeemer Live Cam — Rio de Janeiro Brazil",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Balneário Camboriú", Santa Catarina
+    id: "balneario-camboriu",
+    name: { ja: "バルネアリオ・カンボリウ", en: "Balneário Camboriú" },
+    lat: -26.9906,
+    lng: -48.6347,
+    timeZone: "America/Sao_Paulo",
+    category: "nature",
+    country: "BR",
+    source: {
+      videoId: "5Xl6pSgiy3A",
+      channelId: "UCi1vQx48j_nfrMg6XH5PItQ",
+      titleKey: "Balneário Camboriú ao vivo - Avenida Atlântica",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Natal", Rio Grande do Norte
+    id: "natal-ponta-negra",
+    name: { ja: "ナタール ポンタネグラ海岸", en: "Ponta Negra, Natal" },
+    lat: -5.795,
+    lng: -35.2094,
+    timeZone: "America/Fortaleza",
+    category: "nature",
+    country: "BR",
+    source: {
+      videoId: "TxzuYLK_ZXo",
+      channelId: "UC-dGHuK8OcC_WIWvNzxysag",
+      titleKey: "PRAIA DE PONTA NEGRA AO VIVO! NATAL-RN / BRASIL - LIVE CAM NATAL",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Manaus", Amazonas
+    id: "manaus-ponta-negra",
+    name: { ja: "マナウス ポンタネグラ", en: "Ponta Negra, Manaus" },
+    lat: -3.1019,
+    lng: -60.025,
+    timeZone: "America/Manaus",
+    category: "nature",
+    country: "BR",
+    source: {
+      videoId: "xt5k4nWXOEc",
+      channelId: "UCH9JbKmqTI6gwhA4ghl32FQ",
+      titleKey: "Ponta Negra ao Vivo 24h - Manaus - AmzLive.com.br",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Concepción", Biobio
+    id: "concepcion-chile",
+    name: { ja: "コンセプシオン（チリ）", en: "Concepción, Chile" },
+    lat: -36.827,
+    lng: -73.0498,
+    timeZone: "America/Santiago",
+    category: "city",
+    country: "CL",
+    source: {
+      videoId: "RhdmP5017VM",
+      channelId: "UCJizf5PzUJ88hro1m-cUcSA",
+      titleKey: "CONCECAM - Concepción Centro, Chile - Cámara Ultra HD en vivo y en directo, live cam",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Valparaíso", Valparaiso
+    id: "valparaiso",
+    name: { ja: "バルパライソ（チリ）", en: "Valparaíso, Chile" },
+    lat: -33.036,
+    lng: -71.6296,
+    timeZone: "America/Santiago",
+    category: "harbor",
+    country: "CL",
+    source: {
+      videoId: "5jPpMkg5daM",
+      channelId: "UCXaQjESu5cdF1CGH1aAA52Q",
+      titleKey: "Valparaíso, Chile EN VIVO | LIVE CAM",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Porto Alegre", Rio Grande do Sul
+    id: "porto-alegre-airport",
+    name: { ja: "ポルトアレグレ空港", en: "Porto Alegre Airport" },
+    lat: -30.0328,
+    lng: -51.2302,
+    timeZone: "America/Sao_Paulo",
+    category: "airport",
+    country: "BR",
+    source: {
+      videoId: "IdAvz5TD6Wc",
+      channelId: "UCFGIPvN1dMn4Bdo8B8WWPDw",
+      titleKey: "SBPA / POA - LIVE CAM 1 Aeroporto Salgado Filho de Porto Alegre - RS - Brasil - Movimento ao Vivo",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Kingston", Kingston
+    id: "kingston-jamaica",
+    name: { ja: "キングストン（ジャマイカ）", en: "Kingston, Jamaica" },
+    lat: 17.997,
+    lng: -76.7936,
+    timeZone: "America/Jamaica",
+    category: "city",
+    country: "JM",
+    source: {
+      videoId: "C71bNZ1coG4",
+      channelId: "UCfS5_X4LiZJV5vq6z7itypA",
+      titleKey: "🟢Half Way Tree Clock LIVE 24/7 – Kingston Jamaica Street Camera",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Pattaya", Chon Buri
+    id: "pattaya-soi-buakhao",
+    name: { ja: "パタヤ ソイ・ブアカオ", en: "Soi Buakhao, Pattaya" },
+    lat: 12.9333,
+    lng: 100.8833,
+    timeZone: "Asia/Bangkok",
+    category: "city",
+    country: "TH",
+    source: {
+      videoId: "8ieVWInyYKk",
+      channelId: "UCd0Aa89g9hbSQC-APdXWNNg",
+      titleKey: "Soi Buakhao, Pattaya Live, Thailand",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Panglao", Central Visayas
+    id: "bohol-alona",
+    name: { ja: "ボホール島 アロナビーチ", en: "Alona Beach, Bohol" },
+    lat: 9.5781,
+    lng: 123.7458,
+    timeZone: "Asia/Manila",
+    category: "nature",
+    country: "PH",
+    source: {
+      videoId: "F4QxpMNKggI",
+      channelId: "UCvcgdCvIPABMv-LOILqIHsw",
+      titleKey: "LIVE !! 보홀 여행 필수 체크! 헤난 알로나 리조트 정문 실시간 날씨 &amp; 거리 분위기 라이브 캠 (어반스파이스)",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "sakurajima",
+    name: { ja: "桜島", en: "Sakurajima Volcano" },
+    lat: 31.5931,
+    lng: 130.6572,
+    timeZone: "Asia/Tokyo",
+    category: "volcano",
+    country: "JP",
+    source: {
+      videoId: "PeElJClXtzE",
+      channelId: "UCpWU25qIleNLmUEF9VwBdMA",
+      titleKey: "【2K LIVE】桜島 ライブカメラB【近景】鹿児島県 垂水市 / Sakurajima, an active volcano live cam (Close-up view) JAPAN&#39;",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Nagoya", Aichi
+    id: "nagoya-hisaya",
+    name: { ja: "名古屋 久屋大通公園", en: "Hisaya-odori Park, Nagoya" },
+    lat: 35.1815,
+    lng: 136.9064,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "XveD1yUUmsE",
+      channelId: "UCHoJiBhfhNVyFcennfJr7Yg",
+      titleKey: "【LIVE】久屋大通公園（名古屋市中区）ライブカメラ/Livecam HISAYA ODORI PARK in Nagoya Japan",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Gujō", Gifu
+    id: "gujo-hachiman",
+    name: { ja: "郡上八幡", en: "Gujo Hachiman" },
+    lat: 35.7369,
+    lng: 136.9585,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "L0C80aVxJaU",
+      channelId: "UCyoue0T-ZZp8NVJ9fBAsygA",
+      titleKey: "【岐阜県郡上市】郡上八幡 お天気カメラ LIVECAM",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Canmore", Alberta
+    id: "canmore-alberta",
+    name: { ja: "カンモア（カナダ・ロッキー）", en: "Canmore, Alberta" },
+    lat: 51.0834,
+    lng: -115.3521,
+    timeZone: "America/Edmonton",
+    category: "nature",
+    country: "CA",
+    source: {
+      videoId: "_0wPODlF9wU",
+      channelId: "UCSB3xOs0FgIW0uqKTqoXqhg",
+      titleKey: "Main Street Livecam, Canmore, Alberta",
+    },
+  },
 ];
