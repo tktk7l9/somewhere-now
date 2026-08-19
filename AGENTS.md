@@ -61,3 +61,21 @@
 
 1 コミット 1 意図。生成物（`src/data/cams.ts`）を更新したら、生成に使ったスクリプトの
 変更と同じコミットに入れる。
+
+## Cursor Cloud specific instructions
+
+依存は起動時の update スクリプト（`npm ci`）で入る。以下は自明でない運用メモのみ。
+
+- **開発サーバは `npm run dev`（Vite / port 5173）。** `/api/cams`（Worker）無しでも地図・
+  マーカー・パネル・現地時刻・天気は動く。バックグラウンドで動かすなら tmux で。
+- **主要チェックは `npm run typecheck` → `npm run coverage` → `npm run build`**（CI の
+  `.github/workflows/ci.yml` と同じ）。**lint ステップは無い**（ESLint 未導入）。
+  `coverage` は純ロジック層が 1 行でも欠けると落ちる（`vitest.config.ts` の閾値）。
+- **Node は CI が 24、この VM のベースは 22.x。** 22 で typecheck/coverage/build/dev は
+  全て通る（実測）。バージョン差で困ったら nvm で 24 に切り替えられる。
+- **ライブ映像の再生は Cloud では基本映らない。** `/api/cams` が videoId を解決しないうえ、
+  YouTube 側が自動化ブラウザに「Sign in to confirm you're not a bot」を返すため。
+  地図・マーカー・パネル・時刻・天気が出れば健全。映像の確認を再生成合否の基準にしない。
+- **Cron / Worker（`npm run dev:worker`）を動かすときだけ `YOUTUBE_API_KEY` が要る。**
+  wrangler は素の環境変数を読まず `.env` / `.dev.vars` の**ファイル**が要る（README 参照）。
+  キーが無ければ生存確認・再探索は試さない。
