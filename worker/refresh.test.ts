@@ -267,12 +267,42 @@ describe("rediscover", () => {
   });
 
   it("見分けがつかなくても、記録済みの videoId は消さない", async () => {
-    const c = cam("a", { source: { videoId: "vid-known", channelId: CH, titleKey: "A" } });
-    const prior = new Map([["a", offline("2026-08-17T00:00:00Z")]]);
+    const c = cam("a", { source: { videoId: "vid-source", channelId: CH, titleKey: "A" } });
+    const prior = new Map([
+      [
+        "a",
+        {
+          videoId: "vid-rotated",
+          status: "offline" as const,
+          viewers: null,
+          title: null,
+          checkedAt: "2026-08-17T00:00:00Z",
+        },
+      ],
+    ]);
     const client = fakeClient({ uploads: { [CH]: [video({ id: "vz", title: "Z" })] } });
     const { states } = await rediscover([c], prior, client, NOW, { maxChannels: 1 });
-    // 次の生存確認がこの videoId を直接確かめて拾い直せるようにしておく。
-    expect(states.get("a")).toMatchObject({ status: "offline", videoId: "vid-dead" });
+    // KV に残っている回転後の id を、マスタより優先して次の生存確認に渡す。
+    expect(states.get("a")).toMatchObject({ status: "offline", videoId: "vid-rotated" });
+  });
+
+  it("状態の videoId が空なら、マスタの videoId を残す", async () => {
+    const c = cam("a", { source: { videoId: "vid-source", channelId: CH, titleKey: "A" } });
+    const prior = new Map([
+      [
+        "a",
+        {
+          videoId: null,
+          status: "offline" as const,
+          viewers: null,
+          title: null,
+          checkedAt: "2026-08-17T00:00:00Z",
+        },
+      ],
+    ]);
+    const client = fakeClient({ uploads: { [CH]: [video({ id: "vz", title: "Z" })] } });
+    const { states } = await rediscover([c], prior, client, NOW, { maxChannels: 1 });
+    expect(states.get("a")).toMatchObject({ status: "offline", videoId: "vid-source" });
   });
 
   it("見分けがつかないときに、同じチャンネルの別の配信を掴まない", async () => {
@@ -473,6 +503,29 @@ describe("rediscover", () => {
     });
     expect(states.get("a")!.status).toBe("unknown");
     expect(notes.join(" ")).toContain("失敗");
+  });
+
+  it("再探索が失敗しても、記録済みの videoId は消さない", async () => {
+    const c = cam("a", { source: { videoId: "vid-source", channelId: CH, titleKey: "A" } });
+    const prior = new Map([
+      [
+        "a",
+        {
+          videoId: "vid-rotated",
+          status: "offline" as const,
+          viewers: null,
+          title: "was",
+          checkedAt: "old",
+        },
+      ],
+    ]);
+    const client = fakeClient({ failUploads: true });
+    const { states } = await rediscover([c], prior, client, NOW, { maxChannels: 1 });
+    expect(states.get("a")).toMatchObject({
+      status: "unknown",
+      videoId: "vid-rotated",
+      title: "was",
+    });
   });
 
   it("検索での再探索が失敗しても、uploads の結果で確定する", async () => {
