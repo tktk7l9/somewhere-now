@@ -9,7 +9,7 @@
 // 過去に無制限のポーリングでホスティングを落としているので、上限は「運用で
 // 気をつける」ではなくコードに埋める。
 
-import type { Cam, CamState } from "../src/domain/cams";
+import { resolvedVideoId, type Cam, type CamState } from "../src/domain/cams";
 import { matchStream } from "../src/domain/streamMatch";
 import {
   CHANNEL_LOOKUP_COST,
@@ -76,7 +76,7 @@ export async function sweepLiveness(
   // カメラ → 確認すべき videoId。状態が持つ id をマスタより優先する。
   const targets = new Map<string, string>();
   for (const cam of cams) {
-    const videoId = states.get(cam.id)?.videoId ?? cam.source.videoId;
+    const videoId = resolvedVideoId(cam, states.get(cam.id));
     if (videoId !== null) targets.set(cam.id, videoId);
   }
 
@@ -137,6 +137,25 @@ function statusOf(video: YouTubeVideo): CamState["status"] {
 }
 
 /**
+ * 配信を割り当てられなかったときの状態。liveness の結論は生存確認に残し、
+ * 記録済みの videoId は消さない。
+ */
+function keepRecorded(
+  cam: Cam,
+  prior: CamState | undefined,
+  status: Extract<CamState["status"], "offline" | "unknown">,
+  checkedAt: string,
+): CamState {
+  return {
+    videoId: resolvedVideoId(cam, prior),
+    status,
+    viewers: null,
+    title: prior?.title ?? null,
+    checkedAt,
+  };
+}
+
+/**
  * ライブでないカメラのチャンネルから、現在の配信を探し直す。
  *
  * 1 つのチャンネルが何十本もライブを出しているので、
@@ -174,7 +193,7 @@ export async function rediscover(
     // 「記録した videoId が死んだ」ときのためのもので、チャンネルを浚う
     // 都合上いつも取りこぼす(長く続いている配信は投稿履歴の奥に沈む)。
     // 生きているカメラを先回りして offline にしてしまうのは本末転倒。
-    if (state === undefined && cam.source.videoId !== null) continue;
+    if (state === undefined && resolvedVideoId(cam, undefined) !== null) continue;
     const list = byChannel.get(cam.source.channelId);
     if (list === undefined) byChannel.set(cam.source.channelId, [cam]);
     else list.push(cam);
@@ -206,13 +225,7 @@ export async function rediscover(
     } catch (error) {
       notes.push(`[${channelId}] 再探索に失敗: ${String(error)}`);
       for (const cam of channelCams) {
-        updated.set(cam.id, {
-          videoId: null,
-          status: "unknown",
-          viewers: null,
-          title: states.get(cam.id)?.title ?? null,
-          checkedAt,
-        });
+        updated.set(cam.id, keepRecorded(cam, states.get(cam.id), "unknown", checkedAt));
       }
       continue;
     }
@@ -252,15 +265,15 @@ export async function rediscover(
     for (const cam of channelCams) {
       const video = matched.get(cam.id);
       const prior = states.get(cam.id);
+      if (video === undefined) {
+        updated.set(cam.id, keepRecorded(cam, prior, "offline", checkedAt));
+        continue;
+      }
       updated.set(cam.id, {
-        // 見つからなかったときは、記録済みの videoId を消さずに残す。
-        // こちらの探索が取りこぼしただけかもしれないので、次の生存確認が
-        // その videoId を直接確かめて拾い直せるようにしておく。
-        videoId: video?.id ?? prior?.videoId ?? cam.source.videoId,
-        // 見分けがつかないものに、別のカメラの配信を割り当てない。
-        status: video === undefined ? "offline" : statusOf(video),
-        viewers: video?.viewers ?? null,
-        title: video?.title ?? prior?.title ?? null,
+        videoId: video.id,
+        status: statusOf(video),
+        viewers: video.viewers,
+        title: video.title,
         checkedAt,
       });
     }

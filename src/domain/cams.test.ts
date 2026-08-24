@@ -4,6 +4,7 @@ import {
   filterCams,
   pickRandom,
   resolveEmbedUrl,
+  resolvedVideoId,
   type Cam,
   type CamState,
 } from "./cams";
@@ -155,6 +156,26 @@ describe("pickRandom", () => {
 
   it("空配列では null を返す", () => {
     expect(pickRandom([], () => 0)).toBeNull();
+  });
+});
+
+describe("resolvedVideoId", () => {
+  it("状態の videoId を最優先で使う", () => {
+    expect(resolvedVideoId(cam(), state({ videoId: "zzzzzzzzzzz" }))).toBe("zzzzzzzzzzz");
+  });
+
+  it("状態が無ければマスタの videoId を使う", () => {
+    expect(resolvedVideoId(cam(), undefined)).toBe("abcdefghijk");
+  });
+
+  it("状態の videoId が空ならマスタに落ちる", () => {
+    expect(resolvedVideoId(cam(), state({ videoId: null }))).toBe("abcdefghijk");
+  });
+
+  it("どちらも無ければ null", () => {
+    const c = cam({ source: { videoId: null, channelId: "UC0000000000000000000000", titleKey: "t" } });
+    expect(resolvedVideoId(c, undefined)).toBeNull();
+    expect(resolvedVideoId(c, state({ videoId: null }))).toBeNull();
   });
 });
 

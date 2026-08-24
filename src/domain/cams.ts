@@ -162,11 +162,19 @@ const EMBED_ORIGIN = "https://www.youtube-nocookie.com";
 const EMBED_PARAMS = "rel=0&playsinline=1&modestbranding=1";
 
 /**
+ * 再生・生存確認・再探索が共有する videoId。状態が解決した id を最優先し、
+ * 無ければマスタの id。どちらも無ければ null。
+ */
+export function resolvedVideoId(cam: Cam, state: CamState | undefined): string | null {
+  return state?.videoId ?? cam.source.videoId;
+}
+
+/**
  * 再生に使う iframe の URL。状態が解決した videoId を最優先し、無ければ
  * マスタの videoId、それも無ければチャンネルの現在のライブにフォールバックする。
  */
 export function resolveEmbedUrl(cam: Cam, state: CamState | undefined): string {
-  const videoId = state?.videoId ?? cam.source.videoId;
+  const videoId = resolvedVideoId(cam, state);
   if (videoId !== null) {
     return `${EMBED_ORIGIN}/embed/${videoId}?${EMBED_PARAMS}`;
   }
