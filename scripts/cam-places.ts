@@ -39,7 +39,7 @@ export interface CamPlace {
   at?: { lat: number; lng: number; timeZone: string; country: string };
 }
 
-export const CAM_PLACES: CamPlace[] = [
+export const CAM_PLACES_CURATED: CamPlace[] = [
   // ── 日本 ────────────────────────────────────────────────
   {
     id: "shibuya-crossing",
@@ -1110,7 +1110,7 @@ export const CAM_PLACES: CamPlace[] = [
     channelId: "UCCCVkU6r9ZTD8E4z7AtuOIw",
     videoId: "SXsPeIqGJMA",
     titleKey: "WEBCAM NEPAL LIVE – PANORAMIC VIEWS FROM HOTEL EVEREST VIEW - NOW WITH LIVE AUDIO!",
-    place: { name: "Namche Bazar", countryCode: "NP" },
+    at: { lat: 27.8053, lng: 86.7106, timeZone: "Asia/Kathmandu", country: "NP" },
   },
   {
     id: "davao-market",

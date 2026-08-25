@@ -6,7 +6,7 @@ describe("カメラのマスタデータ", () => {
     expect(collectCamProblems(CAMS)).toEqual([]);
   });
 
-  it("1 件以上ある", () => {
-    expect(CAMS.length).toBeGreaterThan(0);
+  it("1000 件以上ある", () => {
+    expect(CAMS.length).toBeGreaterThanOrEqual(1000);
   });
 });
