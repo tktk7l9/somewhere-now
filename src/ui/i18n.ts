@@ -11,6 +11,7 @@ const STRINGS = {
     ja: "地球のライブカメラを、地図から覗く",
     en: "Peek at Earth's live cameras from the map",
   },
+  places: { ja: "地点", en: "places" },
   darknessHeadline: {
     ja: "台が、いま夜の中にいます",
     en: "cameras are in darkness right now",
@@ -84,6 +85,29 @@ export type StringKey = keyof typeof STRINGS;
 
 export function t(key: StringKey, lang: Lang): string {
   return STRINGS[key][lang];
+}
+
+/** ヘッダーに出す収録件数。絞っていないときは全件だけ、絞っているときは分子も出す。 */
+export function catalogCaption(
+  visible: number,
+  total: number,
+  lang: Lang,
+): { count: string; total: string | null; unit: string; aria: string } {
+  const unit = t("places", lang);
+  if (visible === total) {
+    return {
+      count: String(total),
+      total: null,
+      unit,
+      aria: lang === "ja" ? `全 ${total} ${unit}` : `${total} ${unit}`,
+    };
+  }
+  return {
+    count: String(visible),
+    total: `/ ${total}`,
+    unit,
+    aria: lang === "ja" ? `${total} ${unit}中 ${visible} ${unit}` : `${visible} of ${total} ${unit}`,
+  };
 }
 
 const CATEGORY_LABELS: Record<CamCategory, Dict> = {
