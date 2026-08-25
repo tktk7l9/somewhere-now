@@ -136,7 +136,25 @@ export function startApp(root: HTMLElement): void {
     globeView.invalidate();
   }
 
+  function paintGlobeNotice(key: "globeLoading" | "globeUnsupported"): void {
+    const message = document.createElement("p");
+    message.className = "globe__unsupported";
+    message.textContent = t(key, view.lang);
+    globeEl.replaceChildren(message);
+  }
+
+  function webgl2Available(): boolean {
+    try {
+      return document.createElement("canvas").getContext("webgl2") !== null;
+    } catch {
+      return false;
+    }
+  }
+
   function ensureGlobe(): Promise<void> {
+    if (globeView === null && globeEl.childElementCount === 0) {
+      paintGlobeNotice(webgl2Available() ? "globeLoading" : "globeUnsupported");
+    }
     globeReady ??= import("./ui/globe")
       .then(({ createGlobeView, createUnsupportedView }) =>
         createGlobeView(globeEl, CAMS, view.lang, selectCam).catch(() =>
@@ -147,10 +165,7 @@ export function startApp(root: HTMLElement): void {
         globeView = view;
       })
       .catch(() => {
-        const message = document.createElement("p");
-        message.className = "globe__unsupported";
-        message.textContent = t("globeUnsupported", view.lang);
-        globeEl.replaceChildren(message);
+        paintGlobeNotice("globeUnsupported");
       });
     return globeReady.then(applyGlobe);
   }

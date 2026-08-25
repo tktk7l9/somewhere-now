@@ -79,6 +79,7 @@ export async function createGlobeView(
   if (!webgl2Available()) return createUnsupportedView(container, lang);
 
   try {
+    container.replaceChildren();
     const maplibre = await import("maplibre-gl");
     await import("maplibre-gl/dist/maplibre-gl.css");
     return mountGlobe(maplibre, container, cams, lang, onSelect);

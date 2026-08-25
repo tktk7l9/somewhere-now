@@ -23,6 +23,7 @@ const STRINGS = {
   takeMeSomewhere: { ja: "どこかへ連れてって", en: "Take me somewhere" },
   flatMap: { ja: "平面図", en: "Map" },
   globe: { ja: "地球儀", en: "Globe" },
+  globeLoading: { ja: "地球儀を読み込み中…", en: "Loading globe…" },
   globeUnsupported: {
     ja: "このブラウザでは地球儀を表示できません。平面図に戻ってください。",
     en: "This browser can't show the globe. Switch back to the map.",
