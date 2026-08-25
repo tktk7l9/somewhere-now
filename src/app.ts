@@ -137,9 +137,21 @@ export function startApp(root: HTMLElement): void {
   }
 
   function ensureGlobe(): Promise<void> {
-    globeReady ??= import("./ui/globe").then(({ createGlobeView }) => {
-      globeView = createGlobeView(globeEl, CAMS, view.lang, selectCam);
-    });
+    globeReady ??= import("./ui/globe")
+      .then(({ createGlobeView, createUnsupportedView }) =>
+        createGlobeView(globeEl, CAMS, view.lang, selectCam).catch(() =>
+          createUnsupportedView(globeEl, view.lang),
+        ),
+      )
+      .then((view) => {
+        globeView = view;
+      })
+      .catch(() => {
+        const message = document.createElement("p");
+        message.className = "globe__unsupported";
+        message.textContent = t("globeUnsupported", view.lang);
+        globeEl.replaceChildren(message);
+      });
     return globeReady.then(applyGlobe);
   }
 

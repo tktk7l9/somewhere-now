@@ -1,10 +1,10 @@
 // 地球儀。平面図(Leaflet)とは別に、同じ昼夜の境界を球の上に載せる。
 //
 // MapLibre の globe projection を使い、タイルは平面図と同じ OSM。
-// ライブラリは動的 import されるので、平面図だけの初回表示には乗らない。
+// MapLibre 本体は WebGL2 が使えると分かってから読む。先に読むと、非対応
+// 環境ではモジュール評価の時点で落ちて、案内を出すコードに届かない。
 
-import { GPUInitializationError, Map as MapLibreMap, NavigationControl, type GeoJSONSource } from "maplibre-gl";
-import "maplibre-gl/dist/maplibre-gl.css";
+import type { GeoJSONSource } from "maplibre-gl";
 
 import type { Cam, CamState } from "../domain/cams";
 import { GLOBE_ZOOM, INITIAL_VIEW } from "../domain/mapView";
@@ -33,8 +33,9 @@ function emptyCollection(): { type: "FeatureCollection"; features: never[] } {
 }
 
 function isGpuFailure(error: unknown): boolean {
-  if (error instanceof GPUInitializationError) return true;
-  return error instanceof Error && /WebGL2 is required/i.test(error.message);
+  return error instanceof Error && /WebGL2 is required|GPUNotInitialized|GPUInitialization/i.test(
+    error.message,
+  );
 }
 
 function webgl2Available(): boolean {
@@ -46,7 +47,7 @@ function webgl2Available(): boolean {
   }
 }
 
-function createUnsupportedView(container: HTMLElement, lang: Lang): GlobeView {
+export function createUnsupportedView(container: HTMLElement, lang: Lang): GlobeView {
   let currentLang = lang;
   const paint = (): void => {
     const message = document.createElement("p");
@@ -69,19 +70,35 @@ function createUnsupportedView(container: HTMLElement, lang: Lang): GlobeView {
   };
 }
 
-export function createGlobeView(
+export async function createGlobeView(
+  container: HTMLElement,
+  cams: readonly Cam[],
+  lang: Lang,
+  onSelect: (camId: string) => void,
+): Promise<GlobeView> {
+  if (!webgl2Available()) return createUnsupportedView(container, lang);
+
+  try {
+    const maplibre = await import("maplibre-gl");
+    await import("maplibre-gl/dist/maplibre-gl.css");
+    return mountGlobe(maplibre, container, cams, lang, onSelect);
+  } catch {
+    return createUnsupportedView(container, lang);
+  }
+}
+
+function mountGlobe(
+  maplibre: typeof import("maplibre-gl"),
   container: HTMLElement,
   cams: readonly Cam[],
   lang: Lang,
   onSelect: (camId: string) => void,
 ): GlobeView {
-  if (!webgl2Available()) return createUnsupportedView(container, lang);
-
   const [lat, lng] = INITIAL_VIEW.center;
+  const MapLibreMap = maplibre.Map;
+  const { NavigationControl } = maplibre;
 
-  let map: MapLibreMap;
-  try {
-    map = new MapLibreMap({
+  const map = new MapLibreMap({
     container,
     style: {
       version: 8,
@@ -171,30 +188,10 @@ export function createGlobeView(
               8,
               ["case", ["get", "selected"], 10, 6],
             ],
-            "circle-color": [
-              "case",
-              ["==", ["get", "status"], "live"],
-              LIT,
-              INK_2,
-            ],
-            "circle-stroke-width": [
-              "case",
-              ["==", ["get", "status"], "live"],
-              1.5,
-              1,
-            ],
-            "circle-stroke-color": [
-              "case",
-              ["==", ["get", "status"], "live"],
-              LIT,
-              DIM,
-            ],
-            "circle-opacity": [
-              "case",
-              ["==", ["get", "status"], "live"],
-              1,
-              0.55,
-            ],
+            "circle-color": ["case", ["==", ["get", "status"], "live"], LIT, INK_2],
+            "circle-stroke-width": ["case", ["==", ["get", "status"], "live"], 1.5, 1],
+            "circle-stroke-color": ["case", ["==", ["get", "status"], "live"], LIT, DIM],
+            "circle-opacity": ["case", ["==", ["get", "status"], "live"], 1, 0.55],
           },
         },
       ],
@@ -208,9 +205,6 @@ export function createGlobeView(
     renderWorldCopies: false,
     canvasContextAttributes: { antialias: true },
   });
-  } catch {
-    return createUnsupportedView(container, lang);
-  }
 
   map.addControl(new NavigationControl({ showCompass: true, visualizePitch: false }), "top-right");
 
