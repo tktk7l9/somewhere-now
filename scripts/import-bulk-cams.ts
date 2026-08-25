@@ -14,16 +14,12 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { CAM_PLACES_CURATED, type CamPlace, type PlaceQuery } from "./cam-places.ts";
 import { CAM_PLACES_BULK as EXISTING_BULK } from "./cam-places-bulk.ts";
 
-const TARGET_TOTAL = 1000;
-const GEOCODE_DELAY_MS = 200;
+const TARGET_TOTAL = 3000;
+const GEOCODE_DELAY_MS = 120;
 const FETCH_RETRIES = 4;
 const CAMLISTED_PATH = "scripts/out/camlisted-streams.json";
 const GEOJSON_PATH = "scripts/out/streams.geojson";
 const OUTPUT_PATH = "scripts/cam-places-bulk.ts";
-
-const UA =
-  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 " +
-  "(KHTML, like Gecko) Chrome/120.0 Safari/537.36";
 
 /** camlisted の category → このアプリの CamCategory */
 const CATEGORY_MAP: Record<string, CamPlace["category"]> = {
@@ -143,17 +139,14 @@ async function geocode(query: PlaceQuery): Promise<GeocodeHit | null> {
       hit = results[0]!;
     } else {
       const matched = results.find((r) => r.admin1 === query.admin1);
-      if (matched === undefined) {
-        geocodeCache.set(key, null);
-        return null;
-      }
-      hit = matched;
+      // admin1 が一致しなければ国コード一致の先頭を使う(州名の揺れで落とさない)
+      hit = matched ?? results.find((r) => r.country_code === query.countryCode) ?? results[0]!;
     }
 
     geocodeCache.set(key, hit);
     return hit;
   } catch {
-    geocodeCache.set(key, null);
+    // 一時的なネット障害はキャッシュしない
     return null;
   }
 }
@@ -218,20 +211,55 @@ function guessPlaceQueries(
   if (countryCode === null || countryCode === "?") return [];
 
   const queries: PlaceQuery[] = [];
+  const tryPush = (name: string, cc: string, admin1?: string): void => {
+    const n = name.replace(/[|–—]/g, " ").replace(/\s+/g, " ").trim();
+    if (n.length < 2 || n.length > 80) return;
+    if (/^(live|camera|webcam|stream|ao|vivo|en|the|and|for|with|from|cctv)$/i.test(n)) {
+      return;
+    }
+    queries.push({ name: n, countryCode: cc, admin1 });
+  };
+
+  // 都市別名を最優先(漢字断片で枠を使い切らない)
+  const aliases: [RegExp, string, string?][] = [
+    [/札幌|sapporo/i, "Sapporo", "JP"],
+    [/東京|tokyo/i, "Tokyo", "JP"],
+    [/大阪|osaka/i, "Osaka", "JP"],
+    [/京都|kyoto/i, "Kyoto", "JP"],
+    [/横浜|yokohama/i, "Yokohama", "JP"],
+    [/名古屋|nagoya/i, "Nagoya", "JP"],
+    [/福岡|fukuoka/i, "Fukuoka", "JP"],
+    [/沖縄|okinawa/i, "Naha", "JP"],
+    [/墨尔本|melbourne/i, "Melbourne", "AU"],
+    [/悉尼|sydney/i, "Sydney", "AU"],
+    [/澳大利亚|australia/i, "Melbourne", "AU"],
+    [/首尔|seoul|서울/i, "Seoul", "KR"],
+    [/釜山|busan|부산/i, "Busan", "KR"],
+    [/大邱|daegu|대구/i, "Daegu", "KR"],
+    [/香港|hong kong/i, "Hong Kong", "HK"],
+    [/台北|taipei/i, "Taipei", "TW"],
+    [/曼谷|bangkok/i, "Bangkok", "TH"],
+    [/上海|shanghai/i, "Shanghai", "CN"],
+    [/北京|beijing/i, "Beijing", "CN"],
+    [/muizenberg/i, "Muizenberg", "ZA"],
+    [/alexandria bay/i, "Alexandria Bay", "US"],
+  ];
+  for (const [re, name, aliasCc] of aliases) {
+    if (re.test(title) || re.test(channelTitle)) {
+      tryPush(name, aliasCc ?? countryCode);
+      tryPush(name, countryCode);
+    }
+  }
+
   const cleaned = title
     .replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/gu, "")
     .replace(/【[^】]*】/g, " ")
+    .replace(/［[^］]*］/g, " ")
     .replace(/\blive\s*cam(era)?\b/gi, " ")
     .replace(/\b24\s*\/\s*7\b/gi, " ")
     .replace(/\b(stream|live|webcam|cam)\b/gi, " ")
     .replace(/\s+/g, " ")
     .trim();
-
-  const tryPush = (name: string, cc: string, admin1?: string): void => {
-    const n = name.replace(/[|–—]/g, " ").replace(/\s+/g, " ").trim();
-    if (n.length < 2 || n.length > 80) return;
-    queries.push({ name: n, countryCode: cc, admin1 });
-  };
 
   const cityState = /^(.+?),\s*([A-Za-z .]{2,30})$/.exec(cleaned);
   if (cityState !== null && countryCode === "US") {
@@ -243,22 +271,36 @@ function guessPlaceQueries(
 
   for (const part of cleaned.split(/[|–—]/)) {
     const segment = part.trim();
-    if (segment.length >= 2) tryPush(segment, countryCode);
+    if (segment.length >= 2 && segment.length <= 40) tryPush(segment, countryCode);
   }
 
   const head = cleaned.split(/[-–—(]/)[0]?.trim();
-  if (head !== undefined && head.length >= 2) tryPush(head, countryCode);
+  if (head !== undefined && head.length >= 2 && head.length <= 40) {
+    tryPush(head, countryCode);
+  }
 
   const channelClean = channelTitle
     .replace(/\blive\s*cam(era)?\b/gi, " ")
     .replace(/\b(webcam|channel|official)\b/gi, " ")
     .trim();
-  if (channelClean.length >= 2) tryPush(channelClean, countryCode);
+  if (channelClean.length >= 2 && channelClean.length <= 40) {
+    tryPush(channelClean, countryCode);
+  }
 
-  // 短い地名(先頭 1〜2 語)でも試す
-  const words = cleaned.split(/\s+/).filter((w) => w.length > 2);
-  if (words.length >= 1) tryPush(words[0]!, countryCode);
-  if (words.length >= 2) tryPush(`${words[0]} ${words[1]}`, countryCode);
+  const words = cleaned.split(/\s+/).filter((w) => w.length > 2 && w.length < 30);
+  for (const w of words.slice(0, 6)) tryPush(w, countryCode);
+  if (words.length >= 2) tryPush(words[words.length - 1]!, countryCode);
+
+  const stripped = cleaned
+    .replace(/^(cámaras?|cameras?|webcam|ao vivo|en vivo|canlı|ライブ)\s+/i, "")
+    .trim();
+  if (stripped !== cleaned && stripped.length >= 2 && stripped.length <= 40) {
+    tryPush(stripped, countryCode);
+  }
+
+  for (const m of cleaned.matchAll(/\b(?:in|at|from|near)\s+([A-Z][A-Za-z .'-]{2,40})/g)) {
+    tryPush(m[1]!.trim(), countryCode);
+  }
 
   const seen = new Set<string>();
   return queries.filter((q) => {
@@ -294,24 +336,97 @@ function inferCountry(title: string, channelTitle: string): string | null {
     [/\bfrance\b|\bparis\b|\bfrançais\b/, "FR"],
     [/\bitaly\b|\bitalia\b|\brome\b|\bvenice\b|\bmilan\b/, "IT"],
     [/\bspain\b|\bespaña\b|\bbarcelona\b|\bmadrid\b/, "ES"],
-    [/\bbrazil\b|\bbrasil\b|\bsão paulo\b/, "BR"],
+    [/\bbrazil\b|\bbrasil\b|\bsão paulo\b|\bao vivo\b/, "BR"],
+    [/\bargentina\b|\bushuaia\b|\bbuenos aires\b/, "AR"],
     [/\baustralia\b|\bsydney\b|\bmelbourne\b/, "AU"],
     [/\bcanada\b|\btoronto\b|\bvancouver\b/, "CA"],
     [/\bkorea\b|\bseoul\b|\bbusan\b|한국/, "KR"],
     [/\btaiwan\b|台灣|台湾/, "TW"],
-    [/\bthailand\b|\bbangkok\b/, "TH"],
+    [/\bthailand\b|\bbangkok\b|\bphuket\b|\bpatong\b/, "TH"],
     [/\bindonesia\b|\bjakarta\b|\bbali\b/, "ID"],
     [/\bindia\b|\bmumbai\b|\bdelhi\b/, "IN"],
     [/\bnetherlands\b|\bamsterdam\b|\bholland\b/, "NL"],
     [/\bpoland\b|\bwarsaw\b|\bkrakow\b/, "PL"],
     [/\bswitzerland\b|\bbern\b|\bzürich\b/, "CH"],
     [/\baustria\b|\bvienna\b|\bwien\b/, "AT"],
-    [/\bgreece\b|\bathens\b|\bcrete\b/, "GR"],
     [/\bturkey\b|\btürkiye\b|\bistanbul\b/, "TR"],
     [/\bmexico\b|\bcancún\b|\bcancun\b/, "MX"],
     [/\bphilippines\b|\bmanila\b/, "PH"],
     [/\bnew zealand\b|\bauckland\b/, "NZ"],
     [/\bsouth africa\b|\bcape town\b|\bjohannesburg\b/, "ZA"],
+    [/\bchile\b|\bsantiago\b/, "CL"],
+    [/\bportugal\b|\blisboa\b|\bporto\b/, "PT"],
+    [/\brussia\b|\bmoscow\b|\bмосква\b/, "RU"],
+    [/\bchina\b|\bbeijing\b|\bshanghai\b|中国|上海|北京/, "CN"],
+    [/\bvietnam\b|\bhanoi\b|\bho chi minh\b/, "VN"],
+    [/\bmalaysia\b|\bkuala lumpur\b/, "MY"],
+    [/\bsingapore\b/, "SG"],
+    [/\bhawaii\b|\bhonolulu\b|\bmaui\b/, "US"],
+    [/\biceland\b|\breykjavik\b/, "IS"],
+    [/\bnorway\b|\boslo\b|\bbergen\b/, "NO"],
+    [/\bsweden\b|\bstockholm\b/, "SE"],
+    [/\bdenmark\b|\bcopenhagen\b/, "DK"],
+    [/\bfinland\b|\bhelsinki\b|\blevi\b/, "FI"],
+    [/\bczech\b|\bprague\b|\bpraha\b/, "CZ"],
+    [/\bhungary\b|\bbudapest\b/, "HU"],
+    [/\bromania\b|\bbucharest\b/, "RO"],
+    [/\bcroatia\b|\bdubrovnik\b|\bsplit\b/, "HR"],
+    [/\bperu\b|\blima\b|\bcusco\b/, "PE"],
+    [/\bcolombia\b|\bbogot[aá]\b/, "CO"],
+    [/\becuador\b|\bquito\b/, "EC"],
+    [/\buruguay\b|\bmontevideo\b/, "UY"],
+    [/\bparaguay\b|\basunci[oó]n\b/, "PY"],
+    [/\begypt\b|\bcairo\b/, "EG"],
+    [/\bmorocco\b|\bmarrakech\b|\bcasablanca\b/, "MA"],
+    [/\bkenya\b|\bnairobi\b/, "KE"],
+    [/\buae\b|\bdubai\b|\babu dhabi\b/, "AE"],
+    [/\bisrael\b|\bjerusalem\b|\btel aviv\b/, "IL"],
+    [/\bnepal\b|\bkathmandu\b/, "NP"],
+    [/\bsri lanka\b|\bcolombo\b/, "LK"],
+    [/\bpakistan\b|\bislamabad\b|\bkarachi\b/, "PK"],
+    [/\bbangladesh\b|\bdhaka\b/, "BD"],
+    [/\bhonduras\b|\btegucigalpa\b/, "HN"],
+    [/\bcosta rica\b|\bsan jos[eé]\b/, "CR"],
+    [/\bpanama\b/, "PA"],
+    [/\bguatemala\b/, "GT"],
+    [/\bdominican\b|\bpunta cana\b/, "DO"],
+    [/\bpuerto rico\b|\bsan juan\b/, "PR"],
+    [/\bjamaica\b|\bkingston\b/, "JM"],
+    [/\bcuba\b|\bhavana\b/, "CU"],
+    [/\bbarbados\b/, "BB"],
+    [/\baruba\b/, "AW"],
+    [/\bcuracao\b|\bcuraçao\b/, "CW"],
+    [/\bbonaire\b/, "BQ"],
+    [/\bst\.?\s*barthelemy\b|\bst bart\b/, "BL"],
+    [/\bvirgin islands\b|\bst\.?\s*thomas\b|\bcruz bay\b/, "VI"],
+    [/\bnambia\b|\bwindhoek\b/, "NA"],
+    [/\bazerbaijan\b|\bbaku\b/, "AZ"],
+    [/\bmalta\b|\bvalletta\b/, "MT"],
+    [/\bcyprus\b|\bnicosia\b/, "CY"],
+    [/\bireland\b|\bdublin\b/, "IE"],
+    [/\bbelgium\b|\bbrussels\b|\bbrugge\b/, "BE"],
+    [/\bluxembourg\b/, "LU"],
+    [/\bslovenia\b|\bljubljana\b/, "SI"],
+    [/\bslovakia\b|\bbratislava\b/, "SK"],
+    [/\bukraine\b|\bkyiv\b|\bkiev\b/, "UA"],
+    [/\bbelarus\b|\bminsk\b/, "BY"],
+    [/\blithuania\b|\bvilnius\b/, "LT"],
+    [/\blatvia\b|\briga\b/, "LV"],
+    [/\bestonia\b|\btallinn\b/, "EE"],
+    [/\bgeorgia\b|\btbilisi\b/, "GE"],
+    [/\barmenia\b|\byerevan\b/, "AM"],
+    [/\bkazakhstan\b|\balmaty\b/, "KZ"],
+    [/\buzbekistan\b|\btashkent\b/, "UZ"],
+    [/\bmongolia\b|\bulan bator\b/, "MN"],
+    [/\bcambodia\b|\bphnom penh\b|\bsiem reap\b/, "KH"],
+    [/\blaos\b|\bvientiane\b/, "LA"],
+    [/\bmyanmar\b|\byangon\b/, "MM"],
+    [/\bmacedonia\b|\bskopje\b/, "MK"],
+    [/\bserbia\b|\bbelgrade\b/, "RS"],
+    [/\bbosnia\b|\bsarajevo\b/, "BA"],
+    [/\balbania\b|\btirana\b/, "AL"],
+    [/\bbulgaria\b|\bsofia\b/, "BG"],
+    [/\bgreece\b|\bathens\b|\bcrete\b|\bsantorini\b/, "GR"],
   ];
   for (const [re, code] of rules) {
     if (re.test(text)) return code;
@@ -356,44 +471,26 @@ async function resolveFromGeocode(
   channelTitle: string,
   countryCode: string,
 ): Promise<NonNullable<CamPlace["at"]> | null> {
-  for (const q of guessPlaceQueries(title, channelTitle, countryCode)) {
+  // 短い・明確な地名を先に試す(漢字の長い断片で枠を使い切らない)
+  const queries = guessPlaceQueries(title, channelTitle, countryCode).sort(
+    (a, b) => a.name.length - b.name.length,
+  ).slice(0, 12);
+  for (const q of queries) {
     const hit = await geocode(q);
-    if (hit !== null) {
+    if (hit !== null && typeof hit.timezone === "string" && hit.timezone.length > 0) {
+      const lat = Number(hit.latitude.toFixed(4));
+      const lng = Number(hit.longitude.toFixed(4));
+      // 国の重心っぽい粗い座標は近似なので落とす
+      if (Number.isInteger(lat) && Number.isInteger(lng)) continue;
       return {
-        lat: Number(hit.latitude.toFixed(4)),
-        lng: Number(hit.longitude.toFixed(4)),
+        lat,
+        lng,
         timeZone: hit.timezone,
         country: hit.country_code,
       };
     }
   }
   return null;
-}
-
-async function fetchChannelMeta(videoId: string): Promise<{
-  channelId: string;
-  channelTitle: string;
-  title: string;
-} | null> {
-  try {
-    const res = await fetchWithRetry(`https://www.youtube.com/watch?v=${videoId}`, {
-      headers: { "user-agent": UA, "accept-language": "en-US,en" },
-    });
-    if (!res.ok) return null;
-    const html = await res.text();
-    const channelId = /"channelId":"(UC[A-Za-z0-9_-]{22})"/.exec(html)?.[1];
-    const channelTitle = /"ownerChannelName":"((?:[^"\\]|\\.)*)"/.exec(html)?.[1];
-    const title = /"title":"((?:[^"\\]|\\.)*)"/.exec(html)?.[1];
-    if (channelId === undefined || title === undefined) return null;
-    return {
-      channelId,
-      channelTitle:
-        channelTitle === undefined ? channelId : (JSON.parse(`"${channelTitle}"`) as string),
-      title: JSON.parse(`"${title}"`) as string,
-    };
-  } catch {
-    return null;
-  }
 }
 
 function exportHeader(entries: CamPlace[]): string {
@@ -479,12 +576,8 @@ async function main(): Promise<void> {
 
   console.log(`既存 bulk ${EXISTING_BULK.length} 件 / あと ${need} 件追加`);
 
-  if (bulk.length >= targetBulk) {
-    await flush();
-    return;
-  }
-
-  // Phase 1: geojson YouTube(座標あり) + camlisted 照合
+  // Phase 1: geojson YouTube(座標あり)。camlisted に channelId があるものだけ。
+  // YouTube ページへの問い合わせは遅すぎるので、メタが無いものはスキップ。
   for (const feature of geojson.features) {
     if (bulk.length >= targetBulk) break;
     if (feature.properties?.url === undefined) continue;
@@ -498,44 +591,21 @@ async function main(): Promise<void> {
     if (coords === undefined || countryCode === undefined) continue;
 
     const listed = camlistedByVideo.get(videoId);
-    if (listed !== undefined) {
-      if (!listed.embeddable || listed.visibility !== "listed") continue;
-    }
+    if (listed === undefined || !listed.embeddable || listed.visibility !== "listed") continue;
+    if (listed.channel_id.length === 0) continue;
 
     const [lng, lat] = coords;
     const at = await resolveFromCoords(lat, lng, countryCode);
     if (at === null) continue;
 
-    const label = displayName(
-      listed?.title ?? feature.properties.display_name ?? feature.properties.name ?? videoId,
-      listed?.channel_title ?? "Live Camera",
-    );
-
-    let channelId = listed?.channel_id;
-    let handle = listed?.channel_title ?? "YouTube";
-    let titleKey = listed?.title ?? label;
-    const category = listed !== undefined
-      ? (CATEGORY_MAP[listed.category] ?? sceneCategory(feature.properties.scene_type))
-      : sceneCategory(feature.properties.scene_type);
-
-    if (channelId === undefined) {
-      const meta = await fetchChannelMeta(videoId);
-      if (meta === null) {
-        failures.push(`[${videoId}] channelId を取得できなかった`);
-        continue;
-      }
-      channelId = meta.channelId;
-      handle = meta.channelTitle;
-      titleKey = meta.title;
-    }
-
+    const label = displayName(listed.title, listed.channel_title);
     const added = await addEntry(bulk, usedIds, seenKeys, {
       videoId,
-      titleKey,
-      channelId,
-      handle,
+      titleKey: listed.title,
+      channelId: listed.channel_id,
+      handle: listed.channel_title,
       label,
-      category,
+      category: CATEGORY_MAP[listed.category] ?? sceneCategory(feature.properties.scene_type),
       at,
     });
     if (added) {
@@ -547,7 +617,7 @@ async function main(): Promise<void> {
     }
   }
 
-  // Phase 2: camlisted 残り(ジオコーディング)
+  // Phase 2: camlisted 残り(ジオコーディング)。並列で回す。
   const camlistedCandidates = camlistedJson.streams
     .filter(
       (s) =>
@@ -564,36 +634,51 @@ async function main(): Promise<void> {
       return countryA.localeCompare(countryB);
     });
 
-  for (const stream of camlistedCandidates) {
-    if (bulk.length >= targetBulk) break;
+  console.log(`phase 2 候補 ${camlistedCandidates.length} 件`);
 
-    const countryCode = stream.country ?? inferCountry(stream.title, stream.channel_title);
-    if (countryCode === null) continue;
+  const PHASE2_CONCURRENCY = 8;
+  let candidateIndex = 0;
 
-    const at = await resolveFromGeocode(stream.title, stream.channel_title, countryCode);
-    if (at == null) {
-      failures.push(`[${stream.video_id}] 座標未解決: ${stream.title}`);
-      continue;
-    }
-
-    const label = displayName(stream.title, stream.channel_title);
-    const added = await addEntry(bulk, usedIds, seenKeys, {
-      videoId: stream.video_id,
-      titleKey: stream.title,
-      channelId: stream.channel_id,
-      handle: stream.channel_title,
-      label,
-      category: CATEGORY_MAP[stream.category] ?? "city",
-      at,
-    });
-    if (added) {
+  async function phase2Worker(): Promise<void> {
+    while (true) {
+      if (bulk.length >= targetBulk) return;
+      const i = candidateIndex++;
+      if (i >= camlistedCandidates.length) return;
+      const stream = camlistedCandidates[i]!;
+      if (seenVideos.has(stream.video_id)) continue;
       seenVideos.add(stream.video_id);
-      if (bulk.length % 25 === 0) {
+
+      const countryCode = stream.country ?? inferCountry(stream.title, stream.channel_title);
+      if (countryCode === null) continue;
+
+      const at = await resolveFromGeocode(stream.title, stream.channel_title, countryCode);
+      if (at == null) {
+        failures.push(`[${stream.video_id}] 座標未解決: ${stream.title}`);
+        continue;
+      }
+
+      if (bulk.length >= targetBulk) return;
+
+      const label = displayName(stream.title, stream.channel_title);
+      const added = await addEntry(bulk, usedIds, seenKeys, {
+        videoId: stream.video_id,
+        titleKey: stream.title,
+        channelId: stream.channel_id,
+        handle: stream.channel_title,
+        label,
+        category: CATEGORY_MAP[stream.category] ?? "city",
+        at,
+      });
+      if (added && bulk.length % 50 === 0) {
         await flush();
         console.log(`  … ${bulk.length} 件 (phase 2)`);
       }
     }
   }
+
+  await Promise.all(
+    Array.from({ length: PHASE2_CONCURRENCY }, () => phase2Worker()),
+  );
 
   await flush();
   console.log(`✓ ${bulk.length} 件を ${OUTPUT_PATH} に書き出した (目標追加 ${need} 件)`);
