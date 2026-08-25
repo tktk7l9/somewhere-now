@@ -8,6 +8,7 @@ export interface ControlHandlers {
   onChange(patch: Partial<ViewState>): void;
   onRandom(): void;
   onToggleWall(): void;
+  onSetGlobe(globe: boolean): void;
 }
 
 function chip(label: string, pressed: boolean, onClick: () => void): HTMLButtonElement {
@@ -67,6 +68,16 @@ export function createControls(container: HTMLElement, handlers: ControlHandlers
       random.textContent = t("takeMeSomewhere", lang);
       random.addEventListener("click", handlers.onRandom);
 
+      const flatMap = chip(
+        t("flatMap", lang),
+        !wallOpen && !state.globe,
+        () => handlers.onSetGlobe(false),
+      );
+      const globe = chip(
+        t("globe", lang),
+        !wallOpen && state.globe,
+        () => handlers.onSetGlobe(true),
+      );
       const wall = chip(t(wallOpen ? "backToMap" : "wall", lang), wallOpen, handlers.onToggleWall);
 
       const langToggle = chip("JA / EN", false, () =>
@@ -78,7 +89,7 @@ export function createControls(container: HTMLElement, handlers: ControlHandlers
         group(...categories),
         group(...flags),
         group(search),
-        group(random, wall),
+        group(random, flatMap, globe, wall),
         group(langToggle),
       );
 

@@ -14,6 +14,8 @@ export interface ViewState {
   liveOnly: boolean;
   nightOnly: boolean;
   favoritesOnly: boolean;
+  /** 地球儀ビュー。既定は平面図。 */
+  globe: boolean;
   query: string;
   lang: Lang;
 }
@@ -42,6 +44,7 @@ export function parseUrlState(search: string): ViewState {
     liveOnly: params.get("live") === "1",
     nightOnly: params.get("night") === "1",
     favoritesOnly: params.get("fav") === "1",
+    globe: params.get("globe") === "1",
     query: (params.get("q") ?? "").trim(),
     lang,
   };
@@ -59,6 +62,7 @@ export function toSearchString(state: ViewState): string {
   if (state.liveOnly) params.set("live", "1");
   if (state.nightOnly) params.set("night", "1");
   if (state.favoritesOnly) params.set("fav", "1");
+  if (state.globe) params.set("globe", "1");
   if (state.query !== "") params.set("q", state.query);
   if (state.lang !== "ja") params.set("lang", state.lang);
 

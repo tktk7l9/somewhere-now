@@ -299,6 +299,63 @@ input {
   pointer-events: none;
 }
 
+/* ── 地球儀 ───────────────────────────────────────── */
+
+.globe {
+  position: absolute;
+  inset: 0;
+  background: var(--ink);
+}
+
+.globe .maplibregl-map {
+  height: 100%;
+  font-family: var(--font-body);
+}
+
+.globe .maplibregl-canvas {
+  outline: none;
+}
+
+.globe .maplibregl-ctrl-attrib {
+  background: rgba(11, 22, 32, 0.86);
+  color: var(--dim);
+  font-family: var(--font-mono);
+  font-size: 10px;
+}
+
+.globe .maplibregl-ctrl-attrib a {
+  color: var(--dim);
+}
+
+.globe .maplibregl-ctrl-group {
+  background: var(--ink-2);
+  border: 1px solid var(--haze);
+  box-shadow: none;
+  overflow: hidden;
+}
+
+.globe .maplibregl-ctrl-group button {
+  background: var(--ink-2);
+  width: 30px;
+  height: 30px;
+}
+
+.globe .maplibregl-ctrl-group button + button {
+  border-top-color: var(--haze);
+}
+
+.globe .maplibregl-ctrl-group button:hover {
+  background: var(--haze);
+}
+
+.globe .maplibregl-ctrl-icon {
+  filter: invert(0.88) sepia(0.15);
+}
+
+.app[data-mode="globe"] .map {
+  display: none;
+}
+
 /* ── マーカー ───────────────────────────────────────── */
 
 .pin {
@@ -521,6 +578,7 @@ input {
 
 /* 並べて見るときは、地図もパネルも畳んで映像に幅を全部渡す。 */
 .app[data-mode="wall"] .map,
+.app[data-mode="wall"] .globe,
 .app[data-mode="wall"] .dial,
 .app[data-mode="wall"] .panel {
   display: none;
@@ -802,6 +860,7 @@ input {
 
 /* 休憩中は映像だけにする。13 個並ぶ絞り込みのチップは、休むときには雑音。 */
 .app[data-mode="break"] .map,
+.app[data-mode="break"] .globe,
 .app[data-mode="break"] .dial,
 .app[data-mode="break"] .panel,
 .app[data-mode="break"] .wall,

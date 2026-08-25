@@ -21,6 +21,8 @@ const STRINGS = {
   nightOnly: { ja: "夜の場所だけ", en: "Night only" },
   favoritesOnly: { ja: "お気に入りだけ", en: "Favorites" },
   takeMeSomewhere: { ja: "どこかへ連れてって", en: "Take me somewhere" },
+  flatMap: { ja: "平面図", en: "Map" },
+  globe: { ja: "地球儀", en: "Globe" },
   wall: { ja: "並べて見る", en: "Video wall" },
   backToMap: { ja: "地図に戻る", en: "Back to map" },
   focusThis: { ja: "これを見る", en: "Watch this" },

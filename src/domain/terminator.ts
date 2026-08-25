@@ -70,6 +70,36 @@ export function nightPolygon(date: Date, stepDeg = 1): [number, number][] {
   return [...line, [darkPole, 180], [darkPole, -180]];
 }
 
+/** GeoJSON の位置。[経度, 緯度]。Leaflet の [lat, lng] とは軸が逆。 */
+export type LngLat = [lng: number, lat: number];
+
+function toLngLat([lat, lng]: [number, number]): LngLat {
+  return [lng, lat];
+}
+
+/** 地球儀(GeoJSON)向けの昼夜境界。 */
+export function terminatorLineGeoJSON(
+  date: Date,
+  stepDeg = 1,
+): { type: "LineString"; coordinates: LngLat[] } {
+  return {
+    type: "LineString",
+    coordinates: terminatorLine(date, stepDeg).map(toLngLat),
+  };
+}
+
+/**
+ * 地球儀(GeoJSON)向けの夜側ポリゴン。リングは閉じる(先頭=末尾)。
+ * Leaflet の nightPolygon と同じ点列を [lng, lat] に組み替えたもの。
+ */
+export function nightPolygonGeoJSON(
+  date: Date,
+  stepDeg = 1,
+): { type: "Polygon"; coordinates: LngLat[][] } {
+  const ring = nightPolygon(date, stepDeg).map(toLngLat);
+  return { type: "Polygon", coordinates: [[...ring, ring[0]!]] };
+}
+
 /** その地点がいま夜か(太陽の真の高度が地平線より下か)。 */
 export function isNightAt(date: Date, loc: GeoLocation): boolean {
   return sunAltitude(date, loc) < 0;
