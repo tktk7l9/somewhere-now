@@ -356,6 +356,19 @@ input {
   display: none;
 }
 
+.globe__unsupported {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  padding: 32px 24px;
+  color: var(--dim);
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
 /* ── マーカー ───────────────────────────────────────── */
 
 .pin {

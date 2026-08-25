@@ -3,14 +3,14 @@
 // MapLibre の globe projection を使い、タイルは平面図と同じ OSM。
 // ライブラリは動的 import されるので、平面図だけの初回表示には乗らない。
 
-import { Map as MapLibreMap, NavigationControl, type GeoJSONSource } from "maplibre-gl";
+import { GPUInitializationError, Map as MapLibreMap, NavigationControl, type GeoJSONSource } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 
 import type { Cam, CamState } from "../domain/cams";
 import { GLOBE_ZOOM, INITIAL_VIEW } from "../domain/mapView";
 import { nightPolygonGeoJSON, terminatorLineGeoJSON } from "../domain/terminator";
 import type { Lang } from "../domain/weather";
-import { camName } from "./i18n";
+import { camName, t } from "./i18n";
 
 export interface GlobeView {
   setStates(states: ReadonlyMap<string, CamState>): void;
@@ -32,15 +32,56 @@ function emptyCollection(): { type: "FeatureCollection"; features: never[] } {
   return { type: "FeatureCollection", features: [] };
 }
 
+function isGpuFailure(error: unknown): boolean {
+  if (error instanceof GPUInitializationError) return true;
+  return error instanceof Error && /WebGL2 is required/i.test(error.message);
+}
+
+function webgl2Available(): boolean {
+  try {
+    const canvas = document.createElement("canvas");
+    return canvas.getContext("webgl2") !== null;
+  } catch {
+    return false;
+  }
+}
+
+function createUnsupportedView(container: HTMLElement, lang: Lang): GlobeView {
+  let currentLang = lang;
+  const paint = (): void => {
+    const message = document.createElement("p");
+    message.className = "globe__unsupported";
+    message.textContent = t("globeUnsupported", currentLang);
+    container.replaceChildren(message);
+  };
+  paint();
+  return {
+    setStates() {},
+    setVisible() {},
+    setSelected() {},
+    setLang(next) {
+      currentLang = next;
+      paint();
+    },
+    focus() {},
+    drawTerminator() {},
+    invalidate() {},
+  };
+}
+
 export function createGlobeView(
   container: HTMLElement,
   cams: readonly Cam[],
   lang: Lang,
   onSelect: (camId: string) => void,
 ): GlobeView {
+  if (!webgl2Available()) return createUnsupportedView(container, lang);
+
   const [lat, lng] = INITIAL_VIEW.center;
 
-  const map = new MapLibreMap({
+  let map: MapLibreMap;
+  try {
+    map = new MapLibreMap({
     container,
     style: {
       version: 8,
@@ -167,6 +208,9 @@ export function createGlobeView(
     renderWorldCopies: false,
     canvasContextAttributes: { antialias: true },
   });
+  } catch {
+    return createUnsupportedView(container, lang);
+  }
 
   map.addControl(new NavigationControl({ showCompass: true, visualizePitch: false }), "top-right");
 
@@ -175,12 +219,30 @@ export function createGlobeView(
   let currentLang = lang;
   let visible: readonly Cam[] = cams;
   let ready = false;
+  let failed = false;
   const queued: Array<() => void> = [];
 
   function whenReady(fn: () => void): void {
+    if (failed) return;
     if (ready) fn();
     else queued.push(fn);
   }
+
+  function failGpu(): void {
+    if (failed) return;
+    failed = true;
+    queued.length = 0;
+    try {
+      map.remove();
+    } catch {
+      // 既に死んでいるコンテキストなら、メッセージを出すだけでよい。
+    }
+    createUnsupportedView(container, currentLang);
+  }
+
+  map.on("error", (event) => {
+    if (isGpuFailure(event.error)) failGpu();
+  });
 
   function source(id: "night" | "terminator" | "cams"): GeoJSONSource {
     return map.getSource(id) as GeoJSONSource;
@@ -254,7 +316,8 @@ export function createGlobeView(
     },
     setLang(next) {
       currentLang = next;
-      whenReady(paintCams);
+      if (failed) createUnsupportedView(container, currentLang);
+      else whenReady(paintCams);
     },
     focus(cam) {
       whenReady(() => {
@@ -269,6 +332,7 @@ export function createGlobeView(
       whenReady(() => paintTerminator(at));
     },
     invalidate() {
+      if (failed) return;
       map.resize();
     },
   };

@@ -23,6 +23,10 @@ const STRINGS = {
   takeMeSomewhere: { ja: "どこかへ連れてって", en: "Take me somewhere" },
   flatMap: { ja: "平面図", en: "Map" },
   globe: { ja: "地球儀", en: "Globe" },
+  globeUnsupported: {
+    ja: "このブラウザでは地球儀を表示できません。平面図に戻ってください。",
+    en: "This browser can't show the globe. Switch back to the map.",
+  },
   wall: { ja: "並べて見る", en: "Video wall" },
   backToMap: { ja: "地図に戻る", en: "Back to map" },
   focusThis: { ja: "これを見る", en: "Watch this" },
