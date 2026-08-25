@@ -35,7 +35,12 @@ export function createWall(container: HTMLElement, onUnplayable: (camId: string)
   }
 
   return {
-    update(selected: readonly Cam[], states: ReadonlyMap<string, CamState>, lang: Lang): void {
+    update(
+      selected: readonly Cam[],
+      states: ReadonlyMap<string, CamState>,
+      lang: Lang,
+      soundOn: boolean,
+    ): void {
       const keep = new Set(selected.map((cam) => cam.id));
       for (const camId of [...cells.keys()]) {
         if (!keep.has(camId)) drop(camId);
@@ -47,7 +52,7 @@ export function createWall(container: HTMLElement, onUnplayable: (camId: string)
         const existing = cells.get(cam.id);
         if (existing !== undefined) {
           existing.caption.textContent = camName(cam.name, lang);
-          existing.player?.setMuted(index !== 0);
+          existing.player?.setMuted(!(soundOn && index === 0));
           return;
         }
 
@@ -68,7 +73,8 @@ export function createWall(container: HTMLElement, onUnplayable: (camId: string)
           cell.timer = null;
           if (!root.isConnected) return;
           cell.player = mountPlayer(root, cam, states.get(cam.id), {
-            muted: index !== 0,
+            // 音が出るのは先頭の 1 枚だけ。しかも本人が音を許したときだけ。
+            muted: !(soundOn && index === 0),
             onUnplayable: () => onUnplayable(cam.id),
           });
         }, newcomers * STAGGER_MS);

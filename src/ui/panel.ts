@@ -3,6 +3,7 @@
 // 再描画のたびに iframe を作り直すと配信が止まって繋ぎ直しになるので、
 // カメラ id で差分を取り、残るカードには触らない。
 
+import { BREAK_DURATIONS_MIN, type BreakDuration } from "../domain/breakMode";
 import type { Cam, CamState } from "../domain/cams";
 import { formatLocalTime, utcOffsetLabel } from "../domain/localTime";
 import { weatherIcon, weatherLabel, type Lang } from "../domain/weather";
@@ -11,6 +12,8 @@ import { camName, categoryLabel, t } from "./i18n";
 import { mountPlayer, type PlayerHandle } from "./player";
 
 export interface PanelHandlers {
+  onStartBreak(minutes: BreakDuration): void;
+  onToggleSound(): void;
   onToggleFavorite(camId: string): void;
   onClose(camId: string): void;
   onFocus(camId: string): void;
@@ -22,6 +25,8 @@ export interface PanelContext {
   now: Date;
   states: ReadonlyMap<string, CamState>;
   favoriteIds: ReadonlySet<string>;
+  /** 音を出してよいか。既定は false(仕事の合間に開くので事故を避ける)。 */
+  soundOn: boolean;
 }
 
 /** 何も出せないときに、その理由を伝え分けるための区別。 */
@@ -34,20 +39,51 @@ interface Card {
   player: PlayerHandle | null;
 }
 
-function emptyState(reason: EmptyReason, lang: Lang): HTMLElement {
+/**
+ * 何も選んでいないときの面。ここは元々「まだ何も選んでいません」で終わって
+ * いて何も起きなかった。休憩に来た人がいちばん最初に見る場所なので、
+ * 「決めずに始められる入口」を置く。
+ */
+function emptyState(
+  reason: EmptyReason,
+  lang: Lang,
+  onStartBreak: (minutes: BreakDuration) => void,
+): HTMLElement {
   const el = document.createElement("div");
   el.className = "panel__empty";
+
   if (reason === "noMatch") {
     const p = document.createElement("p");
     p.textContent = t("noMatch", lang);
     el.append(p);
     return el;
   }
+
   const h = document.createElement("h2");
-  h.textContent = t("emptyTitle", lang);
-  const p = document.createElement("p");
-  p.textContent = t("emptyBody", lang);
-  el.append(h, p);
+  h.textContent = t("breakInvite", lang);
+  const body = document.createElement("p");
+  body.textContent = t("breakInviteBody", lang);
+
+  const durations = document.createElement("div");
+  durations.className = "breakstart";
+  for (const minutes of BREAK_DURATIONS_MIN) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "breakstart__button";
+    const number = document.createElement("strong");
+    number.textContent = String(minutes);
+    const unit = document.createElement("span");
+    unit.textContent = t("breakMinutes", lang);
+    button.append(number, unit);
+    button.addEventListener("click", () => onStartBreak(minutes));
+    durations.append(button);
+  }
+
+  const hint = document.createElement("p");
+  hint.className = "panel__hint";
+  hint.textContent = t("emptyBody", lang);
+
+  el.append(h, body, durations, hint);
   return el;
 }
 
@@ -101,7 +137,7 @@ export function createPanel(container: HTMLElement, handlers: PanelHandlers) {
     let player: PlayerHandle | null = null;
     if (playable) {
       player = mountPlayer(frame, cam, state, {
-        muted: !focused,
+        muted: !(focused && ctx.soundOn),
         onUnplayable: () => handlers.onUnplayable(cam.id),
       });
     } else {
@@ -202,6 +238,7 @@ export function createPanel(container: HTMLElement, handlers: PanelHandlers) {
     link.textContent = t("watchOnYouTube", ctx.lang);
 
     card.actions.replaceChildren(
+      chip(t(ctx.soundOn ? "breakMute" : "breakUnmute", ctx.lang), handlers.onToggleSound, ctx.soundOn),
       chip(t(favorited ? "unfavorite" : "favorite", ctx.lang), () => handlers.onToggleFavorite(cam.id), favorited),
       chip(t("removeFromView", ctx.lang), () => handlers.onClose(cam.id)),
       link,
@@ -217,7 +254,7 @@ export function createPanel(container: HTMLElement, handlers: PanelHandlers) {
           current.card.player?.destroy();
           current = null;
         }
-        cardHost.replaceChildren(emptyState(emptyReason, ctx.lang));
+        cardHost.replaceChildren(emptyState(emptyReason, ctx.lang, handlers.onStartBreak));
         listHost.replaceChildren();
         return;
       }
@@ -231,6 +268,7 @@ export function createPanel(container: HTMLElement, handlers: PanelHandlers) {
         cardHost.replaceChildren(current.card.root);
       }
       // 既にある主役の iframe には触れず、周りの表示だけ描き替える。
+      current.card.player?.setMuted(!ctx.soundOn);
       paintReadout(current.card, focused, ctx);
       paintActions(current.card, focused, ctx);
 

@@ -7,6 +7,15 @@
 // それ以外(いま夜かどうか、現地時刻)は now から毎分導出する。
 
 import { CAMS } from "./data/cams";
+import {
+  breakProgress,
+  decodeRecent,
+  encodeRecent,
+  isNightHour,
+  pickDestination,
+  rememberRecent,
+  type BreakDuration,
+} from "./domain/breakMode";
 import { filterCams, pickRandom, type Cam, type CamState } from "./domain/cams";
 import { decodeFavorites, encodeFavorites, toggleFavorite } from "./domain/favorites";
 import { isNightAt } from "./domain/terminator";
@@ -14,11 +23,16 @@ import { MAX_VIEW, parseUrlState, toSearchString, type ViewState } from "./domai
 import { fetchCamStates } from "./api/client";
 import { createControls } from "./ui/controls";
 import { t } from "./ui/i18n";
+import { createBreakView } from "./ui/breakView";
 import { createMapView } from "./ui/map";
 import { createPanel } from "./ui/panel";
 import { createWall } from "./ui/wall";
 
 const FAVORITES_KEY = "somewhere-now:favorites";
+const RECENT_KEY = "somewhere-now:recent";
+const SOUND_KEY = "somewhere-now:sound";
+/** 休憩中の残り時間を描き替える間隔。 */
+const BREAK_TICK_MS = 1000;
 /** 生存状態の取り込み間隔。Worker 側の更新が 10 分毎なので 2 分で十分に追いつく。 */
 const STATE_POLL_MS = 120_000;
 /** 現地時刻と昼夜の再計算。 */
@@ -42,12 +56,30 @@ function writeFavorites(ids: readonly string[]): void {
   }
 }
 
+/** localStorage は使えないことがあるので、読み書きとも失敗を飲み込む。 */
+function readStored(key: string): string | null {
+  try {
+    return localStorage.getItem(key);
+  } catch {
+    return null;
+  }
+}
+
+function writeStored(key: string, value: string): void {
+  try {
+    localStorage.setItem(key, value);
+  } catch {
+    // 保存できなくても、その回の体験は壊れない。
+  }
+}
+
 export function startApp(root: HTMLElement): void {
   const mapEl = root.querySelector<HTMLElement>("#map")!;
   const panelEl = root.querySelector<HTMLElement>("#panel")!;
   const controlsEl = root.querySelector<HTMLElement>("#controls")!;
   const wallEl = root.querySelector<HTMLElement>("#wall")!;
   const dialEl = root.querySelector<HTMLElement>("#dial")!;
+  const breakEl = root.querySelector<HTMLElement>("#break")!;
 
   let view: ViewState = parseUrlState(location.search);
   let states: ReadonlyMap<string, CamState> = new Map();
@@ -55,6 +87,12 @@ export function startApp(root: HTMLElement): void {
   let wallOpen = false;
   let now = new Date();
   let nightIds = new Set<string>();
+  let recentIds = decodeRecent(readStored(RECENT_KEY));
+  // 音は既定で出さない。仕事の合間に開くので、押した瞬間に鳴るのは事故になる。
+  let soundOn = readStored(SOUND_KEY) === "on";
+  let breakSession: { cam: Cam; startedAt: Date; minutes: BreakDuration } | null = null;
+  let breakFinished: Cam | null = null;
+  let breakTimer: number | null = null;
 
   function recomputeNight(): void {
     nightIds = new Set(CAMS.filter((cam) => isNightAt(now, cam)).map((cam) => cam.id));
@@ -96,6 +134,8 @@ export function startApp(root: HTMLElement): void {
   }
 
   const panel = createPanel(panelEl, {
+    onStartBreak: startBreak,
+    onToggleSound: toggleSound,
     onToggleFavorite(camId) {
       favorites = toggleFavorite(favorites, camId);
       writeFavorites(favorites);
@@ -112,6 +152,96 @@ export function startApp(root: HTMLElement): void {
   });
 
   const wall = createWall(wallEl, markUnplayable);
+
+  const breakView = createBreakView(breakEl, {
+    onToggleSound: toggleSound,
+    onNext() {
+      travel();
+    },
+    onStop: endBreak,
+    onAgain() {
+      startBreak(breakSession?.minutes ?? 5);
+    },
+    onBackToMap: endBreak,
+  });
+
+  function toggleSound(): void {
+    soundOn = !soundOn;
+    writeStored(SOUND_KEY, soundOn ? "on" : "off");
+    render();
+  }
+
+  /**
+   * 次の行き先。決めるのはこちらの仕事なので、休憩に来た人には選ばせない。
+   * いまの絞り込みは尊重する(自然だけを見たい人を街へ連れて行かない)。
+   */
+  function chooseDestination(): Cam | null {
+    return pickDestination(
+      visibleCams(),
+      { states, nightIds, recentIds, viewerIsNight: isNightHour(now.getHours()) },
+      Math.random,
+    );
+  }
+
+  function recordVisit(cam: Cam): void {
+    recentIds = rememberRecent(recentIds, cam.id);
+    writeStored(RECENT_KEY, encodeRecent(recentIds));
+  }
+
+  function startBreak(minutes: BreakDuration): void {
+    const cam = chooseDestination();
+    if (cam === null) {
+      breakView.notice(t("breakNoLive", view.lang), view.lang);
+      breakFinished = null;
+      breakSession = null;
+      breakEl.hidden = false;
+      root.dataset["mode"] = "break";
+      return;
+    }
+    recordVisit(cam);
+    breakFinished = null;
+    breakSession = { cam, startedAt: new Date(), minutes };
+    if (breakTimer === null) breakTimer = window.setInterval(tickBreak, BREAK_TICK_MS);
+    render();
+  }
+
+  /** 休憩中に「別の場所へ」。残り時間は引き継ぐ。 */
+  function travel(): void {
+    if (breakSession === null) return;
+    const cam = chooseDestination();
+    if (cam === null) return;
+    recordVisit(cam);
+    breakSession = { ...breakSession, cam };
+    render();
+  }
+
+  function stopTimer(): void {
+    if (breakTimer === null) return;
+    clearInterval(breakTimer);
+    breakTimer = null;
+  }
+
+  function endBreak(): void {
+    breakSession = null;
+    breakFinished = null;
+    stopTimer();
+    breakView.teardown();
+    render();
+  }
+
+  /** 残り時間だけを描き替える。時間が来たら静かに終わる(音は鳴らさない)。 */
+  function tickBreak(): void {
+    if (breakSession === null) return;
+    const progress = breakProgress(breakSession.startedAt, new Date(), breakSession.minutes);
+    if (!progress.done) {
+      breakView.tick(progress);
+      return;
+    }
+    breakFinished = breakSession.cam;
+    breakSession = null;
+    stopTimer();
+    breakView.finish(breakFinished, view.lang);
+  }
 
   const controls = createControls(controlsEl, {
     onChange(patch) {
@@ -151,6 +281,7 @@ export function startApp(root: HTMLElement): void {
     now,
     states,
     favoriteIds: new Set(favorites),
+    soundOn,
   });
 
   function render(): void {
@@ -158,8 +289,21 @@ export function startApp(root: HTMLElement): void {
     const open = openCams();
 
     document.documentElement.lang = view.lang;
-    root.dataset["mode"] = wallOpen ? "wall" : "map";
-    wallEl.hidden = !wallOpen;
+    const inBreak = breakSession !== null || breakFinished !== null;
+    root.dataset["mode"] = inBreak ? "break" : wallOpen ? "wall" : "map";
+    wallEl.hidden = !wallOpen || inBreak;
+    breakEl.hidden = !inBreak;
+
+    if (breakSession !== null) {
+      breakView.show(breakSession.cam, states.get(breakSession.cam.id), {
+        lang: view.lang,
+        now,
+        soundOn,
+      });
+      breakView.tick(breakProgress(breakSession.startedAt, new Date(), breakSession.minutes));
+      return;
+    }
+    if (breakFinished !== null) return;
 
     controls.update(view, wallOpen);
     mapView.setStates(states);
@@ -171,7 +315,7 @@ export function startApp(root: HTMLElement): void {
     if (wallOpen) {
       // パネルは畳まれる(CSS)。同じ配信を二重に流さないよう中身も空にする。
       panel.update([], panelCtx());
-      wall.update(open, states, view.lang);
+      wall.update(open, states, view.lang, soundOn);
       return;
     }
 

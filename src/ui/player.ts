@@ -21,6 +21,10 @@ export interface PlayerHandle {
 }
 
 interface MountOptions {
+  /**
+   * 既定は必ずミュート。仕事の合間に開くアプリなので、押した瞬間に音が出るのは
+   * 事故になる。音は本人が明示的に出したときだけ鳴らす。
+   */
   muted: boolean;
   /** 埋め込めない配信だったときに呼ばれる(サーバ側の確認を待たずに印を変える)。 */
   onUnplayable?: () => void;
