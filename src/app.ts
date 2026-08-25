@@ -375,8 +375,15 @@ export function startApp(root: HTMLElement): void {
     mapView.setVisible(visible);
     mapView.setSelected(view.view);
     mapView.setLang(view.lang);
-    if (mode === "globe") void ensureGlobe();
-    else mapView.invalidate();
+    if (mode === "globe") {
+      void ensureGlobe().then(() => {
+        // hidden を外した直後はレイアウトが未確定なことがあるので、
+        // 次フレームでもう一度サイズを合わせる。
+        requestAnimationFrame(() => globeView?.invalidate());
+      });
+    } else {
+      mapView.invalidate();
+    }
     paintCatalog(visible.length);
     paintDial();
 
