@@ -9,7 +9,13 @@
 // 黙って別の場所を採用しない。
 
 import { writeFile } from "node:fs/promises";
-import { CAM_PLACES, type CamPlace } from "./cam-places.ts";
+import { CAM_PLACES_CURATED, type CamPlace } from "./cam-places.ts";
+import { CAM_PLACES_BULK } from "./cam-places-bulk.ts";
+
+const CAM_PLACES: CamPlace[] = [
+  ...(CAM_PLACES_CURATED as CamPlace[]),
+  ...(CAM_PLACES_BULK as CamPlace[]),
+];
 
 const GEOCODE_DELAY_MS = 400;
 const EMBED_CHECK_DELAY_MS = 300;

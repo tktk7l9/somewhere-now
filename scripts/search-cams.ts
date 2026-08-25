@@ -10,7 +10,7 @@
 //   keyway run -e development -- npm run cams:search
 
 import { mkdir, writeFile } from "node:fs/promises";
-import { CAM_PLACES } from "./cam-places.ts";
+import { CAM_PLACES_CURATED } from "./cam-places.ts";
 
 /**
  * 探す語。地域が偏るので、言語と regionCode を振って別々の井戸を掘る。
@@ -81,7 +81,7 @@ async function main(): Promise<void> {
   const apiKey = process.env["YOUTUBE_API_KEY"];
   if (apiKey === undefined || apiKey === "") throw new Error("YOUTUBE_API_KEY が無い");
 
-  const known = new Set(CAM_PLACES.map((p) => p.channelId));
+  const known = new Set(CAM_PLACES_CURATED.map((p) => p.channelId));
   const hits: Hit[] = [];
   let units = 0;
 
