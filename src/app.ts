@@ -22,7 +22,7 @@ import { isNightAt } from "./domain/terminator";
 import { MAX_VIEW, parseUrlState, toSearchString, type ViewState } from "./domain/urlState";
 import { fetchCamStates } from "./api/client";
 import { createControls } from "./ui/controls";
-import { t } from "./ui/i18n";
+import { catalogCaption, t } from "./ui/i18n";
 import { createBreakView } from "./ui/breakView";
 import { createMapView } from "./ui/map";
 import { createPanel } from "./ui/panel";
@@ -77,6 +77,7 @@ export function startApp(root: HTMLElement): void {
   const mapEl = root.querySelector<HTMLElement>("#map")!;
   const panelEl = root.querySelector<HTMLElement>("#panel")!;
   const controlsEl = root.querySelector<HTMLElement>("#controls")!;
+  const catalogEl = root.querySelector<HTMLElement>("#catalog")!;
   const wallEl = root.querySelector<HTMLElement>("#wall")!;
   const dialEl = root.querySelector<HTMLElement>("#dial")!;
   const breakEl = root.querySelector<HTMLElement>("#break")!;
@@ -276,6 +277,25 @@ export function startApp(root: HTMLElement): void {
       `<span class="dial__label">${t("darknessHeadline", view.lang)}</span>`;
   }
 
+  function paintCatalog(visible: number): void {
+    const caption = catalogCaption(visible, CAMS.length, view.lang);
+    const count = document.createElement("span");
+    count.className = "catalog__count";
+    count.textContent = caption.count;
+    const unit = document.createElement("span");
+    unit.className = "catalog__unit";
+    unit.textContent = caption.unit;
+    if (caption.total === null) {
+      catalogEl.replaceChildren(count, unit);
+    } else {
+      const total = document.createElement("span");
+      total.className = "catalog__total";
+      total.textContent = caption.total;
+      catalogEl.replaceChildren(count, total, unit);
+    }
+    catalogEl.setAttribute("aria-label", caption.aria);
+  }
+
   const panelCtx = () => ({
     lang: view.lang,
     now,
@@ -310,6 +330,7 @@ export function startApp(root: HTMLElement): void {
     mapView.setVisible(visible);
     mapView.setSelected(view.view);
     mapView.setLang(view.lang);
+    paintCatalog(visible.length);
     paintDial();
 
     if (wallOpen) {

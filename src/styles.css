@@ -107,6 +107,39 @@ input {
   text-transform: uppercase;
 }
 
+/* 収録地点の件数。絞ると分子が減り、分母の全件は残す。 */
+.catalog {
+  display: flex;
+  align-items: baseline;
+  margin: 0;
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+  pointer-events: none;
+}
+
+.catalog__count {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 19px;
+  letter-spacing: 0.06em;
+  line-height: 1;
+}
+
+.catalog__total {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--dim);
+  margin-left: 6px;
+}
+
+.catalog__unit {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--dim);
+  letter-spacing: 0.12em;
+  margin-left: 8px;
+}
+
 .masthead__controls {
   display: flex;
   align-items: center;
@@ -772,7 +805,8 @@ input {
 .app[data-mode="break"] .dial,
 .app[data-mode="break"] .panel,
 .app[data-mode="break"] .wall,
-.app[data-mode="break"] .masthead__controls {
+.app[data-mode="break"] .masthead__controls,
+.app[data-mode="break"] .catalog {
   display: none;
 }
 
