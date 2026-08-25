@@ -143,17 +143,9 @@ export function startApp(root: HTMLElement): void {
     globeEl.replaceChildren(message);
   }
 
-  function webgl2Available(): boolean {
-    try {
-      return document.createElement("canvas").getContext("webgl2") !== null;
-    } catch {
-      return false;
-    }
-  }
-
   function ensureGlobe(): Promise<void> {
     if (globeView === null && globeEl.childElementCount === 0) {
-      paintGlobeNotice(webgl2Available() ? "globeLoading" : "globeUnsupported");
+      paintGlobeNotice("globeLoading");
     }
     globeReady ??= import("./ui/globe")
       .then(({ createGlobeView, createUnsupportedView }) =>
