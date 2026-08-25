@@ -24,6 +24,7 @@ import { fetchCamStates } from "./api/client";
 import { createControls } from "./ui/controls";
 import { catalogCaption, t } from "./ui/i18n";
 import { createBreakView } from "./ui/breakView";
+import type { GlobeView } from "./ui/globe";
 import { createMapView } from "./ui/map";
 import { createPanel } from "./ui/panel";
 import { createWall } from "./ui/wall";
@@ -75,6 +76,7 @@ function writeStored(key: string, value: string): void {
 
 export function startApp(root: HTMLElement): void {
   const mapEl = root.querySelector<HTMLElement>("#map")!;
+  const globeEl = root.querySelector<HTMLElement>("#globe")!;
   const panelEl = root.querySelector<HTMLElement>("#panel")!;
   const controlsEl = root.querySelector<HTMLElement>("#controls")!;
   const catalogEl = root.querySelector<HTMLElement>("#catalog")!;
@@ -106,15 +108,72 @@ export function startApp(root: HTMLElement): void {
   const openCams = (): Cam[] =>
     view.view.map((id) => byId.get(id)).filter((cam): cam is Cam => cam !== undefined);
 
-  const mapView = createMapView(mapEl, CAMS, view.lang, (camId) => {
+  function selectCam(camId: string): void {
     // マーカーは開閉のトグル。新しく開いたものが先頭(音の出る側)に来る。
     const isOpen = view.view.includes(camId);
     const next = isOpen
       ? view.view.filter((id) => id !== camId)
       : [camId, ...view.view].slice(0, MAX_VIEW);
     update({ view: next });
-    if (!isOpen) mapView.focus(byId.get(camId)!);
-  });
+    if (!isOpen) {
+      const cam = byId.get(camId);
+      if (cam) focusCam(cam);
+    }
+  }
+
+  const mapView = createMapView(mapEl, CAMS, view.lang, selectCam);
+
+  let globeView: GlobeView | null = null;
+  let globeReady: Promise<void> | null = null;
+
+  function applyGlobe(): void {
+    if (globeView === null) return;
+    globeView.setStates(states);
+    globeView.setVisible(visibleCams());
+    globeView.setSelected(view.view);
+    globeView.setLang(view.lang);
+    globeView.drawTerminator(now);
+    globeView.invalidate();
+  }
+
+  function paintGlobeNotice(key: "globeLoading" | "globeUnsupported"): void {
+    const message = document.createElement("p");
+    message.className = "globe__unsupported";
+    message.textContent = t(key, view.lang);
+    globeEl.replaceChildren(message);
+  }
+
+  function webgl2Available(): boolean {
+    try {
+      return document.createElement("canvas").getContext("webgl2") !== null;
+    } catch {
+      return false;
+    }
+  }
+
+  function ensureGlobe(): Promise<void> {
+    if (globeView === null && globeEl.childElementCount === 0) {
+      paintGlobeNotice(webgl2Available() ? "globeLoading" : "globeUnsupported");
+    }
+    globeReady ??= import("./ui/globe")
+      .then(({ createGlobeView, createUnsupportedView }) =>
+        createGlobeView(globeEl, CAMS, view.lang, selectCam).catch(() =>
+          createUnsupportedView(globeEl, view.lang),
+        ),
+      )
+      .then((view) => {
+        globeView = view;
+      })
+      .catch(() => {
+        paintGlobeNotice("globeUnsupported");
+      });
+    return globeReady.then(applyGlobe);
+  }
+
+  function focusCam(cam: Cam): void {
+    if (view.globe) void ensureGlobe().then(() => globeView?.focus(cam));
+    else mapView.focus(cam);
+  }
 
   // 再生側が「埋め込めない」と言ってきたら、サーバ側の次の確認を待たずに印を落とす。
   // 同じ報せは何度も来るので、状態が変わるときだけ描き直す(でないと
@@ -147,7 +206,8 @@ export function startApp(root: HTMLElement): void {
     },
     onFocus(camId) {
       update({ view: [camId, ...view.view.filter((id) => id !== camId)] });
-      mapView.focus(byId.get(camId)!);
+      const cam = byId.get(camId);
+      if (cam) focusCam(cam);
     },
     onUnplayable: markUnplayable,
   });
@@ -254,12 +314,21 @@ export function startApp(root: HTMLElement): void {
       const cam = pickRandom(pool, Math.random);
       if (cam === null) return;
       update({ view: [cam.id] });
-      mapView.focus(cam);
+      focusCam(cam);
     },
     onToggleWall() {
       wallOpen = !wallOpen;
       if (!wallOpen) wall.teardown();
       render();
+    },
+    onSetGlobe(globe) {
+      const leavingWall = wallOpen;
+      if (leavingWall) {
+        wallOpen = false;
+        wall.teardown();
+      }
+      if (view.globe !== globe) update({ globe });
+      else if (leavingWall) render();
     },
   });
 
@@ -310,9 +379,11 @@ export function startApp(root: HTMLElement): void {
 
     document.documentElement.lang = view.lang;
     const inBreak = breakSession !== null || breakFinished !== null;
-    root.dataset["mode"] = inBreak ? "break" : wallOpen ? "wall" : "map";
+    const mode = inBreak ? "break" : wallOpen ? "wall" : view.globe ? "globe" : "map";
+    root.dataset["mode"] = mode;
     wallEl.hidden = !wallOpen || inBreak;
     breakEl.hidden = !inBreak;
+    globeEl.setAttribute("aria-label", t("globe", view.lang));
 
     if (breakSession !== null) {
       breakView.show(breakSession.cam, states.get(breakSession.cam.id), {
@@ -330,6 +401,15 @@ export function startApp(root: HTMLElement): void {
     mapView.setVisible(visible);
     mapView.setSelected(view.view);
     mapView.setLang(view.lang);
+    if (mode === "globe") {
+      void ensureGlobe().then(() => {
+        // hidden を外した直後はレイアウトが未確定なことがあるので、
+        // 次フレームでもう一度サイズを合わせる。
+        requestAnimationFrame(() => globeView?.invalidate());
+      });
+    } else {
+      mapView.invalidate();
+    }
     paintCatalog(visible.length);
     paintDial();
 
@@ -351,17 +431,26 @@ export function startApp(root: HTMLElement): void {
   }
 
   render();
-  mapView.playIntro(now);
+  if (view.globe) {
+    mapView.drawTerminator(now);
+    void ensureGlobe();
+  } else {
+    mapView.playIntro(now);
+  }
   void pullStates();
 
   setInterval(() => {
     now = new Date();
     recomputeNight();
     mapView.drawTerminator(now);
+    globeView?.drawTerminator(now);
     render();
   }, TICK_MS);
 
   setInterval(() => void pullStates(), STATE_POLL_MS);
 
-  addEventListener("resize", () => mapView.invalidate());
+  addEventListener("resize", () => {
+    mapView.invalidate();
+    globeView?.invalidate();
+  });
 }

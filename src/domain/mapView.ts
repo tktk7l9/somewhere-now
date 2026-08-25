@@ -14,6 +14,12 @@ export const INITIAL_VIEW: MapViewport = {
   zoom: 2,
 };
 
+/**
+ * 地球儀の初期ズーム。平面図より引いて、球として見える余白を残す。
+ * 中心は INITIAL_VIEW と同じ(大西洋)で、UI 側で [lng, lat] に組み替える。
+ */
+export const GLOBE_ZOOM = 1.45;
+
 /** その緯度経度を含むタイルの座標(Web メルカトル・XYZ 方式)。 */
 export function tileAt(lat: number, lng: number, zoom: number): { x: number; y: number } {
   const n = 2 ** zoom;

@@ -6,6 +6,7 @@ const DEFAULTS: ViewState = {
   liveOnly: false,
   nightOnly: false,
   favoritesOnly: false,
+  globe: false,
   query: "",
   lang: "ja",
 };
@@ -41,8 +42,8 @@ describe("parseUrlState", () => {
   });
 
   it("真偽フラグを読む", () => {
-    const s = parseUrlState("?live=1&night=1&fav=1");
-    expect([s.liveOnly, s.nightOnly, s.favoritesOnly]).toEqual([true, true, true]);
+    const s = parseUrlState("?live=1&night=1&fav=1&globe=1");
+    expect([s.liveOnly, s.nightOnly, s.favoritesOnly, s.globe]).toEqual([true, true, true, true]);
   });
 
   it("1 以外の値はフラグを立てない", () => {
@@ -90,12 +91,13 @@ describe("toSearchString", () => {
     expect(params.get("fav")).toBeNull();
   });
 
-  it("night と fav も載る", () => {
+  it("night と fav と globe も載る", () => {
     const params = new URLSearchParams(
-      toSearchString({ ...DEFAULTS, nightOnly: true, favoritesOnly: true }),
+      toSearchString({ ...DEFAULTS, nightOnly: true, favoritesOnly: true, globe: true }),
     );
     expect(params.get("night")).toBe("1");
     expect(params.get("fav")).toBe("1");
+    expect(params.get("globe")).toBe("1");
   });
 
   it("往復しても状態が保たれる", () => {
@@ -105,6 +107,7 @@ describe("toSearchString", () => {
       liveOnly: true,
       nightOnly: true,
       favoritesOnly: true,
+      globe: true,
       query: "porto",
       lang: "en",
     };

@@ -8,6 +8,8 @@
 # 読まない。ミュート制御とエラー検知は enablejsapi=1 の postMessage で足りるので、
 # script-src は 'self' のまま保てる。frame-src が再生用 iframe。
 # connect-src の open-meteo は選択中カメラの現地の天気(キー不要・CORS *)。
+# tile.openstreetmap.org は地球儀(MapLibre)がタイルを fetch で取るため
+# (平面図の Leaflet は <img> なので img-src だけで足りる)。
 #
 # compute-pressure は再生オリジンにだけ委譲する。拒否したままだとプレイヤーが
 # 際限なく再試行して、4 枚並べたときに毎秒数百件の違反ログでタブごと落ちる
@@ -16,7 +18,7 @@
 # /api/* は Worker が返すので _headers の対象外。ヘッダは worker/index.ts が付ける。
 
 /*
-  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob: https://tile.openstreetmap.org https://i.ytimg.com; font-src 'self' data:; connect-src 'self' https://api.open-meteo.com; frame-src https://www.youtube-nocookie.com https://www.youtube.com; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob: https://tile.openstreetmap.org https://i.ytimg.com; font-src 'self' data:; connect-src 'self' https://api.open-meteo.com https://tile.openstreetmap.org; frame-src https://www.youtube-nocookie.com https://www.youtube.com; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
