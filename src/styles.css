@@ -302,9 +302,15 @@ input {
 /* ── 地球儀 ───────────────────────────────────────── */
 
 .globe {
+  display: none;
   position: absolute;
   inset: 0;
+  place-items: center;
   background: var(--ink);
+}
+
+.app[data-mode="globe"] .globe {
+  display: grid;
 }
 
 .globe .maplibregl-map {
@@ -357,15 +363,14 @@ input {
 }
 
 .globe__unsupported {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
+  position: relative;
+  z-index: 2;
+  max-width: 22em;
   margin: 0;
   padding: 32px 24px;
-  color: var(--dim);
+  color: var(--bone);
   text-align: center;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.6;
 }
 

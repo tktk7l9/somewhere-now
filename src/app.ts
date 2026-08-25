@@ -383,7 +383,6 @@ export function startApp(root: HTMLElement): void {
     root.dataset["mode"] = mode;
     wallEl.hidden = !wallOpen || inBreak;
     breakEl.hidden = !inBreak;
-    globeEl.hidden = mode !== "globe";
     globeEl.setAttribute("aria-label", t("globe", view.lang));
 
     if (breakSession !== null) {
