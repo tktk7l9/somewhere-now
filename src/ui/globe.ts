@@ -38,15 +38,6 @@ function isGpuFailure(error: unknown): boolean {
   );
 }
 
-function webgl2Available(): boolean {
-  try {
-    const canvas = document.createElement("canvas");
-    return canvas.getContext("webgl2") !== null;
-  } catch {
-    return false;
-  }
-}
-
 export function createUnsupportedView(container: HTMLElement, lang: Lang): GlobeView {
   let currentLang = lang;
   const paint = (): void => {
@@ -76,8 +67,6 @@ export async function createGlobeView(
   lang: Lang,
   onSelect: (camId: string) => void,
 ): Promise<GlobeView> {
-  if (!webgl2Available()) return createUnsupportedView(container, lang);
-
   try {
     container.replaceChildren();
     const maplibre = await import("maplibre-gl");
@@ -204,10 +193,17 @@ function mountGlobe(
     attributionControl: { compact: true },
     maplibreLogo: false,
     renderWorldCopies: false,
-    canvasContextAttributes: { antialias: true },
+    canvasContextAttributes: {
+      antialias: true,
+      failIfMajorPerformanceCaveat: false,
+    },
   });
 
   map.addControl(new NavigationControl({ showCompass: true, visualizePitch: false }), "top-right");
+
+  map.on("style.load", () => {
+    map.setProjection({ type: "globe" });
+  });
 
   let states: ReadonlyMap<string, CamState> = new Map();
   let selected: ReadonlySet<string> = new Set();
@@ -274,6 +270,7 @@ function mountGlobe(
   }
 
   map.on("load", () => {
+    map.resize();
     ready = true;
     for (const fn of queued) fn();
     queued.length = 0;
