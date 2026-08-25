@@ -77,6 +77,20 @@ function toLngLat([lat, lng]: [number, number]): LngLat {
   return [lng, lat];
 }
 
+function closeRing(ring: LngLat[]): LngLat[] {
+  return [...ring, ring[0]!];
+}
+
+/**
+ * 終端線の半分を、暗い側の極で閉じたリングにする。
+ * 地球儀では 360° を 1 枚で塗ると裏返るので、東西に分ける。
+ */
+function nightCap(segment: readonly [number, number][], darkPole: number): LngLat[] {
+  const first = segment[0]!;
+  const last = segment[segment.length - 1]!;
+  return closeRing([...segment.map(toLngLat), [last[1], darkPole], [first[1], darkPole]]);
+}
+
 /** 地球儀(GeoJSON)向けの昼夜境界。 */
 export function terminatorLineGeoJSON(
   date: Date,
@@ -89,15 +103,21 @@ export function terminatorLineGeoJSON(
 }
 
 /**
- * 地球儀(GeoJSON)向けの夜側ポリゴン。リングは閉じる(先頭=末尾)。
- * Leaflet の nightPolygon と同じ点列を [lng, lat] に組み替えたもの。
+ * 地球儀(GeoJSON)向けの夜側。本初子午線で東西 2 枚に分けた MultiPolygon。
+ * Leaflet の nightPolygon と同じ終端線・同じ暗い極を使う。
  */
 export function nightPolygonGeoJSON(
   date: Date,
   stepDeg = 1,
-): { type: "Polygon"; coordinates: LngLat[][] } {
-  const ring = nightPolygon(date, stepDeg).map(toLngLat);
-  return { type: "Polygon", coordinates: [[...ring, ring[0]!]] };
+): { type: "MultiPolygon"; coordinates: LngLat[][][] } {
+  const line = terminatorLine(date, stepDeg);
+  const darkPole = subsolarPoint(date).lat >= 0 ? -90 : 90;
+  const west = line.filter(([, lng]) => lng <= 0);
+  const east = line.filter(([, lng]) => lng >= 0);
+  return {
+    type: "MultiPolygon",
+    coordinates: [[nightCap(west, darkPole)], [nightCap(east, darkPole)]],
+  };
 }
 
 /** その地点がいま夜か(太陽の真の高度が地平線より下か)。 */

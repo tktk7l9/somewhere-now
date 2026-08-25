@@ -135,22 +135,26 @@ describe("terminatorLineGeoJSON / nightPolygonGeoJSON", () => {
     expect(line.coordinates).toHaveLength(terminatorLine(JUNE_SOLSTICE, 30).length);
   });
 
-  it("夜のポリゴンは閉じていて、暗い側の極を含む", () => {
+  it("夜のポリゴンは東西 2 枚に分かれ、それぞれ閉じて暗い側の極を含む", () => {
     const poly = nightPolygonGeoJSON(JUNE_SOLSTICE, 30);
-    const ring = poly.coordinates[0]!;
-    expect(poly.type).toBe("Polygon");
-    expect(ring[0]).toEqual(ring[ring.length - 1]);
-    expect(ring.some(([, lat]) => lat === -90)).toBe(true);
+    expect(poly.type).toBe("MultiPolygon");
+    expect(poly.coordinates).toHaveLength(2);
+    for (const [ring] of poly.coordinates) {
+      expect(ring![0]).toEqual(ring![ring!.length - 1]);
+      expect(ring!.some(([, lat]) => lat === -90)).toBe(true);
+    }
   });
 
   it("冬至は北極側で閉じる", () => {
-    const ring = nightPolygonGeoJSON(DEC_SOLSTICE, 30).coordinates[0]!;
-    expect(ring.some(([, lat]) => lat === 90)).toBe(true);
+    const poly = nightPolygonGeoJSON(DEC_SOLSTICE, 30);
+    for (const [ring] of poly.coordinates) {
+      expect(ring!.some(([, lat]) => lat === 90)).toBe(true);
+    }
   });
 
   it("刻み幅を省略しても点列を返す", () => {
     expect(terminatorLineGeoJSON(JUNE_SOLSTICE).coordinates.length).toBe(361);
-    expect(nightPolygonGeoJSON(JUNE_SOLSTICE).coordinates[0]!.length).toBeGreaterThan(300);
+    expect(nightPolygonGeoJSON(JUNE_SOLSTICE).coordinates[0]![0]!.length).toBeGreaterThan(100);
   });
 });
 
