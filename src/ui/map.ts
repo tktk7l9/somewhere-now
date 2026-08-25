@@ -13,6 +13,7 @@ import type { Cam, CamState } from "../domain/cams";
 import { INITIAL_VIEW } from "../domain/mapView";
 import { nightPolygon, terminatorLine } from "../domain/terminator";
 import { camName } from "./i18n";
+import { pinHtml } from "./pin";
 import type { Lang } from "../domain/weather";
 
 /** 導入で夜が流れ込んでくる長さと、その巻き戻し幅。 */
@@ -28,14 +29,6 @@ export interface MapView {
   drawTerminator(at: Date): void;
   playIntro(now: Date): void;
   invalidate(): void;
-}
-
-function pinHtml(status: CamState["status"] | undefined, selected: boolean): string {
-  const classes = ["pin"];
-  if (status === "live") classes.push("pin--live");
-  else if (status === "offline" || status === "blocked") classes.push("pin--offline");
-  if (selected) classes.push("pin--selected");
-  return `<span class="${classes.join(" ")}"></span>`;
 }
 
 export function createMapView(

@@ -35,9 +35,9 @@ describe("tileUrl", () => {
 });
 
 describe("GLOBE_ZOOM", () => {
-  it("平面図より引いて、球として見える余白を残す", () => {
-    expect(GLOBE_ZOOM).toBeLessThan(INITIAL_VIEW.zoom);
-    expect(GLOBE_ZOOM).toBeGreaterThan(0);
+  it("大陸とピンが読める距離で、まだ球として見える", () => {
+    expect(GLOBE_ZOOM).toBeGreaterThanOrEqual(INITIAL_VIEW.zoom);
+    expect(GLOBE_ZOOM).toBeLessThan(5);
   });
 });
 
