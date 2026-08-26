@@ -10,7 +10,7 @@ import "leaflet.markercluster";
 import "leaflet.markercluster/dist/MarkerCluster.css";
 
 import type { Cam, CamState } from "../domain/cams";
-import { INITIAL_VIEW } from "../domain/mapView";
+import { INITIAL_VIEW, type MapViewport } from "../domain/mapView";
 import { nightPolygon, terminatorLine } from "../domain/terminator";
 import { camName } from "./i18n";
 import { pinHtml } from "./pin";
@@ -26,6 +26,7 @@ export interface MapView {
   setSelected(camIds: readonly string[]): void;
   setLang(lang: Lang): void;
   focus(cam: Cam): void;
+  goTo(view: MapViewport): void;
   drawTerminator(at: Date): void;
   playIntro(now: Date): void;
   invalidate(): void;
@@ -129,6 +130,32 @@ export function createMapView(
 
   render();
 
+  let here: L.Marker | null = null;
+
+  function paintHere(lat: number, lng: number): void {
+    if (here !== null) {
+      here.setLatLng([lat, lng]);
+      return;
+    }
+    here = L.marker([lat, lng], {
+      icon: L.divIcon({
+        html: '<span class="here"></span>',
+        className: "here-wrap",
+        iconSize: [15, 15],
+        iconAnchor: [7.5, 7.5],
+      }),
+      interactive: false,
+      keyboard: false,
+      zIndexOffset: 400,
+    }).addTo(map);
+  }
+
+  function fly(lat: number, lng: number, zoom: number): void {
+    const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) map.setView([lat, lng], zoom);
+    else map.flyTo([lat, lng], zoom, { duration: 0.8 });
+  }
+
   return {
     setStates(next) {
       states = next;
@@ -148,6 +175,11 @@ export function createMapView(
     },
     focus(cam) {
       map.flyTo([cam.lat, cam.lng], Math.max(map.getZoom(), 6), { duration: 0.8 });
+    },
+    goTo(view) {
+      const [lat, lng] = view.center;
+      paintHere(lat, lng);
+      fly(lat, lng, view.zoom);
     },
     drawTerminator(at) {
       shade.setLatLngs(nightPolygon(at, 1));

@@ -190,6 +190,11 @@ input {
   border-color: var(--lit);
 }
 
+.chip:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
 .search {
   background: var(--ink);
   border: 1px solid var(--haze);
@@ -412,6 +417,23 @@ input {
 
 .pin:hover {
   transform: scale(1.3);
+}
+
+/* いまいる場所。カメラのピンと並べても見間違えないよう、塗り潰しの琥珀にする。
+   span は inline なので幅高さが効かない(マーカーが線に潰れる)。 */
+.here-wrap {
+  background: none;
+  border: none;
+}
+
+.here {
+  display: block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 2px solid var(--ink);
+  background: var(--lit);
+  box-shadow: 0 0 0 4px var(--lit-soft);
 }
 
 .leaflet-marker-icon:focus-visible .pin {

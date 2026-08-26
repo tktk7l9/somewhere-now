@@ -18,10 +18,11 @@ import {
 } from "./domain/breakMode";
 import { filterCams, pickRandom, type Cam, type CamState } from "./domain/cams";
 import { decodeFavorites, encodeFavorites, toggleFavorite } from "./domain/favorites";
+import { requestLocation, viewportForLocation } from "./domain/locate";
 import { isNightAt } from "./domain/terminator";
 import { MAX_VIEW, parseUrlState, toSearchString, type ViewState } from "./domain/urlState";
 import { fetchCamStates } from "./api/client";
-import { createControls } from "./ui/controls";
+import { createControls, type LocateStatus } from "./ui/controls";
 import { catalogCaption, t } from "./ui/i18n";
 import { createBreakView } from "./ui/breakView";
 import type { GlobeView } from "./ui/globe";
@@ -96,6 +97,7 @@ export function startApp(root: HTMLElement): void {
   let breakSession: { cam: Cam; startedAt: Date; minutes: BreakDuration } | null = null;
   let breakFinished: Cam | null = null;
   let breakTimer: number | null = null;
+  let locateStatus: LocateStatus = "idle";
 
   function recomputeNight(): void {
     nightIds = new Set(CAMS.filter((cam) => isNightAt(now, cam)).map((cam) => cam.id));
@@ -165,6 +167,44 @@ export function startApp(root: HTMLElement): void {
   function focusCam(cam: Cam): void {
     if (view.globe) void ensureGlobe().then(() => globeView?.focus(cam));
     else mapView.focus(cam);
+  }
+
+  function goToViewport(lat: number, lng: number, zoom: number): void {
+    if (wallOpen) {
+      wallOpen = false;
+      wall.teardown();
+      render();
+    }
+    const viewport = { center: [lat, lng] as [number, number], zoom };
+    mapView.goTo(viewport);
+    if (view.globe) void ensureGlobe().then(() => globeView?.goTo(viewport));
+  }
+
+  async function locateHere(): Promise<void> {
+    if (locateStatus === "pending") return;
+    locateStatus = "pending";
+    render();
+    const locator =
+      typeof navigator === "undefined" ? undefined : navigator.geolocation;
+    const result = await requestLocation(locator);
+    if (!result.ok) {
+      locateStatus = result.reason;
+      render();
+      return;
+    }
+    const viewport = viewportForLocation(
+      result.position.lat,
+      result.position.lng,
+      result.position.accuracy,
+    );
+    if (viewport === null) {
+      locateStatus = "unavailable";
+      render();
+      return;
+    }
+    locateStatus = "idle";
+    render();
+    goToViewport(viewport.center[0], viewport.center[1], viewport.zoom);
   }
 
   // 再生側が「埋め込めない」と言ってきたら、サーバ側の次の確認を待たずに印を落とす。
@@ -308,6 +348,9 @@ export function startApp(root: HTMLElement): void {
       update({ view: [cam.id] });
       focusCam(cam);
     },
+    onLocate() {
+      void locateHere();
+    },
     onToggleWall() {
       wallOpen = !wallOpen;
       if (!wallOpen) wall.teardown();
@@ -388,7 +431,7 @@ export function startApp(root: HTMLElement): void {
     }
     if (breakFinished !== null) return;
 
-    controls.update(view, wallOpen);
+    controls.update(view, wallOpen, locateStatus);
     mapView.setStates(states);
     mapView.setVisible(visible);
     mapView.setSelected(view.view);
