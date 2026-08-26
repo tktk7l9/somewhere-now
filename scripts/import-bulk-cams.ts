@@ -233,13 +233,33 @@ async function timezoneAt(lat: number, lng: number): Promise<string | null> {
       return null;
     }
     const json = (await res.json()) as { timezone?: string };
-    const tz = typeof json.timezone === "string" ? json.timezone : null;
+    const raw = typeof json.timezone === "string" ? json.timezone : null;
+    const tz = raw === null ? null : normalizeTimeZone(raw);
     timezoneCache.set(key, tz);
     return tz;
   } catch {
     timezoneCache.set(key, null);
     return null;
   }
+}
+
+function isResolvableTimeZone(tz: string): boolean {
+  try {
+    new Intl.DateTimeFormat("en-US", { timeZone: tz });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/** Node/ICU がまだ知らない・別名のタイムゾーンを寄せる。 */
+const TZ_ALIASES: Record<string, string> = {
+  "America/Coyhaique": "America/Santiago",
+};
+
+function normalizeTimeZone(tz: string): string | null {
+  const aliased = TZ_ALIASES[tz] ?? tz;
+  return isResolvableTimeZone(aliased) ? aliased : null;
 }
 
 function slugify(value: string): string {
@@ -250,7 +270,8 @@ function slugify(value: string): string {
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/-+/g, "-")
     .replace(/^-+|-+$/g, "")
-    .slice(0, 40);
+    .slice(0, 40)
+    .replace(/^-+|-+$/g, ""); // slice で末尾が "-" になるのを防ぐ
 }
 
 function uniqueId(base: string, used: Set<string>): string {
@@ -260,7 +281,8 @@ function uniqueId(base: string, used: Set<string>): string {
     return id;
   }
   for (let n = 2; n < 1000; n++) {
-    const candidate = `${base.slice(0, 36)}-${n}`;
+    const stem = base.slice(0, 36).replace(/-+$/g, "") || "cam";
+    const candidate = `${stem}-${n}`;
     if (!used.has(candidate)) {
       used.add(candidate);
       return candidate;
@@ -774,6 +796,8 @@ async function resolveFromGeocode(
   for (const q of ordered) {
     const hit = await geocode(q);
     if (hit !== null && typeof hit.timezone === "string" && hit.timezone.length > 0) {
+      const timeZone = normalizeTimeZone(hit.timezone);
+      if (timeZone === null) continue;
       const lat = Number(hit.latitude.toFixed(4));
       const lng = Number(hit.longitude.toFixed(4));
       // 国の重心っぽい粗い座標は近似なので落とす
@@ -781,7 +805,7 @@ async function resolveFromGeocode(
       return {
         lat,
         lng,
-        timeZone: hit.timezone,
+        timeZone,
         country: hit.country_code,
       };
     }
@@ -844,19 +868,44 @@ async function main(): Promise<void> {
 
   const camlistedByVideo = new Map(camlistedJson.streams.map((s) => [s.video_id, s]));
 
+  // 既存 bulk の id 末尾ハイフン・未対応 TZ を直してから積み増す
+  const repaired: CamPlace[] = [];
+  const repairedIds = new Set<string>(CAM_PLACES_CURATED.map((p) => p.id));
+  let droppedTz = 0;
+  for (const entry of EXISTING_BULK as CamPlace[]) {
+    if (entry.at === undefined) continue;
+    const timeZone = normalizeTimeZone(entry.at.timeZone);
+    if (timeZone === null) {
+      droppedTz++;
+      continue;
+    }
+    const id = uniqueId(
+      slugify(`${entry.at.country}-${entry.nameEn || entry.nameJa || entry.videoId}`),
+      repairedIds,
+    );
+    repaired.push({
+      ...entry,
+      id,
+      at: { ...entry.at, timeZone },
+    });
+  }
+  if (droppedTz > 0) {
+    console.log(`既存 bulk から未対応 TZ を ${droppedTz} 件除外`);
+  }
+
   const existingTitleKeys = new Set(
-    [...CAM_PLACES_CURATED, ...EXISTING_BULK].map((p) => `${p.channelId}\0${p.titleKey}`),
+    [...CAM_PLACES_CURATED, ...repaired].map((p) => `${p.channelId}\0${p.titleKey}`),
   );
   const existingVideoIds = new Set(
-    [...CAM_PLACES_CURATED, ...EXISTING_BULK].map((p) => p.videoId),
+    [...CAM_PLACES_CURATED, ...repaired].map((p) => p.videoId),
   );
-  const usedIds = new Set([...CAM_PLACES_CURATED, ...EXISTING_BULK].map((p) => p.id));
+  const usedIds = new Set([...CAM_PLACES_CURATED, ...repaired].map((p) => p.id));
   const seenKeys = new Set(existingTitleKeys);
   const seenVideos = new Set(existingVideoIds);
 
   const targetBulk = TARGET_TOTAL - CAM_PLACES_CURATED.length;
-  const need = targetBulk - EXISTING_BULK.length;
-  const bulk: CamPlace[] = [...(EXISTING_BULK as CamPlace[])];
+  const need = targetBulk - repaired.length;
+  const bulk: CamPlace[] = [...repaired];
   const failures: string[] = [];
 
   async function flush(): Promise<void> {
@@ -865,12 +914,12 @@ async function main(): Promise<void> {
   }
 
   if (need <= 0) {
-    console.log(`既に ${CAM_PLACES_CURATED.length + bulk.length} 件あるので追加不要`);
+    console.log(`既に ${CAM_PLACES_CURATED.length + bulk.length} 件あるので追加不要(id/TZ 修復のみ)`);
     await flush();
     return;
   }
 
-  console.log(`既存 bulk ${EXISTING_BULK.length} 件 / あと ${need} 件追加`);
+  console.log(`既存 bulk ${repaired.length} 件 / あと ${need} 件追加`);
 
   // スクレイプ結果を追加候補として読む(無くても続行)
   let scrapeHits: {
@@ -1086,10 +1135,12 @@ async function main(): Promise<void> {
     for (const q of queries) {
       const hit = await geocodeNominatim(q);
       if (hit !== null && hit.timezone.length > 0) {
+        const timeZone = normalizeTimeZone(hit.timezone);
+        if (timeZone === null) continue;
         const lat = Number(hit.latitude.toFixed(4));
         const lng = Number(hit.longitude.toFixed(4));
         if (Number.isInteger(lat) && Number.isInteger(lng)) continue;
-        at = { lat, lng, timeZone: hit.timezone, country: hit.country_code };
+        at = { lat, lng, timeZone, country: hit.country_code };
         break;
       }
     }

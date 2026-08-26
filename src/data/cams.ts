@@ -45103,7 +45103,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "th-heavy-rain-today-in-bangkok-thailand-",
+    id: "th-heavy-rain-today-in-bangkok-thailand",
     name: { ja: "Heavy rain today in Bangkok, Thailand | 31 May 26", en: "Heavy rain today in Bangkok, Thailand | 31 May 26" },
     lat: 13.754,
     lng: 100.5014,
@@ -45133,7 +45133,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "nl-afbouw-kermis-24-7-webcam-hd-centrum-",
+    id: "nl-afbouw-kermis-24-7-webcam-hd-centrum",
     name: { ja: "Afbouw kermis 24/7 Webcam HD | Centrum, Weerwater & Weer", en: "Afbouw kermis 24/7 Webcam HD | Centrum, Weerwater & Weer" },
     lat: 51.2517,
     lng: 5.7069,
@@ -45208,7 +45208,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "mx-como-es-el-universo-de-las-estrellas-",
+    id: "mx-como-es-el-universo-de-las-estrellas",
     name: { ja: "¿Cómo es el Universo? De las estrellas cercanas a los vacíos gigantes", en: "¿Cómo es el Universo? De las estrellas cercanas a los vacíos gigantes" },
     lat: 20.617,
     lng: -105.2302,
@@ -45253,7 +45253,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "kr-live-cam-i-seoul-seokchon-lake-seoul-",
+    id: "kr-live-cam-i-seoul-seokchon-lake-seoul",
     name: { ja: "서울실시간 석촌호수라이브 Live Cam I Seoul, \"Seokchon Lake\", Seoul,Korea I 서울관광지 서울호수 잠실롯데몰 송리단길 잠실소피텔", en: "서울실시간 석촌호수라이브 Live Cam I Seoul, \"Seokchon Lake\", Seoul,Korea I 서울관광지 서울호수 잠실롯데몰 송리단길 잠실소피텔" },
     lat: 37.566,
     lng: 126.9784,
@@ -45328,7 +45328,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "in-4k-live-wildlife-safari-wild-animals-",
+    id: "in-4k-live-wildlife-safari-wild-animals",
     name: { ja: "4k live wildlife safari | wild animals & birds in 4k | real nature sounds", en: "4k live wildlife safari | wild animals & birds in 4k | real nature sounds" },
     lat: 34.3632,
     lng: 73.7793,
@@ -45358,7 +45358,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "us-paradise-4k-mountain-valleys-forests-",
+    id: "us-paradise-4k-mountain-valleys-forests",
     name: { ja: "Paradise 4K – Mountain Valleys & Forests | Scenic Nature & Tranquility", en: "Paradise 4K – Mountain Valleys & Forests | Scenic Nature & Tranquility" },
     lat: 43.7797,
     lng: -102.5549,
@@ -45373,7 +45373,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "es-esta-es-la-camara-que-nadie-esperaba-",
+    id: "es-esta-es-la-camara-que-nadie-esperaba",
     name: { ja: "Esta es la cámara que NADIE esperaba: Aqara G100 por menos de 40€", en: "Esta es la cámara que NADIE esperaba: Aqara G100 por menos de 40€" },
     lat: 42.2298,
     lng: -2.052,
@@ -45388,7 +45388,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "us-when-people-record-terrifying-things-",
+    id: "us-when-people-record-terrifying-things",
     name: { ja: "When People Record TERRIFYING Things on Camera", en: "When People Record TERRIFYING Things on Camera" },
     lat: 37.2895,
     lng: -84.0533,
@@ -45403,7 +45403,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "pt-live-24-7-lisbon-airport-live-cam-26-",
+    id: "pt-live-24-7-lisbon-airport-live-cam-26",
     name: { ja: "LIVE 24/7 Lisbon Airport Live Cam 26.08.2026 • Plane Spotting • Direto Aeroporto Lisboa Ao Vivo", en: "LIVE 24/7 Lisbon Airport Live Cam 26.08.2026 • Plane Spotting • Direto Aeroporto Lisboa Ao Vivo" },
     lat: 38.7251,
     lng: -9.1498,
@@ -45538,7 +45538,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "ca-live-now-24-7-fuego-volcano-eruption-",
+    id: "ca-live-now-24-7-fuego-volcano-eruption",
     name: { ja: "Live Now: 24/7 Fuego Volcano Eruption in 4K Ultra HD (Guatemala)", en: "Live Now: 24/7 Fuego Volcano Eruption in 4K Ultra HD (Guatemala)" },
     lat: 62.9231,
     lng: -137.3819,
@@ -45673,7 +45673,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "kr-live-cam-i-seoul-station-plaza-seoul-",
+    id: "kr-live-cam-i-seoul-station-plaza-seoul",
     name: { ja: "서울실시간 서울역광장 Live Cam I \"Seoul Station Plaza\". Seoul,Korea I 서울역 서울여행 서울광장 서울시 SeoulStation ソウル駅広場", en: "서울실시간 서울역광장 Live Cam I \"Seoul Station Plaza\". Seoul,Korea I 서울역 서울여행 서울광장 서울시 SeoulStation ソウル駅広場" },
     lat: 37.566,
     lng: 126.9784,
@@ -45733,7 +45733,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "kr-live-cam-i-lotte-world-seoul-korea-i-",
+    id: "kr-live-cam-i-lotte-world-seoul-korea-i",
     name: { ja: "서울실시간 롯데월드라이브 Live Cam I \"Lotte World\", Seoul,Korea I 서울라이브 乐天世界 ロッテワールド롯데월드실시간 롯데월드혼잡도 SeoulLive", en: "서울실시간 롯데월드라이브 Live Cam I \"Lotte World\", Seoul,Korea I 서울라이브 乐天世界 ロッテワールド롯데월드실시간 롯데월드혼잡도 SeoulLive" },
     lat: 37.566,
     lng: 126.9784,
@@ -45763,7 +45763,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "kr-live-cam-i-jamsil-bridge-seoul-korea-",
+    id: "kr-live-cam-i-jamsil-bridge-seoul-korea",
     name: { ja: "서울실시간 한강라이브 잠실대교 Live Cam I \"Jamsil Bridge\" Seoul,korea I SeoulHanGangLive ソウル漢江ライブ 首尔汉江现场演出", en: "서울실시간 한강라이브 잠실대교 Live Cam I \"Jamsil Bridge\" Seoul,korea I SeoulHanGangLive ソウル漢江ライブ 首尔汉江现场演出" },
     lat: 37.566,
     lng: 126.9784,
@@ -45853,7 +45853,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "kr-livecam-healing-nowon-seoul-korea-4k-",
+    id: "kr-livecam-healing-nowon-seoul-korea-2",
     name: { ja: "[실시간 라이브] 서울 힐링 노원 우이천 경치(LiveCam_Healing_Nowon_Seoul_Korea 4K LIVE CAM Uycheon)", en: "[실시간 라이브] 서울 힐링 노원 우이천 경치(LiveCam_Healing_Nowon_Seoul_Korea 4K LIVE CAM Uycheon)" },
     lat: 37.566,
     lng: 126.9784,
@@ -45868,7 +45868,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "kr-livecam-healing-nowon-seoul-korea-2",
+    id: "kr-livecam-healing-nowon-seoul-korea-3",
     name: { ja: "[실시간 라이브] 철쭉동산(불암산 힐링타운 내) 경치(LiveCam_Healing_Nowon_Seoul_Korea LIVE CAM Azalea Garden)", en: "[실시간 라이브] 철쭉동산(불암산 힐링타운 내) 경치(LiveCam_Healing_Nowon_Seoul_Korea LIVE CAM Azalea Garden)" },
     lat: 37.566,
     lng: 126.9784,
@@ -45943,7 +45943,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "kr-livecam-healing-nowon-seoul-korea-3",
+    id: "kr-livecam-healing-nowon-seoul-korea-4",
     name: { ja: "[실시간 라이브] 동부간선도로 한내교 (LiveCam_Healing_Nowon_Seoul_Korea LIVE CAM NowonStation)", en: "[실시간 라이브] 동부간선도로 한내교 (LiveCam_Healing_Nowon_Seoul_Korea LIVE CAM NowonStation)" },
     lat: 37.566,
     lng: 126.9784,
@@ -46033,7 +46033,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "jp-live-1-jct-tokyo-highway-live-camera-",
+    id: "jp-live-1-jct-tokyo-highway-live-camera",
     name: { ja: "【LIVE】首都高 1号羽田線 浜崎橋JCT ライブカメラ/Tokyo highway Live Camera 2026/07/13 01:00～", en: "【LIVE】首都高 1号羽田線 浜崎橋JCT ライブカメラ/Tokyo highway Live Camera 2026/07/13 01:00～" },
     lat: 35.6895,
     lng: 139.6917,
@@ -46528,7 +46528,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "in-dr-aarambhi-on-location-cctv-footage-",
+    id: "in-dr-aarambhi-on-location-cctv-footage",
     name: { ja: "Dr Aarambhi | On Location | CCTV Footage में खुला Avantika का राज़, Aarambhi बेगुन्हा साबित", en: "Dr Aarambhi | On Location | CCTV Footage में खुला Avantika का राज़, Aarambhi बेगुन्हा साबित" },
     lat: 26.0155,
     lng: 75.8211,
@@ -46648,7 +46648,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "il-earthcam-live-western-wall-jerusalem-",
+    id: "il-earthcam-live-western-wall-jerusalem",
     name: { ja: "EarthCam Live - Western Wall (Jerusalem, Israel)", en: "EarthCam Live - Western Wall (Jerusalem, Israel)" },
     lat: 31.7786,
     lng: 35.2341,
@@ -47083,7 +47083,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "se-live-camera-axis-p3827-pve-panoramic-",
+    id: "se-live-camera-axis-p3827-pve-panoramic",
     name: { ja: "Live Camera Axis P3827-PVE Panoramic Camera", en: "Live Camera Axis P3827-PVE Panoramic Camera" },
     lat: 55.7202,
     lng: 13.2261,
@@ -47803,7 +47803,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "bw-live-zebra-migration-at-meno-a-kwena-",
+    id: "bw-live-zebra-migration-at-meno-a-kwena",
     name: { ja: "LIVE: Zebra Migration at Meno a Kwena | Botswana Wildlife Safari Cam", en: "LIVE: Zebra Migration at Meno a Kwena | Botswana Wildlife Safari Cam" },
     lat: -19.9933,
     lng: 23.4165,
@@ -48268,7 +48268,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "th-live-reolink-e560p-e1-outdoor-poe-4k-",
+    id: "th-live-reolink-e560p-e1-outdoor-poe-4k",
     name: { ja: "LIVE: ชมภาพสดกล้อง Reolink E560P (E1 Outdoor PoE) 4K PTZ ซูม 3 เท่า หมุนตามคนอัตโนมัติ", en: "LIVE: ชมภาพสดกล้อง Reolink E560P (E1 Outdoor PoE) 4K PTZ ซูม 3 เท่า หมุนตามคนอัตโนมัติ" },
     lat: 13.7441,
     lng: 100.5431,
@@ -48283,7 +48283,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "jp-live-2-nakashibetsu-airport-line--2",
+    id: "jp-live-2-nakashibetsu-airport-line-2",
     name: { ja: "【LIVE】中標津空港線（大通北2丁目交差点） /Nakashibetsu Airport Line Live Camera", en: "【LIVE】中標津空港線（大通北2丁目交差点） /Nakashibetsu Airport Line Live Camera" },
     lat: 35.6468,
     lng: 139.6717,
@@ -48583,7 +48583,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "sg-hd-2mp-bullet-ip-camera-night-vision-",
+    id: "sg-hd-2mp-bullet-ip-camera-night-vision",
     name: { ja: "HD - 2MP Bullet IP Camera Night Vision - Relight Security", en: "HD - 2MP Bullet IP Camera Night Vision - Relight Security" },
     lat: 1.3646,
     lng: 103.8317,
@@ -48733,7 +48733,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "eg-4k-egypt-walking-tour-cairo-s-hidden-",
+    id: "eg-4k-egypt-walking-tour-cairo-s-hidden",
     name: { ja: "4K Egypt Walking Tour - Cairo's HIDDEN GEM Khan el-Khalili Market Walking Tour | 4K HDR 60fps", en: "4K Egypt Walking Tour - Cairo's HIDDEN GEM Khan el-Khalili Market Walking Tour | 4K HDR 60fps" },
     lat: 29.9946,
     lng: 31.1191,
@@ -49648,7 +49648,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "mx-mexico-city-walking-tour-mexico-walk-",
+    id: "mx-mexico-city-walking-tour-mexico-walk",
     name: { ja: "MEXICO CITY Walking Tour | Mexico Walk Tour @ 4K/60fps", en: "MEXICO CITY Walking Tour | Mexico Walk Tour @ 4K/60fps" },
     lat: 20.212,
     lng: -87.4528,
@@ -50503,7 +50503,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "nl-webcam-nl-waalstrand-nl-nl-webcam-hd-",
+    id: "nl-webcam-nl-waalstrand-nl-nl-webcam-hd",
     name: { ja: "WebCam.NL | Waalstrand.NL/nl/webcam | HD PTZ camera camping Waalstrand, Gendt.", en: "WebCam.NL | Waalstrand.NL/nl/webcam | HD PTZ camera camping Waalstrand, Gendt." },
     lat: 52.2435,
     lng: 5.6343,
@@ -50563,7 +50563,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "jp-33-car-crash-idiot-drivers-caught-on-",
+    id: "jp-33-car-crash-idiot-drivers-caught-on",
     name: { ja: "【衝撃映像 ドラレコ】事故瞬間 海外&中国#33 バス車バイク事故 危険運転で怖いクラッシュдтп日本中國恐怖車禍Car Crash,Idiot Drivers Caught On Dashcam", en: "【衝撃映像 ドラレコ】事故瞬間 海外&中国#33 バス車バイク事故 危険運転で怖いクラッシュдтп日本中國恐怖車禍Car Crash,Idiot Drivers Caught On Dashcam" },
     lat: 35.9679,
     lng: 139.7462,
@@ -50863,7 +50863,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "jp-sapporo-streetcar-since-1918-live-24-",
+    id: "jp-sapporo-streetcar-since-1918-live-24",
     name: { ja: "Sapporo Streetcar—Since 1918 Live 24/7 Japan Railcam | 路面電車 札幌市電 1918- | lofi beats", en: "Sapporo Streetcar—Since 1918 Live 24/7 Japan Railcam | 路面電車 札幌市電 1918- | lofi beats" },
     lat: 35.6854,
     lng: 139.7531,
@@ -51088,7 +51088,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "jp-live-nene-no-michi-nene-street-kyoto-",
+    id: "jp-live-nene-no-michi-nene-street-kyoto",
     name: { ja: "【LIVE】京都東山 ねねの道ライブ中継カメラ（京都市観光協会公式）／Nene no michi(Nene Street), Kyoto Live camera", en: "【LIVE】京都東山 ねねの道ライブ中継カメラ（京都市観光協会公式）／Nene no michi(Nene Street), Kyoto Live camera" },
     lat: 35.0211,
     lng: 135.7538,
@@ -51103,7 +51103,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "jp-live-jr-ch2-train-kyoto-station-live-",
+    id: "jp-live-jr-ch2-train-kyoto-station-live",
     name: { ja: "【LIVE】京都駅 JR京都線 鉄道ライブカメラ 鉄道ライブカメラ（CH２京都駅東側 高倉跨線橋) Train, Kyoto Station Live Camera", en: "【LIVE】京都駅 JR京都線 鉄道ライブカメラ 鉄道ライブカメラ（CH２京都駅東側 高倉跨線橋) Train, Kyoto Station Live Camera" },
     lat: 35.0211,
     lng: 135.7538,
@@ -51118,7 +51118,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "jp-live-11-18-nishiki-market-kyoto-live-",
+    id: "jp-live-11-18-nishiki-market-kyoto-live",
     name: { ja: "【LIVE】京都 錦市場ライブ中継カメラ※11-18時（京都市観光協会公式）／Nishiki Market, Kyoto Live camera(Streaming: 11:00-18:00 JST)", en: "【LIVE】京都 錦市場ライブ中継カメラ※11-18時（京都市観光協会公式）／Nishiki Market, Kyoto Live camera(Streaming: 11:00-18:00 JST)" },
     lat: 35.0211,
     lng: 135.7538,
@@ -51163,7 +51163,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "jp-live-kiyomizu-dera-temple-kyoto-live-",
+    id: "jp-live-kiyomizu-dera-temple-kyoto-live",
     name: { ja: "【LIVE】 京都ライブカメラ 東山 清水寺ライブカメラ お天気 / Kiyomizu-dera Temple, Kyoto Live camera 24/7", en: "【LIVE】 京都ライブカメラ 東山 清水寺ライブカメラ お天気 / Kiyomizu-dera Temple, Kyoto Live camera 24/7" },
     lat: 35.0211,
     lng: 135.7538,
@@ -51178,7 +51178,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "jp-minatomirai-yokohama-city-japan-live-",
+    id: "jp-minatomirai-yokohama-city-japan-live",
     name: { ja: "【ライブカメラ】 横浜みなとみらいの景色とリアルな街の音 ライブ配信｜作業用・勉強用 Minatomirai Yokohama City Japan Live Stream H.View", en: "【ライブカメラ】 横浜みなとみらいの景色とリアルな街の音 ライブ配信｜作業用・勉強用 Minatomirai Yokohama City Japan Live Stream H.View" },
     lat: 35.6854,
     lng: 139.7531,
@@ -51208,7 +51208,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "jp-4k-live-yokohama-japan-live-cam-zoom-",
+    id: "jp-4k-live-yokohama-japan-live-cam-zoom",
     name: { ja: "【4K LIVE】横浜ベイブリッジ・横浜港 ライブカメラ（ズーム/無音/作業用）Yokohama Japan Live Cam - Zoom View H.View", en: "【4K LIVE】横浜ベイブリッジ・横浜港 ライブカメラ（ズーム/無音/作業用）Yokohama Japan Live Cam - Zoom View H.View" },
     lat: 35.6854,
     lng: 139.7531,
@@ -52183,7 +52183,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "jp-shinmoedake-kirishima-mountain-range-",
+    id: "jp-shinmoedake-kirishima-mountain-range",
     name: { ja: "【ライブカメラ】新燃岳 霧島連山 Shinmoedake, Kirishima Mountain Range Volcano by KYT Live", en: "【ライブカメラ】新燃岳 霧島連山 Shinmoedake, Kirishima Mountain Range Volcano by KYT Live" },
     lat: 31.7409,
     lng: 130.7629,
@@ -52378,7 +52378,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "kr-live-seoul-myeongdong-jongno-walking-",
+    id: "kr-live-seoul-myeongdong-jongno-walking",
     name: { ja: "LIVE | Seoul Myeongdong & Jongno Walking Tour 🇰🇷 | Myeongdong Live TV | 명동, 종로 음식거리 라이브", en: "LIVE | Seoul Myeongdong & Jongno Walking Tour 🇰🇷 | Myeongdong Live TV | 명동, 종로 음식거리 라이브" },
     lat: 37.566,
     lng: 126.9784,
@@ -52723,7 +52723,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "jp-tokyo-live-camera-with-lofi-and-soft-",
+    id: "jp-tokyo-live-camera-with-lofi-and-soft",
     name: { ja: "Tokyo Live Camera 東京ライブカメラ 勉強・作業・集中・リラックス with Lofi and soft jazz BGM in 4K UHD", en: "Tokyo Live Camera 東京ライブカメラ 勉強・作業・集中・リラックス with Lofi and soft jazz BGM in 4K UHD" },
     lat: 35.6895,
     lng: 139.6917,
@@ -53098,7 +53098,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "ph-philippines-live-camera-outside-lodi-",
+    id: "ph-philippines-live-camera-outside-lodi",
     name: { ja: "PHILIPPINES Live camera Outside Lodi's Eatery, Agdao, Davao City #philippines", en: "PHILIPPINES Live camera Outside Lodi's Eatery, Agdao, Davao City #philippines" },
     lat: 7.0731,
     lng: 125.6128,
@@ -53308,7 +53308,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "np-webcam-nepal-live-lukla-airport-live-",
+    id: "np-webcam-nepal-live-lukla-airport-live",
     name: { ja: "WEBCAM NEPAL LIVE: LUKLA AIRPORT - LIVE STREAMING FROM HIMALAYA LODGE LUKLA, SOLUKHUMBU, NEPAL", en: "WEBCAM NEPAL LIVE: LUKLA AIRPORT - LIVE STREAMING FROM HIMALAYA LODGE LUKLA, SOLUKHUMBU, NEPAL" },
     lat: 27.6866,
     lng: 86.7314,
@@ -53338,7 +53338,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "np-webcam-nepal-live-buddha-lodge-lukla-",
+    id: "np-webcam-nepal-live-buddha-lodge-lukla",
     name: { ja: "WEBCAM NEPAL LIVE: BUDDHA LODGE - LUKLA - GATEWAY TO EVEREST", en: "WEBCAM NEPAL LIVE: BUDDHA LODGE - LUKLA - GATEWAY TO EVEREST" },
     lat: 27.6866,
     lng: 86.7314,
@@ -53353,7 +53353,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "np-webcam-nepal-live-live-thame-village-",
+    id: "np-webcam-nepal-live-live-thame-village",
     name: { ja: "WEBCAM NEPAL LIVE: LIVE THAME VILLAGE - HEART OF THE HIMALAYAS - HOME OF EVEREST LEGENDS", en: "WEBCAM NEPAL LIVE: LIVE THAME VILLAGE - HEART OF THE HIMALAYAS - HOME OF EVEREST LEGENDS" },
     lat: 27.8317,
     lng: 86.6509,
@@ -53428,7 +53428,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "np-webcam-nepal-live-live-streaming--2",
+    id: "np-webcam-nepal-live-live-streaming-2",
     name: { ja: "WEBCAM NEPAL LIVE: LIVE STREAMING FROM THE EDELWEISS PHERICHE - NEPAL - 4371m", en: "WEBCAM NEPAL LIVE: LIVE STREAMING FROM THE EDELWEISS PHERICHE - NEPAL - 4371m" },
     lat: 27.8968,
     lng: 86.823,
@@ -53443,7 +53443,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "np-webcam-nepal-live-live-streaming--3",
+    id: "np-webcam-nepal-live-live-streaming-3",
     name: { ja: "WEBCAM NEPAL LIVE: LIVE STREAMING FROM - LOBUCHE - NEPAL - ALTITUDE - 5050m", en: "WEBCAM NEPAL LIVE: LIVE STREAMING FROM - LOBUCHE - NEPAL - ALTITUDE - 5050m" },
     lat: 27.9481,
     lng: 86.8102,
@@ -53458,7 +53458,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "np-webcam-nepal-live-live-streaming--4",
+    id: "np-webcam-nepal-live-live-streaming-4",
     name: { ja: "WEBCAM NEPAL LIVE: LIVE STREAMING FROM HOTEL TASHI DELEK - DINGBOCHE - NEPAL - 4360m", en: "WEBCAM NEPAL LIVE: LIVE STREAMING FROM HOTEL TASHI DELEK - DINGBOCHE - NEPAL - 4360m" },
     lat: 27.6281,
     lng: 87.2528,
@@ -53863,7 +53863,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "fr-4k-live-webcam-on-grand-canal-venice-",
+    id: "fr-4k-live-webcam-on-grand-canal-venice",
     name: { ja: "4K Live Webcam on Grand Canal, Venice - Live Stream from Ristorante Trattoria Povoledo", en: "4K Live Webcam on Grand Canal, Venice - Live Stream from Ristorante Trattoria Povoledo" },
     lat: 48.3849,
     lng: 5.487,
@@ -53893,7 +53893,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "fr-ocean-ambience-4k-live-24-7-tropical-",
+    id: "fr-ocean-ambience-4k-live-24-7-tropical",
     name: { ja: "Ocean Ambience 4K (LIVE 24/7). Tropical Beach & Ocean Waves Sounds. Maldives InterContinental", en: "Ocean Ambience 4K (LIVE 24/7). Tropical Beach & Ocean Waves Sounds. Maldives InterContinental" },
     lat: 47.2584,
     lng: -2.2698,
@@ -53968,7 +53968,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "de-hafen-livestream-live-hamburg-kieler-",
+    id: "de-hafen-livestream-live-hamburg-kieler",
     name: { ja: "Hafen-Livestream LIVE – Hamburg, Kieler Förde & Nord-Ostsee-Kanal | Schiffe, Fähren & Meerblick", en: "Hafen-Livestream LIVE – Hamburg, Kieler Förde & Nord-Ostsee-Kanal | Schiffe, Fähren & Meerblick" },
     lat: 51.2166,
     lng: 6.7371,
@@ -54133,7 +54133,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "es-spain-live-cam-puerta-del-sol-madrid-",
+    id: "es-spain-live-cam-puerta-del-sol-madrid",
     name: { ja: "Spain Live Cam: Puerta del Sol, Madrid | European Street Cam | 西班牙马德里实时街景", en: "Spain Live Cam: Puerta del Sol, Madrid | European Street Cam | 西班牙马德里实时街景" },
     lat: 40.7194,
     lng: 0.7084,
@@ -54298,7 +54298,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "it-roma-five-suites-piazza-venezia-live-",
+    id: "it-roma-five-suites-piazza-venezia-live",
     name: { ja: "Roma Five Suites - Piazza Venezia - Live Webcam from Rome", en: "Roma Five Suites - Piazza Venezia - Live Webcam from Rome" },
     lat: 44.9936,
     lng: 11.1064,
@@ -54403,7 +54403,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "it-venice-italy-live-webcam-the-view-on-",
+    id: "it-venice-italy-live-webcam-the-view-on",
     name: { ja: "Venice Italy Live WebCam - The View on Canal from Hotel Pausania", en: "Venice Italy Live WebCam - The View on Canal from Hotel Pausania" },
     lat: 42.8333,
     lng: 12.8333,
@@ -54583,7 +54583,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "cz-live-luzna-u-rakovnika-train-station-",
+    id: "cz-live-luzna-u-rakovnika-train-station",
     name: { ja: "LIVE: Lužná u Rakovníka Train Station | 24/7 LIVE", en: "LIVE: Lužná u Rakovníka Train Station | 24/7 LIVE" },
     lat: 50.1238,
     lng: 13.77,
@@ -54598,7 +54598,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "hu-allatkert-budapest-sziveben-capasuli-",
+    id: "hu-allatkert-budapest-sziveben-capasuli",
     name: { ja: "Állatkert Budapest szívében - Cápasuli ÉLŐ", en: "Állatkert Budapest szívében - Cápasuli ÉLŐ" },
     lat: 47.8023,
     lng: 18.7669,
@@ -54613,7 +54613,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "hu-allatkert-budapest-sziveben-szavanna-",
+    id: "hu-allatkert-budapest-sziveben-szavanna",
     name: { ja: "Állatkert Budapest szívében - Szavanna kifutó ÉLŐ", en: "Állatkert Budapest szívében - Szavanna kifutó ÉLŐ" },
     lat: 47.8023,
     lng: 18.7669,
@@ -54673,7 +54673,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "hu-live-safari-webcam-maasai-mara-kenya-",
+    id: "hu-live-safari-webcam-maasai-mara-kenya",
     name: { ja: "LIVE Safari Webcam | Maasai Mara, Kenya | African Wildlife at Mara Bushtops", en: "LIVE Safari Webcam | Maasai Mara, Kenya | African Wildlife at Mara Bushtops" },
     lat: 46.0753,
     lng: 18.5133,
@@ -54853,7 +54853,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "pt-live-lisbon-falls-relaxing-waterfall-",
+    id: "pt-live-lisbon-falls-relaxing-waterfall",
     name: { ja: "LIVE: Lisbon Falls | Relaxing Waterfall Background", en: "LIVE: Lisbon Falls | Relaxing Waterfall Background" },
     lat: 38.7251,
     lng: -9.1498,
@@ -55258,7 +55258,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "us-live-news-fox-local-los-angeles-24-7-",
+    id: "us-live-news-fox-local-los-angeles-24-7",
     name: { ja: "LIVE NEWS: FOX LOCAL Los Angeles 24/7 Live Stream", en: "LIVE NEWS: FOX LOCAL Los Angeles 24/7 Live Stream" },
     lat: 43.6027,
     lng: -111.1113,
@@ -55273,7 +55273,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "us-live-news-fox-local-san-francisco-24-",
+    id: "us-live-news-fox-local-san-francisco-24",
     name: { ja: "LIVE NEWS: FOX LOCAL San Francisco 24/7 Live Stream", en: "LIVE NEWS: FOX LOCAL San Francisco 24/7 Live Stream" },
     lat: 43.6027,
     lng: -111.1113,
@@ -55363,7 +55363,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "fi-helsinki-finland-summer-walk-24-7-4k-",
+    id: "fi-helsinki-finland-summer-walk-24-7-4k",
     name: { ja: "HELSINKI FINLAND Summer Walk 24/7 🇫🇮 4K HDR Walking Tour | Pre-Recorded Slow TV", en: "HELSINKI FINLAND Summer Walk 24/7 🇫🇮 4K HDR Walking Tour | Pre-Recorded Slow TV" },
     lat: 60.1695,
     lng: 24.9354,
@@ -55783,7 +55783,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "ca-toronto-windsurfing-club-live-camera-",
+    id: "ca-toronto-windsurfing-club-live-camera",
     name: { ja: "Toronto Windsurfing Club Live Camera (close-up)", en: "Toronto Windsurfing Club Live Camera (close-up)" },
     lat: 46.8184,
     lng: -72.2629,
@@ -55813,7 +55813,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "ca-port-colborne-ontario-canada-welland-",
+    id: "ca-port-colborne-ontario-canada-welland",
     name: { ja: "Port Colborne, Ontario Canada - Welland Canal", en: "Port Colborne, Ontario Canada - Welland Canal" },
     lat: 44.7407,
     lng: -63.2871,
@@ -55873,7 +55873,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "ca-24-7-live-stream-in-a-luxury-toronto-",
+    id: "ca-24-7-live-stream-in-a-luxury-toronto",
     name: { ja: "24/7 Live Stream In A Luxury Toronto Bedroom", en: "24/7 Live Stream In A Luxury Toronto Bedroom" },
     lat: 43.7064,
     lng: -79.3986,
@@ -55993,7 +55993,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "ca-live-vancouver-180-urban-street-view-",
+    id: "ca-live-vancouver-180-urban-street-view",
     name: { ja: "【LIVE】Vancouver 180 Urban Street View Live Camera #vancouver #urban #weather #live", en: "【LIVE】Vancouver 180 Urban Street View Live Camera #vancouver #urban #weather #live" },
     lat: 44.2176,
     lng: -78.7661,
@@ -56218,7 +56218,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "ar-necochea-en-vivo-mira-la-mejor-playa-",
+    id: "ar-necochea-en-vivo-mira-la-mejor-playa",
     name: { ja: "NECOCHEA EN VIVO, Mirá la mejor playa Argentina en vivo. 24/7 CAM 2 4K", en: "NECOCHEA EN VIVO, Mirá la mejor playa Argentina en vivo. 24/7 CAM 2 4K" },
     lat: -38.2716,
     lng: -57.8389,
@@ -56278,7 +56278,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "za-table-mountain-cape-town-webcam-live-",
+    id: "za-table-mountain-cape-town-webcam-live",
     name: { ja: "Table Mountain Cape Town webcam Live Stream, Milnerton", en: "Table Mountain Cape Town webcam Live Stream, Milnerton" },
     lat: -33.9258,
     lng: 18.4232,
@@ -56308,7 +56308,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "za-table-mountain-live-stream-cape-town-",
+    id: "za-table-mountain-live-stream-cape-town",
     name: { ja: "Table Mountain Live Stream | Cape Town Webcam | South Africa", en: "Table Mountain Live Stream | Cape Town Webcam | South Africa" },
     lat: -33.9258,
     lng: 18.4232,
@@ -56368,7 +56368,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "za-strand-beach-webcam-live-stream-cape-",
+    id: "za-strand-beach-webcam-live-stream-cape",
     name: { ja: "Strand beach webcam, Live stream Cape sands Beachfront Home", en: "Strand beach webcam, Live stream Cape sands Beachfront Home" },
     lat: -33.9258,
     lng: 18.4232,
@@ -56788,7 +56788,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "us-live-airports-around-the-world-plane-",
+    id: "us-live-airports-around-the-world-plane",
     name: { ja: "LIVE: Airports Around the World — Plane Spotting Live Cameras 24/7 | TravelTV", en: "LIVE: Airports Around the World — Plane Spotting Live Cameras 24/7 | TravelTV" },
     lat: 36.8524,
     lng: -79.5909,
@@ -56818,7 +56818,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "nz-northern-royal-albatross-cam-nz-dept-",
+    id: "nz-northern-royal-albatross-cam-nz-dept",
     name: { ja: "Northern Royal Albatross Cam - NZ Dept. of Conservation #RoyalCam | Cornell Lab", en: "Northern Royal Albatross Cam - NZ Dept. of Conservation #RoyalCam | Cornell Lab" },
     lat: -36.9082,
     lng: 174.7702,
@@ -56983,7 +56983,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "ch-live-blick-ins-zillertal-rund-um-die-",
+    id: "ch-live-blick-ins-zillertal-rund-um-die",
     name: { ja: "Live-Blick ins Zillertal – Rund um die Uhr Natur pur erleben! ️ | ZillerSeasons Webcam", en: "Live-Blick ins Zillertal – Rund um die Uhr Natur pur erleben! ️ | ZillerSeasons Webcam" },
     lat: 47.0058,
     lng: 7.1061,
@@ -57013,7 +57013,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "br-ao-vivo-santa-catarina-em-tempo-real-",
+    id: "br-ao-vivo-santa-catarina-em-tempo-real",
     name: { ja: "AO VIVO | SANTA CATARINA EM TEMPO REAL | PRAIAS, TRÂNSITO E CIDADES 24H", en: "AO VIVO | SANTA CATARINA EM TEMPO REAL | PRAIAS, TRÂNSITO E CIDADES 24H" },
     lat: -13.8667,
     lng: -41.5333,
@@ -57088,7 +57088,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "de-ostsee-live-kustenpanorama-von-rugen-",
+    id: "de-ostsee-live-kustenpanorama-von-rugen",
     name: { ja: "Ostsee LIVE – Küstenpanorama von Rügen bis Kühlungsborn in Echtzeit", en: "Ostsee LIVE – Küstenpanorama von Rügen bis Kühlungsborn in Echtzeit" },
     lat: 50.2584,
     lng: 9.1016,
@@ -57103,7 +57103,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "de-surfcam-sylt-westerland-live-erleben-",
+    id: "de-surfcam-sylt-westerland-live-erleben",
     name: { ja: "Surfcam Sylt: Westerland live erleben – Strand, Meer & Promenade", en: "Surfcam Sylt: Westerland live erleben – Strand, Meer & Promenade" },
     lat: 52.1,
     lng: 7.4833,
@@ -57628,7 +57628,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "us-live-news-fox-local-dallas-24-7-live-",
+    id: "us-live-news-fox-local-dallas-24-7-live",
     name: { ja: "LIVE NEWS: FOX LOCAL Dallas 24/7 Live Stream", en: "LIVE NEWS: FOX LOCAL Dallas 24/7 Live Stream" },
     lat: 43.6027,
     lng: -111.1113,
@@ -57643,7 +57643,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "ch-switzerland-4k-breathtaking-views-of-",
+    id: "ch-switzerland-4k-breathtaking-views-of",
     name: { ja: "Switzerland 4K - Breathtaking Views of Matterhorn, Jungfrau, Peaceful Countryside - VIDEO 4K UHD", en: "Switzerland 4K - Breathtaking Views of Matterhorn, Jungfrau, Peaceful Countryside - VIDEO 4K UHD" },
     lat: 46.5368,
     lng: 7.9626,
@@ -57883,7 +57883,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "jp-chubu-centrair-international-airport-",
+    id: "jp-chubu-centrair-international-airport",
     name: { ja: "【ライブ配信】中部国際空港（セントレア）・国際線（CHUBU CENTRAIR International Airport）#空港 #LIVEカメラ #中京テレビLIVE", en: "【ライブ配信】中部国際空港（セントレア）・国際線（CHUBU CENTRAIR International Airport）#空港 #LIVEカメラ #中京テレビLIVE" },
     lat: 35.5079,
     lng: 139.6176,
@@ -57958,7 +57958,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "jp-live-live-streaming-from-sendai-city-",
+    id: "jp-live-live-streaming-from-sendai-city",
     name: { ja: "[LIVE]仙台・東二番丁(五橋)ライブカメラ/Live streaming from Sendai-city,Japan", en: "[LIVE]仙台・東二番丁(五橋)ライブカメラ/Live streaming from Sendai-city,Japan" },
     lat: 38.2641,
     lng: 140.872,
@@ -58513,7 +58513,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "tw-4k-the-baling-malun-fort-observation-",
+    id: "tw-4k-the-baling-malun-fort-observation",
     name: { ja: "【4K】The Baling Malun Fort Observation Deck Live Cam 巴陵馬崙砲台觀景平台即時影像", en: "【4K】The Baling Malun Fort Observation Deck Live Cam 巴陵馬崙砲台觀景平台即時影像" },
     lat: 24.2167,
     lng: 121.05,
@@ -58798,7 +58798,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "id-live-pemantauan-cctv-kalurahan-jetis-",
+    id: "id-live-pemantauan-cctv-kalurahan-je-2",
     name: { ja: "LIVE PEMANTAUAN CCTV KALURAHAN JETIS PTZ", en: "LIVE PEMANTAUAN CCTV KALURAHAN JETIS PTZ" },
     lat: -6.9122,
     lng: 111.6263,
@@ -58933,7 +58933,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "in-free-fire-girl-live-unlimited-custom-",
+    id: "in-free-fire-girl-live-unlimited-custom",
     name: { ja: "FREE FIRE GIRL LIVE | UNLIMITED CUSTOM ROOM |GUILD TEST 1V1 |TEAMCODE GIVEAWAY #freefirelive #fflive", en: "FREE FIRE GIRL LIVE | UNLIMITED CUSTOM ROOM |GUILD TEST 1V1 |TEAMCODE GIVEAWAY #freefirelive #fflive" },
     lat: 22.8384,
     lng: 74.2363,
@@ -59383,7 +59383,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "es-luxury-chillout-lounge-2026-cafe-del-",
+    id: "es-luxury-chillout-lounge-2026-cafe-del",
     name: { ja: "Luxury Chillout Lounge 2026 | Café Del Mar Ibiza Sunset Chill Collection", en: "Luxury Chillout Lounge 2026 | Café Del Mar Ibiza Sunset Chill Collection" },
     lat: 40.7194,
     lng: 0.7084,
@@ -59818,7 +59818,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "pt-webcam-live-porto-di-vernazza-cinque-",
+    id: "pt-webcam-live-porto-di-vernazza-cinque",
     name: { ja: "Webcam Live Porto di Vernazza - Cinque Terre", en: "Webcam Live Porto di Vernazza - Cinque Terre" },
     lat: 41.1485,
     lng: -8.611,
@@ -59878,7 +59878,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "pt-webcam-live-funchal-pontinha-madeira-",
+    id: "pt-webcam-live-funchal-pontinha-madeira",
     name: { ja: "Webcam Live @ Funchal Pontinha - Madeira / Portal Netmadeira", en: "Webcam Live @ Funchal Pontinha - Madeira / Portal Netmadeira" },
     lat: 42,
     lng: -8.45,
@@ -59998,7 +59998,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "no-webcam-bergen-aan-zee-live-streaming-",
+    id: "no-webcam-bergen-aan-zee-live-streaming",
     name: { ja: "Webcam Bergen aan Zee - Live streaming webcam", en: "Webcam Bergen aan Zee - Live streaming webcam" },
     lat: 69.0667,
     lng: 15.7667,
@@ -60253,7 +60253,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "be-live-webcam-beach-zeebrugge-surfclub-",
+    id: "be-live-webcam-beach-zeebrugge-surfclub",
     name: { ja: "Live Webcam @ Beach Zeebrugge - Surfclub Icarus", en: "Live Webcam @ Beach Zeebrugge - Surfclub Icarus" },
     lat: 51.329,
     lng: 3.1819,
@@ -60598,7 +60598,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "us-benson-az-uprr-lordsburg-sub-mp-1032-",
+    id: "us-benson-az-uprr-lordsburg-sub-mp-1032",
     name: { ja: "Benson, AZ | UPRR Lordsburg Sub MP 1032 - PTZ | SouthWest RailCams LIVE", en: "Benson, AZ | UPRR Lordsburg Sub MP 1032 - PTZ | SouthWest RailCams LIVE" },
     lat: 37.4817,
     lng: -100.8438,
@@ -60643,7 +60643,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "us-city-of-murfreesboro-traffic-cameras-",
+    id: "us-city-of-murfreesboro-traffic-cameras",
     name: { ja: "City of Murfreesboro - Traffic Cameras - Live Stream", en: "City of Murfreesboro - Traffic Cameras - Live Stream" },
     lat: 44.98,
     lng: -93.2638,
@@ -60703,7 +60703,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "us-bird-feeder-cam-24-7-non-stop-action-",
+    id: "us-bird-feeder-cam-24-7-non-stop-action",
     name: { ja: "Bird Feeder Cam 24/7 | Non-Stop Action | Cardinals, Blue Jays and More", en: "Bird Feeder Cam 24/7 | Non-Stop Action | Cardinals, Blue Jays and More" },
     lat: 30.4744,
     lng: -91.1232,
@@ -60793,7 +60793,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "us-dalton-georgia-usa-live-train-camera-",
+    id: "us-dalton-georgia-usa-live-train-camera",
     name: { ja: "Dalton, Georgia, USA | LIVE Train Camera (Fixed View – North)", en: "Dalton, Georgia, USA | LIVE Train Camera (Fixed View – North)" },
     lat: 35.4089,
     lng: -80.5816,
@@ -61018,7 +61018,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "us-live-florida-webcams-satellite-beach-",
+    id: "us-live-florida-webcams-satellite-beach",
     name: { ja: "LIVE Florida Webcams | Satellite Beach Canals, Sounds, Weather, Skies, Boating, Wildlife", en: "LIVE Florida Webcams | Satellite Beach Canals, Sounds, Weather, Skies, Boating, Wildlife" },
     lat: 46.9181,
     lng: -104.0044,
@@ -61168,7 +61168,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "ca-live-quebec-chateau-frontenac-harbor-",
+    id: "ca-live-quebec-chateau-frontenac-harbor",
     name: { ja: "LIVE Québec | Château Frontenac • Harbor • Sky Cam • Radar 24/7", en: "LIVE Québec | Château Frontenac • Harbor • Sky Cam • Radar 24/7" },
     lat: 45.3961,
     lng: -74.7958,
@@ -61183,7 +61183,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "mx-camara-en-vivo-los-cabos-vista-desde-",
+    id: "mx-camara-en-vivo-los-cabos-vista-desde",
     name: { ja: "Cámara en Vivo Los Cabos - Vista desde Hoteles Solaris (Live Cam 24/7)", en: "Cámara en Vivo Los Cabos - Vista desde Hoteles Solaris (Live Cam 24/7)" },
     lat: 25.791,
     lng: -108.9982,
@@ -61228,7 +61228,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "ca-live-24-7-quebec-city-weather-camera-",
+    id: "ca-live-24-7-quebec-city-weather-camera",
     name: { ja: "【 LIVE 24/7】Quebec City Weather Camera ️ | Caméra Météo en Direct 🇨🇦", en: "【 LIVE 24/7】Quebec City Weather Camera ️ | Caméra Météo en Direct 🇨🇦" },
     lat: 43.6181,
     lng: -80.2147,
@@ -61333,7 +61333,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "br-transito-ao-vivo-sao-jose-palhoca-sc-",
+    id: "br-transito-ao-vivo-sao-jose-palhoca-sc",
     name: { ja: "Transito Ao Vivo São José/Palhoça -SC - Martelinho de Ouro Farah", en: "Transito Ao Vivo São José/Palhoça -SC - Martelinho de Ouro Farah" },
     lat: -23.5475,
     lng: -46.6361,
@@ -61483,7 +61483,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "br-live-hora-certa-24-7-relogio-ao-vivo-",
+    id: "br-live-hora-certa-24-7-relogio-ao-vivo",
     name: { ja: "LIVE HORA CERTA 24/7 RELÓGIO AO VIVO UTC-3 (HORÁRIO DE BRASÍLIA) HORA OFICIAL DE BRASÍLIA Ao Vivo", en: "LIVE HORA CERTA 24/7 RELÓGIO AO VIVO UTC-3 (HORÁRIO DE BRASÍLIA) HORA OFICIAL DE BRASÍLIA Ao Vivo" },
     lat: -3.0594,
     lng: -44.086,
@@ -61498,7 +61498,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "br-radio-som-que-alimenta-gospel-brasil-",
+    id: "br-radio-som-que-alimenta-gospel-brasil",
     name: { ja: "Rádio Som Que Alimenta - Gospel + Brasil - RÁDIO GOSPEL ONLINE 24 HORAS AO VIVO", en: "Rádio Som Que Alimenta - Gospel + Brasil - RÁDIO GOSPEL ONLINE 24 HORAS AO VIVO" },
     lat: -5.9161,
     lng: -37.0128,
@@ -61528,7 +61528,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "br-camera-ao-vivo-br-101-km-210-sentido-",
+    id: "br-camera-ao-vivo-br-101-km-210-sentido",
     name: { ja: "Câmera Ao Vivo BR-101 KM 210 - Sentido Norte", en: "Câmera Ao Vivo BR-101 KM 210 - Sentido Norte" },
     lat: -20.9667,
     lng: -41.9833,
@@ -61607,7 +61607,7 @@ export const CAMS: Cam[] = [
     name: { ja: "The Press Box LIVE Railcam - Fond du Lac, WI", en: "The Press Box LIVE Railcam - Fond du Lac, WI" },
     lat: -48.538,
     lng: -74.3265,
-    timeZone: "America/Coyhaique",
+    timeZone: "America/Santiago",
     category: "city",
     country: "CL",
     source: {
@@ -61633,7 +61633,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "za-southbroom-beach-webcam-from-riptide-",
+    id: "za-southbroom-beach-webcam-from-riptide",
     name: { ja: "Southbroom Beach Webcam from Riptide Restaurant and powered by Wolf Security", en: "Southbroom Beach Webcam from Riptide Restaurant and powered by Wolf Security" },
     lat: -34.0022,
     lng: 25.3307,
@@ -61708,7 +61708,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "au-live-clock-current-time-in-australia-",
+    id: "au-live-clock-current-time-in-australia",
     name: { ja: "LIVE | Clock / Current Time in Australia (AEST) / LIVE Australia Clock / What Time Is It Now", en: "LIVE | Clock / Current Time in Australia (AEST) / LIVE Australia Clock / What Time Is It Now" },
     lat: -34.8842,
     lng: 150.6004,
@@ -62023,7 +62023,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "us-boones-ferry-marina-boat-ramp-webcam-",
+    id: "us-boones-ferry-marina-boat-ramp-webcam",
     name: { ja: "Boones Ferry Marina Boat Ramp Webcam | River City Boat Sales", en: "Boones Ferry Marina Boat Ramp Webcam | River City Boat Sales" },
     lat: 36.5484,
     lng: -82.5618,
@@ -62263,7 +62263,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "us-socalmountains-com-goldmine-mountain-",
+    id: "us-socalmountains-com-goldmine-mountain",
     name: { ja: "Socalmountains.com Goldmine Mountain (Big Bear) Live Streaming Cam", en: "Socalmountains.com Goldmine Mountain (Big Bear) Live Streaming Cam" },
     lat: 34.2907,
     lng: -83.046,
@@ -62908,7 +62908,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "vn-suprememastertv-live-1080p-1-119-200-",
+    id: "vn-suprememastertv-live-1080p-1-119-200",
     name: { ja: "SupremeMasterTV Live (1080p 1 + 119,200 x Max)", en: "SupremeMasterTV Live (1080p 1 + 119,200 x Max)" },
     lat: 10.823,
     lng: 106.6296,
@@ -62923,7 +62923,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "tr-live-scheveningen-noord-boulevard-en-",
+    id: "tr-live-scheveningen-noord-boulevard-en",
     name: { ja: "Live Scheveningen Noord Boulevard en Beach Camera", en: "Live Scheveningen Noord Boulevard en Beach Camera" },
     lat: 36.9081,
     lng: 30.6956,
@@ -62998,7 +62998,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "vn-live-explore-vietnam-live-tv-vietnam-",
+    id: "vn-live-explore-vietnam-live-tv-vietnam",
     name: { ja: "LIVE | Explore Vietnam Live TV 🇻🇳 | Vietnam Street Food & Night Markets & City Walks, 베트남 여행", en: "LIVE | Explore Vietnam Live TV 🇻🇳 | Vietnam Street Food & Night Markets & City Walks, 베트남 여행" },
     lat: 10.823,
     lng: 106.6296,
@@ -63073,7 +63073,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "pl-weather-webcams-from-poland-pogoda-w-",
+    id: "pl-weather-webcams-from-poland-pogoda-w",
     name: { ja: "Weather WebCams from Poland / Pogoda w Polsce / Dane giełdowe - WebCamera.pl", en: "Weather WebCams from Poland / Pogoda w Polsce / Dane giełdowe - WebCamera.pl" },
     lat: 52.2298,
     lng: 21.0118,
@@ -63193,7 +63193,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "hu-live-wildlife-4k-cam-wildlife-in-the-",
+    id: "hu-live-wildlife-4k-cam-wildlife-in-the",
     name: { ja: "LIVE Wildlife 4K Cam - Wildlife in the forest (Mátra, Hungary)", en: "LIVE Wildlife 4K Cam - Wildlife in the forest (Mátra, Hungary)" },
     lat: 47.4984,
     lng: 19.0404,
@@ -63538,7 +63538,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "my-sleep-and-chill-with-calm-jazz-music-",
+    id: "my-sleep-and-chill-with-calm-jazz-music",
     name: { ja: "Sleep and Chill with Calm Jazz Music in Cozy Apartment Ambience Overlooking the Peaceful Seaport", en: "Sleep and Chill with Calm Jazz Music in Cozy Apartment Ambience Overlooking the Peaceful Seaport" },
     lat: 5.3729,
     lng: 100.2496,
@@ -63628,7 +63628,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "vn-after-3-minutes-dmt-will-be-released-",
+    id: "vn-after-3-minutes-dmt-will-be-released",
     name: { ja: "After 3 Minutes, DMT Will Be RELEASED into Your PINEAL Gland, Remove ALL Negative Energy | 528 Hz", en: "After 3 Minutes, DMT Will Be RELEASED into Your PINEAL Gland, Remove ALL Negative Energy | 528 Hz" },
     lat: 16.0678,
     lng: 108.2208,
@@ -63868,7 +63868,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "gr-chillout-2026-24-7-live-radio-summer-",
+    id: "gr-chillout-2026-24-7-live-radio-summer",
     name: { ja: "Chillout 2026 24/7 Live Radio • Summer Tropical House & Deep House Chill Music Mix by We Are Diamond", en: "Chillout 2026 24/7 Live Radio • Summer Tropical House & Deep House Chill Music Mix by We Are Diamond" },
     lat: 37.4453,
     lng: 25.3287,
@@ -63973,7 +63973,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "us-curacao-sea-aquarium-underwater-live-",
+    id: "us-curacao-sea-aquarium-underwater-live",
     name: { ja: "Curaçao Sea Aquarium | Underwater LIVE Cam", en: "Curaçao Sea Aquarium | Underwater LIVE Cam" },
     lat: 47.6062,
     lng: -122.3321,
@@ -64063,7 +64063,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "br-farol-santo-alberto-e-praia-do-farol-",
+    id: "br-farol-santo-alberto-e-praia-do-farol",
     name: { ja: "Farol Santo Alberto e Praia do Farol l Litoral Norte do RN AO VIVO 24H", en: "Farol Santo Alberto e Praia do Farol l Litoral Norte do RN AO VIVO 24H" },
     lat: -24.0997,
     lng: -52.6233,
@@ -64093,7 +64093,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "nz-wichita-kansas-usa-live-train-camera-",
+    id: "nz-wichita-kansas-usa-live-train-camera",
     name: { ja: "Wichita, Kansas, USA | LIVE Train Camera (PTZ)", en: "Wichita, Kansas, USA | LIVE Train Camera (PTZ)" },
     lat: -41.2866,
     lng: 174.7756,
@@ -64153,7 +64153,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "zw-en-vivo-episodios-completos-de-bluey-",
+    id: "zw-en-vivo-episodios-completos-de-bluey",
     name: { ja: "EN VIVO: Episodios completos de Bluey en HD | 24 HORAS | Bluey con Juguetes | Bluey", en: "EN VIVO: Episodios completos de Bluey en HD | 24 HORAS | Bluey con Juguetes | Bluey" },
     lat: -17.9328,
     lng: 25.8307,
@@ -64198,7 +64198,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "it-live-webcam-from-park-hotel-brasilia-",
+    id: "it-live-webcam-from-park-hotel-brasilia",
     name: { ja: "Live Webcam from Park Hotel Brasilia Jesolo", en: "Live Webcam from Park Hotel Brasilia Jesolo" },
     lat: 43.8886,
     lng: 10.7738,
@@ -64393,7 +64393,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "tr-son-dakika-haberleri-haber-global-tv-",
+    id: "tr-son-dakika-haberleri-haber-global-tv",
     name: { ja: "SON DAKİKA HABERLERİ - Haber Global TV ᴴᴰ Canlı TV İzle", en: "SON DAKİKA HABERLERİ - Haber Global TV ᴴᴰ Canlı TV İzle" },
     lat: 40.55,
     lng: 39.4833,
@@ -64588,7 +64588,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "ro-julius-romer-hutte-cabana-postavarul-",
+    id: "ro-julius-romer-hutte-cabana-postavarul",
     name: { ja: "Julius Römer Hütte - Cabana Postavarul - Poiana Brasov Live Webcam Partia Lupului", en: "Julius Römer Hütte - Cabana Postavarul - Poiana Brasov Live Webcam Partia Lupului" },
     lat: 45.5872,
     lng: 23.837,
@@ -64798,7 +64798,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "us-live-clock-time-in-new-york-now-live-",
+    id: "us-live-clock-time-in-new-york-now-live",
     name: { ja: "LIVE | Clock / Time in New York now / LIVE New York / what time is it now", en: "LIVE | Clock / Time in New York now / LIVE New York / what time is it now" },
     lat: 38.4278,
     lng: -84.8105,
@@ -64828,7 +64828,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "us-city-of-savanna-live-railcam-savanna-",
+    id: "us-city-of-savanna-live-railcam-savanna",
     name: { ja: "City of Savanna Live Railcam - Savanna, IL #SteelHighway", en: "City of Savanna Live Railcam - Savanna, IL #SteelHighway" },
     lat: 44.98,
     lng: -93.2638,
@@ -65293,7 +65293,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "us-palisades-tahoe-ski-resort-palisades-",
+    id: "us-palisades-tahoe-ski-resort-palisades",
     name: { ja: "Palisades Tahoe Ski Resort - Palisades Base Area", en: "Palisades Tahoe Ski Resort - Palisades Base Area" },
     lat: 40.339,
     lng: -80.9573,
@@ -65368,7 +65368,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "us-pomerelle-mountain-ski-resort-webcam-",
+    id: "us-pomerelle-mountain-ski-resort-webcam",
     name: { ja: "Pomerelle Mountain Ski Resort Webcam - Hosted by ATC Communications Fiber Internet", en: "Pomerelle Mountain Ski Resort Webcam - Hosted by ATC Communications Fiber Internet" },
     lat: 40.339,
     lng: -80.9573,
@@ -65848,7 +65848,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "us-winstead-inn-beach-resort-beach-live-",
+    id: "us-winstead-inn-beach-resort-beach-live",
     name: { ja: "Winstead Inn Beach Resort– Beach Live Stream", en: "Winstead Inn Beach Resort– Beach Live Stream" },
     lat: 30.878,
     lng: -91.6807,
@@ -66013,7 +66013,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "us-jewfish-creek-bridge-live-webcam-key-",
+    id: "us-jewfish-creek-bridge-live-webcam-key",
     name: { ja: "Jewfish Creek Bridge, Live WebCam - Key Largo, Florida Keys", en: "Jewfish Creek Bridge, Live WebCam - Key Largo, Florida Keys" },
     lat: 46.8218,
     lng: -123.0962,
@@ -66148,7 +66148,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "us-mendenhall-glacier-and-mountain-goat-",
+    id: "us-mendenhall-glacier-and-mountain-goat",
     name: { ja: "Mendenhall Glacier and Mountain Goat Cam powered by EXPLORE.org", en: "Mendenhall Glacier and Mountain Goat Cam powered by EXPLORE.org" },
     lat: 40.0323,
     lng: -74.9574,
@@ -66223,7 +66223,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "us-live-anan-bear-cam-lower-falls-caves-",
+    id: "us-live-anan-bear-cam-lower-falls-caves",
     name: { ja: "LIVE Anan Bear Cam: Lower Falls & Caves – Alaska | explore.org", en: "LIVE Anan Bear Cam: Lower Falls & Caves – Alaska | explore.org" },
     lat: 40.4667,
     lng: -98.1842,
@@ -66478,7 +66478,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "ca-lockeport-crescent-beach-centre-nova-",
+    id: "ca-lockeport-crescent-beach-centre-nova",
     name: { ja: "Lockeport Crescent Beach Centre, Nova Scotia", en: "Lockeport Crescent Beach Centre, Nova Scotia" },
     lat: 45.4501,
     lng: -79.2496,
@@ -66598,7 +66598,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "ca-lime-out-stt-floating-taco-boat-live-",
+    id: "ca-lime-out-stt-floating-taco-boat-live",
     name: { ja: "Lime Out STT - Floating Taco Boat LIVE webcam from Lindbergh Bay, St. Thomas, USVI", en: "Lime Out STT - Floating Taco Boat LIVE webcam from Lindbergh Bay, St. Thomas, USVI" },
     lat: 44.4809,
     lng: -76.0458,
@@ -66868,7 +66868,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "br-sbrf-cam-1-madrugada-manha-aeroporto-",
+    id: "br-sbrf-cam-1-madrugada-manha-aeroporto",
     name: { ja: "SBRF CAM 1 | MADRUGADA/MANHÃ | AEROPORTO DO RECIFE AO VIVO 24H | RECIFE AIRPORT LIVE", en: "SBRF CAM 1 | MADRUGADA/MANHÃ | AEROPORTO DO RECIFE AO VIVO 24H | RECIFE AIRPORT LIVE" },
     lat: -8.1268,
     lng: -34.923,
@@ -66883,7 +66883,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "mx-volcan-popocatepetl-en-vivo-4k-vista-",
+    id: "mx-volcan-popocatepetl-en-vivo-4k-vista",
     name: { ja: "Volcán Popocatépetl en Vivo 4K | Vista desde San Nicolás de los Ranchos, Puebla", en: "Volcán Popocatépetl en Vivo 4K | Vista desde San Nicolás de los Ranchos, Puebla" },
     lat: 22.1523,
     lng: -100.9714,
@@ -66928,7 +66928,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "mx-siberia-spring-edition-webcam-tour50-",
+    id: "mx-siberia-spring-edition-webcam-tour50",
     name: { ja: "️🅻🅸🆅🅴️Siberia Spring Edition Webcam Tour50 Cams Real Life ExposedNo PropagandaLife After Winter", en: "️🅻🅸🆅🅴️Siberia Spring Edition Webcam Tour50 Cams Real Life ExposedNo PropagandaLife After Winter" },
     lat: 21.9167,
     lng: -105.5333,
@@ -67063,7 +67063,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "br-fall-asleep-with-the-universe-s-most-",
+    id: "br-fall-asleep-with-the-universe-s-most",
     name: { ja: "Fall Asleep With The Universe's Most Relaxing Sounds - By Far The Best Ocean Sounds On Youtube", en: "Fall Asleep With The Universe's Most Relaxing Sounds - By Far The Best Ocean Sounds On Youtube" },
     lat: -31.1068,
     lng: -50.9172,
@@ -67168,7 +67168,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "ar-24-7-2-cd-acuna-mexico-live-cam-live-",
+    id: "ar-24-7-2-cd-acuna-mexico-live-cam-live",
     name: { ja: "24/7 - 2 Cd. Acuña, México Live Cam / Live Music", en: "24/7 - 2 Cd. Acuña, México Live Cam / Live Music" },
     lat: -29.9079,
     lng: -57.9575,
@@ -67198,7 +67198,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "jp-4k-niseko-annupuri-international-ski-",
+    id: "jp-4k-niseko-annupuri-international-ski",
     name: { ja: "[4K]ニセコアンヌプリ国際スキー場ライブカメラ - niseko annupuri international ski area livecam", en: "[4K]ニセコアンヌプリ国際スキー場ライブカメラ - niseko annupuri international ski area livecam" },
     lat: 32.8167,
     lng: 131.55,
@@ -68203,7 +68203,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "jp-kabira-bay-ishigaki-island-nighttime-",
+    id: "jp-kabira-bay-ishigaki-island-nighttime",
     name: { ja: "昼は川平湾/夜は星空ライブ配信 石垣島 - Kabira Bay Ishigaki Island /Nighttime Starry Sky Live Stream", en: "昼は川平湾/夜は星空ライブ配信 石垣島 - Kabira Bay Ishigaki Island /Nighttime Starry Sky Live Stream" },
     lat: 26.705,
     lng: 127.8022,
@@ -68323,7 +68323,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "kr-cctv-jeju-island-in-south-korea-live-",
+    id: "kr-cctv-jeju-island-in-south-korea-live",
     name: { ja: "제주도 서귀포 마라도 cctv 지금 날씨 실시간 제주 오늘 라이브 캠, 펀제주 제주여행 필수영상 Jeju Island in South Korea Live Cam", en: "제주도 서귀포 마라도 cctv 지금 날씨 실시간 제주 오늘 라이브 캠, 펀제주 제주여행 필수영상 Jeju Island in South Korea Live Cam" },
     lat: 36.5,
     lng: 127.75,
@@ -68443,7 +68443,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "vn-kiet-tac-vi-cam-baroque-solo-nhac-co-",
+    id: "vn-kiet-tac-vi-cam-baroque-solo-nhac-co",
     name: { ja: "Kiệt tác Vĩ cầm Baroque Solo | Nhạc Cổ điển Bất hủ để Tập trung, Học tập và Thư giãn Hiệu quả", en: "Kiệt tác Vĩ cầm Baroque Solo | Nhạc Cổ điển Bất hủ để Tập trung, Học tập và Thư giãn Hiệu quả" },
     lat: 22.15,
     lng: 104.25,
@@ -68713,7 +68713,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "za-roy-s-dam-live-cam-big-5-wildlife-in-",
+    id: "za-roy-s-dam-live-cam-big-5-wildlife-in",
     name: { ja: "Roy’s Dam LIVE Cam | Big 5 Wildlife in Sabi Sand, South Africa", en: "Roy’s Dam LIVE Cam | Big 5 Wildlife in Sabi Sand, South Africa" },
     lat: -25.4044,
     lng: 29.3672,
@@ -68803,7 +68803,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "za-france-24-english-live-international-",
+    id: "za-france-24-english-live-international",
     name: { ja: "FRANCE 24 English – LIVE – International Breaking News & Top stories - 24/7 stream", en: "FRANCE 24 English – LIVE – International Breaking News & Top stories - 24/7 stream" },
     lat: -30.9218,
     lng: 29.5715,
@@ -69043,7 +69043,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "us-nakiska-ski-resort-mid-mountain-live-",
+    id: "us-nakiska-ski-resort-mid-mountain-live",
     name: { ja: "Nakiska Ski Resort Mid-Mountain Live Cam", en: "Nakiska Ski Resort Mid-Mountain Live Cam" },
     lat: 40.339,
     lng: -80.9573,
@@ -69358,7 +69358,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "de-insel-neuwerk-live-wattwagen-schiffe-",
+    id: "de-insel-neuwerk-live-wattwagen-schiffe",
     name: { ja: "Insel Neuwerk Live : Wattwagen, Schiffe & Nordsee-Panorama | 24/7 Wetter Webcam", en: "Insel Neuwerk Live : Wattwagen, Schiffe & Nordsee-Panorama | 24/7 Wetter Webcam" },
     lat: 52.5619,
     lng: 11.7536,
@@ -69538,7 +69538,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "no-live-arctic-tundra-cape-south-wapusk-",
+    id: "no-live-arctic-tundra-cape-south-wapusk",
     name: { ja: "LIVE Arctic Tundra: Cape South - Wapusk National Park | explore.org", en: "LIVE Arctic Tundra: Cape South - Wapusk National Park | explore.org" },
     lat: 71.1333,
     lng: 27.6446,
@@ -69628,7 +69628,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "de-live-webcam-texel-kaap-noord-paal-33-",
+    id: "de-live-webcam-texel-kaap-noord-paal-33",
     name: { ja: "Live Webcam Texel: Kaap Noord (Paal 33) | Strand & Uitzicht Vlieland (Livecam & Blick auf Vlieland)", en: "Live Webcam Texel: Kaap Noord (Paal 33) | Strand & Uitzicht Vlieland (Livecam & Blick auf Vlieland)" },
     lat: 50.94,
     lng: 14.0725,
@@ -69928,7 +69928,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "us-live-webcam-weston-super-mare-marine-",
+    id: "us-live-webcam-weston-super-mare-marine",
     name: { ja: "LIVE WEBCAM: Weston-super-Mare Marine Lake", en: "LIVE WEBCAM: Weston-super-Mare Marine Lake" },
     lat: 46.5763,
     lng: -119.0067,
@@ -70003,7 +70003,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "jp-live-tateyama-hojo-beach-live-camera-",
+    id: "jp-live-tateyama-hojo-beach-live-camera",
     name: { ja: "【LIVE】館山・北条海岸ライブカメラ｜Tateyama Hojo Beach Live Camera｜Chiba, Japan", en: "【LIVE】館山・北条海岸ライブカメラ｜Tateyama Hojo Beach Live Camera｜Chiba, Japan" },
     lat: 34.9833,
     lng: 139.8667,
@@ -70063,7 +70063,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "jp-naha-airport-iata-oka-icao-roah-news-",
+    id: "jp-naha-airport-iata-oka-icao-roah-news",
     name: { ja: "【ライブカメラ】那覇空港の現在の様子は ──Naha Airport IATA: OKA , ICAO: ROAH（日テレNEWS LIVE）", en: "【ライブカメラ】那覇空港の現在の様子は ──Naha Airport IATA: OKA , ICAO: ROAH（日テレNEWS LIVE）" },
     lat: 26.3358,
     lng: 127.8014,
@@ -70108,7 +70108,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "jp-lake-tazawa-live-camera-semboku-city-",
+    id: "jp-lake-tazawa-live-camera-semboku-city",
     name: { ja: "田沢湖ライブカメラ｜秋田県・仙北市｜日本一深い湖 ｜ Lake Tazawa Live Camera | Semboku City, Akita, Japan", en: "田沢湖ライブカメラ｜秋田県・仙北市｜日本一深い湖 ｜ Lake Tazawa Live Camera | Semboku City, Akita, Japan" },
     lat: 35.8773,
     lng: 139.8216,
@@ -70573,7 +70573,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "gr-skiathos-island-live-camera-sporades-",
+    id: "gr-skiathos-island-live-camera-sporades",
     name: { ja: "Skiathos Island Live Camera | Sporades Greece", en: "Skiathos Island Live Camera | Sporades Greece" },
     lat: 36.2595,
     lng: 27.7676,
@@ -70588,7 +70588,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "gr-tinos-island-new-port-live-streaming-",
+    id: "gr-tinos-island-new-port-live-streaming",
     name: { ja: "Tinos Island New Port Live Streaming Camera ~ Vidalis Rent a Car since 1980", en: "Tinos Island New Port Live Streaming Camera ~ Vidalis Rent a Car since 1980" },
     lat: 37.0151,
     lng: 25.2475,
@@ -70618,7 +70618,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "hr-suncana-uvala-borik-mali-losinj-live-",
+    id: "hr-suncana-uvala-borik-mali-losinj-live",
     name: { ja: "Sunčana uvala, Borik, Mali Lošinj [LIVE streaming]", en: "Sunčana uvala, Borik, Mali Lošinj [LIVE streaming]" },
     lat: 45.3409,
     lng: 15.2708,
@@ -70678,7 +70678,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "at-flyforfun-webcam-gaisberg-startplatz-",
+    id: "at-flyforfun-webcam-gaisberg-startplatz",
     name: { ja: "FlyForFun Webcam Gaisberg Startplatz Nord", en: "FlyForFun Webcam Gaisberg Startplatz Nord" },
     lat: 46.8667,
     lng: 10.7167,
@@ -70738,7 +70738,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "no-live-stream-erasmusbrug-kop-van-zuid-",
+    id: "no-live-stream-erasmusbrug-kop-van-zuid",
     name: { ja: "Live Stream - Erasmusbrug, Kop van Zuid, Cruise Terminal Rotterdam", en: "Live Stream - Erasmusbrug, Kop van Zuid, Cruise Terminal Rotterdam" },
     lat: 61.5722,
     lng: 11.0466,
@@ -70843,7 +70843,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "at-muttersberg-seilbahn-und-gastronomie-",
+    id: "at-muttersberg-seilbahn-und-gastronomie",
     name: { ja: "Muttersberg Seilbahn und Gastronomie - Livecam", en: "Muttersberg Seilbahn und Gastronomie - Livecam" },
     lat: 47.1831,
     lng: 9.8331,
@@ -71653,7 +71653,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "us-fairport-new-york-usa-live-train--2",
+    id: "us-fairport-new-york-usa-live-train-2",
     name: { ja: "Fairport, New York, USA | LIVE Train Camera (Fixed View – East)", en: "Fairport, New York, USA | LIVE Train Camera (Fixed View – East)" },
     lat: 38.4278,
     lng: -84.8105,
@@ -71818,7 +71818,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "us-thistle-dew-cabin-teton-valley-idaho-",
+    id: "us-thistle-dew-cabin-teton-valley-idaho",
     name: { ja: "Thistle Dew Cabin Teton Valley, Idaho - SeeJH.ai", en: "Thistle Dew Cabin Teton Valley, Idaho - SeeJH.ai" },
     lat: 31.5952,
     lng: -96.14,
@@ -71863,7 +71863,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "mx-popocatepetl-noche-de-incandescencia-",
+    id: "mx-popocatepetl-noche-de-incandescencia",
     name: { ja: "#POPOCATÉPETL | Noche de incandescencia enciende la noche. En Vivo", en: "#POPOCATÉPETL | Noche de incandescencia enciende la noche. En Vivo" },
     lat: 20.9842,
     lng: -101.3081,
@@ -72013,7 +72013,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "id-cctv-timur-stadion-sultan-agung-view-",
+    id: "id-cctv-timur-stadion-sultan-agung-view",
     name: { ja: "CCTV Timur Stadion Sultan Agung View Timur", en: "CCTV Timur Stadion Sultan Agung View Timur" },
     lat: -6.8856,
     lng: 113.0286,
@@ -72283,7 +72283,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "tw-b-07-live-24h-keelung-city-taiwan-24-",
+    id: "tw-b-07-live-24h-keelung-city-taiwan-24",
     name: { ja: "Ⓑ-07-Live-基隆市 重要路口 即時影像 24H Keelung City, Taiwan》 24/7, 365 天氣、地震、車流人流狀況 Love Song 🅣ⓁⓈ204", en: "Ⓑ-07-Live-基隆市 重要路口 即時影像 24H Keelung City, Taiwan》 24/7, 365 天氣、地震、車流人流狀況 Love Song 🅣ⓁⓈ204" },
     lat: 25.1309,
     lng: 121.7409,
@@ -72298,7 +72298,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "tw-live-taipei-24h-taipei-taiwan-tp80-p-",
+    id: "tw-live-taipei-24h-taipei-taiwan-tp80-p",
     name: { ja: "會員專屬無廣告Live－台北市專屬 終極應援歌曲 Taipei 台北市 重要路口 即時影像 24H Taipei , Taiwan 》 天氣、車流人流狀況 🅣ⓉⓅ80-Ⓟ-03", en: "會員專屬無廣告Live－台北市專屬 終極應援歌曲 Taipei 台北市 重要路口 即時影像 24H Taipei , Taiwan 》 天氣、車流人流狀況 🅣ⓉⓅ80-Ⓟ-03" },
     lat: 25.0531,
     lng: 121.5264,
@@ -72328,7 +72328,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "tw-b-06live-miaoli-county-taiwan-24h-24-",
+    id: "tw-b-06live-miaoli-county-taiwan-24h-24",
     name: { ja: "Ⓑ-06Live-苗栗縣、新竹 重要路口 即時影像- Miaoli County, Taiwan 24H》 24/7, 365 天氣、車流人流狀況 背景音樂 古典鋼琴 🅣ⓅⓅ60", en: "Ⓑ-06Live-苗栗縣、新竹 重要路口 即時影像- Miaoli County, Taiwan 24H》 24/7, 365 天氣、車流人流狀況 背景音樂 古典鋼琴 🅣ⓅⓅ60" },
     lat: 24.5643,
     lng: 120.8237,
@@ -72388,7 +72388,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "tw-live-1-24-7-365-24h-bgm-lofi-hip-hop-",
+    id: "tw-live-1-24-7-365-24h-bgm-lofi-hip-hop",
     name: { ja: "Live-台北市 中正區 中山區 重要路口 即時影像 每隔1分鐘更換重要路口》天氣、車流人流狀況 24/7, 365 24H BGM:Lofi hip hop beats🅣ⓁⒽⒽⒷ19-Ⓑ-08", en: "Live-台北市 中正區 中山區 重要路口 即時影像 每隔1分鐘更換重要路口》天氣、車流人流狀況 24/7, 365 24H BGM:Lofi hip hop beats🅣ⓁⒽⒽⒷ19-Ⓑ-08" },
     lat: 25.0531,
     lng: 121.5264,
@@ -72418,7 +72418,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "tw-e-05live-chiayi-county-taiwan-24h-24-",
+    id: "tw-e-05live-chiayi-county-taiwan-24h-24",
     name: { ja: "Ⓔ-05Live-嘉義縣市、阿里山遊樂區 重要路口 即時影像- Chiayi County, Taiwan 24H》 24/7, 365 天氣、車流人流狀況 背景音樂 情歌 🅣ⓁⒽ80", en: "Ⓔ-05Live-嘉義縣市、阿里山遊樂區 重要路口 即時影像- Chiayi County, Taiwan 24H》 24/7, 365 天氣、車流人流狀況 背景音樂 情歌 🅣ⓁⒽ80" },
     lat: 23.4792,
     lng: 120.4489,
@@ -72598,7 +72598,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "ph-jazbaz-philippines-davao-city-street-",
+    id: "ph-jazbaz-philippines-davao-city-street",
     name: { ja: "JazBaz — PHILIPPINES Davao City Street View Members 2", en: "JazBaz — PHILIPPINES Davao City Street View Members 2" },
     lat: 7.0899,
     lng: 125.6128,
@@ -73468,7 +73468,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "tw-d-08-live-x-jazz-music-24h-kaohsiung-",
+    id: "tw-d-08-live-x-jazz-music-24h-kaohsiung",
     name: { ja: "Ⓓ-08 Live-高雄市 重要路口 即時影像 啦啦隊應援曲 x Jazz爵士曲風 歌曲已上線，禿鷹Music 獨播 24H Kaohsiung, Taiwan 》 天氣、車流人流 🅣Ⓚ16", en: "Ⓓ-08 Live-高雄市 重要路口 即時影像 啦啦隊應援曲 x Jazz爵士曲風 歌曲已上線，禿鷹Music 獨播 24H Kaohsiung, Taiwan 》 天氣、車流人流 🅣Ⓚ16" },
     lat: 22.6163,
     lng: 120.3133,
@@ -73618,7 +73618,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "tw-keelung-live-cam-4k-keelung-maritime-",
+    id: "tw-keelung-live-cam-4k-keelung-maritime",
     name: { ja: "【Keelung Live Cam】基隆海洋廣場 - 4K即時影像｜Keelung Maritime Plaza", en: "【Keelung Live Cam】基隆海洋廣場 - 4K即時影像｜Keelung Maritime Plaza" },
     lat: 25.0531,
     lng: 121.5264,
@@ -74533,7 +74533,7 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "ph-jazbaz-philippines-jet-wash-area-and-",
+    id: "ph-jazbaz-philippines-jet-wash-area-and",
     name: { ja: "JazBaz — Philippines Jet Wash area and Internet Cafe", en: "JazBaz — Philippines Jet Wash area and Internet Cafe" },
     lat: 7.0877,
     lng: 125.6148,
