@@ -43,7 +43,7 @@ const CATEGORY_MAP: Record<string, CamPlace["category"]> = {
   mountain: "nature",
   river: "nature",
   park: "nature",
-  space: "nature",
+  space: "space",
   harbor: "harbor",
   airport: "airport",
   train: "railway",

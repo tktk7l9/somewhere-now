@@ -9,6 +9,7 @@ export const CAM_CATEGORIES = [
   "harbor",
   "volcano",
   "railway",
+  "space",
 ] as const;
 
 export type CamCategory = (typeof CAM_CATEGORIES)[number];

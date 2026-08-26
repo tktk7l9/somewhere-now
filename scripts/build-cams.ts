@@ -201,7 +201,11 @@ async function main(): Promise<void> {
   const warnings: string[] = [];
 
   const curated = CAM_PLACES.filter((p) => !BULK_IDS.has(p.id));
-  const bulk = CAM_PLACES.filter((p) => BULK_IDS.has(p.id));
+  const curatedVideoIds = new Set(curated.map((p) => p.videoId));
+  // 人手で置き直した配信は bulk 側の重複ピンを落とす
+  const bulk = CAM_PLACES.filter(
+    (p) => BULK_IDS.has(p.id) && !curatedVideoIds.has(p.videoId),
+  );
 
   // 人手分だけ埋め込み確認(並列)。bulk は取り込み時に embeddable で絞済み。
   const curatedResults = await mapPool(curated, EMBED_CONCURRENCY, async (place) => {
