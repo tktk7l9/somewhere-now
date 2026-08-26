@@ -1,10 +1,10 @@
 // 地球儀。平面図(Leaflet)とは別に、同じ昼夜の境界を球の上に載せる。
 //
 // MapLibre の globe projection を使う。平面図は OSM ラスタ + CSS フィルタで
-// 海図色にしている。地球儀は Worker fetch のため OSM 公式タイルが空を返し、
-// キャンバス全体への CSS フィルタは夜の影まで反転するので使えない。
-// OpenFreeMap のベクトル図式をここで組む。図式 JSON を取りに行く待ちと、
-// ラスタを画素単位で塗る待ちを捨てて、国・都市名は夜の影より手前に出す。
+// 海図色にしている。キャンバス全体への CSS フィルタは夜の影まで反転するので
+// 使えない。OSM 公式タイルは Worker fetch だと Referer が無くて拒否される。
+// 平面図と同じタイルを本体スレッドで取り、画素だけ海図色に直す。地名と国境は
+// タイルに焼き付いているので、ベクトルの place / boundary に頼らない。
 // MapLibre 本体は動的 import。先に読むと、非対応環境ではモジュール評価の
 // 時点で落ちて、案内を出すコードに届かない。
 
@@ -14,7 +14,7 @@ import type { Cam, CamState } from "../domain/cams";
 import { GLOBE_ZOOM, INITIAL_VIEW, type MapViewport } from "../domain/mapView";
 import { nightPolygonGeoJSON, terminatorLineGeoJSON } from "../domain/terminator";
 import type { Lang } from "../domain/weather";
-import { globeStyle, LABEL_LAYER_IDS, placeNameField, type GlobeStyleJson } from "./globeStyle";
+import { globeStyle, registerNauticalProtocol, type GlobeStyleJson } from "./globeStyle";
 import { t } from "./i18n";
 
 export interface GlobeView {
@@ -59,14 +59,6 @@ export function createUnsupportedView(container: HTMLElement, lang: Lang): Globe
 }
 
 export function prefetchGlobeRuntime(): void {
-  if (document.querySelector("link[data-globe-preconnect]") === null) {
-    const link = document.createElement("link");
-    link.rel = "preconnect";
-    link.href = "https://tiles.openfreemap.org";
-    link.crossOrigin = "anonymous";
-    link.dataset["globePreconnect"] = "1";
-    document.head.appendChild(link);
-  }
   void import("maplibre-gl");
   void import("maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url");
   void import("maplibre-gl/dist/maplibre-gl.css");
@@ -85,8 +77,9 @@ export async function createGlobeView(
     const { default: workerUrl } = await import("maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url");
     maplibre.setWorkerUrl(workerUrl);
     await import("maplibre-gl/dist/maplibre-gl.css");
+    registerNauticalProtocol(maplibre.addProtocol);
     container.replaceChildren();
-    return mountGlobe(maplibre, container, cams, lang, onSelect, globeStyle(lang));
+    return mountGlobe(maplibre, container, cams, lang, onSelect, globeStyle());
   } catch {
     return createUnsupportedView(container, lang);
   }
@@ -113,9 +106,6 @@ function mountGlobe(
     minZoom: 0.6,
     maxZoom: 16,
     fadeDuration: 0,
-    // CJK も OpenFreeMap の Noto Sans Regular グリフを使う。
-    // システム書体に任せると、日本語フォントが無い環境で国名が空になる。
-    localIdeographFontFamily: false,
     refreshExpiredTiles: false,
     attributionControl: { compact: true },
     maplibreLogo: false,
@@ -250,15 +240,6 @@ function mountGlobe(
     setLang(next) {
       currentLang = next;
       if (failed) createUnsupportedView(container, currentLang);
-      else {
-        whenReady(() => {
-          const field = placeNameField(currentLang);
-          for (const id of LABEL_LAYER_IDS) {
-            if (map.getLayer(id)) map.setLayoutProperty(id, "text-field", field);
-          }
-          paintCams();
-        });
-      }
     },
     focus(cam) {
       whenReady(() => {
