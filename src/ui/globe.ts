@@ -113,8 +113,9 @@ function mountGlobe(
     minZoom: 0.6,
     maxZoom: 16,
     fadeDuration: 0,
-    // CJK はシステム書体を使い、グリフ PBF の往復を省略する。
-    localIdeographFontFamily: '"Hiragino Sans", "Noto Sans JP", sans-serif',
+    // CJK も OpenFreeMap の Noto Sans Regular グリフを使う。
+    // システム書体に任せると、日本語フォントが無い環境で国名が空になる。
+    localIdeographFontFamily: false,
     refreshExpiredTiles: false,
     attributionControl: { compact: true },
     maplibreLogo: false,
