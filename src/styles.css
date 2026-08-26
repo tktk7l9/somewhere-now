@@ -273,7 +273,8 @@ input {
   font-family: var(--font-body);
 }
 
-/* 素の OSM は明るすぎるので、海図の色に寄せる。帰属表示には掛からない。 */
+/* 素の OSM は明るすぎるので、海図の色に寄せる。帰属表示には掛からない。
+   同じ式を地球儀のラスタにも使う(src/ui/nauticalColor.ts の NAUTICAL_FILTER)。 */
 .map .leaflet-tile-pane {
   filter: invert(1) hue-rotate(180deg) brightness(0.78) contrast(1.05) saturate(0.75);
 }
