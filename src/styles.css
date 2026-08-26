@@ -560,6 +560,45 @@ input {
   animation: breathe 2.6s var(--ease) infinite;
 }
 
+.card__overview:empty {
+  display: none;
+}
+
+.card__overview {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--haze);
+}
+
+.card__overview-title {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--dim);
+  margin: 0 0 6px;
+}
+
+.card__overview-body {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--bone);
+}
+
+.card__overview-source {
+  display: inline-block;
+  margin-top: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--dim);
+  text-decoration: none;
+}
+
+.card__overview-source:hover {
+  color: var(--bone);
+}
+
 @keyframes breathe {
   50% {
     opacity: 0.35;

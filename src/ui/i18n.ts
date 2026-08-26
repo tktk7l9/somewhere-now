@@ -97,6 +97,7 @@ const STRINGS = {
     en: "This stream cannot be played outside YouTube.",
   },
   viewers: { ja: "人が視聴中", en: "watching" },
+  placeSource: { ja: "出典: Wikipedia", en: "Source: Wikipedia" },
   updatedAt: { ja: "状態の更新", en: "State updated" },
   stateUnavailable: {
     ja: "生存状態を取得できませんでした。地図と再生は使えます。",
