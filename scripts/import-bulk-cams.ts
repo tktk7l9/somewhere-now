@@ -14,12 +14,14 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { CAM_PLACES_CURATED, type CamPlace, type PlaceQuery } from "./cam-places.ts";
 import { CAM_PLACES_BULK as EXISTING_BULK } from "./cam-places-bulk.ts";
 
-const TARGET_TOTAL = 3000;
-const GEOCODE_DELAY_MS = 120;
+const TARGET_TOTAL = 5000;
+const GEOCODE_DELAY_MS = 100;
 const FETCH_RETRIES = 4;
 const CAMLISTED_PATH = "scripts/out/camlisted-streams.json";
 const GEOJSON_PATH = "scripts/out/streams.geojson";
+const SCRAPE_PATH = "scripts/out/search-scrape.json";
 const OUTPUT_PATH = "scripts/cam-places-bulk.ts";
+const NOMINATIM_UA = "somewhere-now-cam-import/1.0 (local data curation)";
 
 /** camlisted の category → このアプリの CamCategory */
 const CATEGORY_MAP: Record<string, CamPlace["category"]> = {
@@ -96,6 +98,10 @@ interface GeoFeature {
 
 const geocodeCache = new Map<string, GeocodeHit | null>();
 const timezoneCache = new Map<string, string | null>();
+const ytMetaCache = new Map<
+  string,
+  { channelId: string; title: string; channelTitle: string } | null
+>();
 
 async function fetchWithRetry(url: string, init?: RequestInit): Promise<Response> {
   let lastError: unknown;
@@ -117,7 +123,8 @@ async function geocode(query: PlaceQuery): Promise<GeocodeHit | null> {
 
   const url =
     "https://geocoding-api.open-meteo.com/v1/search" +
-    `?name=${encodeURIComponent(query.name)}&count=10&language=en` +
+    `?name=${encodeURIComponent(query.name)}&count=10` +
+    `&language=${/[^\x00-\x7F]/.test(query.name) ? "ja" : "en"}` +
     `&countryCode=${query.countryCode}`;
 
   await new Promise((r) => setTimeout(r, GEOCODE_DELAY_MS));
@@ -151,6 +158,65 @@ async function geocode(query: PlaceQuery): Promise<GeocodeHit | null> {
   }
 }
 
+/** Open-Meteo が空振りしたときの Nominatim フォールバック。 */
+async function geocodeNominatim(query: PlaceQuery): Promise<GeocodeHit | null> {
+  const key = `nom:${JSON.stringify(query)}`;
+  if (geocodeCache.has(key)) return geocodeCache.get(key)!;
+
+  const url =
+    "https://nominatim.openstreetmap.org/search" +
+    `?q=${encodeURIComponent(query.name)}` +
+    `&countrycodes=${query.countryCode.toLowerCase()}` +
+    `&format=json&limit=5`;
+
+  await new Promise((r) => setTimeout(r, 1100)); // Nominatim 1 req/s
+  try {
+    const res = await fetchWithRetry(url, {
+      headers: { "user-agent": NOMINATIM_UA, accept: "application/json" },
+    });
+    if (!res.ok) {
+      geocodeCache.set(key, null);
+      return null;
+    }
+    const results = (await res.json()) as {
+      lat?: string;
+      lon?: string;
+      display_name?: string;
+    }[];
+    if (results.length === 0) {
+      geocodeCache.set(key, null);
+      return null;
+    }
+    const top = results[0]!;
+    const lat = Number(top.lat);
+    const lng = Number(top.lon);
+    if (!Number.isFinite(lat) || !Number.isFinite(lng)) {
+      geocodeCache.set(key, null);
+      return null;
+    }
+    if (Number.isInteger(lat) && Number.isInteger(lng)) {
+      geocodeCache.set(key, null);
+      return null;
+    }
+    const timeZone = await timezoneAt(lat, lng);
+    if (timeZone === null) {
+      geocodeCache.set(key, null);
+      return null;
+    }
+    const hit: GeocodeHit = {
+      latitude: lat,
+      longitude: lng,
+      timezone: timeZone,
+      country_code: query.countryCode,
+      name: top.display_name ?? query.name,
+    };
+    geocodeCache.set(key, hit);
+    return hit;
+  } catch {
+    return null;
+  }
+}
+
 async function timezoneAt(lat: number, lng: number): Promise<string | null> {
   const key = `${lat.toFixed(3)},${lng.toFixed(3)}`;
   if (timezoneCache.has(key)) return timezoneCache.get(key)!;
@@ -167,13 +233,33 @@ async function timezoneAt(lat: number, lng: number): Promise<string | null> {
       return null;
     }
     const json = (await res.json()) as { timezone?: string };
-    const tz = typeof json.timezone === "string" ? json.timezone : null;
+    const raw = typeof json.timezone === "string" ? json.timezone : null;
+    const tz = raw === null ? null : normalizeTimeZone(raw);
     timezoneCache.set(key, tz);
     return tz;
   } catch {
     timezoneCache.set(key, null);
     return null;
   }
+}
+
+function isResolvableTimeZone(tz: string): boolean {
+  try {
+    new Intl.DateTimeFormat("en-US", { timeZone: tz });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/** Node/ICU がまだ知らない・別名のタイムゾーンを寄せる。 */
+const TZ_ALIASES: Record<string, string> = {
+  "America/Coyhaique": "America/Santiago",
+};
+
+function normalizeTimeZone(tz: string): string | null {
+  const aliased = TZ_ALIASES[tz] ?? tz;
+  return isResolvableTimeZone(aliased) ? aliased : null;
 }
 
 function slugify(value: string): string {
@@ -184,7 +270,8 @@ function slugify(value: string): string {
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/-+/g, "-")
     .replace(/^-+|-+$/g, "")
-    .slice(0, 40);
+    .slice(0, 40)
+    .replace(/^-+|-+$/g, ""); // slice で末尾が "-" になるのを防ぐ
 }
 
 function uniqueId(base: string, used: Set<string>): string {
@@ -194,7 +281,8 @@ function uniqueId(base: string, used: Set<string>): string {
     return id;
   }
   for (let n = 2; n < 1000; n++) {
-    const candidate = `${base.slice(0, 36)}-${n}`;
+    const stem = base.slice(0, 36).replace(/-+$/g, "") || "cam";
+    const candidate = `${stem}-${n}`;
     if (!used.has(candidate)) {
       used.add(candidate);
       return candidate;
@@ -220,27 +308,47 @@ function guessPlaceQueries(
     queries.push({ name: n, countryCode: cc, admin1 });
   };
 
-  // 都市別名を最優先(漢字断片で枠を使い切らない)
+  // 都市別名を最優先(漢字断片で枠を使い切らない)。Open-Meteo は英語名の方が当たる。
   const aliases: [RegExp, string, string?][] = [
     [/札幌|sapporo/i, "Sapporo", "JP"],
-    [/東京|tokyo/i, "Tokyo", "JP"],
-    [/大阪|osaka/i, "Osaka", "JP"],
-    [/京都|kyoto/i, "Kyoto", "JP"],
+    [/函館|hakodate/i, "Hakodate", "JP"],
+    [/仙台|sendai/i, "Sendai", "JP"],
+    [/東京|tokyo|新宿|渋谷|浅草|秋葉原/i, "Tokyo", "JP"],
     [/横浜|yokohama/i, "Yokohama", "JP"],
     [/名古屋|nagoya/i, "Nagoya", "JP"],
-    [/福岡|fukuoka/i, "Fukuoka", "JP"],
-    [/沖縄|okinawa/i, "Naha", "JP"],
+    [/金沢|kanazawa|兼六/i, "Kanazawa", "JP"],
+    [/大阪|osaka|道頓堀|梅田|難波/i, "Osaka", "JP"],
+    [/京都|kyoto/i, "Kyoto", "JP"],
+    [/神戸|kobe/i, "Kobe", "JP"],
+    [/広島|hiroshima|宮島|厳島|嚴島/i, "Hiroshima", "JP"],
+    [/福岡|fukuoka|天神/i, "Fukuoka", "JP"],
+    [/長崎|nagasaki|佐世保|軍艦島/i, "Nagasaki", "JP"],
+    [/鹿児島|kagoshima/i, "Kagoshima", "JP"],
+    [/沖縄|okinawa|那覇|naha|恩納|石垣|ishigaki/i, "Naha", "JP"],
+    [/富士山|fujiyoshida|kawaguchiko|河口湖/i, "Fujiyoshida", "JP"],
+    [/鎌倉|kamakura/i, "Kamakura", "JP"],
+    [/松本|matsumoto/i, "Matsumoto", "JP"],
+    [/白馬|hakuba/i, "Hakuba", "JP"],
+    [/ニセコ|niseko/i, "Niseko", "JP"],
     [/墨尔本|melbourne/i, "Melbourne", "AU"],
     [/悉尼|sydney/i, "Sydney", "AU"],
     [/澳大利亚|australia/i, "Melbourne", "AU"],
     [/首尔|seoul|서울/i, "Seoul", "KR"],
     [/釜山|busan|부산/i, "Busan", "KR"],
+    [/济州|제주|jeju/i, "Jeju City", "KR"],
     [/大邱|daegu|대구/i, "Daegu", "KR"],
+    [/仁川|incheon|인천/i, "Incheon", "KR"],
     [/香港|hong kong/i, "Hong Kong", "HK"],
     [/台北|taipei/i, "Taipei", "TW"],
+    [/高雄|kaohsiung/i, "Kaohsiung", "TW"],
+    [/台中|taichung/i, "Taichung", "TW"],
+    [/基隆|keelung/i, "Keelung", "TW"],
+    [/花蓮|hualien/i, "Hualien City", "TW"],
     [/曼谷|bangkok/i, "Bangkok", "TH"],
     [/上海|shanghai/i, "Shanghai", "CN"],
     [/北京|beijing/i, "Beijing", "CN"],
+    [/广州|guangzhou|廣東/i, "Guangzhou", "CN"],
+    [/深圳|shenzhen/i, "Shenzhen", "CN"],
     [/muizenberg/i, "Muizenberg", "ZA"],
     [/alexandria bay/i, "Alexandria Bay", "US"],
   ];
@@ -300,6 +408,18 @@ function guessPlaceQueries(
 
   for (const m of cleaned.matchAll(/\b(?:in|at|from|near)\s+([A-Z][A-Za-z .'-]{2,40})/g)) {
     tryPush(m[1]!.trim(), countryCode);
+  }
+
+  // 日本語: 県・市などで分割して短い地名を試す
+  if (countryCode === "JP" || /[\u3040-\u30ff\u4e00-\u9fff]/.test(title)) {
+    const jpText = title
+      .replace(/【[^】]*】/g, " ")
+      .replace(/［[^］]*］/g, " ")
+      .replace(/ライブ|カメラ|配信|海況|防犯|交差点/g, " ");
+    for (const part of jpText.split(/(?:都|道|府|県|市|区|町|村|[｜|／/\s])/)) {
+      const p = part.replace(/[^\u3040-\u30ff\u4e00-\u9fff]/g, "").trim();
+      if (p.length >= 2 && p.length <= 6) tryPush(p, countryCode === "?" ? "JP" : countryCode);
+    }
   }
 
   const seen = new Set<string>();
@@ -451,6 +571,135 @@ function serializeEntry(entry: CamPlace): string {
   return lines.join("\n");
 }
 
+async function resolveChannelIdFromAuthorUrl(authorUrl: string): Promise<string | null> {
+  const channelMatch = /youtube\.com\/channel\/(UC[\w-]{22})/.exec(authorUrl);
+  if (channelMatch !== null) return channelMatch[1]!;
+  const handleMatch = /youtube\.com\/@([\w.-]+)/.exec(authorUrl);
+  if (handleMatch === null) return null;
+  const handle = handleMatch[1]!;
+  if (ytMetaCache.has(`handle:${handle}`)) {
+    const cached = ytMetaCache.get(`handle:${handle}`);
+    return cached?.channelId ?? null;
+  }
+  await new Promise((r) => setTimeout(r, 500));
+  try {
+    const html = await fetchWithRetry(`https://www.youtube.com/@${handle}`, {
+      headers: {
+        "user-agent":
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 " +
+          "(KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36",
+        "accept-language": "en-US,en;q=0.9",
+      },
+    }).then((r) => r.text());
+    const external = /"externalId":"(UC[\w-]{22})"/.exec(html);
+    const channelId = external?.[1] ?? /"channelId":"(UC[\w-]{22})"/.exec(html)?.[1];
+    if (channelId === undefined) {
+      ytMetaCache.set(`handle:${handle}`, null);
+      return null;
+    }
+    ytMetaCache.set(`handle:${handle}`, {
+      channelId,
+      title: handle,
+      channelTitle: handle,
+    });
+    return channelId;
+  } catch {
+    return null;
+  }
+}
+
+async function fetchYoutubeMeta(
+  videoId: string,
+): Promise<{ channelId: string; title: string; channelTitle: string } | null> {
+  if (ytMetaCache.has(videoId)) return ytMetaCache.get(videoId)!;
+
+  // 1) oembed (watch ページより bot 判定されにくい) → author_url から channelId
+  try {
+    const oembedUrl =
+      "https://www.youtube.com/oembed?format=json&url=" +
+      encodeURIComponent(`https://www.youtube.com/watch?v=${videoId}`);
+    await new Promise((r) => setTimeout(r, 250));
+    const oembedRes = await fetchWithRetry(oembedUrl, {
+      headers: {
+        "user-agent":
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 " +
+          "(KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36",
+      },
+    });
+    if (oembedRes.ok) {
+      const oembed = (await oembedRes.json()) as {
+        title?: string;
+        author_name?: string;
+        author_url?: string;
+      };
+      if (
+        typeof oembed.title === "string" &&
+        oembed.title.length > 0 &&
+        typeof oembed.author_url === "string"
+      ) {
+        const channelId = await resolveChannelIdFromAuthorUrl(oembed.author_url);
+        if (channelId !== null) {
+          const meta = {
+            channelId,
+            title: oembed.title,
+            channelTitle: oembed.author_name ?? channelId,
+          };
+          ytMetaCache.set(videoId, meta);
+          return meta;
+        }
+      }
+    }
+  } catch {
+    // fall through
+  }
+
+  // 2) watch ページ (失敗しがちだが最後の手段)
+  await new Promise((r) => setTimeout(r, 700));
+  try {
+    const html = await fetchWithRetry(`https://www.youtube.com/watch?v=${videoId}`, {
+      headers: {
+        "user-agent":
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 " +
+          "(KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36",
+        "accept-language": "en-US,en;q=0.9",
+      },
+    }).then((r) => r.text());
+    const playerMatch = html.match(/ytInitialPlayerResponse\s*=\s*(\{.+?\})\s*;/s);
+    if (playerMatch === null) {
+      ytMetaCache.set(videoId, null);
+      return null;
+    }
+    const player = JSON.parse(playerMatch[1]!) as {
+      videoDetails?: {
+        channelId?: string;
+        title?: string;
+        author?: string;
+      };
+    };
+    const channelId = player.videoDetails?.channelId;
+    const title = player.videoDetails?.title;
+    const channelTitle = player.videoDetails?.author;
+    if (
+      channelId === undefined ||
+      channelId.length === 0 ||
+      title === undefined ||
+      title.length === 0
+    ) {
+      ytMetaCache.set(videoId, null);
+      return null;
+    }
+    const meta = {
+      channelId,
+      title,
+      channelTitle: channelTitle ?? channelId,
+    };
+    ytMetaCache.set(videoId, meta);
+    return meta;
+  } catch {
+    return null;
+  }
+}
+
 async function resolveFromCoords(
   lat: number,
   lng: number,
@@ -466,18 +715,89 @@ async function resolveFromCoords(
   };
 }
 
+/** placeHint / 検索クエリを英語の都市名に寄せる(Open-Meteo は非ASCIIが空振りしやすい)。 */
+function englishPlaceHint(hint: string, countryCode: string): PlaceQuery | null {
+  const text = hint.trim();
+  if (text.length < 2) return null;
+  const mapped: [RegExp, string, string][] = [
+    [/札幌|sapporo/i, "Sapporo", "JP"],
+    [/函館|hakodate/i, "Hakodate", "JP"],
+    [/仙台|sendai/i, "Sendai", "JP"],
+    [/東京|tokyo|新宿|渋谷/i, "Tokyo", "JP"],
+    [/横浜|yokohama/i, "Yokohama", "JP"],
+    [/名古屋|nagoya/i, "Nagoya", "JP"],
+    [/金沢|kanazawa/i, "Kanazawa", "JP"],
+    [/大阪|osaka/i, "Osaka", "JP"],
+    [/京都|kyoto/i, "Kyoto", "JP"],
+    [/神戸|kobe/i, "Kobe", "JP"],
+    [/広島|hiroshima/i, "Hiroshima", "JP"],
+    [/福岡|fukuoka/i, "Fukuoka", "JP"],
+    [/長崎|nagasaki/i, "Nagasaki", "JP"],
+    [/鹿児島|kagoshima/i, "Kagoshima", "JP"],
+    [/沖縄|okinawa|那覇/i, "Naha", "JP"],
+    [/富士山|fuji/i, "Fujiyoshida", "JP"],
+    [/부산|busan|釜山/i, "Busan", "KR"],
+    [/서울|seoul|ソウル/i, "Seoul", "KR"],
+    [/제주|jeju|済州/i, "Jeju City", "KR"],
+    [/台北|taipei/i, "Taipei", "TW"],
+    [/高雄|kaohsiung/i, "Kaohsiung", "TW"],
+    [/香港|hong kong/i, "Hong Kong", "HK"],
+    [/上海|shanghai/i, "Shanghai", "CN"],
+    [/北京|beijing/i, "Beijing", "CN"],
+    [/广州|guangzhou/i, "Guangzhou", "CN"],
+  ];
+  for (const [re, name, cc] of mapped) {
+    if (re.test(text)) return { name, countryCode: cc };
+  }
+  // すでに ASCII ならそのまま(国コード付き)
+  if (/^[\x20-\x7E]+$/.test(text) && text.length <= 40) {
+    return { name: text.replace(/\s+/g, " ").trim(), countryCode };
+  }
+  return null;
+}
+
+function prioritizeGeocodeQueries(queries: PlaceQuery[]): PlaceQuery[] {
+  // ASCII(英語都市名)を先に、その中でも短いものを優先。漢字断片は枠を食い潰すので後回し。
+  const score = (q: PlaceQuery): number => {
+    const ascii = /^[\x20-\x7E]+$/.test(q.name);
+    const len = q.name.length;
+    if (ascii && len >= 3 && len <= 24) return len; // 小さいほど先
+    if (ascii) return 100 + len;
+    return 1000 + len;
+  };
+  const seen = new Set<string>();
+  return [...queries]
+    .sort((a, b) => score(a) - score(b))
+    .filter((q) => {
+      const k = `${q.countryCode}\0${q.name}\0${q.admin1 ?? ""}`;
+      if (seen.has(k)) return false;
+      seen.add(k);
+      return true;
+    })
+    .slice(0, 12);
+}
+
 async function resolveFromGeocode(
   title: string,
   channelTitle: string,
   countryCode: string,
+  placeHint?: string,
 ): Promise<NonNullable<CamPlace["at"]> | null> {
-  // 短い・明確な地名を先に試す(漢字の長い断片で枠を使い切らない)
-  const queries = guessPlaceQueries(title, channelTitle, countryCode).sort(
-    (a, b) => a.name.length - b.name.length,
-  ).slice(0, 12);
-  for (const q of queries) {
+  const queries = guessPlaceQueries(title, channelTitle, countryCode);
+  if (placeHint !== undefined && placeHint.trim().length >= 2) {
+    const mapped = englishPlaceHint(placeHint, countryCode);
+    if (mapped !== null) queries.unshift(mapped);
+    // 生の非ASCII hint は Open-Meteo で空振りしやすいので先頭に載せない
+    else if (/^[\x20-\x7E]+$/.test(placeHint.trim())) {
+      queries.unshift({ name: placeHint.trim(), countryCode });
+    }
+  }
+  const ordered = prioritizeGeocodeQueries(queries);
+  for (const q of ordered) {
     const hit = await geocode(q);
     if (hit !== null && typeof hit.timezone === "string" && hit.timezone.length > 0) {
+      const timeZone = normalizeTimeZone(hit.timezone);
+      if (timeZone === null) continue;
       const lat = Number(hit.latitude.toFixed(4));
       const lng = Number(hit.longitude.toFixed(4));
       // 国の重心っぽい粗い座標は近似なので落とす
@@ -485,7 +805,7 @@ async function resolveFromGeocode(
       return {
         lat,
         lng,
-        timeZone: hit.timezone,
+        timeZone,
         country: hit.country_code,
       };
     }
@@ -548,19 +868,44 @@ async function main(): Promise<void> {
 
   const camlistedByVideo = new Map(camlistedJson.streams.map((s) => [s.video_id, s]));
 
+  // 既存 bulk の id 末尾ハイフン・未対応 TZ を直してから積み増す
+  const repaired: CamPlace[] = [];
+  const repairedIds = new Set<string>(CAM_PLACES_CURATED.map((p) => p.id));
+  let droppedTz = 0;
+  for (const entry of EXISTING_BULK as CamPlace[]) {
+    if (entry.at === undefined) continue;
+    const timeZone = normalizeTimeZone(entry.at.timeZone);
+    if (timeZone === null) {
+      droppedTz++;
+      continue;
+    }
+    const id = uniqueId(
+      slugify(`${entry.at.country}-${entry.nameEn || entry.nameJa || entry.videoId}`),
+      repairedIds,
+    );
+    repaired.push({
+      ...entry,
+      id,
+      at: { ...entry.at, timeZone },
+    });
+  }
+  if (droppedTz > 0) {
+    console.log(`既存 bulk から未対応 TZ を ${droppedTz} 件除外`);
+  }
+
   const existingTitleKeys = new Set(
-    [...CAM_PLACES_CURATED, ...EXISTING_BULK].map((p) => `${p.channelId}\0${p.titleKey}`),
+    [...CAM_PLACES_CURATED, ...repaired].map((p) => `${p.channelId}\0${p.titleKey}`),
   );
   const existingVideoIds = new Set(
-    [...CAM_PLACES_CURATED, ...EXISTING_BULK].map((p) => p.videoId),
+    [...CAM_PLACES_CURATED, ...repaired].map((p) => p.videoId),
   );
-  const usedIds = new Set([...CAM_PLACES_CURATED, ...EXISTING_BULK].map((p) => p.id));
+  const usedIds = new Set([...CAM_PLACES_CURATED, ...repaired].map((p) => p.id));
   const seenKeys = new Set(existingTitleKeys);
   const seenVideos = new Set(existingVideoIds);
 
   const targetBulk = TARGET_TOTAL - CAM_PLACES_CURATED.length;
-  const need = targetBulk - EXISTING_BULK.length;
-  const bulk: CamPlace[] = [...(EXISTING_BULK as CamPlace[])];
+  const need = targetBulk - repaired.length;
+  const bulk: CamPlace[] = [...repaired];
   const failures: string[] = [];
 
   async function flush(): Promise<void> {
@@ -569,15 +914,31 @@ async function main(): Promise<void> {
   }
 
   if (need <= 0) {
-    console.log(`既に ${CAM_PLACES_CURATED.length + bulk.length} 件あるので追加不要`);
+    console.log(`既に ${CAM_PLACES_CURATED.length + bulk.length} 件あるので追加不要(id/TZ 修復のみ)`);
     await flush();
     return;
   }
 
-  console.log(`既存 bulk ${EXISTING_BULK.length} 件 / あと ${need} 件追加`);
+  console.log(`既存 bulk ${repaired.length} 件 / あと ${need} 件追加`);
 
-  // Phase 1: geojson YouTube(座標あり)。camlisted に channelId があるものだけ。
-  // YouTube ページへの問い合わせは遅すぎるので、メタが無いものはスキップ。
+  // スクレイプ結果を追加候補として読む(無くても続行)
+  let scrapeHits: {
+    videoId: string;
+    title: string;
+    channelId: string;
+    channelTitle: string;
+    countryCode: string;
+    query?: string;
+  }[] = [];
+  try {
+    scrapeHits = JSON.parse(await readFile(SCRAPE_PATH, "utf8")) as typeof scrapeHits;
+    console.log(`scrape 候補 ${scrapeHits.length} 件`);
+  } catch {
+    console.log("scrape 結果なし(scripts/out/search-scrape.json)");
+  }
+
+  // Phase 1: geojson YouTube(座標あり)。
+  // camlisted にあればそれを使い、無ければ watch ページから channelId を取る。
   for (const feature of geojson.features) {
     if (bulk.length >= targetBulk) break;
     if (feature.properties?.url === undefined) continue;
@@ -590,22 +951,48 @@ async function main(): Promise<void> {
     const countryCode = feature.properties.country_code;
     if (coords === undefined || countryCode === undefined) continue;
 
-    const listed = camlistedByVideo.get(videoId);
-    if (listed === undefined || !listed.embeddable || listed.visibility !== "listed") continue;
-    if (listed.channel_id.length === 0) continue;
-
     const [lng, lat] = coords;
+    // 国重心っぽい整数座標は近似なので落とす
+    if (Number.isInteger(lat) && Number.isInteger(lng)) continue;
+
+    const listed = camlistedByVideo.get(videoId);
+    let channelId: string;
+    let titleKey: string;
+    let handle: string;
+    let category: CamPlace["category"];
+    let label: string;
+
+    if (listed !== undefined) {
+      if (!listed.embeddable || listed.visibility !== "listed") continue;
+      if (listed.channel_id.length === 0) continue;
+      channelId = listed.channel_id;
+      titleKey = listed.title;
+      handle = listed.channel_title;
+      category = CATEGORY_MAP[listed.category] ?? sceneCategory(feature.properties.scene_type);
+      label = displayName(listed.title, listed.channel_title);
+    } else {
+      const meta = await fetchYoutubeMeta(videoId);
+      if (meta === null) continue;
+      channelId = meta.channelId;
+      titleKey = meta.title;
+      handle = meta.channelTitle;
+      category = sceneCategory(feature.properties.scene_type);
+      label = displayName(
+        feature.properties.display_name ?? feature.properties.name ?? meta.title,
+        meta.channelTitle,
+      );
+    }
+
     const at = await resolveFromCoords(lat, lng, countryCode);
     if (at === null) continue;
 
-    const label = displayName(listed.title, listed.channel_title);
     const added = await addEntry(bulk, usedIds, seenKeys, {
       videoId,
-      titleKey: listed.title,
-      channelId: listed.channel_id,
-      handle: listed.channel_title,
+      titleKey,
+      channelId,
+      handle,
       label,
-      category: CATEGORY_MAP[listed.category] ?? sceneCategory(feature.properties.scene_type),
+      category,
       at,
     });
     if (added) {
@@ -617,54 +1004,97 @@ async function main(): Promise<void> {
     }
   }
 
-  // Phase 2: camlisted 残り(ジオコーディング)。並列で回す。
-  const camlistedCandidates = camlistedJson.streams
-    .filter(
-      (s) =>
-        s.embeddable === true &&
-        s.visibility === "listed" &&
-        s.channel_id.length > 0 &&
-        s.video_id.length > 0 &&
-        s.title.trim().length > 0 &&
-        !seenVideos.has(s.video_id),
-    )
-    .sort((a, b) => {
-      const countryA = a.country ?? "Z";
-      const countryB = b.country ?? "Z";
-      return countryA.localeCompare(countryB);
-    });
+  type Candidate = {
+    videoId: string;
+    title: string;
+    channelId: string;
+    channelTitle: string;
+    country: string | null;
+    category: string;
+    placeHint?: string;
+  };
 
-  console.log(`phase 2 候補 ${camlistedCandidates.length} 件`);
+  const candidates: Candidate[] = [];
+  for (const s of camlistedJson.streams) {
+    if (
+      s.embeddable === true &&
+      s.visibility === "listed" &&
+      s.channel_id.length > 0 &&
+      s.video_id.length > 0 &&
+      s.title.trim().length > 0 &&
+      !seenVideos.has(s.video_id)
+    ) {
+      candidates.push({
+        videoId: s.video_id,
+        title: s.title,
+        channelId: s.channel_id,
+        channelTitle: s.channel_title,
+        country: s.country,
+        category: s.category,
+      });
+    }
+  }
+  for (const s of scrapeHits) {
+    if (seenVideos.has(s.videoId)) continue;
+    if (s.channelId.length === 0 || s.title.trim().length === 0) continue;
+    const hint = (s as { query?: string }).query
+      ?.replace(/\blive\s*cam(era)?s?\b/gi, " ")
+      .replace(/\bwebcam\b/gi, " ")
+      .replace(/\b24\/7\b/gi, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+    candidates.push({
+      videoId: s.videoId,
+      title: s.title,
+      channelId: s.channelId,
+      channelTitle: s.channelTitle,
+      country: s.countryCode,
+      category: "city",
+      placeHint: hint,
+    });
+  }
+
+  console.log(`phase 2 候補 ${candidates.length} 件`);
 
   const PHASE2_CONCURRENCY = 8;
   let candidateIndex = 0;
+  const unresolved: Candidate[] = [];
 
   async function phase2Worker(): Promise<void> {
     while (true) {
       if (bulk.length >= targetBulk) return;
       const i = candidateIndex++;
-      if (i >= camlistedCandidates.length) return;
-      const stream = camlistedCandidates[i]!;
-      if (seenVideos.has(stream.video_id)) continue;
-      seenVideos.add(stream.video_id);
+      if (i >= candidates.length) return;
+      const stream = candidates[i]!;
+      if (seenVideos.has(stream.videoId)) continue;
+      seenVideos.add(stream.videoId);
 
-      const countryCode = stream.country ?? inferCountry(stream.title, stream.channel_title);
-      if (countryCode === null) continue;
+      const countryCode = stream.country ?? inferCountry(stream.title, stream.channelTitle);
+      if (countryCode === null) {
+        unresolved.push(stream);
+        continue;
+      }
 
-      const at = await resolveFromGeocode(stream.title, stream.channel_title, countryCode);
+      const at = await resolveFromGeocode(
+        stream.title,
+        stream.channelTitle,
+        countryCode,
+        stream.placeHint,
+      );
       if (at == null) {
-        failures.push(`[${stream.video_id}] 座標未解決: ${stream.title}`);
+        unresolved.push({ ...stream, country: countryCode });
+        failures.push(`[${stream.videoId}] 座標未解決: ${stream.title}`);
         continue;
       }
 
       if (bulk.length >= targetBulk) return;
 
-      const label = displayName(stream.title, stream.channel_title);
+      const label = displayName(stream.title, stream.channelTitle);
       const added = await addEntry(bulk, usedIds, seenKeys, {
-        videoId: stream.video_id,
+        videoId: stream.videoId,
         titleKey: stream.title,
-        channelId: stream.channel_id,
-        handle: stream.channel_title,
+        channelId: stream.channelId,
+        handle: stream.channelTitle,
         label,
         category: CATEGORY_MAP[stream.category] ?? "city",
         at,
@@ -676,9 +1106,60 @@ async function main(): Promise<void> {
     }
   }
 
-  await Promise.all(
-    Array.from({ length: PHASE2_CONCURRENCY }, () => phase2Worker()),
-  );
+  await Promise.all(Array.from({ length: PHASE2_CONCURRENCY }, () => phase2Worker()));
+
+  // Phase 3: Nominatim は残りが少ないときだけ
+  const stillNeed = targetBulk - bulk.length;
+  const skipNominatim = process.env["SKIP_NOMINATIM"] === "1" || stillNeed > 400;
+  if (stillNeed <= 0 || unresolved.length === 0 || skipNominatim) {
+    await flush();
+    console.log(`✓ ${bulk.length} 件を ${OUTPUT_PATH} に書き出した (目標追加 ${need} 件)`);
+    if (skipNominatim && stillNeed > 0) {
+      console.log(`(Nominatim スキップ: 残り ${stillNeed} / 未解決 ${unresolved.length})`);
+    }
+    if (failures.length > 0) {
+      console.log(`\n△ Open-Meteo 未解決 ${failures.length} 件`);
+    }
+    return;
+  }
+  const nominatimBudget = Math.min(unresolved.length, stillNeed + 30, 200);
+  console.log(`phase 3 Nominatim 候補 ${nominatimBudget}/${unresolved.length} 件 / あと ${stillNeed}`);
+  for (const stream of unresolved.slice(0, nominatimBudget)) {
+    if (bulk.length >= targetBulk) break;
+    const countryCode = stream.country;
+    if (countryCode === null) continue;
+    const queries = guessPlaceQueries(stream.title, stream.channelTitle, countryCode)
+      .sort((a, b) => a.name.length - b.name.length)
+      .slice(0, 4);
+    let at: NonNullable<CamPlace["at"]> | null = null;
+    for (const q of queries) {
+      const hit = await geocodeNominatim(q);
+      if (hit !== null && hit.timezone.length > 0) {
+        const timeZone = normalizeTimeZone(hit.timezone);
+        if (timeZone === null) continue;
+        const lat = Number(hit.latitude.toFixed(4));
+        const lng = Number(hit.longitude.toFixed(4));
+        if (Number.isInteger(lat) && Number.isInteger(lng)) continue;
+        at = { lat, lng, timeZone, country: hit.country_code };
+        break;
+      }
+    }
+    if (at === null) continue;
+    const label = displayName(stream.title, stream.channelTitle);
+    const added = await addEntry(bulk, usedIds, seenKeys, {
+      videoId: stream.videoId,
+      titleKey: stream.title,
+      channelId: stream.channelId,
+      handle: stream.channelTitle,
+      label,
+      category: CATEGORY_MAP[stream.category] ?? "city",
+      at,
+    });
+    if (added && bulk.length % 25 === 0) {
+      await flush();
+      console.log(`  … ${bulk.length} 件 (phase 3)`);
+    }
+  }
 
   await flush();
   console.log(`✓ ${bulk.length} 件を ${OUTPUT_PATH} に書き出した (目標追加 ${need} 件)`);
