@@ -45,19 +45,22 @@ describe("globeStyle", () => {
       "night-shade",
       "terminator",
       "boundary-country",
-      "cams-glow",
-      "cams-point",
       "label-country",
       "label-city",
+      "cams-glow",
+      "cams-point",
     ]);
     expect(ids.indexOf("boundary-country")).toBeGreaterThan(ids.indexOf("night-shade"));
-    expect(ids.indexOf("label-country")).toBeGreaterThan(ids.indexOf("cams-point"));
+    expect(ids.indexOf("cams-point")).toBeGreaterThan(ids.indexOf("label-country"));
     expect(LABEL_LAYER_IDS.every((id) => ids.includes(id))).toBe(true);
     const country = style.layers.find((layer) => layer.id === "label-country");
     expect(country?.["layout"]).toMatchObject({
       "text-field": placeNameField("ja"),
-      "text-allow-overlap": true,
-      "text-font": ["Noto Sans Bold"],
+      "text-font": ["Noto Sans Regular"],
+    });
+    expect(country?.paint).toMatchObject({ "text-opacity": 0.62 });
+    expect(style.layers.find((layer) => layer.id === "boundary-country")?.paint).toMatchObject({
+      "line-opacity": 0.42,
     });
   });
 

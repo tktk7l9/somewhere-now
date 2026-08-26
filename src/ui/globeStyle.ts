@@ -13,9 +13,9 @@ const INK_2 = "#132532";
 const NIGHT = "#050c14";
 const SPACE = "#02080c";
 const BONE = "#e8e2d4";
-const DIM = "#c5d0d4";
+const DIM = "#7e9099";
 const PIN_RING = "#d8e0e4";
-const HALO = "#0b1620";
+const HALO = "rgba(11, 22, 32, 0.82)";
 
 export const GLOBE_TILES_ORIGIN = "https://tiles.openfreemap.org";
 export const LABEL_LAYER_IDS = ["label-country", "label-city"] as const;
@@ -55,9 +55,10 @@ export function placeNameField(lang: Lang): ExpressionSpecification {
 
 const labelPaint = {
   "text-color": BONE,
+  "text-opacity": 0.62,
   "text-halo-color": HALO,
-  "text-halo-width": 2.2,
-  "text-halo-blur": 0.2,
+  "text-halo-width": 1.05,
+  "text-halo-blur": 0.4,
 };
 
 export function globeStyle(lang: Lang): GlobeStyleJson {
@@ -127,8 +128,8 @@ export function globeStyle(lang: Lang): GlobeStyleJson {
         ],
         paint: {
           "line-color": DIM,
-          "line-opacity": ["interpolate", ["linear"], ["zoom"], 3, 0.45, 6, 0.7],
-          "line-width": ["interpolate", ["linear"], ["zoom"], 3, 0.7, 8, 1.3],
+          "line-opacity": ["interpolate", ["linear"], ["zoom"], 3, 0.22, 6, 0.38],
+          "line-width": ["interpolate", ["linear"], ["zoom"], 3, 0.35, 8, 0.7],
           "line-dasharray": [3, 2],
         },
       },
@@ -145,8 +146,8 @@ export function globeStyle(lang: Lang): GlobeStyleJson {
         ],
         paint: {
           "line-color": DIM,
-          "line-opacity": ["interpolate", ["linear"], ["zoom"], 6, 0.4, 10, 0.65],
-          "line-width": ["interpolate", ["linear"], ["zoom"], 6, 0.5, 11, 1],
+          "line-opacity": ["interpolate", ["linear"], ["zoom"], 6, 0.18, 10, 0.32],
+          "line-width": ["interpolate", ["linear"], ["zoom"], 6, 0.3, 11, 0.55],
           "line-dasharray": [1.5, 2],
         },
       },
@@ -175,10 +176,50 @@ export function globeStyle(lang: Lang): GlobeStyleJson {
         type: "line",
         source: "atlasBorders",
         paint: {
-          "line-color": BONE,
-          "line-opacity": 0.92,
-          "line-width": ["interpolate", ["linear"], ["zoom"], 0, 1.35, 3, 1.8, 6, 2.4],
+          "line-color": DIM,
+          "line-opacity": 0.42,
+          "line-width": ["interpolate", ["linear"], ["zoom"], 0, 0.45, 3, 0.7, 6, 1],
         },
+      },
+      {
+        id: "label-country",
+        type: "symbol",
+        source: "atlasCountries",
+        maxzoom: 7,
+        filter: ["<=", ["get", "rank"], 5],
+        layout: {
+          "text-field": names,
+          "text-font": ["Noto Sans Regular"],
+          "text-size": ["interpolate", ["linear"], ["zoom"], 0, 10, 2.8, 12.5, 5, 15],
+          "text-max-width": 8,
+          "text-padding": 4,
+          "text-letter-spacing": 0.04,
+          "text-anchor": "center",
+          "text-pitch-alignment": "viewport",
+          "text-allow-overlap": true,
+          "symbol-sort-key": ["get", "rank"],
+        },
+        paint: labelPaint,
+      },
+      {
+        id: "label-city",
+        type: "symbol",
+        source: "atlasCities",
+        minzoom: 3,
+        maxzoom: 12,
+        filter: ["any", ["<=", ["get", "rank"], 2], ["==", ["get", "capital"], 1]],
+        layout: {
+          "text-field": names,
+          "text-font": ["Noto Sans Regular"],
+          "text-size": ["interpolate", ["linear"], ["zoom"], 3, 10, 6, 12, 9, 14],
+          "text-max-width": 8,
+          "text-padding": 4,
+          "text-offset": [0, 0.85],
+          "text-anchor": "top",
+          "text-pitch-alignment": "viewport",
+          "symbol-sort-key": ["get", "rank"],
+        },
+        paint: { ...labelPaint, "text-opacity": 0.55 },
       },
       {
         id: "cams-glow",
@@ -226,47 +267,6 @@ export function globeStyle(lang: Lang): GlobeStyleJson {
             1,
           ],
         },
-      },
-      {
-        id: "label-country",
-        type: "symbol",
-        source: "atlasCountries",
-        maxzoom: 7,
-        layout: {
-          "text-field": names,
-          "text-font": ["Noto Sans Bold"],
-          "text-size": ["interpolate", ["linear"], ["zoom"], 0, 14, 2.8, 20, 5, 26],
-          "text-max-width": 8,
-          "text-padding": 2,
-          "text-anchor": "center",
-          "text-pitch-alignment": "viewport",
-          "text-allow-overlap": true,
-          "text-ignore-placement": true,
-          "symbol-sort-key": ["get", "rank"],
-        },
-        paint: labelPaint,
-      },
-      {
-        id: "label-city",
-        type: "symbol",
-        source: "atlasCities",
-        minzoom: 2,
-        maxzoom: 12,
-        filter: ["any", ["<=", ["get", "rank"], 3], ["==", ["get", "capital"], 1]],
-        layout: {
-          "text-field": names,
-          "text-font": ["Noto Sans Regular"],
-          "text-size": ["interpolate", ["linear"], ["zoom"], 2, 12, 5, 15, 8, 18],
-          "text-max-width": 8,
-          "text-padding": 2,
-          "text-offset": [0, 0.2],
-          "text-anchor": "center",
-          "text-pitch-alignment": "viewport",
-          "text-allow-overlap": true,
-          "text-ignore-placement": true,
-          "symbol-sort-key": ["get", "rank"],
-        },
-        paint: labelPaint,
       },
     ],
   };
