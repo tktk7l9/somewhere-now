@@ -75026,4 +75026,10789 @@ export const CAMS: Cam[] = [
       titleKey: "Wahoo Bay Underwater Camera",
     },
   },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ro-fountain-of-manole-curtea-de-arges",
+    name: { ja: "Fountain of Manole, Curtea de Argeș", en: "Fountain of Manole, Curtea de Argeș" },
+    lat: 45.1342,
+    lng: 24.6741,
+    timeZone: "Europe/Bucharest",
+    category: "city",
+    country: "RO",
+    source: {
+      videoId: "YJULVN8Otl0",
+      channelId: "UCMWBgjc589gA9wgcgw8KemA",
+      titleKey: "Fantana Lui Manole - Curtea de Arges - Live | www.alarmesicamere.ro |",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-winter-park-usa",
+    name: { ja: "Winter Park, USA", en: "Winter Park, USA" },
+    lat: 39.854,
+    lng: -105.7658,
+    timeZone: "America/Denver",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "HfX4H3MSwXs",
+      channelId: "UCfGg4QKTWmRGaV6iIUFofTA",
+      titleKey: "Lunch Rock @ Winter Park Resort",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-woods-valley-ski",
+    name: { ja: "Woods Valley Ski", en: "Woods Valley Ski" },
+    lat: 40.7143,
+    lng: -74.006,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "VncTKPEKNXY",
+      channelId: "UCsj8yMwUO8VYPVXVNIRL7Tw",
+      titleKey: "Woods Valley Live Stream 2",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "vg-scrub-island-british-virgin-islands",
+    name: { ja: "Scrub Island British Virgin Islands", en: "Scrub Island British Virgin Islands" },
+    lat: 18.467,
+    lng: -64.525,
+    timeZone: "America/Tortola",
+    category: "harbor",
+    country: "VG",
+    source: {
+      videoId: "t55kv94nEzc",
+      channelId: "UC6qrG3W8SMK0jior2olka3g",
+      titleKey: "EarthCam Live:  Scrub Island (British Virgin Islands)",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "vn-da-nang-vietnam",
+    name: { ja: "Da Nang, Vietnam", en: "Da Nang, Vietnam" },
+    lat: 16.0678,
+    lng: 108.2208,
+    timeZone: "Asia/Ho_Chi_Minh",
+    category: "city",
+    country: "VN",
+    source: {
+      videoId: "L_eizGlcM9Q",
+      channelId: "UCr5Z4Oi3UFwkM6sLPFDC6QA",
+      titleKey: "CAMERA PTZ KHÁCH SẠN HẢI TRIỀU ĐÀ NẴNG",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "vn-hanoi-skyline-red-river-view-hanoi-vi",
+    name: { ja: "Hanoi Skyline — Red River View — Hanoi, Vietnam", en: "Hanoi Skyline — Red River View — Hanoi, Vietnam" },
+    lat: 21.0035,
+    lng: 105.852,
+    timeZone: "Asia/Bangkok",
+    category: "nature",
+    country: "VN",
+    source: {
+      videoId: "JXQUeX0Dpb0",
+      channelId: "UCBVNLnTUkBWfcQuUXvaSEUw",
+      titleKey: "Hanoi Live Camera 24/7 | Here comes the sun 10/03/2026",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "vn-nha-trang-coastal-city-vietnam",
+    name: { ja: "Nha Trang Coastal City, Vietnam", en: "Nha Trang Coastal City, Vietnam" },
+    lat: 12.2388,
+    lng: 109.1967,
+    timeZone: "Asia/Ho_Chi_Minh",
+    category: "city",
+    country: "VN",
+    source: {
+      videoId: "SCpZOgLKVfY",
+      channelId: "UCgqmMYGNtMkNWmfUDz12j4Q",
+      titleKey: "Vietnam Nha Trang live camera online / 나트랑 / Вьетнам Нячанг онлайн камера. ЖК Океанус",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-cape-town-south-africa",
+    name: { ja: "Cape Town, South Africa", en: "Cape Town, South Africa" },
+    lat: -33.9288,
+    lng: 18.4172,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "khhdEM2Q_68",
+      channelId: "UCMyCO_-D2eLocsvoiGob7iw",
+      titleKey: "Cape Town Live Stream Webcam",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "it-the-cctv-people-demo-3",
+    name: { ja: "The CCTV People Demo 3", en: "The CCTV People Demo 3" },
+    lat: 46.0873,
+    lng: 10.3407,
+    timeZone: "Europe/Rome",
+    category: "city",
+    country: "IT",
+    source: {
+      videoId: "iSeMVR42thE",
+      channelId: "UCiAcjP15_JqJrUOvdEAaZ2A",
+      titleKey: "The CCTV People Demo 3",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-parking-lot-surveillance",
+    name: { ja: "Parking lot surveillance", en: "Parking lot surveillance" },
+    lat: 41.6475,
+    lng: -88.0895,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "h4p6_PCwS-4",
+      channelId: "UCiIXYAyea4QfMprjV80XuEg",
+      titleKey: "Parking lot surveillance",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "sn-live-cctv-simpang-kantor-bupati-kabup",
+    name: { ja: "[LIVE CCTV] SIMPANG KANTOR BUPATI KABUPATEN KETAPANG", en: "[LIVE CCTV] SIMPANG KANTOR BUPATI KABUPATEN KETAPANG" },
+    lat: 13.65,
+    lng: -15.7333,
+    timeZone: "Africa/Dakar",
+    category: "city",
+    country: "SN",
+    source: {
+      videoId: "wQxdSWKumzc",
+      channelId: "UCbXfqLh-qvBKoF40sm43gHA",
+      titleKey: "🔴[LIVE CCTV] SIMPANG KANTOR BUPATI KABUPATEN KETAPANG",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "sn-live-cctv-simpang-kantor-bupati-cam-3",
+    name: { ja: "[LIVE CCTV] SIMPANG KANTOR BUPATI CAM 3 KABUPATEN KETAPANG", en: "[LIVE CCTV] SIMPANG KANTOR BUPATI CAM 3 KABUPATEN KETAPANG" },
+    lat: 13.65,
+    lng: -15.7333,
+    timeZone: "Africa/Dakar",
+    category: "city",
+    country: "SN",
+    source: {
+      videoId: "uHsGDVaV_sg",
+      channelId: "UCbXfqLh-qvBKoF40sm43gHA",
+      titleKey: "🔴[LIVE CCTV] SIMPANG KANTOR BUPATI CAM 3 KABUPATEN KETAPANG",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-4k-uhd-cctv-kit-sample-video",
+    name: { ja: "4K UHD CCTV Kit sample Video", en: "4K UHD CCTV Kit sample Video" },
+    lat: 41.7242,
+    lng: -76.4035,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "eRxXki-CL-o",
+      channelId: "UCD-EH4WltNle3dsHLvVEwnA",
+      titleKey: "4K UHD CCTV Kit sample Video",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-4k-african-wildlife-discovery-incredi",
+    name: { ja: "4K African Wildlife: Discovery Incredible Bardia Park - Scenic Wildlife Film African With Calm Music", en: "4K African Wildlife: Discovery Incredible Bardia Park - Scenic Wildlife Film African With Calm Music" },
+    lat: 39.7625,
+    lng: -87.2292,
+    timeZone: "America/Indiana/Indianapolis",
+    category: "nature",
+    country: "US",
+    source: {
+      videoId: "sH-HOPe6tio",
+      channelId: "UCT7hGX0G_HqrkNiIQJ-9T4A",
+      titleKey: "4K African Wildlife: Discovery Incredible Bardia Park - Scenic Wildlife Film African With Calm Music",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "aq-construction-live-cam",
+    name: { ja: "Construction Live Cam", en: "Construction Live Cam" },
+    lat: -72.3167,
+    lng: 170.2167,
+    timeZone: "Antarctica/McMurdo",
+    category: "city",
+    country: "AQ",
+    source: {
+      videoId: "qcb0HiE0afM",
+      channelId: "UCaepEHpHsWBgmGA5EDzKz_w",
+      titleKey: "Construction Live Cam",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "gb-4k-camera-example-for-traffic-monitor",
+    name: { ja: "4K camera example for Traffic Monitoring Road", en: "4K camera example for Traffic Monitoring Road" },
+    lat: 51.2839,
+    lng: -2.2814,
+    timeZone: "Europe/London",
+    category: "city",
+    country: "GB",
+    source: {
+      videoId: "cJatWBDNabE",
+      channelId: "UCj91HjiNSu7iKnlLXCxj-dA",
+      titleKey: "4K camera example for Traffic Monitoring Road",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-inside-of-ef3-tornado-in-st-louis-mis",
+    name: { ja: "Inside of EF3 Tornado in St. Louis, Missouri - May 16, 2025 CCTV", en: "Inside of EF3 Tornado in St. Louis, Missouri - May 16, 2025 CCTV" },
+    lat: 38.6273,
+    lng: -90.1979,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "14j7Ns052WY",
+      channelId: "UCVXN_e7Tl3ptD8S7LU-vfUw",
+      titleKey: "Inside of EF3 Tornado in St. Louis, Missouri - May 16, 2025 CCTV",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "id-license-plate-detection-test",
+    name: { ja: "License Plate Detection Test", en: "License Plate Detection Test" },
+    lat: -6.1053,
+    lng: 106.4183,
+    timeZone: "Asia/Jakarta",
+    category: "city",
+    country: "ID",
+    source: {
+      videoId: "FsGPxhidwGg",
+      channelId: "UCTFofNIyqQIE8AnwF5EfCZA",
+      titleKey: "License Plate Detection Test",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ng-cctv-footage-of-m7-5-earthquake-from",
+    name: { ja: "CCTV footage of M7.5 Earthquake from a garage in Caracas, Venezuela", en: "CCTV footage of M7.5 Earthquake from a garage in Caracas, Venezuela" },
+    lat: 8.5804,
+    lng: 8.8037,
+    timeZone: "Africa/Lagos",
+    category: "city",
+    country: "NG",
+    source: {
+      videoId: "RlnZegmkZJk",
+      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
+      titleKey: "CCTV footage of M7.5 Earthquake from a garage in Caracas, Venezuela",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ve-cctv-footage-of-m7-2-and-m7-5-earthqu",
+    name: { ja: "CCTV footage of M7.2 and M7.5 Earthquakes in a shop in Duaca, Lara, Venezuela", en: "CCTV footage of M7.2 and M7.5 Earthquakes in a shop in Duaca, Lara, Venezuela" },
+    lat: 10.2855,
+    lng: -69.1624,
+    timeZone: "America/Caracas",
+    category: "city",
+    country: "VE",
+    source: {
+      videoId: "oQ-z9yeVdII",
+      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
+      titleKey: "CCTV footage of M7.2 and M7.5 Earthquakes in a shop in Duaca, Lara, Venezuela",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ee-cctv-captures-m7-5-earthquake-shaking",
+    name: { ja: "CCTV captures M7.5 Earthquake shaking a room in Caracas, Venezuela", en: "CCTV captures M7.5 Earthquake shaking a room in Caracas, Venezuela" },
+    lat: 58.3875,
+    lng: 26.8044,
+    timeZone: "Europe/Tallinn",
+    category: "city",
+    country: "EE",
+    source: {
+      videoId: "Nf_w82ToDVw",
+      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
+      titleKey: "CCTV captures M7.5 Earthquake shaking a room in Caracas, Venezuela",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "br-m7-5-earthquake-trashes-apartment-in",
+    name: { ja: "M7.5 Earthquake Trashes Apartment in Caraballeda, La Guaira, Venezuela", en: "M7.5 Earthquake Trashes Apartment in Caraballeda, La Guaira, Venezuela" },
+    lat: -20.3183,
+    lng: -48.3106,
+    timeZone: "America/Sao_Paulo",
+    category: "city",
+    country: "BR",
+    source: {
+      videoId: "-j_OgBvpec0",
+      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
+      titleKey: "M7.5 Earthquake Trashes Apartment in Caraballeda, La Guaira, Venezuela",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ca-weird",
+    name: { ja: "weird", en: "weird" },
+    lat: 53.4501,
+    lng: -105.251,
+    timeZone: "America/Regina",
+    category: "city",
+    country: "CA",
+    source: {
+      videoId: "Vexipd6lemg",
+      channelId: "UCIx-trK0kO9PU8-YBdyyIxw",
+      titleKey: "weird",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "br-cctv-footage-of-m7-5-earthquake-in-el",
+    name: { ja: "CCTV footage of M7.5 Earthquake in El Junquito, La Guaira, Venezuela", en: "CCTV footage of M7.5 Earthquake in El Junquito, La Guaira, Venezuela" },
+    lat: -20.3183,
+    lng: -48.3106,
+    timeZone: "America/Sao_Paulo",
+    category: "city",
+    country: "BR",
+    source: {
+      videoId: "xio8U81JFcU",
+      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
+      titleKey: "CCTV footage of M7.5 Earthquake in El Junquito, La Guaira, Venezuela",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ee-cctv-footage-of-m7-5-earthquake-in-a",
+    name: { ja: "CCTV footage of M7.5 Earthquake in a room in Caracas, Venezuela", en: "CCTV footage of M7.5 Earthquake in a room in Caracas, Venezuela" },
+    lat: 58.3875,
+    lng: 26.8044,
+    timeZone: "Europe/Tallinn",
+    category: "city",
+    country: "EE",
+    source: {
+      videoId: "EJRRuKBCLy8",
+      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
+      titleKey: "CCTV footage of M7.5 Earthquake in a room in Caracas, Venezuela",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-watch-seismic-waves-from-twin-venezue",
+    name: { ja: "Watch Seismic Waves from Twin Venezuela 7.2 & 7.5 Earthquakes hit a House in Catia la Mar (Analysis)", en: "Watch Seismic Waves from Twin Venezuela 7.2 & 7.5 Earthquakes hit a House in Catia la Mar (Analysis)" },
+    lat: 34.0056,
+    lng: -87.8566,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "OX2P-J8BDtM",
+      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
+      titleKey: "Watch Seismic Waves from Twin Venezuela 7.2 & 7.5 Earthquakes hit a House in Catia la Mar (Analysis)",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-reolink-4k-811a-cameras-viewing-a-lic",
+    name: { ja: "Reolink 4K, 811A cameras- viewing a license plate at 40+ feet distance from a moving car", en: "Reolink 4K, 811A cameras- viewing a license plate at 40+ feet distance from a moving car" },
+    lat: 46.8606,
+    lng: -68.012,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "hcAsIiM3bHw",
+      channelId: "UCIx-trK0kO9PU8-YBdyyIxw",
+      titleKey: "Reolink 4K, 811A cameras- viewing a license plate at 40+ feet distance from a moving car",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ve-cctv-captures-m7-5-earthquake-sha-3",
+    name: { ja: "CCTV captures M7.5 Earthquake shaking a building in Caracas, Venezuela", en: "CCTV captures M7.5 Earthquake shaking a building in Caracas, Venezuela" },
+    lat: 10.488,
+    lng: -66.8792,
+    timeZone: "America/Caracas",
+    category: "city",
+    country: "VE",
+    source: {
+      videoId: "Z6-RdVc4dIc",
+      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
+      titleKey: "CCTV captures M7.5 Earthquake shaking a building in Caracas, Venezuela",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ve-cctv-captures-m7-5-earthquake-sha-4",
+    name: { ja: "CCTV captures M7.5 Earthquake shaking buildings in Caracas, Venezuela", en: "CCTV captures M7.5 Earthquake shaking buildings in Caracas, Venezuela" },
+    lat: 10.488,
+    lng: -66.8792,
+    timeZone: "America/Caracas",
+    category: "city",
+    country: "VE",
+    source: {
+      videoId: "zuzeie_GfqE",
+      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
+      titleKey: "CCTV captures M7.5 Earthquake shaking buildings in Caracas, Venezuela",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-cctv-captures-m7-5-earthquake-shakes",
+    name: { ja: "CCTV captures M7.5 Earthquake shakes a tattoo store in Chacao, Miranda, Venezuela", en: "CCTV captures M7.5 Earthquake shakes a tattoo store in Chacao, Miranda, Venezuela" },
+    lat: 36.6095,
+    lng: -82.139,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "OLslI4kQkAA",
+      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
+      titleKey: "CCTV captures M7.5 Earthquake shakes a tattoo store in Chacao, Miranda, Venezuela",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "br-traffic-ip-camera-video",
+    name: { ja: "Traffic IP Camera video", en: "Traffic IP Camera video" },
+    lat: -4.7138,
+    lng: -40.0751,
+    timeZone: "America/Fortaleza",
+    category: "city",
+    country: "BR",
+    source: {
+      videoId: "Gr0HpDM8Ki8",
+      channelId: "UCi7s_ekcVlFNMaW9HThNI5Q",
+      titleKey: "Traffic IP Camera video",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "in-3-megapixel-cctv-camera-night-vision",
+    name: { ja: "3 megapixel CCTV camera night vision Bikal model", en: "3 megapixel CCTV camera night vision Bikal model" },
+    lat: 24.4312,
+    lng: 87.9824,
+    timeZone: "Asia/Kolkata",
+    category: "city",
+    country: "IN",
+    source: {
+      videoId: "zZjKRRkHHTw",
+      channelId: "UCi7s_ekcVlFNMaW9HThNI5Q",
+      titleKey: "3 megapixel CCTV camera night vision Bikal model",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ph-3-megapixel-bikal-camera",
+    name: { ja: "3 megapixel Bikal Camera", en: "3 megapixel Bikal Camera" },
+    lat: 13.5972,
+    lng: 122.9063,
+    timeZone: "Asia/Manila",
+    category: "city",
+    country: "PH",
+    source: {
+      videoId: "8XW176ST3is",
+      channelId: "UCi7s_ekcVlFNMaW9HThNI5Q",
+      titleKey: "3 megapixel Bikal Camera",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ph-bikal-12mp-cctv-surveillance-bkl-cn11",
+    name: { ja: "Bikal 12mp CCTV Surveillance - BKL-CN11-R", en: "Bikal 12mp CCTV Surveillance - BKL-CN11-R" },
+    lat: 13.5972,
+    lng: 122.9063,
+    timeZone: "Asia/Manila",
+    category: "city",
+    country: "PH",
+    source: {
+      videoId: "GbAkk8ECTRU",
+      channelId: "UCi7s_ekcVlFNMaW9HThNI5Q",
+      titleKey: "Bikal 12mp CCTV Surveillance - BKL-CN11-R",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ve-m7-5-earthquake-destroys-apartment-in",
+    name: { ja: "M7.5 Earthquake destroys apartment in Caracas, Venezuela", en: "M7.5 Earthquake destroys apartment in Caracas, Venezuela" },
+    lat: 10.488,
+    lng: -66.8792,
+    timeZone: "America/Caracas",
+    category: "city",
+    country: "VE",
+    source: {
+      videoId: "z6O45Q99_p0",
+      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
+      titleKey: "M7.5 Earthquake destroys apartment in Caracas, Venezuela",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "tz-4k-hd-camera-image",
+    name: { ja: "4K HD camera image", en: "4K HD camera image" },
+    lat: -7.4656,
+    lng: 36.1265,
+    timeZone: "Africa/Dar_es_Salaam",
+    category: "city",
+    country: "TZ",
+    source: {
+      videoId: "QBhzRMTusMs",
+      channelId: "UCi7s_ekcVlFNMaW9HThNI5Q",
+      titleKey: "4K HD camera image",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "no-night-time-traffic-camera-video",
+    name: { ja: "Night Time Traffic Camera video", en: "Night Time Traffic Camera video" },
+    lat: 58.7333,
+    lng: 5.7,
+    timeZone: "Europe/Oslo",
+    category: "city",
+    country: "NO",
+    source: {
+      videoId: "G-ie5hQbG2s",
+      channelId: "UCi7s_ekcVlFNMaW9HThNI5Q",
+      titleKey: "Night Time Traffic Camera video",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-cctv-footage-of-m7-5-earthquake-from",
+    name: { ja: "CCTV footage of M7.5 Earthquake from a street in El Haltillo, Miranda, Venezuela", en: "CCTV footage of M7.5 Earthquake from a street in El Haltillo, Miranda, Venezuela" },
+    lat: 39.669,
+    lng: -76.3794,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "2_X9wKwhgGs",
+      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
+      titleKey: "CCTV footage of M7.5 Earthquake from a street in El Haltillo, Miranda, Venezuela",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "br-4k-video-of-highway-traffic",
+    name: { ja: "4K Video of Highway Traffic!", en: "4K Video of Highway Traffic!" },
+    lat: -4.7138,
+    lng: -40.0751,
+    timeZone: "America/Fortaleza",
+    category: "city",
+    country: "BR",
+    source: {
+      videoId: "KBsqQez-O4w",
+      channelId: "UCg0MW1Scn_Y3HcMt4DoUbOg",
+      titleKey: "4K Video of Highway Traffic!",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "be-m7-5-earthquake-and-aftermath-at-a-sh",
+    name: { ja: "M7.5 Earthquake and Aftermath at a shopping mall in Maracay, Venezuela", en: "M7.5 Earthquake and Aftermath at a shopping mall in Maracay, Venezuela" },
+    lat: 50.7687,
+    lng: 5.5197,
+    timeZone: "Europe/Brussels",
+    category: "city",
+    country: "BE",
+    source: {
+      videoId: "n3yISJbOTrs",
+      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
+      titleKey: "M7.5 Earthquake and Aftermath at a shopping mall in Maracay, Venezuela",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ee-cctv-footage-of-m7-5-earthquake-damag",
+    name: { ja: "CCTV footage of M7.5 earthquake damaging a room in Caracas, Venezuela", en: "CCTV footage of M7.5 earthquake damaging a room in Caracas, Venezuela" },
+    lat: 58.3875,
+    lng: 26.8044,
+    timeZone: "Europe/Tallinn",
+    category: "city",
+    country: "EE",
+    source: {
+      videoId: "ZG8fX7wlKkM",
+      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
+      titleKey: "CCTV footage of M7.5 earthquake damaging a room in Caracas, Venezuela",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "de-rain-storm-in-4k",
+    name: { ja: "Rain Storm in 4K!!", en: "Rain Storm in 4K!!" },
+    lat: 48.905,
+    lng: 12.4687,
+    timeZone: "Europe/Berlin",
+    category: "city",
+    country: "DE",
+    source: {
+      videoId: "gnU1kieEiK4",
+      channelId: "UCg0MW1Scn_Y3HcMt4DoUbOg",
+      titleKey: "Rain Storm in 4K!!",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "si-m7-5-earthquake-damages-liquor-store",
+    name: { ja: "M7.5 Earthquake Damages Liquor Store in Baruta, Caracas, Venezuela", en: "M7.5 Earthquake Damages Liquor Store in Baruta, Caracas, Venezuela" },
+    lat: 46.2208,
+    lng: 15.3139,
+    timeZone: "Europe/Ljubljana",
+    category: "city",
+    country: "SI",
+    source: {
+      videoId: "TqjIeqmGYwY",
+      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
+      titleKey: "M7.5 Earthquake Damages Liquor Store in Baruta, Caracas, Venezuela",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "si-m7-5-earthquake-shakes-electronics-st",
+    name: { ja: "M7.5 Earthquake Shakes Electronics Store in Valencia, Carabobo, Venezuela", en: "M7.5 Earthquake Shakes Electronics Store in Valencia, Carabobo, Venezuela" },
+    lat: 46.2208,
+    lng: 15.3139,
+    timeZone: "Europe/Ljubljana",
+    category: "city",
+    country: "SI",
+    source: {
+      videoId: "HX399hDUs28",
+      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
+      titleKey: "M7.5 Earthquake Shakes Electronics Store in Valencia, Carabobo, Venezuela",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-vehicle-dataset-sample-4",
+    name: { ja: "Vehicle Dataset Sample 4", en: "Vehicle Dataset Sample 4" },
+    lat: 37.9045,
+    lng: -86.4811,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "4wfMOECRlgw",
+      channelId: "UCvUjPgnxfmZRFCDmG7WTNbg",
+      titleKey: "Vehicle Dataset Sample 4",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-vehicle-dataset-sample-1",
+    name: { ja: "Vehicle Dataset Sample 1", en: "Vehicle Dataset Sample 1" },
+    lat: 37.9045,
+    lng: -86.4811,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "V-mhujsgGYs",
+      channelId: "UCvUjPgnxfmZRFCDmG7WTNbg",
+      titleKey: "Vehicle Dataset Sample 1",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "si-store-aisle-dataset-sample-1",
+    name: { ja: "Store Aisle Dataset Sample 1", en: "Store Aisle Dataset Sample 1" },
+    lat: 46.2208,
+    lng: 15.3139,
+    timeZone: "Europe/Ljubljana",
+    category: "city",
+    country: "SI",
+    source: {
+      videoId: "QOC3JiGGJl4",
+      channelId: "UCvUjPgnxfmZRFCDmG7WTNbg",
+      titleKey: "Store Aisle Dataset Sample 1",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "be-shopping-people-commerce-mall-many-cr",
+    name: { ja: "Shopping, People, Commerce, Mall, Many, Crowd, Walking Free Stock video footage YouTube", en: "Shopping, People, Commerce, Mall, Many, Crowd, Walking Free Stock video footage YouTube" },
+    lat: 50.7687,
+    lng: 5.5197,
+    timeZone: "Europe/Brussels",
+    category: "city",
+    country: "BE",
+    source: {
+      videoId: "WvhYuDvH17I",
+      channelId: "UCmzMaA15lt2TNMTc5KLb39w",
+      titleKey: "Shopping, People, Commerce, Mall, Many, Crowd, Walking   Free Stock video footage   YouTube",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-m7-5-earthquake-violently-destroys-ca",
+    name: { ja: "M7.5 Earthquake violently destroys Caraballeda, Venezuela (New Angle)", en: "M7.5 Earthquake violently destroys Caraballeda, Venezuela (New Angle)" },
+    lat: 37.6663,
+    lng: -118.9999,
+    timeZone: "America/Los_Angeles",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "MVEOPjGWFws",
+      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
+      titleKey: "M7.5 Earthquake violently destroys Caraballeda, Venezuela (New Angle)",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-m7-5-earthquake-strikes-and-collapses",
+    name: { ja: "M7.5 Earthquake strikes and collapses buildings, Av. La Atlántida, Catia La Mar, Venezuela", en: "M7.5 Earthquake strikes and collapses buildings, Av. La Atlántida, Catia La Mar, Venezuela" },
+    lat: 37.6663,
+    lng: -118.9999,
+    timeZone: "America/Los_Angeles",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "OVDbp9_5_A4",
+      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
+      titleKey: "M7.5 Earthquake strikes and collapses buildings, Av. La Atlántida, Catia La Mar, Venezuela",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "de-lbc-global-vision-center-construction",
+    name: { ja: "LBC Global Vision Center Construction - Live Stream", en: "LBC Global Vision Center Construction - Live Stream" },
+    lat: 53.8689,
+    lng: 10.6873,
+    timeZone: "Europe/Berlin",
+    category: "city",
+    country: "DE",
+    source: {
+      videoId: "f1QelFXu4JM",
+      channelId: "UCVN_ItG6DMC5qOXzLrR5-OA",
+      titleKey: "LBC Global Vision Center Construction - Live Stream",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "it-the-cctv-people-demo-1",
+    name: { ja: "The CCTV People Demo 1", en: "The CCTV People Demo 1" },
+    lat: 46.0873,
+    lng: 10.3407,
+    timeZone: "Europe/Rome",
+    category: "city",
+    country: "IT",
+    source: {
+      videoId: "jEbv-gc0ezM",
+      channelId: "UCiAcjP15_JqJrUOvdEAaZ2A",
+      titleKey: "The CCTV People Demo 1",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-3-children-caught-shoplifting-on-cctv",
+    name: { ja: "3 Children Caught Shoplifting on CCTV | Live Security Camera Footage", en: "3 Children Caught Shoplifting on CCTV | Live Security Camera Footage" },
+    lat: 41.0812,
+    lng: -81.544,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "Mt_5uUjgjx0",
+      channelId: "UC-Krl7LBDzLRF3oCpy08KBw",
+      titleKey: "3 Children Caught Shoplifting on CCTV | Live Security Camera Footage",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-camera-axis-q1615-mk-ii",
+    name: { ja: "Live Camera Axis Q1615 Mk II", en: "Live Camera Axis Q1615 Mk II" },
+    lat: 30.9299,
+    lng: -88.0272,
+    timeZone: "America/Chicago",
+    category: "animal",
+    country: "US",
+    source: {
+      videoId: "qSEC1qj5xYM",
+      channelId: "UC1bbIoul_C1x7Zrhm8go20A",
+      titleKey: "Live Camera Axis Q1615 Mk II",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "it-the-cctv-people-demo-4",
+    name: { ja: "The CCTV People Demo 4", en: "The CCTV People Demo 4" },
+    lat: 46.0873,
+    lng: 10.3407,
+    timeZone: "Europe/Rome",
+    category: "city",
+    country: "IT",
+    source: {
+      videoId: "qgxcw0Wv9SM",
+      channelId: "UCiAcjP15_JqJrUOvdEAaZ2A",
+      titleKey: "The CCTV People Demo 4",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "it-the-cctv-people-demo-2",
+    name: { ja: "The CCTV People Demo 2", en: "The CCTV People Demo 2" },
+    lat: 46.0873,
+    lng: 10.3407,
+    timeZone: "Europe/Rome",
+    category: "city",
+    country: "IT",
+    source: {
+      videoId: "GJNjaRJWVP8",
+      channelId: "UCiAcjP15_JqJrUOvdEAaZ2A",
+      titleKey: "The CCTV People Demo 2",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "it-the-cctv-people-demo-9",
+    name: { ja: "The CCTV People Demo 9", en: "The CCTV People Demo 9" },
+    lat: 46.0873,
+    lng: 10.3407,
+    timeZone: "Europe/Rome",
+    category: "city",
+    country: "IT",
+    source: {
+      videoId: "Qju0w2dzwO0",
+      channelId: "UCiAcjP15_JqJrUOvdEAaZ2A",
+      titleKey: "The CCTV People Demo 9",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "au-hd-sdi-retail-takeaway-checkout",
+    name: { ja: "HD-SDI Retail Takeaway Checkout", en: "HD-SDI Retail Takeaway Checkout" },
+    lat: -34.6643,
+    lng: 142.491,
+    timeZone: "Australia/Melbourne",
+    category: "city",
+    country: "AU",
+    source: {
+      videoId: "7MfH-XzJLaM",
+      channelId: "UCD-EH4WltNle3dsHLvVEwnA",
+      titleKey: "HD-SDI Retail Takeaway Checkout",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "au-hd-sdi-25-f-s-retail-2",
+    name: { ja: "HD-SDI 25 f/s Retail 2", en: "HD-SDI 25 f/s Retail 2" },
+    lat: -34.6643,
+    lng: 142.491,
+    timeZone: "Australia/Melbourne",
+    category: "city",
+    country: "AU",
+    source: {
+      videoId: "ZjRNX2GiO0M",
+      channelId: "UCD-EH4WltNle3dsHLvVEwnA",
+      titleKey: "HD-SDI 25 f/s Retail 2",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "gh-iprox-cctv-4megapixel-hd-ip-network-d",
+    name: { ja: "iProx CCTV 4MegaPixel HD IP network dome camera", en: "iProx CCTV 4MegaPixel HD IP network dome camera" },
+    lat: 5.65,
+    lng: -0.2361,
+    timeZone: "Africa/Accra",
+    category: "city",
+    country: "GH",
+    source: {
+      videoId: "PQWTF2M1Y5A",
+      channelId: "UCeBKDAW7s_WzzMLYav_W4pQ",
+      titleKey: "iProx CCTV 4MegaPixel HD IP network dome camera",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "br-hd-cctv-camera-video-3mp-4mp-iprox-cc",
+    name: { ja: "HD CCTV Camera video 3MP 4MP iProx CCTV HDCCTVCameras.net retail store", en: "HD CCTV Camera video 3MP 4MP iProx CCTV HDCCTVCameras.net retail store" },
+    lat: -4.7138,
+    lng: -40.0751,
+    timeZone: "America/Fortaleza",
+    category: "city",
+    country: "BR",
+    source: {
+      videoId: "KMJS66jBtVQ",
+      channelId: "UCeBKDAW7s_WzzMLYav_W4pQ",
+      titleKey: "HD CCTV Camera video 3MP 4MP iProx CCTV HDCCTVCameras.net retail store",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "gh-iprox-4mp-hd-cctv-ip-dome-night-visio",
+    name: { ja: "iProx 4MP HD CCTV IP Dome Night Vision", en: "iProx 4MP HD CCTV IP Dome Night Vision" },
+    lat: 5.65,
+    lng: -0.2361,
+    timeZone: "Africa/Accra",
+    category: "city",
+    country: "GH",
+    source: {
+      videoId: "e7oVsU6y76E",
+      channelId: "UCeBKDAW7s_WzzMLYav_W4pQ",
+      titleKey: "iProx 4MP HD CCTV IP Dome Night Vision",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "bz-iprox-cctv-ip-hd-4megapixel-ip-camera",
+    name: { ja: "iProx CCTV IP HD 4Megapixel IP Camera High Definition CCTV video sample", en: "iProx CCTV IP HD 4Megapixel IP Camera High Definition CCTV video sample" },
+    lat: 16.8263,
+    lng: -88.3095,
+    timeZone: "America/Belize",
+    category: "city",
+    country: "BZ",
+    source: {
+      videoId: "2BhG_z_qhU0",
+      channelId: "UCeBKDAW7s_WzzMLYav_W4pQ",
+      titleKey: "iProx CCTV IP HD 4Megapixel  IP Camera High Definition CCTV video sample",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "no-time-lapse-of-traffic-surveillance-ca",
+    name: { ja: "Time Lapse of Traffic Surveillance Camera (Fastest)", en: "Time Lapse of Traffic Surveillance Camera (Fastest)" },
+    lat: 58.7333,
+    lng: 5.7,
+    timeZone: "Europe/Oslo",
+    category: "city",
+    country: "NO",
+    source: {
+      videoId: "me8VFwsmKWI",
+      channelId: "UCofjyJW1fDWfvS54W_PbZ2A",
+      titleKey: "Time Lapse of Traffic Surveillance Camera (Fastest)",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "et-timelapse-of-spider-building-web-in-f",
+    name: { ja: "Timelapse of Spider building web in front of Surveillance CCTV Camera", en: "Timelapse of Spider building web in front of Surveillance CCTV Camera" },
+    lat: 4.9167,
+    lng: 41.0667,
+    timeZone: "Africa/Addis_Ababa",
+    category: "animal",
+    country: "ET",
+    source: {
+      videoId: "SKKWkanaeSE",
+      channelId: "UC3j40rp3YZ1mHqFG0KQa73Q",
+      titleKey: "Timelapse of Spider building web in front of Surveillance CCTV Camera",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-cctv-footage-of-m7-5-earthquake-f-2",
+    name: { ja: "CCTV footage of M7.5 Earthquake from a street in San Agustin del Sur, Caracas, Venezuela", en: "CCTV footage of M7.5 Earthquake from a street in San Agustin del Sur, Caracas, Venezuela" },
+    lat: 39.669,
+    lng: -76.3794,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "KuKCwMyWZGY",
+      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
+      titleKey: "CCTV footage of M7.5 Earthquake from a street in San Agustin del Sur, Caracas, Venezuela",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "pk-extreme-pulse-like-ground-motion-caus",
+    name: { ja: "Extreme pulse-like ground motion causes destruction Caraballeda, Venezuela during M7.5 Earthquake", en: "Extreme pulse-like ground motion causes destruction Caraballeda, Venezuela during M7.5 Earthquake" },
+    lat: 30.038,
+    lng: 71.0696,
+    timeZone: "Asia/Karachi",
+    category: "city",
+    country: "PK",
+    source: {
+      videoId: "jCZgv7fLJmY",
+      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
+      titleKey: "Extreme pulse-like ground motion causes destruction Caraballeda, Venezuela during M7.5 Earthquake",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ve-cctv-captures-m7-5-earthquake-tra-2",
+    name: { ja: "CCTV captures M7.5 Earthquake trashing a perfume shop in Chacao, Miranda, Venezuela", en: "CCTV captures M7.5 Earthquake trashing a perfume shop in Chacao, Miranda, Venezuela" },
+    lat: 10.4958,
+    lng: -66.8537,
+    timeZone: "America/Caracas",
+    category: "city",
+    country: "VE",
+    source: {
+      videoId: "7SV6CLEW52o",
+      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
+      titleKey: "CCTV captures M7.5 Earthquake trashing a perfume shop in Chacao, Miranda, Venezuela",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "at-truck-breaking-in-ring-camera",
+    name: { ja: "Truck Breaking in Ring Camera", en: "Truck Breaking in Ring Camera" },
+    lat: 47.2869,
+    lng: 15.9645,
+    timeZone: "Europe/Vienna",
+    category: "city",
+    country: "AT",
+    source: {
+      videoId: "tJLo8oq_EV8",
+      channelId: "UCIx-trK0kO9PU8-YBdyyIxw",
+      titleKey: "Truck Breaking in Ring Camera",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "au-m7-5-earthquake-trashes-office-in-mac",
+    name: { ja: "M7.5 Earthquake trashes office in Macuto, La Guaira, Venezuela", en: "M7.5 Earthquake trashes office in Macuto, La Guaira, Venezuela" },
+    lat: -38.0592,
+    lng: 145.4095,
+    timeZone: "Australia/Melbourne",
+    category: "city",
+    country: "AU",
+    source: {
+      videoId: "KDtKtr6e9PU",
+      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
+      titleKey: "M7.5 Earthquake trashes office in Macuto, La Guaira, Venezuela",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "so-witson-cms-cctv-live-6-remote-sites-3",
+    name: { ja: "Witson CMS CCTV live 6 remote sites 33 cameras total Night Mode", en: "Witson CMS CCTV live 6 remote sites 33 cameras total Night Mode" },
+    lat: 10.2837,
+    lng: 50.23,
+    timeZone: "Africa/Mogadishu",
+    category: "city",
+    country: "SO",
+    source: {
+      videoId: "lffpBLDQqqc",
+      channelId: "UCb_EYtoBVoxjC9G2FGrWRyg",
+      titleKey: "Witson CMS CCTV live 6 remote sites 33 cameras total  Night Mode",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-thermal-camera-video-in-day-sct-320",
+    name: { ja: "Thermal camera Video in Day - SCT 320", en: "Thermal camera Video in Day - SCT 320" },
+    lat: 39.7589,
+    lng: -84.1916,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "w9nPJDpcez4",
+      channelId: "UCi7s_ekcVlFNMaW9HThNI5Q",
+      titleKey: "Thermal camera  Video in Day - SCT 320",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-vehicle-dataset-sample-2",
+    name: { ja: "Vehicle Dataset Sample 2", en: "Vehicle Dataset Sample 2" },
+    lat: 37.9045,
+    lng: -86.4811,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "JqhdBCCUVyQ",
+      channelId: "UCvUjPgnxfmZRFCDmG7WTNbg",
+      titleKey: "Vehicle Dataset Sample 2",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-vehicle-dataset-sample-3",
+    name: { ja: "Vehicle Dataset Sample 3", en: "Vehicle Dataset Sample 3" },
+    lat: 37.9045,
+    lng: -86.4811,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "dRFK-nvV9XM",
+      channelId: "UCvUjPgnxfmZRFCDmG7WTNbg",
+      titleKey: "Vehicle Dataset Sample 3",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-cctv-footage-of-m4-8-aftershock-jolti",
+    name: { ja: "CCTV footage of M4.8 Aftershock jolting a grocery store in Ocumare de la Costa, Aragua, Venezuela", en: "CCTV footage of M4.8 Aftershock jolting a grocery store in Ocumare de la Costa, Aragua, Venezuela" },
+    lat: 25.9523,
+    lng: -81.6159,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "DOU8OSPa7iU",
+      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
+      titleKey: "CCTV footage of M4.8 Aftershock jolting a grocery store in Ocumare de la Costa, Aragua, Venezuela",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "mp-cctv-captures-m7-5-earthquake-damagin",
+    name: { ja: "CCTV captures M7.5 Earthquake damaging an apartment in La Rinconada, Caracas, Venezuela", en: "CCTV captures M7.5 Earthquake damaging an apartment in La Rinconada, Caracas, Venezuela" },
+    lat: 16.024,
+    lng: 146.0615,
+    timeZone: "Pacific/Saipan",
+    category: "city",
+    country: "MP",
+    source: {
+      videoId: "15c4XgRLbnM",
+      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
+      titleKey: "CCTV captures M7.5 Earthquake damaging an apartment in La Rinconada, Caracas, Venezuela",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-top-view-pedestrian-dataset-sample-1",
+    name: { ja: "Top View Pedestrian Dataset Sample 1", en: "Top View Pedestrian Dataset Sample 1" },
+    lat: 39.0483,
+    lng: -95.678,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "Obzq2YJ8uB8",
+      channelId: "UCvUjPgnxfmZRFCDmG7WTNbg",
+      titleKey: "Top View Pedestrian Dataset Sample 1",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-best-of-convenient-cop-2025-drivers-b",
+    name: { ja: "BEST OF CONVENIENT COP 2025 | Drivers Busted by Police and Instant Karma | PART 9", en: "BEST OF CONVENIENT COP 2025 | Drivers Busted by Police and Instant Karma | PART 9" },
+    lat: 42.7005,
+    lng: -74.9243,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "5OZ2MXY1-GY",
+      channelId: "UCnetiRHPnIMBCm-yY4m69qA",
+      titleKey: "BEST OF CONVENIENT COP 2025 | Drivers Busted by Police and Instant Karma | PART 9",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ge-cctv-footage-of-m7-5-earthquake-from",
+    name: { ja: "CCTV footage of M7.5 Earthquake from a bus station in Caracas, Venezuela", en: "CCTV footage of M7.5 Earthquake from a bus station in Caracas, Venezuela" },
+    lat: 41.6408,
+    lng: 41.6306,
+    timeZone: "Asia/Tbilisi",
+    category: "city",
+    country: "GE",
+    source: {
+      videoId: "f7BQzE0AKKY",
+      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
+      titleKey: "CCTV footage of M7.5 Earthquake from a bus station in Caracas, Venezuela",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-greeley-colorado-usa-live-train-camer",
+    name: { ja: "Greeley, Colorado, USA | LIVE Train Camera (PTZ)", en: "Greeley, Colorado, USA | LIVE Train Camera (PTZ)" },
+    lat: 35.4089,
+    lng: -80.5816,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "lw9Q0mM6iSM",
+      channelId: "UCOIkT9bq-1N2BvrsBjhNlag",
+      titleKey: "Greeley, Colorado, USA | LIVE Train Camera (PTZ)",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-muncie-indiana-usa-live-train-camera",
+    name: { ja: "Muncie, Indiana, USA | LIVE Train Camera (PTZ)", en: "Muncie, Indiana, USA | LIVE Train Camera (PTZ)" },
+    lat: 35.4089,
+    lng: -80.5816,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "LKIwHaucDF0",
+      channelId: "UCOIkT9bq-1N2BvrsBjhNlag",
+      titleKey: "Muncie, Indiana, USA | LIVE Train Camera (PTZ)",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-tokyo-highway-live-camera-20-11",
+    name: { ja: "【LIVE】首都高 高速湾岸線 葛西付近・有明方向 ライブカメラ/Tokyo highway Live Camera 2026/08/26 18:00～", en: "【LIVE】首都高 高速湾岸線 葛西付近・有明方向 ライブカメラ/Tokyo highway Live Camera 2026/08/26 18:00～" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "d6ruufk4BhY",
+      channelId: "UCawcG-FdPCNSu_JGIAZH0OQ",
+      titleKey: "【LIVE】首都高 高速湾岸線 葛西付近・有明方向 ライブカメラ/Tokyo highway Live Camera 2026/08/26 18:00～",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-jct-tokyo-highway-live-camer-21",
+    name: { ja: "【LIVE】首都高 都心環状線 竹橋JCT付近 ライブカメラ/Tokyo highway Live Camera 2026/08/26 18:00～", en: "【LIVE】首都高 都心環状線 竹橋JCT付近 ライブカメラ/Tokyo highway Live Camera 2026/08/26 18:00～" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "HI4X12s9FTc",
+      channelId: "UCawcG-FdPCNSu_JGIAZH0OQ",
+      titleKey: "【LIVE】首都高 都心環状線 竹橋JCT付近 ライブカメラ/Tokyo highway Live Camera  2026/08/26 18:00～",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-tokyo-highway-live-camera-20-12",
+    name: { ja: "【LIVE】首都高 都心環状線 宝町付近 ライブカメラ/Tokyo highway Live Camera 2026/08/26 18:00～", en: "【LIVE】首都高 都心環状線 宝町付近 ライブカメラ/Tokyo highway Live Camera 2026/08/26 18:00～" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "nDLzQ6PrnaE",
+      channelId: "UCawcG-FdPCNSu_JGIAZH0OQ",
+      titleKey: "【LIVE】首都高 都心環状線 宝町付近 ライブカメラ/Tokyo highway Live Camera 2026/08/26 18:00～",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-jct-tokyo-highway-live-camer-22",
+    name: { ja: "【LIVE】首都高 都心環状線 呉服橋JCT付近 ライブカメラ/Tokyo highway Live Camera 2026/08/26 18:00～", en: "【LIVE】首都高 都心環状線 呉服橋JCT付近 ライブカメラ/Tokyo highway Live Camera 2026/08/26 18:00～" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "d1RRwWlsJH0",
+      channelId: "UCawcG-FdPCNSu_JGIAZH0OQ",
+      titleKey: "【LIVE】首都高 都心環状線 呉服橋JCT付近 ライブカメラ/Tokyo highway Live Camera 2026/08/26 18:00～",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-1-jct-tokyo-highway-live-cam-2",
+    name: { ja: "【LIVE】首都高 1号羽田線 浜崎橋JCT ライブカメラ/Tokyo highway Live Camera 2026/08/26 18:00～", en: "【LIVE】首都高 1号羽田線 浜崎橋JCT ライブカメラ/Tokyo highway Live Camera 2026/08/26 18:00～" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "UJCn15RAgeo",
+      channelId: "UCawcG-FdPCNSu_JGIAZH0OQ",
+      titleKey: "【LIVE】首都高 1号羽田線 浜崎橋JCT ライブカメラ/Tokyo highway Live Camera  2026/08/26 18:00～",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-jct-tokyo-highway-live-camer-23",
+    name: { ja: "【LIVE】首都高 都心環状線 呉服橋JCT付近 ライブカメラ/Tokyo highway Live Camera 2026/08/26 10:30～", en: "【LIVE】首都高 都心環状線 呉服橋JCT付近 ライブカメラ/Tokyo highway Live Camera 2026/08/26 10:30～" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "2Jpa9g6N23s",
+      channelId: "UCawcG-FdPCNSu_JGIAZH0OQ",
+      titleKey: "【LIVE】首都高 都心環状線 呉服橋JCT付近 ライブカメラ/Tokyo highway Live Camera 2026/08/26 10:30～",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-1-jct-tokyo-highway-live-cam-3",
+    name: { ja: "【LIVE】首都高 1号羽田線 浜崎橋JCT ライブカメラ/Tokyo highway Live Camera 2026/08/26 10:30～", en: "【LIVE】首都高 1号羽田線 浜崎橋JCT ライブカメラ/Tokyo highway Live Camera 2026/08/26 10:30～" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "eTA6CrR41BI",
+      channelId: "UCawcG-FdPCNSu_JGIAZH0OQ",
+      titleKey: "【LIVE】首都高 1号羽田線 浜崎橋JCT ライブカメラ/Tokyo highway Live Camera 2026/08/26 10:30～",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-tokyo-highway-live-camera-20-13",
+    name: { ja: "【LIVE】首都高 都心環状線 宝町付近 ライブカメラ/Tokyo highway Live Camera 2026/08/26 10:30～", en: "【LIVE】首都高 都心環状線 宝町付近 ライブカメラ/Tokyo highway Live Camera 2026/08/26 10:30～" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "IY7zYzPBEOI",
+      channelId: "UCawcG-FdPCNSu_JGIAZH0OQ",
+      titleKey: "【LIVE】首都高 都心環状線 宝町付近 ライブカメラ/Tokyo highway Live Camera 2026/08/26 10:30～",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-jct-tokyo-highway-live-camer-24",
+    name: { ja: "【LIVE】首都高 都心環状線 竹橋JCT付近 ライブカメラ/Tokyo highway Live Camera 2026/08/26 10:30～", en: "【LIVE】首都高 都心環状線 竹橋JCT付近 ライブカメラ/Tokyo highway Live Camera 2026/08/26 10:30～" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "EQo03cePHJE",
+      channelId: "UCawcG-FdPCNSu_JGIAZH0OQ",
+      titleKey: "【LIVE】首都高 都心環状線 竹橋JCT付近 ライブカメラ/Tokyo highway Live Camera  2026/08/26 10:30～",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-tokyo-highway-live-camera-20-14",
+    name: { ja: "【LIVE】首都高 高速湾岸線 葛西付近・有明方向 ライブカメラ/Tokyo highway Live Camera 2026/08/26 10:30～", en: "【LIVE】首都高 高速湾岸線 葛西付近・有明方向 ライブカメラ/Tokyo highway Live Camera 2026/08/26 10:30～" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "JCGdNQ08JKQ",
+      channelId: "UCawcG-FdPCNSu_JGIAZH0OQ",
+      titleKey: "【LIVE】首都高 高速湾岸線 葛西付近・有明方向 ライブカメラ/Tokyo highway Live Camera 2026/08/26 10:30～",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-jct-tokyo-highway-live-camer-25",
+    name: { ja: "【LIVE】首都高 都心環状線 呉服橋JCT付近 ライブカメラ/Tokyo highway Live Camera 2026/08/24 00:30～", en: "【LIVE】首都高 都心環状線 呉服橋JCT付近 ライブカメラ/Tokyo highway Live Camera 2026/08/24 00:30～" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "bQmog4yIyp4",
+      channelId: "UCawcG-FdPCNSu_JGIAZH0OQ",
+      titleKey: "【LIVE】首都高 都心環状線 呉服橋JCT付近 ライブカメラ/Tokyo highway Live Camera 2026/08/24 00:30～",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-1-jct-tokyo-highway-live-cam-4",
+    name: { ja: "【LIVE】首都高 1号羽田線 浜崎橋JCT ライブカメラ/Tokyo highway Live Camera 2026/08/24 00:30～", en: "【LIVE】首都高 1号羽田線 浜崎橋JCT ライブカメラ/Tokyo highway Live Camera 2026/08/24 00:30～" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "GBwl7XGKt3k",
+      channelId: "UCawcG-FdPCNSu_JGIAZH0OQ",
+      titleKey: "【LIVE】首都高 1号羽田線 浜崎橋JCT ライブカメラ/Tokyo highway Live Camera  2026/08/24 00:30～",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-tokyo-highway-live-camera-20-15",
+    name: { ja: "【LIVE】首都高 都心環状線 宝町付近 ライブカメラ/Tokyo highway Live Camera 2026/08/24 00:30～", en: "【LIVE】首都高 都心環状線 宝町付近 ライブカメラ/Tokyo highway Live Camera 2026/08/24 00:30～" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "2nkU4Gbye5E",
+      channelId: "UCawcG-FdPCNSu_JGIAZH0OQ",
+      titleKey: "【LIVE】首都高 都心環状線 宝町付近 ライブカメラ/Tokyo highway Live Camera 2026/08/24 00:30～",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-jct-tokyo-highway-live-camer-26",
+    name: { ja: "【LIVE】首都高 都心環状線 竹橋JCT付近 ライブカメラ/Tokyo highway Live Camera 2026/08/24 00:30～", en: "【LIVE】首都高 都心環状線 竹橋JCT付近 ライブカメラ/Tokyo highway Live Camera 2026/08/24 00:30～" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "jqrFeOVZBQA",
+      channelId: "UCawcG-FdPCNSu_JGIAZH0OQ",
+      titleKey: "【LIVE】首都高 都心環状線 竹橋JCT付近 ライブカメラ/Tokyo highway Live Camera  2026/08/24 00:30～",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-tokyo-highway-live-camera-20-16",
+    name: { ja: "【LIVE】首都高 高速湾岸線 葛西付近・有明方向 ライブカメラ/Tokyo highway Live Camera 2026/08/24 00:30～", en: "【LIVE】首都高 高速湾岸線 葛西付近・有明方向 ライブカメラ/Tokyo highway Live Camera 2026/08/24 00:30～" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "Ij6AI2983Q4",
+      channelId: "UCawcG-FdPCNSu_JGIAZH0OQ",
+      titleKey: "【LIVE】首都高 高速湾岸線 葛西付近・有明方向 ライブカメラ/Tokyo highway Live Camera 2026/08/24 00:30～",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-jct-tokyo-highway-live-camer-27",
+    name: { ja: "【LIVE】首都高 都心環状線 竹橋JCT付近 ライブカメラ/Tokyo highway Live Camera 2026/08/25 18:00～", en: "【LIVE】首都高 都心環状線 竹橋JCT付近 ライブカメラ/Tokyo highway Live Camera 2026/08/25 18:00～" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "0FgCjOkRXik",
+      channelId: "UCawcG-FdPCNSu_JGIAZH0OQ",
+      titleKey: "【LIVE】首都高 都心環状線 竹橋JCT付近 ライブカメラ/Tokyo highway Live Camera  2026/08/25 18:00～",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-jct-tokyo-highway-live-camer-28",
+    name: { ja: "【LIVE】首都高 都心環状線 呉服橋JCT付近 ライブカメラ/Tokyo highway Live Camera 2026/08/25 18:00～", en: "【LIVE】首都高 都心環状線 呉服橋JCT付近 ライブカメラ/Tokyo highway Live Camera 2026/08/25 18:00～" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "C-sNFqd9z68",
+      channelId: "UCawcG-FdPCNSu_JGIAZH0OQ",
+      titleKey: "【LIVE】首都高 都心環状線 呉服橋JCT付近 ライブカメラ/Tokyo highway Live Camera 2026/08/25 18:00～",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-1-jct-tokyo-highway-live-cam-5",
+    name: { ja: "【LIVE】首都高 1号羽田線 浜崎橋JCT ライブカメラ/Tokyo highway Live Camera 2026/08/25 18:00～", en: "【LIVE】首都高 1号羽田線 浜崎橋JCT ライブカメラ/Tokyo highway Live Camera 2026/08/25 18:00～" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "Dg4P4agXxyk",
+      channelId: "UCawcG-FdPCNSu_JGIAZH0OQ",
+      titleKey: "【LIVE】首都高 1号羽田線 浜崎橋JCT ライブカメラ/Tokyo highway Live Camera  2026/08/25 18:00～",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-tokyo-highway-live-camera-20-17",
+    name: { ja: "【LIVE】首都高 都心環状線 宝町付近 ライブカメラ/Tokyo highway Live Camera 2026/08/25 18:00～", en: "【LIVE】首都高 都心環状線 宝町付近 ライブカメラ/Tokyo highway Live Camera 2026/08/25 18:00～" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "UNTXNCwo7lA",
+      channelId: "UCawcG-FdPCNSu_JGIAZH0OQ",
+      titleKey: "【LIVE】首都高 都心環状線 宝町付近 ライブカメラ/Tokyo highway Live Camera 2026/08/25 18:00～",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-tokyo-highway-live-camera-20-18",
+    name: { ja: "【LIVE】首都高 高速湾岸線 葛西付近・有明方向 ライブカメラ/Tokyo highway Live Camera 2026/08/25 18:00～", en: "【LIVE】首都高 高速湾岸線 葛西付近・有明方向 ライブカメラ/Tokyo highway Live Camera 2026/08/25 18:00～" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "SsZWZ5t6mJM",
+      channelId: "UCawcG-FdPCNSu_JGIAZH0OQ",
+      titleKey: "【LIVE】首都高 高速湾岸線 葛西付近・有明方向 ライブカメラ/Tokyo highway Live Camera 2026/08/25 18:00～",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-jct-tokyo-highway-live-camer-29",
+    name: { ja: "【LIVE】首都高 都心環状線 呉服橋JCT付近 ライブカメラ/Tokyo highway Live Camera 2026/08/25 10:35～", en: "【LIVE】首都高 都心環状線 呉服橋JCT付近 ライブカメラ/Tokyo highway Live Camera 2026/08/25 10:35～" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "Z38Vu14rISs",
+      channelId: "UCawcG-FdPCNSu_JGIAZH0OQ",
+      titleKey: "【LIVE】首都高 都心環状線 呉服橋JCT付近 ライブカメラ/Tokyo highway Live Camera 2026/08/25 10:35～",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-1-jct-tokyo-highway-live-cam-6",
+    name: { ja: "【LIVE】首都高 1号羽田線 浜崎橋JCT ライブカメラ/Tokyo highway Live Camera 2026/08/25 10:35～", en: "【LIVE】首都高 1号羽田線 浜崎橋JCT ライブカメラ/Tokyo highway Live Camera 2026/08/25 10:35～" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "ZCGF0btECzA",
+      channelId: "UCawcG-FdPCNSu_JGIAZH0OQ",
+      titleKey: "【LIVE】首都高 1号羽田線 浜崎橋JCT ライブカメラ/Tokyo highway Live Camera  2026/08/25 10:35～",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-tokyo-highway-live-camera-20-19",
+    name: { ja: "【LIVE】首都高 都心環状線 宝町付近 ライブカメラ/Tokyo highway Live Camera 2026/08/25 10:35～", en: "【LIVE】首都高 都心環状線 宝町付近 ライブカメラ/Tokyo highway Live Camera 2026/08/25 10:35～" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "Y8NPiBtbJN8",
+      channelId: "UCawcG-FdPCNSu_JGIAZH0OQ",
+      titleKey: "【LIVE】首都高 都心環状線 宝町付近 ライブカメラ/Tokyo highway Live Camera 2026/08/25 10:35～",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-jct-tokyo-highway-live-camer-30",
+    name: { ja: "【LIVE】首都高 都心環状線 竹橋JCT付近 ライブカメラ/Tokyo highway Live Camera 2026/08/25 10:35～", en: "【LIVE】首都高 都心環状線 竹橋JCT付近 ライブカメラ/Tokyo highway Live Camera 2026/08/25 10:35～" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "ZQbdrGh2ODQ",
+      channelId: "UCawcG-FdPCNSu_JGIAZH0OQ",
+      titleKey: "【LIVE】首都高 都心環状線 竹橋JCT付近 ライブカメラ/Tokyo highway Live Camera 2026/08/25 10:35～",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-tokyo-highway-live-camera-20-20",
+    name: { ja: "【LIVE】首都高 高速湾岸線 葛西付近・有明方向 ライブカメラ/Tokyo highway Live Camera 2026/08/25 10:35～", en: "【LIVE】首都高 高速湾岸線 葛西付近・有明方向 ライブカメラ/Tokyo highway Live Camera 2026/08/25 10:35～" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "25RTClaJ6Vs",
+      channelId: "UCawcG-FdPCNSu_JGIAZH0OQ",
+      titleKey: "【LIVE】首都高 高速湾岸線 葛西付近・有明方向 ライブカメラ/Tokyo highway Live Camera 2026/08/25 10:35～",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-jct-tokyo-highway-live-camer-31",
+    name: { ja: "【LIVE】首都高 都心環状線 呉服橋JCT付近 ライブカメラ/Tokyo highway Live Camera 2026/08/25 00:25～", en: "【LIVE】首都高 都心環状線 呉服橋JCT付近 ライブカメラ/Tokyo highway Live Camera 2026/08/25 00:25～" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "w6VRk3lXKcQ",
+      channelId: "UCawcG-FdPCNSu_JGIAZH0OQ",
+      titleKey: "【LIVE】首都高 都心環状線 呉服橋JCT付近 ライブカメラ/Tokyo highway Live Camera 2026/08/25 00:25～",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-tokyo-highway-live-camera-20-21",
+    name: { ja: "【LIVE】首都高 都心環状線 宝町付近 ライブカメラ/Tokyo highway Live Camera 2026/08/25 00:25～", en: "【LIVE】首都高 都心環状線 宝町付近 ライブカメラ/Tokyo highway Live Camera 2026/08/25 00:25～" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "cOk0noR4-b0",
+      channelId: "UCawcG-FdPCNSu_JGIAZH0OQ",
+      titleKey: "【LIVE】首都高 都心環状線 宝町付近 ライブカメラ/Tokyo highway Live Camera 2026/08/25 00:25～",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-1-jct-tokyo-highway-live-cam-7",
+    name: { ja: "【LIVE】首都高 1号羽田線 浜崎橋JCT ライブカメラ/Tokyo highway Live Camera 2026/08/25 00:25～", en: "【LIVE】首都高 1号羽田線 浜崎橋JCT ライブカメラ/Tokyo highway Live Camera 2026/08/25 00:25～" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "34XWPNUF9p0",
+      channelId: "UCawcG-FdPCNSu_JGIAZH0OQ",
+      titleKey: "【LIVE】首都高 1号羽田線 浜崎橋JCT ライブカメラ/Tokyo highway Live Camera 2026/08/25 00:25～",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-tokyo-highway-live-camera-20-22",
+    name: { ja: "【LIVE】首都高 高速湾岸線 葛西付近・有明方向 ライブカメラ/Tokyo highway Live Camera 2026/08/25 00:20～", en: "【LIVE】首都高 高速湾岸線 葛西付近・有明方向 ライブカメラ/Tokyo highway Live Camera 2026/08/25 00:20～" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "n-oxS-7CgrU",
+      channelId: "UCawcG-FdPCNSu_JGIAZH0OQ",
+      titleKey: "【LIVE】首都高 高速湾岸線 葛西付近・有明方向 ライブカメラ/Tokyo highway Live Camera 2026/08/25 00:20～",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-jct-tokyo-highway-live-camer-32",
+    name: { ja: "【LIVE】首都高 都心環状線 竹橋JCT付近 ライブカメラ/Tokyo highway Live Camera 2026/08/25 00:25～", en: "【LIVE】首都高 都心環状線 竹橋JCT付近 ライブカメラ/Tokyo highway Live Camera 2026/08/25 00:25～" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "2aSVKnw4HXY",
+      channelId: "UCawcG-FdPCNSu_JGIAZH0OQ",
+      titleKey: "【LIVE】首都高 都心環状線 竹橋JCT付近 ライブカメラ/Tokyo highway Live Camera 2026/08/25 00:25～",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-city-of-stuart-iowa-live-railcam-stua",
+    name: { ja: "City of Stuart, Iowa Live Railcam - Stuart, IA #steelhighway", en: "City of Stuart, Iowa Live Railcam - Stuart, IA #steelhighway" },
+    lat: 44.98,
+    lng: -93.2638,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "7E3stUZjEX8",
+      channelId: "UCJId-kbfsO5K4kU9cKE_TqA",
+      titleKey: "City of Stuart, Iowa Live Railcam - Stuart,  IA #steelhighway",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ph-philippines-live-camera-bankerohan-ma",
+    name: { ja: "PHILIPPINES Live camera, Bankerohan Market area, Davao City #philippines", en: "PHILIPPINES Live camera, Bankerohan Market area, Davao City #philippines" },
+    lat: 14.5243,
+    lng: 121.0792,
+    timeZone: "Asia/Manila",
+    category: "city",
+    country: "PH",
+    source: {
+      videoId: "C3e1fKY-liY",
+      channelId: "UC0djAWwMXP22wzocdJR9dWw",
+      titleKey: "🔴 PHILIPPINES Live camera, Bankerohan Market area, Davao City #philippines",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ph-philippines-live-cam-inside-new-a-2",
+    name: { ja: "PHILIPPINES Live cam Inside New Agdao Farmers Market cam 2, Davao City #philippines #livestream", en: "PHILIPPINES Live cam Inside New Agdao Farmers Market cam 2, Davao City #philippines #livestream" },
+    lat: 12.3081,
+    lng: 124.6289,
+    timeZone: "Asia/Manila",
+    category: "city",
+    country: "PH",
+    source: {
+      videoId: "Im9AIw7obEQ",
+      channelId: "UC0djAWwMXP22wzocdJR9dWw",
+      titleKey: "🔴 PHILIPPINES Live cam Inside New Agdao Farmers Market cam 2, Davao City #philippines #livestream",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-prescott-wi-usa-east-train-cam-live-b",
+    name: { ja: "Prescott, WI USA | East Train Cam LIVE | BNSF St. Croix Sub | Fixed Cam | MP 407.606", en: "Prescott, WI USA | East Train Cam LIVE | BNSF St. Croix Sub | Fixed Cam | MP 407.606" },
+    lat: 35.4089,
+    lng: -80.5816,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "G5lPXTHNA1I",
+      channelId: "UCJId-kbfsO5K4kU9cKE_TqA",
+      titleKey: "Prescott, WI USA | East Train Cam LIVE | BNSF St. Croix Sub | Fixed Cam | MP 407.606",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ph-philippines-live-camera-lyn-s-samgyup",
+    name: { ja: "PHILIPPINES Live camera Lyn's Samgyup Staff, Davao City #philippines", en: "PHILIPPINES Live camera Lyn's Samgyup Staff, Davao City #philippines" },
+    lat: 14.5243,
+    lng: 121.0792,
+    timeZone: "Asia/Manila",
+    category: "city",
+    country: "PH",
+    source: {
+      videoId: "Sgt05K7f9TA",
+      channelId: "UC0djAWwMXP22wzocdJR9dWw",
+      titleKey: "🔴 PHILIPPINES Live camera Lyn's Samgyup Staff, Davao City #philippines",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-flossmoor-station-restaurant-brewery",
+    name: { ja: "Flossmoor Station Restaurant & Brewery Live Railcam South - Flossmoor, IL #steelhighway", en: "Flossmoor Station Restaurant & Brewery Live Railcam South - Flossmoor, IL #steelhighway" },
+    lat: 37.3292,
+    lng: -86.3647,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "jezOtndOTLk",
+      channelId: "UCJId-kbfsO5K4kU9cKE_TqA",
+      titleKey: "Flossmoor Station Restaurant & Brewery Live Railcam South - Flossmoor, IL #steelhighway",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-flossmoor-station-restaurant-brew-2",
+    name: { ja: "Flossmoor Station Restaurant & Brewery Live Railcam North - Flossmoor, IL #steelhighway", en: "Flossmoor Station Restaurant & Brewery Live Railcam North - Flossmoor, IL #steelhighway" },
+    lat: 40.8486,
+    lng: -111.9069,
+    timeZone: "America/Denver",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "ILFGE7mXEnw",
+      channelId: "UCJId-kbfsO5K4kU9cKE_TqA",
+      titleKey: "Flossmoor Station Restaurant & Brewery Live Railcam North - Flossmoor, IL #steelhighway",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-griffith-tower-live-railcam-griffith",
+    name: { ja: "Griffith Tower Live Railcam - Griffith, IN #SteelHighway", en: "Griffith Tower Live Railcam - Griffith, IN #SteelHighway" },
+    lat: 47.8055,
+    lng: -92.2746,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "FyhL5VPRNxk",
+      channelId: "UCJId-kbfsO5K4kU9cKE_TqA",
+      titleKey: "Griffith Tower Live Railcam - Griffith, IN #SteelHighway",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-whiting-indiana-live-railcam-whiting",
+    name: { ja: "Whiting, Indiana Live Railcam - Whiting, IN #steelhighway", en: "Whiting, Indiana Live Railcam - Whiting, IN #steelhighway" },
+    lat: 40.6215,
+    lng: -79.1525,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "GG24CK-cGUE",
+      channelId: "UCJId-kbfsO5K4kU9cKE_TqA",
+      titleKey: "Whiting, Indiana Live Railcam - Whiting, IN  #steelhighway",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-slinger-depot-museum-live-railcam-sli",
+    name: { ja: "Slinger Depot Museum Live Railcam - Slinger, WI #steelhighway", en: "Slinger Depot Museum Live Railcam - Slinger, WI #steelhighway" },
+    lat: 44.8085,
+    lng: -124.0632,
+    timeZone: "America/Los_Angeles",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "NDeeYpmuGmI",
+      channelId: "UCJId-kbfsO5K4kU9cKE_TqA",
+      titleKey: "Slinger Depot Museum Live Railcam - Slinger, WI #steelhighway",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-kelso-wa-live-stream-placeholder",
+    name: { ja: "Kelso WA Live Stream Placeholder", en: "Kelso WA Live Stream Placeholder" },
+    lat: 46.1468,
+    lng: -122.9084,
+    timeZone: "America/Los_Angeles",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "TLi5ZJgXOYI",
+      channelId: "UCJId-kbfsO5K4kU9cKE_TqA",
+      titleKey: "Kelso WA Live Stream Placeholder",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-burlington-wi-doug-s-auto-service-liv",
+    name: { ja: "Burlington, WI Doug's Auto Service Live Railcam #steelhighway", en: "Burlington, WI Doug's Auto Service Live Railcam #steelhighway" },
+    lat: 37.9654,
+    lng: -80.3192,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "TJ7VDkaYNmE",
+      channelId: "UCJId-kbfsO5K4kU9cKE_TqA",
+      titleKey: "Burlington, WI Doug's Auto Service Live Railcam #steelhighway",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-steel-highway-missouri-nebraska-multi",
+    name: { ja: "Steel Highway Missouri/Nebraska Multi Stream - MO/NE Live Trains & Weather #steelhighway", en: "Steel Highway Missouri/Nebraska Multi Stream - MO/NE Live Trains & Weather #steelhighway" },
+    lat: 40.0204,
+    lng: -80.804,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "eiROW5titOQ",
+      channelId: "UCJId-kbfsO5K4kU9cKE_TqA",
+      titleKey: "Steel Highway Missouri/Nebraska Multi Stream - MO/NE Live Trains & Weather #steelhighway",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-steel-highway-wisconsin-illinois-mult",
+    name: { ja: "Steel Highway Wisconsin/Illinois Multi Stream - WI/IL Live Trains & Weather #steelhighway", en: "Steel Highway Wisconsin/Illinois Multi Stream - WI/IL Live Trains & Weather #steelhighway" },
+    lat: 40.0204,
+    lng: -80.804,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "Iys6kbOOo6s",
+      channelId: "UCJId-kbfsO5K4kU9cKE_TqA",
+      titleKey: "Steel Highway Wisconsin/Illinois Multi Stream - WI/IL Live Trains & Weather #steelhighway",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-steel-highway-illinois-indiana-michig",
+    name: { ja: "Steel Highway Illinois/Indiana/Michigan Multi Stream - IL/IN/MI Live Trains & Weather #steelhighway", en: "Steel Highway Illinois/Indiana/Michigan Multi Stream - IL/IN/MI Live Trains & Weather #steelhighway" },
+    lat: 40.0204,
+    lng: -80.804,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "sIFRzKjCtrA",
+      channelId: "UCJId-kbfsO5K4kU9cKE_TqA",
+      titleKey: "Steel Highway Illinois/Indiana/Michigan Multi Stream - IL/IN/MI Live Trains & Weather #steelhighway",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-prescott-wi-usa-train-east-cam-live-b",
+    name: { ja: "Prescott, WI, USA Train East Cam LIVE | BNSF St. Croix Sub | PTZ Cam | MP 407.606", en: "Prescott, WI, USA Train East Cam LIVE | BNSF St. Croix Sub | PTZ Cam | MP 407.606" },
+    lat: 35.4089,
+    lng: -80.5816,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "nswzXxF9bQc",
+      channelId: "UCJId-kbfsO5K4kU9cKE_TqA",
+      titleKey: "Prescott, WI, USA Train East Cam LIVE | BNSF St. Croix Sub | PTZ Cam | MP 407.606",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-winlock-washington-live-railcam-winlo",
+    name: { ja: "Winlock, Washington Live Railcam - Winlock Liquidation Warehouse #steelhighway", en: "Winlock, Washington Live Railcam - Winlock Liquidation Warehouse #steelhighway" },
+    lat: 46.4912,
+    lng: -122.9379,
+    timeZone: "America/Los_Angeles",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "S3YTiO4jQtI",
+      channelId: "UCJId-kbfsO5K4kU9cKE_TqA",
+      titleKey: "Winlock, Washington Live Railcam - Winlock Liquidation Warehouse  #steelhighway",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-grand-mound-depot-museum-live-railcam",
+    name: { ja: "Grand Mound Depot Museum Live Railcam - Grand Mound, IA #SteelHighway", en: "Grand Mound Depot Museum Live Railcam - Grand Mound, IA #SteelHighway" },
+    lat: 42.9634,
+    lng: -85.6681,
+    timeZone: "America/Detroit",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "UTI_9a0CV0U",
+      channelId: "UCJId-kbfsO5K4kU9cKE_TqA",
+      titleKey: "Grand Mound Depot Museum Live Railcam - Grand Mound, IA #SteelHighway",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "it-webcam-live-zum-zeri-ms-campo-scuola",
+    name: { ja: "Webcam Live Zum Zeri (MS) - Campo Scuola", en: "Webcam Live Zum Zeri (MS) - Campo Scuola" },
+    lat: 39.3105,
+    lng: 16.2927,
+    timeZone: "Europe/Rome",
+    category: "city",
+    country: "IT",
+    source: {
+      videoId: "muDBFX3KbB4",
+      channelId: "UC12-jDuDnEJAhtmukCFBEGQ",
+      titleKey: "Webcam Live Zum Zeri (MS) - Campo Scuola",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "it-webcam-live-livigno-so-tea-al-planel",
+    name: { ja: "Webcam Live Livigno (SO) - Tea Al Planel dal Ghet", en: "Webcam Live Livigno (SO) - Tea Al Planel dal Ghet" },
+    lat: 41.2513,
+    lng: 14.0665,
+    timeZone: "Europe/Rome",
+    category: "city",
+    country: "IT",
+    source: {
+      videoId: "x8Tt3i7GDYU",
+      channelId: "UC12-jDuDnEJAhtmukCFBEGQ",
+      titleKey: "Webcam Live Livigno (SO) - Tea Al Planel dal Ghet",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "it-webcam-live-val-pusteria-versciaco-e",
+    name: { ja: "Webcam Live Val Pusteria - Versciaco e Dolomiti di Sesto", en: "Webcam Live Val Pusteria - Versciaco e Dolomiti di Sesto" },
+    lat: 46.4543,
+    lng: 11.9709,
+    timeZone: "Europe/Rome",
+    category: "city",
+    country: "IT",
+    source: {
+      videoId: "0qxEgMHNRcw",
+      channelId: "UC12-jDuDnEJAhtmukCFBEGQ",
+      titleKey: "Webcam Live Val Pusteria - Versciaco e Dolomiti di Sesto",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-creston-realty-live-railcam-creston-i",
+    name: { ja: "Creston Realty Live Railcam - Creston, IA #steelhighway", en: "Creston Realty Live Railcam - Creston, IA #steelhighway" },
+    lat: 41.0586,
+    lng: -94.3614,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "QxJF9ndSLlA",
+      channelId: "UCJId-kbfsO5K4kU9cKE_TqA",
+      titleKey: "Creston Realty Live Railcam - Creston, IA #steelhighway",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "it-webcam-live-sappada-ud-vista-centro-c",
+    name: { ja: "Webcam Live Sappada (UD) - Vista Centro Chiesta di Santa Margherita", en: "Webcam Live Sappada (UD) - Vista Centro Chiesta di Santa Margherita" },
+    lat: 45.2108,
+    lng: 9.3082,
+    timeZone: "Europe/Rome",
+    category: "city",
+    country: "IT",
+    source: {
+      videoId: "4LXclnG5lng",
+      channelId: "UC12-jDuDnEJAhtmukCFBEGQ",
+      titleKey: "Webcam Live Sappada (UD) - Vista Centro Chiesta di Santa Margherita",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "it-webcam-live-sappada-ud-scuola-sci-sap",
+    name: { ja: "Webcam Live Sappada (UD) - Scuola Sci Sappada", en: "Webcam Live Sappada (UD) - Scuola Sci Sappada" },
+    lat: 46.5413,
+    lng: 11.5587,
+    timeZone: "Europe/Rome",
+    category: "city",
+    country: "IT",
+    source: {
+      videoId: "wPoaOXPTpeA",
+      channelId: "UC12-jDuDnEJAhtmukCFBEGQ",
+      titleKey: "Webcam Live Sappada (UD) - Scuola Sci Sappada",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "it-webcam-live-frabosa-ski-cn-campo-scuo",
+    name: { ja: "Webcam Live Frabosa SKI (CN) - Campo scuola Malanotte", en: "Webcam Live Frabosa SKI (CN) - Campo scuola Malanotte" },
+    lat: 42.7426,
+    lng: 10.2343,
+    timeZone: "Europe/Rome",
+    category: "city",
+    country: "IT",
+    source: {
+      videoId: "DXffBemFgHQ",
+      channelId: "UC12-jDuDnEJAhtmukCFBEGQ",
+      titleKey: "Webcam Live Frabosa SKI (CN) -  Campo scuola Malanotte",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "it-webcam-live-cerreto-laghi-re-lago-cer",
+    name: { ja: "Webcam Live Cerreto Laghi (RE) - Lago Cerretano", en: "Webcam Live Cerreto Laghi (RE) - Lago Cerretano" },
+    lat: 39.1707,
+    lng: 16.1483,
+    timeZone: "Europe/Rome",
+    category: "city",
+    country: "IT",
+    source: {
+      videoId: "hG26mr3HLlY",
+      channelId: "UC12-jDuDnEJAhtmukCFBEGQ",
+      titleKey: "Webcam Live Cerreto Laghi (RE) - Lago Cerretano",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "it-webcam-live-frabosa-cn-monte-malanott",
+    name: { ja: "Webcam Live Frabosa (CN) - Monte Malanotte", en: "Webcam Live Frabosa (CN) - Monte Malanotte" },
+    lat: 45.7149,
+    lng: 8.8222,
+    timeZone: "Europe/Rome",
+    category: "city",
+    country: "IT",
+    source: {
+      videoId: "Om4oX0Djoh0",
+      channelId: "UC12-jDuDnEJAhtmukCFBEGQ",
+      titleKey: "Webcam Live Frabosa (CN) - Monte Malanotte",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "sx-live-august-26-maho-beach-plane-spott",
+    name: { ja: "️ LIVE August 26 | Maho Beach Plane Spotting | SXM Airport St. Maarten (with ATC)", en: "️ LIVE August 26 | Maho Beach Plane Spotting | SXM Airport St. Maarten (with ATC)" },
+    lat: 18.0417,
+    lng: -63.0667,
+    timeZone: "America/Lower_Princes",
+    category: "city",
+    country: "SX",
+    source: {
+      videoId: "WjGbh6S_UOQ",
+      channelId: "UCRjMuOBDCfSsCNIe2p0_tdg",
+      titleKey: "✈️ LIVE August 26 | Maho Beach Plane Spotting | SXM Airport St. Maarten (with ATC)",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "sx-live-august-1-maho-beach-plane-spotti",
+    name: { ja: "️ LIVE August 1 | Maho Beach Plane Spotting | SXM Airport St. Maarten (with ATC)", en: "️ LIVE August 1 | Maho Beach Plane Spotting | SXM Airport St. Maarten (with ATC)" },
+    lat: 18.0417,
+    lng: -63.0667,
+    timeZone: "America/Lower_Princes",
+    category: "city",
+    country: "SX",
+    source: {
+      videoId: "IysLkjS2UWQ",
+      channelId: "UCRjMuOBDCfSsCNIe2p0_tdg",
+      titleKey: "✈️ LIVE August 1 | Maho Beach Plane Spotting | SXM Airport St. Maarten (with ATC)",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "sx-live-august-23-maho-beach-plane-spott",
+    name: { ja: "️ LIVE August 23 | Maho Beach Plane Spotting | SXM Airport St. Maarten (with ATC)", en: "️ LIVE August 23 | Maho Beach Plane Spotting | SXM Airport St. Maarten (with ATC)" },
+    lat: 18.0417,
+    lng: -63.0667,
+    timeZone: "America/Lower_Princes",
+    category: "city",
+    country: "SX",
+    source: {
+      videoId: "OoEVShbbtdA",
+      channelId: "UCRjMuOBDCfSsCNIe2p0_tdg",
+      titleKey: "✈️ LIVE August 23 | Maho Beach Plane Spotting | SXM Airport St. Maarten (with ATC)",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "sx-live-august-22-maho-beach-plane-spott",
+    name: { ja: "️ LIVE August 22 | Maho Beach Plane Spotting | SXM Airport St. Maarten (with ATC)", en: "️ LIVE August 22 | Maho Beach Plane Spotting | SXM Airport St. Maarten (with ATC)" },
+    lat: 18.0417,
+    lng: -63.0667,
+    timeZone: "America/Lower_Princes",
+    category: "city",
+    country: "SX",
+    source: {
+      videoId: "WXanY67xGLU",
+      channelId: "UCRjMuOBDCfSsCNIe2p0_tdg",
+      titleKey: "✈️ LIVE August 22 | Maho Beach Plane Spotting | SXM Airport St. Maarten (with ATC)",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "sx-live-august-20-maho-beach-plane-spott",
+    name: { ja: "️ LIVE August 20 | Maho Beach Plane Spotting | SXM Airport St. Maarten (with ATC)", en: "️ LIVE August 20 | Maho Beach Plane Spotting | SXM Airport St. Maarten (with ATC)" },
+    lat: 18.0417,
+    lng: -63.0667,
+    timeZone: "America/Lower_Princes",
+    category: "city",
+    country: "SX",
+    source: {
+      videoId: "Iy2EM0px2-I",
+      channelId: "UCRjMuOBDCfSsCNIe2p0_tdg",
+      titleKey: "✈️ LIVE August 20 | Maho Beach Plane Spotting | SXM Airport St. Maarten (with ATC)",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "it-webcam-live-cagliari-ca",
+    name: { ja: "Webcam Live Cagliari (CA)", en: "Webcam Live Cagliari (CA)" },
+    lat: 39.2305,
+    lng: 9.1192,
+    timeZone: "Europe/Rome",
+    category: "city",
+    country: "IT",
+    source: {
+      videoId: "E6zG5BG3aBY",
+      channelId: "UC12-jDuDnEJAhtmukCFBEGQ",
+      titleKey: "Webcam Live Cagliari (CA)",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "sx-live-august-25-maho-beach-plane-spott",
+    name: { ja: "️ LIVE August 25 | Maho Beach Plane Spotting | SXM Airport St. Maarten (with ATC)", en: "️ LIVE August 25 | Maho Beach Plane Spotting | SXM Airport St. Maarten (with ATC)" },
+    lat: 18.0417,
+    lng: -63.0667,
+    timeZone: "America/Lower_Princes",
+    category: "city",
+    country: "SX",
+    source: {
+      videoId: "fvE-icKmnSs",
+      channelId: "UCRjMuOBDCfSsCNIe2p0_tdg",
+      titleKey: "✈️ LIVE August 25 | Maho Beach Plane Spotting | SXM Airport St. Maarten (with ATC)",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "it-webcam-live-trepalle-so-panorama",
+    name: { ja: "Webcam Live Trepalle (SO) - Panorama", en: "Webcam Live Trepalle (SO) - Panorama" },
+    lat: 46.5269,
+    lng: 10.1758,
+    timeZone: "Europe/Rome",
+    category: "city",
+    country: "IT",
+    source: {
+      videoId: "Soh3i82ZG90",
+      channelId: "UC12-jDuDnEJAhtmukCFBEGQ",
+      titleKey: "Webcam Live Trepalle (SO) - Panorama",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "sx-live-august-24-maho-beach-plane-spott",
+    name: { ja: "️ LIVE August 24| Maho Beach Plane Spotting | SXM Airport St. Maarten (with ATC)", en: "️ LIVE August 24| Maho Beach Plane Spotting | SXM Airport St. Maarten (with ATC)" },
+    lat: 18.0419,
+    lng: -63.1221,
+    timeZone: "America/Lower_Princes",
+    category: "city",
+    country: "SX",
+    source: {
+      videoId: "AHsHGdvH20U",
+      channelId: "UCRjMuOBDCfSsCNIe2p0_tdg",
+      titleKey: "✈️ LIVE August 24| Maho Beach Plane Spotting | SXM Airport St. Maarten (with ATC)",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "it-live-webcam-cerreto-lakes-re-italy-sk",
+    name: { ja: "Live Webcam Cerreto Lakes (RE) Italy - Ski Slopes and Ski Lifts", en: "Live Webcam Cerreto Lakes (RE) Italy - Ski Slopes and Ski Lifts" },
+    lat: 42.8333,
+    lng: 12.8333,
+    timeZone: "Europe/Rome",
+    category: "city",
+    country: "IT",
+    source: {
+      videoId: "qe8PSHjPzuM",
+      channelId: "UC12-jDuDnEJAhtmukCFBEGQ",
+      titleKey: "Live Webcam Cerreto Lakes (RE) Italy - Ski Slopes and Ski Lifts",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-members-only-santa-maria-santiag",
+    name: { ja: "Live: Members-Only Santa Maria (Santiaguito) Volcano in Guatemala (Cam D)", en: "Live: Members-Only Santa Maria (Santiaguito) Volcano in Guatemala (Cam D)" },
+    lat: 47.1502,
+    lng: -116.449,
+    timeZone: "America/Los_Angeles",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "FwOhjdc6IGI",
+      channelId: "UCaG0IHN1RMOZ4-U3wDXAkwA",
+      titleKey: "✪ Live: Members-Only Santa Maria (Santiaguito) Volcano in Guatemala (Cam D)",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-now-24-7-iceland-volcano-watch-i",
+    name: { ja: "Live Now: 24/7 Iceland Volcano Watch in 4K Ultra HD (Cam D)", en: "Live Now: 24/7 Iceland Volcano Watch in 4K Ultra HD (Cam D)" },
+    lat: 35.6379,
+    lng: -86.8253,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "6_O-XKqVk68",
+      channelId: "UCaG0IHN1RMOZ4-U3wDXAkwA",
+      titleKey: "🔴 Live Now: 24/7 Iceland Volcano Watch in 4K Ultra HD (Cam D)",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-now-24-7-erupting-popocatepetl-v",
+    name: { ja: "Live Now: 24/7 Erupting Popocatépetl Volcano from San Pedro Benito Juárez, Mexico in 4K Ultra HD", en: "Live Now: 24/7 Erupting Popocatépetl Volcano from San Pedro Benito Juárez, Mexico in 4K Ultra HD" },
+    lat: 32.7157,
+    lng: -117.1647,
+    timeZone: "America/Los_Angeles",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "1j3T1kbrD1c",
+      channelId: "UCaG0IHN1RMOZ4-U3wDXAkwA",
+      titleKey: "🔴 Live Now: 24/7 Erupting Popocatépetl Volcano from San Pedro Benito Juárez, Mexico in 4K Ultra HD",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-now-24-7-erupting-popocatepe-2",
+    name: { ja: "Live Now: 24/7 Erupting Popocatépetl Volcano from San Matias Tlalancaleca Mexico in 4K Ultra HD", en: "Live Now: 24/7 Erupting Popocatépetl Volcano from San Matias Tlalancaleca Mexico in 4K Ultra HD" },
+    lat: 32.7157,
+    lng: -117.1647,
+    timeZone: "America/Los_Angeles",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "SXcN_7JNFsQ",
+      channelId: "UCaG0IHN1RMOZ4-U3wDXAkwA",
+      titleKey: "🔴 Live Now: 24/7 Erupting Popocatépetl Volcano from San Matias Tlalancaleca Mexico in 4K Ultra HD",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-members-only-popocatepetl-volcan",
+    name: { ja: "Live: Members-Only Popocatépetl Volcano from San Pedro Benito Juárez, Mexico (Cam C)", en: "Live: Members-Only Popocatépetl Volcano from San Pedro Benito Juárez, Mexico (Cam C)" },
+    lat: 32.7157,
+    lng: -117.1647,
+    timeZone: "America/Los_Angeles",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "a5VnMDnzGmQ",
+      channelId: "UCaG0IHN1RMOZ4-U3wDXAkwA",
+      titleKey: "✪ Live: Members-Only Popocatépetl Volcano from San Pedro Benito Juárez, Mexico (Cam C)",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "id-live-pemantauan-cctv-lalulintas-area",
+    name: { ja: "LIVE PEMANTAUAN CCTV LALULINTAS AREA WISATA PANTAI", en: "LIVE PEMANTAUAN CCTV LALULINTAS AREA WISATA PANTAI" },
+    lat: -8.6428,
+    lng: 122.0237,
+    timeZone: "Asia/Makassar",
+    category: "city",
+    country: "ID",
+    source: {
+      videoId: "bcjSWZBmakE",
+      channelId: "UCkEiJMkX7n3rZpZ2PDVc3Ow",
+      titleKey: "LIVE PEMANTAUAN CCTV LALULINTAS AREA WISATA PANTAI",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "id-live-pemantauan-cctv-lalulintas-a-2",
+    name: { ja: "LIVE PEMANTAUAN CCTV LALULINTAS AREA BARAT", en: "LIVE PEMANTAUAN CCTV LALULINTAS AREA BARAT" },
+    lat: -8.6428,
+    lng: 122.0237,
+    timeZone: "Asia/Makassar",
+    category: "city",
+    country: "ID",
+    source: {
+      videoId: "UzsJMEqmDAg",
+      channelId: "UCkEiJMkX7n3rZpZ2PDVc3Ow",
+      titleKey: "LIVE PEMANTAUAN CCTV LALULINTAS AREA BARAT",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-now-24-7-kanlaon-volcano-in-the",
+    name: { ja: "Live Now: 24/7 Kanlaon Volcano in the Philippines", en: "Live Now: 24/7 Kanlaon Volcano in the Philippines" },
+    lat: 19.4428,
+    lng: -155.234,
+    timeZone: "Pacific/Honolulu",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "D6Rk4tqB_fs",
+      channelId: "UCaG0IHN1RMOZ4-U3wDXAkwA",
+      titleKey: "🔴 Live Now: 24/7 Kanlaon Volcano in the Philippines",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-members-only-merapi-volcano-erup",
+    name: { ja: "Live: Members-Only Merapi Volcano Erupting (Cam B)", en: "Live: Members-Only Merapi Volcano Erupting (Cam B)" },
+    lat: 19.4428,
+    lng: -155.234,
+    timeZone: "Pacific/Honolulu",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "VgxKEXVFyeM",
+      channelId: "UCaG0IHN1RMOZ4-U3wDXAkwA",
+      titleKey: "✪ Live: Members-Only  Merapi Volcano Erupting (Cam B)",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "id-live-pemantauan-cctv-pasar-besole",
+    name: { ja: "LIVE PEMANTAUAN CCTV PASAR BESOLE", en: "LIVE PEMANTAUAN CCTV PASAR BESOLE" },
+    lat: -7.1008,
+    lng: 107.9577,
+    timeZone: "Asia/Jakarta",
+    category: "city",
+    country: "ID",
+    source: {
+      videoId: "CEdIbRrbNSg",
+      channelId: "UCkEiJMkX7n3rZpZ2PDVc3Ow",
+      titleKey: "LIVE PEMANTAUAN CCTV PASAR BESOLE",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-members-only-sangay-volcano-and",
+    name: { ja: "Live: Members-Only Sangay Volcano and the Amazon Rainforest in Ecuador", en: "Live: Members-Only Sangay Volcano and the Amazon Rainforest in Ecuador" },
+    lat: 46.3202,
+    lng: -112.1072,
+    timeZone: "America/Denver",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "tNMdbbUP620",
+      channelId: "UCaG0IHN1RMOZ4-U3wDXAkwA",
+      titleKey: "✪ Live: Members-Only Sangay Volcano and the Amazon Rainforest in Ecuador",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "id-pemantauan-cctv-lalulintas-kelurahan",
+    name: { ja: "PEMANTAUAN CCTV LALULINTAS KELURAHAN REJOSARI", en: "PEMANTAUAN CCTV LALULINTAS KELURAHAN REJOSARI" },
+    lat: -8.0715,
+    lng: 111.6747,
+    timeZone: "Asia/Jakarta",
+    category: "city",
+    country: "ID",
+    source: {
+      videoId: "ROls4SLDOKc",
+      channelId: "UCkEiJMkX7n3rZpZ2PDVc3Ow",
+      titleKey: "PEMANTAUAN CCTV LALULINTAS KELURAHAN REJOSARI",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "id-live-pemantauan-cctv-pasar-wotgalih",
+    name: { ja: "LIVE PEMANTAUAN CCTV PASAR WOTGALIH", en: "LIVE PEMANTAUAN CCTV PASAR WOTGALIH" },
+    lat: -7.1008,
+    lng: 107.9577,
+    timeZone: "Asia/Jakarta",
+    category: "city",
+    country: "ID",
+    source: {
+      videoId: "VwCSraYReJM",
+      channelId: "UCkEiJMkX7n3rZpZ2PDVc3Ow",
+      titleKey: "LIVE PEMANTAUAN CCTV PASAR WOTGALIH",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "id-live-pemantauan-cctv-simpang-4-gading",
+    name: { ja: "LIVE PEMANTAUAN CCTV SIMPANG 4 GADING", en: "LIVE PEMANTAUAN CCTV SIMPANG 4 GADING" },
+    lat: -8.1025,
+    lng: 112.6352,
+    timeZone: "Asia/Jakarta",
+    category: "city",
+    country: "ID",
+    source: {
+      videoId: "uodIEHnwG50",
+      channelId: "UCkEiJMkX7n3rZpZ2PDVc3Ow",
+      titleKey: "LIVE PEMANTAUAN CCTV SIMPANG 4 GADING",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "id-live-pemantauan-cctv-lalulintas-k-2",
+    name: { ja: "LIVE PEMANTAUAN CCTV LALULINTAS KALURAHAN SAMBIREJO", en: "LIVE PEMANTAUAN CCTV LALULINTAS KALURAHAN SAMBIREJO" },
+    lat: -6.3703,
+    lng: 106.66,
+    timeZone: "Asia/Jakarta",
+    category: "city",
+    country: "ID",
+    source: {
+      videoId: "sGw16JUacSk",
+      channelId: "UCkEiJMkX7n3rZpZ2PDVc3Ow",
+      titleKey: "LIVE PEMANTAUAN CCTV LALULINTAS KALURAHAN SAMBIREJO",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "id-live-pemantauan-cctv-pintu-masuk-utam",
+    name: { ja: "LIVE PEMANTAUAN CCTV PINTU MASUK UTAMA PANTAI 2", en: "LIVE PEMANTAUAN CCTV PINTU MASUK UTAMA PANTAI 2" },
+    lat: -6.1653,
+    lng: 107.0372,
+    timeZone: "Asia/Jakarta",
+    category: "city",
+    country: "ID",
+    source: {
+      videoId: "B96LfyFCk64",
+      channelId: "UCkEiJMkX7n3rZpZ2PDVc3Ow",
+      titleKey: "LIVE PEMANTAUAN CCTV PINTU MASUK UTAMA PANTAI 2",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "id-live-pemantauan-cctv-pintu-masuk-2",
+    name: { ja: "LIVE PEMANTAUAN CCTV PINTU MASUK UTAMA PANTAI 1", en: "LIVE PEMANTAUAN CCTV PINTU MASUK UTAMA PANTAI 1" },
+    lat: -6.1653,
+    lng: 107.0372,
+    timeZone: "Asia/Jakarta",
+    category: "city",
+    country: "ID",
+    source: {
+      videoId: "wH-jDNXLDAI",
+      channelId: "UCkEiJMkX7n3rZpZ2PDVc3Ow",
+      titleKey: "LIVE PEMANTAUAN CCTV PINTU MASUK UTAMA PANTAI 1",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "id-live-pemantauan-cctv-embung-batara-sr",
+    name: { ja: "LIVE PEMANTAUAN CCTV EMBUNG BATARA SRITEN", en: "LIVE PEMANTAUAN CCTV EMBUNG BATARA SRITEN" },
+    lat: -8.7552,
+    lng: 116.1766,
+    timeZone: "Asia/Makassar",
+    category: "city",
+    country: "ID",
+    source: {
+      videoId: "KR6HtxBedzs",
+      channelId: "UCkEiJMkX7n3rZpZ2PDVc3Ow",
+      titleKey: "LIVE PEMANTAUAN CCTV EMBUNG BATARA SRITEN",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "id-live-pemantauan-cctv-lalulintas-tugu",
+    name: { ja: "LIVE PEMANTAUAN CCTV LALULINTAS TUGU SELAMAT DATANG PATUK 2", en: "LIVE PEMANTAUAN CCTV LALULINTAS TUGU SELAMAT DATANG PATUK 2" },
+    lat: -8.0265,
+    lng: 111.6358,
+    timeZone: "Asia/Jakarta",
+    category: "city",
+    country: "ID",
+    source: {
+      videoId: "4xtLdfYhTmE",
+      channelId: "UCkEiJMkX7n3rZpZ2PDVc3Ow",
+      titleKey: "LIVE PEMANTAUAN CCTV LALULINTAS TUGU SELAMAT DATANG PATUK 2",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "id-live-pemantauan-cctv-lalulintas-s-8",
+    name: { ja: "LIVE PEMANTAUAN CCTV LALULINTAS SIMPANG EMPAT GADING TIMUR", en: "LIVE PEMANTAUAN CCTV LALULINTAS SIMPANG EMPAT GADING TIMUR" },
+    lat: -6.8856,
+    lng: 113.0286,
+    timeZone: "Asia/Jakarta",
+    category: "city",
+    country: "ID",
+    source: {
+      videoId: "c2Rhj-A2u7k",
+      channelId: "UCkEiJMkX7n3rZpZ2PDVc3Ow",
+      titleKey: "LIVE PEMANTAUAN CCTV LALULINTAS SIMPANG EMPAT GADING TIMUR",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "id-live-pemantauan-cctv-lapangan-pemda-b",
+    name: { ja: "LIVE PEMANTAUAN CCTV LAPANGAN PEMDA BARAT", en: "LIVE PEMANTAUAN CCTV LAPANGAN PEMDA BARAT" },
+    lat: -7.0496,
+    lng: 113.4945,
+    timeZone: "Asia/Jakarta",
+    category: "city",
+    country: "ID",
+    source: {
+      videoId: "eFJkz07KwX4",
+      channelId: "UCkEiJMkX7n3rZpZ2PDVc3Ow",
+      titleKey: "LIVE PEMANTAUAN CCTV LAPANGAN PEMDA BARAT",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "id-live-pemantauan-cctv-lalulintas-s-9",
+    name: { ja: "LIVE PEMANTAUAN CCTV LALULINTAS SIMPANG EMPAT MUNGGI TIMUR", en: "LIVE PEMANTAUAN CCTV LALULINTAS SIMPANG EMPAT MUNGGI TIMUR" },
+    lat: -6.8856,
+    lng: 113.0286,
+    timeZone: "Asia/Jakarta",
+    category: "city",
+    country: "ID",
+    source: {
+      videoId: "FgURE1Tu8FY",
+      channelId: "UCkEiJMkX7n3rZpZ2PDVc3Ow",
+      titleKey: "LIVE PEMANTAUAN CCTV LALULINTAS SIMPANG EMPAT MUNGGI TIMUR",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "id-live-pemantauan-cctv-lalulintas-kodim",
+    name: { ja: "LIVE PEMANTAUAN CCTV LALULINTAS KODIM GUNUNGKIDUL", en: "LIVE PEMANTAUAN CCTV LALULINTAS KODIM GUNUNGKIDUL" },
+    lat: -7.4039,
+    lng: 109.4728,
+    timeZone: "Asia/Jakarta",
+    category: "city",
+    country: "ID",
+    source: {
+      videoId: "QiIkBSYNZMU",
+      channelId: "UCkEiJMkX7n3rZpZ2PDVc3Ow",
+      titleKey: "LIVE PEMANTAUAN CCTV LALULINTAS KODIM GUNUNGKIDUL",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "id-live-pemantauan-cctv-lalulintas-smp-n",
+    name: { ja: "LIVE PEMANTAUAN CCTV LALULINTAS SMP N 1 PLAYEN", en: "LIVE PEMANTAUAN CCTV LALULINTAS SMP N 1 PLAYEN" },
+    lat: -7.2991,
+    lng: 110.4665,
+    timeZone: "Asia/Jakarta",
+    category: "city",
+    country: "ID",
+    source: {
+      videoId: "sy_Xw6vEhsE",
+      channelId: "UCkEiJMkX7n3rZpZ2PDVc3Ow",
+      titleKey: "LIVE PEMANTAUAN CCTV LALULINTAS SMP N 1 PLAYEN",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "id-live-pemantauan-cctv-lalulintas-s-10",
+    name: { ja: "LIVE PEMANTAUAN CCTV LALULINTAS SIMPANG TIGA DPRD", en: "LIVE PEMANTAUAN CCTV LALULINTAS SIMPANG TIGA DPRD" },
+    lat: -4.5816,
+    lng: 122.3271,
+    timeZone: "Asia/Makassar",
+    category: "city",
+    country: "ID",
+    source: {
+      videoId: "CIRkC_VR55E",
+      channelId: "UCkEiJMkX7n3rZpZ2PDVc3Ow",
+      titleKey: "LIVE PEMANTAUAN CCTV LALULINTAS SIMPANG TIGA DPRD",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "id-live-pemantauan-pantai-sepanjang-fix",
+    name: { ja: "LIVE PEMANTAUAN PANTAI SEPANJANG FIX", en: "LIVE PEMANTAUAN PANTAI SEPANJANG FIX" },
+    lat: -3.1313,
+    lng: 116.1353,
+    timeZone: "Asia/Makassar",
+    category: "city",
+    country: "ID",
+    source: {
+      videoId: "AeZCyuf3k5g",
+      channelId: "UCkEiJMkX7n3rZpZ2PDVc3Ow",
+      titleKey: "LIVE PEMANTAUAN PANTAI SEPANJANG FIX",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "id-live-pemantauan-cctv-lalulintas-s-11",
+    name: { ja: "LIVE PEMANTAUAN CCTV LALULINTAS SMP N 3 WONOSARI", en: "LIVE PEMANTAUAN CCTV LALULINTAS SMP N 3 WONOSARI" },
+    lat: -7.2991,
+    lng: 110.4665,
+    timeZone: "Asia/Jakarta",
+    category: "city",
+    country: "ID",
+    source: {
+      videoId: "-CKOX3WYbh4",
+      channelId: "UCkEiJMkX7n3rZpZ2PDVc3Ow",
+      titleKey: "LIVE PEMANTAUAN CCTV LALULINTAS SMP N 3 WONOSARI",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-live-from-deteema-springs-hwange-nati",
+    name: { ja: "LIVE from Deteema Springs | Hwange National Park, Zimbabwe", en: "LIVE from Deteema Springs | Hwange National Park, Zimbabwe" },
+    lat: -33.9258,
+    lng: 25.5543,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "m4cAV-_7YpY",
+      channelId: "UCuoNAKa3P0QR1Lw9QdpmoVg",
+      titleKey: "LIVE from Deteema Springs | Hwange National Park, Zimbabwe",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-live-from-angama-mara-maasai-mara-ken",
+    name: { ja: "Live from Angama Mara | Maasai Mara, Kenya", en: "Live from Angama Mara | Maasai Mara, Kenya" },
+    lat: -23.1167,
+    lng: 29.6333,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "Njur5IV7icE",
+      channelId: "UCuoNAKa3P0QR1Lw9QdpmoVg",
+      titleKey: "Live from Angama Mara | Maasai Mara, Kenya",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-live-safari-from-nkorho-bush-lodge-24",
+    name: { ja: "Live Safari from Nkorho Bush Lodge | 24/7 Wildlife in Sabi Sand, South Africa", en: "Live Safari from Nkorho Bush Lodge | 24/7 Wildlife in Sabi Sand, South Africa" },
+    lat: -30.9124,
+    lng: 30.2917,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "sQAhSkjRKGk",
+      channelId: "UCuoNAKa3P0QR1Lw9QdpmoVg",
+      titleKey: "Live Safari from Nkorho Bush Lodge | 24/7 Wildlife in Sabi Sand, South Africa",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-live-from-porini-rhino-camp-ol-pejeta",
+    name: { ja: "LIVE from Porini Rhino Camp | Ol Pejeta Conservancy, Kenya", en: "LIVE from Porini Rhino Camp | Ol Pejeta Conservancy, Kenya" },
+    lat: -25.1833,
+    lng: 29.3667,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "5dhmXmUD1ZE",
+      channelId: "UCuoNAKa3P0QR1Lw9QdpmoVg",
+      titleKey: "LIVE from Porini Rhino Camp | Ol Pejeta Conservancy, Kenya",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-live-from-jack-s-camp-kalahari-waterh",
+    name: { ja: "Live from Jack’s Camp | Kalahari Waterhole Cam - Elephants, Lions & More", en: "Live from Jack’s Camp | Kalahari Waterhole Cam - Elephants, Lions & More" },
+    lat: -25.1833,
+    lng: 29.3667,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "jG0uYl5S44E",
+      channelId: "UCuoNAKa3P0QR1Lw9QdpmoVg",
+      titleKey: "Live from Jack’s Camp | Kalahari Waterhole Cam - Elephants, Lions & More",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-ulusaba-live-wildlife-camera-sabi-san",
+    name: { ja: "Ulusaba Live Wildlife Camera | Sabi Sand, South Africa", en: "Ulusaba Live Wildlife Camera | Sabi Sand, South Africa" },
+    lat: -25.0999,
+    lng: 30.78,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "zqc0Z2oWmo8",
+      channelId: "UCuoNAKa3P0QR1Lw9QdpmoVg",
+      titleKey: "Ulusaba Live Wildlife Camera | Sabi Sand, South Africa",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "id-pemantauan-cctv-lalulintas-puskesmas",
+    name: { ja: "PEMANTAUAN CCTV LALULINTAS PUSKESMAS GEDANGSARI II", en: "PEMANTAUAN CCTV LALULINTAS PUSKESMAS GEDANGSARI II" },
+    lat: -7.2591,
+    lng: 112.6875,
+    timeZone: "Asia/Jakarta",
+    category: "city",
+    country: "ID",
+    source: {
+      videoId: "0-DuMi_brhQ",
+      channelId: "UCkEiJMkX7n3rZpZ2PDVc3Ow",
+      titleKey: "PEMANTAUAN CCTV LALULINTAS PUSKESMAS GEDANGSARI II",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-the-basin-live-hide-cam-by-selinda-ca",
+    name: { ja: "The Basin Live Hide Cam | By Selinda Camp | Botswana", en: "The Basin Live Hide Cam | By Selinda Camp | Botswana" },
+    lat: -25.1833,
+    lng: 29.3667,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "vEEGzyCvL8Q",
+      channelId: "UCuoNAKa3P0QR1Lw9QdpmoVg",
+      titleKey: "The Basin Live Hide Cam | By Selinda Camp | Botswana",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-trenton-bridge-lobster-maine-acadia-n",
+    name: { ja: "Trenton Bridge Lobster, Maine - Acadia National Park LIVE CAM", en: "Trenton Bridge Lobster, Maine - Acadia National Park LIVE CAM" },
+    lat: 39.7625,
+    lng: -87.2292,
+    timeZone: "America/Indiana/Indianapolis",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "rYOLAEd-uYw",
+      channelId: "UC8gbWbcNNyb5-NIXvFklkOA",
+      titleKey: "Trenton Bridge Lobster, Maine - Acadia National Park LIVE CAM",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-live-from-the-serengeti-wildlife-safa",
+    name: { ja: "Live from the Serengeti | Wildlife Safari Cam | Serengeti Explorer", en: "Live from the Serengeti | Wildlife Safari Cam | Serengeti Explorer" },
+    lat: -25.7018,
+    lng: 27.231,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "BmOLK7LTKbY",
+      channelId: "UCuoNAKa3P0QR1Lw9QdpmoVg",
+      titleKey: "Live from the Serengeti | Wildlife Safari Cam | Serengeti Explorer",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-simbavati-waterside-live-wildlife-cam",
+    name: { ja: "Simbavati Waterside Live Wildlife Camera | Klaserie Reserve, South Africa", en: "Simbavati Waterside Live Wildlife Camera | Klaserie Reserve, South Africa" },
+    lat: -24.1989,
+    lng: 31.1537,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "zh5QHh9prA0",
+      channelId: "UCuoNAKa3P0QR1Lw9QdpmoVg",
+      titleKey: "Simbavati Waterside Live Wildlife Camera | Klaserie Reserve, South Africa",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-stars-from-dark-sky-maine-chill",
+    name: { ja: "LIVE, Stars from Dark Sky Maine - Chill Relax Star-watching Music CAM 1", en: "LIVE, Stars from Dark Sky Maine - Chill Relax Star-watching Music CAM 1" },
+    lat: 41.4489,
+    lng: -82.708,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "lH5p3BwfOqc",
+      channelId: "UC8gbWbcNNyb5-NIXvFklkOA",
+      titleKey: "LIVE, Stars ✨from Dark Sky Maine - Chill Relax Star-watching Music CAM 1",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-mahali-mzuri-landscape-live-cam-maasa",
+    name: { ja: "Mahali Mzuri Landscape Live Cam | Maasai Mara, Kenya", en: "Mahali Mzuri Landscape Live Cam | Maasai Mara, Kenya" },
+    lat: -23.1167,
+    lng: 29.6333,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "jIh2FYqMOw0",
+      channelId: "UCuoNAKa3P0QR1Lw9QdpmoVg",
+      titleKey: "Mahali Mzuri Landscape Live Cam  | Maasai Mara, Kenya",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-lake-nubanusit-new-hampshire-live-cam",
+    name: { ja: "Lake Nubanusit, New Hampshire - Live Cam", en: "Lake Nubanusit, New Hampshire - Live Cam" },
+    lat: 38.4278,
+    lng: -84.8105,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "OjkEtCLHgto",
+      channelId: "UC8gbWbcNNyb5-NIXvFklkOA",
+      titleKey: "Lake Nubanusit, New Hampshire - Live Cam",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-mahali-mzuri-lodge-live-cam-maasai-ma",
+    name: { ja: "Mahali Mzuri Lodge Live Cam | Maasai Mara, Kenya", en: "Mahali Mzuri Lodge Live Cam | Maasai Mara, Kenya" },
+    lat: -23.1167,
+    lng: 29.6333,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "ZWhvO6R37ck",
+      channelId: "UCuoNAKa3P0QR1Lw9QdpmoVg",
+      titleKey: "Mahali Mzuri Lodge Live Cam | Maasai Mara, Kenya",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-boston-weather-cam-ma-live-cam-city-o",
+    name: { ja: "Boston Weather Cam, MA Live Cam - City of Boston", en: "Boston Weather Cam, MA Live Cam - City of Boston" },
+    lat: 44.98,
+    lng: -93.2638,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "BBlaNNmUJy8",
+      channelId: "UC8gbWbcNNyb5-NIXvFklkOA",
+      titleKey: "Boston Weather Cam, MA Live Cam - City of Boston",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-westfield-massachusetts-us-park-squar",
+    name: { ja: "Westfield, Massachusetts US - Park Square Live", en: "Westfield, Massachusetts US - Park Square Live" },
+    lat: 39.7625,
+    lng: -87.2292,
+    timeZone: "America/Indiana/Indianapolis",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "JHEmvHrNfJg",
+      channelId: "UC8gbWbcNNyb5-NIXvFklkOA",
+      titleKey: "Westfield, Massachusetts US - Park Square Live",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-southwest-harbor-maine-acadia-nationa",
+    name: { ja: "Southwest Harbor, Maine - Acadia National Park LIVE", en: "Southwest Harbor, Maine - Acadia National Park LIVE" },
+    lat: 39.7625,
+    lng: -87.2292,
+    timeZone: "America/Indiana/Indianapolis",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "LwzKzhHb0XM",
+      channelId: "UC8gbWbcNNyb5-NIXvFklkOA",
+      titleKey: "Southwest Harbor, Maine - Acadia National Park LIVE",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-carrabassett-valley-regional-airport",
+    name: { ja: "Carrabassett Valley Regional Airport, Maine US", en: "Carrabassett Valley Regional Airport, Maine US" },
+    lat: 42.0334,
+    lng: -87.8834,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "FGiuprRXSRs",
+      channelId: "UC8gbWbcNNyb5-NIXvFklkOA",
+      titleKey: "Carrabassett Valley Regional Airport, Maine US",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-moosehead-lake-at-rockwood-maine-the",
+    name: { ja: "Moosehead Lake at Rockwood, Maine - The Birches Resort, CAM 1", en: "Moosehead Lake at Rockwood, Maine - The Birches Resort, CAM 1" },
+    lat: 46.5763,
+    lng: -119.0067,
+    timeZone: "America/Los_Angeles",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "LllTVXeOo10",
+      channelId: "UC8gbWbcNNyb5-NIXvFklkOA",
+      titleKey: "Moosehead Lake at Rockwood, Maine - The Birches Resort,  CAM 1",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-jordan-pond-acadia-national-park-star",
+    name: { ja: "Jordan Pond, Acadia National Park Starcam - Live", en: "Jordan Pond, Acadia National Park Starcam - Live" },
+    lat: 39.7625,
+    lng: -87.2292,
+    timeZone: "America/Indiana/Indianapolis",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "Uws0WJaSlRw",
+      channelId: "UC8gbWbcNNyb5-NIXvFklkOA",
+      titleKey: "Jordan Pond, Acadia National Park Starcam - Live",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-moosehead-lake-at-rockwood-maine-2",
+    name: { ja: "Moosehead Lake at Rockwood, Maine - The Birches Resort, CAM 2", en: "Moosehead Lake at Rockwood, Maine - The Birches Resort, CAM 2" },
+    lat: 46.5763,
+    lng: -119.0067,
+    timeZone: "America/Los_Angeles",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "xY64buYp9lc",
+      channelId: "UC8gbWbcNNyb5-NIXvFklkOA",
+      titleKey: "Moosehead Lake at Rockwood, Maine - The Birches Resort,  CAM 2",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-jackman-maine-airport-cam-right",
+    name: { ja: "Jackman, Maine - Airport - Cam Right", en: "Jackman, Maine - Airport - Cam Right" },
+    lat: 42.0334,
+    lng: -87.8834,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "OaDGC8RwMWw",
+      channelId: "UC8gbWbcNNyb5-NIXvFklkOA",
+      titleKey: "Jackman, Maine - Airport - Cam Right",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-moosehead-lake-maine-live-cam",
+    name: { ja: "Moosehead Lake, Maine - LIVE cam", en: "Moosehead Lake, Maine - LIVE cam" },
+    lat: 46.5763,
+    lng: -119.0067,
+    timeZone: "America/Los_Angeles",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "EGh3HIea6v4",
+      channelId: "UC8gbWbcNNyb5-NIXvFklkOA",
+      titleKey: "Moosehead Lake, Maine - LIVE cam",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-brewster-s-bait-tackle-back-channel-p",
+    name: { ja: "Brewster's Bait & Tackle - Back Channel - Portsmouth, New Hampshire", en: "Brewster's Bait & Tackle - Back Channel - Portsmouth, New Hampshire" },
+    lat: 31.1574,
+    lng: -84.5994,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "nVVVtJ-4g_Q",
+      channelId: "UC8gbWbcNNyb5-NIXvFklkOA",
+      titleKey: "Brewster's Bait & Tackle - Back Channel - Portsmouth, New Hampshire",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-wilderness-linkwasha-live-cam-hwange",
+    name: { ja: "Wilderness Linkwasha LIVE Cam | Hwange Waterhole 24/7 Wildlife Stream", en: "Wilderness Linkwasha LIVE Cam | Hwange Waterhole 24/7 Wildlife Stream" },
+    lat: -33.9939,
+    lng: 22.5757,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "-rXriX4SiQk",
+      channelId: "UCuoNAKa3P0QR1Lw9QdpmoVg",
+      titleKey: "Wilderness Linkwasha LIVE Cam | Hwange Waterhole 24/7 Wildlife Stream",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-moela-safari-lodge-live-zebra-migrati",
+    name: { ja: "Moela Safari Lodge LIVE - Zebra Migration | Boteti River, Botswana", en: "Moela Safari Lodge LIVE - Zebra Migration | Boteti River, Botswana" },
+    lat: -33.7637,
+    lng: 22.3155,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "54Y7xlLrkuo",
+      channelId: "UCuoNAKa3P0QR1Lw9QdpmoVg",
+      titleKey: "Moela Safari Lodge LIVE - Zebra Migration | Boteti River, Botswana",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-jackman-maine-newton-field-airport-ca",
+    name: { ja: "Jackman, Maine - Newton Field Airport - Cam Left", en: "Jackman, Maine - Newton Field Airport - Cam Left" },
+    lat: 35.5731,
+    lng: -86.8667,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "QVWs7MvZoxg",
+      channelId: "UC8gbWbcNNyb5-NIXvFklkOA",
+      titleKey: "Jackman, Maine -  Newton Field Airport - Cam Left",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "th-live-camera-stream-hushbar-soi-green",
+    name: { ja: "Live Camera Stream | Hushbar | Soi Green Mango | Chaweng | Koh Samui | Thailand | 2160p 4K", en: "Live Camera Stream | Hushbar | Soi Green Mango | Chaweng | Koh Samui | Thailand | 2160p 4K" },
+    lat: 13.1289,
+    lng: 102.214,
+    timeZone: "Asia/Bangkok",
+    category: "city",
+    country: "TH",
+    source: {
+      videoId: "snH8AlZaS70",
+      channelId: "UCmYyJaUxYiF5IbLx-0jFXHQ",
+      titleKey: "🔴 Live Camera Stream | Hushbar | Soi Green Mango | Chaweng | Koh Samui | Thailand | 2160p 4K",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "th-live-camera-stream-the-green-mango-so",
+    name: { ja: "Live Camera Stream | The Green Mango | Soi Green Mango | Chaweng | Koh Samui | Thailand | 2160p 4K", en: "Live Camera Stream | The Green Mango | Soi Green Mango | Chaweng | Koh Samui | Thailand | 2160p 4K" },
+    lat: 13.1289,
+    lng: 102.214,
+    timeZone: "Asia/Bangkok",
+    category: "city",
+    country: "TH",
+    source: {
+      videoId: "gEm6dAETk7E",
+      channelId: "UCmYyJaUxYiF5IbLx-0jFXHQ",
+      titleKey: "🔴 Live Camera Stream | The Green Mango | Soi Green Mango | Chaweng | Koh Samui | Thailand | 2160p 4K",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-weymouth-massachusetts-fore-river-liv",
+    name: { ja: "Weymouth, Massachusetts - Fore River - Live cam", en: "Weymouth, Massachusetts - Fore River - Live cam" },
+    lat: 32.3646,
+    lng: -89.4742,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "dtIcEq1itmU",
+      channelId: "UC8gbWbcNNyb5-NIXvFklkOA",
+      titleKey: "Weymouth, Massachusetts - Fore River - Live cam",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "kr-live-explore-historic-seoul-complete",
+    name: { ja: "LIVE | Explore Historic Seoul 🇰🇷 Complete Walking Tour • Every Street, Day & Night | Seoul Live TV", en: "LIVE | Explore Historic Seoul 🇰🇷 Complete Walking Tour • Every Street, Day & Night | Seoul Live TV" },
+    lat: 37.566,
+    lng: 126.9784,
+    timeZone: "Asia/Seoul",
+    category: "city",
+    country: "KR",
+    source: {
+      videoId: "gcm_SlGCmcY",
+      channelId: "UCSkaixM5p8mYuBIdy2J0ZHw",
+      titleKey: "🔴 LIVE | Explore Historic Seoul 🇰🇷 Complete Walking Tour • Every Street, Day & Night | Seoul Live TV",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "kr-live-seoul-gangnam-walking-tour-gangn",
+    name: { ja: "LIVE | Seoul Gangnam Walking Tour 🇰🇷 | Gangnam Club, restaurants, cafés | Gangnam Live TV 강남라이브", en: "LIVE | Seoul Gangnam Walking Tour 🇰🇷 | Gangnam Club, restaurants, cafés | Gangnam Live TV 강남라이브" },
+    lat: 37.566,
+    lng: 126.9784,
+    timeZone: "Asia/Seoul",
+    category: "city",
+    country: "KR",
+    source: {
+      videoId: "XGBAmnzJybE",
+      channelId: "UCSkaixM5p8mYuBIdy2J0ZHw",
+      titleKey: "🔴 LIVE | Seoul Gangnam Walking Tour 🇰🇷 | Gangnam Club, restaurants, cafés | Gangnam Live TV 강남라이브",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "kr-korean-culture-tv4-seoul-festival-seo",
+    name: { ja: "Korean Culture TV4 Seoul Festival “Seoul Lotus Lantern Festival” | Festival Live", en: "Korean Culture TV4 Seoul Festival “Seoul Lotus Lantern Festival” | Festival Live" },
+    lat: 37.566,
+    lng: 126.9784,
+    timeZone: "Asia/Seoul",
+    category: "city",
+    country: "KR",
+    source: {
+      videoId: "Ws0ZTD3UyCU",
+      channelId: "UCSkaixM5p8mYuBIdy2J0ZHw",
+      titleKey: "Korean Culture TV4 🔴 Seoul Festival “Seoul Lotus Lantern Festival” | Festival Live",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-2026-08-26-17-00-osaka-japan-2",
+    name: { ja: "【LIVE】福島駅方面 大阪環状線・梅田貨物線ライブカメラ 2026/08/26 17:00～ Osaka, JAPAN | Train Camera", en: "【LIVE】福島駅方面 大阪環状線・梅田貨物線ライブカメラ 2026/08/26 17:00～ Osaka, JAPAN | Train Camera" },
+    lat: 34.6938,
+    lng: 135.5011,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "2hdyXUXLyQA",
+      channelId: "UCRruWUK0POjg2veibHucffQ",
+      titleKey: "【LIVE】福島駅方面 大阪環状線・梅田貨物線ライブカメラ 2026/08/26 17:00～ Osaka, JAPAN | Train Camera",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "it-live-piano-music-live-24-7-focus-musi",
+    name: { ja: "Live Piano Music - Live 24/7: focus music, study music, relaxing music", en: "Live Piano Music - Live 24/7: focus music, study music, relaxing music" },
+    lat: 40.8205,
+    lng: 14.76,
+    timeZone: "Europe/Rome",
+    category: "city",
+    country: "IT",
+    source: {
+      videoId: "I6o7UWEaSbw",
+      channelId: "UCMpn1qLudF-zb4M4bqxLIbw",
+      titleKey: "🔴 ♫ Live Piano Music - Live 24/7: focus music, study music, relaxing music ♫",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-174",
+    name: { ja: "二見港（父島）", en: "二見港（父島）" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "1NRUjmE6WwU",
+      channelId: "UCqdejTsUrCvZ55Y8u9v5h9w",
+      titleKey: "二見港（父島）",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "it-venice-italy-live-live-streaming-of-t",
+    name: { ja: "Venice Italy Live - Live Streaming of Teatro La Fenice area", en: "Venice Italy Live - Live Streaming of Teatro La Fenice area" },
+    lat: 44.8314,
+    lng: 9.4172,
+    timeZone: "Europe/Rome",
+    category: "city",
+    country: "IT",
+    source: {
+      videoId: "C9EKnYzYt9o",
+      channelId: "UCMpn1qLudF-zb4M4bqxLIbw",
+      titleKey: "Venice Italy Live - Live Streaming of Teatro La Fenice area",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "it-4k-live-webcam-on-scalzi-bridge-venic",
+    name: { ja: "4K Live Webcam on Scalzi bridge, Venice - Live Stream from the new 4**** Hotel U-Visionary Venice", en: "4K Live Webcam on Scalzi bridge, Venice - Live Stream from the new 4**** Hotel U-Visionary Venice" },
+    lat: 45.5072,
+    lng: 12.6299,
+    timeZone: "Europe/Rome",
+    category: "city",
+    country: "IT",
+    source: {
+      videoId: "9r4CJfpflmA",
+      channelId: "UCMpn1qLudF-zb4M4bqxLIbw",
+      titleKey: "🔴 4K Live Webcam on Scalzi bridge, Venice - Live Stream from the new 4**** Hotel U-Visionary Venice",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "it-live-walking-tour-the-real-venice",
+    name: { ja: "LIVE WALKING TOUR — THE REAL VENICE", en: "LIVE WALKING TOUR — THE REAL VENICE" },
+    lat: 45.75,
+    lng: 7.25,
+    timeZone: "Europe/Rome",
+    category: "city",
+    country: "IT",
+    source: {
+      videoId: "FyqJY5lqtxE",
+      channelId: "UCMpn1qLudF-zb4M4bqxLIbw",
+      titleKey: "LIVE WALKING TOUR — THE REAL VENICE",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-duluth-cargo-connect",
+    name: { ja: "Duluth Cargo Connect", en: "Duluth Cargo Connect" },
+    lat: 32.8681,
+    lng: -114.7802,
+    timeZone: "America/Los_Angeles",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "E0YlMI4P8Fw",
+      channelId: "UCzkaQrI9-nSv373EvK5p0SQ",
+      titleKey: "Duluth Cargo Connect",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "it-spectacular-view-of-grand-canal-live",
+    name: { ja: "Spectacular View of Grand Canal - Live view from Hotel San Cassiano", en: "Spectacular View of Grand Canal - Live view from Hotel San Cassiano" },
+    lat: 45.6863,
+    lng: 11.8603,
+    timeZone: "Europe/Rome",
+    category: "city",
+    country: "IT",
+    source: {
+      videoId: "tdE-Uu87XmE",
+      channelId: "UCMpn1qLudF-zb4M4bqxLIbw",
+      titleKey: "🔴 Spectacular View of Grand Canal - Live view from Hotel San Cassiano",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "np-webcam-nepal-live-live-streaming-5",
+    name: { ja: "WEBCAM NEPAL LIVE: LIVE STREAMING FROM HOTEL De PURANG - MUKTINATH, NEPAL.", en: "WEBCAM NEPAL LIVE: LIVE STREAMING FROM HOTEL De PURANG - MUKTINATH, NEPAL." },
+    lat: 28.8219,
+    lng: 83.8608,
+    timeZone: "Asia/Kathmandu",
+    category: "city",
+    country: "NP",
+    source: {
+      videoId: "vdw9G6r3fRg",
+      channelId: "UCCCVkU6r9ZTD8E4z7AtuOIw",
+      titleKey: "WEBCAM NEPAL LIVE: LIVE STREAMING FROM HOTEL De PURANG - MUKTINATH, NEPAL. 🌄",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "np-webcam-nepal-live-live-streaming-6",
+    name: { ja: "WEBCAM NEPAL LIVE: LIVE STREAMING FROM HOTEL MOUNTAIN VIEW - MERA PEAK, KHARE.", en: "WEBCAM NEPAL LIVE: LIVE STREAMING FROM HOTEL MOUNTAIN VIEW - MERA PEAK, KHARE." },
+    lat: 28,
+    lng: 85.333,
+    timeZone: "Asia/Kathmandu",
+    category: "city",
+    country: "NP",
+    source: {
+      videoId: "m32Gvjg-z78",
+      channelId: "UCCCVkU6r9ZTD8E4z7AtuOIw",
+      titleKey: "WEBCAM NEPAL LIVE: LIVE STREAMING FROM HOTEL MOUNTAIN VIEW - MERA PEAK, KHARE.",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "kr-february-18th-everland-amusement-park",
+    name: { ja: "February 18th | Everland amusement park walking Real time LIVE | travel & walking tour Korea", en: "February 18th | Everland amusement park walking Real time LIVE | travel & walking tour Korea" },
+    lat: 37.2956,
+    lng: 127.231,
+    timeZone: "Asia/Seoul",
+    category: "city",
+    country: "KR",
+    source: {
+      videoId: "eTQ8hOss8kk",
+      channelId: "UCSkaixM5p8mYuBIdy2J0ZHw",
+      titleKey: "🎡 February 18th | Everland amusement park walking Real time LIVE | travel & walking tour Korea",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "np-webcam-nepal-live-from-refuge-mera-lo",
+    name: { ja: "WEBCAM NEPAL LIVE: FROM - REFUGE MERA LODGE - YOUR GATEWAY TO MERA PEAK ADVENTURE", en: "WEBCAM NEPAL LIVE: FROM - REFUGE MERA LODGE - YOUR GATEWAY TO MERA PEAK ADVENTURE" },
+    lat: 27.5282,
+    lng: 86.6469,
+    timeZone: "Asia/Kathmandu",
+    category: "city",
+    country: "NP",
+    source: {
+      videoId: "2RyZEcnfMt4",
+      channelId: "UCCCVkU6r9ZTD8E4z7AtuOIw",
+      titleKey: "WEBCAM NEPAL LIVE: FROM - REFUGE MERA LODGE - YOUR GATEWAY TO MERA PEAK ADVENTURE",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "np-webcam-nepal-live-from-refuge-mer-2",
+    name: { ja: "WEBCAM NEPAL LIVE: FROM - REFUGE MERA LODGE - KHARE, MERA PEAK - GATEWAY TO MERA PEAK", en: "WEBCAM NEPAL LIVE: FROM - REFUGE MERA LODGE - KHARE, MERA PEAK - GATEWAY TO MERA PEAK" },
+    lat: 27.5282,
+    lng: 86.6469,
+    timeZone: "Asia/Kathmandu",
+    category: "city",
+    country: "NP",
+    source: {
+      videoId: "8Odk1U-5Mcc",
+      channelId: "UCCCVkU6r9ZTD8E4z7AtuOIw",
+      titleKey: "WEBCAM NEPAL LIVE: FROM - REFUGE MERA LODGE - KHARE, MERA PEAK - GATEWAY TO MERA PEAK",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-santa-monica-pier-pacific-park-c",
+    name: { ja: "LIVE Santa Monica Pier Pacific Park | California Coast Views 24/7", en: "LIVE Santa Monica Pier Pacific Park | California Coast Views 24/7" },
+    lat: 45.9816,
+    lng: -94.1047,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "z7djtkk8vOk",
+      channelId: "UC5lNakfSdpqXCW214H5sBgQ",
+      titleKey: "LIVE Santa Monica Pier 🎡 Pacific Park | California Coast Views 24/7",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "np-webcam-nepal-live-live-streaming-7",
+    name: { ja: "WEBCAM NEPAL LIVE: LIVE STREAMING FROM LAMA LODGE, KOTE - MERA PEAK - NEPAL", en: "WEBCAM NEPAL LIVE: LIVE STREAMING FROM LAMA LODGE, KOTE - MERA PEAK - NEPAL" },
+    lat: 29.7073,
+    lng: 81.8416,
+    timeZone: "Asia/Kathmandu",
+    category: "city",
+    country: "NP",
+    source: {
+      videoId: "1trXdt114Qc",
+      channelId: "UCCCVkU6r9ZTD8E4z7AtuOIw",
+      titleKey: "WEBCAM NEPAL LIVE: LIVE STREAMING FROM LAMA LODGE, KOTE - MERA PEAK - NEPAL",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-maui-beach-cam-napili-kai-be-2",
+    name: { ja: "LIVE Maui Beach Cam | Napili Kai Beach Resort | Stunning Hawaii Views 24/7", en: "LIVE Maui Beach Cam | Napili Kai Beach Resort | Stunning Hawaii Views 24/7" },
+    lat: 33.109,
+    lng: -88.1903,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "CYledp5ZCsI",
+      channelId: "UC5lNakfSdpqXCW214H5sBgQ",
+      titleKey: "LIVE Maui Beach Cam | Napili Kai Beach Resort | Stunning Hawaii Views 24/7",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-tsunami-hits-hawaii-ocean-cam-fr",
+    name: { ja: "LIVE: Tsunami Hits Hawaii — Ocean Cam from Ward Village", en: "LIVE: Tsunami Hits Hawaii — Ocean Cam from Ward Village" },
+    lat: 32.8946,
+    lng: -100.2118,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "7LMQnpSfnBQ",
+      channelId: "UC5lNakfSdpqXCW214H5sBgQ",
+      titleKey: "LIVE: Tsunami Hits Hawaii — Ocean Cam from Ward Village",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-tsunami-warning-maui-coastline-w",
+    name: { ja: "LIVE: Tsunami Warning – Maui Coastline. Wailea Beach Resort - Marriott, Maui", en: "LIVE: Tsunami Warning – Maui Coastline. Wailea Beach Resort - Marriott, Maui" },
+    lat: 20.7702,
+    lng: -156.2682,
+    timeZone: "Pacific/Honolulu",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "YLCGle9CKJY",
+      channelId: "UC5lNakfSdpqXCW214H5sBgQ",
+      titleKey: "LIVE: Tsunami Warning – Maui Coastline. Wailea Beach Resort - Marriott, Maui",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "no-under-live",
+    name: { ja: "Under LIVE", en: "Under LIVE" },
+    lat: 58.0397,
+    lng: 7.2627,
+    timeZone: "Europe/Oslo",
+    category: "city",
+    country: "NO",
+    source: {
+      videoId: "1fYWGjO2C8w",
+      channelId: "UCgAmmVZsZ4vfDH-vtWawaOg",
+      titleKey: "Under LIVE",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-trains-railcam-essex-montana",
+    name: { ja: "LIVE Trains Railcam | Essex, Montana", en: "LIVE Trains Railcam | Essex, Montana" },
+    lat: 42.2882,
+    lng: -71.3267,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "AspLvGaVG-4",
+      channelId: "UCWe6K8h_5sXGCnzvt-exu8Q",
+      titleKey: "🔴LIVE Trains Railcam | Essex, Montana",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-trains-railcam-hummelstown-penns",
+    name: { ja: "LIVE Trains Railcam | Hummelstown, Pennsylvania", en: "LIVE Trains Railcam | Hummelstown, Pennsylvania" },
+    lat: 42.2882,
+    lng: -71.3267,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "ecrEy4BMf-o",
+      channelId: "UCWe6K8h_5sXGCnzvt-exu8Q",
+      titleKey: "🔴 LIVE Trains Railcam | Hummelstown, Pennsylvania",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-trains-ad-free-essex-montana",
+    name: { ja: "Live Trains Ad Free | Essex, Montana", en: "Live Trains Ad Free | Essex, Montana" },
+    lat: 33.8826,
+    lng: -83.6632,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "fg2OY6jx64Q",
+      channelId: "UCWe6K8h_5sXGCnzvt-exu8Q",
+      titleKey: "🔴Live Trains Ad Free | Essex, Montana",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-trains-railcam-london-ontario",
+    name: { ja: "LIVE Trains Railcam | London, Ontario", en: "LIVE Trains Railcam | London, Ontario" },
+    lat: 42.2882,
+    lng: -71.3267,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "GwYD_WoV9KI",
+      channelId: "UCWe6K8h_5sXGCnzvt-exu8Q",
+      titleKey: "🔴 LIVE Trains Railcam | London, Ontario",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-trains-ad-free-caliente-nevada-d",
+    name: { ja: "LIVE Trains AD Free | Caliente, Nevada (Depot Cam)", en: "LIVE Trains AD Free | Caliente, Nevada (Depot Cam)" },
+    lat: 33.8826,
+    lng: -83.6632,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "C3WFn2jgMzk",
+      channelId: "UCWe6K8h_5sXGCnzvt-exu8Q",
+      titleKey: "🔴 LIVE Trains AD Free | Caliente, Nevada (Depot Cam)",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-trains-ad-free-st-louis-missouri",
+    name: { ja: "LIVE Trains AD Free | St Louis, Missouri", en: "LIVE Trains AD Free | St Louis, Missouri" },
+    lat: 33.8826,
+    lng: -83.6632,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "83zOF_E687I",
+      channelId: "UCWe6K8h_5sXGCnzvt-exu8Q",
+      titleKey: "🔴 LIVE Trains AD Free | St Louis, Missouri",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-trains-ad-free-caliente-nevada-p",
+    name: { ja: "LIVE Trains AD Free | Caliente, Nevada (PTZ)", en: "LIVE Trains AD Free | Caliente, Nevada (PTZ)" },
+    lat: 33.8826,
+    lng: -83.6632,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "8ScBBBEuFVY",
+      channelId: "UCWe6K8h_5sXGCnzvt-exu8Q",
+      titleKey: "🔴 LIVE Trains AD Free | Caliente, Nevada (PTZ)",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-trains-railcam-des-plaines-illin",
+    name: { ja: "LIVE Trains Railcam | Des Plaines, Illinois (PTZ)", en: "LIVE Trains Railcam | Des Plaines, Illinois (PTZ)" },
+    lat: 41.6005,
+    lng: -93.6091,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "g1_NXFJRlOQ",
+      channelId: "UCWe6K8h_5sXGCnzvt-exu8Q",
+      titleKey: "🔴 LIVE Trains Railcam | Des Plaines, Illinois (PTZ)",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-trains-archived-houston-texas-4k",
+    name: { ja: "LIVE Trains (ARCHIVED) | Houston, Texas 4K (Sampson Street North Cam)", en: "LIVE Trains (ARCHIVED) | Houston, Texas 4K (Sampson Street North Cam)" },
+    lat: 39.4348,
+    lng: -80.1317,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "nLrfw9ieVwk",
+      channelId: "UCWe6K8h_5sXGCnzvt-exu8Q",
+      titleKey: "LIVE Trains (ARCHIVED) | Houston, Texas 4K (Sampson Street North Cam)",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-the-view-from-sheraton-waikiki-is-liv",
+    name: { ja: "The view from Sheraton Waikiki is LIVE!", en: "The view from Sheraton Waikiki is LIVE!" },
+    lat: 37.2634,
+    lng: -88.1386,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "_nAwVhyA8Wk",
+      channelId: "UC5lNakfSdpqXCW214H5sBgQ",
+      titleKey: "The view from Sheraton Waikiki is LIVE!",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-trains-archived-houston-texas-sa",
+    name: { ja: "LIVE Trains (ARCHIVED) | Houston, Texas (Sampson Street East Cam)", en: "LIVE Trains (ARCHIVED) | Houston, Texas (Sampson Street East Cam)" },
+    lat: 42.0612,
+    lng: -71.864,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "Pjajwu315qg",
+      channelId: "UCWe6K8h_5sXGCnzvt-exu8Q",
+      titleKey: "LIVE Trains (ARCHIVED) | Houston, Texas (Sampson Street East Cam)",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-ocean-city-md-beach-cam-the-inle",
+    name: { ja: "LIVE Ocean City MD Beach Cam: The Inlet View from the Ocean City Pier", en: "LIVE Ocean City MD Beach Cam: The Inlet View from the Ocean City Pier" },
+    lat: 44.98,
+    lng: -93.2638,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "xCkhNHMJL38",
+      channelId: "UCaInTXiabNlYe1zreHafFvA",
+      titleKey: "LIVE Ocean City MD Beach Cam: The Inlet View from the Ocean City Pier",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-marysville-michigan-usa-streamtime-li",
+    name: { ja: "Marysville, Michigan USA | StreamTime LIVE", en: "Marysville, Michigan USA | StreamTime LIVE" },
+    lat: 35.4089,
+    lng: -80.5816,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "utGfq6AkxiM",
+      channelId: "UCrtIIVfi-5tMlVXdMDzOMUA",
+      titleKey: "Marysville, Michigan USA | StreamTime LIVE",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-baltimore-maryland-usa-streamtime-liv",
+    name: { ja: "Baltimore, Maryland USA | StreamTime LIVE", en: "Baltimore, Maryland USA | StreamTime LIVE" },
+    lat: 35.4089,
+    lng: -80.5816,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "fE02qa-Phs0",
+      channelId: "UCrtIIVfi-5tMlVXdMDzOMUA",
+      titleKey: "Baltimore, Maryland USA | StreamTime LIVE",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-coverage-lake-hood-flyby-2026-st",
+    name: { ja: "LIVE COVERAGE: Lake Hood Flyby 2026! StreamTime LIVE", en: "LIVE COVERAGE: Lake Hood Flyby 2026! StreamTime LIVE" },
+    lat: 46.5763,
+    lng: -119.0067,
+    timeZone: "America/Los_Angeles",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "72-GF_bGBQI",
+      channelId: "UCrtIIVfi-5tMlVXdMDzOMUA",
+      titleKey: "LIVE COVERAGE: Lake Hood Flyby 2026! StreamTime LIVE",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-cam-ohio-river-jeffersonville-in",
+    name: { ja: "LIVE CAM: Ohio River, Jeffersonville, IN | StreamTime LIVE", en: "LIVE CAM: Ohio River, Jeffersonville, IN | StreamTime LIVE" },
+    lat: 41.5575,
+    lng: -89.4609,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "kIebsgd-knc",
+      channelId: "UCrtIIVfi-5tMlVXdMDzOMUA",
+      titleKey: "LIVE CAM: Ohio River, Jeffersonville, IN | StreamTime LIVE",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-2026-8-26-20-06",
+    name: { ja: "【ふじみ野市 上福岡駅】 東口ライブカメラ｜東武東上線 川越方面（2026/8/26 20:06-)", en: "【ふじみ野市 上福岡駅】 東口ライブカメラ｜東武東上線 川越方面（2026/8/26 20:06-)" },
+    lat: 33.6,
+    lng: 130.4167,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "_JVg-m9gwUA",
+      channelId: "UCJLpKOb6re6_Ey3pgbBWI9w",
+      titleKey: "【ふじみ野市 上福岡駅】 東口ライブカメラ｜東武東上線 川越方面（2026/8/26 20:06-)",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-2026-8-26-20-08",
+    name: { ja: "【ふじみ野市 上福岡駅】 ライブカメラ｜東武東上線 池袋方面 （2026/8/26 20:08-）", en: "【ふじみ野市 上福岡駅】 ライブカメラ｜東武東上線 池袋方面 （2026/8/26 20:08-）" },
+    lat: 33.6,
+    lng: 130.4167,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "kh-qkPQ7LW8",
+      channelId: "UCJLpKOb6re6_Ey3pgbBWI9w",
+      titleKey: "【ふじみ野市 上福岡駅】 ライブカメラ｜東武東上線 池袋方面 （2026/8/26 20:08-）",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "it-incontro-pubblico-con-i-candidati-a-s",
+    name: { ja: "Incontro pubblico con i candidati a Sindaco del Comune di Assisi LIVE STREAMING", en: "Incontro pubblico con i candidati a Sindaco del Comune di Assisi LIVE STREAMING" },
+    lat: 44.3907,
+    lng: 7.5483,
+    timeZone: "Europe/Rome",
+    category: "city",
+    country: "IT",
+    source: {
+      videoId: "tkAvk1HqSOw",
+      channelId: "UC_FuR9GFVJE2A8H02sQmHWw",
+      titleKey: "Incontro pubblico con i candidati a Sindaco del Comune di Assisi LIVE STREAMING",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "pt-live-24-7-lisbon-airport-live-cam-25",
+    name: { ja: "LIVE 24/7 Lisbon Airport Live Cam 25.08.2026 • Plane Spotting • Direto Aeroporto Lisboa Ao Vivo", en: "LIVE 24/7 Lisbon Airport Live Cam 25.08.2026 • Plane Spotting • Direto Aeroporto Lisboa Ao Vivo" },
+    lat: 38.7251,
+    lng: -9.1498,
+    timeZone: "Europe/Lisbon",
+    category: "city",
+    country: "PT",
+    source: {
+      videoId: "rKJyZFz7o2A",
+      channelId: "UC0R-K3crhMX9jzswbmfIORw",
+      titleKey: "🔴 LIVE 24/7 Lisbon Airport Live Cam 25.08.2026 • Plane Spotting • Direto Aeroporto Lisboa Ao Vivo",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "pt-live-24-7-lisbon-airport-live-cam-24",
+    name: { ja: "LIVE 24/7 Lisbon Airport Live Cam 24.08.2026 • Plane Spotting • Direto Aeroporto Lisboa Ao Vivo", en: "LIVE 24/7 Lisbon Airport Live Cam 24.08.2026 • Plane Spotting • Direto Aeroporto Lisboa Ao Vivo" },
+    lat: 38.7251,
+    lng: -9.1498,
+    timeZone: "Europe/Lisbon",
+    category: "city",
+    country: "PT",
+    source: {
+      videoId: "iPipZohzBlk",
+      channelId: "UC0R-K3crhMX9jzswbmfIORw",
+      titleKey: "🔴 LIVE 24/7 Lisbon Airport Live Cam 24.08.2026 • Plane Spotting • Direto Aeroporto Lisboa Ao Vivo",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "pt-live-24-7-lisbon-airport-live-cam-23",
+    name: { ja: "LIVE 24/7 Lisbon Airport Live Cam 23.08.2026 • Plane Spotting • Direto Aeroporto Lisboa Ao Vivo", en: "LIVE 24/7 Lisbon Airport Live Cam 23.08.2026 • Plane Spotting • Direto Aeroporto Lisboa Ao Vivo" },
+    lat: 38.7251,
+    lng: -9.1498,
+    timeZone: "Europe/Lisbon",
+    category: "city",
+    country: "PT",
+    source: {
+      videoId: "gbMu5H5gCnU",
+      channelId: "UC0R-K3crhMX9jzswbmfIORw",
+      titleKey: "🔴 LIVE 24/7 Lisbon Airport Live Cam 23.08.2026 • Plane Spotting • Direto Aeroporto Lisboa Ao Vivo",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "pt-live-24-7-lisbon-airport-live-cam-22",
+    name: { ja: "LIVE 24/7 Lisbon Airport Live Cam 22.08.2026 • Plane Spotting • Direto Aeroporto Lisboa Ao Vivo", en: "LIVE 24/7 Lisbon Airport Live Cam 22.08.2026 • Plane Spotting • Direto Aeroporto Lisboa Ao Vivo" },
+    lat: 38.7251,
+    lng: -9.1498,
+    timeZone: "Europe/Lisbon",
+    category: "city",
+    country: "PT",
+    source: {
+      videoId: "Fbwq4nHkibY",
+      channelId: "UC0R-K3crhMX9jzswbmfIORw",
+      titleKey: "🔴 LIVE 24/7 Lisbon Airport Live Cam 22.08.2026 • Plane Spotting • Direto Aeroporto Lisboa Ao Vivo",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "pt-live-24-7-lisbon-airport-live-cam-20",
+    name: { ja: "LIVE 24/7 Lisbon Airport Live Cam 20.08.2026 • Plane Spotting • Direto Aeroporto Lisboa Ao Vivo", en: "LIVE 24/7 Lisbon Airport Live Cam 20.08.2026 • Plane Spotting • Direto Aeroporto Lisboa Ao Vivo" },
+    lat: 38.7251,
+    lng: -9.1498,
+    timeZone: "Europe/Lisbon",
+    category: "city",
+    country: "PT",
+    source: {
+      videoId: "yi5hfXf-JVw",
+      channelId: "UC0R-K3crhMX9jzswbmfIORw",
+      titleKey: "🔴 LIVE 24/7 Lisbon Airport Live Cam 20.08.2026 • Plane Spotting • Direto Aeroporto Lisboa Ao Vivo",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "pt-live-24-7-lisbon-airport-live-cam-19",
+    name: { ja: "LIVE 24/7 Lisbon Airport Live Cam 19.08.2026 • Plane Spotting • Direto Aeroporto Lisboa Ao Vivo", en: "LIVE 24/7 Lisbon Airport Live Cam 19.08.2026 • Plane Spotting • Direto Aeroporto Lisboa Ao Vivo" },
+    lat: 38.7251,
+    lng: -9.1498,
+    timeZone: "Europe/Lisbon",
+    category: "city",
+    country: "PT",
+    source: {
+      videoId: "CrEYH3iPaNo",
+      channelId: "UC0R-K3crhMX9jzswbmfIORw",
+      titleKey: "🔴 LIVE 24/7 Lisbon Airport Live Cam 19.08.2026 • Plane Spotting • Direto Aeroporto Lisboa Ao Vivo",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "pt-live-24-7-lisbon-airport-live-cam-18",
+    name: { ja: "LIVE 24/7 Lisbon Airport Live Cam 18.08.2026 • Plane Spotting • Direto Aeroporto Lisboa Ao Vivo", en: "LIVE 24/7 Lisbon Airport Live Cam 18.08.2026 • Plane Spotting • Direto Aeroporto Lisboa Ao Vivo" },
+    lat: 38.7251,
+    lng: -9.1498,
+    timeZone: "Europe/Lisbon",
+    category: "city",
+    country: "PT",
+    source: {
+      videoId: "AU0bpLpkZuo",
+      channelId: "UC0R-K3crhMX9jzswbmfIORw",
+      titleKey: "🔴 LIVE 24/7 Lisbon Airport Live Cam 18.08.2026 • Plane Spotting • Direto Aeroporto Lisboa Ao Vivo",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "pt-live-24-7-lisbon-airport-live-cam-17",
+    name: { ja: "LIVE 24/7 Lisbon Airport Live Cam 17.08.2026 • Plane Spotting • Direto Aeroporto Lisboa Ao Vivo", en: "LIVE 24/7 Lisbon Airport Live Cam 17.08.2026 • Plane Spotting • Direto Aeroporto Lisboa Ao Vivo" },
+    lat: 38.7251,
+    lng: -9.1498,
+    timeZone: "Europe/Lisbon",
+    category: "city",
+    country: "PT",
+    source: {
+      videoId: "g5nISAjlIxQ",
+      channelId: "UC0R-K3crhMX9jzswbmfIORw",
+      titleKey: "🔴 LIVE 24/7 Lisbon Airport Live Cam 17.08.2026 • Plane Spotting • Direto Aeroporto Lisboa Ao Vivo",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-trains-ad-free-houston-texas-tow",
+    name: { ja: "LIVE Trains AD Free | Houston, Texas (Tower 26) PTZ", en: "LIVE Trains AD Free | Houston, Texas (Tower 26) PTZ" },
+    lat: 33.8826,
+    lng: -83.6632,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "_RzRU-DSAWY",
+      channelId: "UCWe6K8h_5sXGCnzvt-exu8Q",
+      titleKey: "🔴 LIVE Trains AD Free | Houston, Texas (Tower 26) PTZ",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "pt-live-24-7-lisbon-airport-live-cam-15",
+    name: { ja: "LIVE 24/7 Lisbon Airport Live Cam 15.08.2026 • Plane Spotting • Direto Aeroporto Lisboa Ao Vivo", en: "LIVE 24/7 Lisbon Airport Live Cam 15.08.2026 • Plane Spotting • Direto Aeroporto Lisboa Ao Vivo" },
+    lat: 38.7251,
+    lng: -9.1498,
+    timeZone: "Europe/Lisbon",
+    category: "city",
+    country: "PT",
+    source: {
+      videoId: "EnghfWnjhQE",
+      channelId: "UC0R-K3crhMX9jzswbmfIORw",
+      titleKey: "🔴 LIVE 24/7 Lisbon Airport Live Cam 15.08.2026 • Plane Spotting • Direto Aeroporto Lisboa Ao Vivo",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "pt-live-24-7-lisbon-airport-live-cam-14",
+    name: { ja: "LIVE 24/7 Lisbon Airport Live Cam 14.08.2026 • Plane Spotting • Direto Aeroporto Lisboa Ao Vivo", en: "LIVE 24/7 Lisbon Airport Live Cam 14.08.2026 • Plane Spotting • Direto Aeroporto Lisboa Ao Vivo" },
+    lat: 38.7251,
+    lng: -9.1498,
+    timeZone: "Europe/Lisbon",
+    category: "city",
+    country: "PT",
+    source: {
+      videoId: "tNrHw5vd88c",
+      channelId: "UC0R-K3crhMX9jzswbmfIORw",
+      titleKey: "🔴 LIVE 24/7 Lisbon Airport Live Cam 14.08.2026 • Plane Spotting • Direto Aeroporto Lisboa Ao Vivo",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "pt-live-eclipse-lisbon-airport-live-cam",
+    name: { ja: "LIVE Eclipse Lisbon Airport Live Cam 12.08.2026 • Plane Spotting • Direto Aeroporto Lisboa Ao Vivo", en: "LIVE Eclipse Lisbon Airport Live Cam 12.08.2026 • Plane Spotting • Direto Aeroporto Lisboa Ao Vivo" },
+    lat: 38.7251,
+    lng: -9.1498,
+    timeZone: "Europe/Lisbon",
+    category: "city",
+    country: "PT",
+    source: {
+      videoId: "lPnXwSYBHp4",
+      channelId: "UC0R-K3crhMX9jzswbmfIORw",
+      titleKey: "🔴 LIVE Eclipse Lisbon Airport Live Cam 12.08.2026 • Plane Spotting • Direto Aeroporto Lisboa Ao Vivo",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "pt-live-24-7-lisbon-airport-live-cam-12",
+    name: { ja: "LIVE 24/7 Lisbon Airport Live Cam 12.08.2026 • Plane Spotting • Direto Aeroporto Lisboa Ao Vivo", en: "LIVE 24/7 Lisbon Airport Live Cam 12.08.2026 • Plane Spotting • Direto Aeroporto Lisboa Ao Vivo" },
+    lat: 38.7251,
+    lng: -9.1498,
+    timeZone: "Europe/Lisbon",
+    category: "city",
+    country: "PT",
+    source: {
+      videoId: "omFkzYHE-dY",
+      channelId: "UC0R-K3crhMX9jzswbmfIORw",
+      titleKey: "🔴 LIVE 24/7 Lisbon Airport Live Cam 12.08.2026 • Plane Spotting • Direto Aeroporto Lisboa Ao Vivo",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-streamtime-live-holiday-party-2025",
+    name: { ja: "StreamTime LIVE Holiday Party 2025", en: "StreamTime LIVE Holiday Party 2025" },
+    lat: 38.8951,
+    lng: -77.0364,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "a5yRpNTjdlQ",
+      channelId: "UCrtIIVfi-5tMlVXdMDzOMUA",
+      titleKey: "StreamTime LIVE Holiday Party 2025",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-debrief-of-near-miss-incident-fr",
+    name: { ja: "LIVE Debrief of Near Miss Incident from Chicago Midway! StreamTime LIVE", en: "LIVE Debrief of Near Miss Incident from Chicago Midway! StreamTime LIVE" },
+    lat: 38.1154,
+    lng: -75.7558,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "bFY45k5Fl3I",
+      channelId: "UCrtIIVfi-5tMlVXdMDzOMUA",
+      titleKey: "LIVE Debrief of Near Miss Incident from Chicago Midway! StreamTime LIVE",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-panama-city-beach-live-cam-harpoon-ha",
+    name: { ja: "Panama City Beach LIVE Cam | Harpoon Harry’s – Florida Gulf Coast", en: "Panama City Beach LIVE Cam | Harpoon Harry’s – Florida Gulf Coast" },
+    lat: 44.98,
+    lng: -93.2638,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "4dULyqdmBoQ",
+      channelId: "UCspnu6n44ydqafj6nFIw5hw",
+      titleKey: "Panama City Beach LIVE Cam | Harpoon Harry’s – Florida Gulf Coast",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-midway-international-airport-chicago",
+    name: { ja: "Midway International Airport, Chicago, IL | StreamTime LIVE", en: "Midway International Airport, Chicago, IL | StreamTime LIVE" },
+    lat: 31.9974,
+    lng: -102.0779,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "wJaFfZyjRwk",
+      channelId: "UCrtIIVfi-5tMlVXdMDzOMUA",
+      titleKey: "Midway International Airport, Chicago, IL | StreamTime LIVE",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-new-york-aquarium-live-aqua-theater-s",
+    name: { ja: "New York Aquarium LIVE | Aqua Theater Sea Lions – Brooklyn, NY", en: "New York Aquarium LIVE | Aqua Theater Sea Lions – Brooklyn, NY" },
+    lat: 38.4278,
+    lng: -84.8105,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "l2lj4kbl1hw",
+      channelId: "UCspnu6n44ydqafj6nFIw5hw",
+      titleKey: "New York Aquarium LIVE | Aqua Theater Sea Lions – Brooklyn, NY",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-midway-international-airport-chic-2",
+    name: { ja: "Midway International Airport | Chicago, IL | StreamTime LIVE", en: "Midway International Airport | Chicago, IL | StreamTime LIVE" },
+    lat: 31.9974,
+    lng: -102.0779,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "D_QLnNslBBo",
+      channelId: "UCrtIIVfi-5tMlVXdMDzOMUA",
+      titleKey: "Midway International Airport | Chicago, IL | StreamTime LIVE",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-keauhou-bay-live-cam-kona-big-is",
+    name: { ja: "LIVE Keauhou Bay Live Cam | Kona, Big Island, Hawaii", en: "LIVE Keauhou Bay Live Cam | Kona, Big Island, Hawaii" },
+    lat: 35.7423,
+    lng: -90.5623,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "DACIU_YzthU",
+      channelId: "UCspnu6n44ydqafj6nFIw5hw",
+      titleKey: "LIVE Keauhou Bay Live Cam | Kona, Big Island, Hawaii",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-la-jolla-live-cam-scripps-inn-ocean-v",
+    name: { ja: "La Jolla Live Cam | Scripps Inn Ocean View – San Diego, California", en: "La Jolla Live Cam | Scripps Inn Ocean View – San Diego, California" },
+    lat: 30.878,
+    lng: -91.6807,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "_AcnANYh0gE",
+      channelId: "UCspnu6n44ydqafj6nFIw5hw",
+      titleKey: "La Jolla Live Cam | Scripps Inn Ocean View – San Diego, California",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-hanalei-colony-resort-live-cam-kauai",
+    name: { ja: "Hanalei Colony Resort Live Cam | Kauai Beach, Hawaii", en: "Hanalei Colony Resort Live Cam | Kauai Beach, Hawaii" },
+    lat: 22.0494,
+    lng: -159.531,
+    timeZone: "Pacific/Honolulu",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "TY4_G2-jIZM",
+      channelId: "UCspnu6n44ydqafj6nFIw5hw",
+      titleKey: "Hanalei Colony Resort Live Cam | Kauai Beach, Hawaii",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-jellyfish-live-cam-georgia-aquarium-l",
+    name: { ja: "Jellyfish Live Cam | Georgia Aquarium LIVE – Atlanta, Georgia", en: "Jellyfish Live Cam | Georgia Aquarium LIVE – Atlanta, Georgia" },
+    lat: 34.4534,
+    lng: -86.9281,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "9k0nKO_BlFQ",
+      channelId: "UCspnu6n44ydqafj6nFIw5hw",
+      titleKey: "Jellyfish Live Cam | Georgia Aquarium LIVE – Atlanta, Georgia",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-surveillancemap-live-new-year-s-eve-a",
+    name: { ja: "SurveillanceMap LIVE · New Year's Eve at Los Angeles Int. Airport and Fireworks over LA 2025-2026", en: "SurveillanceMap LIVE · New Year's Eve at Los Angeles Int. Airport and Fireworks over LA 2025-2026" },
+    lat: 38.4278,
+    lng: -84.8105,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "e5B-W6CNmcI",
+      channelId: "UCCm-nbbUP0Tx3JzEzeEVFTA",
+      titleKey: "SurveillanceMap LIVE · New Year's Eve at Los Angeles Int. Airport and Fireworks over LA 2025-2026",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-surveillancemap-live-new-year-s-eve-c",
+    name: { ja: "SurveillanceMap LIVE · New Year's Eve Celebrations and Fireworks on Times Square 2025-2026", en: "SurveillanceMap LIVE · New Year's Eve Celebrations and Fireworks on Times Square 2025-2026" },
+    lat: 38.4278,
+    lng: -84.8105,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "bE6kG550smo",
+      channelId: "UCCm-nbbUP0Tx3JzEzeEVFTA",
+      titleKey: "SurveillanceMap LIVE · New Year's Eve Celebrations and Fireworks on Times Square 2025-2026",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-surveillancemap-live-new-year-s-e-2",
+    name: { ja: "SurveillanceMap LIVE · New Year's Eve Celebrations and Fireworks in Bryant Park 2025-2026", en: "SurveillanceMap LIVE · New Year's Eve Celebrations and Fireworks in Bryant Park 2025-2026" },
+    lat: 38.4278,
+    lng: -84.8105,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "Rb0UfK8US9M",
+      channelId: "UCCm-nbbUP0Tx3JzEzeEVFTA",
+      titleKey: "SurveillanceMap LIVE · New Year's Eve Celebrations and Fireworks in Bryant Park 2025-2026",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-surveillancemap-live-from-above-the-s",
+    name: { ja: "SurveillanceMap LIVE · From Above the Sky · New Year's Eve Fireworks over Lower Manhattan 2025-2026", en: "SurveillanceMap LIVE · From Above the Sky · New Year's Eve Fireworks over Lower Manhattan 2025-2026" },
+    lat: 41.4489,
+    lng: -82.708,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "H78Q5daYbrs",
+      channelId: "UCCm-nbbUP0Tx3JzEzeEVFTA",
+      titleKey: "SurveillanceMap LIVE · From Above the Sky · New Year's Eve Fireworks over Lower Manhattan 2025-2026",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-surveillancemap-live-new-year-s-e-3",
+    name: { ja: "SurveillanceMap LIVE · New Year's Eve Celebrations and Fireworks at Smeaton's Tower, Plymouth · 2025", en: "SurveillanceMap LIVE · New Year's Eve Celebrations and Fireworks at Smeaton's Tower, Plymouth · 2025" },
+    lat: 38.4278,
+    lng: -84.8105,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "-9cJ8nA4sYc",
+      channelId: "UCCm-nbbUP0Tx3JzEzeEVFTA",
+      titleKey: "SurveillanceMap LIVE · New Year's Eve Celebrations and Fireworks at Smeaton's Tower, Plymouth · 2025",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-tropical-storm-lala-hits-kaua-i",
+    name: { ja: "LIVE: Tropical Storm Lala Hits Kaua'i, Hawaii | Royal Sonesta Kaua'i Resort", en: "LIVE: Tropical Storm Lala Hits Kaua'i, Hawaii | Royal Sonesta Kaua'i Resort" },
+    lat: 20.8265,
+    lng: -156.912,
+    timeZone: "Pacific/Honolulu",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "-xQ_L2M1YH4",
+      channelId: "UCspnu6n44ydqafj6nFIw5hw",
+      titleKey: "LIVE: Tropical Storm Lala Hits Kaua'i, Hawaii | Royal Sonesta Kaua'i Resort",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-hurricane-lala-hits-hawaii-the-k",
+    name: { ja: "LIVE: Hurricane Lala Hits Hawaii | The Kahala Hotel & Resort", en: "LIVE: Hurricane Lala Hits Hawaii | The Kahala Hotel & Resort" },
+    lat: 20.8265,
+    lng: -156.912,
+    timeZone: "Pacific/Honolulu",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "cfPZMEWnGaM",
+      channelId: "UCspnu6n44ydqafj6nFIw5hw",
+      titleKey: "LIVE: Hurricane Lala Hits Hawaii | The Kahala Hotel & Resort",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-tropical-storm-lala-hits-kauai-h",
+    name: { ja: "LIVE: Tropical Storm Lala Hits Kauai, Hawaii | Sheraton Kauai Resort", en: "LIVE: Tropical Storm Lala Hits Kauai, Hawaii | Sheraton Kauai Resort" },
+    lat: 20.8265,
+    lng: -156.912,
+    timeZone: "Pacific/Honolulu",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "JR3Xbee1JmY",
+      channelId: "UCspnu6n44ydqafj6nFIw5hw",
+      titleKey: "LIVE: Tropical Storm Lala Hits Kauai, Hawaii | Sheraton Kauai Resort",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-2026-08-27-00-00",
+    name: { ja: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/27 00:00〜", en: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/27 00:00〜" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "IApccLPe7ms",
+      channelId: "UChKERpE7Um0Uq1btm_a9g5A",
+      titleKey: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/27 00:00〜",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-2026-08-26-12-00",
+    name: { ja: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/26 12:00〜", en: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/26 12:00〜" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "e9o7yQlbAdA",
+      channelId: "UChKERpE7Um0Uq1btm_a9g5A",
+      titleKey: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/26 12:00〜",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-2026-08-26-00-00",
+    name: { ja: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/26 00:00〜", en: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/26 00:00〜" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "NgsuDGJBB_0",
+      channelId: "UChKERpE7Um0Uq1btm_a9g5A",
+      titleKey: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/26 00:00〜",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-2026-08-25-12-00",
+    name: { ja: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/25 12:00〜", en: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/25 12:00〜" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "089dxQGs7-w",
+      channelId: "UChKERpE7Um0Uq1btm_a9g5A",
+      titleKey: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/25 12:00〜",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-2026-08-25-00-00",
+    name: { ja: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/25 00:00〜", en: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/25 00:00〜" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "MrB_AsIYtgU",
+      channelId: "UChKERpE7Um0Uq1btm_a9g5A",
+      titleKey: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/25 00:00〜",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-2026-08-24-12-00",
+    name: { ja: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/24 12:00〜", en: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/24 12:00〜" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "qPqFpg4nXwc",
+      channelId: "UChKERpE7Um0Uq1btm_a9g5A",
+      titleKey: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/24 12:00〜",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-2026-08-24-00-00",
+    name: { ja: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/24 00:00〜", en: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/24 00:00〜" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "FekhumWleW8",
+      channelId: "UChKERpE7Um0Uq1btm_a9g5A",
+      titleKey: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/24 00:00〜",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-surveillancemap-live-neujahr-und-feue",
+    name: { ja: "SurveillanceMap LIVE · Neujahr und Feuerwerke and der Mittleren Brücke, Basel · Sylvester 2025-2026", en: "SurveillanceMap LIVE · Neujahr und Feuerwerke and der Mittleren Brücke, Basel · Sylvester 2025-2026" },
+    lat: 32.2274,
+    lng: -81.9796,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "-GYFurg1MtY",
+      channelId: "UCCm-nbbUP0Tx3JzEzeEVFTA",
+      titleKey: "SurveillanceMap LIVE · Neujahr und Feuerwerke and der Mittleren Brücke, Basel · Sylvester 2025-2026",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-2026-08-23-12-00",
+    name: { ja: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/23 12:00〜", en: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/23 12:00〜" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "wqPHm574NsQ",
+      channelId: "UChKERpE7Um0Uq1btm_a9g5A",
+      titleKey: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/23 12:00〜",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-2026-08-23-00-00",
+    name: { ja: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/23 00:00〜", en: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/23 00:00〜" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "4r-WtNAPUXU",
+      channelId: "UChKERpE7Um0Uq1btm_a9g5A",
+      titleKey: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/23 00:00〜",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-2026-08-22-12-00",
+    name: { ja: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/22 12:00〜", en: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/22 12:00〜" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "O5hLk251Kf4",
+      channelId: "UChKERpE7Um0Uq1btm_a9g5A",
+      titleKey: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/22 12:00〜",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-2026-08-22-00-00",
+    name: { ja: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/22 00:00〜", en: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/22 00:00〜" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "iFCH5BCKlug",
+      channelId: "UChKERpE7Um0Uq1btm_a9g5A",
+      titleKey: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/22 00:00〜",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-2026-08-21-12-00",
+    name: { ja: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/21 12:00〜", en: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/21 12:00〜" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "lKnOk55-1cs",
+      channelId: "UChKERpE7Um0Uq1btm_a9g5A",
+      titleKey: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/21 12:00〜",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-2026-08-21-00-00",
+    name: { ja: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/21 00:00〜", en: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/21 00:00〜" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "K1uKKBTBlpM",
+      channelId: "UChKERpE7Um0Uq1btm_a9g5A",
+      titleKey: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/21 00:00〜",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-2026-08-20-12-00",
+    name: { ja: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/20 12:00〜", en: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/20 12:00〜" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "UhvU-460ICM",
+      channelId: "UChKERpE7Um0Uq1btm_a9g5A",
+      titleKey: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/20 12:00〜",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-2026-08-20-00-00",
+    name: { ja: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/20 00:00〜", en: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/20 00:00〜" },
+    lat: 35.6895,
+    lng: 139.6917,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "x7cvbpmR3vU",
+      channelId: "UChKERpE7Um0Uq1btm_a9g5A",
+      titleKey: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/20 00:00〜",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-elbo-room-beach-radio-live-4k-flo-2",
+    name: { ja: "Elbo Room Beach Radio LIVE | 4K Florida Beach Cam (2 Hour)", en: "Elbo Room Beach Radio LIVE | 4K Florida Beach Cam (2 Hour)" },
+    lat: 38.6423,
+    lng: -88.1217,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "Me9I9ASJp2o",
+      channelId: "UCUkUjr4syovc3NbLWtuVfYw",
+      titleKey: "📻 Elbo Room Beach Radio LIVE | 4K Florida Beach Cam 🌴 (2 Hour)",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-at-junction-buoy-streamtime-live",
+    name: { ja: "Live at Junction Buoy! | StreamTime LIVE", en: "Live at Junction Buoy! | StreamTime LIVE" },
+    lat: 39.0286,
+    lng: -96.8314,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "MicdzaTfJ4Q",
+      channelId: "UCrtIIVfi-5tMlVXdMDzOMUA",
+      titleKey: "Live at Junction Buoy! | StreamTime LIVE",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ph-boy-sayong-cam-3-inside-agdao-public",
+    name: { ja: "BOY SAYONG ( CAM 3 ) INSIDE AGDAO PUBLIC MARKET DAVAO CITY ( ROSE STORE )", en: "BOY SAYONG ( CAM 3 ) INSIDE AGDAO PUBLIC MARKET DAVAO CITY ( ROSE STORE )" },
+    lat: 10.6414,
+    lng: 124.025,
+    timeZone: "Asia/Manila",
+    category: "city",
+    country: "PH",
+    source: {
+      videoId: "sShWJMKFV-k",
+      channelId: "UCZ6ZuSqeKrjFP7w9lS0nx0Q",
+      titleKey: "BOY SAYONG ( CAM 3 ) INSIDE AGDAO PUBLIC MARKET DAVAO CITY ( ROSE STORE )",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ph-maria-s-cam-13-grilled-area-in-felve",
+    name: { ja: "Maria's Cam 13 Grilled Area in Felve's Tuna Panga Eatery in Ubalde Agdao, Davao City", en: "Maria's Cam 13 Grilled Area in Felve's Tuna Panga Eatery in Ubalde Agdao, Davao City" },
+    lat: 14.3305,
+    lng: 121.2419,
+    timeZone: "Asia/Manila",
+    category: "city",
+    country: "PH",
+    source: {
+      videoId: "T5V_vsKpzC0",
+      channelId: "UCZ6ZuSqeKrjFP7w9lS0nx0Q",
+      titleKey: "Maria's Cam 13 Grilled Area in Felve's Tuna Panga Eatery in Ubalde Agdao, Davao City",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ph-maria-s-cam-5a-street-view-agdao-publ",
+    name: { ja: "Maria's Cam 5A Street View Agdao Public Market, Davao City Philippines #philippines #davaocity", en: "Maria's Cam 5A Street View Agdao Public Market, Davao City Philippines #philippines #davaocity" },
+    lat: 15.9167,
+    lng: 120.4564,
+    timeZone: "Asia/Manila",
+    category: "city",
+    country: "PH",
+    source: {
+      videoId: "LSPGM5q6EGE",
+      channelId: "UCZ6ZuSqeKrjFP7w9lS0nx0Q",
+      titleKey: "Maria's Cam 5A Street View Agdao Public Market, Davao City Philippines  #philippines #davaocity",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "tw-4k-taiwan-taoyuan-international-a-3",
+    name: { ja: "【4K】Taiwan Taoyuan International Airport (TPE/RCTP)｜ Live Camera ｜桃園國際機場｜桃園國際機場凱悅酒店", en: "【4K】Taiwan Taoyuan International Airport (TPE/RCTP)｜ Live Camera ｜桃園國際機場｜桃園國際機場凱悅酒店" },
+    lat: 24.9937,
+    lng: 121.297,
+    timeZone: "Asia/Taipei",
+    category: "city",
+    country: "TW",
+    source: {
+      videoId: "68GFgzQxrXs",
+      channelId: "UCARB8y6PuoOBjZXJKIG-LDw",
+      titleKey: "【4K】Taiwan Taoyuan International Airport (TPE/RCTP)｜ Live Camera ｜桃園國際機場｜桃園國際機場凱悅酒店",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "tw-taoyuan-baling-live-cam",
+    name: { ja: "Taoyuan Baling Live Cam", en: "Taoyuan Baling Live Cam" },
+    lat: 24.6811,
+    lng: 121.3858,
+    timeZone: "Asia/Taipei",
+    category: "city",
+    country: "TW",
+    source: {
+      videoId: "nV-DKquUjFs",
+      channelId: "UCARB8y6PuoOBjZXJKIG-LDw",
+      titleKey: "Taoyuan Baling Live Cam",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "tw-2k-taiwan-taoyuan-international-airpo",
+    name: { ja: "【2K】Taiwan Taoyuan International Airport (TPE/RCTP)｜Dual View with Flight Info｜桃園國際機場｜凱悅酒店｜動態資訊頻道", en: "【2K】Taiwan Taoyuan International Airport (TPE/RCTP)｜Dual View with Flight Info｜桃園國際機場｜凱悅酒店｜動態資訊頻道" },
+    lat: 24.9937,
+    lng: 121.297,
+    timeZone: "Asia/Taipei",
+    category: "city",
+    country: "TW",
+    source: {
+      videoId: "0D6QgDOdI6c",
+      channelId: "UCARB8y6PuoOBjZXJKIG-LDw",
+      titleKey: "【2K】Taiwan Taoyuan International Airport (TPE/RCTP)｜Dual View with Flight Info｜桃園國際機場｜凱悅酒店｜動態資訊頻道",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "tw-4k-xucuogang-wetland-live-cam",
+    name: { ja: "【4K】Xucuogang Wetland Live Cam 許厝港濕地即時影像", en: "【4K】Xucuogang Wetland Live Cam 許厝港濕地即時影像" },
+    lat: 25.0851,
+    lng: 121.1737,
+    timeZone: "Asia/Taipei",
+    category: "city",
+    country: "TW",
+    source: {
+      videoId: "44JArbF682k",
+      channelId: "UCARB8y6PuoOBjZXJKIG-LDw",
+      titleKey: "【4K】Xucuogang Wetland Live Cam 許厝港濕地即時影像",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "tw-cihu-memorial-sculpture-park-live-cam",
+    name: { ja: "Cihu Memorial Sculpture Park Live Cam", en: "Cihu Memorial Sculpture Park Live Cam" },
+    lat: 23.8858,
+    lng: 120.442,
+    timeZone: "Asia/Taipei",
+    category: "city",
+    country: "TW",
+    source: {
+      videoId: "pSQ0e-ZTZ5g",
+      channelId: "UCARB8y6PuoOBjZXJKIG-LDw",
+      titleKey: "Cihu Memorial Sculpture Park Live Cam",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "tw-three-swimming-turtles-live-cam",
+    name: { ja: "Three Swimming Turtles Live Cam", en: "Three Swimming Turtles Live Cam" },
+    lat: 23.536,
+    lng: 119.7264,
+    timeZone: "Asia/Taipei",
+    category: "city",
+    country: "TW",
+    source: {
+      videoId: "5YDXZ1aiR5Y",
+      channelId: "UCARB8y6PuoOBjZXJKIG-LDw",
+      titleKey: "Three Swimming Turtles Live Cam",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "tw-daxi-bridge-live-cam",
+    name: { ja: "Daxi Bridge Live Cam", en: "Daxi Bridge Live Cam" },
+    lat: 24.8837,
+    lng: 121.2904,
+    timeZone: "Asia/Taipei",
+    category: "city",
+    country: "TW",
+    source: {
+      videoId: "oFJ6gCaBb_Q",
+      channelId: "UCARB8y6PuoOBjZXJKIG-LDw",
+      titleKey: "Daxi Bridge Live Cam",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "tw-amuping-ginger-island-live-cam-in-tai",
+    name: { ja: "Amuping Ginger Island Live Cam in Taiwan", en: "Amuping Ginger Island Live Cam in Taiwan" },
+    lat: 24.8178,
+    lng: 121.3118,
+    timeZone: "Asia/Taipei",
+    category: "city",
+    country: "TW",
+    source: {
+      videoId: "EUOp2LchPQM",
+      channelId: "UCARB8y6PuoOBjZXJKIG-LDw",
+      titleKey: "Amuping Ginger Island Live Cam in Taiwan",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ca-bay-street-live-webcam-in-cruz-bay-st",
+    name: { ja: "Bay Street live webcam in Cruz Bay, St. John US Virgin Islands", en: "Bay Street live webcam in Cruz Bay, St. John US Virgin Islands" },
+    lat: 46.3656,
+    lng: -74.8199,
+    timeZone: "America/Toronto",
+    category: "city",
+    country: "CA",
+    source: {
+      videoId: "xqAZJTY2q-Y",
+      channelId: "UCPSSgJVH-ppHUfmdHXm55rQ",
+      titleKey: "Bay Street live webcam in Cruz Bay, St. John US Virgin Islands",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ca-coconuts-villa-live-webcam-gifft-hill",
+    name: { ja: "Coconuts Villa LIVE Webcam - Gifft Hill, St. John, US Virgin Islands", en: "Coconuts Villa LIVE Webcam - Gifft Hill, St. John, US Virgin Islands" },
+    lat: 47.5649,
+    lng: -52.7093,
+    timeZone: "America/St_Johns",
+    category: "city",
+    country: "CA",
+    source: {
+      videoId: "gQRQZW1B4SM",
+      channelId: "UCPSSgJVH-ppHUfmdHXm55rQ",
+      titleKey: "Coconuts Villa LIVE Webcam - Gifft Hill, St. John, US Virgin Islands",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "tw-jiaobanshan-eco-pond-live-cam",
+    name: { ja: "Jiaobanshan Eco Pond Live Cam", en: "Jiaobanshan Eco Pond Live Cam" },
+    lat: 24.8141,
+    lng: 121.3472,
+    timeZone: "Asia/Taipei",
+    category: "city",
+    country: "TW",
+    source: {
+      videoId: "XEbo8NzMTbQ",
+      channelId: "UCARB8y6PuoOBjZXJKIG-LDw",
+      titleKey: "Jiaobanshan Eco Pond Live Cam",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ca-windsong-villa-on-st-john-live-qhd-we",
+    name: { ja: "WindSong Villa on St. John | Live QHD Webcam of Rendezvous Point, Fish Bay & Beyond", en: "WindSong Villa on St. John | Live QHD Webcam of Rendezvous Point, Fish Bay & Beyond" },
+    lat: 47.5649,
+    lng: -52.7093,
+    timeZone: "America/St_Johns",
+    category: "city",
+    country: "CA",
+    source: {
+      videoId: "AH6cJoAQJIU",
+      channelId: "UCPSSgJVH-ppHUfmdHXm55rQ",
+      titleKey: "WindSong Villa on St. John | Live QHD Webcam of Rendezvous Point, Fish Bay & Beyond",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ca-great-expectations-live-st-john-webca",
+    name: { ja: "Great Expectations live St. John Webcam overlooking Hart & Rendezvous Bays", en: "Great Expectations live St. John Webcam overlooking Hart & Rendezvous Bays" },
+    lat: 47.5649,
+    lng: -52.7093,
+    timeZone: "America/St_Johns",
+    category: "city",
+    country: "CA",
+    source: {
+      videoId: "dsbHMpqPTWI",
+      channelId: "UCPSSgJVH-ppHUfmdHXm55rQ",
+      titleKey: "Great Expectations live St. John Webcam overlooking Hart & Rendezvous Bays",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ca-maho-bay-live-hd-webcam-on-st-john-in",
+    name: { ja: "Maho Bay live HD webcam on St. John in the US Virgin Islands National Park", en: "Maho Bay live HD webcam on St. John in the US Virgin Islands National Park" },
+    lat: 46.3656,
+    lng: -74.8199,
+    timeZone: "America/Toronto",
+    category: "city",
+    country: "CA",
+    source: {
+      videoId: "5ioOZfE7ENs",
+      channelId: "UCPSSgJVH-ppHUfmdHXm55rQ",
+      titleKey: "Maho Bay live HD webcam on St. John in the US Virgin Islands National Park",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-gomv-com-edgartown-harbor-katama-bay",
+    name: { ja: "GOMV.COM Edgartown Harbor / Katama Bay Webcam", en: "GOMV.COM Edgartown Harbor / Katama Bay Webcam" },
+    lat: 35.7423,
+    lng: -90.5623,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "XstZqnv9S_s",
+      channelId: "UCGfre1YJATN850wNq-jzgEw",
+      titleKey: "🟢 GOMV.COM Edgartown Harbor / Katama Bay Webcam",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "tw-jiaobanshan-plum-orchard-live-cam",
+    name: { ja: "Jiaobanshan Plum Orchard Live Cam", en: "Jiaobanshan Plum Orchard Live Cam" },
+    lat: 24.8141,
+    lng: 121.3472,
+    timeZone: "Asia/Taipei",
+    category: "city",
+    country: "TW",
+    source: {
+      videoId: "-xT1bZhWLuU",
+      channelId: "UCARB8y6PuoOBjZXJKIG-LDw",
+      titleKey: "Jiaobanshan Plum Orchard Live Cam",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-2026-8-26-2",
+    name: { ja: "グラングリーン大阪「うめきた公園」をライブ配信 [2026年8月26日]", en: "グラングリーン大阪「うめきた公園」をライブ配信 [2026年8月26日]" },
+    lat: 34.6938,
+    lng: 135.5011,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "telFLKdzDhI",
+      channelId: "UC7p1-DM94FYbHlq66IZYKPQ",
+      titleKey: "グラングリーン大阪「うめきた公園」をライブ配信 [2026年8月26日]",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ca-mare-blu-villa-live-rendezvous-bay-we",
+    name: { ja: "Mare Blu Villa LIVE Rendezvous Bay Webcam on St. John, US Virgin Islands", en: "Mare Blu Villa LIVE Rendezvous Bay Webcam on St. John, US Virgin Islands" },
+    lat: 56.0668,
+    lng: -118.2361,
+    timeZone: "America/Edmonton",
+    category: "city",
+    country: "CA",
+    source: {
+      videoId: "ifxbcOjDdn8",
+      channelId: "UCPSSgJVH-ppHUfmdHXm55rQ",
+      titleKey: "Mare Blu Villa LIVE Rendezvous Bay Webcam on St. John, US Virgin Islands",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ca-coral-bay-views-live-qhd-webcam-of-co",
+    name: { ja: "Coral Bay Views live QHD webcam of Coral Bay and the BVI", en: "Coral Bay Views live QHD webcam of Coral Bay and the BVI" },
+    lat: 46.3656,
+    lng: -74.8199,
+    timeZone: "America/Toronto",
+    category: "city",
+    country: "CA",
+    source: {
+      videoId: "J5dURyBwaf0",
+      channelId: "UCPSSgJVH-ppHUfmdHXm55rQ",
+      titleKey: "Coral Bay Views live QHD webcam of Coral Bay and the BVI",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ca-st-john-live-panoramic-webcam-over-cr",
+    name: { ja: "St. John live panoramic webcam over Cruz Bay and Pillsbury Sound in the US Virgin Islands", en: "St. John live panoramic webcam over Cruz Bay and Pillsbury Sound in the US Virgin Islands" },
+    lat: 47.5649,
+    lng: -52.7093,
+    timeZone: "America/St_Johns",
+    category: "city",
+    country: "CA",
+    source: {
+      videoId: "y8aDrxVkHHw",
+      channelId: "UCPSSgJVH-ppHUfmdHXm55rQ",
+      titleKey: "St. John live panoramic webcam over Cruz Bay and Pillsbury Sound in the US Virgin Islands",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "tw-jiaobanshan-siqin-pavilion-live-cam",
+    name: { ja: "Jiaobanshan Siqin Pavilion Live Cam 角板山思親亭即時影像", en: "Jiaobanshan Siqin Pavilion Live Cam 角板山思親亭即時影像" },
+    lat: 24.8141,
+    lng: 121.3472,
+    timeZone: "Asia/Taipei",
+    category: "city",
+    country: "TW",
+    source: {
+      videoId: "3Za9y4z_Lzc",
+      channelId: "UCARB8y6PuoOBjZXJKIG-LDw",
+      titleKey: "Jiaobanshan Siqin Pavilion Live Cam 角板山思親亭即時影像",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ca-villa-circe-live-webcam-overlooking-d",
+    name: { ja: "Villa Circe live webcam overlooking Drake Channel", en: "Villa Circe live webcam overlooking Drake Channel" },
+    lat: 43.5255,
+    lng: -65.5493,
+    timeZone: "America/Halifax",
+    category: "city",
+    country: "CA",
+    source: {
+      videoId: "SGCQH39LHi0",
+      channelId: "UCPSSgJVH-ppHUfmdHXm55rQ",
+      titleKey: "Villa Circe live webcam overlooking Drake Channel",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-gomv-com-aquinnah-gay-head-beach-mart",
+    name: { ja: "GOMV.COM Aquinnah / Gay Head Beach Martha's Vineyard Live Surf Cam", en: "GOMV.COM Aquinnah / Gay Head Beach Martha's Vineyard Live Surf Cam" },
+    lat: 33.0937,
+    lng: -84.5738,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "V3yWSeZBlaI",
+      channelId: "UCGfre1YJATN850wNq-jzgEw",
+      titleKey: "🟢  GOMV.COM Aquinnah / Gay Head Beach Martha's Vineyard Live Surf Cam",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "it-volcano-etna-live-eruption-skylineweb",
+    name: { ja: "VOLCANO ETNA LIVE ERUPTION | SkylineWebcams", en: "VOLCANO ETNA LIVE ERUPTION | SkylineWebcams" },
+    lat: 37.5341,
+    lng: 14.9338,
+    timeZone: "Europe/Rome",
+    category: "city",
+    country: "IT",
+    source: {
+      videoId: "VlLBc4RGjDQ",
+      channelId: "UC2WMV4vCYurHdHPd9pCqYSg",
+      titleKey: "🌋 VOLCANO ETNA LIVE ERUPTION | SkylineWebcams",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ca-calichi-at-picture-point-live-hd-360o",
+    name: { ja: "Calichi at Picture Point live HD 360º PTZ Webcam", en: "Calichi at Picture Point live HD 360º PTZ Webcam" },
+    lat: 46.8999,
+    lng: -55.9316,
+    timeZone: "America/St_Johns",
+    category: "city",
+    country: "CA",
+    source: {
+      videoId: "iiUmX8XxB1k",
+      channelId: "UCPSSgJVH-ppHUfmdHXm55rQ",
+      titleKey: "Calichi at Picture Point live HD 360º PTZ Webcam",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "mx-cdmx-lluvias-rayos-y-granizo-esta-tar",
+    name: { ja: "️️ CDMX | Lluvias, Rayos y Granizo esta tarde-noche Zócalo En Vivo", en: "️️ CDMX | Lluvias, Rayos y Granizo esta tarde-noche Zócalo En Vivo" },
+    lat: 17.383,
+    lng: -100.8731,
+    timeZone: "America/Mexico_City",
+    category: "city",
+    country: "MX",
+    source: {
+      videoId: "3Y8_Xtz_92E",
+      channelId: "UColBcWm6ybTbQnNuQS8JaKg",
+      titleKey: "🌧️⚡️ 🚨 CDMX | Lluvias, Rayos y Granizo esta tarde-noche ⚡Zócalo En Vivo",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "fi-levi-six-chairlift-levi-ski-resort-fi",
+    name: { ja: "Levi Six chairlift | Levi Ski Resort | Finland", en: "Levi Six chairlift | Levi Ski Resort | Finland" },
+    lat: 59.9346,
+    lng: 23.9762,
+    timeZone: "Europe/Helsinki",
+    category: "city",
+    country: "FI",
+    source: {
+      videoId: "tgCjNC-813A",
+      channelId: "UC1HDQ1Q5nVHYF8e7dL4E-pw",
+      titleKey: "Levi Six chairlift | Levi Ski Resort | Finland",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "it-live-from-niscemi-sicily-landslide-mo",
+    name: { ja: "LIVE FROM NISCEMI - SICILY | LANDSLIDE MONITORING | SkylineWebcams", en: "LIVE FROM NISCEMI - SICILY | LANDSLIDE MONITORING | SkylineWebcams" },
+    lat: 37.623,
+    lng: 13.9346,
+    timeZone: "Europe/Rome",
+    category: "city",
+    country: "IT",
+    source: {
+      videoId: "MFCLTWUiAYE",
+      channelId: "UC2WMV4vCYurHdHPd9pCqYSg",
+      titleKey: "🔴 LIVE FROM NISCEMI - SICILY | LANDSLIDE MONITORING | SkylineWebcams",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "it-siena-woke-up-snowy-live-from-piazza",
+    name: { ja: "️ Siena Woke Up Snowy — LIVE from Piazza del Campo | SkylineWebcams", en: "️ Siena Woke Up Snowy — LIVE from Piazza del Campo | SkylineWebcams" },
+    lat: 45.7693,
+    lng: 7.5569,
+    timeZone: "Europe/Rome",
+    category: "city",
+    country: "IT",
+    source: {
+      videoId: "cKJAYC13uQ8",
+      channelId: "UC2WMV4vCYurHdHPd9pCqYSg",
+      titleKey: "❄️ Siena Woke Up Snowy — LIVE from Piazza del Campo | SkylineWebcams",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-today-for-iga-istanbul-airport-screen",
+    name: { ja: "Today for IGA ISTANBUL AIRPORT screens - THE WORLD LIVE customized version | earthTV", en: "Today for IGA ISTANBUL AIRPORT screens - THE WORLD LIVE customized version | earthTV" },
+    lat: 71.1745,
+    lng: -155.1613,
+    timeZone: "America/Anchorage",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "IukqoWQTeXc",
+      channelId: "UCRuyAVeVd7oUwh0LWmxxBBQ",
+      titleKey: "Today for IGA ISTANBUL AIRPORT screens - THE WORLD LIVE customized version | earthTV",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-today-for-fox-weather-television-chan",
+    name: { ja: "Today for FOX WEATHER television channel - THE WORLD LIVE customized version | earthTV", en: "Today for FOX WEATHER television channel - THE WORLD LIVE customized version | earthTV" },
+    lat: 43.6027,
+    lng: -111.1113,
+    timeZone: "America/Boise",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "lQNQ5J6o_Hg",
+      channelId: "UCRuyAVeVd7oUwh0LWmxxBBQ",
+      titleKey: "Today for FOX WEATHER television channel  - THE WORLD LIVE customized version | earthTV",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-ape-cam-live",
+    name: { ja: "Ape Cam LIVE", en: "Ape Cam LIVE" },
+    lat: 33.1192,
+    lng: -117.0864,
+    timeZone: "America/Los_Angeles",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "3VJ7xbqy4Jo",
+      channelId: "UCC5NfQ6Mf0dq_eEwv4P_hWA",
+      titleKey: "Ape Cam LIVE",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-sea-turtle-release-live",
+    name: { ja: "Sea Turtle Release LIVE!", en: "Sea Turtle Release LIVE!" },
+    lat: 47.6062,
+    lng: -122.3321,
+    timeZone: "America/Los_Angeles",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "lljnYIQIMng",
+      channelId: "UCqKNzUHmCrvZsFDzpAR3GjA",
+      titleKey: "Sea Turtle Release LIVE!",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-today-for-al-jazeera-arabic-televisio",
+    name: { ja: "Today for AL JAZEERA ARABIC television channel - THE WORLD LIVE customized version | earthTV", en: "Today for AL JAZEERA ARABIC television channel - THE WORLD LIVE customized version | earthTV" },
+    lat: 36.0598,
+    lng: -89.9409,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "txPWQyhst5Q",
+      channelId: "UCRuyAVeVd7oUwh0LWmxxBBQ",
+      titleKey: "Today for AL JAZEERA ARABIC television channel - THE WORLD LIVE customized version  | earthTV",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "cn-live-2026-8-25-ann",
+    name: { ja: "【ライブ】世界人型ロボット運動会 サッカー、ブレイクダンス、ボクシング、卓球、陸上競技 中国・北京【LIVE】(2026年8月25日) ANN/テレ朝", en: "【ライブ】世界人型ロボット運動会 サッカー、ブレイクダンス、ボクシング、卓球、陸上競技 中国・北京【LIVE】(2026年8月25日) ANN/テレ朝" },
+    lat: 39.9075,
+    lng: 116.3972,
+    timeZone: "Asia/Shanghai",
+    category: "city",
+    country: "CN",
+    source: {
+      videoId: "p1E5b0H_hVk",
+      channelId: "UCGCZAYq5Xxojl_tSXcVJhiQ",
+      titleKey: "【ライブ】世界人型ロボット運動会 サッカー、ブレイクダンス、ボクシング、卓球、陸上競技 中国・北京【LIVE】(2026年8月25日) ANN/テレ朝",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "tr-treasury-and-finance-minister-mehmet",
+    name: { ja: "Treasury and Finance Minister Mehmet Şimşek Speaks Live on NTV! NTV #LIVE", en: "Treasury and Finance Minister Mehmet Şimşek Speaks Live on NTV! NTV #LIVE" },
+    lat: 41.8151,
+    lng: 34.0863,
+    timeZone: "Europe/Istanbul",
+    category: "city",
+    country: "TR",
+    source: {
+      videoId: "9YfgHvaWWqs",
+      channelId: "UC9TDTjbOjFB9jADmPhSAPsw",
+      titleKey: "Treasury and Finance Minister Mehmet Şimşek Speaks Live on NTV! 🔴 NTV #LIVE",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-first-execution-under-the-takaic",
+    name: { ja: "[LIVE] First execution under the Takaichi administration: Justice Minister Hiraguchi holds emerge...", en: "[LIVE] First execution under the Takaichi administration: Justice Minister Hiraguchi holds emerge..." },
+    lat: 40.2349,
+    lng: 140.8087,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "nUxt7fHFQYo",
+      channelId: "UC6AG81pAkf6Lbi_1VC5NmPA",
+      titleKey: "[LIVE] First execution under the Takaichi administration: Justice Minister Hiraguchi holds emerge...",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-talking-point-live-should-we-further",
+    name: { ja: "TALKING POINT LIVE: Should We Further Regulate Tuition Agencies? | Forum", en: "TALKING POINT LIVE: Should We Further Regulate Tuition Agencies? | Forum" },
+    lat: 36.1817,
+    lng: -93.7149,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "aGcinURH1rk",
+      channelId: "UC_Lnb8ZHqqgLbp-7hltuT9w",
+      titleKey: "TALKING POINT LIVE: Should We Further Regulate Tuition Agencies? | Forum",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-cna-originals-live-the-best-documenta",
+    name: { ja: "CNA Originals LIVE: The best documentaries and current affairs programmes on Asia", en: "CNA Originals LIVE: The best documentaries and current affairs programmes on Asia" },
+    lat: 30.4551,
+    lng: -88.2151,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "fSUMKrxPEd8",
+      channelId: "UC_Lnb8ZHqqgLbp-7hltuT9w",
+      titleKey: "CNA Originals LIVE: The best documentaries and current affairs programmes on Asia",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-the-mark-of-empire-exclusive-scr",
+    name: { ja: "[LIVE] The Mark of Empire Exclusive Screening & Panel Discussion", en: "[LIVE] The Mark of Empire Exclusive Screening & Panel Discussion" },
+    lat: 41.2645,
+    lng: -89.2501,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "U564Ti2RAQw",
+      channelId: "UC_Lnb8ZHqqgLbp-7hltuT9w",
+      titleKey: "[LIVE] The Mark of Empire Exclusive Screening & Panel Discussion",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "in-live-nepal-swallowed-by-flash-flood-b",
+    name: { ja: "Live: Nepal Swallowed by Flash Flood | Balen Shah's Message To Nepal | Death toll Rises | Earthquake", en: "Live: Nepal Swallowed by Flash Flood | Balen Shah's Message To Nepal | Death toll Rises | Earthquake" },
+    lat: 27.1855,
+    lng: 81.9618,
+    timeZone: "Asia/Kolkata",
+    category: "city",
+    country: "IN",
+    source: {
+      videoId: "GZ7PndmLinQ",
+      channelId: "UCYPvAwZP8pZhSMW8qs7cVCw",
+      titleKey: "Live: Nepal Swallowed by Flash Flood | Balen Shah's Message To Nepal | Death toll Rises | Earthquake",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "in-live-flash-flood-wreaks-havoc-in-nepa",
+    name: { ja: "Live: Flash Flood Wreaks Havoc In Nepal | PM Modi | Balen Shah | UP-Bihar On High Alert | Tourists", en: "Live: Flash Flood Wreaks Havoc In Nepal | PM Modi | Balen Shah | UP-Bihar On High Alert | Tourists" },
+    lat: 29.7804,
+    lng: 74.7049,
+    timeZone: "Asia/Kolkata",
+    category: "city",
+    country: "IN",
+    source: {
+      videoId: "aQ2VKJUaKW0",
+      channelId: "UCYPvAwZP8pZhSMW8qs7cVCw",
+      titleKey: "Live: Flash Flood Wreaks Havoc In Nepal | PM Modi | Balen Shah | UP-Bihar On High Alert | Tourists",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "in-nepal-flash-flood-updates-live-indian",
+    name: { ja: "Nepal Flash Flood Updates Live: Indians Among 384 Tourists Missing In Nepal, Quake | Bihar | UP", en: "Nepal Flash Flood Updates Live: Indians Among 384 Tourists Missing In Nepal, Quake | Bihar | UP" },
+    lat: 25.0138,
+    lng: 80.2843,
+    timeZone: "Asia/Kolkata",
+    category: "city",
+    country: "IN",
+    source: {
+      videoId: "fWfbJZmqRCI",
+      channelId: "UCYPvAwZP8pZhSMW8qs7cVCw",
+      titleKey: "Nepal Flash Flood Updates Live: Indians Among 384 Tourists Missing In Nepal, Quake | Bihar | UP",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "in-india-today-tv-live-nepal-flash-f-2",
+    name: { ja: "India Today TV LIVE: Nepal Flash Floods | Indians Missing | Bihar |Sugar Price Surge |Trump |PM Modi", en: "India Today TV LIVE: Nepal Flash Floods | Indians Missing | Bihar |Sugar Price Surge |Trump |PM Modi" },
+    lat: 29.7804,
+    lng: 74.7049,
+    timeZone: "Asia/Kolkata",
+    category: "city",
+    country: "IN",
+    source: {
+      videoId: "eh_dalcjpfY",
+      channelId: "UCYPvAwZP8pZhSMW8qs7cVCw",
+      titleKey: "India Today TV LIVE: Nepal Flash Floods | Indians Missing | Bihar |Sugar Price Surge |Trump |PM Modi",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "in-india-today-karnataka-roundtable-live",
+    name: { ja: "India Today Karnataka Roundtable LIVE: The Big Conversation On Karnataka's Future", en: "India Today Karnataka Roundtable LIVE: The Big Conversation On Karnataka's Future" },
+    lat: 25.2106,
+    lng: 74.9734,
+    timeZone: "Asia/Kolkata",
+    category: "city",
+    country: "IN",
+    source: {
+      videoId: "vd14SSn4wdM",
+      channelId: "UCYPvAwZP8pZhSMW8qs7cVCw",
+      titleKey: "India Today Karnataka Roundtable LIVE: The Big Conversation On Karnataka's Future",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "in-nepal-flash-flood-live-up-bihar-on-hi",
+    name: { ja: "Nepal Flash Flood Live: UP, Bihar On High Alert As Gandak Levels May Rise | Eartquake | Flood News", en: "Nepal Flash Flood Live: UP, Bihar On High Alert As Gandak Levels May Rise | Eartquake | Flood News" },
+    lat: 9.6475,
+    lng: 77.36,
+    timeZone: "Asia/Kolkata",
+    category: "city",
+    country: "IN",
+    source: {
+      videoId: "G5Dtg047TUw",
+      channelId: "UCYPvAwZP8pZhSMW8qs7cVCw",
+      titleKey: "Nepal Flash Flood Live: UP, Bihar On High Alert As Gandak Levels May Rise | Eartquake | Flood News",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "in-live-india-paksitan-tensions-operatio",
+    name: { ja: "LIVE: India-Paksitan Tensions | Operation Sindoor | Ex-CDS Anil Chauhan On Op Sindoor| Pakistan News", en: "LIVE: India-Paksitan Tensions | Operation Sindoor | Ex-CDS Anil Chauhan On Op Sindoor| Pakistan News" },
+    lat: 12.788,
+    lng: 75.5756,
+    timeZone: "Asia/Kolkata",
+    category: "city",
+    country: "IN",
+    source: {
+      videoId: "4Mo7MQmd8v0",
+      channelId: "UCYPvAwZP8pZhSMW8qs7cVCw",
+      titleKey: "LIVE: India-Paksitan Tensions | Operation Sindoor | Ex-CDS Anil Chauhan On Op Sindoor| Pakistan News",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "in-india-today-tv-live-nepal-flash-f-3",
+    name: { ja: "India Today TV LIVE: Nepal Flash Floods | Indians Missing | PM Modi | Rahul Gandhi | US Sanctions", en: "India Today TV LIVE: Nepal Flash Floods | Indians Missing | PM Modi | Rahul Gandhi | US Sanctions" },
+    lat: 27.1855,
+    lng: 81.9618,
+    timeZone: "Asia/Kolkata",
+    category: "city",
+    country: "IN",
+    source: {
+      videoId: "26-N7obe23o",
+      channelId: "UCYPvAwZP8pZhSMW8qs7cVCw",
+      titleKey: "India Today TV LIVE: Nepal Flash Floods | Indians Missing | PM Modi | Rahul Gandhi | US Sanctions",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "in-samajwadi-party-pc-live-akhilesh-yada",
+    name: { ja: "Samajwadi Party PC LIVE: Akhilesh Yadav & Dimple Yadav's Big Announcement for Women", en: "Samajwadi Party PC LIVE: Akhilesh Yadav & Dimple Yadav's Big Announcement for Women" },
+    lat: 25.465,
+    lng: 81.7833,
+    timeZone: "Asia/Kolkata",
+    category: "city",
+    country: "IN",
+    source: {
+      videoId: "YqSxK4Z7pqI",
+      channelId: "UCYPvAwZP8pZhSMW8qs7cVCw",
+      titleKey: "Samajwadi Party PC LIVE: Akhilesh Yadav & Dimple Yadav's Big Announcement for Women",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "in-india-today-tv-live-indians-missing-i",
+    name: { ja: "India Today TV LIVE: Indians Missing In Nepal Flash Floods | Sugar Price Surge| US-Iran War | Trump", en: "India Today TV LIVE: Indians Missing In Nepal Flash Floods | Sugar Price Surge| US-Iran War | Trump" },
+    lat: 27.1855,
+    lng: 81.9618,
+    timeZone: "Asia/Kolkata",
+    category: "city",
+    country: "IN",
+    source: {
+      videoId: "9z1FUkDriQY",
+      channelId: "UCYPvAwZP8pZhSMW8qs7cVCw",
+      titleKey: "India Today TV LIVE: Indians Missing In Nepal Flash Floods | Sugar Price Surge| US-Iran War | Trump",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "in-delhi-h1n1-surge-live-h1n1-alarm-amid",
+    name: { ja: "Delhi H1N1 Surge LIVE: H1N1 Alarm Amid Monsoon Flu Surge | Should You Be Worried Over H1N1?", en: "Delhi H1N1 Surge LIVE: H1N1 Alarm Amid Monsoon Flu Surge | Should You Be Worried Over H1N1?" },
+    lat: 14.2697,
+    lng: 77.7485,
+    timeZone: "Asia/Kolkata",
+    category: "city",
+    country: "IN",
+    source: {
+      videoId: "eTsk765DLIc",
+      channelId: "UCYPvAwZP8pZhSMW8qs7cVCw",
+      titleKey: "Delhi H1N1 Surge LIVE: H1N1 Alarm Amid Monsoon Flu Surge | Should You Be Worried Over H1N1?",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-live-at-the-waterhole-27-august-2026",
+    name: { ja: "LIVE at the waterhole - 27 August 2026", en: "LIVE at the waterhole - 27 August 2026" },
+    lat: -31.7033,
+    lng: 23.6284,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "lxq06fctGKY",
+      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
+      titleKey: "LIVE at the waterhole - 27 August 2026",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-live-at-the-waterhole-26-august-2026",
+    name: { ja: "LIVE at the waterhole - 26 August 2026", en: "LIVE at the waterhole - 26 August 2026" },
+    lat: -31.7033,
+    lng: 23.6284,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "Vbw0mwCwpbI",
+      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
+      titleKey: "LIVE at the waterhole - 26 August 2026",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-safarilive-sunrise-27-august-2026",
+    name: { ja: "SafariLIVE Sunrise - 27 August 2026", en: "SafariLIVE Sunrise - 27 August 2026" },
+    lat: -31.7033,
+    lng: 23.6284,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "XUCkeW_nmb8",
+      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
+      titleKey: "SafariLIVE Sunrise - 27 August 2026",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-safarilive-sunset-26-august-2026",
+    name: { ja: "SafariLIVE Sunset - 26 August 2026", en: "SafariLIVE Sunset - 26 August 2026" },
+    lat: -33.8539,
+    lng: 18.4923,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "GxYXZp7ojdU",
+      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
+      titleKey: "SafariLIVE Sunset - 26 August  2026",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-live-at-the-waterhole-25-august-2026",
+    name: { ja: "LIVE at the waterhole - 25 August 2026", en: "LIVE at the waterhole - 25 August 2026" },
+    lat: -31.7033,
+    lng: 23.6284,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "Z3xM4TOTAgw",
+      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
+      titleKey: "LIVE at the waterhole - 25 August 2026",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-live-at-the-waterhole-26-august-2-2",
+    name: { ja: "LIVE at the waterhole - 26 August 2026 - AD FREE", en: "LIVE at the waterhole - 26 August 2026 - AD FREE" },
+    lat: -25.9466,
+    lng: 25.1217,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "3SMnfCsONaI",
+      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
+      titleKey: "LIVE at the waterhole - 26 August 2026 - AD FREE",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-live-at-the-waterhole-24-august-2026",
+    name: { ja: "LIVE at the waterhole - 24 August 2026", en: "LIVE at the waterhole - 24 August 2026" },
+    lat: -31.7033,
+    lng: 23.6284,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "F9sQEXGy-Bk",
+      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
+      titleKey: "LIVE at the waterhole - 24 August 2026",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-live-at-the-waterhole-24-august-2-2",
+    name: { ja: "LIVE at the waterhole - 24 August 2026 - AD FREE", en: "LIVE at the waterhole - 24 August 2026 - AD FREE" },
+    lat: -25.9466,
+    lng: 25.1217,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "S8U7c_EQUsA",
+      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
+      titleKey: "LIVE at the waterhole - 24 August 2026 - AD FREE",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-elephant-sundowners-safarilive-sunset",
+    name: { ja: "Elephant sundowners - SafariLIVE Sunset - 23 August 2026", en: "Elephant sundowners - SafariLIVE Sunset - 23 August 2026" },
+    lat: -33.8539,
+    lng: 18.4923,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "Xt0h7f__-Fo",
+      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
+      titleKey: "Elephant sundowners - SafariLIVE Sunset - 23 August  2026",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-elephant-sundowners-safarilive-su-2",
+    name: { ja: "Elephant sundowners - SafariLIVE Sunset - 23 August 2026 - AD FREE", en: "Elephant sundowners - SafariLIVE Sunset - 23 August 2026 - AD FREE" },
+    lat: -25.9466,
+    lng: 25.1217,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "Od_-89eQGRE",
+      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
+      titleKey: "Elephant sundowners - SafariLIVE Sunset - 23 August 2026 - AD FREE",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-live-at-the-waterhole-23-august-2026",
+    name: { ja: "LIVE at the waterhole - 23 August 2026 - AD FREE", en: "LIVE at the waterhole - 23 August 2026 - AD FREE" },
+    lat: -25.9466,
+    lng: 25.1217,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "c7uRF1cxbrA",
+      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
+      titleKey: "LIVE at the waterhole - 23 August 2026 - AD FREE",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-live-at-the-waterhole-23-august-2-2",
+    name: { ja: "LIVE at the waterhole - 23 August 2026", en: "LIVE at the waterhole - 23 August 2026" },
+    lat: -31.7033,
+    lng: 23.6284,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "YeeRHB_9upA",
+      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
+      titleKey: "LIVE at the waterhole - 23 August 2026",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-breakfast-with-the-boys-safarilive-su",
+    name: { ja: "Breakfast with the boys - SafariLIVE Sunrise - 26 August 2026 - AD FREE", en: "Breakfast with the boys - SafariLIVE Sunrise - 26 August 2026 - AD FREE" },
+    lat: -25.9466,
+    lng: 25.1217,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "E3iI7tKIwKk",
+      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
+      titleKey: "Breakfast with the boys - SafariLIVE Sunrise - 26 August 2026 - AD FREE",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "in-live-tamil-nadu-cm-vijay-inaugurates",
+    name: { ja: "LIVE: Tamil Nadu CM Vijay Inaugurates 120 CNG Buses | Free Bus Travel For Women Expanded | #vijay", en: "LIVE: Tamil Nadu CM Vijay Inaugurates 120 CNG Buses | Free Bus Travel For Women Expanded | #vijay" },
+    lat: 12.8532,
+    lng: 74.997,
+    timeZone: "Asia/Kolkata",
+    category: "city",
+    country: "IN",
+    source: {
+      videoId: "IXbOfsheOwA",
+      channelId: "UCYPvAwZP8pZhSMW8qs7cVCw",
+      titleKey: "LIVE: Tamil Nadu CM Vijay Inaugurates 120 CNG Buses | Free Bus Travel For Women Expanded | #vijay",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-rosetted-reunion-safarilive-sunset-22",
+    name: { ja: "Rosetted reunion - SafariLIVE Sunset - 22 August 2026 - AD FREE", en: "Rosetted reunion - SafariLIVE Sunset - 22 August 2026 - AD FREE" },
+    lat: -25.9466,
+    lng: 25.1217,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "hniyzTUiHU0",
+      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
+      titleKey: "Rosetted reunion - SafariLIVE Sunset - 22 August 2026 - AD FREE",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-rosetted-reunion-safarilive-sunse-2",
+    name: { ja: "Rosetted reunion - SafariLIVE Sunset - 22 August 2026", en: "Rosetted reunion - SafariLIVE Sunset - 22 August 2026" },
+    lat: -33.8539,
+    lng: 18.4923,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "ZH770vfjisc",
+      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
+      titleKey: "Rosetted reunion - SafariLIVE Sunset - 22 August 2026",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-live-at-the-waterhole-22-august-2026",
+    name: { ja: "LIVE at the waterhole - 22 August 2026 - AD FREE", en: "LIVE at the waterhole - 22 August 2026 - AD FREE" },
+    lat: -25.9466,
+    lng: 25.1217,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "7liuUIRccls",
+      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
+      titleKey: "LIVE at the waterhole - 22 August 2026 - AD FREE",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-live-at-the-waterhole-22-august-2-2",
+    name: { ja: "LIVE at the waterhole - 22 August 2026", en: "LIVE at the waterhole - 22 August 2026" },
+    lat: -31.7033,
+    lng: 23.6284,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "1Ms4wKsa1MI",
+      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
+      titleKey: "LIVE at the waterhole - 22 August 2026",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-giants-meet-the-clan-safarilive-sunse",
+    name: { ja: "Giants meet the clan - SafariLIVE Sunset - 25 August 2026 - Members Only", en: "Giants meet the clan - SafariLIVE Sunset - 25 August 2026 - Members Only" },
+    lat: -24.8535,
+    lng: 31.3416,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "awggIeRQpEE",
+      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
+      titleKey: "Giants meet the clan - SafariLIVE Sunset - 25 August 2026 - Members Only",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-live-at-the-waterhole-25-august-2-2",
+    name: { ja: "LIVE at the waterhole - 25 August 2026 - AD FREE", en: "LIVE at the waterhole - 25 August 2026 - AD FREE" },
+    lat: -25.9466,
+    lng: 25.1217,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "i3w4d9g1JV4",
+      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
+      titleKey: "LIVE at the waterhole - 25 August 2026 - AD FREE",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-wild-intentions-safarilive-sunrise-25",
+    name: { ja: "Wild intentions - SafariLIVE Sunrise - 25 August 2026 - Members Only", en: "Wild intentions - SafariLIVE Sunrise - 25 August 2026 - Members Only" },
+    lat: -32.6423,
+    lng: 28.1286,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "EkWWfi4Rpa4",
+      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
+      titleKey: "Wild intentions - SafariLIVE Sunrise - 25 August 2026 - Members Only",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-live-at-the-waterhole-21-august-2026",
+    name: { ja: "LIVE at the waterhole - 21 August 2026 - AD FREE", en: "LIVE at the waterhole - 21 August 2026 - AD FREE" },
+    lat: -25.9466,
+    lng: 25.1217,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "cTJv-MXhpT8",
+      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
+      titleKey: "LIVE at the waterhole - 21 August 2026 - AD FREE",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-live-at-the-waterhole-21-august-2-2",
+    name: { ja: "LIVE at the waterhole - 21 August 2026", en: "LIVE at the waterhole - 21 August 2026" },
+    lat: -31.7033,
+    lng: 23.6284,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "udUQHjISE4Y",
+      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
+      titleKey: "LIVE at the waterhole - 21 August 2026",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-all-hail-the-leopard-queen-tlalamba-s",
+    name: { ja: "All hail the leopard Queen Tlalamba - SafariLIVE Sunrise - 23 August 2026 - AD FREE", en: "All hail the leopard Queen Tlalamba - SafariLIVE Sunrise - 23 August 2026 - AD FREE" },
+    lat: -22.6639,
+    lng: 29.0934,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "ra1jIeqcLiM",
+      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
+      titleKey: "All hail the leopard Queen Tlalamba - SafariLIVE Sunrise - 23 August 2026 - AD FREE",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-all-hail-the-leopard-queen-tlalam-2",
+    name: { ja: "All hail the leopard Queen Tlalamba - SafariLIVE Sunrise - 23 August 2026", en: "All hail the leopard Queen Tlalamba - SafariLIVE Sunrise - 23 August 2026" },
+    lat: -22.6639,
+    lng: 29.0934,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "so7XjP4EPVk",
+      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
+      titleKey: "All hail the leopard Queen Tlalamba - SafariLIVE Sunrise - 23 August 2026",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-little-lions-big-curiosity-safarilive",
+    name: { ja: "Little lions, big curiosity - SafariLIVE Sunrise - 22 August 2026", en: "Little lions, big curiosity - SafariLIVE Sunrise - 22 August 2026" },
+    lat: -33.7914,
+    lng: 18.4584,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "7GTitTtH-Ag",
+      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
+      titleKey: "Little lions, big curiosity - SafariLIVE Sunrise - 22 August 2026",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-breakfast-with-the-boys-safariliv-2",
+    name: { ja: "Breakfast with the boys - SafariLIVE Sunrise - 26 August 2026", en: "Breakfast with the boys - SafariLIVE Sunrise - 26 August 2026" },
+    lat: -33.0962,
+    lng: 27.6754,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "wuaa0UiTGY4",
+      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
+      titleKey: "Breakfast with the boys - SafariLIVE Sunrise - 26 August 2026",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-little-lions-big-curiosity-safari-2",
+    name: { ja: "Little lions, big curiosity - SafariLIVE Sunrise - 22 August 2026 - AD FREE", en: "Little lions, big curiosity - SafariLIVE Sunrise - 22 August 2026 - AD FREE" },
+    lat: -33.7914,
+    lng: 18.4584,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "b7IU4UnPFqY",
+      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
+      titleKey: "Little lions, big curiosity - SafariLIVE Sunrise - 22 August 2026 - AD FREE",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-a-day-of-little-ones-safarilive-sunse",
+    name: { ja: "A day of little ones - SafariLIVE Sunset - 21 August 2026 - AD FREE", en: "A day of little ones - SafariLIVE Sunset - 21 August 2026 - AD FREE" },
+    lat: -28.0834,
+    lng: 31.541,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "VZpqgJRI25s",
+      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
+      titleKey: "A day of little ones - SafariLIVE Sunset - 21 August 2026 - AD FREE",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-walrus-cam-first-beach-view-roun",
+    name: { ja: "LIVE Walrus Cam: First Beach View – Round Island, Alaska | explore.org", en: "LIVE Walrus Cam: First Beach View – Round Island, Alaska | explore.org" },
+    lat: 37.2634,
+    lng: -88.1386,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "zVsCxyi47Kk",
+      channelId: "UC5RV1g0fRYXfrt75hqvohKw",
+      titleKey: "LIVE Walrus Cam: First Beach View – Round Island, Alaska | explore.org",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-a-day-of-little-ones-safarilive-s-2",
+    name: { ja: "A day of little ones - SafariLIVE Sunset - 21 August 2026", en: "A day of little ones - SafariLIVE Sunset - 21 August 2026" },
+    lat: -28.0834,
+    lng: 31.541,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "JBgtRAxqFkc",
+      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
+      titleKey: "A day of little ones - SafariLIVE Sunset - 21 August  2026",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-anacapa-island-cove-lookout-cam",
+    name: { ja: "LIVE Anacapa Island Cove Lookout Cam: Channel Islands National Park - NPS | explore.org", en: "LIVE Anacapa Island Cove Lookout Cam: Channel Islands National Park - NPS | explore.org" },
+    lat: 45.2965,
+    lng: -117.808,
+    timeZone: "America/Los_Angeles",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "fAS2TFePbQk",
+      channelId: "UCJRuk-FJ6dzX0MOpnd0UDCg",
+      titleKey: "LIVE Anacapa Island Cove Lookout Cam: Channel Islands National Park - NPS | explore.org",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "au-scarborough-beach-surf-cam",
+    name: { ja: "Scarborough Beach SURF CAM", en: "Scarborough Beach SURF CAM" },
+    lat: -35.6953,
+    lng: 150.1995,
+    timeZone: "Australia/Sydney",
+    category: "city",
+    country: "AU",
+    source: {
+      videoId: "-JZf3deL-Rs",
+      channelId: "UCzu3l_vz2bu2xn4bOo3eF_g",
+      titleKey: "Scarborough Beach SURF CAM",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-anan-bear-cam-fishing-hole-4-ala",
+    name: { ja: "LIVE Anan Bear Cam: Fishing Hole 4 – Alaska | explore.org", en: "LIVE Anan Bear Cam: Fishing Hole 4 – Alaska | explore.org" },
+    lat: 40.4667,
+    lng: -98.1842,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "ypMu3yA7h3s",
+      channelId: "UC2Sk0aXLq3ADkH_USGPKT_Q",
+      titleKey: "LIVE Anan Bear Cam: Fishing Hole 4 – Alaska | explore.org",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-osprey-nest-charlo-montana-explo",
+    name: { ja: "LIVE Osprey Nest - Charlo, Montana | explore.org", en: "LIVE Osprey Nest - Charlo, Montana | explore.org" },
+    lat: 37.3668,
+    lng: -76.5705,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "3VVoYO-ZFPE",
+      channelId: "UCv0In2Sw_YabIhMHHOoTSkA",
+      titleKey: "LIVE Osprey Nest - Charlo, Montana | explore.org",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-boone-and-crockett-club-s-theodore-ro",
+    name: { ja: "Boone and Crockett Club's Theodore Roosevelt Memorial Ranch", en: "Boone and Crockett Club's Theodore Roosevelt Memorial Ranch" },
+    lat: 36.2168,
+    lng: -81.6745,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "EVs4CG-eSto",
+      channelId: "UCrrkptlW7UtbiUHFjdsfKPg",
+      titleKey: "Boone and Crockett Club's Theodore Roosevelt Memorial Ranch",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-montana-whitewater-gallatin-river-kar",
+    name: { ja: "Montana Whitewater - Gallatin River • Karst Camp Live Webcam", en: "Montana Whitewater - Gallatin River • Karst Camp Live Webcam" },
+    lat: 36.4142,
+    lng: -91.7349,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "tbEMXuucXAU",
+      channelId: "UC_eKLgQF8-EBKRFhAtIVM3w",
+      titleKey: "Montana Whitewater - Gallatin River • Karst Camp Live Webcam",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-from-the-residence-inn-by-marrio",
+    name: { ja: "Live from The Residence Inn by Marriott Wenatchee, WA", en: "Live from The Residence Inn by Marriott Wenatchee, WA" },
+    lat: 30.878,
+    lng: -91.6807,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "mbJoGzY3KR8",
+      channelId: "UC4v5XLnIUGVk2mDrXYbkI-w",
+      titleKey: "Live from The Residence Inn by Marriott Wenatchee, WA",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-mt-spokane-web-cam-vista-cruiser-chai",
+    name: { ja: "Mt. Spokane Web Cam, Vista Cruiser, Chair 1", en: "Mt. Spokane Web Cam, Vista Cruiser, Chair 1" },
+    lat: 38.3173,
+    lng: -88.9031,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "r1N4CmHq0RA",
+      channelId: "UC5SGIeFEOa6YIOl3lThEzKA",
+      titleKey: "Mt. Spokane Web Cam, Vista Cruiser, Chair 1",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-christie-peak-express-wild-blue-gondo",
+    name: { ja: "Christie Peak Express & Wild Blue Gondola Cam", en: "Christie Peak Express & Wild Blue Gondola Cam" },
+    lat: 34.2407,
+    lng: -81.3234,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "nfTQNv3jdSQ",
+      channelId: "UCckNylOqeMamgtEpna8Osuw",
+      titleKey: "Christie Peak Express & Wild Blue Gondola Cam",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-four-points-cam",
+    name: { ja: "Four Points Cam", en: "Four Points Cam" },
+    lat: 47.8124,
+    lng: -112.1836,
+    timeZone: "America/Denver",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "Zf21nwFUyUs",
+      channelId: "UCckNylOqeMamgtEpna8Osuw",
+      titleKey: "Four Points Cam",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-cape-porpoise-maine-outer-harbor-live",
+    name: { ja: "Cape Porpoise, Maine - Outer Harbor LIVE", en: "Cape Porpoise, Maine - Outer Harbor LIVE" },
+    lat: 26.5629,
+    lng: -81.9495,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "xROnFN6dIZQ",
+      channelId: "UC8gbWbcNNyb5-NIXvFklkOA",
+      titleKey: "Cape Porpoise, Maine - Outer Harbor LIVE",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-from-fraser-town-hall",
+    name: { ja: "Live from Fraser Town Hall", en: "Live from Fraser Town Hall" },
+    lat: 48.3458,
+    lng: -100.4054,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "hQeFtIAmlqQ",
+      channelId: "UCs5aHnl7d-kk0j1cxV28DSg",
+      titleKey: "Live from Fraser Town Hall",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-city-of-ellsworth-maine-harbor-park-l",
+    name: { ja: "City of Ellsworth, Maine - Harbor Park Live Cam", en: "City of Ellsworth, Maine - Harbor Park Live Cam" },
+    lat: 44.98,
+    lng: -93.2638,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "jkHSInn_J_o",
+      channelId: "UCAoSufogSQbl5N5AtUIid4Q",
+      titleKey: "City of Ellsworth, Maine - Harbor Park Live Cam",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-maine-maritime-academy-waterfront-web",
+    name: { ja: "Maine Maritime Academy Waterfront Webcam", en: "Maine Maritime Academy Waterfront Webcam" },
+    lat: 42.0334,
+    lng: -87.8834,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "eR3fIV5jxWA",
+      channelId: "UC8u7RX4BZD_lqHepHEHSZTA",
+      titleKey: "Maine Maritime Academy Waterfront Webcam",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-burrowing-owl-nest-cam-oregon-ow",
+    name: { ja: "LIVE Burrowing Owl Nest Cam - Oregon – Owl Research Institute | explore.org", en: "LIVE Burrowing Owl Nest Cam - Oregon – Owl Research Institute | explore.org" },
+    lat: 34.6098,
+    lng: -96.3456,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "ZGAf77sGw6Q",
+      channelId: "UCj4hEwVyYXppFFh5P_Hp_Jw",
+      titleKey: "LIVE Burrowing Owl Nest Cam - Oregon – Owl Research Institute | explore.org",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-mount-washington-observatory-tow",
+    name: { ja: "LIVE: Mount Washington Observatory Tower Cam", en: "LIVE: Mount Washington Observatory Tower Cam" },
+    lat: 39.6854,
+    lng: -74.6057,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "JuJVUhj9JBo",
+      channelId: "UCq-cqqXchflIRPLsf_n3wlg",
+      titleKey: "LIVE: Mount Washington Observatory Tower Cam",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-marginal-way-ogunquit-maine-live-view",
+    name: { ja: "Marginal Way Ogunquit Maine Live View", en: "Marginal Way Ogunquit Maine Live View" },
+    lat: 39.6412,
+    lng: -81.1834,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "RLIRtD89O7g",
+      channelId: "UCALmdjIUxpKqyUTxg5QOSMQ",
+      titleKey: "Marginal Way Ogunquit Maine Live View",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-lake-fairlee-looncam",
+    name: { ja: "Lake Fairlee LoonCam", en: "Lake Fairlee LoonCam" },
+    lat: 46.5763,
+    lng: -119.0067,
+    timeZone: "America/Los_Angeles",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "mFSGKt0sV60",
+      channelId: "UCnFHrbtq6DwJn_5iNxgxdxg",
+      titleKey: "Lake Fairlee LoonCam",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-tugboats-and-shipping-on-the-piscataq",
+    name: { ja: "Tugboats and Shipping on the Piscataqua River, Portsmouth, New Hampshire LIVE", en: "Tugboats and Shipping on the Piscataqua River, Portsmouth, New Hampshire LIVE" },
+    lat: 30.4513,
+    lng: -94.8433,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "Qx8VSm-Hj7I",
+      channelId: "UC8gbWbcNNyb5-NIXvFklkOA",
+      titleKey: "Tugboats and Shipping on the Piscataqua River, Portsmouth, New Hampshire LIVE",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-cam-at-flagstaff-general-store-s",
+    name: { ja: "LIVE Cam at Flagstaff General Store, Stratton Maine", en: "LIVE Cam at Flagstaff General Store, Stratton Maine" },
+    lat: 42.0334,
+    lng: -87.8834,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "69rI-RUVNaA",
+      channelId: "UCXsq3UMxZfFSnlVDvBlFltA",
+      titleKey: "LIVE Cam at Flagstaff General Store, Stratton Maine",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-northeast-harbor-acadia-national-park",
+    name: { ja: "Northeast Harbor, Acadia National Park, Maine US LIVE", en: "Northeast Harbor, Acadia National Park, Maine US LIVE" },
+    lat: 39.7625,
+    lng: -87.2292,
+    timeZone: "America/Indiana/Indianapolis",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "iAut_76pvXk",
+      channelId: "UC8gbWbcNNyb5-NIXvFklkOA",
+      titleKey: "Northeast Harbor, Acadia National Park, Maine US LIVE",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-carson-city-live-webcam",
+    name: { ja: "Carson City Live Webcam", en: "Carson City Live Webcam" },
+    lat: 44.98,
+    lng: -93.2638,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "dA0R00HYNlY",
+      channelId: "UCa64_XYisp7cgRrHwkKSi5w",
+      titleKey: "Carson City Live Webcam",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-mad-river-glen-single-chair-base-area",
+    name: { ja: "Mad River Glen Single Chair Base Area", en: "Mad River Glen Single Chair Base Area" },
+    lat: 43.0731,
+    lng: -89.4012,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "wVOqgmbvCrY",
+      channelId: "UC__gz-lrAjVFlfXlzxQo8tQ",
+      titleKey: "Mad River Glen Single Chair Base Area",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-kisatchie-national-forest-e-1-nest-ca",
+    name: { ja: "Kisatchie National Forest E-1 Nest Cam, Louis II and Anna II.", en: "Kisatchie National Forest E-1 Nest Cam, Louis II and Anna II." },
+    lat: 37.3668,
+    lng: -76.5705,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "A3pJIBKMqFI",
+      channelId: "UC_QWzmg59OKAEmm2Af3iCDQ",
+      titleKey: "Kisatchie National Forest E-1 Nest Cam, Louis II and Anna II.",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-greencastle-pennsylvania-usa-live-tra",
+    name: { ja: "Greencastle, Pennsylvania, USA | LIVE Train Camera (Fixed View – East)", en: "Greencastle, Pennsylvania, USA | LIVE Train Camera (Fixed View – East)" },
+    lat: 35.4089,
+    lng: -80.5816,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "Q5eSocWD-4c",
+      channelId: "UCOIkT9bq-1N2BvrsBjhNlag",
+      titleKey: "Greencastle, Pennsylvania, USA | LIVE Train Camera (Fixed View – East)",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-cocoa-florida-usa-live-train-camera-f",
+    name: { ja: "Cocoa, Florida, USA | LIVE Train Camera (Fixed View – North)", en: "Cocoa, Florida, USA | LIVE Train Camera (Fixed View – North)" },
+    lat: 35.4089,
+    lng: -80.5816,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "nqW68wm_1Lc",
+      channelId: "UCOIkT9bq-1N2BvrsBjhNlag",
+      titleKey: "Cocoa, Florida, USA | LIVE Train Camera (Fixed View – North)",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-baby-turtle-cam-at-echo-leahy-ce",
+    name: { ja: "Live Baby Turtle Cam at ECHO, Leahy Center for Lake Champlain", en: "Live Baby Turtle Cam at ECHO, Leahy Center for Lake Champlain" },
+    lat: 40.6957,
+    lng: -73.3257,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "IA28S7y5rvI",
+      channelId: "UCKjBoWYjBg_318HEOdW2JRw",
+      titleKey: "Live Baby Turtle Cam at ECHO, Leahy Center for Lake Champlain",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-summertime-in-the-green-mountain-stat",
+    name: { ja: "Summertime in the Green Mountain State!", en: "Summertime in the Green Mountain State!" },
+    lat: 40.9459,
+    lng: -81.4832,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "YRnu73rJrr0",
+      channelId: "UC-lzmyJ6rpl9KEgpQPU4rjA",
+      titleKey: "Summertime in the Green Mountain State!",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-florida-webcam-d-and-d-bait-and",
+    name: { ja: "Live Florida Webcam - D and D Bait and Tackle Marina - Matlacha #florida #webcam", en: "Live Florida Webcam - D and D Bait and Tackle Marina - Matlacha #florida #webcam" },
+    lat: 31.1574,
+    lng: -84.5994,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "WYBY8yZtkt0",
+      channelId: "UCaC0jy_4ICZAkG-v596FfHg",
+      titleKey: "Live Florida Webcam - D and D Bait and Tackle Marina -  Matlacha #florida #webcam",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-university-of-nevada-reno-quadrangle",
+    name: { ja: "University of Nevada, Reno - Quadrangle", en: "University of Nevada, Reno - Quadrangle" },
+    lat: 39.5296,
+    lng: -119.8138,
+    timeZone: "America/Los_Angeles",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "5vsOc_X2XKA",
+      channelId: "UCB3qNsuIwrYzb3knkzboSug",
+      titleKey: "University of Nevada, Reno - Quadrangle",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-florida-webcam-four-winds-marina",
+    name: { ja: "Live Florida Webcam - Four Winds Marina - Pine Island - Bokeelia #florida #webcam", en: "Live Florida Webcam - Four Winds Marina - Pine Island - Bokeelia #florida #webcam" },
+    lat: 47.8124,
+    lng: -112.1836,
+    timeZone: "America/Denver",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "xp1b7w3qPd8",
+      channelId: "UCaC0jy_4ICZAkG-v596FfHg",
+      titleKey: "Live Florida Webcam - Four Winds Marina - Pine Island - Bokeelia #florida #webcam",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-pier-cam",
+    name: { ja: "Live Pier Cam", en: "Live Pier Cam" },
+    lat: 45.9816,
+    lng: -94.1047,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "pusmyjnxHhQ",
+      channelId: "UCKl75ogqHYcbYen6Y1dx9eA",
+      titleKey: "Live Pier Cam",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-wcax-skywatch-3-lyndon-institute-in-l",
+    name: { ja: "WCAX Skywatch 3: Lyndon Institute in Lyndon, VT", en: "WCAX Skywatch 3: Lyndon Institute in Lyndon, VT" },
+    lat: 38.61,
+    lng: -95.6844,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "GWMEipj_Rr0",
+      channelId: "UCn7285bO_vEziJ9brPtkFMA",
+      titleKey: "WCAX Skywatch 3: Lyndon Institute in Lyndon, VT",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-birds-squirrels-webcam-in-hokkaido-ja",
+    name: { ja: "【ライブカメラ】エゾリスとキタキツネの生配信/Birds Squirrels webcam in Hokkaido Japan", en: "【ライブカメラ】エゾリスとキタキツネの生配信/Birds Squirrels webcam in Hokkaido Japan" },
+    lat: 35.6854,
+    lng: 139.7531,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "jl3e24fTbnY",
+      channelId: "UCDniwwb6FPDtoMsVSCVWi6A",
+      titleKey: "【ライブカメラ】エゾリスとキタキツネの生配信/Birds Squirrels webcam in Hokkaido Japan",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-key-largo-marina-live-webcam-key",
+    name: { ja: "[LIVE] Key Largo Marina Live WebCam - Key Largo, Florida Keys", en: "[LIVE] Key Largo Marina Live WebCam - Key Largo, Florida Keys" },
+    lat: 46.8218,
+    lng: -123.0962,
+    timeZone: "America/Los_Angeles",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "T7nRMTfWsIs",
+      channelId: "UC_JkC_sNaRfTrbRw9_b2QoA",
+      titleKey: "[LIVE] Key Largo Marina Live WebCam - Key Largo, Florida Keys",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-gasparilla-marina-live-stream-englewo",
+    name: { ja: "Gasparilla Marina - Live Stream - Englewood / Placida Florida - Gulf Coast - Fuel Dock Cameras", en: "Gasparilla Marina - Live Stream - Englewood / Placida Florida - Gulf Coast - Fuel Dock Cameras" },
+    lat: 35.5604,
+    lng: -79.2817,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "6KJag1a8U3U",
+      channelId: "UCBaRocHs1GIeA2bk_c3TySw",
+      titleKey: "Gasparilla Marina - Live Stream - Englewood / Placida Florida - Gulf Coast - Fuel Dock Cameras",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-24-7-live-bird-feeder-cam-hokkaido-ja",
+    name: { ja: "【ライブカメラ】北海道の野鳥【24/7】LIVE Bird Feeder Cam - Hokkaido, Japan", en: "【ライブカメラ】北海道の野鳥【24/7】LIVE Bird Feeder Cam - Hokkaido, Japan" },
+    lat: 35.6854,
+    lng: 139.7531,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "6XWmZs7Ygt4",
+      channelId: "UC9J8WoigxvdArsefYeOJLJg",
+      titleKey: "【ライブカメラ】北海道の野鳥【24/7】LIVE Bird Feeder  Cam  -   Hokkaido, Japan",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-gallup-nm-bnsf-gallup-sub-mp-157-5-ea",
+    name: { ja: "Gallup, NM | BNSF Gallup Sub, MP 157.5 - East (Chat) | SouthWest RailCams LIVE", en: "Gallup, NM | BNSF Gallup Sub, MP 157.5 - East (Chat) | SouthWest RailCams LIVE" },
+    lat: 37.4817,
+    lng: -100.8438,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "hbmeqWdDLjk",
+      channelId: "UCxaKME3e34j3aTESZZ3h7Sg",
+      titleKey: "Gallup, NM | BNSF Gallup Sub, MP 157.5 - East (Chat) | SouthWest RailCams LIVE",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-175",
+    name: { ja: "紋別市（北海道） ライブカメラ", en: "紋別市（北海道） ライブカメラ" },
+    lat: 44.3525,
+    lng: 143.3525,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "hYb_-3QPYzg",
+      channelId: "UCQtUwAZrxkuWMcdVzE3JU8A",
+      titleKey: "紋別市（北海道）　ライブカメラ",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-camera-asahikawa-hokkaido-japan",
+    name: { ja: "お天気カメラ 北海道旭川市 Live camera / Asahikawa, Hokkaido, Japan", en: "お天気カメラ 北海道旭川市 Live camera / Asahikawa, Hokkaido, Japan" },
+    lat: 35.6854,
+    lng: 139.7531,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "r7W90hKKpKA",
+      channelId: "UCJOKZ03IvVCbahaPloXPaww",
+      titleKey: "お天気カメラ 北海道旭川市  Live camera / Asahikawa, Hokkaido, Japan",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-santa-fe-nm-nmrx-santa-fe-sub-mp-18-3",
+    name: { ja: "Santa Fe, NM | NMRX Santa Fe Sub, MP 18.32 - Static (Chat) | SouthWest RailCams LIVE", en: "Santa Fe, NM | NMRX Santa Fe Sub, MP 18.32 - Static (Chat) | SouthWest RailCams LIVE" },
+    lat: 37.4817,
+    lng: -100.8438,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "R168_-P5PQw",
+      channelId: "UCxaKME3e34j3aTESZZ3h7Sg",
+      titleKey: "Santa Fe, NM | NMRX Santa Fe Sub, MP 18.32 - Static (Chat) | SouthWest RailCams LIVE",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-176",
+    name: { ja: "北海道白老郡白老町竹浦ライブカメラ", en: "北海道白老郡白老町竹浦ライブカメラ" },
+    lat: 38.444,
+    lng: 141.4897,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "UVAXYFi8EBs",
+      channelId: "UClV6SY39eqyCzPQhTIWv80g",
+      titleKey: "北海道白老郡白老町竹浦ライブカメラ",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-177",
+    name: { ja: "オホーツク 野鳥と朝日のライブカメラ", en: "オホーツク 野鳥と朝日のライブカメラ" },
+    lat: 43.9892,
+    lng: 144.2416,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "0AdHcmVg7lg",
+      channelId: "UCcnyFxVfbsx8L3-B0rIFTLg",
+      titleKey: "オホーツク 野鳥と朝日のライブカメラ",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-abs-abs-s-weather-live-cameras-in-aki",
+    name: { ja: "ABS秋田放送 お天気カメラ 秋田駅前（ABS's Weather Live Cameras in Akita station square ）", en: "ABS秋田放送 お天気カメラ 秋田駅前（ABS's Weather Live Cameras in Akita station square ）" },
+    lat: 39.7167,
+    lng: 140.1167,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "2esxbRlwPJM",
+      channelId: "UCVRs8dYm9OH-_g4V84BfbQw",
+      titleKey: "ABS秋田放送　お天気カメラ　秋田駅前（ABS's Weather Live Cameras in Akita station square ）",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "hk-live-amc-gme-hymc-wed-aug-26-2026-1-o",
+    name: { ja: "LIVE AMC & GME & HYMC Wed Aug 26 2026 - 1 or 3 Min Chart & Afterhours Chat Music BYO AMC Popcorn!", en: "LIVE AMC & GME & HYMC Wed Aug 26 2026 - 1 or 3 Min Chart & Afterhours Chat Music BYO AMC Popcorn!" },
+    lat: 22.2783,
+    lng: 114.1747,
+    timeZone: "Asia/Hong_Kong",
+    category: "city",
+    country: "HK",
+    source: {
+      videoId: "UXAPxz-wLHQ",
+      channelId: "UC0JOARmIzqOXYZ90ywj_MMQ",
+      titleKey: "LIVE AMC & GME & HYMC Wed Aug 26 2026 - 1 or 3  Min Chart & Afterhours Chat Music BYO AMC Popcorn!",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-4-route-4-yanagimachi-street-int",
+    name: { ja: "【LIVE】国道4号青森市柳町通り交差点情報カメラ Route 4, Yanagimachi Street intersection in Aomori City", en: "【LIVE】国道4号青森市柳町通り交差点情報カメラ Route 4, Yanagimachi Street intersection in Aomori City" },
+    lat: 40.8167,
+    lng: 140.7333,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "XyqzzI_vSCo",
+      channelId: "UCdNYphHZdRYjpys_gwofUNQ",
+      titleKey: "【LIVE】国道4号青森市柳町通り交差点情報カメラ Route 4, Yanagimachi Street intersection in Aomori City",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-liverec-max320km-h-shinkansen-tohokuj",
+    name: { ja: "東北新幹線 郡山 LIVEREC ライブカメラ 鉄道 爆速 MAX320km/h Shinkansen TOHOKUJapan disney", en: "東北新幹線 郡山 LIVEREC ライブカメラ 鉄道 爆速 MAX320km/h Shinkansen TOHOKUJapan disney" },
+    lat: 35.1029,
+    lng: 138.9608,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "_QUUv_2TrJA",
+      channelId: "UCHxsYayZMyj1RbaAgxU0lCQ",
+      titleKey: "🚄東北新幹線 郡山 LIVE🔴REC ライブカメラ 鉄道 爆速 MAX320km/h Shinkansen TOHOKU🗾Japan disney",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-camera-seto-ohashi-bridge-liveca",
+    name: { ja: "【LIVE CAMERA】瀬戸大橋ライブカメラ Seto Ohashi Bridge Livecamera", en: "【LIVE CAMERA】瀬戸大橋ライブカメラ Seto Ohashi Bridge Livecamera" },
+    lat: 35.2333,
+    lng: 137.1,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "xrb4L3p1eHY",
+      channelId: "UCxUHGYdQzshp0DPxHDy9_iQ",
+      titleKey: "【LIVE CAMERA】瀬戸大橋ライブカメラ Seto Ohashi Bridge Livecamera",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-24-3",
+    name: { ja: "【24時間ライブ】四国八十八ヶ所 第二十二番・平等寺｜いつでも心と身体を癒すリモート参拝", en: "【24時間ライブ】四国八十八ヶ所 第二十二番・平等寺｜いつでも心と身体を癒すリモート参拝" },
+    lat: 33.4428,
+    lng: 130.473,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "xsIuKwfHs84",
+      channelId: "UC_MPR_BZ_39Vkd6MDSpIMkw",
+      titleKey: "【24時間ライブ】四国八十八ヶ所 第二十二番・平等寺｜いつでも心と身体を癒すリモート参拝",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-34",
+    name: { ja: "【LIVE】三島川之江港 ライブカメラ 愛媛県四国中央市", en: "【LIVE】三島川之江港 ライブカメラ 愛媛県四国中央市" },
+    lat: 33.9754,
+    lng: 133.5489,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "GSO-cLay-x4",
+      channelId: "UCIf6siGkL7JdkyPkDwgYD2Q",
+      titleKey: "【LIVE】三島川之江港 ライブカメラ 愛媛県四国中央市",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-matsuyama-airport-myj-news-ch-4",
+    name: { ja: "【ライブカメラ 】松山空港 Matsuyama Airport,MYJ＜NEWS CH.4＞", en: "【ライブカメラ 】松山空港 Matsuyama Airport,MYJ＜NEWS CH.4＞" },
+    lat: 33.8392,
+    lng: 132.7657,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "CFh9z-6IeEE",
+      channelId: "UC-2L3iPWxVyvvnPLplpdCHA",
+      titleKey: "【ライブカメラ 】松山空港 Matsuyama Airport,MYJ＜NEWS CH.4＞",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "kr-4k-live-eryanping-trail-in-alishan-ta",
+    name: { ja: "【4K Live】Eryanping Trail in Alishan, Taiwan｜4K Live cam-Alishan", en: "【4K Live】Eryanping Trail in Alishan, Taiwan｜4K Live cam-Alishan" },
+    lat: 35.1017,
+    lng: 129.03,
+    timeZone: "Asia/Seoul",
+    category: "city",
+    country: "KR",
+    source: {
+      videoId: "j2L_559nCjc",
+      channelId: "UCQqyZgPh9Lu0w_rmWWBvuNg",
+      titleKey: "【4K Live】Eryanping Trail in Alishan, Taiwan｜4K Live cam-Alishan",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-news-ch-4",
+    name: { ja: "【ライブカメラ】愛媛県松山市本町＜NEWS CH.4＞", en: "【ライブカメラ】愛媛県松山市本町＜NEWS CH.4＞" },
+    lat: 33.8392,
+    lng: 132.7657,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "dR38IfNLULA",
+      channelId: "UC-2L3iPWxVyvvnPLplpdCHA",
+      titleKey: "【ライブカメラ】愛媛県松山市本町＜NEWS CH.4＞",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-sagatv",
+    name: { ja: "【LIVE】いまの佐賀駅＆佐賀空港＆鳥栖市＆嬉野市ほか（SAGATV天気カメラ）", en: "【LIVE】いまの佐賀駅＆佐賀空港＆鳥栖市＆嬉野市ほか（SAGATV天気カメラ）" },
+    lat: 33.1352,
+    lng: 130.0572,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "e8uHdS4VDec",
+      channelId: "UCmXfKCasdSTe9B49-Es9XZA",
+      titleKey: "【LIVE】いまの佐賀駅＆佐賀空港＆鳥栖市＆嬉野市ほか（SAGATV天気カメラ）",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-178",
+    name: { ja: "長崎県壱岐市 勝本港ライブカメラ", en: "長崎県壱岐市 勝本港ライブカメラ" },
+    lat: 32.75,
+    lng: 129.8833,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "CYHGeUeYE0c",
+      channelId: "UCZ1gP3mpttGH314cI8ByS-A",
+      titleKey: "長崎県壱岐市　勝本港ライブカメラ",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "id-live-earthquake-map-tsunami-monitor-2",
+    name: { ja: "Live Earthquake Map & Tsunami Monitor - 24/7 Real-Time Global Tracker", en: "Live Earthquake Map & Tsunami Monitor - 24/7 Real-Time Global Tracker" },
+    lat: -2.5833,
+    lng: 119.55,
+    timeZone: "Asia/Makassar",
+    category: "city",
+    country: "ID",
+    source: {
+      videoId: "MRR5Ex4W4_Q",
+      channelId: "UCEJ3VXhzw2ykC34059F_-cw",
+      titleKey: "Live Earthquake Map & Tsunami Monitor - 24/7 Real-Time Global Tracker",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "in-live-darshan-kalupur-swaminarayan-man",
+    name: { ja: "LIVE - Darshan Kalupur Swaminarayan Mandir", en: "LIVE - Darshan Kalupur Swaminarayan Mandir" },
+    lat: 12.7608,
+    lng: 75.1955,
+    timeZone: "Asia/Kolkata",
+    category: "city",
+    country: "IN",
+    source: {
+      videoId: "5ppU7BqHdvs",
+      channelId: "UCSOO8aliEwUKxIVkk5Igz-A",
+      titleKey: "🔴 LIVE - Darshan Kalupur Swaminarayan Mandir",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "in-live-darshan-from-shree-swaminarayan",
+    name: { ja: "LIVE | | Darshan from Shree Swaminarayan Mandir - Bhuj", en: "LIVE | | Darshan from Shree Swaminarayan Mandir - Bhuj" },
+    lat: 23.254,
+    lng: 69.6693,
+    timeZone: "Asia/Kolkata",
+    category: "city",
+    country: "IN",
+    source: {
+      videoId: "oJ8nu5DDRoc",
+      channelId: "UCVItNtUctAknegvmYcMhUQg",
+      titleKey: "LIVE | 🔴 | Darshan from Shree Swaminarayan Mandir - Bhuj",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "in-ujjain-mahakal-live-24x7-shreemahakal",
+    name: { ja: "Ujjain Mahakal LIVE 24x7 Shreemahakaleshwar Today Bhasm & Sandhya Shringar Aart Darshan #mahakal", en: "Ujjain Mahakal LIVE 24x7 Shreemahakaleshwar Today Bhasm & Sandhya Shringar Aart Darshan #mahakal" },
+    lat: 21.9573,
+    lng: 84.0397,
+    timeZone: "Asia/Kolkata",
+    category: "city",
+    country: "IN",
+    source: {
+      videoId: "HEnbwbMfsZI",
+      channelId: "UCvJUZw7742vo8Rc71OkOuAw",
+      titleKey: "🚩Ujjain Mahakal LIVE 24x7 Shreemahakaleshwar 🔱 Today Bhasm & Sandhya Shringar Aart Darshan #mahakal",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "in-live-bhuj-mandir-narnarayan-dev-darsh",
+    name: { ja: "LIVE | | Bhuj Mandir NarNarayan Dev Darshan", en: "LIVE | | Bhuj Mandir NarNarayan Dev Darshan" },
+    lat: 29.0705,
+    lng: 75.6749,
+    timeZone: "Asia/Kolkata",
+    category: "city",
+    country: "IN",
+    source: {
+      videoId: "ufB4pijyDUY",
+      channelId: "UCVItNtUctAknegvmYcMhUQg",
+      titleKey: "LIVE | 🔴 | Bhuj Mandir NarNarayan Dev Darshan",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "id-drfox2000-volcanox-live-stream-record",
+    name: { ja: "DrFox2000 - VolcanoX Live Stream Recording August 26, 2026 part 1", en: "DrFox2000 - VolcanoX Live Stream Recording August 26, 2026 part 1" },
+    lat: -7.0944,
+    lng: 113.0032,
+    timeZone: "Asia/Jakarta",
+    category: "city",
+    country: "ID",
+    source: {
+      videoId: "HreFDN2O10A",
+      channelId: "UCdY9FQdQuHiQtPrR-05I5cA",
+      titleKey: "DrFox2000  - VolcanoX Live Stream Recording August 26, 2026 part 1",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "np-webcam-nepal-live-annapurna-base-camp",
+    name: { ja: "WEBCAM NEPAL LIVE: ANNAPURNA BASE CAMP – MACHAPUCHARE VIEW FROM ABC", en: "WEBCAM NEPAL LIVE: ANNAPURNA BASE CAMP – MACHAPUCHARE VIEW FROM ABC" },
+    lat: 26.7738,
+    lng: 88.1683,
+    timeZone: "Asia/Kathmandu",
+    category: "city",
+    country: "NP",
+    source: {
+      videoId: "8ESNCDTdyTs",
+      channelId: "UCbv8BrmNooNIUu9QDmOp7Qw",
+      titleKey: "WEBCAM NEPAL LIVE: ANNAPURNA BASE CAMP – MACHAPUCHARE VIEW FROM ABC",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "np-webcam-nepal-live-simikot-airport-hum",
+    name: { ja: "WEBCAM NEPAL LIVE: SIMIKOT AIRPORT – HUMLA, NEPAL - FINAL APPROACH VIEW", en: "WEBCAM NEPAL LIVE: SIMIKOT AIRPORT – HUMLA, NEPAL - FINAL APPROACH VIEW" },
+    lat: 29.9445,
+    lng: 81.4608,
+    timeZone: "Asia/Kathmandu",
+    category: "city",
+    country: "NP",
+    source: {
+      videoId: "MnbbmXgNgiI",
+      channelId: "UCWfgJK-WM3xrLYvwZWMP1ew",
+      titleKey: "WEBCAM NEPAL LIVE: SIMIKOT AIRPORT – HUMLA, NEPAL - FINAL APPROACH VIEW",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "in-live-kedarnath-live-darshan-2026-keda",
+    name: { ja: "Live : Kedarnath Live Darshan 2026 | केदारनाथ लाइव मंदिर से दर्शन || Kedarnath Live Darshan Temple", en: "Live : Kedarnath Live Darshan 2026 | केदारनाथ लाइव मंदिर से दर्शन || Kedarnath Live Darshan Temple" },
+    lat: 24.7744,
+    lng: 85.7055,
+    timeZone: "Asia/Kolkata",
+    category: "city",
+    country: "IN",
+    source: {
+      videoId: "U9ouTskDt2E",
+      channelId: "UC7Uo3euG3IA0yBlQyIXDcUA",
+      titleKey: "🔴 Live : Kedarnath Live Darshan 2026 | केदारनाथ लाइव मंदिर से दर्शन || Kedarnath Live Darshan Temple",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ke-live-african-river-wildlife-kenya-hip",
+    name: { ja: "LIVE African River Wildlife - Kenya Hippo & Crocodile Cam - MPALA | explore.org", en: "LIVE African River Wildlife - Kenya Hippo & Crocodile Cam - MPALA | explore.org" },
+    lat: -1.3136,
+    lng: 36.8453,
+    timeZone: "Africa/Nairobi",
+    category: "city",
+    country: "KE",
+    source: {
+      videoId: "7x5kRo1B84Y",
+      channelId: "UCMfjW-9aZnsR-Rq-Ngo4CpQ",
+      titleKey: "LIVE African River Wildlife - Kenya Hippo & Crocodile Cam - MPALA | explore.org",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ke-live-african-safari-kenya-wildlife-mp",
+    name: { ja: "LIVE African Safari - Kenya Wildlife - MPALA | explore.org", en: "LIVE African Safari - Kenya Wildlife - MPALA | explore.org" },
+    lat: 0.3528,
+    lng: 36.894,
+    timeZone: "Africa/Nairobi",
+    category: "city",
+    country: "KE",
+    source: {
+      videoId: "LC-DK_22eK4",
+      channelId: "UCMfjW-9aZnsR-Rq-Ngo4CpQ",
+      titleKey: "LIVE African Safari - Kenya Wildlife - MPALA | explore.org",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ke-live-watering-hole-in-kenya-mpala-exp",
+    name: { ja: "LIVE Watering Hole in Kenya - MPALA | explore.org", en: "LIVE Watering Hole in Kenya - MPALA | explore.org" },
+    lat: 0.3528,
+    lng: 36.894,
+    timeZone: "Africa/Nairobi",
+    category: "city",
+    country: "KE",
+    source: {
+      videoId: "oORXfTviuCs",
+      channelId: "UCMfjW-9aZnsR-Rq-Ngo4CpQ",
+      titleKey: "LIVE Watering Hole in Kenya - MPALA | explore.org",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "pe-todo-es-posible-con-pablo-duggan-radi",
+    name: { ja: "TODO ES POSIBLE con Pablo Duggan | RADIO 10 EN VIVO", en: "TODO ES POSIBLE con Pablo Duggan | RADIO 10 EN VIVO" },
+    lat: -12.3538,
+    lng: -76.3607,
+    timeZone: "America/Lima",
+    category: "city",
+    country: "PE",
+    source: {
+      videoId: "dkEANC9Q3AY",
+      channelId: "UCJozD5RVug7EZdTjqkGISYQ",
+      titleKey: "TODO ES POSIBLE con Pablo Duggan | RADIO 10 EN VIVO",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "mx-ixtapa-zihuatanejo-guerrero-en-vi-3",
+    name: { ja: "Ixtapa Zihuatanejo, Guerrero En Vivo | Vista Panorámica", en: "Ixtapa Zihuatanejo, Guerrero En Vivo | Vista Panorámica" },
+    lat: 20.4106,
+    lng: -89.2839,
+    timeZone: "America/Merida",
+    category: "city",
+    country: "MX",
+    source: {
+      videoId: "fMmvV2n_0eg",
+      channelId: "UC6Rg9psmlazwZJC2h07YHRA",
+      titleKey: "Ixtapa Zihuatanejo, Guerrero En Vivo | Vista Panorámica",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "mx-24-7-live-tropical-paradise-aruba-bah",
+    name: { ja: "24/7 LIVE Tropical Paradise | Aruba, Bahamas, Saint Martin, Mexico with Tropical House Vibes", en: "24/7 LIVE Tropical Paradise | Aruba, Bahamas, Saint Martin, Mexico with Tropical House Vibes" },
+    lat: 19.0276,
+    lng: -99.2231,
+    timeZone: "America/Mexico_City",
+    category: "city",
+    country: "MX",
+    source: {
+      videoId: "i3rdcRdr8Xk",
+      channelId: "UCdTff6CR1MXSZE_fd_qWREA",
+      titleKey: "24/7 LIVE Tropical Paradise | Aruba, Bahamas, Saint Martin, Mexico with Tropical House Vibes",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "br-caribbean-beach-jazz-24-7relaxing-tro",
+    name: { ja: "Caribbean Beach Jazz 24/7Relaxing Tropical Music & Bossa Nova with Ocean Waves Sounds for Good Mood", en: "Caribbean Beach Jazz 24/7Relaxing Tropical Music & Bossa Nova with Ocean Waves Sounds for Good Mood" },
+    lat: -3.8428,
+    lng: -38.3919,
+    timeZone: "America/Fortaleza",
+    category: "city",
+    country: "BR",
+    source: {
+      videoId: "qGGQkoB0EE4",
+      channelId: "UCRVO_YZslLcQ-CIGkWOC-Qw",
+      titleKey: "Caribbean Beach Jazz 24/7🌴Relaxing Tropical Music & Bossa Nova with Ocean Waves Sounds for Good Mood",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "pe-new-years-2027-countdown-all-timezone",
+    name: { ja: "NEW YEARS 2027 COUNTDOWN ALL TIMEZONES! - LIVE 24/7", en: "NEW YEARS 2027 COUNTDOWN ALL TIMEZONES! - LIVE 24/7" },
+    lat: -12.5923,
+    lng: -76.0363,
+    timeZone: "America/Lima",
+    category: "city",
+    country: "PE",
+    source: {
+      videoId: "CaV0eBsikhc",
+      channelId: "UC7tCJBrRaLu4EFP6RSdrggw",
+      titleKey: "NEW YEARS 2027 COUNTDOWN ALL TIMEZONES! - LIVE🔴 24/7",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "gb-loch-arkaig-osprey-camera-2",
+    name: { ja: "Loch Arkaig Osprey Camera 2", en: "Loch Arkaig Osprey Camera 2" },
+    lat: 58.103,
+    lng: -6.4848,
+    timeZone: "Europe/London",
+    category: "city",
+    country: "GB",
+    source: {
+      videoId: "iFzGp7mT_PY",
+      channelId: "UCJONGed182uY9_TVRp1qiMg",
+      titleKey: "Loch Arkaig Osprey Camera 2",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "is-eruzione-etna-nunziata-di-mascali-liv",
+    name: { ja: "ERUZIONE ETNA - Nunziata di Mascali live webcam - Panoramica Etna est", en: "ERUZIONE ETNA - Nunziata di Mascali live webcam - Panoramica Etna est" },
+    lat: 63.7058,
+    lng: -19.1905,
+    timeZone: "Atlantic/Reykjavik",
+    category: "city",
+    country: "IS",
+    source: {
+      videoId: "pO2zFFeqiMo",
+      channelId: "UCBYdpmbZ8V1zVNXb8XFyQmg",
+      titleKey: "🔴 ERUZIONE ETNA - Nunziata di Mascali live webcam - Panoramica Etna est",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "gb-loch-arkaig-osprey-camera-1",
+    name: { ja: "Loch Arkaig Osprey camera 1", en: "Loch Arkaig Osprey camera 1" },
+    lat: 58.103,
+    lng: -6.4848,
+    timeZone: "Europe/London",
+    category: "city",
+    country: "GB",
+    source: {
+      videoId: "--l_qKzu2kE",
+      channelId: "UCJONGed182uY9_TVRp1qiMg",
+      titleKey: "Loch Arkaig Osprey camera 1",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "gb-live-scottish-wildlife-cam-l-red-squi",
+    name: { ja: "LIVE Scottish Wildlife Cam l Red Squirrels & Pine Martens l Loch Eck", en: "LIVE Scottish Wildlife Cam l Red Squirrels & Pine Martens l Loch Eck" },
+    lat: 52.1718,
+    lng: 0.637,
+    timeZone: "Europe/London",
+    category: "city",
+    country: "GB",
+    source: {
+      videoId: "9VKEDqEQaoI",
+      channelId: "UC5pfHUqNFQ9-czA9g8i7Msg",
+      titleKey: "LIVE Scottish Wildlife Cam l Red Squirrels  & Pine Martens l Loch Eck",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "gb-nessie-on-the-net-loch-ness-monster-l",
+    name: { ja: "Nessie on the Net Loch Ness Monster Live Cam", en: "Nessie on the Net Loch Ness Monster Live Cam" },
+    lat: 50.8746,
+    lng: -1.3548,
+    timeZone: "Europe/London",
+    category: "city",
+    country: "GB",
+    source: {
+      videoId: "IrH--L0WdrY",
+      channelId: "UCw_ySKg9iYcTmytDtT-LW2Q",
+      titleKey: "Nessie on the Net Loch Ness Monster Live Cam",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "gb-lochgelly-live-streaming-weathercam-f",
+    name: { ja: "Lochgelly Live Streaming WeatherCam - FifeWeather.co.uk", en: "Lochgelly Live Streaming WeatherCam - FifeWeather.co.uk" },
+    lat: 56.1283,
+    lng: -3.3096,
+    timeZone: "Europe/London",
+    category: "city",
+    country: "GB",
+    source: {
+      videoId: "T09aQp1CqBI",
+      channelId: "UCDPUOq2ADKZwRleMUImX-Ww",
+      titleKey: "Lochgelly Live Streaming WeatherCam - FifeWeather.co.uk",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ke-live-african-animal-lookout-kenya-sav",
+    name: { ja: "LIVE African Animal Lookout - Kenya Savannah View - MPALA | explore.org", en: "LIVE African Animal Lookout - Kenya Savannah View - MPALA | explore.org" },
+    lat: -1.2978,
+    lng: 36.8957,
+    timeZone: "Africa/Nairobi",
+    category: "city",
+    country: "KE",
+    source: {
+      videoId: "AaIUo_jTlxo",
+      channelId: "UCMfjW-9aZnsR-Rq-Ngo4CpQ",
+      titleKey: "LIVE African Animal Lookout - Kenya Savannah View - MPALA | explore.org",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "gb-durisdeer-scotland-live-stream-webcam",
+    name: { ja: "Durisdeer, Scotland Live Stream Webcam", en: "Durisdeer, Scotland Live Stream Webcam" },
+    lat: 53.8578,
+    lng: -1.642,
+    timeZone: "Europe/London",
+    category: "city",
+    country: "GB",
+    source: {
+      videoId: "-yDDiTj7yd8",
+      channelId: "UCZ1u9UmmVsKg1BsBzqwCd4Q",
+      titleKey: "Durisdeer, Scotland Live Stream Webcam",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "gb-live-camera-from-the-royal-oak-saunde",
+    name: { ja: "Live Camera from the Royal Oak Saundersfoot, Pembrokeshire", en: "Live Camera from the Royal Oak Saundersfoot, Pembrokeshire" },
+    lat: 51.0234,
+    lng: -3.2074,
+    timeZone: "Europe/London",
+    category: "city",
+    country: "GB",
+    source: {
+      videoId: "L9ZF139ihQ8",
+      channelId: "UCjAWYlBgBs3MIw9e23LO3lg",
+      titleKey: "Live Camera from the Royal Oak Saundersfoot, Pembrokeshire",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "gb-tenby-south-beach-live-webcam-pembrok",
+    name: { ja: "Tenby South Beach Live Webcam | Pembrokeshire Coast | Puffin Cottage Holidays", en: "Tenby South Beach Live Webcam | Pembrokeshire Coast | Puffin Cottage Holidays" },
+    lat: 51.6728,
+    lng: -4.7045,
+    timeZone: "Europe/London",
+    category: "city",
+    country: "GB",
+    source: {
+      videoId: "LUNS990R450",
+      channelId: "UCX1UA8V125i7_z9ZJS_UdEA",
+      titleKey: "🌊 Tenby South Beach Live Webcam | Pembrokeshire Coast | Puffin Cottage Holidays 🌊",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "gb-llandudno-north-parade-from-min-y-don",
+    name: { ja: "Llandudno North Parade from Min y Don Llandudno", en: "Llandudno North Parade from Min y Don Llandudno" },
+    lat: 51.6167,
+    lng: -1.95,
+    timeZone: "Europe/London",
+    category: "city",
+    country: "GB",
+    source: {
+      videoId: "P0jRqh_82uE",
+      channelId: "UC83brW6sqxKVjmjlqkh2Fqg",
+      titleKey: "Llandudno North Parade from Min y Don Llandudno",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "gb-towyn-north-wales-coast-mainline-rail",
+    name: { ja: "Towyn- North Wales Coast Mainline | Railcam Uk", en: "Towyn- North Wales Coast Mainline | Railcam Uk" },
+    lat: 52.6,
+    lng: -4.0833,
+    timeZone: "Europe/London",
+    category: "city",
+    country: "GB",
+    source: {
+      videoId: "G_Oncmyo8ec",
+      channelId: "UCy-aSewNafo-_W8tIvjHNLg",
+      titleKey: "Towyn- North Wales Coast Mainline | Railcam Uk",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "gb-burry-port-rnli",
+    name: { ja: "Burry Port RNLI", en: "Burry Port RNLI" },
+    lat: 50.799,
+    lng: -1.0913,
+    timeZone: "Europe/London",
+    category: "city",
+    country: "GB",
+    source: {
+      videoId: "RYtgM3-cyvQ",
+      channelId: "UCtUhlZYeQwW5a-gryZeEoCA",
+      titleKey: "Burry Port RNLI",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "gb-st-brides-spa-hotel-saundersfoot-live",
+    name: { ja: "St Brides Spa Hotel, Saundersfoot Live Webcam", en: "St Brides Spa Hotel, Saundersfoot Live Webcam" },
+    lat: 52.9168,
+    lng: -1.8764,
+    timeZone: "Europe/London",
+    category: "city",
+    country: "GB",
+    source: {
+      videoId: "gDbUG0oE0Dk",
+      channelId: "UCikz0RCl6lSQ2m8JTZpQ6jw",
+      titleKey: "St Brides Spa Hotel, Saundersfoot Live Webcam",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "gb-tullochwood-lodges-live-stream-across",
+    name: { ja: "Tullochwood Lodges Live Stream Across The Lochan", en: "Tullochwood Lodges Live Stream Across The Lochan" },
+    lat: 54.8663,
+    lng: -5.0057,
+    timeZone: "Europe/London",
+    category: "city",
+    country: "GB",
+    source: {
+      videoId: "st6Z0xFYsQI",
+      channelId: "UCAmsy8DCRy45hqC_YVGW62A",
+      titleKey: "Tullochwood Lodges Live Stream Across The Lochan",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "gb-live-broad-haven-beach-pembrokesh-2",
+    name: { ja: "Live Broad Haven Beach Pembrokeshire (North View)", en: "Live Broad Haven Beach Pembrokeshire (North View)" },
+    lat: 52.0382,
+    lng: -1.8608,
+    timeZone: "Europe/London",
+    category: "city",
+    country: "GB",
+    source: {
+      videoId: "4DfQkKfDtS4",
+      channelId: "UCUVzjxOExcXrOQa13s8csQw",
+      titleKey: "Live Broad Haven Beach Pembrokeshire (North View)",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "gb-north-wales-live-weather-hd-webcam",
+    name: { ja: "North Wales Live Weather HD Webcam", en: "North Wales Live Weather HD Webcam" },
+    lat: 52.25,
+    lng: -0.8833,
+    timeZone: "Europe/London",
+    category: "city",
+    country: "GB",
+    source: {
+      videoId: "aUw3mS_PW9g",
+      channelId: "UCNaB5V22nfsGWutsYXQBqLw",
+      titleKey: "North Wales Live Weather HD Webcam",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "gb-bowleaze-cove-beach-weymouth-uk-live",
+    name: { ja: "Bowleaze Cove Beach (Weymouth, UK) Live Webcam @ Beachside Cafe", en: "Bowleaze Cove Beach (Weymouth, UK) Live Webcam @ Beachside Cafe" },
+    lat: 57.1,
+    lng: -2.0833,
+    timeZone: "Europe/London",
+    category: "city",
+    country: "GB",
+    source: {
+      videoId: "OYVUBm7AB1Y",
+      channelId: "UCG-Icsd_kbKnt9QraydFQPQ",
+      titleKey: "Bowleaze Cove Beach (Weymouth, UK) Live Webcam @ Beachside Cafe",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ie-portrush-live-surf-cam",
+    name: { ja: "Portrush Live Surf Cam", en: "Portrush Live Surf Cam" },
+    lat: 52.8879,
+    lng: -6.6058,
+    timeZone: "Europe/Dublin",
+    category: "city",
+    country: "IE",
+    source: {
+      videoId: "edrTjkN8UOA",
+      channelId: "UC1lHYBK_YeXDJv6sedRwW0A",
+      titleKey: "Portrush Live Surf Cam",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "co-columbia-sc-traffic-cam-police-scanne",
+    name: { ja: "Columbia SC Traffic Cam + Police Scanner | I-26, I-20, I-77", en: "Columbia SC Traffic Cam + Police Scanner | I-26, I-20, I-77" },
+    lat: 5.217,
+    lng: -75.8212,
+    timeZone: "America/Bogota",
+    category: "city",
+    country: "CO",
+    source: {
+      videoId: "F14aJZOBLPg",
+      channelId: "UCX1QTUluCHrv6Pqo6RAGTmg",
+      titleKey: "Columbia SC Traffic Cam + Police Scanner | I-26, I-20, I-77",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "be-live-webcam-hotel-andromeda-c-hotels",
+    name: { ja: "Live Webcam @ Hotel Andromeda C-Hotels - Oostende Belgium", en: "Live Webcam @ Hotel Andromeda C-Hotels - Oostende Belgium" },
+    lat: 50.75,
+    lng: 4.5,
+    timeZone: "Europe/Brussels",
+    category: "city",
+    country: "BE",
+    source: {
+      videoId: "I09L5RCJkjo",
+      channelId: "UCmGJrhK3VM4BSOGF6g5pmZw",
+      titleKey: "🔴 Live Webcam @ Hotel Andromeda C-Hotels - Oostende Belgium",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "be-webcam-oostduinkerke-bad",
+    name: { ja: "Webcam Oostduinkerke-Bad", en: "Webcam Oostduinkerke-Bad" },
+    lat: 51.1157,
+    lng: 2.6822,
+    timeZone: "Europe/Brussels",
+    category: "city",
+    country: "BE",
+    source: {
+      videoId: "wqWoNyCAvss",
+      channelId: "UCPAgksFpFLJDVyMcIYsbz3A",
+      titleKey: "Webcam Oostduinkerke-Bad",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "se-haverdals-golfklubb-live",
+    name: { ja: "Haverdals Golfklubb Live", en: "Haverdals Golfklubb Live" },
+    lat: 56.7167,
+    lng: 12.65,
+    timeZone: "Europe/Stockholm",
+    category: "city",
+    country: "SE",
+    source: {
+      videoId: "9wxPPTIrC8k",
+      channelId: "UC4wFbFtRzpetXPhRulCdBIg",
+      titleKey: "Haverdals Golfklubb Live",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "se-risk-riksgransen-snowboard-och-skidkl",
+    name: { ja: "RISK - Riksgränsen Snowboard och SkidKlubb. Live from our clubhouse camera.", en: "RISK - Riksgränsen Snowboard och SkidKlubb. Live from our clubhouse camera." },
+    lat: 65.7333,
+    lng: 24.1333,
+    timeZone: "Europe/Stockholm",
+    category: "city",
+    country: "SE",
+    source: {
+      videoId: "Fx5ZDS0jKtU",
+      channelId: "UC1XlmGqT1StautEMJmV_T5Q",
+      titleKey: "RISK - Riksgränsen Snowboard och SkidKlubb. Live from our clubhouse camera.",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "fi-kalajoki-finland-live-adventure-park",
+    name: { ja: "Kalajoki Finland Live, Adventure Park Pakka", en: "Kalajoki Finland Live, Adventure Park Pakka" },
+    lat: 62.0167,
+    lng: 23.0167,
+    timeZone: "Europe/Helsinki",
+    category: "city",
+    country: "FI",
+    source: {
+      videoId: "vsJBqHwnK9w",
+      channelId: "UC-whuqv4HIi1O9hh9CHpPJg",
+      titleKey: "Kalajoki Finland Live, Adventure Park Pakka",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "fi-live-24-7-northern-lights-sky-cam-lap",
+    name: { ja: "LIVE 24/7 Northern Lights & Sky Cam | Lapland Finland Webcam | Aurora Borealis from Posio", en: "LIVE 24/7 Northern Lights & Sky Cam | Lapland Finland Webcam | Aurora Borealis from Posio" },
+    lat: 63.4198,
+    lng: 22.3088,
+    timeZone: "Europe/Helsinki",
+    category: "city",
+    country: "FI",
+    source: {
+      videoId: "HuCjMGI8fKg",
+      channelId: "UC2z6E_R2mADXr53hBL_lYmA",
+      titleKey: "LIVE 24/7 Northern Lights & Sky Cam | Lapland Finland Webcam | Aurora Borealis from Posio",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "fi-apukka-resort-live-cam-rovaniemi-lapl",
+    name: { ja: "Apukka Resort Live Cam Rovaniemi, Lapland by Aurora Alert Realtime", en: "Apukka Resort Live Cam Rovaniemi, Lapland by Aurora Alert Realtime" },
+    lat: 66.5789,
+    lng: 26.0142,
+    timeZone: "Europe/Helsinki",
+    category: "city",
+    country: "FI",
+    source: {
+      videoId: "wT8Zhh9MBEE",
+      channelId: "UC41lTeDc5XoWjVVfyZW7shA",
+      titleKey: "Apukka Resort Live Cam Rovaniemi, Lapland by Aurora Alert Realtime",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "fi-live-24-7-midnight-sun-lapland-finlan",
+    name: { ja: "LIVE 24/7 Midnight Sun Lapland Finland ️ Real-Time Summer View", en: "LIVE 24/7 Midnight Sun Lapland Finland ️ Real-Time Summer View" },
+    lat: 62.7851,
+    lng: 24.0171,
+    timeZone: "Europe/Helsinki",
+    category: "city",
+    country: "FI",
+    source: {
+      videoId: "9EVmPgzFrPw",
+      channelId: "UCWlhA6_5OMjeGqVVAEkDpQQ",
+      titleKey: "LIVE 24/7 Midnight Sun Lapland Finland ☀️ Real-Time Summer View",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "tr-24-7-live-cat-tv-no-ads-squirrel-and",
+    name: { ja: "24/7 LIVE CAT TV NO ADS Squirrel and Bird Watching: Unlimited Nature Fun for Everyone", en: "24/7 LIVE CAT TV NO ADS Squirrel and Bird Watching: Unlimited Nature Fun for Everyone" },
+    lat: 39.6064,
+    lng: 40.9684,
+    timeZone: "Europe/Istanbul",
+    category: "city",
+    country: "TR",
+    source: {
+      videoId: "UEyEs8AE1ss",
+      channelId: "UC-DqJ54Dx0a5SzANKdTKwPg",
+      titleKey: "🔴24/7 LIVE CAT TV NO ADS😺 Squirrel and Bird Watching: Unlimited Nature Fun for Everyone",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "be-live-webcam-nieuwpoort-belgian-coast",
+    name: { ja: "Live Webcam @ Nieuwpoort Belgian Coast - Brasserie Casino", en: "Live Webcam @ Nieuwpoort Belgian Coast - Brasserie Casino" },
+    lat: 51.1301,
+    lng: 2.7513,
+    timeZone: "Europe/Brussels",
+    category: "city",
+    country: "BE",
+    source: {
+      videoId: "mU08nJaIlIg",
+      channelId: "UCmGJrhK3VM4BSOGF6g5pmZw",
+      titleKey: "🔴 Live Webcam @ Nieuwpoort Belgian Coast - Brasserie Casino",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "pt-live-praia-da-alagoa-porto-da-cruz-hd",
+    name: { ja: "LIVE: Praia da Alagoa Porto da Cruz HD Webcam – Madeira Island", en: "LIVE: Praia da Alagoa Porto da Cruz HD Webcam – Madeira Island" },
+    lat: 41.1667,
+    lng: -8.5833,
+    timeZone: "Europe/Lisbon",
+    category: "city",
+    country: "PT",
+    source: {
+      videoId: "qm7tFS4cUkg",
+      channelId: "UCbZNp6qI3ffGgYhnAF9whyQ",
+      titleKey: "🔴 LIVE: Praia da Alagoa Porto da Cruz HD Webcam – Madeira Island",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "de-24-7-live-cat-tv-no-ads-midsummer-nut",
+    name: { ja: "24/7 LIVE CAT TV NO ADS Midsummer Nut Party with Cutest Red Squirrels and Adorable Little Birds", en: "24/7 LIVE CAT TV NO ADS Midsummer Nut Party with Cutest Red Squirrels and Adorable Little Birds" },
+    lat: 51.6527,
+    lng: 11.9106,
+    timeZone: "Europe/Berlin",
+    category: "city",
+    country: "DE",
+    source: {
+      videoId: "dJVVcv9-ndg",
+      channelId: "UC-DqJ54Dx0a5SzANKdTKwPg",
+      titleKey: "🔴24/7 LIVE CAT TV NO ADS😺 Midsummer Nut Party with Cutest Red Squirrels and Adorable Little Birds",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "nl-hoek-van-holland-boulevard-live-2k",
+    name: { ja: "Hoek van Holland Boulevard live 2K", en: "Hoek van Holland Boulevard live 2K" },
+    lat: 52.8842,
+    lng: 4.8736,
+    timeZone: "Europe/Amsterdam",
+    category: "city",
+    country: "NL",
+    source: {
+      videoId: "jDF264Bg1_c",
+      channelId: "UCgDKPUQWlxzaqPm6tOFrInw",
+      titleKey: "Hoek van Holland Boulevard live 2K",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "nl-live-hoek-van-holland-sterker-door-st",
+    name: { ja: "Live Hoek van Holland ~ Sterker door strand", en: "Live Hoek van Holland ~ Sterker door strand" },
+    lat: 52.8842,
+    lng: 4.8736,
+    timeZone: "Europe/Amsterdam",
+    category: "city",
+    country: "NL",
+    source: {
+      videoId: "9NRBCI8bkfo",
+      channelId: "UChFbxcSq9iCfdbu-twIfGuw",
+      titleKey: "🤙 Live Hoek van Holland ~ Sterker door strand",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "se-live-bjorkliden-hotel-fjallet-lapland",
+    name: { ja: "Live Björkliden Hotel Fjället Lapland Resorts", en: "Live Björkliden Hotel Fjället Lapland Resorts" },
+    lat: 65.4,
+    lng: 20.4,
+    timeZone: "Europe/Stockholm",
+    category: "city",
+    country: "SE",
+    source: {
+      videoId: "0pE2DNIcqoI",
+      channelId: "UCjjQH4AqvWu-zOrbbiW5aTg",
+      titleKey: "Live Björkliden Hotel Fjället Lapland Resorts",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "nl-egmond-aan-zee-live-webcam-strand-zee",
+    name: { ja: "Egmond aan Zee Live Webcam | Strand, Zee & Dorpscentrum", en: "Egmond aan Zee Live Webcam | Strand, Zee & Dorpscentrum" },
+    lat: 51.392,
+    lng: 4.315,
+    timeZone: "Europe/Amsterdam",
+    category: "city",
+    country: "NL",
+    source: {
+      videoId: "9xa5IvsIMoE",
+      channelId: "UCZZWtFnPc7_ohFnBeYTbT3w",
+      titleKey: "🔴 Egmond aan Zee Live Webcam 🌊 | Strand, Zee & Dorpscentrum",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "nl-live-zandvoort-boulevard-and-beach-ca",
+    name: { ja: "Live Zandvoort Boulevard and Beach Camera", en: "Live Zandvoort Boulevard and Beach Camera" },
+    lat: 52.3713,
+    lng: 4.5331,
+    timeZone: "Europe/Amsterdam",
+    category: "city",
+    country: "NL",
+    source: {
+      videoId: "q0-DDh1zdY4",
+      channelId: "UCgDKPUQWlxzaqPm6tOFrInw",
+      titleKey: "Live Zandvoort Boulevard and Beach Camera",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "nl-live-egmond-aan-zee-boulevard-en-beac",
+    name: { ja: "Live Egmond aan Zee Boulevard en Beach Camera", en: "Live Egmond aan Zee Boulevard en Beach Camera" },
+    lat: 51.392,
+    lng: 4.315,
+    timeZone: "Europe/Amsterdam",
+    category: "city",
+    country: "NL",
+    source: {
+      videoId: "mI1Os7TFdGc",
+      channelId: "UCgDKPUQWlxzaqPm6tOFrInw",
+      titleKey: "Live Egmond aan Zee Boulevard en Beach Camera",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "nl-strandpaviljoen-breezand-vrouwenpolde",
+    name: { ja: "Strandpaviljoen Breezand - Vrouwenpolder - 24/7 Webcam", en: "Strandpaviljoen Breezand - Vrouwenpolder - 24/7 Webcam" },
+    lat: 52.89,
+    lng: 4.8042,
+    timeZone: "Europe/Amsterdam",
+    category: "city",
+    country: "NL",
+    source: {
+      videoId: "z_WfgJ8lnZA",
+      channelId: "UChGVqb02S5ku_q7PrlPGxaA",
+      titleKey: "Strandpaviljoen Breezand - Vrouwenpolder - 24/7 Webcam",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "fi-saariselka-skiing-track-live-stream",
+    name: { ja: "Saariselkä Skiing Track Live stream", en: "Saariselkä Skiing Track Live stream" },
+    lat: 68.4196,
+    lng: 27.4148,
+    timeZone: "Europe/Helsinki",
+    category: "city",
+    country: "FI",
+    source: {
+      videoId: "dmGI0CZqD_c",
+      channelId: "UCgvqXxulyoanWkFEEtVNiTQ",
+      titleKey: "Saariselkä Skiing Track Live stream",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "nl-enjoy-the-live-webcam-with-beautiful",
+    name: { ja: "Enjoy the live webcam with beautiful sunsets in Zandvoort, The Netherlands.", en: "Enjoy the live webcam with beautiful sunsets in Zandvoort, The Netherlands." },
+    lat: 52.3713,
+    lng: 4.5331,
+    timeZone: "Europe/Amsterdam",
+    category: "city",
+    country: "NL",
+    source: {
+      videoId: "rs27UQIsaMU",
+      channelId: "UCDJh28AZ5bVqncHvBAiHk3A",
+      titleKey: "🔴 Enjoy the live webcam  with beautiful sunsets in Zandvoort, The Netherlands.",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "at-live-webcam-bad-kleinkirchheim-landha",
+    name: { ja: "Live-Webcam Bad Kleinkirchheim | Landhaus Apartments Prägant – 24/7 Panoramablick", en: "Live-Webcam Bad Kleinkirchheim | Landhaus Apartments Prägant – 24/7 Panoramablick" },
+    lat: 47.3412,
+    lng: 9.8989,
+    timeZone: "Europe/Vienna",
+    category: "city",
+    country: "AT",
+    source: {
+      videoId: "ySyPgIJ74GE",
+      channelId: "UCfKMzbReY9gRWE3oEpoME4A",
+      titleKey: "🔴 Live-Webcam Bad Kleinkirchheim | Landhaus Apartments Prägant – 24/7 Panoramablick",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "au-live-beaches-around-the-world-live-be",
+    name: { ja: "LIVE: Beaches Around the World — Live Beach Cam 24/7 | TravelTV", en: "LIVE: Beaches Around the World — Live Beach Cam 24/7 | TravelTV" },
+    lat: -37.4805,
+    lng: 140.0126,
+    timeZone: "Australia/Adelaide",
+    category: "city",
+    country: "AU",
+    source: {
+      videoId: "H7Up7A4g1R0",
+      channelId: "UC-vJL_7pXhCgpt4KjHsWCPg",
+      titleKey: "🔴 LIVE: Beaches Around the World — Live Beach Cam 24/7 | TravelTV",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "nz-lyall-bay-surf-cam-by-lbslsc",
+    name: { ja: "Lyall Bay Surf Cam by LBSLSC", en: "Lyall Bay Surf Cam by LBSLSC" },
+    lat: -39.4203,
+    lng: 176.8673,
+    timeZone: "Pacific/Auckland",
+    category: "city",
+    country: "NZ",
+    source: {
+      videoId: "Wqkr-o1P9OQ",
+      channelId: "UCQ47DQGRsWne_sKrIC9DcrQ",
+      titleKey: "Lyall Bay Surf Cam by LBSLSC",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "nz-titahi-bay-surf-cam-live",
+    name: { ja: "Titahi Bay surf cam live", en: "Titahi Bay surf cam live" },
+    lat: -39.4203,
+    lng: 176.8673,
+    timeZone: "Pacific/Auckland",
+    category: "city",
+    country: "NZ",
+    source: {
+      videoId: "SCazwWP6e-I",
+      channelId: "UCHT8V7CRkqI0SXz1f3CULlA",
+      titleKey: "Titahi Bay surf cam live",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-sea-lion-beach-british-columbia",
+    name: { ja: "LIVE Sea Lion Beach - British Columbia | explore.org", en: "LIVE Sea Lion Beach - British Columbia | explore.org" },
+    lat: 47.6062,
+    lng: -122.3321,
+    timeZone: "America/Los_Angeles",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "-uooI2satIQ",
+      channelId: "UC5RV1g0fRYXfrt75hqvohKw",
+      titleKey: "LIVE Sea Lion Beach - British Columbia | explore.org",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-live-puffin-loafing-ledge-maine-seabi",
+    name: { ja: "LIVE Puffin Loafing Ledge: Maine Seabird Colony | explore.org", en: "LIVE Puffin Loafing Ledge: Maine Seabird Colony | explore.org" },
+    lat: 42.0334,
+    lng: -87.8834,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "daFe_ygulPY",
+      channelId: "UCQpqwndsfuLig9BRo88AD_g",
+      titleKey: "LIVE Puffin Loafing Ledge: Maine Seabird Colony | explore.org",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "nl-live-webcam-of-the-skyline-of-zandvoo",
+    name: { ja: "Live webcam of the skyline of Zandvoort (Home to the Dutch Grand Prix), The Netherlands.", en: "Live webcam of the skyline of Zandvoort (Home to the Dutch Grand Prix), The Netherlands." },
+    lat: 52.3713,
+    lng: 4.5331,
+    timeZone: "Europe/Amsterdam",
+    category: "city",
+    country: "NL",
+    source: {
+      videoId: "KiPmDwgTAu0",
+      channelId: "UCDJh28AZ5bVqncHvBAiHk3A",
+      titleKey: "🔴Live webcam of the skyline of Zandvoort (Home to the Dutch Grand Prix), The Netherlands.",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "nl-aloha-de-noord-webcam",
+    name: { ja: "Aloha De Noord Webcam", en: "Aloha De Noord Webcam" },
+    lat: 51.6542,
+    lng: 5.8069,
+    timeZone: "Europe/Amsterdam",
+    category: "city",
+    country: "NL",
+    source: {
+      videoId: "pa7g8EaPwt8",
+      channelId: "UC2CH5mLofo4hziNmpPdFZ8w",
+      titleKey: "Aloha De Noord Webcam",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-sheep-barn-cam-at-farm-sanctuary-powe",
+    name: { ja: "Sheep Barn Cam at Farm Sanctuary powered by EXPLORE.org", en: "Sheep Barn Cam at Farm Sanctuary powered by EXPLORE.org" },
+    lat: 46.503,
+    lng: -92.6885,
+    timeZone: "America/Chicago",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "SnHke968zAA",
+      channelId: "UCMWAvusUV2eeVVHZDKiMKrw",
+      titleKey: "Sheep Barn Cam at Farm Sanctuary powered by EXPLORE.org",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "nl-live-webcam-boulevard-de-favauge-zand",
+    name: { ja: "Live webcam Boulevard De Favauge, Zandvoort (Home to the Dutch Grand Prix 2024), The Netherlands", en: "Live webcam Boulevard De Favauge, Zandvoort (Home to the Dutch Grand Prix 2024), The Netherlands" },
+    lat: 52.3713,
+    lng: 4.5331,
+    timeZone: "Europe/Amsterdam",
+    category: "city",
+    country: "NL",
+    source: {
+      videoId: "1pEn3j5gNGA",
+      channelId: "UCDJh28AZ5bVqncHvBAiHk3A",
+      titleKey: "🔴Live webcam Boulevard De Favauge,  Zandvoort (Home to the Dutch Grand Prix 2024), The Netherlands",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "sc-live-chatvote-country",
+    name: { ja: "[Live] ChatVote Country", en: "[Live] ChatVote Country" },
+    lat: -4.5833,
+    lng: 55.6667,
+    timeZone: "Indian/Mahe",
+    category: "city",
+    country: "SC",
+    source: {
+      videoId: "OxzHQ546YQY",
+      channelId: "UCU4Diuu_J3KRX2Rkj40ZZnA",
+      titleKey: "[Live] ChatVote Country",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "fj-sweet-morning-jazz-at-maldives-beach",
+    name: { ja: "Sweet Morning Jazz at Maldives Beach Cafe Ambience ~ Soft Bossa Nova & Wave Sounds for Relaxing", en: "Sweet Morning Jazz at Maldives Beach Cafe Ambience ~ Soft Bossa Nova & Wave Sounds for Relaxing" },
+    lat: -17.654,
+    lng: 177.2548,
+    timeZone: "Pacific/Fiji",
+    category: "city",
+    country: "FJ",
+    source: {
+      videoId: "9nvo8OcCtXg",
+      channelId: "UCpuuoKx5EgzHcFqmpWLkJeg",
+      titleKey: "Sweet Morning Jazz at Maldives Beach Cafe Ambience ~ Soft Bossa Nova & Wave Sounds for Relaxing",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "mv-paradise-found-ocean-sounds-live-24-7",
+    name: { ja: "Paradise Found: Ocean Sounds LIVE 24/7. Maldivian Wild Beach & Ocean Waves 4K ULTRA HD", en: "Paradise Found: Ocean Sounds LIVE 24/7. Maldivian Wild Beach & Ocean Waves 4K ULTRA HD" },
+    lat: 3.2,
+    lng: 73,
+    timeZone: "Indian/Maldives",
+    category: "city",
+    country: "MV",
+    source: {
+      videoId: "neprxg6F3Sc",
+      channelId: "UCPFewb4iRU051Go77_WrP0w",
+      titleKey: "Paradise Found: Ocean Sounds LIVE 24/7. Maldivian Wild Beach & Ocean Waves 4K ULTRA HD",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-24h-3",
+    name: { ja: "気田川（けたがわ）24hライブカメラ｜気田川漁業協同組合より配信（音声付）春野町・鮎の故郷・すみれの花咲く頃 （防災カメラとしてもお役立て下さい）", en: "気田川（けたがわ）24hライブカメラ｜気田川漁業協同組合より配信（音声付）春野町・鮎の故郷・すみれの花咲く頃 （防災カメラとしてもお役立て下さい）" },
+    lat: 35.0335,
+    lng: 135.7267,
+    timeZone: "Asia/Tokyo",
+    category: "nature",
+    country: "JP",
+    source: {
+      videoId: "fHG-8RlsR8c",
+      channelId: "UCJKH8wYxFYeufDnvy1MPofA",
+      titleKey: "気田川（けたがわ）24hライブカメラ｜気田川漁業協同組合より配信（音声付）春野町・鮎の故郷・すみれの花咲く頃　　（防災カメラとしてもお役立て下さい）",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ua-24-7-25",
+    name: { ja: "КАРТА ПОВІТРЯНИХ ТРИВОГ | Де ракета? | Україна Наживо 24/7 | Сповіщення про загрози | 25 серпня", en: "КАРТА ПОВІТРЯНИХ ТРИВОГ | Де ракета? | Україна Наживо 24/7 | Сповіщення про загрози | 25 серпня" },
+    lat: 49.098,
+    lng: 23.5193,
+    timeZone: "Europe/Kyiv",
+    category: "city",
+    country: "UA",
+    source: {
+      videoId: "A8JwEeRp81o",
+      channelId: "UCSsrBhwy9RdzxX9Hnvps-Vw",
+      titleKey: "КАРТА ПОВІТРЯНИХ ТРИВОГ | 🚀 Де ракета? |  Україна Наживо 24/7 | Сповіщення про загрози |  25 серпня",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "bg-live-bulgaria-webcams",
+    name: { ja: "Live камери България: София, Бояна и Черни връх | Bulgaria webcams", en: "Live камери България: София, Бояна и Черни връх | Bulgaria webcams" },
+    lat: 42.9619,
+    lng: 24.4058,
+    timeZone: "Europe/Sofia",
+    category: "city",
+    country: "BG",
+    source: {
+      videoId: "LKYcD-VAUjc",
+      channelId: "UCunD6k4qnEcO684VkVRdEAA",
+      titleKey: "Live камери България: София, Бояна и Черни връх | Bulgaria webcams",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "de-railcam-uk-sampler-stream",
+    name: { ja: "Railcam UK Sampler Stream", en: "Railcam UK Sampler Stream" },
+    lat: 50.6973,
+    lng: 7.1792,
+    timeZone: "Europe/Berlin",
+    category: "city",
+    country: "DE",
+    source: {
+      videoId: "ZC7HiaMkmlU",
+      channelId: "UC6YuojLzzdEMjbFiMHyecug",
+      titleKey: "Railcam UK Sampler Stream",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ch-lake-noquebay-live-from-timberline-re",
+    name: { ja: "Lake Noquebay Live From Timberline Resort", en: "Lake Noquebay Live From Timberline Resort" },
+    lat: 46.8185,
+    lng: 8.3968,
+    timeZone: "Europe/Zurich",
+    category: "city",
+    country: "CH",
+    source: {
+      videoId: "_8uhgXIZ_vQ",
+      channelId: "UCJfBClnssf9nQdzBEYpvQWQ",
+      titleKey: "Lake Noquebay Live From Timberline Resort",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "np-4k-live-wildlife-safari-animals-live",
+    name: { ja: "4k live wildlife safari | animals live | relaxing nature sound", en: "4k live wildlife safari | animals live | relaxing nature sound" },
+    lat: 27.7058,
+    lng: 85.3202,
+    timeZone: "Asia/Kathmandu",
+    category: "city",
+    country: "NP",
+    source: {
+      videoId: "7X-FPA3QuYU",
+      channelId: "UCAyFoigoMfo1wHN7XRn-HQA",
+      titleKey: "4k live wildlife safari | animals live | relaxing nature sound",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "de-live-webcam-palma-de-mallorca-paseo-m",
+    name: { ja: "Live Webcam Palma de Mallorca ️ Paseo Marítimo ️ Mallorca Balearic Islands 🅻🅸🆅🅴", en: "Live Webcam Palma de Mallorca ️ Paseo Marítimo ️ Mallorca Balearic Islands 🅻🅸🆅🅴" },
+    lat: 53.5672,
+    lng: 10.0455,
+    timeZone: "Europe/Berlin",
+    category: "city",
+    country: "DE",
+    source: {
+      videoId: "Lip4XNVyulc",
+      channelId: "UC7ekPkSzne_PsGbRJP0nkeg",
+      titleKey: "Live Webcam Palma de Mallorca ☀️ Paseo Marítimo ⛴️ Mallorca 🌎 Balearic Islands 🅻🅸🆅🅴",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ch-sacele-panoramic-webcam-metromat-bras",
+    name: { ja: "Sacele Panoramic Webcam - Metromat Brasov - Live Webcam", en: "Sacele Panoramic Webcam - Metromat Brasov - Live Webcam" },
+    lat: 46.1798,
+    lng: 7.2933,
+    timeZone: "Europe/Zurich",
+    category: "city",
+    country: "CH",
+    source: {
+      videoId: "EbckOT0HIQk",
+      channelId: "UCAxEkcZK-6Mmm3UXWEuZEEQ",
+      titleKey: "Sacele Panoramic Webcam - Metromat Brasov - 🔴 Live Webcam",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ch-i-m-giving-2-000-robux-to-every-viewe",
+    name: { ja: "I’m Giving 2,000 Robux to EVERY Viewer LIVE!", en: "I’m Giving 2,000 Robux to EVERY Viewer LIVE!" },
+    lat: 47.073,
+    lng: 7.5689,
+    timeZone: "Europe/Zurich",
+    category: "city",
+    country: "CH",
+    source: {
+      videoId: "Uc9C5xPk3X8",
+      channelId: "UC_Wpj0GdbZUj466uqN4Ze-g",
+      titleKey: "🔴 I’m Giving 2,000 Robux to EVERY Viewer LIVE!",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "tw-u-01-live-24h-24-7-bgm-jazz-blues-bj1",
+    name: { ja: "Ⓤ-01-Live-屏東縣 重要路口 即時影像 墾丁大街、墾丁大灣、墾丁路-24H》24/7天氣、車流人流 BGM Jazz & Blues 爵士和藍調 🅨ⒷⒿ149", en: "Ⓤ-01-Live-屏東縣 重要路口 即時影像 墾丁大街、墾丁大灣、墾丁路-24H》24/7天氣、車流人流 BGM Jazz & Blues 爵士和藍調 🅨ⒷⒿ149" },
+    lat: 22.6828,
+    lng: 120.4879,
+    timeZone: "Asia/Taipei",
+    category: "city",
+    country: "TW",
+    source: {
+      videoId: "ub7uQGCfqhs",
+      channelId: "UCnYcHH_lKR14OV3RgzUGTtQ",
+      titleKey: "Ⓤ-01-🔴Live-屏東縣 重要路口 即時影像 墾丁大街、墾丁大灣、墾丁路-24H》24/7天氣、車流人流 BGM Jazz & Blues 爵士和藍調 🅨ⒷⒿ149",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ch-live-penang-webcam-weather-georgetown",
+    name: { ja: "LIVE Penang webcam weather Georgetown, Penang Malaysia 马来西亚 - 槟城 - 乔治市 Gurney Drive-Komtar-Jelutong", en: "LIVE Penang webcam weather Georgetown, Penang Malaysia 马来西亚 - 槟城 - 乔治市 Gurney Drive-Komtar-Jelutong" },
+    lat: 46.944,
+    lng: 7.4548,
+    timeZone: "Europe/Zurich",
+    category: "city",
+    country: "CH",
+    source: {
+      videoId: "JJ4pSHaYB5s",
+      channelId: "UCceaS3UV2CUXseTsOjCAtcQ",
+      titleKey: "LIVE Penang webcam weather Georgetown, Penang Malaysia 马来西亚 - 槟城 - 乔治市 Gurney Drive-Komtar-Jelutong",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "de-live-greater-nevada-field-camera",
+    name: { ja: "Live Greater Nevada Field Camera", en: "Live Greater Nevada Field Camera" },
+    lat: 52.9684,
+    lng: 11.1673,
+    timeZone: "Europe/Berlin",
+    category: "city",
+    country: "DE",
+    source: {
+      videoId: "V-ERTb6JXrc",
+      channelId: "UCsDU8TKp0yzyVggxWlLQlDQ",
+      titleKey: "Live Greater Nevada Field Camera",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "pl-market-square-portsmouth-nh-us",
+    name: { ja: "Market Square, Portsmouth, NH US", en: "Market Square, Portsmouth, NH US" },
+    lat: 50.2522,
+    lng: 19.0214,
+    timeZone: "Europe/Warsaw",
+    category: "city",
+    country: "PL",
+    source: {
+      videoId: "LkZZTkRHLVQ",
+      channelId: "UC8gbWbcNNyb5-NIXvFklkOA",
+      titleKey: "Market Square, Portsmouth, NH US",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "pl-state-street-north-live-cam",
+    name: { ja: "State Street North Live Cam", en: "State Street North Live Cam" },
+    lat: 53.4925,
+    lng: 14.5922,
+    timeZone: "Europe/Warsaw",
+    category: "city",
+    country: "PL",
+    source: {
+      videoId: "CGrmP5woZz8",
+      channelId: "UCvB8asb1Wbc-Mur7oIZ3TxA",
+      titleKey: "State Street North Live Cam",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "pl-maria-s-cam-12a-street-view-of-ubalde",
+    name: { ja: "Maria's Cam 12a Street View of Ubalde Agdao, Davao CIty Philippines #philippines #maria", en: "Maria's Cam 12a Street View of Ubalde Agdao, Davao CIty Philippines #philippines #maria" },
+    lat: 54.3635,
+    lng: 18.6541,
+    timeZone: "Europe/Warsaw",
+    category: "city",
+    country: "PL",
+    source: {
+      videoId: "3mHk_vYmY7Y",
+      channelId: "UCZ6ZuSqeKrjFP7w9lS0nx0Q",
+      titleKey: "Maria's Cam 12a Street View of Ubalde Agdao, Davao CIty Philippines #philippines #maria",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "pl-philippines-live-camera-bankerohan-ma",
+    name: { ja: "PHILIPPINES Live camera, Bankerohan Market area 2, Davao City #philippines", en: "PHILIPPINES Live camera, Bankerohan Market area 2, Davao City #philippines" },
+    lat: 53.1692,
+    lng: 15.414,
+    timeZone: "Europe/Warsaw",
+    category: "city",
+    country: "PL",
+    source: {
+      videoId: "JklHtgXkQ2o",
+      channelId: "UC0djAWwMXP22wzocdJR9dWw",
+      titleKey: "🔴 PHILIPPINES Live camera, Bankerohan Market area 2, Davao City #philippines",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "pl-maria-s-cam-12-felve-tuna-panga-and-e",
+    name: { ja: "Maria's Cam 12 Felve Tuna Panga and Eatery , Ubalde Agdao Davao City, Philippine", en: "Maria's Cam 12 Felve Tuna Panga and Eatery , Ubalde Agdao Davao City, Philippine" },
+    lat: 52.2395,
+    lng: 21.03,
+    timeZone: "Europe/Warsaw",
+    category: "city",
+    country: "PL",
+    source: {
+      videoId: "tllSPGECsPc",
+      channelId: "UCZ6ZuSqeKrjFP7w9lS0nx0Q",
+      titleKey: "Maria's Cam 12 Felve Tuna Panga and Eatery , Ubalde Agdao Davao City, Philippine",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "no-live-santa-claus-village",
+    name: { ja: "LIVE @ Santa Claus Village", en: "LIVE @ Santa Claus Village" },
+    lat: 59.9024,
+    lng: 10.7671,
+    timeZone: "Europe/Oslo",
+    category: "city",
+    country: "NO",
+    source: {
+      videoId: "e90mfzdBBb8",
+      channelId: "UCMhdPZXDUCTMHxck5GIqHaw",
+      titleKey: "LIVE @ Santa Claus Village",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "no-aurora-alert-realtime-live",
+    name: { ja: "Aurora Alert Realtime Live", en: "Aurora Alert Realtime Live" },
+    lat: 69.7278,
+    lng: 30.0407,
+    timeZone: "Europe/Oslo",
+    category: "city",
+    country: "NO",
+    source: {
+      videoId: "AvKdtZIb-6c",
+      channelId: "UCCIsSLTZ1k4CwVIYP1Mn7Zw",
+      titleKey: "Aurora Alert Realtime Live",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "no-northumberland-aurora-cam-live-stream",
+    name: { ja: "Northumberland Aurora Cam LIVE Stream (Cresswell, UK)", en: "Northumberland Aurora Cam LIVE Stream (Cresswell, UK)" },
+    lat: 69.7278,
+    lng: 30.0407,
+    timeZone: "Europe/Oslo",
+    category: "city",
+    country: "NO",
+    source: {
+      videoId: "hvFJgkTBpNI",
+      channelId: "UCiW5HaKJU6kwrs3G_LG0Geg",
+      titleKey: "Northumberland Aurora Cam LIVE Stream (Cresswell, UK)",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "no-northumberland-aurora-cam-live-st-2",
+    name: { ja: "Northumberland Aurora Cam LIVE Stream (Embleton, UK)", en: "Northumberland Aurora Cam LIVE Stream (Embleton, UK)" },
+    lat: 69.7278,
+    lng: 30.0407,
+    timeZone: "Europe/Oslo",
+    category: "city",
+    country: "NO",
+    source: {
+      videoId: "JZ38uyr-J6o",
+      channelId: "UCiW5HaKJU6kwrs3G_LG0Geg",
+      titleKey: "Northumberland Aurora Cam LIVE Stream (Embleton, UK)",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-179",
+    name: { ja: "大磯海岸ライブカメラ", en: "大磯海岸ライブカメラ" },
+    lat: 34.4993,
+    lng: 133.5282,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "WV9DtVXgwqE",
+      channelId: "UCqjC7sdgf78PUaZ2RSHvG_g",
+      titleKey: "大磯海岸ライブカメラ",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-180",
+    name: { ja: "白山通り交差点 ライブカメラ", en: "白山通り交差点 ライブカメラ" },
+    lat: 35.7417,
+    lng: 139.7306,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "0PAnSx_u_a8",
+      channelId: "UCeDyTJklgdeV7yVIYiU0Eww",
+      titleKey: "白山通り交差点　ライブカメラ",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-181",
+    name: { ja: "道後温泉本館ライブカメラ（正面カメラ）", en: "道後温泉本館ライブカメラ（正面カメラ）" },
+    lat: 34.8428,
+    lng: 134.1578,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "hy7sPwngWNQ",
+      channelId: "UClAtpDytL1hmOUeiJaNrHlQ",
+      titleKey: "道後温泉本館ライブカメラ（正面カメラ）",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "no-live-northern-lights-camera-from-utsj",
+    name: { ja: "LIVE northern lights camera from Utsjoki in Finnish Lapland", en: "LIVE northern lights camera from Utsjoki in Finnish Lapland" },
+    lat: 69.6501,
+    lng: 18.956,
+    timeZone: "Europe/Oslo",
+    category: "city",
+    country: "NO",
+    source: {
+      videoId: "3HXRJ-4tOCw",
+      channelId: "UC7sG1cQ5TFIJarNQa2SSfGw",
+      titleKey: "LIVE northern lights camera from Utsjoki in Finnish Lapland",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-35",
+    name: { ja: "【LIVE】松江・宍道湖ライブカメラ", en: "【LIVE】松江・宍道湖ライブカメラ" },
+    lat: 35.41,
+    lng: 132.9178,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "rTViPLUmYAc",
+      channelId: "UCuE_--BXc0J7gIAtA_t4NnQ",
+      titleKey: "【LIVE】松江・宍道湖ライブカメラ",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-camera-6",
+    name: { ja: "【LIVE CAMERA】長門湯本温泉ライブカメラ 恩湯（おんとう）前", en: "【LIVE CAMERA】長門湯本温泉ライブカメラ 恩湯（おんとう）前" },
+    lat: 34.3292,
+    lng: 131.1736,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "EPEiGzCTX7w",
+      channelId: "UCfE5u1B3RuyBxgpuh8biMfA",
+      titleKey: "【LIVE CAMERA】長門湯本温泉ライブカメラ 恩湯（おんとう）前",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "no-nelson-tasman-live-camera-weather-and",
+    name: { ja: "Nelson/Tasman Live Camera - Weather and Stargazing in 4K | Meteor Showers - Aurora sometimes..", en: "Nelson/Tasman Live Camera - Weather and Stargazing in 4K | Meteor Showers - Aurora sometimes.." },
+    lat: -54.4215,
+    lng: 3.4329,
+    timeZone: "Etc/GMT",
+    category: "city",
+    country: "NO",
+    source: {
+      videoId: "MPwMmEvl6F0",
+      channelId: "UCu8iqjezmCQJC0K2csGS7Yg",
+      titleKey: "🔴 Nelson/Tasman Live Camera - Weather and Stargazing in 4K  | Meteor Showers - Aurora sometimes..",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-bgm",
+    name: { ja: "【道の駅】新潟県・笹川流れ 夕日会館 Liveチャンネル+BGM 日頃、当ライブチャンネルをご視聴頂きありがとうございます。", en: "【道の駅】新潟県・笹川流れ 夕日会館 Liveチャンネル+BGM 日頃、当ライブチャンネルをご視聴頂きありがとうございます。" },
+    lat: 38.2669,
+    lng: 140.8673,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "nwO2D1yUnT8",
+      channelId: "UCFfurCxvxE0mFkFy1ZwSang",
+      titleKey: "【道の駅】新潟県・笹川流れ 夕日会館　Liveチャンネル+BGM　☆日頃、当ライブチャンネルをご視聴頂きありがとうございます。☆",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-jupeer",
+    name: { ja: "JUPEERゲレンデライブカメラ", en: "JUPEERゲレンデライブカメラ" },
+    lat: 35.1161,
+    lng: 135.8107,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "D4YiBKIsZVA",
+      channelId: "UC1xeTccsAQdz7-fF0eAa5HA",
+      titleKey: "JUPEERゲレンデライブカメラ",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-1500m",
+    name: { ja: "【ライブ配信】丸沼高原キャンピングバレイ 標高1500m", en: "【ライブ配信】丸沼高原キャンピングバレイ 標高1500m" },
+    lat: 36.8276,
+    lng: 139.3454,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "cqvEOhOzN2o",
+      channelId: "UCVh1-I9rKs7w7C7_LuUhwcg",
+      titleKey: "【ライブ配信】丸沼高原キャンピングバレイ　標高1500m",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-182",
+    name: { ja: "鹿島槍スキー場 中央ゲレンデ ライブカメラ", en: "鹿島槍スキー場 中央ゲレンデ ライブカメラ" },
+    lat: 36.6006,
+    lng: 137.8256,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "4F0Y_9SO3-0",
+      channelId: "UCh1csHupXAcvi1erIFJr6QA",
+      titleKey: "鹿島槍スキー場 中央ゲレンデ ライブカメラ",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-183",
+    name: { ja: "【ライブ配信】丸沼高原 レストランとんふぁん", en: "【ライブ配信】丸沼高原 レストランとんふぁん" },
+    lat: 36.8276,
+    lng: 139.3454,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "Xd5ssXY_BVA",
+      channelId: "UCVh1-I9rKs7w7C7_LuUhwcg",
+      titleKey: "【ライブ配信】丸沼高原　レストランとんふぁん",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-184",
+    name: { ja: "成田山新勝寺ライブカメラ", en: "成田山新勝寺ライブカメラ" },
+    lat: 35.7863,
+    lng: 140.3172,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "g9Y-Bkq5O0Q",
+      channelId: "UC43jgy-6kAJu2kEyHuerdGQ",
+      titleKey: "成田山新勝寺ライブカメラ",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-himeji-castle-live-camera",
+    name: { ja: "姫路城ライブカメラ（Himeji Castle Live Camera）", en: "姫路城ライブカメラ（Himeji Castle Live Camera）" },
+    lat: 35.6977,
+    lng: 139.7765,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "76M1BK8_chY",
+      channelId: "UCj8MaS8DMpPHGraWX6pKPww",
+      titleKey: "姫路城ライブカメラ（Himeji Castle Live Camera）",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ch-schweitzer-webcam-the-village",
+    name: { ja: "Schweitzer Webcam: The Village", en: "Schweitzer Webcam: The Village" },
+    lat: 47.2905,
+    lng: 7.1913,
+    timeZone: "Europe/Zurich",
+    category: "city",
+    country: "CH",
+    source: {
+      videoId: "Kthd2hMYTXc",
+      channelId: "UCY1jnkFfzv09-Eg9OehwJJw",
+      titleKey: "Schweitzer Webcam: The Village",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-hawaiian-cafe-hawaiian-ukulele-with-o",
+    name: { ja: "Hawaiian Cafe: Hawaiian Ukulele with Ocean Sounds - Relaxing Cafe Music with Ocean Waves ハワイアンミュージック", en: "Hawaiian Cafe: Hawaiian Ukulele with Ocean Sounds - Relaxing Cafe Music with Ocean Waves ハワイアンミュージック" },
+    lat: 34.8284,
+    lng: 135.6562,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "HdiKqg23D0o",
+      channelId: "UCQINXHZqCU5i06HzxRkujfg",
+      titleKey: "Hawaiian Cafe: Hawaiian Ukulele with Ocean Sounds - Relaxing Cafe Music with Ocean Waves ハワイアンミュージック",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-soft-lofi-room-chill-vibes-for-peacef",
+    name: { ja: "Soft Lofi Room Chill Vibes for Peaceful Study & Relaxation", en: "Soft Lofi Room Chill Vibes for Peaceful Study & Relaxation" },
+    lat: 35.6695,
+    lng: 139.5997,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "yf5NOyy1SXU",
+      channelId: "UCIB228QNsdJDSX8bocYCZOA",
+      titleKey: "Soft Lofi Room 🎧 Chill Vibes for Peaceful Study & Relaxation",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-elegant-bossa-nova-jazz-music-ocean-w",
+    name: { ja: "Elegant Bossa Nova Jazz Music & Ocean Wave Sounds at Seaside Cafe Ambience for Relax, Stress Relief", en: "Elegant Bossa Nova Jazz Music & Ocean Wave Sounds at Seaside Cafe Ambience for Relax, Stress Relief" },
+    lat: 35.0956,
+    lng: 136.9706,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "nOa1kTGU5pU",
+      channelId: "UCFjM4SzH8zAvsC0azlStgaw",
+      titleKey: "Elegant Bossa Nova Jazz Music & Ocean Wave Sounds at Seaside Cafe Ambience for Relax, Stress Relief",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-relaxing-jazz-piano-radio-slow-jazz-m",
+    name: { ja: "Relaxing Jazz Piano Radio - Slow Jazz Music - 24/7 Live Stream - Music For Work & Study", en: "Relaxing Jazz Piano Radio - Slow Jazz Music - 24/7 Live Stream - Music For Work & Study" },
+    lat: 34.8553,
+    lng: 135.6153,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "Dx5qFachd3A",
+      channelId: "UCJhjE7wbdYAae1G25m0tHAA",
+      titleKey: "Relaxing Jazz Piano Radio - Slow Jazz Music - 24/7 Live Stream - Music For Work & Study",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-24-news24-japan-news-live",
+    name: { ja: "【ライブ】日本の最新ニュースを24時間ライブ配信｜テレ朝NEWS24（Japan News LIVE）【チャットアンケート実施中！あなたの意見は？】", en: "【ライブ】日本の最新ニュースを24時間ライブ配信｜テレ朝NEWS24（Japan News LIVE）【チャットアンケート実施中！あなたの意見は？】" },
+    lat: 35.6691,
+    lng: 139.5947,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "coYw-eVU0Ks",
+      channelId: "UCGCZAYq5Xxojl_tSXcVJhiQ",
+      titleKey: "【ライブ】日本の最新ニュースを24時間ライブ配信｜テレ朝NEWS24（Japan News LIVE）【チャットアンケート実施中！あなたの意見は？】",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-24-24-7-live-shark-cam-ann",
+    name: { ja: "【お腹で共食い!?】“最強”だけが生まれるシロワニの静かな泳ぎ｜サメ好きのパラダイスから24時間ライブ配信！アクアワールド茨城県大洗水族館 24/7 Live Shark Cam【ANN/テレ朝】", en: "【お腹で共食い!?】“最強”だけが生まれるシロワニの静かな泳ぎ｜サメ好きのパラダイスから24時間ライブ配信！アクアワールド茨城県大洗水族館 24/7 Live Shark Cam【ANN/テレ朝】" },
+    lat: 26.32,
+    lng: 127.759,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "4GyL-3_I9Kc",
+      channelId: "UCGCZAYq5Xxojl_tSXcVJhiQ",
+      titleKey: "【お腹で共食い!?】“最強”だけが生まれるシロワニの静かな泳ぎ｜サメ好きのパラダイスから24時間ライブ配信！アクアワールド茨城県大洗水族館  24/7 Live Shark Cam【ANN/テレ朝】",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-8-26-ann-live",
+    name: { ja: "【ライブ】8/26 夜ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】", en: "【ライブ】8/26 夜ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】" },
+    lat: 35.6816,
+    lng: 139.5152,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "lrmm_CysgZA",
+      channelId: "UCGCZAYq5Xxojl_tSXcVJhiQ",
+      titleKey: "【ライブ】8/26 夜ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-10-2-4-15-2026-8-25-26-ann-live",
+    name: { ja: "【中野ブロードウェイで高級時計窃盗】10秒で計2億円相当の腕時計4本窃盗/ “逃走”キックボード15分前に借りたか/など【ニュースまとめ】(2026年8月25日～26日) ANN/テレ朝 LIVE", en: "【中野ブロードウェイで高級時計窃盗】10秒で計2億円相当の腕時計4本窃盗/ “逃走”キックボード15分前に借りたか/など【ニュースまとめ】(2026年8月25日～26日) ANN/テレ朝 LIVE" },
+    lat: 35.6512,
+    lng: 139.7531,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "ZWRuNTp8tI8",
+      channelId: "UCGCZAYq5Xxojl_tSXcVJhiQ",
+      titleKey: "【中野ブロードウェイで高級時計窃盗】10秒で計2億円相当の腕時計4本窃盗/ “逃走”キックボード15分前に借りたか/など【ニュースまとめ】(2026年8月25日～26日) ANN/テレ朝　LIVE",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "sg-24-globalnewstv-24h-live-news-24",
+    name: { ja: "寰宇新聞24小時線上直播｜GlobalNewsTV 24h live news｜ 台湾のニュース24時間ライブ配信中 ｜대만 뉴스 생방송", en: "寰宇新聞24小時線上直播｜GlobalNewsTV 24h live news｜ 台湾のニュース24時間ライブ配信中 ｜대만 뉴스 생방송" },
+    lat: 1.3133,
+    lng: 103.8997,
+    timeZone: "Asia/Singapore",
+    category: "city",
+    country: "SG",
+    source: {
+      videoId: "6IquAgfvYmc",
+      channelId: "UCp2f7tGJGN6R9Muxipem8Nw",
+      titleKey: "寰宇新聞24小時線上直播｜GlobalNewsTV 24h live news｜ 台湾のニュース24時間ライブ配信中 ｜대만 뉴스 생방송",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-icc-live-2026-8-26-ann",
+    name: { ja: "【ライブ】ICC（国際刑事裁判所）赤根智子所長が会見 トランプ政権が制裁対象に指定【LIVE】 (2026年8月26日) ANN/テレ朝", en: "【ライブ】ICC（国際刑事裁判所）赤根智子所長が会見 トランプ政権が制裁対象に指定【LIVE】 (2026年8月26日) ANN/テレ朝" },
+    lat: 35.9058,
+    lng: 139.4812,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "SNBBD6CamPs",
+      channelId: "UCGCZAYq5Xxojl_tSXcVJhiQ",
+      titleKey: "【ライブ】ICC（国際刑事裁判所）赤根智子所長が会見 トランプ政権が制裁対象に指定【LIVE】 (2026年8月26日) ANN/テレ朝",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-24h-live-tbs-news-dig",
+    name: { ja: "【24h LIVE】最新ニュースをライブ配信中！ | TBS NEWS DIG", en: "【24h LIVE】最新ニュースをライブ配信中！ | TBS NEWS DIG" },
+    lat: 35.672,
+    lng: 139.7347,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "Anr15FA9OCI",
+      channelId: "UC6AG81pAkf6Lbi_1VC5NmPA",
+      titleKey: "【24h LIVE】最新ニュースをライブ配信中！ |  TBS NEWS DIG",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-japan-news-digest-live-8-26-tbs",
+    name: { ja: "【LIVE】夜のニュース（Japan News Digest Live）最新情報など（8月26日）｜TBS NEWS DIG", en: "【LIVE】夜のニュース（Japan News Digest Live）最新情報など（8月26日）｜TBS NEWS DIG" },
+    lat: 33.2296,
+    lng: 130.3373,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "wkIG1PhnU4o",
+      channelId: "UC6AG81pAkf6Lbi_1VC5NmPA",
+      titleKey: "【LIVE】夜のニュース（Japan News Digest Live）最新情報など（8月26日）｜TBS NEWS DIG",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-1-26-08-26-19-10",
+    name: { ja: "博多駅山陽新幹線ライブカメラ１ (26/08/26 19:10頃～", en: "博多駅山陽新幹線ライブカメラ１ (26/08/26 19:10頃～" },
+    lat: 34.6601,
+    lng: 135.4979,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "jRKpe2jDC7c",
+      channelId: "UClShWL9AQaRxD-iurVYiSUQ",
+      titleKey: "博多駅山陽新幹線ライブカメラ１ (26/08/26 19:10頃～",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "hu-live-forum-machico-webcam-madeira-por",
+    name: { ja: "LIVE: Forum Machico Webcam, Madeira, Portugal | Madeira-Web", en: "LIVE: Forum Machico Webcam, Madeira, Portugal | Madeira-Web" },
+    lat: 47.5008,
+    lng: 19.058,
+    timeZone: "Europe/Budapest",
+    category: "city",
+    country: "HU",
+    source: {
+      videoId: "sEo0ASp-U8A",
+      channelId: "UC1tBnbs03VJ34oLD8cmJSVw",
+      titleKey: "🔴 LIVE: Forum Machico Webcam, Madeira, Portugal | Madeira-Web",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-185",
+    name: { ja: "ぐんまの道路ライブカメラ（（主）前橋安中富岡線 上高尾交差点南）", en: "ぐんまの道路ライブカメラ（（主）前橋安中富岡線 上高尾交差点南）" },
+    lat: 36.2787,
+    lng: 138.9003,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "JYui9tCoKcU",
+      channelId: "UCGW7Cx2p9UI_KffBLVNZ2mw",
+      titleKey: "ぐんまの道路ライブカメラ（（主）前橋安中富岡線　上高尾交差点南）",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-2026-8-26-live",
+    name: { ja: "【ライブ】最新天気ニュース・地震情報 2026年8月26日(水) ／九州や紀伊半島などで雨雲が急発達 東日本や東北でも強雨注意〈ウェザーニュースLiVEムーン・駒木結衣／宇野沢達也〉", en: "【ライブ】最新天気ニュース・地震情報 2026年8月26日(水) ／九州や紀伊半島などで雨雲が急発達 東日本や東北でも強雨注意〈ウェザーニュースLiVEムーン・駒木結衣／宇野沢達也〉" },
+    lat: 35.6515,
+    lng: 140.0411,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "htz9A1JMrr8",
+      channelId: "UCNsidkYpIAQ4QaufptQBPHQ",
+      titleKey: "【ライブ】最新天気ニュース・地震情報 2026年8月26日(水) ／九州や紀伊半島などで雨雲が急発達　東日本や東北でも強雨注意〈ウェザーニュースLiVEムーン・駒木結衣／宇野沢達也〉",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-186",
+    name: { ja: "ぐんまの道路ライブカメラ（西毛広域幹線道路 榛名令和大橋）", en: "ぐんまの道路ライブカメラ（西毛広域幹線道路 榛名令和大橋）" },
+    lat: 36.3034,
+    lng: 139.0862,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "CD9efHFLFG0",
+      channelId: "UCGW7Cx2p9UI_KffBLVNZ2mw",
+      titleKey: "ぐんまの道路ライブカメラ（西毛広域幹線道路　榛名令和大橋）",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-254",
+    name: { ja: "ぐんまの道路ライブカメラ（（国）２５４号（バイパス） 新富岡大橋）", en: "ぐんまの道路ライブカメラ（（国）２５４号（バイパス） 新富岡大橋）" },
+    lat: 36.3034,
+    lng: 139.0862,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "p9pzUJXx_LI",
+      channelId: "UCGW7Cx2p9UI_KffBLVNZ2mw",
+      titleKey: "ぐんまの道路ライブカメラ（（国）２５４号（バイパス）　新富岡大橋）",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-254-2",
+    name: { ja: "ぐんまの道路ライブカメラ（（国）２５４号（バイパス） 藤武橋北詰）", en: "ぐんまの道路ライブカメラ（（国）２５４号（バイパス） 藤武橋北詰）" },
+    lat: 36.3034,
+    lng: 139.0862,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "518vEnzY5Zk",
+      channelId: "UCGW7Cx2p9UI_KffBLVNZ2mw",
+      titleKey: "ぐんまの道路ライブカメラ（（国）２５４号（バイパス）　藤武橋北詰）",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-187",
+    name: { ja: "ぐんまの道路ライブカメラ（（主）前橋安中富岡線 町屋橋付近）", en: "ぐんまの道路ライブカメラ（（主）前橋安中富岡線 町屋橋付近）" },
+    lat: 36.3034,
+    lng: 139.0862,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "kkZNwqS5rtM",
+      channelId: "UCGW7Cx2p9UI_KffBLVNZ2mw",
+      titleKey: "ぐんまの道路ライブカメラ（（主）前橋安中富岡線　町屋橋付近）",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-4-3",
+    name: { ja: "ぐんまの道路ライブカメラ（（主）松井田軽井沢線 カーブ４）", en: "ぐんまの道路ライブカメラ（（主）松井田軽井沢線 カーブ４）" },
+    lat: 34.365,
+    lng: 139.2587,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "LWdZlPBMd3c",
+      channelId: "UCGW7Cx2p9UI_KffBLVNZ2mw",
+      titleKey: "ぐんまの道路ライブカメラ（（主）松井田軽井沢線　カーブ４）",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-188",
+    name: { ja: "ぐんまの道路ライブカメラ（（主）藤岡大胡線 駒形跨線橋）", en: "ぐんまの道路ライブカメラ（（主）藤岡大胡線 駒形跨線橋）" },
+    lat: 36.3034,
+    lng: 139.0862,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "a83OzgE9IlI",
+      channelId: "UCRcPwcVRpG2BZIeReVAqWcw",
+      titleKey: "ぐんまの道路ライブカメラ（（主）藤岡大胡線　駒形跨線橋）",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-189",
+    name: { ja: "ぐんまの道路ライブカメラ（上信自動車道 渋川西バイパス金井付近）", en: "ぐんまの道路ライブカメラ（上信自動車道 渋川西バイパス金井付近）" },
+    lat: 36.3034,
+    lng: 139.0862,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "s_Xu_yqUlHA",
+      channelId: "UCRcPwcVRpG2BZIeReVAqWcw",
+      titleKey: "ぐんまの道路ライブカメラ（上信自動車道　渋川西バイパス金井付近）",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-190",
+    name: { ja: "ぐんまの道路ライブカメラ（（主）前橋高崎線 石倉アンダーパス）", en: "ぐんまの道路ライブカメラ（（主）前橋高崎線 石倉アンダーパス）" },
+    lat: 36.3034,
+    lng: 139.0862,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "_969tVoAygE",
+      channelId: "UCRcPwcVRpG2BZIeReVAqWcw",
+      titleKey: "ぐんまの道路ライブカメラ（（主）前橋高崎線　石倉アンダーパス）",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-191",
+    name: { ja: "ぐんまの道路ライブカメラ（（主）前橋館林線 木工団地入口交差点）", en: "ぐんまの道路ライブカメラ（（主）前橋館林線 木工団地入口交差点）" },
+    lat: 36.3034,
+    lng: 139.0862,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "VDVS0THX4DI",
+      channelId: "UCRcPwcVRpG2BZIeReVAqWcw",
+      titleKey: "ぐんまの道路ライブカメラ（（主）前橋館林線　木工団地入口交差点）",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-192",
+    name: { ja: "ぐんまの道路ライブカメラ（（主）前橋長瀞線(バイパス) 六供町交差点）", en: "ぐんまの道路ライブカメラ（（主）前橋長瀞線(バイパス) 六供町交差点）" },
+    lat: 36.1147,
+    lng: 139.1871,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "e4znEtkpDys",
+      channelId: "UCRcPwcVRpG2BZIeReVAqWcw",
+      titleKey: "ぐんまの道路ライブカメラ（（主）前橋長瀞線(バイパス)　六供町交差点）",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "tw-a-02-24h-bgm-pop-rock-power-anthem-sp",
+    name: { ja: "Ⓐ-02-新北市立新莊棒球場、富邦悍將棒球隊 新莊棒球場 新莊區 重要路口即時影像 》24H 天氣、車流人流狀況 BGM : Pop-Rock / Power Anthem 運動搖滾 🅣ⓈⓅ49", en: "Ⓐ-02-新北市立新莊棒球場、富邦悍將棒球隊 新莊棒球場 新莊區 重要路口即時影像 》24H 天氣、車流人流狀況 BGM : Pop-Rock / Power Anthem 運動搖滾 🅣ⓈⓅ49" },
+    lat: 24.8524,
+    lng: 121.1464,
+    timeZone: "Asia/Taipei",
+    category: "city",
+    country: "TW",
+    source: {
+      videoId: "kDq9H9DLIkc",
+      channelId: "UCnYcHH_lKR14OV3RgzUGTtQ",
+      titleKey: "Ⓐ-02-🔴新北市立新莊棒球場、富邦悍將棒球隊 新莊棒球場 新莊區 重要路口即時影像 》24H 天氣、車流人流狀況 BGM : Pop-Rock / Power Anthem 運動搖滾 🅣ⓈⓅ49",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "tw-a-07-live-yilan-county-taiwan-24h-24",
+    name: { ja: "Ⓐ-07-Live-宜蘭縣 重要路口 即時影像-Yilan County, Taiwan 24H》 24/7, 365 天氣、車流人流狀況 Love Song 🅣ⓁⓈ204", en: "Ⓐ-07-Live-宜蘭縣 重要路口 即時影像-Yilan County, Taiwan 24H》 24/7, 365 天氣、車流人流狀況 Love Song 🅣ⓁⓈ204" },
+    lat: 23.9739,
+    lng: 120.982,
+    timeZone: "Asia/Taipei",
+    category: "city",
+    country: "TW",
+    source: {
+      videoId: "eo2CMMxMYHg",
+      channelId: "UCnYcHH_lKR14OV3RgzUGTtQ",
+      titleKey: "Ⓐ-07-🔴Live-宜蘭縣 重要路口 即時影像-Yilan County, Taiwan  24H》 24/7, 365 天氣、車流人流狀況 Love Song 🅣ⓁⓈ204",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "tw-a-06-24h-bgm-pop-rock-power-anthem-sp",
+    name: { ja: "Ⓐ-06-樂天桃猿棒球隊主場 樂天桃園棒球場、桃園體育園區、青埔運動公園棒球場 重要路口即時影像》24H 天氣、車流人流狀況 BGM Pop-Rock/Power Anthem 運動搖滾 🅣ⓈⓅ49", en: "Ⓐ-06-樂天桃猿棒球隊主場 樂天桃園棒球場、桃園體育園區、青埔運動公園棒球場 重要路口即時影像》24H 天氣、車流人流狀況 BGM Pop-Rock/Power Anthem 運動搖滾 🅣ⓈⓅ49" },
+    lat: 25.041,
+    lng: 121.3032,
+    timeZone: "Asia/Taipei",
+    category: "city",
+    country: "TW",
+    source: {
+      videoId: "nHh34nAHDmo",
+      channelId: "UCnYcHH_lKR14OV3RgzUGTtQ",
+      titleKey: "Ⓐ-06-🔴樂天桃猿棒球隊主場 樂天桃園棒球場、桃園體育園區、青埔運動公園棒球場 重要路口即時影像》24H 天氣、車流人流狀況 BGM Pop-Rock/Power Anthem 運動搖滾 🅣ⓈⓅ49",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "tw-livep07-ls204",
+    name: { ja: "#武嶺 LiveⓅ07 合歡山武嶺亭、合歡山遊客服務中心、合歡山莊、大禹嶺路側停車場、昆陽休息站、小風口即時影像 》 | 浪漫、心碎、療癒系精選 ｜英語・華語・韓語輪播｜ 🅣ⓁⓈ204", en: "#武嶺 LiveⓅ07 合歡山武嶺亭、合歡山遊客服務中心、合歡山莊、大禹嶺路側停車場、昆陽休息站、小風口即時影像 》 | 浪漫、心碎、療癒系精選 ｜英語・華語・韓語輪播｜ 🅣ⓁⓈ204" },
+    lat: 24.1371,
+    lng: 121.2761,
+    timeZone: "Asia/Taipei",
+    category: "city",
+    country: "TW",
+    source: {
+      videoId: "f9oFOVGd1ss",
+      channelId: "UCnYcHH_lKR14OV3RgzUGTtQ",
+      titleKey: "#武嶺 🔴LiveⓅ07 合歡山武嶺亭、合歡山遊客服務中心、合歡山莊、大禹嶺路側停車場、昆陽休息站、小風口即時影像 》 | 浪漫、心碎、療癒系精選 ｜英語・華語・韓語輪播｜ 🅣ⓁⓈ204",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "tw-b-01-live-changhua-county-taiwan-24h",
+    name: { ja: "Ⓑ-01-Live-彰化縣 重要路口 即時影像-Changhua County, Taiwan 24H》 24/7, 365 天氣、車流人流狀況 背景音樂 舒緩神經的音樂-古典鋼琴🅣ⓅⓅ60", en: "Ⓑ-01-Live-彰化縣 重要路口 即時影像-Changhua County, Taiwan 24H》 24/7, 365 天氣、車流人流狀況 背景音樂 舒緩神經的音樂-古典鋼琴🅣ⓅⓅ60" },
+    lat: 23.9739,
+    lng: 120.982,
+    timeZone: "Asia/Taipei",
+    category: "city",
+    country: "TW",
+    source: {
+      videoId: "2VU1H3JQDe0",
+      channelId: "UCnYcHH_lKR14OV3RgzUGTtQ",
+      titleKey: "Ⓑ-01-🔴Live-彰化縣 重要路口 即時影像-Changhua County, Taiwan  24H》 24/7, 365 天氣、車流人流狀況 背景音樂 💖 舒緩神經的音樂-古典鋼琴🅣ⓅⓅ60",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-193",
+    name: { ja: "逗子海岸ライブカメラ", en: "逗子海岸ライブカメラ" },
+    lat: 35.2911,
+    lng: 139.573,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "Q5AAi9KOjG0",
+      channelId: "UCqjC7sdgf78PUaZ2RSHvG_g",
+      titleKey: "逗子海岸ライブカメラ",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "tw-24-7-soft-classical-piano-relaxing-mu",
+    name: { ja: "24/7 Soft Classical Piano Relaxing Music for Studying, Concentration & Deep Sleep |", en: "24/7 Soft Classical Piano Relaxing Music for Studying, Concentration & Deep Sleep |" },
+    lat: 25.0535,
+    lng: 121.5971,
+    timeZone: "Asia/Taipei",
+    category: "city",
+    country: "TW",
+    source: {
+      videoId: "DcJCvEyjWqU",
+      channelId: "UCnYcHH_lKR14OV3RgzUGTtQ",
+      titleKey: "🔴24/7 Soft Classical Piano 🎹 Relaxing Music for Studying, Concentration & Deep Sleep |",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "tw-live-a-03-music-24-7-365-24h-ntp26",
+    name: { ja: "Live-Ⓐ-03-新北市 板橋區 重要路口 即時影像 新北市專屬 終極應援歌曲已上線 禿鷹Music 獨播 24/7, 365 24H 》天氣、車流人流狀況 🅣ⓃⓉⓅ26", en: "Live-Ⓐ-03-新北市 板橋區 重要路口 即時影像 新北市專屬 終極應援歌曲已上線 禿鷹Music 獨播 24/7, 365 24H 》天氣、車流人流狀況 🅣ⓃⓉⓅ26" },
+    lat: 24.8524,
+    lng: 121.1464,
+    timeZone: "Asia/Taipei",
+    category: "city",
+    country: "TW",
+    source: {
+      videoId: "AWTTQ1uu1os",
+      channelId: "UCnYcHH_lKR14OV3RgzUGTtQ",
+      titleKey: "🔴Live-Ⓐ-03-新北市 板橋區 重要路口 即時影像 新北市專屬 🎧 終極應援歌曲已上線 💥禿鷹Music 獨播 24/7, 365 24H 》天氣、車流人流狀況 🅣ⓃⓉⓅ26",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "tw-24-7-classical-piano-music-for-focus",
+    name: { ja: "24/7 Classical Piano Music for Focus & Study Deep Concentration BGM", en: "24/7 Classical Piano Music for Focus & Study Deep Concentration BGM" },
+    lat: 25.0522,
+    lng: 121.5416,
+    timeZone: "Asia/Taipei",
+    category: "city",
+    country: "TW",
+    source: {
+      videoId: "zTknSyKv9vg",
+      channelId: "UCnYcHH_lKR14OV3RgzUGTtQ",
+      titleKey: "🎹 24/7 Classical Piano Music for Focus & Study 📚 Deep Concentration BGM",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "tw-live-24-7-365-24h",
+    name: { ja: "無廣告-聽音樂不中斷Live #武嶺 合歡山武嶺亭即時影像 嶺應援曲 24/7, 365 24H 車流人流狀況 合歡山遊客服務中心、合歡山莊、大禹嶺路側停車場、合歡山小風口", en: "無廣告-聽音樂不中斷Live #武嶺 合歡山武嶺亭即時影像 嶺應援曲 24/7, 365 24H 車流人流狀況 合歡山遊客服務中心、合歡山莊、大禹嶺路側停車場、合歡山小風口" },
+    lat: 24.457,
+    lng: 120.941,
+    timeZone: "Asia/Taipei",
+    category: "city",
+    country: "TW",
+    source: {
+      videoId: "AkN2NQqvYQg",
+      channelId: "UCnYcHH_lKR14OV3RgzUGTtQ",
+      titleKey: "🔴無廣告-聽音樂不中斷📍Live #武嶺 合歡山武嶺亭即時影像 嶺應援曲💖 24/7, 365 24H 車流人流狀況 合歡山遊客服務中心、合歡山莊、大禹嶺路側停車場、合歡山小風口",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "tw-24h-railcam-taiwan-24-7-ls204-c-07",
+    name: { ja: "【24H直播】看火車即時影像：台南永康康橋大道平交道（Railcam Taiwan）｜浪漫、療癒系音樂輪播｜英語・華語・韓語｜24/7》康橋大道與東橋一路口南桿即時影像》 🅣ⓁⓈ204 Ⓒ-07", en: "【24H直播】看火車即時影像：台南永康康橋大道平交道（Railcam Taiwan）｜浪漫、療癒系音樂輪播｜英語・華語・韓語｜24/7》康橋大道與東橋一路口南桿即時影像》 🅣ⓁⓈ204 Ⓒ-07" },
+    lat: 25.0426,
+    lng: 121.5202,
+    timeZone: "Asia/Taipei",
+    category: "city",
+    country: "TW",
+    source: {
+      videoId: "Oeb_kQmdlcg",
+      channelId: "UCnYcHH_lKR14OV3RgzUGTtQ",
+      titleKey: "🔴【24H直播】看火車即時影像：台南永康康橋大道平交道（Railcam Taiwan）｜浪漫、療癒系音樂輪播｜英語・華語・韓語｜24/7》康橋大道與東橋一路口南桿即時影像》  🅣ⓁⓈ204 Ⓒ-07",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-194",
+    name: { ja: "ぐんまの道路ライブカメラ（（主）前橋館林線 宮子町北交差点東）", en: "ぐんまの道路ライブカメラ（（主）前橋館林線 宮子町北交差点東）" },
+    lat: 36.07,
+    lng: 139.2736,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "b4hL6tDm-BE",
+      channelId: "UCXjqhxiyUIDNWF5qjYC6yCg",
+      titleKey: "ぐんまの道路ライブカメラ（（主）前橋館林線　宮子町北交差点東）",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-195",
+    name: { ja: "ぐんまの道路ライブカメラ（（主）桐生伊勢崎線 あずま跨道橋交差点東）", en: "ぐんまの道路ライブカメラ（（主）桐生伊勢崎線 あずま跨道橋交差点東）" },
+    lat: 36.3034,
+    lng: 139.0862,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "7jbM9hSGVpc",
+      channelId: "UCXjqhxiyUIDNWF5qjYC6yCg",
+      titleKey: "ぐんまの道路ライブカメラ（（主）桐生伊勢崎線　あずま跨道橋交差点東）",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-354",
+    name: { ja: "ぐんまの道路ライブカメラ（（国）３５４号 韮塚町交差点東）", en: "ぐんまの道路ライブカメラ（（国）３５４号 韮塚町交差点東）" },
+    lat: 41.0628,
+    lng: 140.5767,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "eYfwoUOzL64",
+      channelId: "UCXjqhxiyUIDNWF5qjYC6yCg",
+      titleKey: "ぐんまの道路ライブカメラ（（国）３５４号　韮塚町交差点東）",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-462",
+    name: { ja: "ぐんまの道路ライブカメラ（（国）４６２号 坂東大橋北詰）", en: "ぐんまの道路ライブカメラ（（国）４６２号 坂東大橋北詰）" },
+    lat: 41.0628,
+    lng: 140.5767,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "sg3EmgoHx9I",
+      channelId: "UCXjqhxiyUIDNWF5qjYC6yCg",
+      titleKey: "ぐんまの道路ライブカメラ（（国）４６２号　坂東大橋北詰）",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-354-2",
+    name: { ja: "ぐんまの道路ライブカメラ（（国）３５４号 伊勢玉大橋）", en: "ぐんまの道路ライブカメラ（（国）３５４号 伊勢玉大橋）" },
+    lat: 41.0628,
+    lng: 140.5767,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "jyaRzGcZjc4",
+      channelId: "UCXjqhxiyUIDNWF5qjYC6yCg",
+      titleKey: "ぐんまの道路ライブカメラ（（国）３５４号　伊勢玉大橋）",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "id-live-pemantauan-cctv-lalulintas-tpr",
+    name: { ja: "LIVE PEMANTAUAN CCTV LALULINTAS TPR", en: "LIVE PEMANTAUAN CCTV LALULINTAS TPR" },
+    lat: -8.1568,
+    lng: 110.7104,
+    timeZone: "Asia/Jakarta",
+    category: "city",
+    country: "ID",
+    source: {
+      videoId: "CpeiYBljpdo",
+      channelId: "UCkEiJMkX7n3rZpZ2PDVc3Ow",
+      titleKey: "LIVE PEMANTAUAN CCTV LALULINTAS TPR",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-live-wildlife-camera-at-the-hide-hwan",
+    name: { ja: "Live Wildlife Camera at The Hide | Hwange Waterhole, Zimbabwe", en: "Live Wildlife Camera at The Hide | Hwange Waterhole, Zimbabwe" },
+    lat: -25.3945,
+    lng: 28.4382,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "nXI-kWu6BLo",
+      channelId: "UCuoNAKa3P0QR1Lw9QdpmoVg",
+      titleKey: "Live Wildlife Camera at The Hide | Hwange Waterhole, Zimbabwe",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "np-webcam-nepal-live-sky-view-from-hotel",
+    name: { ja: "WEBCAM NEPAL LIVE - SKY VIEW FROM HOTEL EVEREST VIEW - DAY AND NIGHT", en: "WEBCAM NEPAL LIVE - SKY VIEW FROM HOTEL EVEREST VIEW - DAY AND NIGHT" },
+    lat: 29.1929,
+    lng: 82.5461,
+    timeZone: "Asia/Kathmandu",
+    category: "city",
+    country: "NP",
+    source: {
+      videoId: "ME8IbaJ8O1w",
+      channelId: "UCCCVkU6r9ZTD8E4z7AtuOIw",
+      titleKey: "WEBCAM NEPAL LIVE - SKY VIEW FROM HOTEL EVEREST VIEW - DAY AND NIGHT",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "np-webcam-nepal-live-streaming-from-hote",
+    name: { ja: "WEBCAM NEPAL - LIVE STREAMING FROM HOTEL EVEREST VIEW -3880m - VIEW OF KONGDE RI (6,187 m)", en: "WEBCAM NEPAL - LIVE STREAMING FROM HOTEL EVEREST VIEW -3880m - VIEW OF KONGDE RI (6,187 m)" },
+    lat: 28.378,
+    lng: 84,
+    timeZone: "Asia/Kathmandu",
+    category: "city",
+    country: "NP",
+    source: {
+      videoId: "pD00R1lKhIs",
+      channelId: "UCCCVkU6r9ZTD8E4z7AtuOIw",
+      titleKey: "WEBCAM NEPAL - LIVE STREAMING FROM HOTEL EVEREST VIEW -3880m - VIEW OF KONGDE RI (6,187 m)",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "np-webcam-nepal-live-live-pond-cam-from",
+    name: { ja: "WEBCAM NEPAL LIVE: LIVE POND CAM FROM LONDON UK - FEATURING THE GOLDEN TRIO", en: "WEBCAM NEPAL LIVE: LIVE POND CAM FROM LONDON UK - FEATURING THE GOLDEN TRIO" },
+    lat: 26.6608,
+    lng: 86.5635,
+    timeZone: "Asia/Kathmandu",
+    category: "city",
+    country: "NP",
+    source: {
+      videoId: "L-nyiIViAlg",
+      channelId: "UCCCVkU6r9ZTD8E4z7AtuOIw",
+      titleKey: "WEBCAM NEPAL LIVE: LIVE POND CAM FROM LONDON UK - FEATURING THE GOLDEN TRIO",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "pt-live-schiphol-airport-17-08-2026-plan",
+    name: { ja: "LIVE Schiphol Airport 17.08.2026 • Plane Spotting • Direto Aeroporto Schiphol Ao Vivo", en: "LIVE Schiphol Airport 17.08.2026 • Plane Spotting • Direto Aeroporto Schiphol Ao Vivo" },
+    lat: 38.7932,
+    lng: -9.393,
+    timeZone: "Europe/Lisbon",
+    category: "city",
+    country: "PT",
+    source: {
+      videoId: "QYlSptqMs6A",
+      channelId: "UC0R-K3crhMX9jzswbmfIORw",
+      titleKey: "🔴 LIVE Schiphol Airport 17.08.2026 • Plane Spotting • Direto Aeroporto Schiphol Ao Vivo",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-2026-8-26-21-30-live",
+    name: { ja: "【ライブ】最新天気ニュース・地震情報 2026年8月26日(水) 21:30~／北陸で激しい雨〈ウェザーニュースLiVEムーン・駒木結衣／宇野沢達也〉", en: "【ライブ】最新天気ニュース・地震情報 2026年8月26日(水) 21:30~／北陸で激しい雨〈ウェザーニュースLiVEムーン・駒木結衣／宇野沢達也〉" },
+    lat: 36.8548,
+    lng: 137.4997,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "tp4IdcjXtqo",
+      channelId: "UCNsidkYpIAQ4QaufptQBPHQ",
+      titleKey: "【ライブ】最新天気ニュース・地震情報 2026年8月26日(水) 21:30~／北陸で激しい雨〈ウェザーニュースLiVEムーン・駒木結衣／宇野沢達也〉",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-8-28-ann-live",
+    name: { ja: "【ライブ】8/28 夜ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】", en: "【ライブ】8/28 夜ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】" },
+    lat: 35.8554,
+    lng: 139.8547,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "BjVE5yLTq4I",
+      channelId: "UCGCZAYq5Xxojl_tSXcVJhiQ",
+      titleKey: "【ライブ】8/28 夜ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-8-29-ann-live",
+    name: { ja: "【ライブ】8/29 昼ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】", en: "【ライブ】8/29 昼ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】" },
+    lat: 35.6816,
+    lng: 139.5154,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "PSbbbgmlpXk",
+      channelId: "UCGCZAYq5Xxojl_tSXcVJhiQ",
+      titleKey: "【ライブ】8/29 昼ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "it-the-2025-conclave-live-skylinewebcams",
+    name: { ja: "The 2025 Conclave LIVE | SkylineWebcams", en: "The 2025 Conclave LIVE | SkylineWebcams" },
+    lat: 43.3905,
+    lng: 10.437,
+    timeZone: "Europe/Rome",
+    category: "city",
+    country: "IT",
+    source: {
+      videoId: "RAocMGa06Bo",
+      channelId: "UC2WMV4vCYurHdHPd9pCqYSg",
+      titleKey: "The 2025 Conclave LIVE 🔔 | SkylineWebcams",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-8-28-ann-live-2",
+    name: { ja: "【ライブ】8/28 昼ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】", en: "【ライブ】8/28 昼ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】" },
+    lat: 35.8554,
+    lng: 139.8547,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "Q88XS9BIqFU",
+      channelId: "UCGCZAYq5Xxojl_tSXcVJhiQ",
+      titleKey: "【ライブ】8/28 昼ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-8-29-ann-live-2",
+    name: { ja: "【ライブ】8/29 朝ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】", en: "【ライブ】8/29 朝ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】" },
+    lat: 35.6816,
+    lng: 139.5154,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "KJWxJWUVnRI",
+      channelId: "UCGCZAYq5Xxojl_tSXcVJhiQ",
+      titleKey: "【ライブ】8/29 朝ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-8-27-ann-live",
+    name: { ja: "【ライブ】8/27 夜ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】", en: "【ライブ】8/27 夜ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】" },
+    lat: 35.8558,
+    lng: 139.8547,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "5CwM4dOJz24",
+      channelId: "UCGCZAYq5Xxojl_tSXcVJhiQ",
+      titleKey: "【ライブ】8/27 夜ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-8-28-ann-live-3",
+    name: { ja: "【ライブ】8/28 深夜ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】", en: "【ライブ】8/28 深夜ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】" },
+    lat: 35.8554,
+    lng: 139.8547,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "goWRxuovi8w",
+      channelId: "UCGCZAYq5Xxojl_tSXcVJhiQ",
+      titleKey: "【ライブ】8/28 深夜ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-8-27-ann-live-2",
+    name: { ja: "【ライブ】8/27 昼ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】", en: "【ライブ】8/27 昼ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】" },
+    lat: 35.8558,
+    lng: 139.8547,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "iGyex7HzJ8M",
+      channelId: "UCGCZAYq5Xxojl_tSXcVJhiQ",
+      titleKey: "【ライブ】8/27 昼ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-8-26-ann-live-2",
+    name: { ja: "【ライブ】8/26 深夜ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】", en: "【ライブ】8/26 深夜ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】" },
+    lat: 35.6816,
+    lng: 139.5152,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "3GBd6MxfOXk",
+      channelId: "UCGCZAYq5Xxojl_tSXcVJhiQ",
+      titleKey: "【ライブ】8/26 深夜ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-8-27-ann-live-3",
+    name: { ja: "【ライブ】8/27 朝ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】", en: "【ライブ】8/27 朝ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】" },
+    lat: 35.8558,
+    lng: 139.8547,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "Guw2RKuXcZ0",
+      channelId: "UCGCZAYq5Xxojl_tSXcVJhiQ",
+      titleKey: "【ライブ】8/27 朝ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-8-27-ann-live-4",
+    name: { ja: "【ライブ】8/27 深夜ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】", en: "【ライブ】8/27 深夜ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】" },
+    lat: 35.8558,
+    lng: 139.8547,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "lTVTDQkxNR8",
+      channelId: "UCGCZAYq5Xxojl_tSXcVJhiQ",
+      titleKey: "【ライブ】8/27 深夜ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-8-26-ann-live-3",
+    name: { ja: "【ライブ】8/26 昼ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】", en: "【ライブ】8/26 昼ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】" },
+    lat: 35.6816,
+    lng: 139.5152,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "WHZmFEz_fuU",
+      channelId: "UCGCZAYq5Xxojl_tSXcVJhiQ",
+      titleKey: "【ライブ】8/26 昼ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-8-28-ann-live-4",
+    name: { ja: "【ライブ】8/28 朝ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】", en: "【ライブ】8/28 朝ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】" },
+    lat: 35.8554,
+    lng: 139.8547,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "kTylodRNTRQ",
+      channelId: "UCGCZAYq5Xxojl_tSXcVJhiQ",
+      titleKey: "【ライブ】8/28 朝ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-8-26-ann-live-4",
+    name: { ja: "【ライブ】8/26 朝ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】", en: "【ライブ】8/26 朝ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】" },
+    lat: 35.6816,
+    lng: 139.5152,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "ejukhcNWrLY",
+      channelId: "UCGCZAYq5Xxojl_tSXcVJhiQ",
+      titleKey: "【ライブ】8/26 朝ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "it-live-jerusalem-now-western-wall-real",
+    name: { ja: "LIVE Jerusalem Now | Western Wall Real-Time Cam | SkylineWebcams", en: "LIVE Jerusalem Now | Western Wall Real-Time Cam | SkylineWebcams" },
+    lat: 41.8953,
+    lng: 12.4907,
+    timeZone: "Europe/Rome",
+    category: "city",
+    country: "IT",
+    source: {
+      videoId: "LueIPEfeFyo",
+      channelId: "UC2WMV4vCYurHdHPd9pCqYSg",
+      titleKey: "🔴 LIVE Jerusalem Now | Western Wall Real-Time Cam | SkylineWebcams",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-8-25-ann-live",
+    name: { ja: "【ライブ】8/25 夜ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】", en: "【ライブ】8/25 夜ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】" },
+    lat: 35.8555,
+    lng: 139.8553,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "f26Mu6gWoCQ",
+      channelId: "UCGCZAYq5Xxojl_tSXcVJhiQ",
+      titleKey: "【ライブ】8/25 夜ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-8-25-ann-live-2",
+    name: { ja: "【ライブ】8/25 昼ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】", en: "【ライブ】8/25 昼ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】" },
+    lat: 35.8555,
+    lng: 139.8553,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "YUe2keHekys",
+      channelId: "UCGCZAYq5Xxojl_tSXcVJhiQ",
+      titleKey: "【ライブ】8/25 昼ニュースまとめ 最新情報を厳選してお届け ANN/テレ朝【LIVE】",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-9-11-3-live-2026-8-25-ann",
+    name: { ja: "【ライブ】気象庁｜9月から11月の3カ月予報 【LIVE】 (2026年8月25日) ANN/テレ朝", en: "【ライブ】気象庁｜9月から11月の3カ月予報 【LIVE】 (2026年8月25日) ANN/テレ朝" },
+    lat: 35.6659,
+    lng: 139.7459,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "OqPX7-DwZJE",
+      channelId: "UCGCZAYq5Xxojl_tSXcVJhiQ",
+      titleKey: "【ライブ】気象庁｜9月から11月の3カ月予報　【LIVE】 (2026年8月25日) ANN/テレ朝",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-170-live-2026-8-25-ann",
+    name: { ja: "【ライブ】高市総理コメント ガソリン\"170円措置\"や物価高対策などについて【LIVE】 (2026年8月25日) ANN/テレ朝", en: "【ライブ】高市総理コメント ガソリン\"170円措置\"や物価高対策などについて【LIVE】 (2026年8月25日) ANN/テレ朝" },
+    lat: 35.9058,
+    lng: 139.4812,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "xga-c2Dw9Qw",
+      channelId: "UCGCZAYq5Xxojl_tSXcVJhiQ",
+      titleKey: "【ライブ】高市総理コメント ガソリン\"170円措置\"や物価高対策などについて【LIVE】 (2026年8月25日) ANN/テレ朝",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-japan-news-digest-live-8-26-2",
+    name: { ja: "【LIVE】昼のニュース（Japan News Digest Live）最新情報など（8月26日）｜TBS NEWS DIG", en: "【LIVE】昼のニュース（Japan News Digest Live）最新情報など（8月26日）｜TBS NEWS DIG" },
+    lat: 33.2296,
+    lng: 130.3373,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "NMiZPyt0YQg",
+      channelId: "UC6AG81pAkf6Lbi_1VC5NmPA",
+      titleKey: "【LIVE】昼のニュース（Japan News Digest Live）最新情報など（8月26日）｜TBS NEWS DIG",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-icc-2026-8-26-5-live-tbs-news-dig",
+    name: { ja: "【ライブ】ICC・赤根智子所長が会見 トランプ政権による制裁対象指定めぐり（2026年8月26日午後5時～ LIVE配信）｜TBS NEWS DIG", en: "【ライブ】ICC・赤根智子所長が会見 トランプ政権による制裁対象指定めぐり（2026年8月26日午後5時～ LIVE配信）｜TBS NEWS DIG" },
+    lat: 33.2296,
+    lng: 130.3373,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "-JYakLd9n00",
+      channelId: "UC6AG81pAkf6Lbi_1VC5NmPA",
+      titleKey: "【ライブ】ICC・赤根智子所長が会見　トランプ政権による制裁対象指定めぐり（2026年8月26日午後5時～ LIVE配信）｜TBS NEWS DIG",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-japan-news-digest-live-8-25-tbs",
+    name: { ja: "【LIVE】夜のニュース（Japan News Digest Live）最新情報など（8月25日）｜TBS NEWS DIG", en: "【LIVE】夜のニュース（Japan News Digest Live）最新情報など（8月25日）｜TBS NEWS DIG" },
+    lat: 33.2296,
+    lng: 130.3373,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "gR0R7dtpvzs",
+      channelId: "UC6AG81pAkf6Lbi_1VC5NmPA",
+      titleKey: "【LIVE】夜のニュース（Japan News Digest Live）最新情報など（8月25日）｜TBS NEWS DIG",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-japan-news-digest-live-8-25-2",
+    name: { ja: "【LIVE】昼のニュース（Japan News Digest Live）最新情報など（8月25日）｜TBS NEWS DIG", en: "【LIVE】昼のニュース（Japan News Digest Live）最新情報など（8月25日）｜TBS NEWS DIG" },
+    lat: 33.2296,
+    lng: 130.3373,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "NsgHzLWXX4g",
+      channelId: "UC6AG81pAkf6Lbi_1VC5NmPA",
+      titleKey: "【LIVE】昼のニュース（Japan News Digest Live）最新情報など（8月25日）｜TBS NEWS DIG",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-japan-news-digest-8-25-tbs-news",
+    name: { ja: "【LIVE】最新ニュースまとめ（Japan News Digest）（8月25日）｜TBS NEWS DIG", en: "【LIVE】最新ニュースまとめ（Japan News Digest）（8月25日）｜TBS NEWS DIG" },
+    lat: 33.2296,
+    lng: 130.3373,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "jo2AvJF15xw",
+      channelId: "UC6AG81pAkf6Lbi_1VC5NmPA",
+      titleKey: "【LIVE】最新ニュースまとめ（Japan News Digest）（8月25日）｜TBS NEWS DIG",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-japan-news-digest-8-26-tbs-news",
+    name: { ja: "【LIVE】最新ニュースまとめ（Japan News Digest）（8月26日）｜TBS NEWS DIG", en: "【LIVE】最新ニュースまとめ（Japan News Digest）（8月26日）｜TBS NEWS DIG" },
+    lat: 33.2296,
+    lng: 130.3373,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "dTahcdcLgGA",
+      channelId: "UC6AG81pAkf6Lbi_1VC5NmPA",
+      titleKey: "【LIVE】最新ニュースまとめ（Japan News Digest）（8月26日）｜TBS NEWS DIG",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-japan-news-digest-live-8-24-tbs",
+    name: { ja: "【LIVE】夜のニュース（Japan News Digest Live）最新情報など（8月24日）｜TBS NEWS DIG", en: "【LIVE】夜のニュース（Japan News Digest Live）最新情報など（8月24日）｜TBS NEWS DIG" },
+    lat: 33.2296,
+    lng: 130.3373,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "CVPC0Me0PRs",
+      channelId: "UC6AG81pAkf6Lbi_1VC5NmPA",
+      titleKey: "【LIVE】夜のニュース（Japan News Digest Live）最新情報など（8月24日）｜TBS NEWS DIG",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-japan-news-digest-live-8-24-2",
+    name: { ja: "【LIVE】昼のニュース（Japan News Digest Live）最新情報など（8月24日）｜TBS NEWS DIG", en: "【LIVE】昼のニュース（Japan News Digest Live）最新情報など（8月24日）｜TBS NEWS DIG" },
+    lat: 33.2296,
+    lng: 130.3373,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "lqGeiCxwMqI",
+      channelId: "UC6AG81pAkf6Lbi_1VC5NmPA",
+      titleKey: "【LIVE】昼のニュース（Japan News Digest Live）最新情報など（8月24日）｜TBS NEWS DIG",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-japan-news-digest-8-23-tbs-news",
+    name: { ja: "【LIVE】最新ニュースまとめ（Japan News Digest）（8月23日）｜TBS NEWS DIG", en: "【LIVE】最新ニュースまとめ（Japan News Digest）（8月23日）｜TBS NEWS DIG" },
+    lat: 33.2296,
+    lng: 130.3373,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "bP4c_wXx37s",
+      channelId: "UC6AG81pAkf6Lbi_1VC5NmPA",
+      titleKey: "【LIVE】最新ニュースまとめ（Japan News Digest）（8月23日）｜TBS NEWS DIG",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-japan-news-digest-live-8-23-tbs",
+    name: { ja: "【LIVE】夜のニュース（Japan News Digest Live）最新情報など（8月23日）｜TBS NEWS DIG", en: "【LIVE】夜のニュース（Japan News Digest Live）最新情報など（8月23日）｜TBS NEWS DIG" },
+    lat: 33.2296,
+    lng: 130.3373,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "NZvCjjWoZfA",
+      channelId: "UC6AG81pAkf6Lbi_1VC5NmPA",
+      titleKey: "【LIVE】夜のニュース（Japan News Digest Live）最新情報など（8月23日）｜TBS NEWS DIG",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-japan-news-digest-live-8-23-2",
+    name: { ja: "【LIVE】昼のニュース（Japan News Digest Live）最新情報など（8月23日）｜TBS NEWS DIG", en: "【LIVE】昼のニュース（Japan News Digest Live）最新情報など（8月23日）｜TBS NEWS DIG" },
+    lat: 33.2296,
+    lng: 130.3373,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "Eo_HT-9AGBU",
+      channelId: "UC6AG81pAkf6Lbi_1VC5NmPA",
+      titleKey: "【LIVE】昼のニュース（Japan News Digest Live）最新情報など（8月23日）｜TBS NEWS DIG",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-japan-news-digest-8-22-tbs-news",
+    name: { ja: "【LIVE】最新ニュースまとめ（Japan News Digest）（8月22日）｜TBS NEWS DIG", en: "【LIVE】最新ニュースまとめ（Japan News Digest）（8月22日）｜TBS NEWS DIG" },
+    lat: 33.2296,
+    lng: 130.3373,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "B6wLZqN7xZI",
+      channelId: "UC6AG81pAkf6Lbi_1VC5NmPA",
+      titleKey: "【LIVE】最新ニュースまとめ（Japan News Digest）（8月22日）｜TBS NEWS DIG",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-japan-news-digest-live-8-22-tbs",
+    name: { ja: "【LIVE】夜のニュース（Japan News Digest Live）最新情報など（8月22日）｜TBS NEWS DIG", en: "【LIVE】夜のニュース（Japan News Digest Live）最新情報など（8月22日）｜TBS NEWS DIG" },
+    lat: 33.2296,
+    lng: 130.3373,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "V18IN3eD1G0",
+      channelId: "UC6AG81pAkf6Lbi_1VC5NmPA",
+      titleKey: "【LIVE】夜のニュース（Japan News Digest Live）最新情報など（8月22日）｜TBS NEWS DIG",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-japan-news-digest-live-tbs-news",
+    name: { ja: "【LIVE】朝のニュース（Japan News Digest Live）最新情報など｜TBS NEWS DIG（8月27日）", en: "【LIVE】朝のニュース（Japan News Digest Live）最新情報など｜TBS NEWS DIG（8月27日）" },
+    lat: 35.6691,
+    lng: 139.5947,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "3F0-tXiV0WE",
+      channelId: "UC6AG81pAkf6Lbi_1VC5NmPA",
+      titleKey: "【LIVE】朝のニュース（Japan News Digest Live）最新情報など｜TBS NEWS DIG（8月27日）",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-japan-news-digest-live-tbs-n-2",
+    name: { ja: "【LIVE】朝のニュース（Japan News Digest Live）最新情報など｜TBS NEWS DIG（8月26日）", en: "【LIVE】朝のニュース（Japan News Digest Live）最新情報など｜TBS NEWS DIG（8月26日）" },
+    lat: 35.6691,
+    lng: 139.5947,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "k5l78Kt5hmk",
+      channelId: "UC6AG81pAkf6Lbi_1VC5NmPA",
+      titleKey: "【LIVE】朝のニュース（Japan News Digest Live）最新情報など｜TBS NEWS DIG（8月26日）",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-japan-news-digest-live-tbs-n-3",
+    name: { ja: "【LIVE】朝のニュース（Japan News Digest Live）最新情報など｜TBS NEWS DIG（8月25日）", en: "【LIVE】朝のニュース（Japan News Digest Live）最新情報など｜TBS NEWS DIG（8月25日）" },
+    lat: 35.6691,
+    lng: 139.5947,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "yVgG1YPmsaQ",
+      channelId: "UC6AG81pAkf6Lbi_1VC5NmPA",
+      titleKey: "【LIVE】朝のニュース（Japan News Digest Live）最新情報など｜TBS NEWS DIG（8月25日）",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-morning-news-japan-news-digest-l",
+    name: { ja: "【LIVE】Morning News (Japan News Digest Live) Latest Updates and More (August 22) | TBS NEWS DIG", en: "【LIVE】Morning News (Japan News Digest Live) Latest Updates and More (August 22) | TBS NEWS DIG" },
+    lat: 33.2296,
+    lng: 130.3373,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "gpXkQ9WCcxk",
+      channelId: "UC6AG81pAkf6Lbi_1VC5NmPA",
+      titleKey: "【LIVE】Morning News (Japan News Digest Live) Latest Updates and More (August 22) | TBS NEWS DIG",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-morning-news-japan-news-dige-2",
+    name: { ja: "[LIVE] Morning News (Japan News Digest Live) Latest Updates and More (August 23) | TBS NEWS DIG", en: "[LIVE] Morning News (Japan News Digest Live) Latest Updates and More (August 23) | TBS NEWS DIG" },
+    lat: 33.2296,
+    lng: 130.3373,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "Ytw-ZwT-AC4",
+      channelId: "UC6AG81pAkf6Lbi_1VC5NmPA",
+      titleKey: "[LIVE] Morning News (Japan News Digest Live) Latest Updates and More (August 23) | TBS NEWS DIG",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-evening-news-japan-news-digest-l",
+    name: { ja: "[LIVE] Evening News (Japan News Digest Live) Latest Updates and More (August 21) | TBS NEWS DIG", en: "[LIVE] Evening News (Japan News Digest Live) Latest Updates and More (August 21) | TBS NEWS DIG" },
+    lat: 33.2296,
+    lng: 130.3373,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "nSh83hI9ibU",
+      channelId: "UC6AG81pAkf6Lbi_1VC5NmPA",
+      titleKey: "[LIVE] Evening News (Japan News Digest Live) Latest Updates and More (August 21) | TBS NEWS DIG",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-morning-news-japan-news-dige-3",
+    name: { ja: "[LIVE] Morning News (Japan News Digest Live) Latest Updates and More (August 21) | TBS NEWS DIG", en: "[LIVE] Morning News (Japan News Digest Live) Latest Updates and More (August 21) | TBS NEWS DIG" },
+    lat: 33.2296,
+    lng: 130.3373,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "ePh3FbHbmoo",
+      channelId: "UC6AG81pAkf6Lbi_1VC5NmPA",
+      titleKey: "[LIVE] Morning News (Japan News Digest Live) Latest Updates and More (August 21) | TBS NEWS DIG",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-morning-news-japan-news-dige-4",
+    name: { ja: "[LIVE] Morning News (Japan News Digest Live) Latest Updates and More | TBS NEWS DIG (August 24)", en: "[LIVE] Morning News (Japan News Digest Live) Latest Updates and More | TBS NEWS DIG (August 24)" },
+    lat: 34.9926,
+    lng: 135.7599,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "EM6uHHEuSOE",
+      channelId: "UC6AG81pAkf6Lbi_1VC5NmPA",
+      titleKey: "[LIVE] Morning News (Japan News Digest Live) Latest Updates and More | TBS NEWS DIG (August 24)",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "tr-breaking-news-clashes-in-front-of-the",
+    name: { ja: "BREAKING NEWS Clashes in front of the Israeli Consulate! | NTV #LIVE", en: "BREAKING NEWS Clashes in front of the Israeli Consulate! | NTV #LIVE" },
+    lat: 39.8955,
+    lng: 32.8689,
+    timeZone: "Europe/Istanbul",
+    category: "city",
+    country: "TR",
+    source: {
+      videoId: "7bI6wenvj0k",
+      channelId: "UC9TDTjbOjFB9jADmPhSAPsw",
+      titleKey: "BREAKING NEWS 🔴 Clashes in front of the Israeli Consulate! | NTV #LIVE",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-196",
+    name: { ja: "北海道の絶景を詰め込んだ天空の贅沢「小樽天狗山」", en: "北海道の絶景を詰め込んだ天空の贅沢「小樽天狗山」" },
+    lat: 43.172,
+    lng: 140.9721,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "fRJu6m5R9VU",
+      channelId: "UC8NuNbL1frrbS4sQcFSClvQ",
+      titleKey: "北海道の絶景を詰め込んだ天空の贅沢「小樽天狗山」",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-rcn",
+    name: { ja: "【RCN】市内のライブカメラ", en: "【RCN】市内のライブカメラ" },
+    lat: 35.2515,
+    lng: 136.3524,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "OypZ7021k74",
+      channelId: "UChOBawAZ5qKd6vxbM3zbmdA",
+      titleKey: "【RCN】市内のライブカメラ",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-3-5",
+    name: { ja: "加茂水族館 道路状況ライブカメラ３", en: "加茂水族館 道路状況ライブカメラ３" },
+    lat: 38.762,
+    lng: 139.7242,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "1GDBa1u65xA",
+      channelId: "UCBaecD-r5iwKiqkMngdPN4w",
+      titleKey: "加茂水族館　道路状況ライブカメラ３",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-sa",
+    name: { ja: "北陸自動車道南条ＳＡ付近 ライブカメラ", en: "北陸自動車道南条ＳＡ付近 ライブカメラ" },
+    lat: 35.3196,
+    lng: 136.6573,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "U1fhYEreP4Q",
+      channelId: "UCLbDKpDAkM8O4QVvbdA9h0w",
+      titleKey: "北陸自動車道南条ＳＡ付近 ライブカメラ",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-197",
+    name: { ja: "四国放送ライブ", en: "四国放送ライブ" },
+    lat: 34.068,
+    lng: 134.5374,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "JeqYU2X4tWY",
+      channelId: "UCuhA-fogYs0MwglwZbnL_8A",
+      titleKey: "四国放送ライブ",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-198",
+    name: { ja: "【公式】八幡浜フェリーターミナルライブカメラ 海側", en: "【公式】八幡浜フェリーターミナルライブカメラ 海側" },
+    lat: 41.4489,
+    lng: 140.2389,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "9eFB6hE72Ro",
+      channelId: "UCavlT0ICUqHulNOpbJN-FeA",
+      titleKey: "【公式】八幡浜フェリーターミナルライブカメラ 海側",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-hokkaido-japan",
+    name: { ja: "【北海道LIVE】サフィールホテル稚内からの絶景オーシャンビューをライブでお届け #サフィールホテル #稚内ライブ #絶景配信 #北海道 #海 #hokkaido #japan", en: "【北海道LIVE】サフィールホテル稚内からの絶景オーシャンビューをライブでお届け #サフィールホテル #稚内ライブ #絶景配信 #北海道 #海 #hokkaido #japan" },
+    lat: 36.5748,
+    lng: 139.2394,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "lSyjwsfqQ9M",
+      channelId: "UCSoeU61Gv7gogPtTQ8JeYCA",
+      titleKey: "【北海道LIVE】サフィールホテル稚内からの絶景オーシャンビューをライブでお届け #サフィールホテル #稚内ライブ #絶景配信 #北海道 #海 #hokkaido #japan",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-199",
+    name: { ja: "高知県いの町にこ淵 ライブカメラ", en: "高知県いの町にこ淵 ライブカメラ" },
+    lat: 33.5671,
+    lng: 133.5437,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "DYZNt9R5szY",
+      channelId: "UC0NG-mY688Tl5Kp5vqyw6Vg",
+      titleKey: "高知県いの町にこ淵　ライブカメラ",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "in-26aug26-live-shri-mahakaleshwar-jyoti",
+    name: { ja: "#26Aug26 #लाइव_संध्या_शयन_आरती #श्री_महाकालेश्वर_ज्योतिर्लिंग #Live #Shri_Mahakaleshwar_Jyotirlinga", en: "#26Aug26 #लाइव_संध्या_शयन_आरती #श्री_महाकालेश्वर_ज्योतिर्लिंग #Live #Shri_Mahakaleshwar_Jyotirlinga" },
+    lat: 12.9149,
+    lng: 77.6802,
+    timeZone: "Asia/Kolkata",
+    category: "city",
+    country: "IN",
+    source: {
+      videoId: "djAqGUJEvuc",
+      channelId: "UCRlCP3s0DGzfFNZhR6oozRg",
+      titleKey: "#26Aug26 #लाइव_संध्या_शयन_आरती #श्री_महाकालेश्वर_ज्योतिर्लिंग #Live #Shri_Mahakaleshwar_Jyotirlinga",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "id-live-3d-globe-earthquake-monitor-24-7",
+    name: { ja: "LIVE 3D Globe Earthquake Monitor 24/7", en: "LIVE 3D Globe Earthquake Monitor 24/7" },
+    lat: -7.2664,
+    lng: 112.7953,
+    timeZone: "Asia/Jakarta",
+    category: "city",
+    country: "ID",
+    source: {
+      videoId: "U8x51eUfFTI",
+      channelId: "UCNrGOnduIS9BXIRmDcHasZA",
+      titleKey: "🌍 LIVE 3D Globe Earthquake Monitor 24/7",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "in-live",
+    name: { ja: "LIVE : प्रतिदिन सुबह शाम - श्री दुर्गा चालीसा का ११ बार पाठ करने से सारे कष्ट दुःख दूर होते हैं |", en: "LIVE : प्रतिदिन सुबह शाम - श्री दुर्गा चालीसा का ११ बार पाठ करने से सारे कष्ट दुःख दूर होते हैं |" },
+    lat: 27.7223,
+    lng: 91.8917,
+    timeZone: "Asia/Kolkata",
+    category: "city",
+    country: "IN",
+    source: {
+      videoId: "Lb7tv3KNzlg",
+      channelId: "UCkgnXAsrqL7SYKDZiwuuOEQ",
+      titleKey: "🔴LIVE : प्रतिदिन  सुबह शाम - श्री दुर्गा चालीसा का ११ बार पाठ करने से सारे कष्ट दुःख दूर होते हैं |",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "pe-the-global-prayer-room-24-7-livestrea",
+    name: { ja: "The Global Prayer Room | 24/7 Livestream", en: "The Global Prayer Room | 24/7 Livestream" },
+    lat: -12.0913,
+    lng: -77.0635,
+    timeZone: "America/Lima",
+    category: "city",
+    country: "PE",
+    source: {
+      videoId: "0uaZ30NEHLU",
+      channelId: "UCqSYig9Cmx6DJ3XaUYg4vpw",
+      titleKey: "The Global Prayer Room | 24/7 Livestream",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ie-ballygally-beach-live-cam",
+    name: { ja: "Ballygally Beach Live Cam", en: "Ballygally Beach Live Cam" },
+    lat: 51.6726,
+    lng: -9.4851,
+    timeZone: "Europe/Dublin",
+    category: "city",
+    country: "IE",
+    source: {
+      videoId: "j9cxqZsIMLg",
+      channelId: "UCnzmNf3t27a4pkiNASbJsGQ",
+      titleKey: "Ballygally Beach Live Cam",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ie-larne-northern-ireland-live-webcam",
+    name: { ja: "Larne, Northern Ireland - Live Webcam", en: "Larne, Northern Ireland - Live Webcam" },
+    lat: 51.4913,
+    lng: -9.2265,
+    timeZone: "Europe/Dublin",
+    category: "city",
+    country: "IE",
+    source: {
+      videoId: "Mf1xtvS8ang",
+      channelId: "UCmCG5UUphTlx7a1DEPJPJ1A",
+      titleKey: "Larne, Northern Ireland - Live Webcam",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "be-live-webcam-beach-and-boulevard-barna",
+    name: { ja: "Live webcam beach and boulevard Barnaart Zandvoort(Home to the Dutch Grand Prix) , The Netherlands", en: "Live webcam beach and boulevard Barnaart Zandvoort(Home to the Dutch Grand Prix) , The Netherlands" },
+    lat: 51.3953,
+    lng: 4.8144,
+    timeZone: "Europe/Brussels",
+    category: "city",
+    country: "BE",
+    source: {
+      videoId: "UsQ_I3DRpxs",
+      channelId: "UCDJh28AZ5bVqncHvBAiHk3A",
+      titleKey: "🔴Live webcam beach and boulevard Barnaart Zandvoort(Home to the Dutch Grand Prix) , The Netherlands",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "se-itconnect-uddevallakameran-live-web-c",
+    name: { ja: "ITConnect - Uddevallakameran - Live Web Cam Sweden - Webbkamera Sverige, Uddevalla - https://itc.se", en: "ITConnect - Uddevallakameran - Live Web Cam Sweden - Webbkamera Sverige, Uddevalla - https://itc.se" },
+    lat: 59.675,
+    lng: 14.5209,
+    timeZone: "Europe/Stockholm",
+    category: "city",
+    country: "SE",
+    source: {
+      videoId: "Hv0WdxvG05k",
+      channelId: "UClXSl8cHZjnYCo2OajOX7Kw",
+      titleKey: "ITConnect - Uddevallakameran - Live Web Cam Sweden - Webbkamera Sverige, Uddevalla - https://itc.se",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "fj-flying-over-fiji-4k-relaxing-music-al",
+    name: { ja: "FLYING OVER FIJI 4K - Relaxing Music Along With Beautiful Tropical Paradise Nature Videos - 4K UHD", en: "FLYING OVER FIJI 4K - Relaxing Music Along With Beautiful Tropical Paradise Nature Videos - 4K UHD" },
+    lat: -18.124,
+    lng: 179.0123,
+    timeZone: "Pacific/Fiji",
+    category: "city",
+    country: "FJ",
+    source: {
+      videoId: "Q71lMAsx1Pc",
+      channelId: "UCwG4RwTm26PpZ8Wqs86zwWw",
+      titleKey: "FLYING OVER FIJI 4K - Relaxing Music Along With Beautiful Tropical Paradise Nature Videos - 4K UHD",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-camera-7",
+    name: { ja: "[LIVE CAMERA]交通状況&駐車場状況", en: "[LIVE CAMERA]交通状況&駐車場状況" },
+    lat: 35.0167,
+    lng: 135.9667,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "23OZYCMWKyY",
+      channelId: "UCbLm5pG7JURHymVMcISf6_g",
+      titleKey: "[LIVE CAMERA]交通状況&駐車場状況",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-200",
+    name: { ja: "大森駐車場ライブカメラ", en: "大森駐車場ライブカメラ" },
+    lat: 38.2333,
+    lng: 140.3667,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "6cR55F-J4ps",
+      channelId: "UC1xeTccsAQdz7-fF0eAa5HA",
+      titleKey: "大森駐車場ライブカメラ",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-201",
+    name: { ja: "中央ロープウェイ第一駐車場ライブカメラ", en: "中央ロープウェイ第一駐車場ライブカメラ" },
+    lat: 38.2333,
+    lng: 140.3667,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "1vhtYFrjxBw",
+      channelId: "UC1xeTccsAQdz7-fF0eAa5HA",
+      titleKey: "中央ロープウェイ第一駐車場ライブカメラ",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-livecamera-7",
+    name: { ja: "「LIVECAMERA 」草津温泉・本白根山ライブカメラ（固定式）", en: "「LIVECAMERA 」草津温泉・本白根山ライブカメラ（固定式）" },
+    lat: 35.0167,
+    lng: 135.9667,
+    timeZone: "Asia/Tokyo",
+    category: "nature",
+    country: "JP",
+    source: {
+      videoId: "VZ7UthXFfTw",
+      channelId: "UCbn5eHDjwmPC2K9RG8P0i_A",
+      titleKey: "「LIVECAMERA 」草津温泉・本白根山ライブカメラ（固定式）",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-livecamera-8",
+    name: { ja: "「LIVECAMERA 」草津温泉・白根山ライブカメラ（移動式）", en: "「LIVECAMERA 」草津温泉・白根山ライブカメラ（移動式）" },
+    lat: 35.0167,
+    lng: 135.9667,
+    timeZone: "Asia/Tokyo",
+    category: "nature",
+    country: "JP",
+    source: {
+      videoId: "yMm2Q3zLXKI",
+      channelId: "UCbn5eHDjwmPC2K9RG8P0i_A",
+      titleKey: "「LIVECAMERA 」草津温泉・白根山ライブカメラ（移動式）",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-livecamera-9",
+    name: { ja: "「LIVECAMERA 」草津温泉・白根山ライブカメラ（固定式）", en: "「LIVECAMERA 」草津温泉・白根山ライブカメラ（固定式）" },
+    lat: 35.0167,
+    lng: 135.9667,
+    timeZone: "Asia/Tokyo",
+    category: "nature",
+    country: "JP",
+    source: {
+      videoId: "gL7YgPM0Jvk",
+      channelId: "UCbn5eHDjwmPC2K9RG8P0i_A",
+      titleKey: "「LIVECAMERA 」草津温泉・白根山ライブカメラ（固定式）",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-livecamera-10",
+    name: { ja: "「LIVECAMERA 」草津温泉・西の河原公園駐車場", en: "「LIVECAMERA 」草津温泉・西の河原公園駐車場" },
+    lat: 35.0167,
+    lng: 135.9667,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "UdOAbyzxKto",
+      channelId: "UCbn5eHDjwmPC2K9RG8P0i_A",
+      titleKey: "「LIVECAMERA 」草津温泉・西の河原公園駐車場",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-livecamera-11",
+    name: { ja: "「LIVECAMERA 」草津温泉・温泉門無料駐車場", en: "「LIVECAMERA 」草津温泉・温泉門無料駐車場" },
+    lat: 35.0167,
+    lng: 135.9667,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "_1PfF1v9GJc",
+      channelId: "UCbn5eHDjwmPC2K9RG8P0i_A",
+      titleKey: "「LIVECAMERA 」草津温泉・温泉門無料駐車場",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-livecamera-12",
+    name: { ja: "「LIVECAMERA 」草津温泉・温泉門観光バス専用駐車場", en: "「LIVECAMERA 」草津温泉・温泉門観光バス専用駐車場" },
+    lat: 35.0167,
+    lng: 135.9667,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "ZFhzy9-sy3U",
+      channelId: "UCbn5eHDjwmPC2K9RG8P0i_A",
+      titleKey: "「LIVECAMERA 」草津温泉・温泉門観光バス専用駐車場",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-livecamera-13",
+    name: { ja: "「LIVECAMERA」草津温泉・本白根山ライブカメラ（移動式）", en: "「LIVECAMERA」草津温泉・本白根山ライブカメラ（移動式）" },
+    lat: 35.0167,
+    lng: 135.9667,
+    timeZone: "Asia/Tokyo",
+    category: "nature",
+    country: "JP",
+    source: {
+      videoId: "_Z1UzjJ6o2E",
+      channelId: "UCbn5eHDjwmPC2K9RG8P0i_A",
+      titleKey: "「LIVECAMERA」草津温泉・本白根山ライブカメラ（移動式）",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "tw-8",
+    name: { ja: "烏來吊橋、烏來老街與覽勝橋，新北市烏來區", en: "烏來吊橋、烏來老街與覽勝橋，新北市烏來區" },
+    lat: 24.864,
+    lng: 121.5513,
+    timeZone: "Asia/Taipei",
+    category: "nature",
+    country: "TW",
+    source: {
+      videoId: "-nyTOqcRDIQ",
+      channelId: "UC8IKKTJkgZP9vdmnQDV-DZA",
+      titleKey: "烏來吊橋、烏來老街與覽勝橋，新北市烏來區",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-202",
+    name: { ja: "蔵王サンライズライブカメラ", en: "蔵王サンライズライブカメラ" },
+    lat: 38.2333,
+    lng: 140.3667,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "G-wKM6Dw3kA",
+      channelId: "UC1xeTccsAQdz7-fF0eAa5HA",
+      titleKey: "蔵王サンライズライブカメラ",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-203",
+    name: { ja: "横倉ゲレンデライブカメラ", en: "横倉ゲレンデライブカメラ" },
+    lat: 38.2333,
+    lng: 140.3667,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "RHfXwQ-rF24",
+      channelId: "UC1xeTccsAQdz7-fF0eAa5HA",
+      titleKey: "横倉ゲレンデライブカメラ",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-204",
+    name: { ja: "蔵王ロープウェイ駐車場ライブカメラ", en: "蔵王ロープウェイ駐車場ライブカメラ" },
+    lat: 38.2333,
+    lng: 140.3667,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "Rs4CcR79sWA",
+      channelId: "UC1xeTccsAQdz7-fF0eAa5HA",
+      titleKey: "蔵王ロープウェイ駐車場ライブカメラ",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-205",
+    name: { ja: "樹氷高原駅舎ライブカメラ", en: "樹氷高原駅舎ライブカメラ" },
+    lat: 38.2333,
+    lng: 140.3667,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "rpHUbj-7pR0",
+      channelId: "UC1xeTccsAQdz7-fF0eAa5HA",
+      titleKey: "樹氷高原駅舎ライブカメラ",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-206",
+    name: { ja: "中央ゲレンデライブカメラ", en: "中央ゲレンデライブカメラ" },
+    lat: 38.2333,
+    lng: 140.3667,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "416KwGEjTK4",
+      channelId: "UC1xeTccsAQdz7-fF0eAa5HA",
+      titleKey: "中央ゲレンデライブカメラ",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-207",
+    name: { ja: "新潟県立紫雲寺記念公園 オートキャンプ場からのライブ配信", en: "新潟県立紫雲寺記念公園 オートキャンプ場からのライブ配信" },
+    lat: 37.9122,
+    lng: 139.0613,
+    timeZone: "Asia/Tokyo",
+    category: "nature",
+    country: "JP",
+    source: {
+      videoId: "rDDeE84IYPw",
+      channelId: "UCD8dLBNs1zi8ZOWXU7TQGlQ",
+      titleKey: "新潟県立紫雲寺記念公園 オートキャンプ場からのライブ配信",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-2026-08-22",
+    name: { ja: "【2026/08/22 土曜日】西武線ライブカメラ 西武池袋線保谷駅付近の踏切からライブ配信 #ライブカメラ", en: "【2026/08/22 土曜日】西武線ライブカメラ 西武池袋線保谷駅付近の踏切からライブ配信 #ライブカメラ" },
+    lat: 39.7172,
+    lng: 140.1266,
+    timeZone: "Asia/Tokyo",
+    category: "railway",
+    country: "JP",
+    source: {
+      videoId: "3loCWGr2N9M",
+      channelId: "UCAPMlxH-TQVQNzKgD9V_JEw",
+      titleKey: "【2026/08/22 土曜日】西武線ライブカメラ　西武池袋線保谷駅付近の踏切からライブ配信  #ライブカメラ",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-2026-08-12",
+    name: { ja: "【2026/08/12 水曜日】西武線ライブカメラ 西武池袋線保谷駅付近の踏切からライブ配信 #ライブカメラ", en: "【2026/08/12 水曜日】西武線ライブカメラ 西武池袋線保谷駅付近の踏切からライブ配信 #ライブカメラ" },
+    lat: 39.7172,
+    lng: 140.1266,
+    timeZone: "Asia/Tokyo",
+    category: "railway",
+    country: "JP",
+    source: {
+      videoId: "Kbm5xkVtA74",
+      channelId: "UCAPMlxH-TQVQNzKgD9V_JEw",
+      titleKey: "【2026/08/12 水曜日】西武線ライブカメラ　西武池袋線保谷駅付近の踏切からライブ配信  #ライブカメラ",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-ebc-4",
+    name: { ja: "愛南町ライブカメラ【EBC】", en: "愛南町ライブカメラ【EBC】" },
+    lat: 32.9604,
+    lng: 132.5625,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "ZgMFLDWgbBo",
+      channelId: "UCSzVAEFIewUsDHFEkcdyw1w",
+      titleKey: "愛南町ライブカメラ【EBC】",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-2026-6-4-1",
+    name: { ja: "【2026】6月第4週① 日本のドラレコ映像まとめ【交通安全】", en: "【2026】6月第4週① 日本のドラレコ映像まとめ【交通安全】" },
+    lat: 34.1874,
+    lng: 131.8263,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "CEgbWpi2oI0",
+      channelId: "UCu-Y78kSFv6Ee6f3ksduYYw",
+      titleKey: "【2026】6月第4週① 日本のドラレコ映像まとめ【交通安全】",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-208",
+    name: { ja: "河津町笹原公園ライブカメラ", en: "河津町笹原公園ライブカメラ" },
+    lat: 34.7475,
+    lng: 138.996,
+    timeZone: "Asia/Tokyo",
+    category: "nature",
+    country: "JP",
+    source: {
+      videoId: "jX46WOhWAFo",
+      channelId: "UCgJR4NiTcsb4h95YrsheNYw",
+      titleKey: "河津町笹原公園ライブカメラ",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "us-4k60p-a7s3",
+    name: { ja: "【4K60P】纽约,长岛市,徒步旅行,a7s3", en: "【4K60P】纽约,长岛市,徒步旅行,a7s3" },
+    lat: 40.7873,
+    lng: -73.7263,
+    timeZone: "America/New_York",
+    category: "city",
+    country: "US",
+    source: {
+      videoId: "HKF4x8yONdI",
+      channelId: "UCz0jKBJJa1TveQZhwYFoSQw",
+      titleKey: "【4K60P】纽约,长岛市,徒步旅行,a7s3",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-209",
+    name: { ja: "思い出横丁ライブカメラ", en: "思い出横丁ライブカメラ" },
+    lat: 35.693,
+    lng: 139.6997,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "G5THMspEkWk",
+      channelId: "UCb21BmrBwzoZQjlCfnCoC0A",
+      titleKey: "思い出横丁ライブカメラ",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-210",
+    name: { ja: "花巻空港（西側エプロン）ライブ映像", en: "花巻空港（西側エプロン）ライブ映像" },
+    lat: 35.5684,
+    lng: 139.396,
+    timeZone: "Asia/Tokyo",
+    category: "airport",
+    country: "JP",
+    source: {
+      videoId: "GmPv1G6KV34",
+      channelId: "UCA3HAQPa6Y30TQVEPZzZ7sA",
+      titleKey: "花巻空港（西側エプロン）ライブ映像",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-211",
+    name: { ja: "道路カメラ_袖師交差点", en: "道路カメラ_袖師交差点" },
+    lat: 35.0358,
+    lng: 138.4932,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "MZZPfI49aB4",
+      channelId: "UCa6LoR3TlZ934EBz2osTfuw",
+      titleKey: "道路カメラ_袖師交差点",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-4k-5",
+    name: { ja: "江ノ島の散策｜仲見世通り・江島神社・稚児ヶ淵へ歩く｜4K環境音", en: "江ノ島の散策｜仲見世通り・江島神社・稚児ヶ淵へ歩く｜4K環境音" },
+    lat: 34.934,
+    lng: 135.7912,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "sFhD4HsHysM",
+      channelId: "UCIbYqNFhQ1KrtHtxS0aWyqw",
+      titleKey: "江ノ島の散策｜仲見世通り・江島神社・稚児ヶ淵へ歩く｜4K環境音",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "si-maribor-4k",
+    name: { ja: "马里博尔Maribor, 斯洛文尼亚，最迷人的小镇，徒步旅行，4K", en: "马里博尔Maribor, 斯洛文尼亚，最迷人的小镇，徒步旅行，4K" },
+    lat: 46.5576,
+    lng: 15.6456,
+    timeZone: "Europe/Ljubljana",
+    category: "city",
+    country: "SI",
+    source: {
+      videoId: "y4KLvwl7Uoo",
+      channelId: "UCWCrF63V0tR9pDAsj1CLBBA",
+      titleKey: "马里博尔Maribor, 斯洛文尼亚，最迷人的小镇，徒步旅行，4K",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-212",
+    name: { ja: "杉村やすらぎ広場のライブ配信（遊具広場）", en: "杉村やすらぎ広場のライブ配信（遊具広場）" },
+    lat: 35.4077,
+    lng: 139.5439,
+    timeZone: "Asia/Tokyo",
+    category: "nature",
+    country: "JP",
+    source: {
+      videoId: "Woujo-d_Q5g",
+      channelId: "UCAB1N4jDY7E6Z_NdT0UXh_w",
+      titleKey: "杉村やすらぎ広場のライブ配信（遊具広場）",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-213",
+    name: { ja: "杉村やすらぎ広場のライブ配信（駐車場）", en: "杉村やすらぎ広場のライブ配信（駐車場）" },
+    lat: 35.6517,
+    lng: 139.852,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "f90BkYeFXqQ",
+      channelId: "UCAB1N4jDY7E6Z_NdT0UXh_w",
+      titleKey: "杉村やすらぎ広場のライブ配信（駐車場）",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-2-9",
+    name: { ja: "イケヨシ第2駐車場駐車場監視カメラ映像 夜", en: "イケヨシ第2駐車場駐車場監視カメラ映像 夜" },
+    lat: 35.5684,
+    lng: 139.396,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "aK1LPDoo-dg",
+      channelId: "UCpUu0XPDQrYZLjVcpnwALfg",
+      titleKey: "イケヨシ第2駐車場駐車場監視カメラ映像 夜",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-live-37",
+    name: { ja: "【LIVE】蕨市まちなかライブカメラ 蕨ケーブルビジョン", en: "【LIVE】蕨市まちなかライブカメラ 蕨ケーブルビジョン" },
+    lat: 35.8664,
+    lng: 139.9761,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "PdSoyrNorjg",
+      channelId: "UC94IabrslUCrs6jZ2NtkXFA",
+      titleKey: "【LIVE】蕨市まちなかライブカメラ　蕨ケーブルビジョン",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-214",
+    name: { ja: "北海道・洞爺湖ライブ配信｜ウィンザーホテル屋上から天空のパノラマ", en: "北海道・洞爺湖ライブ配信｜ウィンザーホテル屋上から天空のパノラマ" },
+    lat: 43.452,
+    lng: 142.8198,
+    timeZone: "Asia/Tokyo",
+    category: "nature",
+    country: "JP",
+    source: {
+      videoId: "Q2Yrm0oxhw4",
+      channelId: "UCzra9cYMLwOTkSRff-4XJag",
+      titleKey: "北海道・洞爺湖ライブ配信｜ウィンザーホテル屋上から天空のパノラマ",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-215",
+    name: { ja: "道路カメラ_春日北交差点", en: "道路カメラ_春日北交差点" },
+    lat: 42.2457,
+    lng: 140.2414,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "IqnTjRGTLb4",
+      channelId: "UCa6LoR3TlZ934EBz2osTfuw",
+      titleKey: "道路カメラ_春日北交差点",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-216",
+    name: { ja: "立石公園道路状況ライブカメラ", en: "立石公園道路状況ライブカメラ" },
+    lat: 34.3984,
+    lng: 132.1578,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "FbAaCT9ykC4",
+      channelId: "UCFPHsl3dglA16jKQiLhxkiA",
+      titleKey: "立石公園道路状況ライブカメラ",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-217",
+    name: { ja: "八島湿原駐車場ライブカメラ（通年）", en: "八島湿原駐車場ライブカメラ（通年）" },
+    lat: 35.6998,
+    lng: 139.7944,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "RXc0m4rxpVY",
+      channelId: "UC95danhP-6ym8z3ST4ZRR_Q",
+      titleKey: "八島湿原駐車場ライブカメラ（通年）",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-218",
+    name: { ja: "新御堂筋ライブカメラ", en: "新御堂筋ライブカメラ" },
+    lat: 34.7512,
+    lng: 135.497,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "l5gzsNf-8Ho",
+      channelId: "UCVdRvQptqqoLJA9s4_QcpiQ",
+      titleKey: "新御堂筋ライブカメラ",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "tw-live-cam-changhong-bridge-2160p",
+    name: { ja: "【Live Cam】東海岸即時影像 - 長虹橋｜Changhong Bridge｜長虹橋 2160p", en: "【Live Cam】東海岸即時影像 - 長虹橋｜Changhong Bridge｜長虹橋 2160p" },
+    lat: 24.9723,
+    lng: 121.5957,
+    timeZone: "Asia/Taipei",
+    category: "nature",
+    country: "TW",
+    source: {
+      videoId: "JnD8Rk3o0BM",
+      channelId: "UC5FiBoG6GcB5QqsiOsGe22A",
+      titleKey: "【Live Cam】東海岸即時影像 - 長虹橋｜Changhong Bridge｜長虹橋 2160p",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "tw-live-cam-jialulan-2160p",
+    name: { ja: "【Live Cam】東海岸即時影像 - 加路蘭遊憩區｜Jialulan｜加路蘭休憩区 2160p", en: "【Live Cam】東海岸即時影像 - 加路蘭遊憩區｜Jialulan｜加路蘭休憩区 2160p" },
+    lat: 23.5323,
+    lng: 121.5071,
+    timeZone: "Asia/Taipei",
+    category: "nature",
+    country: "TW",
+    source: {
+      videoId: "AKl3F6cAY2Q",
+      channelId: "UC5FiBoG6GcB5QqsiOsGe22A",
+      titleKey: "【Live Cam】東海岸即時影像 - 加路蘭遊憩區｜Jialulan｜加路蘭休憩区 2160p",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-219",
+    name: { ja: "道路カメラ_東上乃木", en: "道路カメラ_東上乃木" },
+    lat: 35.4471,
+    lng: 133.0675,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "Mk8z2d1lHfg",
+      channelId: "UCa6LoR3TlZ934EBz2osTfuw",
+      titleKey: "道路カメラ_東上乃木",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-220",
+    name: { ja: "道路カメラ_縁結び大橋", en: "道路カメラ_縁結び大橋" },
+    lat: 35.4621,
+    lng: 133.0931,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "gCSr3Qm3BDM",
+      channelId: "UCa6LoR3TlZ934EBz2osTfuw",
+      titleKey: "道路カメラ_縁結び大橋",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-24h-4",
+    name: { ja: "掛川城天守閣24hライブカメラ", en: "掛川城天守閣24hライブカメラ" },
+    lat: 34.7752,
+    lng: 138.0139,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "pFlwpTTEuq0",
+      channelId: "UCJKH8wYxFYeufDnvy1MPofA",
+      titleKey: "掛川城天守閣24hライブカメラ",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-2-2k",
+    name: { ja: "桐生川２．２ｋ観音橋下流｜河川課｜群馬県", en: "桐生川２．２ｋ観音橋下流｜河川課｜群馬県" },
+    lat: 36.522,
+    lng: 139.0335,
+    timeZone: "Asia/Tokyo",
+    category: "nature",
+    country: "JP",
+    source: {
+      videoId: "sHn520RDqJ0",
+      channelId: "UCpkl9MwSL9v7cba4gGl_epA",
+      titleKey: "桐生川２．２ｋ観音橋下流｜河川課｜群馬県",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-4-3k",
+    name: { ja: "石田川４．３ｋ大正橋下流｜河川課｜群馬県", en: "石田川４．３ｋ大正橋下流｜河川課｜群馬県" },
+    lat: 36.522,
+    lng: 139.0335,
+    timeZone: "Asia/Tokyo",
+    category: "nature",
+    country: "JP",
+    source: {
+      videoId: "X6ZBKaQ_Qxs",
+      channelId: "UCpkl9MwSL9v7cba4gGl_epA",
+      titleKey: "石田川４．３ｋ大正橋下流｜河川課｜群馬県",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-24h-5",
+    name: { ja: "御前崎灯台24hライブカメラ 岬の宿「八潮」より配信", en: "御前崎灯台24hライブカメラ 岬の宿「八潮」より配信" },
+    lat: 34.5958,
+    lng: 138.2257,
+    timeZone: "Asia/Tokyo",
+    category: "nature",
+    country: "JP",
+    source: {
+      videoId: "jJ4Juhl8Iq0",
+      channelId: "UCJKH8wYxFYeufDnvy1MPofA",
+      titleKey: "御前崎灯台24hライブカメラ　岬の宿「八潮」より配信",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-221",
+    name: { ja: "道路カメラ_宍道湖大橋", en: "道路カメラ_宍道湖大橋" },
+    lat: 35.7678,
+    lng: 139.9172,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "mspMbWuEbxk",
+      channelId: "UCa6LoR3TlZ934EBz2osTfuw",
+      titleKey: "道路カメラ_宍道湖大橋",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-222",
+    name: { ja: "道路カメラ_くにびき大橋", en: "道路カメラ_くにびき大橋" },
+    lat: 35.4672,
+    lng: 133.0653,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "JEFoqOUDUI4",
+      channelId: "UCa6LoR3TlZ934EBz2osTfuw",
+      titleKey: "道路カメラ_くにびき大橋",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "no-sykkylvsfjorden-live",
+    name: { ja: "Sykkylvsfjorden Live", en: "Sykkylvsfjorden Live" },
+    lat: 62.377,
+    lng: 6.5624,
+    timeZone: "Europe/Oslo",
+    category: "city",
+    country: "NO",
+    source: {
+      videoId: "lineB9KXXPY",
+      channelId: "UC075ElWSjddybgdsajuUAtg",
+      titleKey: "Sykkylvsfjorden Live",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ch-wetterpanorama-webcams-von-panocloud",
+    name: { ja: "Wetterpanorama Webcams von PanoCloud", en: "Wetterpanorama Webcams von PanoCloud" },
+    lat: 47.3561,
+    lng: 8.5509,
+    timeZone: "Europe/Zurich",
+    category: "city",
+    country: "CH",
+    source: {
+      videoId: "F2-hJqSTaUk",
+      channelId: "UCgL2EJAYMsU9ifTuiZ9wUFA",
+      titleKey: "Wetterpanorama Webcams von PanoCloud",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "no-nordfjordhjort-live",
+    name: { ja: "Nordfjordhjort Live", en: "Nordfjordhjort Live" },
+    lat: 59.916,
+    lng: 10.75,
+    timeZone: "Europe/Oslo",
+    category: "city",
+    country: "NO",
+    source: {
+      videoId: "0fTmFyQCxqc",
+      channelId: "UCagckRRHeGkG7iwPl91hUpg",
+      titleKey: "Nordfjordhjort Live",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ch-st-gervais-live-bettex",
+    name: { ja: "St Gervais - Live Bettex", en: "St Gervais - Live Bettex" },
+    lat: 46.1135,
+    lng: 7.0119,
+    timeZone: "Europe/Zurich",
+    category: "city",
+    country: "CH",
+    source: {
+      videoId: "elGbyX0KCMg",
+      channelId: "UCfQ4RTstiTQcFZhoyzgs96g",
+      titleKey: "St Gervais - Live Bettex",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-safarihoek-namibia-live-wildlife-came",
+    name: { ja: "Safarihoek - Namibia | Live Wildlife Camera", en: "Safarihoek - Namibia | Live Wildlife Camera" },
+    lat: -26.0911,
+    lng: 28.1142,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "qwvk5hbEJnY",
+      channelId: "UCuoNAKa3P0QR1Lw9QdpmoVg",
+      titleKey: "Safarihoek - Namibia | Live Wildlife Camera",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "za-live-from-lentorre-kenya-live-wildlif",
+    name: { ja: "Live From Lentorre, Kenya | Live Wildlife Camera", en: "Live From Lentorre, Kenya | Live Wildlife Camera" },
+    lat: -33.9995,
+    lng: 18.4996,
+    timeZone: "Africa/Johannesburg",
+    category: "city",
+    country: "ZA",
+    source: {
+      videoId: "bEmFpjwMOvs",
+      channelId: "UCuoNAKa3P0QR1Lw9QdpmoVg",
+      titleKey: "Live From Lentorre, Kenya | Live Wildlife Camera",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "in-falcon-cam-hibbard-2",
+    name: { ja: "Falcon Cam - Hibbard 2", en: "Falcon Cam - Hibbard 2" },
+    lat: 11.9823,
+    lng: 79.7773,
+    timeZone: "Asia/Kolkata",
+    category: "city",
+    country: "IN",
+    source: {
+      videoId: "IIBH_Zva4ms",
+      channelId: "UCYzcstmc8YHTmPJkvFfiRWA",
+      titleKey: "Falcon Cam - Hibbard 2",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "no-winter-in-norway-4k-uhd-norway-s-ench",
+    name: { ja: "Winter in Norway 4K UHD️ Norway's enchanting winter fjords and snow-covered beauty • Relaxing Music", en: "Winter in Norway 4K UHD️ Norway's enchanting winter fjords and snow-covered beauty • Relaxing Music" },
+    lat: 59.9325,
+    lng: 10.714,
+    timeZone: "Europe/Oslo",
+    category: "city",
+    country: "NO",
+    source: {
+      videoId: "GF4MCEqu1zI",
+      channelId: "UCHj38j5HL6EPajczILG-vzQ",
+      titleKey: "Winter in Norway 4K UHD❄️ Norway's enchanting winter fjords and snow-covered beauty • Relaxing Music",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "pl-live-population-count-2026",
+    name: { ja: "[Live] Population Count 2026", en: "[Live] Population Count 2026" },
+    lat: 53.1426,
+    lng: 18.0045,
+    timeZone: "Europe/Warsaw",
+    category: "city",
+    country: "PL",
+    source: {
+      videoId: "fG1qW6z7hwU",
+      channelId: "UCU4Diuu_J3KRX2Rkj40ZZnA",
+      titleKey: "[Live] Population Count 2026",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "tr-a-b-i-canli-yayin",
+    name: { ja: "A.B.İ. | CANLI YAYIN", en: "A.B.İ. | CANLI YAYIN" },
+    lat: 41.1923,
+    lng: 36.7464,
+    timeZone: "Europe/Istanbul",
+    category: "city",
+    country: "TR",
+    source: {
+      videoId: "jhEx9jk3wuc",
+      channelId: "UCSifzNCnyapTKmQPYs-SZvA",
+      titleKey: "A.B.İ. | CANLI YAYIN",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ua-ukraine-live-24-7-multiple-live-camer",
+    name: { ja: "Ukraine Live - 24/7 Multiple Live Cameras of Ukraine with News Updates", en: "Ukraine Live - 24/7 Multiple Live Cameras of Ukraine with News Updates" },
+    lat: 50.4411,
+    lng: 30.5038,
+    timeZone: "Europe/Kyiv",
+    category: "city",
+    country: "UA",
+    source: {
+      videoId: "AbBuSNMWBlQ",
+      channelId: "UC98W74iwmWXnOMHq0lYeDIw",
+      titleKey: "Ukraine Live - 24/7 Multiple Live Cameras of Ukraine with News Updates",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ua-live-real-time-ukraine-cameras",
+    name: { ja: "LIVE Real Time Ukraine Cameras", en: "LIVE Real Time Ukraine Cameras" },
+    lat: 47.7824,
+    lng: 35.1875,
+    timeZone: "Europe/Kyiv",
+    category: "city",
+    country: "UA",
+    source: {
+      videoId: "lUIOBYWfHgw",
+      channelId: "UCP4cCckKrZTWPRG1rJ_cahA",
+      titleKey: "🔴 LIVE Real Time Ukraine Cameras",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ua-24-7-live-cams-ukraine-russia-conflic",
+    name: { ja: "24/7 Live Cams: Ukraine – Russia Conflict", en: "24/7 Live Cams: Ukraine – Russia Conflict" },
+    lat: 48.5728,
+    lng: 39.3145,
+    timeZone: "Europe/Kyiv",
+    category: "city",
+    country: "UA",
+    source: {
+      videoId: "CH8JsNKY3xo",
+      channelId: "UCPMcDwo2Exvc1_y0rlL-DQQ",
+      titleKey: "24/7 Live Cams: Ukraine – Russia Conflict",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ro-live-euronews-romania",
+    name: { ja: "LIVE. Euronews România", en: "LIVE. Euronews România" },
+    lat: 44.434,
+    lng: 26.0538,
+    timeZone: "Europe/Bucharest",
+    category: "city",
+    country: "RO",
+    source: {
+      videoId: "XNcx7TFm6zg",
+      channelId: "UCbATDExtWstHnwWELZnXNZA",
+      titleKey: "LIVE. Euronews România",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ar-surfers-supplies-live-cam",
+    name: { ja: "Surfers Supplies Live Cam", en: "Surfers Supplies Live Cam" },
+    lat: -38.0805,
+    lng: -57.5385,
+    timeZone: "America/Argentina/Buenos_Aires",
+    category: "city",
+    country: "AR",
+    source: {
+      videoId: "rxSRwB5zujo",
+      channelId: "UCjxmE-kAeL-pcJrEYm-PWGg",
+      titleKey: "Surfers Supplies Live Cam",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "bg-euronews-english-live",
+    name: { ja: "Euronews English Live", en: "Euronews English Live" },
+    lat: 43.4035,
+    lng: 28.1475,
+    timeZone: "Europe/Sofia",
+    category: "city",
+    country: "BG",
+    source: {
+      videoId: "pykpO5kQJ98",
+      channelId: "UCSrZ3UV4jOidv8ppoVuvW9Q",
+      titleKey: "Euronews English Live",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ua-live",
+    name: { ja: "Карта повітряних тривог України Live Моніторинг ситуації в країні Миттєве сповіщення про загрози", en: "Карта повітряних тривог України Live Моніторинг ситуації в країні Миттєве сповіщення про загрози" },
+    lat: 49.098,
+    lng: 23.5193,
+    timeZone: "Europe/Kyiv",
+    category: "city",
+    country: "UA",
+    source: {
+      videoId: "96LgCn_73tM",
+      channelId: "UCvLCdNi-fitoRvWeHrzJp_A",
+      titleKey: "Карта повітряних тривог України Live Моніторинг ситуації в країні Миттєве сповіщення про загрози",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ua-free-om-live",
+    name: { ja: "FREEДOM. LIVE – Прямой эфир. Новости Украины и мира", en: "FREEДOM. LIVE – Прямой эфир. Новости Украины и мира" },
+    lat: 44.9438,
+    lng: 34.1813,
+    timeZone: "Europe/Simferopol",
+    category: "city",
+    country: "UA",
+    source: {
+      videoId: "zJUdf5y-BH0",
+      channelId: "UCOqFkpNwNLPGOb8EC-mwZYg",
+      titleKey: "FREEДOM. LIVE – Прямой эфир. Новости Украины и мира",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ar-live-camera-axis-q3708-pve",
+    name: { ja: "Live Camera Axis Q3708-PVE", en: "Live Camera Axis Q3708-PVE" },
+    lat: -34.5934,
+    lng: -58.3901,
+    timeZone: "America/Argentina/Buenos_Aires",
+    category: "city",
+    country: "AR",
+    source: {
+      videoId: "jUozyr1QNdc",
+      channelId: "UC94aZVV_emRjDGsStSz-oXw",
+      titleKey: "Live Camera Axis Q3708-PVE",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "tw-2-4k",
+    name: { ja: "墾丁大街即時影像2(南下)4K", en: "墾丁大街即時影像2(南下)4K" },
+    lat: 21.9963,
+    lng: 120.8244,
+    timeZone: "Asia/Taipei",
+    category: "city",
+    country: "TW",
+    source: {
+      videoId: "hrpwltQqtq0",
+      channelId: "UC7RyAGaxzAI9dD8NINv653w",
+      titleKey: "墾丁大街即時影像2(南下)4K",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "ua-1-1",
+    name: { ja: "ТСН онлайн | Телемарафон \"Єдині новини\" онлайн | 1+1 онлайн | Новини України", en: "ТСН онлайн | Телемарафон \"Єдині новини\" онлайн | 1+1 онлайн | Новини України" },
+    lat: 44.716,
+    lng: 33.5514,
+    timeZone: "Europe/Simferopol",
+    category: "city",
+    country: "UA",
+    source: {
+      videoId: "WY8sDvZdWEA",
+      channelId: "UCXoJ8kY9zpLBEz-8saaT3ew",
+      titleKey: "ТСН онлайн | Телемарафон \"Єдині новини\" онлайн | 1+1 онлайн | Новини України",
+    },
+  },
+  {
+    // 座標: 著名なランドマークとして明示指定
+    id: "jp-24-htb-live-24",
+    name: { ja: "【北海道ニュース24〜HTBニュースLIVE】北海道で起きた事件や事故、災害などを24時間配信中！", en: "【北海道ニュース24〜HTBニュースLIVE】北海道で起きた事件や事故、災害などを24時間配信中！" },
+    lat: 43.452,
+    lng: 142.8198,
+    timeZone: "Asia/Tokyo",
+    category: "city",
+    country: "JP",
+    source: {
+      videoId: "tvgbZZYS4Nk",
+      channelId: "UCSWOnDD1KIriGmyQ7SgNA4A",
+      titleKey: "【北海道ニュース24〜HTBニュースLIVE】北海道で起きた事件や事故、災害などを24時間配信中！",
+    },
+  },
 ];
