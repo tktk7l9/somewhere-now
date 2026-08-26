@@ -27,6 +27,7 @@ import { catalogCaption, t } from "./ui/i18n";
 import { createBreakView } from "./ui/breakView";
 import type { GlobeView } from "./ui/globe";
 import { createMapView } from "./ui/map";
+import { mountPinLegend } from "./ui/pin";
 import { createPanel } from "./ui/panel";
 import { attachPanelResize } from "./ui/panelResize";
 import { createWall } from "./ui/wall";
@@ -85,6 +86,7 @@ export function startApp(root: HTMLElement): void {
   const catalogEl = root.querySelector<HTMLElement>("#catalog")!;
   const wallEl = root.querySelector<HTMLElement>("#wall")!;
   const dialEl = root.querySelector<HTMLElement>("#dial")!;
+  const legendEl = root.querySelector<HTMLElement>("#legend")!;
   const breakEl = root.querySelector<HTMLElement>("#break")!;
 
   let view: ViewState = parseUrlState(location.search);
@@ -464,6 +466,7 @@ export function startApp(root: HTMLElement): void {
     }
     paintCatalog(visible.length);
     paintDial();
+    mountPinLegend(legendEl, view.lang);
 
     if (wallOpen) {
       // パネルは畳まれる(CSS)。同じ配信を二重に流さないよう中身も空にする。

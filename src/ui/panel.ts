@@ -9,6 +9,7 @@ import { formatLocalTime, utcOffsetLabel } from "../domain/localTime";
 import { weatherIcon, weatherLabel, type Lang } from "../domain/weather";
 import { fetchPlaceOverview, fetchWeather } from "../api/client";
 import { camName, categoryLabel, t } from "./i18n";
+import { mountPinLegend } from "./pin";
 import { mountPlayer, type PlayerHandle } from "./player";
 
 export interface PanelHandlers {
@@ -87,7 +88,11 @@ function emptyState(
   hint.className = "panel__hint";
   hint.textContent = t("emptyBody", lang);
 
-  el.append(h, body, durations, hint);
+  const legend = document.createElement("div");
+  legend.className = "legend legend--panel";
+  mountPinLegend(legend, lang);
+
+  el.append(h, body, durations, hint, legend);
   return el;
 }
 
