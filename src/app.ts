@@ -23,7 +23,7 @@ import { isNightAt } from "./domain/terminator";
 import { MAX_VIEW, parseUrlState, toSearchString, type ViewState } from "./domain/urlState";
 import { fetchCamStates } from "./api/client";
 import { createControls, type LocateStatus } from "./ui/controls";
-import { catalogCaption, t } from "./ui/i18n";
+import { catalogCaption, liveDialCaption, t } from "./ui/i18n";
 import { createBreakView } from "./ui/breakView";
 import type { GlobeView } from "./ui/globe";
 import { createMapView } from "./ui/map";
@@ -392,11 +392,20 @@ export function startApp(root: HTMLElement): void {
   }
 
   function paintDial(): void {
-    const dark = CAMS.filter((cam) => nightIds.has(cam.id)).length;
+    // 「全ての地点」は配信中フィルタ以外の絞り込みに従う。
+    // liveOnly を含めると分母が分子と同じになり、常に N / N になる。
+    const scoped = filterCams(
+      CAMS,
+      { states, nightIds, favoriteIds: new Set(favorites) },
+      { ...view, liveOnly: false },
+    );
+    const live = scoped.filter((cam) => states.get(cam.id)?.status === "live").length;
+    const caption = liveDialCaption(live, scoped.length, view.lang);
     dialEl.innerHTML =
-      `<span class="dial__count">${dark}</span>` +
-      `<span class="dial__total">/ ${CAMS.length}</span>` +
-      `<span class="dial__label">${t("darknessHeadline", view.lang)}</span>`;
+      `<span class="dial__count">${caption.count}</span>` +
+      `<span class="dial__total">${caption.total}</span>` +
+      `<span class="dial__label">${caption.label}</span>`;
+    dialEl.setAttribute("aria-label", caption.aria);
   }
 
   function paintCatalog(visible: number): void {
