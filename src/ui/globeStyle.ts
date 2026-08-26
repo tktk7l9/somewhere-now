@@ -1,13 +1,11 @@
 // 地球儀の地図スタイル。平面図は OSM ラスタを CSS で海図色に寄せている。
 // MapLibre のキャンバスに同じフィルタは掛けられない(夜の影とピンまで反転する)
-// ので、OpenFreeMap のベクトル図式を同じ変換式で塗り直し、低ズームの
-// Natural Earth 陰影だけラスタとして同じフィルタを通す。
+// ので、OpenFreeMap のベクトル図式を同じ変換式で塗り直す。低ズームの
+// Natural Earth 陰影は連続階調なので、invert のあとコントラストを戻して載せる。
 
 import type { AddProtocolAction } from "maplibre-gl";
 
-import { NAUTICAL_FILTER, walkCssColors } from "./nauticalColor";
-
-export { NAUTICAL_FILTER };
+import { nauticalizeImageData, walkCssColors } from "./nauticalColor";
 
 export const LIBERTY_STYLE_URL = "https://tiles.openfreemap.org/styles/liberty";
 export const NAUTICAL_PROTOCOL = "nautical";
@@ -155,9 +153,9 @@ function withGlobeChrome(style: GlobeStyleJson): GlobeStyleJson {
       ["exponential", 1.5],
       ["zoom"],
       0,
-      0.84,
+      0.92,
       6,
-      0.2,
+      0.28,
     ];
     earth.paint["raster-fade-duration"] = 0;
   }
@@ -211,14 +209,20 @@ export async function loadGlobeStyle(): Promise<GlobeStyleJson> {
 
 let protocolRegistered = false;
 
-async function nauticalizeBitmap(bitmap: ImageBitmap): Promise<ImageBitmap> {
+export function isReliefTileUrl(url: string): boolean {
+  return url.includes("/natural_earth/");
+}
+
+async function nauticalizeBitmap(bitmap: ImageBitmap, relief: boolean): Promise<ImageBitmap> {
   const canvas = document.createElement("canvas");
   canvas.width = bitmap.width;
   canvas.height = bitmap.height;
-  const ctx = canvas.getContext("2d");
+  const ctx = canvas.getContext("2d", { willReadFrequently: true });
   if (ctx === null) return bitmap;
-  ctx.filter = NAUTICAL_FILTER;
   ctx.drawImage(bitmap, 0, 0);
+  const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  nauticalizeImageData(imageData, relief);
+  ctx.putImageData(imageData, 0, 0);
   return createImageBitmap(canvas);
 }
 
@@ -230,7 +234,7 @@ export function registerNauticalProtocol(addProtocol: (name: string, fn: AddProt
     const response = await fetch(url, { signal: abortController.signal });
     if (!response.ok) throw new Error(`tile ${response.status}`);
     const bitmap = await createImageBitmap(await response.blob());
-    return { data: await nauticalizeBitmap(bitmap) };
+    return { data: await nauticalizeBitmap(bitmap, isReliefTileUrl(url)) };
   });
 }
 

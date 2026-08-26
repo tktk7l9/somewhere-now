@@ -140,6 +140,11 @@ function saturate(r: number, g: number, b: number, amount: number): [number, num
   ];
 }
 
+function applyContrast(r: number, g: number, b: number, amount: number): [number, number, number] {
+  const intercept = 255 * (0.5 - 0.5 * amount);
+  return [r * amount + intercept, g * amount + intercept, b * amount + intercept];
+}
+
 /** 平面図と同じ invert → hue-rotate → brightness → contrast → saturate。 */
 export function nauticalizeRgb(r: number, g: number, b: number): [number, number, number] {
   let nr = 255 - r;
@@ -149,12 +154,34 @@ export function nauticalizeRgb(r: number, g: number, b: number): [number, number
   nr *= 0.78;
   ng *= 0.78;
   nb *= 0.78;
-  const intercept = 255 * (0.5 - 0.5 * 1.05);
-  nr = nr * 1.05 + intercept;
-  ng = ng * 1.05 + intercept;
-  nb = nb * 1.05 + intercept;
+  [nr, ng, nb] = applyContrast(nr, ng, nb, 1.05);
   [nr, ng, nb] = saturate(nr, ng, nb, 0.75);
   return [clampByte(nr), clampByte(ng), clampByte(nb)];
+}
+
+/**
+ * Natural Earth の連続階調は平面図と同じ明るさ下げだと起伏が潰れる。
+ * invert のあとにコントラストを戻して、山脈と砂漠が球の距離でも残るようにする。
+ */
+export function nauticalizeReliefRgb(r: number, g: number, b: number): [number, number, number] {
+  let nr = 255 - r;
+  let ng = 255 - g;
+  let nb = 255 - b;
+  [nr, ng, nb] = hueRotate(nr, ng, nb, 180);
+  [nr, ng, nb] = applyContrast(nr, ng, nb, 1.55);
+  [nr, ng, nb] = saturate(nr, ng, nb, 0.7);
+  return [clampByte(nr), clampByte(ng), clampByte(nb)];
+}
+
+export function nauticalizeImageData(data: ImageData, relief: boolean): void {
+  const px = data.data;
+  const convert = relief ? nauticalizeReliefRgb : nauticalizeRgb;
+  for (let i = 0; i < px.length; i += 4) {
+    const [r, g, b] = convert(px[i]!, px[i + 1]!, px[i + 2]!);
+    px[i] = r;
+    px[i + 1] = g;
+    px[i + 2] = b;
+  }
 }
 
 export function formatCssColor(color: Rgba): string {

@@ -3,6 +3,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import {
   buildGlobeStyle,
   fallbackGlobeStyle,
+  isReliefTileUrl,
   LIBERTY_STYLE_URL,
   loadGlobeStyle,
   NAUTICAL_PROTOCOL,
@@ -98,9 +99,9 @@ describe("buildGlobeStyle", () => {
       ["exponential", 1.5],
       ["zoom"],
       0,
-      0.84,
+      0.92,
       6,
-      0.2,
+      0.28,
     ]);
     expect(style.layers[1]?.paint?.["raster-fade-duration"]).toBe(0);
     const earthTiles = style.sources["ne2_shaded"]?.["tiles"];
@@ -147,6 +148,17 @@ describe("loadGlobeStyle", () => {
     vi.stubGlobal("fetch", vi.fn().mockRejectedValue(new Error("offline")));
     const style = await loadGlobeStyle();
     expect(style.sources["earth"]).toBeDefined();
+  });
+});
+
+describe("isReliefTileUrl", () => {
+  it("Natural Earth の陰影だけ起伏用とみなす", () => {
+    expect(
+      isReliefTileUrl("https://tiles.openfreemap.org/natural_earth/ne2sr/2/1/1.png"),
+    ).toBe(true);
+    expect(isReliefTileUrl("https://a.basemaps.cartocdn.com/rastertiles/voyager/2/1/1.png")).toBe(
+      false,
+    );
   });
 });
 

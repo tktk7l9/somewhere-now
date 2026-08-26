@@ -1,6 +1,8 @@
 import {
   formatCssColor,
   nauticalizeCssColor,
+  nauticalizeImageData,
+  nauticalizeReliefRgb,
   nauticalizeRgb,
   parseCssColor,
   walkCssColors,
@@ -54,6 +56,28 @@ describe("nauticalizeRgb", () => {
     expect(r).toBeGreaterThan(180);
     expect(g).toBe(r);
     expect(b).toBe(r);
+  });
+});
+
+describe("nauticalizeReliefRgb", () => {
+  it("中間色の差が平面図用より残る", () => {
+    const chart = Math.abs(nauticalizeRgb(160, 150, 120)[0]! - nauticalizeRgb(90, 100, 80)[0]!);
+    const relief = Math.abs(
+      nauticalizeReliefRgb(160, 150, 120)[0]! - nauticalizeReliefRgb(90, 100, 80)[0]!,
+    );
+    expect(relief).toBeGreaterThan(chart);
+  });
+});
+
+describe("nauticalizeImageData", () => {
+  it("RGB だけ変換し alpha は触らない", () => {
+    const chart = { data: new Uint8ClampedArray([255, 255, 255, 200]) } as ImageData;
+    nauticalizeImageData(chart, false);
+    expect([...chart.data]).toEqual([0, 0, 0, 200]);
+    const relief = { data: new Uint8ClampedArray([0, 0, 0, 90]) } as ImageData;
+    nauticalizeImageData(relief, true);
+    expect(relief.data[0]).toBeGreaterThan(180);
+    expect(relief.data[3]).toBe(90);
   });
 });
 
