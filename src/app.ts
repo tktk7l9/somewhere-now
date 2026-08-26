@@ -471,6 +471,11 @@ export function startApp(root: HTMLElement): void {
     void ensureGlobe();
   } else {
     mapView.playIntro(now);
+    const warm = (): void => {
+      void import("./ui/globe").then((mod) => mod.prefetchGlobeRuntime());
+    };
+    if (typeof requestIdleCallback === "function") requestIdleCallback(warm, { timeout: 2500 });
+    else setTimeout(warm, 800);
   }
   void pullStates();
 

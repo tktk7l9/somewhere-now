@@ -1,20 +1,31 @@
-// 地球儀の地図スタイル。平面図は OSM ラスタを CSS で海図色に寄せている。
-// MapLibre のキャンバスに同じフィルタは掛けられない(夜の影とピンまで反転する)
-// ので、OpenFreeMap のベクトル図式を同じ変換式で塗り直す。低ズームの
-// Natural Earth 陰影は連続階調なので、invert のあとコントラストを戻して載せる。
+// 地球儀の地図スタイル。平面図は OSM ラスタに地名が焼き付いている。
+// 地球儀はベクトルの place レイヤで国・都市名を出し、夜の影より手前に置く。
+// 図式 JSON をネットから取ると球が出る前に待ちができるので、ここで組む。
+// レイヤは球に必要なものだけ。111 枚の liberty を載せるよりタイルも描画も軽い。
 
-import type { AddProtocolAction } from "maplibre-gl";
+import type { ExpressionSpecification } from "maplibre-gl";
 
-import { nauticalizeImageData, walkCssColors } from "./nauticalColor";
-
-export const LIBERTY_STYLE_URL = "https://tiles.openfreemap.org/styles/liberty";
-export const NAUTICAL_PROTOCOL = "nautical";
+import type { Lang } from "../domain/weather";
 
 const LIT = "#ffb94a";
 const INK = "#0b1620";
+const INK_2 = "#132532";
 const NIGHT = "#050c14";
 const SPACE = "#02080c";
+const BONE = "#e8e2d4";
+const DIM = "#7e9099";
 const PIN_RING = "#d8e0e4";
+const HALO = "rgba(11, 22, 32, 0.88)";
+
+export const GLOBE_GLYPHS = "https://tiles.openfreemap.org/fonts/{fontstack}/{range}.pbf";
+export const GLOBE_TILES_ORIGIN = "https://tiles.openfreemap.org";
+export const LABEL_LAYER_IDS = [
+  "label-country",
+  "label-city",
+  "label-city-more",
+  "label-town",
+  "label-sea",
+] as const;
 
 const GLOBE_SKY = {
   "sky-color": "#6a93a8",
@@ -30,13 +41,6 @@ const GLOBE_LIGHT = {
   position: [1.15, 210, 30],
 };
 
-const CARTO_TILES = [
-  "https://a.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png",
-  "https://b.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png",
-  "https://c.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png",
-  "https://d.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png",
-];
-
 export type GlobeStyleJson = {
   version: 8;
   sources: Record<string, Record<string, unknown>>;
@@ -48,196 +52,288 @@ function emptyCollection(): { type: "FeatureCollection"; features: never[] } {
   return { type: "FeatureCollection", features: [] };
 }
 
-export function rasterUrlToProtocol(url: string): string {
-  return url.replace(/^https:\/\//, `${NAUTICAL_PROTOCOL}://`);
-}
-
-export function rewriteRasterSources(style: GlobeStyleJson): void {
-  for (const source of Object.values(style.sources)) {
-    if (source["type"] !== "raster") continue;
-    const tiles = source["tiles"];
-    if (!Array.isArray(tiles)) continue;
-    source["tiles"] = tiles.map((tile) =>
-      typeof tile === "string" ? rasterUrlToProtocol(tile) : tile,
-    );
+/** 日本語 UI では name:ja、英語 UI では name:en。無いときは OSM の name に退く。 */
+export function placeNameField(lang: Lang): ExpressionSpecification {
+  if (lang === "ja") {
+    return [
+      "coalesce",
+      ["get", "name:ja"],
+      ["get", "name:nonlatin"],
+      ["get", "name"],
+      ["get", "name:en"],
+      ["get", "name_en"],
+    ];
   }
+  return [
+    "coalesce",
+    ["get", "name:en"],
+    ["get", "name_en"],
+    ["get", "name:latin"],
+    ["get", "name"],
+  ];
 }
 
-const OVERLAY_SOURCES = {
-  night: { type: "geojson", data: emptyCollection() },
-  terminator: { type: "geojson", data: emptyCollection() },
-  cams: { type: "geojson", data: emptyCollection() },
+function labelLayout(
+  field: ExpressionSpecification,
+  size: unknown,
+  extra: Record<string, unknown> = {},
+): Record<string, unknown> {
+  return {
+    "text-field": field,
+    "text-font": ["Noto Sans Regular"],
+    "text-size": size,
+    "text-padding": 3,
+    "text-max-width": 8,
+    "text-line-height": 1.1,
+    "text-anchor": "center",
+    "text-optional": true,
+    "text-pitch-alignment": "viewport",
+    "symbol-z-order": "auto",
+    ...extra,
+  };
+}
+
+const labelPaint = {
+  "text-color": BONE,
+  "text-halo-color": HALO,
+  "text-halo-width": 1.35,
+  "text-halo-blur": 0.35,
 };
 
-const OVERLAY_LAYERS: GlobeStyleJson["layers"] = [
-  {
-    id: "night-shade",
-    type: "fill",
-    source: "night",
-    paint: {
-      "fill-color": NIGHT,
-      "fill-opacity": 0.55,
-      "fill-antialias": false,
-    },
-  },
-  {
-    id: "terminator",
-    type: "line",
-    source: "terminator",
-    paint: {
-      "line-color": LIT,
-      "line-width": 1.15,
-      "line-opacity": 0.45,
-    },
-  },
-  {
-    id: "cams-glow",
-    type: "circle",
-    source: "cams",
-    filter: ["==", ["get", "status"], "live"],
-    paint: {
-      "circle-pitch-alignment": "viewport",
-      "circle-radius": ["interpolate", ["linear"], ["zoom"], 0.6, 7, 2.8, 11, 8, 14],
-      "circle-color": LIT,
-      "circle-opacity": 0.22,
-      "circle-stroke-width": 0,
-    },
-  },
-  {
-    id: "cams-point",
-    type: "circle",
-    source: "cams",
-    paint: {
-      "circle-pitch-alignment": "viewport",
-      "circle-radius": [
-        "interpolate",
-        ["linear"],
-        ["zoom"],
-        0.6,
-        ["case", [">", ["get", "selected"], 0], 5.5, 3.5],
-        2.8,
-        ["case", [">", ["get", "selected"], 0], 10, 6.5],
-        8,
-        ["case", [">", ["get", "selected"], 0], 12, 7],
-      ],
-      "circle-color": ["case", ["==", ["get", "status"], "live"], LIT, INK],
-      "circle-stroke-width": 1.75,
-      "circle-stroke-color": ["case", ["==", ["get", "status"], "live"], LIT, PIN_RING],
-      "circle-opacity": [
-        "case",
-        ["any", ["==", ["get", "status"], "offline"], ["==", ["get", "status"], "blocked"]],
-        0.42,
-        1,
-      ],
-      "circle-stroke-opacity": [
-        "case",
-        ["any", ["==", ["get", "status"], "offline"], ["==", ["get", "status"], "blocked"]],
-        0.55,
-        1,
-      ],
-    },
-  },
-];
-
-function withGlobeChrome(style: GlobeStyleJson): GlobeStyleJson {
-  style.projection = { type: "globe" };
-  style.sky = GLOBE_SKY;
-  style.light = GLOBE_LIGHT;
-  style.sources = { ...style.sources, ...OVERLAY_SOURCES };
-  style.layers = [...style.layers, ...OVERLAY_LAYERS];
-  const earth = style.layers.find((layer) => layer.id === "natural_earth");
-  if (earth?.paint) {
-    // 球の距離では大陸の起伏が主役。元図式より少し濃く残す。
-    earth.paint["raster-opacity"] = [
-      "interpolate",
-      ["exponential", 1.5],
-      ["zoom"],
-      0,
-      0.92,
-      6,
-      0.28,
-    ];
-    earth.paint["raster-fade-duration"] = 0;
-  }
-  return style;
-}
-
-export function buildGlobeStyle(base: GlobeStyleJson): GlobeStyleJson {
-  const style = walkCssColors(structuredClone(base)) as GlobeStyleJson;
-  rewriteRasterSources(style);
-  return withGlobeChrome(style);
-}
-
-export function fallbackGlobeStyle(): GlobeStyleJson {
-  return withGlobeChrome({
+export function globeStyle(lang: Lang): GlobeStyleJson {
+  const names = placeNameField(lang);
+  return {
     version: 8,
+    glyphs: GLOBE_GLYPHS,
+    projection: { type: "globe" },
+    sky: GLOBE_SKY,
+    light: GLOBE_LIGHT,
     sources: {
-      earth: {
+      ne2_shaded: {
         type: "raster",
-        tiles: CARTO_TILES.map(rasterUrlToProtocol),
+        tiles: [`${GLOBE_TILES_ORIGIN}/natural_earth/ne2sr/{z}/{x}/{y}.png`],
         tileSize: 256,
+        maxzoom: 6,
         attribution:
-          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
-        maxzoom: 19,
+          '<a href="https://openfreemap.org" target="_blank">OpenFreeMap</a> <a href="https://www.openmaptiles.org/" target="_blank">&copy; OpenMapTiles</a> Data from <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>',
       },
+      openmaptiles: {
+        type: "vector",
+        url: `${GLOBE_TILES_ORIGIN}/planet`,
+      },
+      night: { type: "geojson", data: emptyCollection() },
+      terminator: { type: "geojson", data: emptyCollection() },
+      cams: { type: "geojson", data: emptyCollection() },
     },
     layers: [
       {
         id: "background",
         type: "background",
-        paint: { "background-color": SPACE },
+        paint: { "background-color": INK_2 },
       },
       {
-        id: "earth",
+        id: "natural_earth",
         type: "raster",
-        source: "earth",
-        paint: { "raster-fade-duration": 0 },
+        source: "ne2_shaded",
+        paint: {
+          "raster-opacity": ["interpolate", ["exponential", 1.5], ["zoom"], 0, 0.78, 6, 0.22],
+          "raster-saturation": -0.22,
+          "raster-contrast": 0.22,
+          "raster-brightness-min": 0,
+          "raster-brightness-max": 0.58,
+          "raster-fade-duration": 0,
+        },
+      },
+      {
+        id: "water",
+        type: "fill",
+        source: "openmaptiles",
+        "source-layer": "water",
+        paint: { "fill-color": INK, "fill-antialias": false },
+      },
+      {
+        id: "landcover-wood",
+        type: "fill",
+        source: "openmaptiles",
+        "source-layer": "landcover",
+        minzoom: 3,
+        filter: ["==", ["get", "class"], "wood"],
+        paint: { "fill-color": "#163028", "fill-opacity": 0.35, "fill-antialias": false },
+      },
+      {
+        id: "landcover-ice",
+        type: "fill",
+        source: "openmaptiles",
+        "source-layer": "landcover",
+        filter: ["match", ["get", "subclass"], ["ice_shelf", "glacier"], true, false],
+        paint: { "fill-color": "#c5d0d4", "fill-opacity": 0.28, "fill-antialias": false },
+      },
+      {
+        id: "boundary-country",
+        type: "line",
+        source: "openmaptiles",
+        "source-layer": "boundary",
+        filter: ["all", ["==", ["get", "admin_level"], 2], ["!", ["has", "claimed_by"]]],
+        paint: {
+          "line-color": DIM,
+          "line-opacity": 0.5,
+          "line-width": ["interpolate", ["linear"], ["zoom"], 0, 0.4, 4, 0.8, 8, 1.3],
+        },
+      },
+      {
+        id: "roads",
+        type: "line",
+        source: "openmaptiles",
+        "source-layer": "transportation",
+        minzoom: 5,
+        filter: ["match", ["get", "class"], ["motorway", "trunk", "primary"], true, false],
+        paint: {
+          "line-color": "#1e3a45",
+          "line-width": ["interpolate", ["linear"], ["zoom"], 5, 0.6, 10, 1.8, 14, 4],
+        },
+      },
+      {
+        id: "night-shade",
+        type: "fill",
+        source: "night",
+        paint: {
+          "fill-color": NIGHT,
+          "fill-opacity": 0.5,
+          "fill-antialias": false,
+        },
+      },
+      {
+        id: "terminator",
+        type: "line",
+        source: "terminator",
+        paint: {
+          "line-color": LIT,
+          "line-width": 1.15,
+          "line-opacity": 0.45,
+        },
+      },
+      {
+        id: "label-sea",
+        type: "symbol",
+        source: "openmaptiles",
+        "source-layer": "water_name",
+        maxzoom: 6,
+        filter: ["match", ["get", "class"], ["ocean", "sea"], true, false],
+        layout: labelLayout(names, ["interpolate", ["linear"], ["zoom"], 0, 11, 3, 13, 5, 15], {
+          "text-letter-spacing": 0.08,
+          "symbol-sort-key": ["get", "rank"],
+        }),
+        paint: { ...labelPaint, "text-color": DIM },
+      },
+      {
+        id: "label-country",
+        type: "symbol",
+        source: "openmaptiles",
+        "source-layer": "place",
+        maxzoom: 7,
+        filter: ["==", ["get", "class"], "country"],
+        layout: labelLayout(names, ["interpolate", ["linear"], ["zoom"], 0, 12, 2.8, 15, 5, 18], {
+          "text-max-width": 7,
+          "symbol-sort-key": ["get", "rank"],
+        }),
+        paint: labelPaint,
+      },
+      {
+        id: "label-city",
+        type: "symbol",
+        source: "openmaptiles",
+        "source-layer": "place",
+        minzoom: 2,
+        maxzoom: 12,
+        filter: [
+          "all",
+          ["==", ["get", "class"], "city"],
+          ["any", ["<=", ["get", "rank"], 4], ["has", "capital"]],
+        ],
+        layout: labelLayout(names, ["interpolate", ["linear"], ["zoom"], 2, 11, 4, 13, 8, 16], {
+          "symbol-sort-key": ["get", "rank"],
+          "text-offset": [0, 0.15],
+        }),
+        paint: labelPaint,
+      },
+      {
+        id: "label-city-more",
+        type: "symbol",
+        source: "openmaptiles",
+        "source-layer": "place",
+        minzoom: 5,
+        maxzoom: 12,
+        filter: [
+          "all",
+          ["==", ["get", "class"], "city"],
+          [">", ["get", "rank"], 4],
+          ["!", ["has", "capital"]],
+        ],
+        layout: labelLayout(names, ["interpolate", ["linear"], ["zoom"], 5, 11, 9, 14], {
+          "symbol-sort-key": ["get", "rank"],
+        }),
+        paint: labelPaint,
+      },
+      {
+        id: "label-town",
+        type: "symbol",
+        source: "openmaptiles",
+        "source-layer": "place",
+        minzoom: 6,
+        maxzoom: 14,
+        filter: ["==", ["get", "class"], "town"],
+        layout: labelLayout(names, ["interpolate", ["linear"], ["zoom"], 6, 11, 10, 14], {
+          "symbol-sort-key": ["get", "rank"],
+        }),
+        paint: { ...labelPaint, "text-color": DIM },
+      },
+      {
+        id: "cams-glow",
+        type: "circle",
+        source: "cams",
+        filter: ["==", ["get", "status"], "live"],
+        paint: {
+          "circle-pitch-alignment": "viewport",
+          "circle-radius": ["interpolate", ["linear"], ["zoom"], 0.6, 7, 2.8, 11, 8, 14],
+          "circle-color": LIT,
+          "circle-opacity": 0.22,
+          "circle-stroke-width": 0,
+        },
+      },
+      {
+        id: "cams-point",
+        type: "circle",
+        source: "cams",
+        paint: {
+          "circle-pitch-alignment": "viewport",
+          "circle-radius": [
+            "interpolate",
+            ["linear"],
+            ["zoom"],
+            0.6,
+            ["case", [">", ["get", "selected"], 0], 5.5, 3.5],
+            2.8,
+            ["case", [">", ["get", "selected"], 0], 10, 6.5],
+            8,
+            ["case", [">", ["get", "selected"], 0], 12, 7],
+          ],
+          "circle-color": ["case", ["==", ["get", "status"], "live"], LIT, INK],
+          "circle-stroke-width": 1.75,
+          "circle-stroke-color": ["case", ["==", ["get", "status"], "live"], LIT, PIN_RING],
+          "circle-opacity": [
+            "case",
+            ["any", ["==", ["get", "status"], "offline"], ["==", ["get", "status"], "blocked"]],
+            0.42,
+            1,
+          ],
+          "circle-stroke-opacity": [
+            "case",
+            ["any", ["==", ["get", "status"], "offline"], ["==", ["get", "status"], "blocked"]],
+            0.55,
+            1,
+          ],
+        },
       },
     ],
-  });
-}
-
-export async function loadGlobeStyle(): Promise<GlobeStyleJson> {
-  try {
-    const response = await fetch(LIBERTY_STYLE_URL);
-    if (!response.ok) throw new Error(String(response.status));
-    return buildGlobeStyle((await response.json()) as GlobeStyleJson);
-  } catch {
-    return fallbackGlobeStyle();
-  }
-}
-
-let protocolRegistered = false;
-
-export function isReliefTileUrl(url: string): boolean {
-  return url.includes("/natural_earth/");
-}
-
-async function nauticalizeBitmap(bitmap: ImageBitmap, relief: boolean): Promise<ImageBitmap> {
-  const canvas = document.createElement("canvas");
-  canvas.width = bitmap.width;
-  canvas.height = bitmap.height;
-  const ctx = canvas.getContext("2d", { willReadFrequently: true });
-  if (ctx === null) return bitmap;
-  ctx.drawImage(bitmap, 0, 0);
-  const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-  nauticalizeImageData(imageData, relief);
-  ctx.putImageData(imageData, 0, 0);
-  return createImageBitmap(canvas);
-}
-
-export function registerNauticalProtocol(addProtocol: (name: string, fn: AddProtocolAction) => void): void {
-  if (protocolRegistered) return;
-  protocolRegistered = true;
-  addProtocol(NAUTICAL_PROTOCOL, async (params, abortController) => {
-    const url = params.url.replace(`${NAUTICAL_PROTOCOL}://`, "https://");
-    const response = await fetch(url, { signal: abortController.signal });
-    if (!response.ok) throw new Error(`tile ${response.status}`);
-    const bitmap = await createImageBitmap(await response.blob());
-    return { data: await nauticalizeBitmap(bitmap, isReliefTileUrl(url)) };
-  });
-}
-
-export function resetNauticalProtocolForTests(): void {
-  protocolRegistered = false;
+  };
 }
