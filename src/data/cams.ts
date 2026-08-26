@@ -2283,7 +2283,7 @@ export const CAMS: Cam[] = [
     lat: -23.0294,
     lng: -67.7548,
     timeZone: "America/Santiago",
-    category: "nature",
+    category: "space",
     country: "CL",
     source: {
       videoId: "BVKRAzTSnB0",
@@ -2784,6 +2784,126 @@ export const CAMS: Cam[] = [
       videoId: "sLixr8cThJo",
       channelId: "UCcoQfizLr4MYgiAkkYnQobA",
       titleKey: "Ross Bay, Victoria BC",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Houston", Texas
+    id: "iss-earth-nasa",
+    name: { ja: "ISS 地球ライブ（NASA）", en: "ISS Earth View (NASA)" },
+    lat: 29.7633,
+    lng: -95.3633,
+    timeZone: "America/Chicago",
+    category: "space",
+    country: "US",
+    source: {
+      videoId: "M3HKLzjvKPc",
+      channelId: "UCLA_DiR1FfKNvjuUpBHmylQ",
+      titleKey: "Live Video from the International Space Station (Official NASA Stream)",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Houston", Texas
+    id: "iss-hd-nasa",
+    name: { ja: "ISS 高精細地球ライブ（NASA）", en: "ISS HD Earth View (NASA)" },
+    lat: 29.7633,
+    lng: -95.3633,
+    timeZone: "America/Chicago",
+    category: "space",
+    country: "US",
+    source: {
+      videoId: "awQzjn72bI0",
+      channelId: "UCLA_DiR1FfKNvjuUpBHmylQ",
+      titleKey: "Live High-Definition Views from the International Space Station (Official NASA Stream)",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Starbase", Texas
+    id: "starbase-live",
+    name: { ja: "Starbase（SpaceX ボカチカ）", en: "Starbase, Boca Chica (SpaceX)" },
+    lat: 25.9898,
+    lng: -97.185,
+    timeZone: "America/Chicago",
+    category: "space",
+    country: "US",
+    source: {
+      videoId: "mhJRzQsLZGg",
+      channelId: "UCSUu1lih2RifWkKtDOJdsBA",
+      titleKey: "Starbase Live: 24/7 Starship & Super Heavy Development From SpaceX's Boca Chica Facility",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Cape Canaveral", Florida
+    id: "space-coast-live",
+    name: { ja: "スペースコースト（ケープカナベラル）", en: "Space Coast, Cape Canaveral" },
+    lat: 28.4058,
+    lng: -80.6048,
+    timeZone: "America/New_York",
+    category: "space",
+    country: "US",
+    source: {
+      videoId: "Jm8wRjD3xVA",
+      channelId: "UCSUu1lih2RifWkKtDOJdsBA",
+      titleKey: "Space Coast Live: 24/7 Views of NASA, SpaceX Falcon 9 Operations, and Starship Pad Construction",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "McGregor", Texas
+    id: "mcgregor-spacex",
+    name: { ja: "マクグレガー（SpaceX エンジン試験）", en: "McGregor SpaceX Engine Test" },
+    lat: 31.4441,
+    lng: -97.4092,
+    timeZone: "America/Chicago",
+    category: "space",
+    country: "US",
+    source: {
+      videoId: "cOmmvhDQ2HM",
+      channelId: "UCSUu1lih2RifWkKtDOJdsBA",
+      titleKey: "McGregor Live: 24/7 SpaceX Engine Testing & Development for Starship and Falcon 9 Rockets",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Socorro", New Mexico
+    id: "vla-socorro",
+    name: { ja: "VLA 電波望遠鏡（ニューメキシコ）", en: "Very Large Array, Socorro" },
+    lat: 34.0584,
+    lng: -106.8914,
+    timeZone: "America/Denver",
+    category: "space",
+    country: "US",
+    source: {
+      videoId: "cIqrAg-p3Q0",
+      channelId: "UCwvFovK5r2VYSi5gLp4od7g",
+      titleKey: "VLA Today — Karl G. Jansky Very Large Array | Live 24/7 Stream | Socorro, New Mexico",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Brisighella", Emilia-Romagna
+    id: "monteromano-observatory",
+    name: { ja: "モンテロマーノ天文台（イタリア）", en: "Monteromano Observatory, Italy" },
+    lat: 44.2223,
+    lng: 11.7736,
+    timeZone: "Europe/Rome",
+    category: "space",
+    country: "IT",
+    source: {
+      videoId: "Olvu7Z6_7x0",
+      channelId: "UC39iVqUHfqp2_TS_NTnruag",
+      titleKey: "Osservatorio Astronomico Monteromano Live Cam - Brisighella",
+    },
+  },
+  {
+    // 座標: Open-Meteo ジオコーディング "Embleton", England
+    id: "northumberland-meteor",
+    name: { ja: "ノーサンバーランド流星カメラ", en: "Northumberland Meteor Cam" },
+    lat: 55.4959,
+    lng: -1.6362,
+    timeZone: "Europe/London",
+    category: "space",
+    country: "GB",
+    source: {
+      videoId: "vK_d1lU0Up0",
+      channelId: "UCiW5HaKJU6kwrs3G_LG0Geg",
+      titleKey: "Northumberland Meteor Cam LIVE Stream (Embleton, UK)",
     },
   },
   {
@@ -9088,21 +9208,6 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "it-osservatorio-astronomico-monteromano",
-    name: { ja: "Osservatorio Astronomico Monteromano Live Cam - Brisighella", en: "Osservatorio Astronomico Monteromano Live Cam - Brisighella" },
-    lat: 42.8333,
-    lng: 12.8333,
-    timeZone: "Europe/Rome",
-    category: "nature",
-    country: "IT",
-    source: {
-      videoId: "Olvu7Z6_7x0",
-      channelId: "UC39iVqUHfqp2_TS_NTnruag",
-      titleKey: "Osservatorio Astronomico Monteromano Live Cam - Brisighella",
-    },
-  },
-  {
-    // 座標: 著名なランドマークとして明示指定
     id: "it-lido-adriano-webcam-live-aparthotel-c",
     name: { ja: "Lido Adriano Webcam Live - Aparthotel Costa Paradiso", en: "Lido Adriano Webcam Live - Aparthotel Costa Paradiso" },
     lat: 44.4167,
@@ -10663,21 +10768,6 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "us-vla-today-karl-g-jansky-very-large-ar",
-    name: { ja: "VLA Today — Karl G. Jansky Very Large Array | Live 24/7 Stream | Socorro, New Mexico", en: "VLA Today — Karl G. Jansky Very Large Array | Live 24/7 Stream | Socorro, New Mexico" },
-    lat: 34.0584,
-    lng: -106.8914,
-    timeZone: "America/Denver",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "cIqrAg-p3Q0",
-      channelId: "UCwvFovK5r2VYSi5gLp4od7g",
-      titleKey: "VLA Today — Karl G. Jansky Very Large Array | Live 24/7 Stream | Socorro, New Mexico",
-    },
-  },
-  {
-    // 座標: 著名なランドマークとして明示指定
     id: "us-pompano-beach-florida-live-cam",
     name: { ja: "Pompano Beach, Florida - Live Cam", en: "Pompano Beach, Florida - Live Cam" },
     lat: 26.2379,
@@ -11259,21 +11349,6 @@ export const CAMS: Cam[] = [
       videoId: "RZpIX6cq7Os",
       channelId: "UCOIkT9bq-1N2BvrsBjhNlag",
       titleKey: "Strasburg, Pennsylvania, USA | LIVE Train Camera (PTZ)",
-    },
-  },
-  {
-    // 座標: 著名なランドマークとして明示指定
-    id: "us-live-video-from-the-international-spa",
-    name: { ja: "Live Video from the International Space Station (Official NASA Stream)", en: "Live Video from the International Space Station (Official NASA Stream)" },
-    lat: 29.5324,
-    lng: -95.2238,
-    timeZone: "America/Chicago",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "M3HKLzjvKPc",
-      channelId: "UCLA_DiR1FfKNvjuUpBHmylQ",
-      titleKey: "Live Video from the International Space Station (Official NASA Stream)",
     },
   },
   {
@@ -16329,21 +16404,6 @@ export const CAMS: Cam[] = [
       videoId: "ROrU3NJqtGo",
       channelId: "UCu7fTMa7aKHCdUZObgdkraA",
       titleKey: "🔴LIVE - LEEDS BRADFORD AIRPORT (Birthday stream 🥳)",
-    },
-  },
-  {
-    // 座標: 著名なランドマークとして明示指定
-    id: "gb-northumberland-meteor-cam-live-stream",
-    name: { ja: "Northumberland Meteor Cam LIVE Stream (Embleton, UK)", en: "Northumberland Meteor Cam LIVE Stream (Embleton, UK)" },
-    lat: 51.6042,
-    lng: -0.0598,
-    timeZone: "Europe/London",
-    category: "nature",
-    country: "GB",
-    source: {
-      videoId: "vK_d1lU0Up0",
-      channelId: "UCiW5HaKJU6kwrs3G_LG0Geg",
-      titleKey: "Northumberland Meteor Cam LIVE Stream (Embleton, UK)",
     },
   },
   {
@@ -25408,21 +25468,6 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "us-space-coast-live-24-7-views-of-nasa-s",
-    name: { ja: "Space Coast Live: 24/7 Views of NASA, SpaceX Falcon 9 Operations, and Starship Pad Construction", en: "Space Coast Live: 24/7 Views of NASA, SpaceX Falcon 9 Operations, and Starship Pad Construction" },
-    lat: 42.8945,
-    lng: -71.2912,
-    timeZone: "America/New_York",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "Jm8wRjD3xVA",
-      channelId: "UCSUu1lih2RifWkKtDOJdsBA",
-      titleKey: "Space Coast Live: 24/7 Views of NASA, SpaceX Falcon 9 Operations, and Starship Pad Construction",
-    },
-  },
-  {
-    // 座標: 著名なランドマークとして明示指定
     id: "us-bellevue-2nd-street-station-live-rail",
     name: { ja: "Bellevue 2nd Street Station Live Railcam - Bellevue, IA #SteelHighway", en: "Bellevue 2nd Street Station Live Railcam - Bellevue, IA #SteelHighway" },
     lat: 47.6104,
@@ -25723,21 +25768,6 @@ export const CAMS: Cam[] = [
   },
   {
     // 座標: 著名なランドマークとして明示指定
-    id: "us-mcgregor-live-24-7-spacex-engine-test",
-    name: { ja: "McGregor Live: 24/7 SpaceX Engine Testing & Development for Starship and Falcon 9 Rockets", en: "McGregor Live: 24/7 SpaceX Engine Testing & Development for Starship and Falcon 9 Rockets" },
-    lat: 46.6066,
-    lng: -93.3138,
-    timeZone: "America/Chicago",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "cOmmvhDQ2HM",
-      channelId: "UCSUu1lih2RifWkKtDOJdsBA",
-      titleKey: "McGregor Live: 24/7 SpaceX Engine Testing & Development for Starship and Falcon 9 Rockets",
-    },
-  },
-  {
-    // 座標: 著名なランドマークとして明示指定
     id: "us-bimini-bay-ami-florida",
     name: { ja: "Bimini Bay, AMI - Florida", en: "Bimini Bay, AMI - Florida" },
     lat: 29.4825,
@@ -25959,21 +25989,6 @@ export const CAMS: Cam[] = [
       videoId: "gDcfh-Wm0xE",
       channelId: "UCXY7E6QRZ1o3n3zHCSr2kEg",
       titleKey: "FREMONT STREET / Downtown Las Vegas - Walking The Fremont Street Experience (Replay)",
-    },
-  },
-  {
-    // 座標: 著名なランドマークとして明示指定
-    id: "us-starbase-live-24-7-starship-super-hea",
-    name: { ja: "Starbase Live: 24/7 Starship & Super Heavy Development From SpaceX's Boca Chica Facility", en: "Starbase Live: 24/7 Starship & Super Heavy Development From SpaceX's Boca Chica Facility" },
-    lat: 25.9898,
-    lng: -97.185,
-    timeZone: "America/Chicago",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "mhJRzQsLZGg",
-      channelId: "UCSUu1lih2RifWkKtDOJdsBA",
-      titleKey: "Starbase Live: 24/7 Starship & Super Heavy Development From SpaceX's Boca Chica Facility",
     },
   },
   {

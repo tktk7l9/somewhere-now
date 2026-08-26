@@ -118,6 +118,7 @@ const CATEGORY_LABELS: Record<CamCategory, Dict> = {
   harbor: { ja: "港・海", en: "Harbor" },
   volcano: { ja: "火山", en: "Volcano" },
   railway: { ja: "鉄道", en: "Railway" },
+  space: { ja: "宇宙", en: "Space" },
 };
 
 export function categoryLabel(category: CamCategory, lang: Lang): string {
