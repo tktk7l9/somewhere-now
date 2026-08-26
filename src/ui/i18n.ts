@@ -12,9 +12,9 @@ const STRINGS = {
     en: "Peek at Earth's live cameras from the map",
   },
   places: { ja: "地点", en: "places" },
-  darknessHeadline: {
-    ja: "台が、いま夜の中にいます",
-    en: "cameras are in darkness right now",
+  liveHeadline: {
+    ja: "地点が配信中",
+    en: "places are live",
   },
   search: { ja: "地名で絞り込む", en: "Filter by name" },
   liveOnly: { ja: "配信中だけ", en: "Live only" },
@@ -139,6 +139,25 @@ export function catalogCaption(
     total: `/ ${total}`,
     unit,
     aria: lang === "ja" ? `${total} ${unit}中 ${visible} ${unit}` : `${visible} of ${total} ${unit}`,
+  };
+}
+
+/** ダイヤルに出す配信中数 / 地点数。常に分子と分母を並べる。 */
+export function liveDialCaption(
+  live: number,
+  total: number,
+  lang: Lang,
+): { count: string; total: string; label: string; aria: string } {
+  const label = t("liveHeadline", lang);
+  const places = t("places", lang);
+  return {
+    count: String(live),
+    total: `/ ${total}`,
+    label,
+    aria:
+      lang === "ja"
+        ? `${total} ${places}中 ${live} ${places}が配信中`
+        : `${live} of ${total} ${places} are live`,
   };
 }
 
