@@ -83,6 +83,10 @@ export async function createGlobeView(
 ): Promise<GlobeView> {
   try {
     const maplibre = await import("maplibre-gl");
+    // Vite は import.meta.url から worker の隣ファイルを解けない。GeoJSON(ピン・夜)
+    // が worker 待ちのままになり、球だけが空で残る。
+    const { default: workerUrl } = await import("maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url");
+    maplibre.setWorkerUrl(workerUrl);
     await import("maplibre-gl/dist/maplibre-gl.css");
     container.replaceChildren();
     return mountGlobe(maplibre, container, cams, lang, onSelect);
@@ -273,10 +277,6 @@ function mountGlobe(
 
   map.addControl(new NavigationControl({ showCompass: true, visualizePitch: false }), "top-right");
 
-  map.on("style.load", () => {
-    map.setProjection({ type: "globe" });
-  });
-
   let states: ReadonlyMap<string, CamState> = new Map();
   let selected: ReadonlySet<string> = new Set();
   let currentLang = lang;
@@ -291,6 +291,15 @@ function mountGlobe(
     else queued.push(fn);
   }
 
+  function markReady(): void {
+    if (failed || ready) return;
+    ready = true;
+    for (const fn of queued) fn();
+    queued.length = 0;
+    syncSize();
+    requestAnimationFrame(syncSize);
+  }
+
   function failGpu(): void {
     if (failed) return;
     failed = true;
@@ -302,6 +311,15 @@ function mountGlobe(
     }
     createUnsupportedView(container, currentLang);
   }
+
+  map.on("style.load", () => {
+    map.setProjection({ type: "globe" });
+    // 地球儀では raster タイル待ちで `load` が来ないことがある。
+    // style が載った時点でソースは使えるので、ピンはここで入れる。
+    markReady();
+  });
+  map.on("load", markReady);
+  if (map.isStyleLoaded()) markReady();
 
   map.on("error", (event) => {
     if (isGpuFailure(event.error)) failGpu();
@@ -344,14 +362,6 @@ function mountGlobe(
     map.resize();
     map.triggerRepaint();
   }
-
-  map.on("load", () => {
-    syncSize();
-    ready = true;
-    for (const fn of queued) fn();
-    queued.length = 0;
-    requestAnimationFrame(syncSize);
-  });
 
   map.on("click", "cams-point", (event) => {
     const id = event.features?.[0]?.properties?.["id"];
