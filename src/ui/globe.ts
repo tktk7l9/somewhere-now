@@ -1,18 +1,20 @@
 // 地球儀。平面図(Leaflet)とは別に、同じ昼夜の境界を球の上に載せる。
 //
-// MapLibre の globe projection を使う。タイルは OSM 公式サーバーにしない。
-// Leaflet は <img> なので Referer が付き、平面図は映る。MapLibre は Worker 経由
-// の fetch で Referer が落ち、OSM が x-blocked で空タイルを返す。球の色も
-// 背景と同じ藍だと、タイルが来ても大気に塗られて消える。
+// MapLibre の globe projection を使う。平面図は OSM ラスタ + CSS フィルタで
+// 海図色にしている。地球儀は Worker fetch のため OSM 公式タイルが空を返し、
+// キャンバス全体への CSS フィルタは夜の影まで反転するので使えない。
+// OpenFreeMap のベクトル図式を同じ変換式で塗り、低ズームの陰影ラスタだけ
+// 同じフィルタを通す。取れないときは CARTO Voyager(ラベル付き)に退く。
 // MapLibre 本体は動的 import。先に読むと、非対応環境ではモジュール評価の
 // 時点で落ちて、案内を出すコードに届かない。
 
-import type { GeoJSONSource } from "maplibre-gl";
+import type { GeoJSONSource, StyleSpecification } from "maplibre-gl";
 
 import type { Cam, CamState } from "../domain/cams";
 import { GLOBE_ZOOM, INITIAL_VIEW, type MapViewport } from "../domain/mapView";
 import { nightPolygonGeoJSON, terminatorLineGeoJSON } from "../domain/terminator";
 import type { Lang } from "../domain/weather";
+import { loadGlobeStyle, registerNauticalProtocol, type GlobeStyleJson } from "./globeStyle";
 import { t } from "./i18n";
 
 export interface GlobeView {
@@ -24,27 +26,6 @@ export interface GlobeView {
   goTo(view: MapViewport): void;
   drawTerminator(at: Date): void;
   invalidate(): void;
-}
-
-const LIT = "#ffb94a";
-const INK = "#0b1620";
-const NIGHT = "#050c14";
-const SPACE = "#02080c";
-/** 夜側でも輪郭が残る。平面図の --dim だと球に溶ける。 */
-const PIN_RING = "#d8e0e4";
-
-// OSM 由来。公式 tile.openstreetmap.org は Worker fetch を拒否するので使わない。
-const GLOBE_TILES = [
-  "https://a.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}.png",
-  "https://b.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}.png",
-  "https://c.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}.png",
-  "https://d.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}.png",
-];
-const GLOBE_ATTRIBUTION =
-  '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>';
-
-function emptyCollection(): { type: "FeatureCollection"; features: never[] } {
-  return { type: "FeatureCollection", features: [] };
 }
 
 function isGpuFailure(error: unknown): boolean {
@@ -90,8 +71,10 @@ export async function createGlobeView(
     const { default: workerUrl } = await import("maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url");
     maplibre.setWorkerUrl(workerUrl);
     await import("maplibre-gl/dist/maplibre-gl.css");
+    registerNauticalProtocol(maplibre.addProtocol);
+    const style = await loadGlobeStyle();
     container.replaceChildren();
-    return mountGlobe(maplibre, container, cams, lang, onSelect);
+    return mountGlobe(maplibre, container, cams, lang, onSelect, style);
   } catch {
     return createUnsupportedView(container, lang);
   }
@@ -103,6 +86,7 @@ function mountGlobe(
   cams: readonly Cam[],
   lang: Lang,
   onSelect: (camId: string) => void,
+  style: GlobeStyleJson,
 ): GlobeView {
   const [lat, lng] = INITIAL_VIEW.center;
   const MapLibreMap = maplibre.Map;
@@ -110,159 +94,7 @@ function mountGlobe(
 
   const map = new MapLibreMap({
     container,
-    style: {
-      version: 8,
-      projection: { type: "globe" },
-      // 大気は輪郭のリムだけ。blend を高くして sky-color を地と同じ藍にすると、
-      // タイルが載っても球全体が背景に溶ける。
-      sky: {
-        "sky-color": "#6a93a8",
-        "horizon-color": "#b7cdd4",
-        "fog-color": SPACE,
-        "atmosphere-blend": [
-          "interpolate",
-          ["linear"],
-          ["zoom"],
-          0,
-          0.32,
-          3,
-          0.2,
-          6,
-          0,
-        ],
-      },
-      light: {
-        anchor: "viewport",
-        color: "#e8e2d4",
-        intensity: 0.35,
-        position: [1.15, 210, 30],
-      },
-      sources: {
-        earth: {
-          type: "raster",
-          tiles: GLOBE_TILES,
-          tileSize: 256,
-          attribution: GLOBE_ATTRIBUTION,
-          maxzoom: 19,
-        },
-        night: { type: "geojson", data: emptyCollection() },
-        terminator: { type: "geojson", data: emptyCollection() },
-        cams: { type: "geojson", data: emptyCollection() },
-      },
-      layers: [
-        {
-          id: "background",
-          type: "background",
-          paint: { "background-color": SPACE },
-        },
-        {
-          id: "earth",
-          type: "raster",
-          source: "earth",
-          paint: {
-            // 海図の藍に寄せるが、大陸が消えるところまでは落とさない。
-            "raster-saturation": -0.28,
-            "raster-contrast": 0.08,
-            "raster-brightness-min": 0.08,
-            "raster-brightness-max": 0.82,
-            "raster-fade-duration": 0,
-          },
-        },
-        {
-          id: "night-shade",
-          type: "fill",
-          source: "night",
-          paint: {
-            "fill-color": NIGHT,
-            "fill-opacity": 0.42,
-            "fill-antialias": false,
-          },
-        },
-        {
-          id: "terminator",
-          type: "line",
-          source: "terminator",
-          paint: {
-            "line-color": LIT,
-            "line-width": 1.15,
-            "line-opacity": 0.45,
-          },
-        },
-        {
-          id: "cams-glow",
-          type: "circle",
-          source: "cams",
-          filter: ["==", ["get", "status"], "live"],
-          paint: {
-            "circle-pitch-alignment": "viewport",
-            "circle-radius": [
-              "interpolate",
-              ["linear"],
-              ["zoom"],
-              0.6,
-              7,
-              2.8,
-              11,
-              8,
-              14,
-            ],
-            "circle-color": LIT,
-            "circle-opacity": 0.22,
-            "circle-stroke-width": 0,
-          },
-        },
-        {
-          // HTML Marker は 3000 台で毎フレーム DOM を動かし、ピンが載る前に固まる。
-          // circle は球の上で描けるが、紺・数ピクセルだと夜側に溶ける。
-          // 平面図の 13px 相当まで広げ、輪郭は夜でも残る色にする。
-          id: "cams-point",
-          type: "circle",
-          source: "cams",
-          paint: {
-            "circle-pitch-alignment": "viewport",
-            "circle-radius": [
-              "interpolate",
-              ["linear"],
-              ["zoom"],
-              0.6,
-              ["case", [">", ["get", "selected"], 0], 5.5, 3.5],
-              2.8,
-              ["case", [">", ["get", "selected"], 0], 10, 6.5],
-              8,
-              ["case", [">", ["get", "selected"], 0], 12, 7],
-            ],
-            "circle-color": ["case", ["==", ["get", "status"], "live"], LIT, INK],
-            "circle-stroke-width": 1.75,
-            "circle-stroke-color": [
-              "case",
-              ["==", ["get", "status"], "live"],
-              LIT,
-              PIN_RING,
-            ],
-            "circle-opacity": [
-              "case",
-              [
-                "any",
-                ["==", ["get", "status"], "offline"],
-                ["==", ["get", "status"], "blocked"],
-              ],
-              0.42,
-              1,
-            ],
-            "circle-stroke-opacity": [
-              "case",
-              [
-                "any",
-                ["==", ["get", "status"], "offline"],
-                ["==", ["get", "status"], "blocked"],
-              ],
-              0.55,
-              1,
-            ],
-          },
-        },
-      ],
-    },
+    style: style as StyleSpecification,
     center: [lng, lat],
     zoom: GLOBE_ZOOM,
     pitch: 18,
