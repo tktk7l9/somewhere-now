@@ -155,10 +155,56 @@ input {
 }
 
 .panel {
+  position: relative;
   border-left: 1px solid var(--haze);
   background: var(--ink-2);
-  overflow-y: auto;
+  overflow: hidden;
   min-height: 0;
+}
+
+.panel__scroll {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.panel-resize {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 8px;
+  z-index: 4;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: col-resize;
+  touch-action: none;
+}
+
+.panel-resize::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 3px;
+  width: 2px;
+  background: transparent;
+  transition: background 0.15s var(--ease);
+}
+
+.panel-resize:hover::before,
+.panel-resize:focus-visible::before,
+html.resizing-panel .panel-resize::before {
+  background: var(--lit);
+}
+
+html.resizing-panel {
+  cursor: col-resize;
+  user-select: none;
+}
+
+html.resizing-panel iframe {
+  pointer-events: none;
 }
 
 /* ── 操作 ───────────────────────────────────────────── */
@@ -689,6 +735,10 @@ input {
   .panel {
     border-left: none;
     border-top: 1px solid var(--haze);
+  }
+
+  .panel-resize {
+    display: none;
   }
 
   /* 狭い画面では折り返さず、1 段のまま横にスクロールさせる
