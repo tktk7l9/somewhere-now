@@ -1,8 +1,7 @@
 import { describe, expect, it } from "vitest";
 
+import atlas from "../data/globeAtlas.json";
 import {
-  BOUNDARY_LAYER_IDS,
-  GLOBE_GLYPHS,
   GLOBE_TILES_ORIGIN,
   globeStyle,
   LABEL_LAYER_IDS,
@@ -10,98 +9,61 @@ import {
 } from "./globeStyle";
 
 describe("placeNameField", () => {
-  it("日本語は name:ja を先に見る", () => {
-    expect(placeNameField("ja")[1]).toEqual(["get", "name:ja"]);
+  it("日本語は ja を先に見る", () => {
+    expect(placeNameField("ja")[1]).toEqual(["get", "ja"]);
   });
 
-  it("英語は name:en を先に見る", () => {
-    expect(placeNameField("en")[1]).toEqual(["get", "name:en"]);
+  it("英語は en を先に見る", () => {
+    expect(placeNameField("en")[1]).toEqual(["get", "en"]);
   });
+});
 
-  it("どちらも OSM の name に退ける", () => {
-    expect(placeNameField("ja")).toContainEqual(["get", "name"]);
-    expect(placeNameField("en")).toContainEqual(["get", "name"]);
+describe("globeAtlas", () => {
+  it("日本と東京を含み、国境線がある", () => {
+    const countries = atlas.countries.features.map((f) => f.properties);
+    const cities = atlas.cities.features.map((f) => f.properties);
+    expect(countries.some((p) => p.ja === "日本" && p.en === "Japan")).toBe(true);
+    expect(cities.some((p) => p.ja === "東京都" && p.en === "Tokyo" && p.rank === 0)).toBe(true);
+    expect(atlas.borders.features.length).toBeGreaterThan(100);
   });
 });
 
 describe("globeStyle", () => {
-  it("ネットの図式を待たず、国・都市ラベルを夜の影より手前に置く", () => {
+  it("同梱の国境と国名を夜の影とピンより手前に置く", () => {
     const style = globeStyle("ja");
     expect(style.projection).toEqual({ type: "globe" });
-    expect(style.glyphs).toBe(GLOBE_GLYPHS);
-    expect(style.sources["openmaptiles"]?.["url"]).toBe(`${GLOBE_TILES_ORIGIN}/planet`);
+    expect(style.glyphs).toBe(`${GLOBE_TILES_ORIGIN}/fonts/{fontstack}/{range}.pbf`);
+    expect(style.sources["atlasBorders"]?.["data"]).toBe(atlas.borders);
+    expect(style.sources["atlasCountries"]?.["data"]).toBe(atlas.countries);
     const ids = style.layers.map((layer) => layer.id);
     expect(ids).toEqual([
       "background",
       "natural_earth",
       "water",
-      "landcover-wood",
-      "landcover-ice",
-      "roads",
+      "boundary-state",
+      "boundary-city",
       "night-shade",
       "terminator",
       "boundary-country",
-      "boundary-country-disputed",
-      "boundary-state",
-      "boundary-city",
       "cams-glow",
       "cams-point",
       "label-country",
       "label-city",
-      "label-city-more",
-      "label-town",
-      "label-sea",
     ]);
     expect(ids.indexOf("boundary-country")).toBeGreaterThan(ids.indexOf("night-shade"));
     expect(ids.indexOf("label-country")).toBeGreaterThan(ids.indexOf("cams-point"));
-    expect(ids.indexOf("label-country")).toBeLessThan(ids.indexOf("label-sea"));
     expect(LABEL_LAYER_IDS.every((id) => ids.includes(id))).toBe(true);
-    expect(BOUNDARY_LAYER_IDS.every((id) => ids.includes(id))).toBe(true);
     const country = style.layers.find((layer) => layer.id === "label-country");
     expect(country?.["layout"]).toMatchObject({
       "text-field": placeNameField("ja"),
       "text-allow-overlap": true,
-      "text-ignore-placement": true,
+      "text-font": ["Noto Sans Bold"],
     });
-    expect(country?.["layout"]).not.toHaveProperty("text-optional");
-    expect(style.layers.find((layer) => layer.id === "natural_earth")?.paint?.["raster-fade-duration"]).toBe(
-      0,
-    );
   });
 
-  it("英語図式は都市名のフィールドが name:en から始まる", () => {
+  it("英語図式は en から始まる", () => {
     const style = globeStyle("en");
     const city = style.layers.find((layer) => layer.id === "label-city");
-    expect(city?.["layout"]).toMatchObject({
-      "text-field": placeNameField("en"),
-      "text-allow-overlap": true,
-    });
-  });
-
-  it("国境・州境・都市境を平面図と同様に載せる", () => {
-    const style = globeStyle("ja");
-    const country = style.layers.find((layer) => layer.id === "boundary-country");
-    const state = style.layers.find((layer) => layer.id === "boundary-state");
-    const city = style.layers.find((layer) => layer.id === "boundary-city");
-    expect(country?.filter).toEqual([
-      "all",
-      ["==", ["get", "admin_level"], 2],
-      ["!=", ["coalesce", ["get", "disputed"], 0], 1],
-      ["!=", ["coalesce", ["get", "maritime"], 0], 1],
-      ["!", ["has", "claimed_by"]],
-    ]);
-    expect(state?.filter).toEqual([
-      "all",
-      ["match", ["get", "admin_level"], [3, 4], true, false],
-      ["!=", ["coalesce", ["get", "maritime"], 0], 1],
-    ]);
-    expect(city?.filter).toEqual([
-      "all",
-      ["match", ["get", "admin_level"], [5, 6, 7, 8, 9], true, false],
-      ["!=", ["coalesce", ["get", "maritime"], 0], 1],
-    ]);
-    expect(state?.["minzoom"]).toBe(2);
-    expect(city?.["minzoom"]).toBe(6);
-    expect(country?.paint?.["line-opacity"]).toBe(0.92);
+    expect(city?.["layout"]).toMatchObject({ "text-field": placeNameField("en") });
   });
 });

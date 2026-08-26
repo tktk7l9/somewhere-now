@@ -12,8 +12,8 @@
     <!-- 最初に見えるのは地図のタイル(LCP 要素がこれ)。JS の評価が終わるまで
          リクエストが始まらないので、その間に接続だけ張っておく。 -->
     <link rel="preconnect" href="https://tile.openstreetmap.org" crossorigin />
-    <!-- 地球儀は後から開くので、先に名前解決だけしておく。preconnect は
-         平面図の LCP タイルと帯域を奪うので、ここでは張らない。 -->
+    <!-- 地球儀の陰影タイルと国名グリフ。preconnect は平面図の LCP と帯域を
+         奪うので、ここでは名前解決だけ。 -->
     <link rel="dns-prefetch" href="https://tiles.openfreemap.org" />
     <!-- 最初に見えるタイルが LCP 要素になる。JS の評価が終わるまでリクエストが
          始まらないので、HTML の時点で並行して取りに行かせる(実測 LCP 3.3→2.8s)。

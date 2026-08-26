@@ -10,10 +10,9 @@
 # connect-src の open-meteo は選択中カメラの現地の天気(キー不要・CORS *)。
 # *.wikipedia.org は選択中カメラの土地の概要(キー不要・CORS *)。
 # api.mymemory.translated.net は日本語版が無い記事の概要を日本語へ訳す(キー不要・CORS *)。
-# tile.openstreetmap.org は平面図(Leaflet の <img>)用。地球儀(MapLibre)は
-# Worker の fetch になり OSM 公式タイルが Referer 無しで拒否するので、
-# OpenFreeMap のベクトルタイル(地名・道路・陰影)を connect-src / img-src で
-# 許可する。
+# tile.openstreetmap.org は平面図(Leaflet の <img>)用。地球儀の国名・国境は
+# 同梱 GeoJSON。陰影ラスタと文字グリフだけ tiles.openfreemap.org を
+# connect-src / img-src で許可する。
 #
 # compute-pressure は再生オリジンにだけ委譲する。拒否したままだとプレイヤーが
 # 際限なく再試行して、4 枚並べたときに毎秒数百件の違反ログでタブごと落ちる
