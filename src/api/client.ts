@@ -2,11 +2,16 @@
 //   /api/cams        … Worker が KV から返すライブ生存状態(APIキーは通らない)
 //   Open-Meteo       … 選択中のカメラの天気だけを直接取る
 //   Wikipedia        … 選択中のカメラの土地の概要(キー不要・CORS *)
+//   MyMemory         … 日本語版が無い概要を日本語へ訳す(キー不要・CORS *)
 
 import type { CamState } from "../domain/cams";
 import {
+  looksJapanese,
+  myMemoryUrl,
   parsePlaceOverview,
+  parseTranslation,
   sanitizeSearchName,
+  wikipediaExtractUrl,
   wikipediaSearchUrl,
   type PlaceOverview,
 } from "../domain/placeOverview";
@@ -58,9 +63,37 @@ async function lookupOverview(url: string): Promise<PlaceOverview | null> {
   }
 }
 
+async function translateToJapanese(text: string): Promise<string | null> {
+  try {
+    const res = await fetch(myMemoryUrl(text));
+    if (!res.ok) return null;
+    return parseTranslation(await res.json());
+  } catch {
+    return null;
+  }
+}
+
+/** 日本語で見せる。日本語版があればそれを取り、無ければ機械翻訳する。 */
+async function localizeToJapanese(place: PlaceOverview): Promise<PlaceOverview> {
+  if (looksJapanese(place.extract)) return place;
+
+  if (place.jaTitle !== undefined) {
+    const ja = await lookupOverview(wikipediaExtractUrl(place.jaTitle, "ja"));
+    if (ja !== null && looksJapanese(ja.extract)) return ja;
+  }
+
+  const extract = await translateToJapanese(place.extract);
+  if (extract === null) return place;
+  const title = looksJapanese(place.title)
+    ? place.title
+    : ((await translateToJapanese(place.title)) ?? place.title);
+  return { title, extract, url: place.url };
+}
+
 /**
  * 土地の概要。名前付き検索が空でも座標だけの検索に落とし、日本語 Wikipedia が
- * 無ければ英語へ。失敗してもパネルは時刻と天気だけで成立するので null。
+ * 無ければ英語へ。日本語 UI では英語の本文を翻訳する。失敗してもパネルは
+ * 時刻と天気だけで成立するので null。
  */
 export async function fetchPlaceOverview(
   lat: number,
@@ -86,6 +119,7 @@ export async function fetchPlaceOverview(
     overview = await lookupOverview(url);
     if (overview !== null) break;
   }
+  if (overview !== null && lang === "ja") overview = await localizeToJapanese(overview);
   overviewCache.set(key, overview);
   return overview;
 }

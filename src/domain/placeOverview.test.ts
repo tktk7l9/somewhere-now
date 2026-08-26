@@ -1,6 +1,11 @@
 import {
+  looksJapanese,
+  myMemoryUrl,
   parsePlaceOverview,
+  parseTranslation,
   sanitizeSearchName,
+  TRANSLATE_MAX_CHARS,
+  wikipediaExtractUrl,
   wikipediaSearchQuery,
   wikipediaSearchUrl,
 } from "./placeOverview";
@@ -54,12 +59,16 @@ describe("wikipediaSearchUrl", () => {
     expect(url.searchParams.get("inprop")).toBe("url");
     expect(url.searchParams.get("format")).toBe("json");
     expect(url.searchParams.get("origin")).toBe("*");
+    expect(url.searchParams.get("lllang")).toBeNull();
   });
 
-  it("英語は en.wikipedia.org を叩く", () => {
+  it("英語は en.wikipedia.org を叩き、日本語版への langlinks も取る", () => {
     const url = new URL(wikipediaSearchUrl(40.758, -73.9855, "en", "Times Square"));
     expect(url.origin).toBe("https://en.wikipedia.org");
     expect(url.searchParams.get("gsrsearch")).toContain("Times Square");
+    expect(url.searchParams.get("prop")).toBe("extracts|info|langlinks");
+    expect(url.searchParams.get("lllang")).toBe("ja");
+    expect(url.searchParams.get("llprop")).toBe("url");
   });
 
   it("名前を省略すると nearcoord だけになる", () => {
@@ -194,6 +203,132 @@ describe("parsePlaceOverview", () => {
             a: page({ title: "2010 Times Square car bombing attempt", extract: "An incident." }),
           },
         },
+      }),
+    ).toBeNull();
+  });
+
+  it("日本語版への langlinks を拾う", () => {
+    expect(
+      parsePlaceOverview({
+        query: {
+          pages: {
+            a: page({
+              langlinks: [
+                "nope",
+                null,
+                { "*": "", url: "https://ja.wikipedia.org/wiki/X" },
+                { "*": "タイムズスクエア", url: "   " },
+                { "*": "タイムズスクエア", url: 1 },
+                { "*": "タイムズスクエア", url: "https://ja.wikipedia.org/wiki/タイムズスクエア" },
+              ],
+            }),
+          },
+        },
+      }),
+    ).toEqual({
+      title: "Times Square",
+      extract: "Times Square is a busy pedestrian plaza in Manhattan.",
+      url: "https://en.wikipedia.org/wiki/Times_Square",
+      jaTitle: "タイムズスクエア",
+      jaUrl: "https://ja.wikipedia.org/wiki/タイムズスクエア",
+    });
+  });
+
+  it("langlinks が空なら日本語版は付けない", () => {
+    expect(
+      parsePlaceOverview({
+        query: { pages: { a: page({ langlinks: [] }) } },
+      }),
+    ).toEqual({
+      title: "Times Square",
+      extract: "Times Square is a busy pedestrian plaza in Manhattan.",
+      url: "https://en.wikipedia.org/wiki/Times_Square",
+    });
+  });
+});
+
+describe("wikipediaExtractUrl", () => {
+  it("題名指定で日本語 Wikipedia の本文を取る", () => {
+    const url = new URL(wikipediaExtractUrl("イルリサット", "ja"));
+    expect(url.origin).toBe("https://ja.wikipedia.org");
+    expect(url.searchParams.get("titles")).toBe("イルリサット");
+    expect(url.searchParams.get("prop")).toBe("extracts|info");
+    expect(url.searchParams.get("redirects")).toBe("1");
+    expect(url.searchParams.get("inprop")).toBe("url");
+  });
+
+  it("英語ホストにも出せる", () => {
+    const url = new URL(wikipediaExtractUrl("Ilulissat", "en"));
+    expect(url.origin).toBe("https://en.wikipedia.org");
+    expect(url.searchParams.get("titles")).toBe("Ilulissat");
+  });
+});
+
+describe("looksJapanese", () => {
+  it("ひらがな・カタカナ・漢字を日本語とみなす", () => {
+    expect(looksJapanese("渋谷は交差点です")).toBe(true);
+    expect(looksJapanese("イルリサット")).toBe(true);
+    expect(looksJapanese("東京")).toBe(true);
+  });
+
+  it("ラテン文字だけなら日本語ではない", () => {
+    expect(looksJapanese("Times Square is a plaza.")).toBe(false);
+    expect(looksJapanese("")).toBe(false);
+  });
+});
+
+describe("myMemoryUrl", () => {
+  it("英日の対訳を要求する", () => {
+    const url = new URL(myMemoryUrl("Ilulissat is a town."));
+    expect(url.origin).toBe("https://api.mymemory.translated.net");
+    expect(url.pathname).toBe("/get");
+    expect(url.searchParams.get("q")).toBe("Ilulissat is a town.");
+    expect(url.searchParams.get("langpair")).toBe("en|ja");
+  });
+
+  it("長文は 450 字で切る", () => {
+    const long = "a".repeat(TRANSLATE_MAX_CHARS + 20);
+    const url = new URL(myMemoryUrl(long));
+    expect(url.searchParams.get("q")).toBe("a".repeat(TRANSLATE_MAX_CHARS));
+  });
+});
+
+describe("parseTranslation", () => {
+  it("正常な応答を読み取る", () => {
+    expect(
+      parseTranslation({
+        responseStatus: 200,
+        responseData: { translatedText: "  イルリサットは町です。 \n" },
+      }),
+    ).toBe("イルリサットは町です。");
+  });
+
+  it("status が文字列の 200 でも読む", () => {
+    expect(
+      parseTranslation({
+        responseStatus: "200",
+        responseData: { translatedText: "交差点" },
+      }),
+    ).toBe("交差点");
+  });
+
+  it("形の違う応答や警告は null を返す", () => {
+    expect(parseTranslation(null)).toBeNull();
+    expect(parseTranslation({})).toBeNull();
+    expect(parseTranslation({ responseStatus: 429, responseData: { translatedText: "x" } })).toBeNull();
+    expect(parseTranslation({ responseStatus: 200, responseData: null })).toBeNull();
+    expect(parseTranslation({ responseStatus: 200, responseData: { translatedText: 1 } })).toBeNull();
+    expect(parseTranslation({ responseStatus: 200, responseData: { translatedText: "  " } })).toBeNull();
+    expect(
+      parseTranslation({
+        responseStatus: 200,
+        responseData: { translatedText: "MYMEMORY WARNING: quota" },
+      }),
+    ).toBeNull();
+    expect(
+      parseTranslation({
+        responseStatus: 200,
+        responseData: { translatedText: "INVALID QUERY" },
       }),
     ).toBeNull();
   });
