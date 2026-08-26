@@ -1,7 +1,6 @@
-// 地球儀の地図スタイル。平面図は OSM ラスタに地名が焼き付いている。
-// 地球儀はベクトルの place レイヤで国・都市名を出し、夜の影より手前に置く。
+// 地球儀の地図スタイル。平面図は OSM ラスタに地名と国境が焼き付いている。
+// 地球儀はベクトルの place / boundary で国・都市名と国境・州境・都市境を出す。
 // 図式 JSON をネットから取ると球が出る前に待ちができるので、ここで組む。
-// レイヤは球に必要なものだけ。111 枚の liberty を載せるよりタイルも描画も軽い。
 
 import type { ExpressionSpecification } from "maplibre-gl";
 
@@ -14,8 +13,9 @@ const NIGHT = "#050c14";
 const SPACE = "#02080c";
 const BONE = "#e8e2d4";
 const DIM = "#7e9099";
+const BORDER = "#c5d0d4";
 const PIN_RING = "#d8e0e4";
-const HALO = "rgba(11, 22, 32, 0.88)";
+const HALO = "rgba(11, 22, 32, 0.95)";
 
 export const GLOBE_GLYPHS = "https://tiles.openfreemap.org/fonts/{fontstack}/{range}.pbf";
 export const GLOBE_TILES_ORIGIN = "https://tiles.openfreemap.org";
@@ -25,6 +25,13 @@ export const LABEL_LAYER_IDS = [
   "label-city-more",
   "label-town",
   "label-sea",
+] as const;
+
+export const BOUNDARY_LAYER_IDS = [
+  "boundary-country",
+  "boundary-country-disputed",
+  "boundary-state",
+  "boundary-city",
 ] as const;
 
 const GLOBE_SKY = {
@@ -62,6 +69,7 @@ export function placeNameField(lang: Lang): ExpressionSpecification {
       ["get", "name"],
       ["get", "name:en"],
       ["get", "name_en"],
+      ["get", "name:latin"],
     ];
   }
   return [
@@ -70,6 +78,8 @@ export function placeNameField(lang: Lang): ExpressionSpecification {
     ["get", "name_en"],
     ["get", "name:latin"],
     ["get", "name"],
+    ["get", "name:ja"],
+    ["get", "name:nonlatin"],
   ];
 }
 
@@ -82,11 +92,10 @@ function labelLayout(
     "text-field": field,
     "text-font": ["Noto Sans Regular"],
     "text-size": size,
-    "text-padding": 3,
+    "text-padding": 2,
     "text-max-width": 8,
     "text-line-height": 1.1,
     "text-anchor": "center",
-    "text-optional": true,
     "text-pitch-alignment": "viewport",
     "symbol-z-order": "auto",
     ...extra,
@@ -96,8 +105,8 @@ function labelLayout(
 const labelPaint = {
   "text-color": BONE,
   "text-halo-color": HALO,
-  "text-halo-width": 1.35,
-  "text-halo-blur": 0.35,
+  "text-halo-width": 1.85,
+  "text-halo-blur": 0.15,
 };
 
 export function globeStyle(lang: Lang): GlobeStyleJson {
@@ -169,18 +178,6 @@ export function globeStyle(lang: Lang): GlobeStyleJson {
         paint: { "fill-color": "#c5d0d4", "fill-opacity": 0.28, "fill-antialias": false },
       },
       {
-        id: "boundary-country",
-        type: "line",
-        source: "openmaptiles",
-        "source-layer": "boundary",
-        filter: ["all", ["==", ["get", "admin_level"], 2], ["!", ["has", "claimed_by"]]],
-        paint: {
-          "line-color": DIM,
-          "line-opacity": 0.5,
-          "line-width": ["interpolate", ["linear"], ["zoom"], 0, 0.4, 4, 0.8, 8, 1.3],
-        },
-      },
-      {
         id: "roads",
         type: "line",
         source: "openmaptiles",
@@ -213,79 +210,77 @@ export function globeStyle(lang: Lang): GlobeStyleJson {
         },
       },
       {
-        id: "label-sea",
-        type: "symbol",
+        // 夜の影より手前。claimed_by 付きは領有主張の二重描きなので除く。
+        id: "boundary-country",
+        type: "line",
         source: "openmaptiles",
-        "source-layer": "water_name",
-        maxzoom: 6,
-        filter: ["match", ["get", "class"], ["ocean", "sea"], true, false],
-        layout: labelLayout(names, ["interpolate", ["linear"], ["zoom"], 0, 11, 3, 13, 5, 15], {
-          "text-letter-spacing": 0.08,
-          "symbol-sort-key": ["get", "rank"],
-        }),
-        paint: { ...labelPaint, "text-color": DIM },
+        "source-layer": "boundary",
+        filter: [
+          "all",
+          ["==", ["get", "admin_level"], 2],
+          ["!=", ["coalesce", ["get", "disputed"], 0], 1],
+          ["!=", ["coalesce", ["get", "maritime"], 0], 1],
+          ["!", ["has", "claimed_by"]],
+        ],
+        paint: {
+          "line-color": BORDER,
+          "line-opacity": 0.92,
+          "line-width": ["interpolate", ["linear"], ["zoom"], 0, 1.05, 3, 1.45, 6, 1.9, 10, 2.4],
+        },
       },
       {
-        id: "label-country",
-        type: "symbol",
+        id: "boundary-country-disputed",
+        type: "line",
         source: "openmaptiles",
-        "source-layer": "place",
-        maxzoom: 7,
-        filter: ["==", ["get", "class"], "country"],
-        layout: labelLayout(names, ["interpolate", ["linear"], ["zoom"], 0, 12, 2.8, 15, 5, 18], {
-          "text-max-width": 7,
-          "symbol-sort-key": ["get", "rank"],
-        }),
-        paint: labelPaint,
+        "source-layer": "boundary",
+        filter: [
+          "all",
+          ["==", ["get", "admin_level"], 2],
+          ["==", ["get", "disputed"], 1],
+          ["!", ["has", "claimed_by"]],
+        ],
+        paint: {
+          "line-color": BORDER,
+          "line-opacity": 0.7,
+          "line-width": ["interpolate", ["linear"], ["zoom"], 0, 0.85, 6, 1.4],
+          "line-dasharray": [2, 2],
+        },
       },
       {
-        id: "label-city",
-        type: "symbol",
+        id: "boundary-state",
+        type: "line",
         source: "openmaptiles",
-        "source-layer": "place",
+        "source-layer": "boundary",
         minzoom: 2,
-        maxzoom: 12,
         filter: [
           "all",
-          ["==", ["get", "class"], "city"],
-          ["any", ["<=", ["get", "rank"], 4], ["has", "capital"]],
+          ["match", ["get", "admin_level"], [3, 4], true, false],
+          ["!=", ["coalesce", ["get", "maritime"], 0], 1],
         ],
-        layout: labelLayout(names, ["interpolate", ["linear"], ["zoom"], 2, 11, 4, 13, 8, 16], {
-          "symbol-sort-key": ["get", "rank"],
-          "text-offset": [0, 0.15],
-        }),
-        paint: labelPaint,
+        paint: {
+          "line-color": BORDER,
+          "line-opacity": ["interpolate", ["linear"], ["zoom"], 2, 0.38, 5, 0.58, 10, 0.7],
+          "line-width": ["interpolate", ["linear"], ["zoom"], 2, 0.55, 6, 0.85, 10, 1.2],
+          "line-dasharray": [3, 2],
+        },
       },
       {
-        id: "label-city-more",
-        type: "symbol",
+        id: "boundary-city",
+        type: "line",
         source: "openmaptiles",
-        "source-layer": "place",
-        minzoom: 5,
-        maxzoom: 12,
-        filter: [
-          "all",
-          ["==", ["get", "class"], "city"],
-          [">", ["get", "rank"], 4],
-          ["!", ["has", "capital"]],
-        ],
-        layout: labelLayout(names, ["interpolate", ["linear"], ["zoom"], 5, 11, 9, 14], {
-          "symbol-sort-key": ["get", "rank"],
-        }),
-        paint: labelPaint,
-      },
-      {
-        id: "label-town",
-        type: "symbol",
-        source: "openmaptiles",
-        "source-layer": "place",
+        "source-layer": "boundary",
         minzoom: 6,
-        maxzoom: 14,
-        filter: ["==", ["get", "class"], "town"],
-        layout: labelLayout(names, ["interpolate", ["linear"], ["zoom"], 6, 11, 10, 14], {
-          "symbol-sort-key": ["get", "rank"],
-        }),
-        paint: { ...labelPaint, "text-color": DIM },
+        filter: [
+          "all",
+          ["match", ["get", "admin_level"], [5, 6, 7, 8, 9], true, false],
+          ["!=", ["coalesce", ["get", "maritime"], 0], 1],
+        ],
+        paint: {
+          "line-color": BORDER,
+          "line-opacity": ["interpolate", ["linear"], ["zoom"], 6, 0.32, 9, 0.5, 12, 0.62],
+          "line-width": ["interpolate", ["linear"], ["zoom"], 6, 0.4, 10, 0.7, 13, 1],
+          "line-dasharray": [1.5, 2],
+        },
       },
       {
         id: "cams-glow",
@@ -333,6 +328,85 @@ export function globeStyle(lang: Lang): GlobeStyleJson {
             1,
           ],
         },
+      },
+      {
+        id: "label-country",
+        type: "symbol",
+        source: "openmaptiles",
+        "source-layer": "place",
+        maxzoom: 8,
+        filter: ["==", ["get", "class"], "country"],
+        layout: labelLayout(names, ["interpolate", ["linear"], ["zoom"], 0, 13, 2.8, 16, 5, 20], {
+          "text-max-width": 7,
+          "symbol-sort-key": ["get", "rank"],
+          "text-allow-overlap": true,
+          "text-ignore-placement": true,
+        }),
+        paint: labelPaint,
+      },
+      {
+        id: "label-city",
+        type: "symbol",
+        source: "openmaptiles",
+        "source-layer": "place",
+        minzoom: 2,
+        maxzoom: 12,
+        filter: [
+          "all",
+          ["==", ["get", "class"], "city"],
+          ["any", ["<=", ["get", "rank"], 4], ["has", "capital"]],
+        ],
+        layout: labelLayout(names, ["interpolate", ["linear"], ["zoom"], 2, 12, 4, 14, 8, 17], {
+          "symbol-sort-key": ["get", "rank"],
+          "text-offset": [0, 0.15],
+          "text-allow-overlap": true,
+          "text-ignore-placement": true,
+        }),
+        paint: labelPaint,
+      },
+      {
+        id: "label-city-more",
+        type: "symbol",
+        source: "openmaptiles",
+        "source-layer": "place",
+        minzoom: 5,
+        maxzoom: 12,
+        filter: [
+          "all",
+          ["==", ["get", "class"], "city"],
+          [">", ["get", "rank"], 4],
+          ["!", ["has", "capital"]],
+        ],
+        layout: labelLayout(names, ["interpolate", ["linear"], ["zoom"], 5, 11, 9, 14], {
+          "symbol-sort-key": ["get", "rank"],
+        }),
+        paint: labelPaint,
+      },
+      {
+        id: "label-town",
+        type: "symbol",
+        source: "openmaptiles",
+        "source-layer": "place",
+        minzoom: 6,
+        maxzoom: 14,
+        filter: ["==", ["get", "class"], "town"],
+        layout: labelLayout(names, ["interpolate", ["linear"], ["zoom"], 6, 11, 10, 14], {
+          "symbol-sort-key": ["get", "rank"],
+        }),
+        paint: { ...labelPaint, "text-color": DIM },
+      },
+      {
+        id: "label-sea",
+        type: "symbol",
+        source: "openmaptiles",
+        "source-layer": "water_name",
+        maxzoom: 6,
+        filter: ["match", ["get", "class"], ["ocean", "sea"], true, false],
+        layout: labelLayout(names, ["interpolate", ["linear"], ["zoom"], 0, 11, 3, 13, 5, 15], {
+          "text-letter-spacing": 0.08,
+          "symbol-sort-key": ["get", "rank"],
+        }),
+        paint: { ...labelPaint, "text-color": DIM },
       },
     ],
   };
