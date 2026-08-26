@@ -10,7 +10,7 @@
 import type { GeoJSONSource } from "maplibre-gl";
 
 import type { Cam, CamState } from "../domain/cams";
-import { GLOBE_ZOOM, INITIAL_VIEW } from "../domain/mapView";
+import { GLOBE_ZOOM, INITIAL_VIEW, type MapViewport } from "../domain/mapView";
 import { nightPolygonGeoJSON, terminatorLineGeoJSON } from "../domain/terminator";
 import type { Lang } from "../domain/weather";
 import { t } from "./i18n";
@@ -21,6 +21,7 @@ export interface GlobeView {
   setSelected(camIds: readonly string[]): void;
   setLang(lang: Lang): void;
   focus(cam: Cam): void;
+  goTo(view: MapViewport): void;
   drawTerminator(at: Date): void;
   invalidate(): void;
 }
@@ -70,6 +71,7 @@ export function createUnsupportedView(container: HTMLElement, lang: Lang): Globe
       paint();
     },
     focus() {},
+    goTo() {},
     drawTerminator() {},
     invalidate() {},
   };
@@ -407,6 +409,16 @@ function mountGlobe(
           center: [cam.lng, cam.lat],
           zoom: Math.max(map.getZoom(), 4),
           duration: 800,
+        });
+      });
+    },
+    goTo(view) {
+      whenReady(() => {
+        const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+        map.flyTo({
+          center: [view.center[1], view.center[0]],
+          zoom: view.zoom,
+          duration: reduced ? 0 : 800,
         });
       });
     },

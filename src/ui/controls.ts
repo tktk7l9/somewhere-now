@@ -1,12 +1,23 @@
 // 見出しの操作列。ラベルは「押すと何が起きるか」をそのまま書く。
 
 import { CAM_CATEGORIES, type CamCategory } from "../domain/cams";
+import type { LocateFailure } from "../domain/locate";
 import type { ViewState } from "../domain/urlState";
-import { categoryLabel, t } from "./i18n";
+import { categoryLabel, t, type StringKey } from "./i18n";
+
+export type LocateStatus = "idle" | "pending" | LocateFailure;
+
+const LOCATE_ERROR_KEY: Record<LocateFailure, StringKey> = {
+  denied: "locateDenied",
+  unavailable: "locateUnavailable",
+  timeout: "locateTimeout",
+  unsupported: "locateUnsupported",
+};
 
 export interface ControlHandlers {
   onChange(patch: Partial<ViewState>): void;
   onRandom(): void;
+  onLocate(): void;
   onToggleWall(): void;
   onSetGlobe(globe: boolean): void;
 }
@@ -30,7 +41,7 @@ function group(...children: readonly HTMLElement[]): HTMLElement {
 
 export function createControls(container: HTMLElement, handlers: ControlHandlers) {
   return {
-    update(state: ViewState, wallOpen: boolean): void {
+    update(state: ViewState, wallOpen: boolean, locateStatus: LocateStatus): void {
       const { lang } = state;
 
       const categories = CAM_CATEGORIES.map((category) =>
@@ -68,6 +79,23 @@ export function createControls(container: HTMLElement, handlers: ControlHandlers
       random.textContent = t("takeMeSomewhere", lang);
       random.addEventListener("click", handlers.onRandom);
 
+      const locateLabel =
+        locateStatus === "pending" ? t("locatePending", lang) : t("locate", lang);
+      const locate = document.createElement("button");
+      locate.type = "button";
+      locate.className = "chip";
+      locate.textContent = locateLabel;
+      locate.disabled = locateStatus === "pending";
+      locate.setAttribute("aria-live", "polite");
+      locate.setAttribute("aria-label", locateLabel);
+      if (locateStatus === "pending") locate.setAttribute("aria-busy", "true");
+      if (locateStatus !== "idle" && locateStatus !== "pending") {
+        const detail = t(LOCATE_ERROR_KEY[locateStatus], lang);
+        locate.title = detail;
+        locate.setAttribute("aria-label", `${t("locate", lang)}. ${detail}`);
+      }
+      locate.addEventListener("click", handlers.onLocate);
+
       const flatMap = chip(
         t("flatMap", lang),
         !wallOpen && !state.globe,
@@ -89,7 +117,7 @@ export function createControls(container: HTMLElement, handlers: ControlHandlers
         group(...categories),
         group(...flags),
         group(search),
-        group(random, flatMap, globe, wall),
+        group(random, locate, flatMap, globe, wall),
         group(langToggle),
       );
 

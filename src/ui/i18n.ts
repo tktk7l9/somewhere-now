@@ -21,6 +21,24 @@ const STRINGS = {
   nightOnly: { ja: "夜の場所だけ", en: "Night only" },
   favoritesOnly: { ja: "お気に入りだけ", en: "Favorites" },
   takeMeSomewhere: { ja: "どこかへ連れてって", en: "Take me somewhere" },
+  locate: { ja: "いまいる場所へ", en: "Where I am" },
+  locatePending: { ja: "場所を探しています…", en: "Finding you…" },
+  locateDenied: {
+    ja: "位置情報の利用が許可されていません",
+    en: "Location permission was denied",
+  },
+  locateUnavailable: {
+    ja: "いまいる場所を取得できませんでした",
+    en: "Couldn't find where you are",
+  },
+  locateTimeout: {
+    ja: "いまいる場所の取得が時間切れになりました",
+    en: "Finding where you are took too long",
+  },
+  locateUnsupported: {
+    ja: "このブラウザではいまいる場所を使えません",
+    en: "This browser can't use your location",
+  },
   flatMap: { ja: "平面図", en: "Map" },
   globe: { ja: "地球儀", en: "Globe" },
   globeLoading: { ja: "地球儀を読み込み中…", en: "Loading globe…" },
