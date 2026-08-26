@@ -15,7 +15,7 @@ const BONE = "#e8e2d4";
 const DIM = "#7e9099";
 const BORDER = "#c5d0d4";
 const PIN_RING = "#d8e0e4";
-const HALO = "rgba(11, 22, 32, 0.92)";
+const HALO = "rgba(11, 22, 32, 0.95)";
 
 export const GLOBE_GLYPHS = "https://tiles.openfreemap.org/fonts/{fontstack}/{range}.pbf";
 export const GLOBE_TILES_ORIGIN = "https://tiles.openfreemap.org";
@@ -105,8 +105,8 @@ function labelLayout(
 const labelPaint = {
   "text-color": BONE,
   "text-halo-color": HALO,
-  "text-halo-width": 1.6,
-  "text-halo-blur": 0.2,
+  "text-halo-width": 1.85,
+  "text-halo-blur": 0.15,
 };
 
 export function globeStyle(lang: Lang): GlobeStyleJson {
@@ -178,79 +178,6 @@ export function globeStyle(lang: Lang): GlobeStyleJson {
         paint: { "fill-color": "#c5d0d4", "fill-opacity": 0.28, "fill-antialias": false },
       },
       {
-        // claimed_by が付いている線は領有主張の二重描きなので、無印の国境だけ実線にする。
-        id: "boundary-country",
-        type: "line",
-        source: "openmaptiles",
-        "source-layer": "boundary",
-        filter: [
-          "all",
-          ["==", ["get", "admin_level"], 2],
-          ["!=", ["coalesce", ["get", "disputed"], 0], 1],
-          ["!=", ["coalesce", ["get", "maritime"], 0], 1],
-          ["!", ["has", "claimed_by"]],
-        ],
-        paint: {
-          "line-color": BORDER,
-          "line-opacity": 0.78,
-          "line-width": ["interpolate", ["linear"], ["zoom"], 0, 0.7, 3, 1.1, 6, 1.6, 10, 2.2],
-        },
-      },
-      {
-        id: "boundary-country-disputed",
-        type: "line",
-        source: "openmaptiles",
-        "source-layer": "boundary",
-        filter: [
-          "all",
-          ["==", ["get", "admin_level"], 2],
-          ["==", ["get", "disputed"], 1],
-          ["!", ["has", "claimed_by"]],
-        ],
-        paint: {
-          "line-color": BORDER,
-          "line-opacity": 0.55,
-          "line-width": ["interpolate", ["linear"], ["zoom"], 0, 0.6, 6, 1.2],
-          "line-dasharray": [2, 2],
-        },
-      },
-      {
-        id: "boundary-state",
-        type: "line",
-        source: "openmaptiles",
-        "source-layer": "boundary",
-        minzoom: 3,
-        filter: [
-          "all",
-          ["match", ["get", "admin_level"], [3, 4], true, false],
-          ["!=", ["coalesce", ["get", "maritime"], 0], 1],
-        ],
-        paint: {
-          "line-color": BORDER,
-          "line-opacity": ["interpolate", ["linear"], ["zoom"], 3, 0.28, 6, 0.5, 10, 0.62],
-          "line-width": ["interpolate", ["linear"], ["zoom"], 3, 0.4, 6, 0.7, 10, 1.1],
-          "line-dasharray": [3, 2],
-        },
-      },
-      {
-        id: "boundary-city",
-        type: "line",
-        source: "openmaptiles",
-        "source-layer": "boundary",
-        minzoom: 6,
-        filter: [
-          "all",
-          ["match", ["get", "admin_level"], [5, 6, 7, 8, 9], true, false],
-          ["!=", ["coalesce", ["get", "maritime"], 0], 1],
-        ],
-        paint: {
-          "line-color": BORDER,
-          "line-opacity": ["interpolate", ["linear"], ["zoom"], 6, 0.22, 9, 0.42, 12, 0.55],
-          "line-width": ["interpolate", ["linear"], ["zoom"], 6, 0.3, 10, 0.6, 13, 0.9],
-          "line-dasharray": [1.5, 2],
-        },
-      },
-      {
         id: "roads",
         type: "line",
         source: "openmaptiles",
@@ -280,6 +207,126 @@ export function globeStyle(lang: Lang): GlobeStyleJson {
           "line-color": LIT,
           "line-width": 1.15,
           "line-opacity": 0.45,
+        },
+      },
+      {
+        // 夜の影より手前。claimed_by 付きは領有主張の二重描きなので除く。
+        id: "boundary-country",
+        type: "line",
+        source: "openmaptiles",
+        "source-layer": "boundary",
+        filter: [
+          "all",
+          ["==", ["get", "admin_level"], 2],
+          ["!=", ["coalesce", ["get", "disputed"], 0], 1],
+          ["!=", ["coalesce", ["get", "maritime"], 0], 1],
+          ["!", ["has", "claimed_by"]],
+        ],
+        paint: {
+          "line-color": BORDER,
+          "line-opacity": 0.92,
+          "line-width": ["interpolate", ["linear"], ["zoom"], 0, 1.05, 3, 1.45, 6, 1.9, 10, 2.4],
+        },
+      },
+      {
+        id: "boundary-country-disputed",
+        type: "line",
+        source: "openmaptiles",
+        "source-layer": "boundary",
+        filter: [
+          "all",
+          ["==", ["get", "admin_level"], 2],
+          ["==", ["get", "disputed"], 1],
+          ["!", ["has", "claimed_by"]],
+        ],
+        paint: {
+          "line-color": BORDER,
+          "line-opacity": 0.7,
+          "line-width": ["interpolate", ["linear"], ["zoom"], 0, 0.85, 6, 1.4],
+          "line-dasharray": [2, 2],
+        },
+      },
+      {
+        id: "boundary-state",
+        type: "line",
+        source: "openmaptiles",
+        "source-layer": "boundary",
+        minzoom: 2,
+        filter: [
+          "all",
+          ["match", ["get", "admin_level"], [3, 4], true, false],
+          ["!=", ["coalesce", ["get", "maritime"], 0], 1],
+        ],
+        paint: {
+          "line-color": BORDER,
+          "line-opacity": ["interpolate", ["linear"], ["zoom"], 2, 0.38, 5, 0.58, 10, 0.7],
+          "line-width": ["interpolate", ["linear"], ["zoom"], 2, 0.55, 6, 0.85, 10, 1.2],
+          "line-dasharray": [3, 2],
+        },
+      },
+      {
+        id: "boundary-city",
+        type: "line",
+        source: "openmaptiles",
+        "source-layer": "boundary",
+        minzoom: 6,
+        filter: [
+          "all",
+          ["match", ["get", "admin_level"], [5, 6, 7, 8, 9], true, false],
+          ["!=", ["coalesce", ["get", "maritime"], 0], 1],
+        ],
+        paint: {
+          "line-color": BORDER,
+          "line-opacity": ["interpolate", ["linear"], ["zoom"], 6, 0.32, 9, 0.5, 12, 0.62],
+          "line-width": ["interpolate", ["linear"], ["zoom"], 6, 0.4, 10, 0.7, 13, 1],
+          "line-dasharray": [1.5, 2],
+        },
+      },
+      {
+        id: "cams-glow",
+        type: "circle",
+        source: "cams",
+        filter: ["==", ["get", "status"], "live"],
+        paint: {
+          "circle-pitch-alignment": "viewport",
+          "circle-radius": ["interpolate", ["linear"], ["zoom"], 0.6, 7, 2.8, 11, 8, 14],
+          "circle-color": LIT,
+          "circle-opacity": 0.22,
+          "circle-stroke-width": 0,
+        },
+      },
+      {
+        id: "cams-point",
+        type: "circle",
+        source: "cams",
+        paint: {
+          "circle-pitch-alignment": "viewport",
+          "circle-radius": [
+            "interpolate",
+            ["linear"],
+            ["zoom"],
+            0.6,
+            ["case", [">", ["get", "selected"], 0], 5.5, 3.5],
+            2.8,
+            ["case", [">", ["get", "selected"], 0], 10, 6.5],
+            8,
+            ["case", [">", ["get", "selected"], 0], 12, 7],
+          ],
+          "circle-color": ["case", ["==", ["get", "status"], "live"], LIT, INK],
+          "circle-stroke-width": 1.75,
+          "circle-stroke-color": ["case", ["==", ["get", "status"], "live"], LIT, PIN_RING],
+          "circle-opacity": [
+            "case",
+            ["any", ["==", ["get", "status"], "offline"], ["==", ["get", "status"], "blocked"]],
+            0.42,
+            1,
+          ],
+          "circle-stroke-opacity": [
+            "case",
+            ["any", ["==", ["get", "status"], "offline"], ["==", ["get", "status"], "blocked"]],
+            0.55,
+            1,
+          ],
         },
       },
       {
@@ -360,53 +407,6 @@ export function globeStyle(lang: Lang): GlobeStyleJson {
           "symbol-sort-key": ["get", "rank"],
         }),
         paint: { ...labelPaint, "text-color": DIM },
-      },
-      {
-        id: "cams-glow",
-        type: "circle",
-        source: "cams",
-        filter: ["==", ["get", "status"], "live"],
-        paint: {
-          "circle-pitch-alignment": "viewport",
-          "circle-radius": ["interpolate", ["linear"], ["zoom"], 0.6, 7, 2.8, 11, 8, 14],
-          "circle-color": LIT,
-          "circle-opacity": 0.22,
-          "circle-stroke-width": 0,
-        },
-      },
-      {
-        id: "cams-point",
-        type: "circle",
-        source: "cams",
-        paint: {
-          "circle-pitch-alignment": "viewport",
-          "circle-radius": [
-            "interpolate",
-            ["linear"],
-            ["zoom"],
-            0.6,
-            ["case", [">", ["get", "selected"], 0], 5.5, 3.5],
-            2.8,
-            ["case", [">", ["get", "selected"], 0], 10, 6.5],
-            8,
-            ["case", [">", ["get", "selected"], 0], 12, 7],
-          ],
-          "circle-color": ["case", ["==", ["get", "status"], "live"], LIT, INK],
-          "circle-stroke-width": 1.75,
-          "circle-stroke-color": ["case", ["==", ["get", "status"], "live"], LIT, PIN_RING],
-          "circle-opacity": [
-            "case",
-            ["any", ["==", ["get", "status"], "offline"], ["==", ["get", "status"], "blocked"]],
-            0.42,
-            1,
-          ],
-          "circle-stroke-opacity": [
-            "case",
-            ["any", ["==", ["get", "status"], "offline"], ["==", ["get", "status"], "blocked"]],
-            0.55,
-            1,
-          ],
-        },
       },
     ],
   };

@@ -37,24 +37,24 @@ describe("globeStyle", () => {
       "water",
       "landcover-wood",
       "landcover-ice",
+      "roads",
+      "night-shade",
+      "terminator",
       "boundary-country",
       "boundary-country-disputed",
       "boundary-state",
       "boundary-city",
-      "roads",
-      "night-shade",
-      "terminator",
+      "cams-glow",
+      "cams-point",
       "label-country",
       "label-city",
       "label-city-more",
       "label-town",
       "label-sea",
-      "cams-glow",
-      "cams-point",
     ]);
-    expect(ids.indexOf("label-country")).toBeGreaterThan(ids.indexOf("night-shade"));
+    expect(ids.indexOf("boundary-country")).toBeGreaterThan(ids.indexOf("night-shade"));
+    expect(ids.indexOf("label-country")).toBeGreaterThan(ids.indexOf("cams-point"));
     expect(ids.indexOf("label-country")).toBeLessThan(ids.indexOf("label-sea"));
-    expect(ids.indexOf("cams-point")).toBeGreaterThan(ids.indexOf("label-city"));
     expect(LABEL_LAYER_IDS.every((id) => ids.includes(id))).toBe(true);
     expect(BOUNDARY_LAYER_IDS.every((id) => ids.includes(id))).toBe(true);
     const country = style.layers.find((layer) => layer.id === "label-country");
@@ -100,8 +100,8 @@ describe("globeStyle", () => {
       ["match", ["get", "admin_level"], [5, 6, 7, 8, 9], true, false],
       ["!=", ["coalesce", ["get", "maritime"], 0], 1],
     ]);
-    expect(state?.["minzoom"]).toBe(3);
+    expect(state?.["minzoom"]).toBe(2);
     expect(city?.["minzoom"]).toBe(6);
-    expect(country?.paint?.["line-opacity"]).toBe(0.78);
+    expect(country?.paint?.["line-opacity"]).toBe(0.92);
   });
 });
