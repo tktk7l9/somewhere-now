@@ -266,20 +266,23 @@ html.resizing-panel iframe {
   padding-right: 0;
 }
 
-/* ── 署名: 夜の割合 ─────────────────────────────────── */
+/* ── 署名: 夜の割合とピンの色 ─────────────────────────── */
 
-.dial {
+.notes {
   position: absolute;
   top: 16px;
   left: 16px;
   z-index: 500;
-  padding: 13px 17px 14px;
+  max-width: 258px;
   background: rgba(11, 22, 32, 0.82);
   backdrop-filter: blur(7px);
   border: 1px solid var(--haze);
   border-radius: var(--radius);
-  max-width: 258px;
   pointer-events: none;
+}
+
+.dial {
+  padding: 13px 17px 10px;
 }
 
 .dial__count {
@@ -304,6 +307,28 @@ html.resizing-panel iframe {
   font-size: 13px;
   color: var(--dim);
   line-height: 1.4;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  padding: 8px 17px 12px;
+  border-top: 1px solid var(--haze);
+}
+
+.legend__item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--dim);
+  letter-spacing: 0.06em;
+}
+
+.legend .pin {
+  flex-shrink: 0;
 }
 
 /* ── 地図 ───────────────────────────────────────────── */
@@ -715,7 +740,7 @@ html.resizing-panel iframe {
 /* 並べて見るときは、地図もパネルも畳んで映像に幅を全部渡す。 */
 .app[data-mode="wall"] .map,
 .app[data-mode="wall"] .globe,
-.app[data-mode="wall"] .dial,
+.app[data-mode="wall"] .notes,
 .app[data-mode="wall"] .panel {
   display: none;
 }
@@ -753,10 +778,17 @@ html.resizing-panel iframe {
     flex-wrap: nowrap;
   }
 
-  .dial {
+  .notes {
     top: 10px;
     left: 10px;
-    padding: 10px 13px;
+  }
+
+  .dial {
+    padding: 10px 13px 8px;
+  }
+
+  .legend {
+    padding: 7px 13px 10px;
   }
 
   .dial__count {
@@ -875,6 +907,12 @@ html.resizing-panel iframe {
   padding-top: 14px;
   border-top: 1px solid var(--haze);
   font-size: 13px;
+}
+
+.legend--panel {
+  margin-top: 10px;
+  padding: 0;
+  border: none;
 }
 
 /* ── 休憩中 ─────────────────────────────────────────── */
@@ -1001,7 +1039,7 @@ html.resizing-panel iframe {
 /* 休憩中は映像だけにする。13 個並ぶ絞り込みのチップは、休むときには雑音。 */
 .app[data-mode="break"] .map,
 .app[data-mode="break"] .globe,
-.app[data-mode="break"] .dial,
+.app[data-mode="break"] .notes,
 .app[data-mode="break"] .panel,
 .app[data-mode="break"] .wall,
 .app[data-mode="break"] .masthead__controls,

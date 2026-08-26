@@ -59,6 +59,11 @@ const STRINGS = {
     ja: "地図のマーカーを選ぶと、その場所の今が流れます。",
     en: "Pick a marker on the map to see what it looks like there now.",
   },
+  pinOff: { ja: "止まっている", en: "Off air" },
+  pinLegendAria: {
+    ja: "ピンの色。琥珀は配信中、黒は止まっています。",
+    en: "Pin colors. Amber is live, black is off air.",
+  },
   resizePanel: { ja: "パネルの幅を変える", en: "Resize panel" },
 
   // ── 休憩モード ──
