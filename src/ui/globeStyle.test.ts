@@ -1,132 +1,69 @@
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { describe, expect, it } from "vitest";
 
-import type { AddProtocolAction } from "maplibre-gl";
-
+import atlas from "../data/globeAtlas.json";
 import {
+  GLOBE_TILES_ORIGIN,
   globeStyle,
-  NAUTICAL_PROTOCOL,
-  OSM_TILE_PROTOCOL_URL,
-  OSM_TILE_URL,
-  protocolUrlToHttps,
-  rasterUrlToProtocol,
-  registerNauticalProtocol,
-  resetNauticalProtocolForTests,
+  LABEL_LAYER_IDS,
+  placeNameField,
 } from "./globeStyle";
 
-afterEach(() => {
-  vi.unstubAllGlobals();
-  vi.restoreAllMocks();
-  resetNauticalProtocolForTests();
+describe("placeNameField", () => {
+  it("日本語は ja を先に見る", () => {
+    expect(placeNameField("ja")[1]).toEqual(["get", "ja"]);
+  });
+
+  it("英語は en を先に見る", () => {
+    expect(placeNameField("en")[1]).toEqual(["get", "en"]);
+  });
 });
 
-describe("rasterUrlToProtocol", () => {
-  it("https の OSM タイルを本体スレッド用プロトコルに差し替える", () => {
-    expect(rasterUrlToProtocol(OSM_TILE_URL)).toBe(OSM_TILE_PROTOCOL_URL);
-    expect(protocolUrlToHttps(OSM_TILE_PROTOCOL_URL)).toBe(OSM_TILE_URL);
-    expect(OSM_TILE_PROTOCOL_URL.startsWith(`${NAUTICAL_PROTOCOL}://`)).toBe(true);
+describe("globeAtlas", () => {
+  it("日本と東京を含み、国境線がある", () => {
+    const countries = atlas.countries.features.map((f) => f.properties);
+    const cities = atlas.cities.features.map((f) => f.properties);
+    expect(countries.some((p) => p.ja === "日本" && p.en === "Japan")).toBe(true);
+    expect(cities.some((p) => p.ja === "東京都" && p.en === "Tokyo" && p.rank === 0)).toBe(true);
+    expect(atlas.borders.features.length).toBeGreaterThan(100);
   });
 });
 
 describe("globeStyle", () => {
-  it("平面図と同じ OSM ラスタを夜の影より下に置く", () => {
-    const style = globeStyle();
+  it("同梱の国境と国名を夜の影とピンより手前に置く", () => {
+    const style = globeStyle("ja");
     expect(style.projection).toEqual({ type: "globe" });
-    expect(style.sources["osm"]?.["tiles"]).toEqual([OSM_TILE_PROTOCOL_URL]);
-    expect(style.sources["osm"]?.["tileSize"]).toBe(256);
+    expect(style.glyphs).toBe(`${GLOBE_TILES_ORIGIN}/fonts/{fontstack}/{range}.pbf`);
+    expect(style.sources["atlasBorders"]?.["data"]).toBe(atlas.borders);
+    expect(style.sources["atlasCountries"]?.["data"]).toBe(atlas.countries);
     const ids = style.layers.map((layer) => layer.id);
-    expect(ids).toEqual(["background", "osm", "night-shade", "terminator", "cams-glow", "cams-point"]);
-    expect(ids.indexOf("osm")).toBeLessThan(ids.indexOf("night-shade"));
-    expect(style.layers.find((layer) => layer.id === "osm")?.paint?.["raster-fade-duration"]).toBe(0);
-  });
-});
-
-describe("registerNauticalProtocol", () => {
-  it("同じプロトコルを二度は登録しない", () => {
-    const addProtocol = vi.fn();
-    registerNauticalProtocol(addProtocol);
-    registerNauticalProtocol(addProtocol);
-    expect(addProtocol).toHaveBeenCalledTimes(1);
-    expect(addProtocol.mock.calls[0]?.[0]).toBe(NAUTICAL_PROTOCOL);
-  });
-
-  it("タイルを海図色に直して返す", async () => {
-    const pixels = new Uint8ClampedArray([255, 255, 255, 255]);
-    const imageData = { data: pixels, width: 1, height: 1 } as ImageData;
-    const ctx = {
-      drawImage: vi.fn(),
-      getImageData: vi.fn(() => imageData),
-      putImageData: vi.fn(),
-    };
-    const canvas = { width: 0, height: 0, getContext: vi.fn(() => ctx) };
-    vi.stubGlobal("document", { createElement: vi.fn(() => canvas) });
-    const bitmap = { width: 1, height: 1 };
-    vi.stubGlobal(
-      "createImageBitmap",
-      vi.fn(async () => bitmap),
-    );
-    vi.stubGlobal(
-      "fetch",
-      vi.fn(async () => ({
-        ok: true,
-        blob: async () => new Blob(),
-      })),
-    );
-    let action: AddProtocolAction | undefined;
-    registerNauticalProtocol((_name, fn) => {
-      action = fn;
+    expect(ids).toEqual([
+      "background",
+      "natural_earth",
+      "water",
+      "boundary-state",
+      "boundary-city",
+      "night-shade",
+      "terminator",
+      "boundary-country",
+      "cams-glow",
+      "cams-point",
+      "label-country",
+      "label-city",
+    ]);
+    expect(ids.indexOf("boundary-country")).toBeGreaterThan(ids.indexOf("night-shade"));
+    expect(ids.indexOf("label-country")).toBeGreaterThan(ids.indexOf("cams-point"));
+    expect(LABEL_LAYER_IDS.every((id) => ids.includes(id))).toBe(true);
+    const country = style.layers.find((layer) => layer.id === "label-country");
+    expect(country?.["layout"]).toMatchObject({
+      "text-field": placeNameField("ja"),
+      "text-allow-overlap": true,
+      "text-font": ["Noto Sans Bold"],
     });
-    const result = await action!(
-      { url: `${NAUTICAL_PROTOCOL}://tile.openstreetmap.org/0/0/0.png` },
-      new AbortController(),
-    );
-    expect(fetch).toHaveBeenCalledWith("https://tile.openstreetmap.org/0/0/0.png", expect.any(Object));
-    expect(pixels[0]).toBe(0);
-    expect(result.data).toBe(bitmap);
   });
 
-  it("2d が取れないときは元の画像を返す", async () => {
-    const canvas = { width: 0, height: 0, getContext: vi.fn(() => null) };
-    vi.stubGlobal("document", { createElement: vi.fn(() => canvas) });
-    const original = { width: 2, height: 2 };
-    vi.stubGlobal(
-      "createImageBitmap",
-      vi.fn(async () => original),
-    );
-    vi.stubGlobal(
-      "fetch",
-      vi.fn(async () => ({
-        ok: true,
-        blob: async () => new Blob(),
-      })),
-    );
-    let action: AddProtocolAction | undefined;
-    registerNauticalProtocol((_name, fn) => {
-      action = fn;
-    });
-    const result = await action!(
-      { url: `${NAUTICAL_PROTOCOL}://tile.openstreetmap.org/1/0/0.png` },
-      new AbortController(),
-    );
-    expect(result.data).toBe(original);
-  });
-
-  it("タイルが失敗したら投げる", async () => {
-    vi.stubGlobal(
-      "fetch",
-      vi.fn(async () => ({
-        ok: false,
-        status: 403,
-      })),
-    );
-    let action: AddProtocolAction | undefined;
-    registerNauticalProtocol((_name, fn) => {
-      action = fn;
-    });
-    await expect(
-      action!(
-        { url: `${NAUTICAL_PROTOCOL}://tile.openstreetmap.org/1/0/0.png` },
-        new AbortController(),
-      ),
-    ).rejects.toThrow("tile 403");
+  it("英語図式は en から始まる", () => {
+    const style = globeStyle("en");
+    const city = style.layers.find((layer) => layer.id === "label-city");
+    expect(city?.["layout"]).toMatchObject({ "text-field": placeNameField("en") });
   });
 });

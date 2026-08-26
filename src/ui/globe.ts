@@ -2,9 +2,8 @@
 //
 // MapLibre の globe projection を使う。平面図は OSM ラスタ + CSS フィルタで
 // 海図色にしている。キャンバス全体への CSS フィルタは夜の影まで反転するので
-// 使えない。OSM 公式タイルは Worker fetch だと Referer が無くて拒否される。
-// 平面図と同じタイルを本体スレッドで取り、画素だけ海図色に直す。地名と国境は
-// タイルに焼き付いているので、ベクトルの place / boundary に頼らない。
+// 使えない。国名・国境は同梱の Natural Earth GeoJSON で描く。ベクトルタイルの
+// place に頼ると衝突やグリフで消える。
 // MapLibre 本体は動的 import。先に読むと、非対応環境ではモジュール評価の
 // 時点で落ちて、案内を出すコードに届かない。
 
@@ -14,7 +13,7 @@ import type { Cam, CamState } from "../domain/cams";
 import { GLOBE_ZOOM, INITIAL_VIEW, type MapViewport } from "../domain/mapView";
 import { nightPolygonGeoJSON, terminatorLineGeoJSON } from "../domain/terminator";
 import type { Lang } from "../domain/weather";
-import { globeStyle, registerNauticalProtocol, type GlobeStyleJson } from "./globeStyle";
+import { globeStyle, LABEL_LAYER_IDS, placeNameField, type GlobeStyleJson } from "./globeStyle";
 import { t } from "./i18n";
 
 export interface GlobeView {
@@ -59,6 +58,14 @@ export function createUnsupportedView(container: HTMLElement, lang: Lang): Globe
 }
 
 export function prefetchGlobeRuntime(): void {
+  if (document.querySelector("link[data-globe-preconnect]") === null) {
+    const link = document.createElement("link");
+    link.rel = "preconnect";
+    link.href = "https://tiles.openfreemap.org";
+    link.crossOrigin = "anonymous";
+    link.dataset["globePreconnect"] = "1";
+    document.head.appendChild(link);
+  }
   void import("maplibre-gl");
   void import("maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url");
   void import("maplibre-gl/dist/maplibre-gl.css");
@@ -77,9 +84,8 @@ export async function createGlobeView(
     const { default: workerUrl } = await import("maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url");
     maplibre.setWorkerUrl(workerUrl);
     await import("maplibre-gl/dist/maplibre-gl.css");
-    registerNauticalProtocol(maplibre.addProtocol);
     container.replaceChildren();
-    return mountGlobe(maplibre, container, cams, lang, onSelect, globeStyle());
+    return mountGlobe(maplibre, container, cams, lang, onSelect, globeStyle(lang));
   } catch {
     return createUnsupportedView(container, lang);
   }
@@ -106,6 +112,7 @@ function mountGlobe(
     minZoom: 0.6,
     maxZoom: 16,
     fadeDuration: 0,
+    localIdeographFontFamily: false,
     refreshExpiredTiles: false,
     attributionControl: { compact: true },
     maplibreLogo: false,
@@ -240,6 +247,14 @@ function mountGlobe(
     setLang(next) {
       currentLang = next;
       if (failed) createUnsupportedView(container, currentLang);
+      else {
+        whenReady(() => {
+          const field = placeNameField(currentLang);
+          for (const id of LABEL_LAYER_IDS) {
+            if (map.getLayer(id)) map.setLayoutProperty(id, "text-field", field);
+          }
+        });
+      }
     },
     focus(cam) {
       whenReady(() => {
