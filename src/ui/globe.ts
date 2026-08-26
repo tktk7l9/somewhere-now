@@ -13,8 +13,7 @@ import type { Cam, CamState } from "../domain/cams";
 import { GLOBE_ZOOM, INITIAL_VIEW } from "../domain/mapView";
 import { nightPolygonGeoJSON, terminatorLineGeoJSON } from "../domain/terminator";
 import type { Lang } from "../domain/weather";
-import { camName, t } from "./i18n";
-import { pinHtml } from "./pin";
+import { t } from "./i18n";
 
 export interface GlobeView {
   setStates(states: ReadonlyMap<string, CamState>): void;
@@ -27,8 +26,11 @@ export interface GlobeView {
 }
 
 const LIT = "#ffb94a";
+const INK = "#0b1620";
 const NIGHT = "#050c14";
 const SPACE = "#02080c";
+/** 夜側でも輪郭が残る。平面図の --dim だと球に溶ける。 */
+const PIN_RING = "#d8e0e4";
 
 // OSM 由来。公式 tile.openstreetmap.org は Worker fetch を拒否するので使わない。
 const GLOBE_TILES = [
@@ -98,7 +100,7 @@ function mountGlobe(
 ): GlobeView {
   const [lat, lng] = INITIAL_VIEW.center;
   const MapLibreMap = maplibre.Map;
-  const { Marker, NavigationControl } = maplibre;
+  const { NavigationControl } = maplibre;
 
   const map = new MapLibreMap({
     container,
@@ -139,6 +141,7 @@ function mountGlobe(
         },
         night: { type: "geojson", data: emptyCollection() },
         terminator: { type: "geojson", data: emptyCollection() },
+        cams: { type: "geojson", data: emptyCollection() },
       },
       layers: [
         {
@@ -177,6 +180,79 @@ function mountGlobe(
             "line-color": LIT,
             "line-width": 1.15,
             "line-opacity": 0.45,
+          },
+        },
+        {
+          id: "cams-glow",
+          type: "circle",
+          source: "cams",
+          filter: ["==", ["get", "status"], "live"],
+          paint: {
+            "circle-pitch-alignment": "viewport",
+            "circle-radius": [
+              "interpolate",
+              ["linear"],
+              ["zoom"],
+              0.6,
+              7,
+              2.8,
+              11,
+              8,
+              14,
+            ],
+            "circle-color": LIT,
+            "circle-opacity": 0.22,
+            "circle-stroke-width": 0,
+          },
+        },
+        {
+          // HTML Marker は 3000 台で毎フレーム DOM を動かし、ピンが載る前に固まる。
+          // circle は球の上で描けるが、紺・数ピクセルだと夜側に溶ける。
+          // 平面図の 13px 相当まで広げ、輪郭は夜でも残る色にする。
+          id: "cams-point",
+          type: "circle",
+          source: "cams",
+          paint: {
+            "circle-pitch-alignment": "viewport",
+            "circle-radius": [
+              "interpolate",
+              ["linear"],
+              ["zoom"],
+              0.6,
+              ["case", [">", ["get", "selected"], 0], 5.5, 3.5],
+              2.8,
+              ["case", [">", ["get", "selected"], 0], 10, 6.5],
+              8,
+              ["case", [">", ["get", "selected"], 0], 12, 7],
+            ],
+            "circle-color": ["case", ["==", ["get", "status"], "live"], LIT, INK],
+            "circle-stroke-width": 1.75,
+            "circle-stroke-color": [
+              "case",
+              ["==", ["get", "status"], "live"],
+              LIT,
+              PIN_RING,
+            ],
+            "circle-opacity": [
+              "case",
+              [
+                "any",
+                ["==", ["get", "status"], "offline"],
+                ["==", ["get", "status"], "blocked"],
+              ],
+              0.42,
+              1,
+            ],
+            "circle-stroke-opacity": [
+              "case",
+              [
+                "any",
+                ["==", ["get", "status"], "offline"],
+                ["==", ["get", "status"], "blocked"],
+              ],
+              0.55,
+              1,
+            ],
           },
         },
       ],
@@ -231,52 +307,23 @@ function mountGlobe(
     if (isGpuFailure(event.error)) failGpu();
   });
 
-  function source(id: "night" | "terminator"): GeoJSONSource {
+  function source(id: "night" | "terminator" | "cams"): GeoJSONSource {
     return map.getSource(id) as GeoJSONSource;
   }
 
-  const markers = new Map<string, InstanceType<typeof Marker>>();
-
-  // 平面図と同じ HTML ピン。circle レイヤは球の上で数ピクセルの紺になり消えた。
-
-  function paintPin(el: HTMLElement, cam: Cam): void {
-    const name = camName(cam.name, currentLang);
-    el.title = name;
-    el.setAttribute("aria-label", name);
-    el.innerHTML = pinHtml(states.get(cam.id)?.status, selected.has(cam.id));
-  }
-
   function paintCams(): void {
-    const keep = new Set(visible.map((cam) => cam.id));
-    for (const [id, marker] of markers) {
-      if (keep.has(id)) continue;
-      marker.remove();
-      markers.delete(id);
-    }
-    for (const cam of visible) {
-      let marker = markers.get(cam.id);
-      if (!marker) {
-        const el = document.createElement("button");
-        el.type = "button";
-        el.className = "globe__pin";
-        el.addEventListener("click", (event) => {
-          event.stopPropagation();
-          onSelect(cam.id);
-        });
-        marker = new Marker({
-          element: el,
-          anchor: "center",
-          pitchAlignment: "viewport",
-          rotationAlignment: "viewport",
-          opacityWhenCovered: 0,
-          subpixelPositioning: true,
-        })
-          .setLngLat([cam.lng, cam.lat])
-          .addTo(map);
-        markers.set(cam.id, marker);
-      }
-      paintPin(marker.getElement(), cam);
-    }
+    source("cams").setData({
+      type: "FeatureCollection",
+      features: visible.map((cam) => ({
+        type: "Feature" as const,
+        properties: {
+          id: cam.id,
+          status: states.get(cam.id)?.status ?? "",
+          selected: selected.has(cam.id) ? 1 : 0,
+        },
+        geometry: { type: "Point" as const, coordinates: [cam.lng, cam.lat] },
+      })),
+    });
   }
 
   function paintTerminator(at: Date): void {
@@ -304,6 +351,21 @@ function mountGlobe(
     for (const fn of queued) fn();
     queued.length = 0;
     requestAnimationFrame(syncSize);
+  });
+
+  map.on("click", "cams-point", (event) => {
+    const id = event.features?.[0]?.properties?.["id"];
+    if (typeof id === "string") onSelect(id);
+  });
+  map.on("click", "cams-glow", (event) => {
+    const id = event.features?.[0]?.properties?.["id"];
+    if (typeof id === "string") onSelect(id);
+  });
+  map.on("mouseenter", "cams-point", () => {
+    map.getCanvas().style.cursor = "pointer";
+  });
+  map.on("mouseleave", "cams-point", () => {
+    map.getCanvas().style.cursor = "";
   });
 
   whenReady(() => {
