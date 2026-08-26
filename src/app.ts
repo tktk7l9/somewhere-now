@@ -3,7 +3,7 @@
 // 状態は 3 つだけ:
 //   ViewState  … URL に載る(開いているカメラ・絞り込み・言語)
 //   states     … Worker から来る生存状態
-//   favorites  … localStorage
+//   favorites / panel-width … localStorage
 // それ以外(いま夜かどうか、現地時刻)は now から毎分導出する。
 
 import { CAMS } from "./data/cams";
@@ -28,11 +28,13 @@ import { createBreakView } from "./ui/breakView";
 import type { GlobeView } from "./ui/globe";
 import { createMapView } from "./ui/map";
 import { createPanel } from "./ui/panel";
+import { attachPanelResize } from "./ui/panelResize";
 import { createWall } from "./ui/wall";
 
 const FAVORITES_KEY = "somewhere-now:favorites";
 const RECENT_KEY = "somewhere-now:recent";
 const SOUND_KEY = "somewhere-now:sound";
+const PANEL_WIDTH_KEY = "somewhere-now:panel-width";
 /** 休憩中の残り時間を描き替える間隔。 */
 const BREAK_TICK_MS = 1000;
 /** 生存状態の取り込み間隔。Worker 側の更新が 10 分毎なので 2 分で十分に追いつく。 */
@@ -244,6 +246,20 @@ export function startApp(root: HTMLElement): void {
     onUnplayable: markUnplayable,
   });
 
+  const panelResize = attachPanelResize({
+    app: root,
+    panel: panelEl,
+    lang: view.lang,
+    stored: readStored(PANEL_WIDTH_KEY),
+    onChange(encoded) {
+      writeStored(PANEL_WIDTH_KEY, encoded);
+    },
+    onLayout() {
+      mapView.invalidate();
+      globeView?.invalidate();
+    },
+  });
+
   const wall = createWall(wallEl, markUnplayable);
 
   const breakView = createBreakView(breakEl, {
@@ -413,6 +429,7 @@ export function startApp(root: HTMLElement): void {
     const open = openCams();
 
     document.documentElement.lang = view.lang;
+    panelResize.setLang(view.lang);
     const inBreak = breakSession !== null || breakFinished !== null;
     const mode = inBreak ? "break" : wallOpen ? "wall" : view.globe ? "globe" : "map";
     root.dataset["mode"] = mode;

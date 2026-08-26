@@ -59,6 +59,7 @@ const STRINGS = {
     ja: "地図のマーカーを選ぶと、その場所の今が流れます。",
     en: "Pick a marker on the map to see what it looks like there now.",
   },
+  resizePanel: { ja: "パネルの幅を変える", en: "Resize panel" },
 
   // ── 休憩モード ──
   breakInvite: { ja: "少し休みませんか", en: "Take a break" },

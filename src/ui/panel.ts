@@ -123,7 +123,11 @@ export function createPanel(container: HTMLElement, handlers: PanelHandlers) {
   // 入れ替わったときだけ差し替える。
   const cardHost = document.createElement("div");
   const listHost = document.createElement("div");
-  container.append(cardHost, listHost);
+  // 幅ハンドルは panel 本体に固定したいので、中身だけをスクロールさせる。
+  const scroll = document.createElement("div");
+  scroll.className = "panel__scroll";
+  scroll.append(cardHost, listHost);
+  container.append(scroll);
 
   let current: { camId: string; card: Card } | null = null;
 
