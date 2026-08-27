@@ -727,6 +727,133 @@ html.resizing-panel iframe {
   grid-template-columns: 1fr;
 }
 
+/* ── 視聴が多い順 ─────────────────────────────────────── */
+
+.watching {
+  position: absolute;
+  inset: 0;
+  overflow-y: auto;
+  z-index: 2;
+  background: var(--ink);
+}
+
+.watching__header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 18px 22px 14px;
+  background: var(--ink);
+  border-bottom: 1px solid var(--haze);
+}
+
+.watching__title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.watching__lead {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: var(--dim);
+  line-height: 1.5;
+}
+
+.watching__count {
+  margin: 8px 0 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--dim);
+  letter-spacing: 0.06em;
+}
+
+.watching__empty {
+  margin: 0;
+  padding: 28px 22px;
+  color: var(--dim);
+}
+
+.watching__list {
+  list-style: none;
+  margin: 0;
+  padding: 0 10px 24px;
+}
+
+.watching__item {
+  border-bottom: 1px solid var(--haze);
+}
+
+.watching__row {
+  display: grid;
+  grid-template-columns: 3.2em 1fr auto;
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+  padding: 11px 12px;
+  text-align: left;
+  border-radius: var(--radius);
+}
+
+.watching__row:hover {
+  background: rgba(232, 226, 212, 0.04);
+}
+
+.watching__row[aria-current="true"] {
+  background: var(--lit-soft);
+}
+
+.watching__rank {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  color: var(--dim);
+  text-align: right;
+}
+
+.watching__row[aria-current="true"] .watching__rank {
+  color: var(--lit);
+}
+
+.watching__body {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.watching__name {
+  font-size: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.watching__meta {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--dim);
+}
+
+.watching__viewers {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--lit);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.app[data-mode="watching"] .map,
+.app[data-mode="watching"] .globe,
+.app[data-mode="watching"] .notes,
+.app[data-mode="watching"] .wall {
+  display: none;
+}
+
 /* ── 応答 ───────────────────────────────────────────── */
 
 @media (max-width: 900px) {
@@ -771,6 +898,20 @@ html.resizing-panel iframe {
 
   .dial__count {
     font-size: 34px;
+  }
+
+  .app[data-mode="watching"] {
+    grid-template-rows: auto 1fr 42dvh;
+  }
+
+  .watching__row {
+    grid-template-columns: 2.6em 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .watching__viewers {
+    grid-column: 2;
+    white-space: normal;
   }
 }
 
@@ -1020,6 +1161,7 @@ html.resizing-panel iframe {
 .app[data-mode="break"] .notes,
 .app[data-mode="break"] .panel,
 .app[data-mode="break"] .wall,
+.app[data-mode="break"] .watching,
 .app[data-mode="break"] .masthead__controls {
   display: none;
 }

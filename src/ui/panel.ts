@@ -31,7 +31,7 @@ export interface PanelContext {
 }
 
 /** 何も出せないときに、その理由を伝え分けるための区別。 */
-export type EmptyReason = "none" | "noMatch";
+export type EmptyReason = "none" | "noMatch" | "watching";
 
 interface Card {
   root: HTMLElement;
@@ -86,7 +86,7 @@ function emptyState(
 
   const hint = document.createElement("p");
   hint.className = "panel__hint";
-  hint.textContent = t("emptyBody", lang);
+  hint.textContent = t(reason === "watching" ? "watchingHint" : "emptyBody", lang);
 
   const legend = document.createElement("div");
   legend.className = "legend legend--panel";

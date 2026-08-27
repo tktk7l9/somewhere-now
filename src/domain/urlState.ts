@@ -16,6 +16,8 @@ export interface ViewState {
   favoritesOnly: boolean;
   /** 地球儀ビュー。既定は平面図。 */
   globe: boolean;
+  /** 配信中を視聴者数の多い順に並べた一覧。既定は地図。 */
+  watching: boolean;
   query: string;
   lang: Lang;
 }
@@ -45,6 +47,7 @@ export function parseUrlState(search: string): ViewState {
     nightOnly: params.get("night") === "1",
     favoritesOnly: params.get("fav") === "1",
     globe: params.get("globe") === "1",
+    watching: params.get("watching") === "1",
     query: (params.get("q") ?? "").trim(),
     lang,
   };
@@ -63,6 +66,7 @@ export function toSearchString(state: ViewState): string {
   if (state.nightOnly) params.set("night", "1");
   if (state.favoritesOnly) params.set("fav", "1");
   if (state.globe) params.set("globe", "1");
+  if (state.watching) params.set("watching", "1");
   if (state.query !== "") params.set("q", state.query);
   if (state.lang !== "ja") params.set("lang", state.lang);
 

@@ -16,7 +16,7 @@ import {
   rememberRecent,
   type BreakDuration,
 } from "./domain/breakMode";
-import { filterCams, pickRandom, type Cam, type CamState } from "./domain/cams";
+import { filterCams, pickRandom, rankLiveByViewers, type Cam, type CamState } from "./domain/cams";
 import { decodeFavorites, encodeFavorites, toggleFavorite } from "./domain/favorites";
 import { requestLocation, viewportForLocation } from "./domain/locate";
 import { isNightAt } from "./domain/terminator";
@@ -31,6 +31,7 @@ import { mountPinLegend } from "./ui/pin";
 import { createPanel } from "./ui/panel";
 import { attachPanelResize } from "./ui/panelResize";
 import { createWall } from "./ui/wall";
+import { createWatchingList } from "./ui/watching";
 
 const FAVORITES_KEY = "somewhere-now:favorites";
 const RECENT_KEY = "somewhere-now:recent";
@@ -84,6 +85,7 @@ export function startApp(root: HTMLElement): void {
   const panelEl = root.querySelector<HTMLElement>("#panel")!;
   const controlsEl = root.querySelector<HTMLElement>("#controls")!;
   const wallEl = root.querySelector<HTMLElement>("#wall")!;
+  const watchingEl = root.querySelector<HTMLElement>("#watching")!;
   const dialEl = root.querySelector<HTMLElement>("#dial")!;
   const legendEl = root.querySelector<HTMLElement>("#legend")!;
   const breakEl = root.querySelector<HTMLElement>("#break")!;
@@ -101,6 +103,7 @@ export function startApp(root: HTMLElement): void {
   let breakFinished: Cam | null = null;
   let breakTimer: number | null = null;
   let locateStatus: LocateStatus = "idle";
+  let statesReady: "loading" | "unavailable" | "ready" = "loading";
 
   function recomputeNight(): void {
     nightIds = new Set(CAMS.filter((cam) => isNightAt(now, cam)).map((cam) => cam.id));
@@ -124,6 +127,17 @@ export function startApp(root: HTMLElement): void {
       const cam = byId.get(camId);
       if (cam) focusCam(cam);
     }
+  }
+
+  /** 一覧から選ぶ。既に開いていれば先頭に上げ、閉じてあるものは開く。トグルはしない。 */
+  function pickFromList(camId: string): void {
+    if (view.view[0] === camId) return;
+    update({ view: [camId, ...view.view.filter((id) => id !== camId)].slice(0, MAX_VIEW) });
+  }
+
+  function focusOpenCam(): void {
+    const cam = openCams()[0];
+    if (cam) focusCam(cam);
   }
 
   const mapView = createMapView(mapEl, CAMS, view.lang, selectCam);
@@ -173,11 +187,13 @@ export function startApp(root: HTMLElement): void {
   }
 
   function goToViewport(lat: number, lng: number, zoom: number): void {
-    if (wallOpen) {
+    const leavingWall = wallOpen;
+    if (leavingWall) {
       wallOpen = false;
       wall.teardown();
-      render();
     }
+    if (view.watching) update({ watching: false });
+    else if (leavingWall) render();
     const viewport = { center: [lat, lng] as [number, number], zoom };
     mapView.goTo(viewport);
     if (view.globe) void ensureGlobe().then(() => globeView?.goTo(viewport));
@@ -262,6 +278,7 @@ export function startApp(root: HTMLElement): void {
   });
 
   const wall = createWall(wallEl, markUnplayable);
+  const watchingList = createWatchingList(watchingEl, pickFromList);
 
   const breakView = createBreakView(breakEl, {
     onToggleSound: toggleSound,
@@ -371,7 +388,17 @@ export function startApp(root: HTMLElement): void {
     onToggleWall() {
       wallOpen = !wallOpen;
       if (!wallOpen) wall.teardown();
-      render();
+      if (view.watching) update({ watching: false });
+      else render();
+    },
+    onToggleWatching() {
+      const opening = !view.watching;
+      if (wallOpen) {
+        wallOpen = false;
+        wall.teardown();
+      }
+      update({ watching: opening });
+      if (!opening) focusOpenCam();
     },
     onSetGlobe(globe) {
       const leavingWall = wallOpen;
@@ -379,8 +406,10 @@ export function startApp(root: HTMLElement): void {
         wallOpen = false;
         wall.teardown();
       }
-      if (view.globe !== globe) update({ globe });
+      const leavingWatching = view.watching;
+      if (view.globe !== globe || leavingWatching) update({ globe, watching: false });
       else if (leavingWall) render();
+      if (leavingWatching) focusOpenCam();
     },
   });
 
@@ -428,9 +457,19 @@ export function startApp(root: HTMLElement): void {
     document.documentElement.lang = view.lang;
     panelResize.setLang(view.lang);
     const inBreak = breakSession !== null || breakFinished !== null;
-    const mode = inBreak ? "break" : wallOpen ? "wall" : view.globe ? "globe" : "map";
+    const watchingOpen = view.watching && !wallOpen && !inBreak;
+    const mode = inBreak
+      ? "break"
+      : wallOpen
+        ? "wall"
+        : watchingOpen
+          ? "watching"
+          : view.globe
+            ? "globe"
+            : "map";
     root.dataset["mode"] = mode;
     wallEl.hidden = !wallOpen || inBreak;
+    watchingEl.hidden = !watchingOpen;
     breakEl.hidden = !inBreak;
     globeEl.setAttribute("aria-label", t("globe", view.lang));
 
@@ -464,17 +503,47 @@ export function startApp(root: HTMLElement): void {
 
     if (wallOpen) {
       // パネルは畳まれる(CSS)。同じ配信を二重に流さないよう中身も空にする。
+      watchingList.teardown();
       panel.update([], panelCtx());
       wall.update(open, states, view.lang, soundOn);
       return;
     }
 
+    if (watchingOpen) {
+      const ranked = rankLiveByViewers(visible, states);
+      watchingList.update(ranked, view.view, {
+        lang: view.lang,
+        now,
+        states,
+        ready: statesReady,
+        filtered:
+          view.categories.length > 0 ||
+          view.nightOnly ||
+          view.favoritesOnly ||
+          view.query !== "",
+      });
+      panel.update(
+        open,
+        panelCtx(),
+        open.length > 0 ? "none" : visible.length === 0 ? "noMatch" : "watching",
+      );
+      return;
+    }
+
+    watchingList.teardown();
     panel.update(open, panelCtx(), visible.length === 0 ? "noMatch" : "none");
   }
 
   async function pullStates(): Promise<void> {
     const payload = await fetchCamStates();
-    if (payload === null) return;
+    if (payload === null) {
+      if (statesReady === "loading") {
+        statesReady = "unavailable";
+        render();
+      }
+      return;
+    }
+    statesReady = "ready";
     states = new Map(Object.entries(payload.cams));
     render();
   }
