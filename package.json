@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "世界中の YouTube ライブカメラを地図から選んで覗く。昼夜ターミネータ付き。",
+  "description": "世界の YouTube ライブカメラ 5,720 地点を地図と地球儀から覗く。昼夜ターミネータ付き。",
   "scripts": {
     "dev": "vite",
     "dev:worker": "wrangler dev --test-scheduled",
