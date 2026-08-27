@@ -19,6 +19,7 @@ export interface ControlHandlers {
   onRandom(): void;
   onLocate(): void;
   onToggleWall(): void;
+  onToggleWatching(): void;
   onSetGlobe(globe: boolean): void;
 }
 
@@ -103,17 +104,14 @@ export function createControls(container: HTMLElement, handlers: ControlHandlers
       }
       locate.addEventListener("click", handlers.onLocate);
 
-      const flatMap = chip(
-        t("flatMap", lang),
-        !wallOpen && !state.globe,
-        () => handlers.onSetGlobe(false),
-      );
-      const globe = chip(
-        t("globe", lang),
-        !wallOpen && state.globe,
-        () => handlers.onSetGlobe(true),
-      );
+      const mapOpen = !wallOpen && !state.watching && !state.globe;
+      const globeOpen = !wallOpen && !state.watching && state.globe;
+      const watchingOpen = !wallOpen && state.watching;
+
+      const flatMap = chip(t("flatMap", lang), mapOpen, () => handlers.onSetGlobe(false));
+      const globe = chip(t("globe", lang), globeOpen, () => handlers.onSetGlobe(true));
       const wall = chip(t(wallOpen ? "backToMap" : "wall", lang), wallOpen, handlers.onToggleWall);
+      const watching = chip(t("watching", lang), watchingOpen, handlers.onToggleWatching);
 
       const langToggle = chip("JA / EN", false, () =>
         handlers.onChange({ lang: lang === "ja" ? "en" : "ja" }),
@@ -123,7 +121,7 @@ export function createControls(container: HTMLElement, handlers: ControlHandlers
       container.replaceChildren(
         row(
           "masthead__primary",
-          group(random, locate, flatMap, globe, wall),
+          group(random, locate, flatMap, globe, wall, watching),
           group(langToggle),
         ),
         row(

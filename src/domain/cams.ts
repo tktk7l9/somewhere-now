@@ -158,6 +158,30 @@ export function pickRandom<T>(items: readonly T[], rng: () => number): T | null 
   return items[Math.min(items.length - 1, Math.floor(rng() * items.length))]!;
 }
 
+function viewerCount(states: ReadonlyMap<string, CamState>, id: string): number {
+  return states.get(id)?.viewers ?? -1;
+}
+
+/**
+ * 配信中のカメラを、いま見ている人数の多い順に並べる。
+ * 視聴者数が分からない配信は末尾に置く（誤った順位を付けない）。
+ * 同数のときは id の昇順で安定させる。
+ */
+export function rankLiveByViewers(
+  cams: readonly Cam[],
+  states: ReadonlyMap<string, CamState>,
+): Cam[] {
+  return cams
+    .filter((cam) => states.get(cam.id)?.status === "live")
+    .sort((a, b) => {
+      const diff = viewerCount(states, b.id) - viewerCount(states, a.id);
+      if (diff !== 0) return diff;
+      if (a.id < b.id) return -1;
+      if (a.id > b.id) return 1;
+      return 0;
+    });
+}
+
 const EMBED_ORIGIN = "https://www.youtube-nocookie.com";
 // rel=0 で関連動画を抑え、playsinline でモバイルの全画面奪取を防ぐ。
 const EMBED_PARAMS = "rel=0&playsinline=1&modestbranding=1";

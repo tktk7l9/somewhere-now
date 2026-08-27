@@ -55,3 +55,16 @@ describe("liveDialCaption", () => {
     });
   });
 });
+
+describe("視聴が多い順の文言", () => {
+  it("チップは並びの意味をそのまま書く", () => {
+    expect(t("watching", "ja")).toBe("視聴が多い順");
+    expect(t("watching", "en")).toBe("Most watching");
+  });
+
+  it("一覧の案内は人数順だと分かる", () => {
+    expect(t("watchingLead", "ja")).toContain("人数の多い順");
+    expect(t("watchingLead", "en")).toContain("how many people are watching");
+    expect(t("watchingHint", "ja")).toContain("一覧");
+  });
+});

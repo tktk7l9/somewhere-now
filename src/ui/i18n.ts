@@ -47,6 +47,16 @@ const STRINGS = {
     en: "This browser can't show the globe. Switch back to the map.",
   },
   wall: { ja: "並べて見る", en: "Video wall" },
+  watching: { ja: "視聴が多い順", en: "Most watching" },
+  watchingTitle: { ja: "いま視聴されている配信", en: "Most watched right now" },
+  watchingLead: {
+    ja: "配信中の地点を、いま見ている人数の多い順に並べています。",
+    en: "Live places, ordered by how many people are watching now.",
+  },
+  watchingHint: {
+    ja: "一覧から地点を選ぶと、その場所の今が流れます。",
+    en: "Pick a place from the list to see what it looks like there now.",
+  },
   backToMap: { ja: "地図に戻る", en: "Back to map" },
   focusThis: { ja: "これを見る", en: "Watch this" },
   alsoOpen: { ja: "開いているカメラ", en: "Also open" },

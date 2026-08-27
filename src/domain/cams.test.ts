@@ -3,6 +3,7 @@ import {
   collectCamProblems,
   filterCams,
   pickRandom,
+  rankLiveByViewers,
   resolveEmbedUrl,
   resolvedVideoId,
   type Cam,
@@ -145,6 +146,80 @@ describe("filterCams", () => {
 
   it("条件を重ねると積になる", () => {
     expect(filterCams(cams, ctx, { categories: ["animal"], liveOnly: true })).toEqual([]);
+  });
+});
+
+describe("rankLiveByViewers", () => {
+  const tokyo = cam({ id: "tokyo" });
+  const venice = cam({ id: "venice" });
+  const zoo = cam({ id: "zoo" });
+  const harbor = cam({ id: "harbor" });
+  const cams = [tokyo, venice, zoo, harbor];
+
+  it("配信中だけを視聴者数の多い順に並べる", () => {
+    const states = new Map<string, CamState>([
+      ["tokyo", state({ viewers: 10 })],
+      ["venice", state({ viewers: 50 })],
+      ["zoo", state({ status: "offline", viewers: 999 })],
+      ["harbor", state({ viewers: 20 })],
+    ]);
+    expect(rankLiveByViewers(cams, states).map((c) => c.id)).toEqual(["venice", "harbor", "tokyo"]);
+  });
+
+  it("視聴者数が分からない配信は末尾に置く", () => {
+    const states = new Map<string, CamState>([
+      ["tokyo", state({ viewers: null })],
+      ["venice", state({ viewers: 3 })],
+      ["zoo", state({ viewers: 0 })],
+    ]);
+    expect(rankLiveByViewers([tokyo, venice, zoo], states).map((c) => c.id)).toEqual([
+      "venice",
+      "zoo",
+      "tokyo",
+    ]);
+  });
+
+  it("同数なら id の昇順で安定させる", () => {
+    const states = new Map<string, CamState>([
+      ["zoo", state({ viewers: 7 })],
+      ["tokyo", state({ viewers: 7 })],
+      ["venice", state({ viewers: 7 })],
+    ]);
+    expect(rankLiveByViewers([zoo, tokyo, venice], states).map((c) => c.id)).toEqual([
+      "tokyo",
+      "venice",
+      "zoo",
+    ]);
+  });
+
+  it("id が同じなら順序を変えない", () => {
+    const a = cam({ id: "same", name: { ja: "A", en: "A" } });
+    const b = cam({ id: "same", name: { ja: "B", en: "B" } });
+    const states = new Map<string, CamState>([["same", state({ viewers: 1 })]]);
+    expect(rankLiveByViewers([a, b], states)).toEqual([a, b]);
+  });
+
+  it("ライブでない・未知の状態は落とす", () => {
+    const states = new Map<string, CamState>([
+      ["tokyo", state({ status: "blocked", viewers: 80 })],
+      ["venice", state({ status: "unknown", viewers: 80 })],
+    ]);
+    expect(rankLiveByViewers([tokyo, venice, zoo], states)).toEqual([]);
+  });
+
+  it("元の配列は並べ替えない", () => {
+    const input = [tokyo, venice];
+    const snapshot = [...input];
+    const states = new Map<string, CamState>([
+      ["tokyo", state({ viewers: 1 })],
+      ["venice", state({ viewers: 9 })],
+    ]);
+    rankLiveByViewers(input, states);
+    expect(input).toEqual(snapshot);
+  });
+
+  it("空なら空を返す", () => {
+    expect(rankLiveByViewers([], new Map())).toEqual([]);
   });
 });
 
