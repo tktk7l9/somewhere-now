@@ -18,7 +18,8 @@
     "cams:build": "node --experimental-strip-types scripts/build-cams.ts",
     "cams:search": "node --experimental-strip-types scripts/search-cams.ts",
     "cams:import-bulk": "node --experimental-strip-types scripts/import-bulk-cams.ts",
-    "cams:scrape-search": "node --experimental-strip-types scripts/scrape-search-cams.ts"
+    "cams:scrape-search": "node --experimental-strip-types scripts/scrape-search-cams.ts",
+    "cams:scrape-channels": "node --experimental-strip-types scripts/scrape-channel-streams.ts"
   },
   "dependencies": {
     "@fontsource/barlow": "^5.3.0",
