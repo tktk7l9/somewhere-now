@@ -1,5 +1,5 @@
 import { readFileSync } from "node:fs";
-import { INITIAL_VIEW, tileAt, tileUrl } from "./mapView";
+import { INITIAL_VIEW, GLOBE_ZOOM, tileAt, tileUrl } from "./mapView";
 
 describe("tileAt", () => {
   it("ズーム 0 では世界が 1 枚に収まる", () => {
@@ -31,6 +31,13 @@ describe("tileAt", () => {
 describe("tileUrl", () => {
   it("OpenStreetMap の URL を組み立てる", () => {
     expect(tileUrl(2, 1, 1)).toBe("https://tile.openstreetmap.org/2/1/1.png");
+  });
+});
+
+describe("GLOBE_ZOOM", () => {
+  it("大陸とピンが読める距離で、まだ球として見える", () => {
+    expect(GLOBE_ZOOM).toBeGreaterThanOrEqual(INITIAL_VIEW.zoom);
+    expect(GLOBE_ZOOM).toBeLessThan(5);
   });
 });
 

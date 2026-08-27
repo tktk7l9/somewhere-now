@@ -1,9 +1,11 @@
 import {
   isNightAt,
   nightPolygon,
+  nightPolygonGeoJSON,
   subsolarPoint,
   terminatorLatitude,
   terminatorLine,
+  terminatorLineGeoJSON,
 } from "./terminator";
 
 // 2026 年の至点・分点(おおよその時刻。赤緯の符号と大きさが見たいだけなので
@@ -121,6 +123,38 @@ describe("terminatorLine", () => {
 
   it("刻み幅を省略しても点列を返す", () => {
     expect(terminatorLine(JUNE_SOLSTICE).length).toBe(361);
+  });
+});
+
+describe("terminatorLineGeoJSON / nightPolygonGeoJSON", () => {
+  it("軸を [lng, lat] に組み替える", () => {
+    const line = terminatorLineGeoJSON(JUNE_SOLSTICE, 30);
+    expect(line.type).toBe("LineString");
+    expect(line.coordinates[0]![0]).toBe(-180);
+    expect(line.coordinates[line.coordinates.length - 1]![0]).toBe(180);
+    expect(line.coordinates).toHaveLength(terminatorLine(JUNE_SOLSTICE, 30).length);
+  });
+
+  it("夜のポリゴンは東西 2 枚に分かれ、それぞれ閉じて暗い側の極を含む", () => {
+    const poly = nightPolygonGeoJSON(JUNE_SOLSTICE, 30);
+    expect(poly.type).toBe("MultiPolygon");
+    expect(poly.coordinates).toHaveLength(2);
+    for (const [ring] of poly.coordinates) {
+      expect(ring![0]).toEqual(ring![ring!.length - 1]);
+      expect(ring!.some(([, lat]) => lat === -90)).toBe(true);
+    }
+  });
+
+  it("冬至は北極側で閉じる", () => {
+    const poly = nightPolygonGeoJSON(DEC_SOLSTICE, 30);
+    for (const [ring] of poly.coordinates) {
+      expect(ring!.some(([, lat]) => lat === 90)).toBe(true);
+    }
+  });
+
+  it("刻み幅を省略しても点列を返す", () => {
+    expect(terminatorLineGeoJSON(JUNE_SOLSTICE).coordinates.length).toBe(361);
+    expect(nightPolygonGeoJSON(JUNE_SOLSTICE).coordinates[0]![0]!.length).toBeGreaterThan(100);
   });
 });
 

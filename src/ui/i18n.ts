@@ -12,15 +12,40 @@ const STRINGS = {
     en: "Peek at Earth's live cameras from the map",
   },
   places: { ja: "地点", en: "places" },
-  darknessHeadline: {
-    ja: "台が、いま夜の中にいます",
-    en: "cameras are in darkness right now",
+  liveHeadline: {
+    ja: "地点が配信中",
+    en: "places are live",
   },
   search: { ja: "地名で絞り込む", en: "Filter by name" },
   liveOnly: { ja: "配信中だけ", en: "Live only" },
   nightOnly: { ja: "夜の場所だけ", en: "Night only" },
   favoritesOnly: { ja: "お気に入りだけ", en: "Favorites" },
   takeMeSomewhere: { ja: "どこかへ連れてって", en: "Take me somewhere" },
+  locate: { ja: "いまいる場所へ", en: "Where I am" },
+  locatePending: { ja: "場所を探しています…", en: "Finding you…" },
+  locateDenied: {
+    ja: "位置情報の利用が許可されていません",
+    en: "Location permission was denied",
+  },
+  locateUnavailable: {
+    ja: "いまいる場所を取得できませんでした",
+    en: "Couldn't find where you are",
+  },
+  locateTimeout: {
+    ja: "いまいる場所の取得が時間切れになりました",
+    en: "Finding where you are took too long",
+  },
+  locateUnsupported: {
+    ja: "このブラウザではいまいる場所を使えません",
+    en: "This browser can't use your location",
+  },
+  flatMap: { ja: "平面図", en: "Map" },
+  globe: { ja: "地球儀", en: "Globe" },
+  globeLoading: { ja: "地球儀を読み込み中…", en: "Loading globe…" },
+  globeUnsupported: {
+    ja: "このブラウザでは地球儀を表示できません。平面図に戻ってください。",
+    en: "This browser can't show the globe. Switch back to the map.",
+  },
   wall: { ja: "並べて見る", en: "Video wall" },
   backToMap: { ja: "地図に戻る", en: "Back to map" },
   focusThis: { ja: "これを見る", en: "Watch this" },
@@ -34,6 +59,12 @@ const STRINGS = {
     ja: "地図のマーカーを選ぶと、その場所の今が流れます。",
     en: "Pick a marker on the map to see what it looks like there now.",
   },
+  pinOff: { ja: "止まっている", en: "Off air" },
+  pinLegendAria: {
+    ja: "ピンの色。琥珀は配信中、黒は止まっています。",
+    en: "Pin colors. Amber is live, black is off air.",
+  },
+  resizePanel: { ja: "パネルの幅を変える", en: "Resize panel" },
 
   // ── 休憩モード ──
   breakInvite: { ja: "少し休みませんか", en: "Take a break" },
@@ -72,6 +103,7 @@ const STRINGS = {
     en: "This stream cannot be played outside YouTube.",
   },
   viewers: { ja: "人が視聴中", en: "watching" },
+  placeSource: { ja: "出典: Wikipedia", en: "Source: Wikipedia" },
   updatedAt: { ja: "状態の更新", en: "State updated" },
   stateUnavailable: {
     ja: "生存状態を取得できませんでした。地図と再生は使えます。",
@@ -107,6 +139,25 @@ export function catalogCaption(
     total: `/ ${total}`,
     unit,
     aria: lang === "ja" ? `${total} ${unit}中 ${visible} ${unit}` : `${visible} of ${total} ${unit}`,
+  };
+}
+
+/** ダイヤルに出す配信中数 / 地点数。常に分子と分母を並べる。 */
+export function liveDialCaption(
+  live: number,
+  total: number,
+  lang: Lang,
+): { count: string; total: string; label: string; aria: string } {
+  const label = t("liveHeadline", lang);
+  const places = t("places", lang);
+  return {
+    count: String(live),
+    total: `/ ${total}`,
+    label,
+    aria:
+      lang === "ja"
+        ? `${total} ${places}中 ${live} ${places}が配信中`
+        : `${live} of ${total} ${places} are live`,
   };
 }
 

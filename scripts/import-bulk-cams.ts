@@ -442,6 +442,18 @@ function guessPlaceQueries(
     }
   }
 
+  // 日本語: 県・市などで分割して短い地名を試す
+  if (countryCode === "JP" || /[\u3040-\u30ff\u4e00-\u9fff]/.test(title)) {
+    const jpText = title
+      .replace(/【[^】]*】/g, " ")
+      .replace(/［[^］]*］/g, " ")
+      .replace(/ライブ|カメラ|配信|海況|防犯|交差点/g, " ");
+    for (const part of jpText.split(/(?:都|道|府|県|市|区|町|村|[｜|／/\s])/)) {
+      const p = part.replace(/[^\u3040-\u30ff\u4e00-\u9fff]/g, "").trim();
+      if (p.length >= 2 && p.length <= 6) tryPush(p, cc.length > 0 ? cc : "JP");
+    }
+  }
+
   const seen = new Set<string>();
   return queries.filter((q) => {
     const k = `${q.countryCode}\0${q.name}\0${q.admin1 ?? ""}`;

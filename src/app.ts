@@ -3,7 +3,7 @@
 // 状態は 3 つだけ:
 //   ViewState  … URL に載る(開いているカメラ・絞り込み・言語)
 //   states     … Worker から来る生存状態
-//   favorites  … localStorage
+//   favorites / panel-width … localStorage
 // それ以外(いま夜かどうか、現地時刻)は now から毎分導出する。
 
 import { CAMS } from "./data/cams";
@@ -18,19 +18,24 @@ import {
 } from "./domain/breakMode";
 import { filterCams, pickRandom, type Cam, type CamState } from "./domain/cams";
 import { decodeFavorites, encodeFavorites, toggleFavorite } from "./domain/favorites";
+import { requestLocation, viewportForLocation } from "./domain/locate";
 import { isNightAt } from "./domain/terminator";
 import { MAX_VIEW, parseUrlState, toSearchString, type ViewState } from "./domain/urlState";
 import { fetchCamStates } from "./api/client";
-import { createControls } from "./ui/controls";
-import { catalogCaption, t } from "./ui/i18n";
+import { createControls, type LocateStatus } from "./ui/controls";
+import { catalogCaption, liveDialCaption, t } from "./ui/i18n";
 import { createBreakView } from "./ui/breakView";
+import type { GlobeView } from "./ui/globe";
 import { createMapView } from "./ui/map";
+import { mountPinLegend } from "./ui/pin";
 import { createPanel } from "./ui/panel";
+import { attachPanelResize } from "./ui/panelResize";
 import { createWall } from "./ui/wall";
 
 const FAVORITES_KEY = "somewhere-now:favorites";
 const RECENT_KEY = "somewhere-now:recent";
 const SOUND_KEY = "somewhere-now:sound";
+const PANEL_WIDTH_KEY = "somewhere-now:panel-width";
 /** 休憩中の残り時間を描き替える間隔。 */
 const BREAK_TICK_MS = 1000;
 /** 生存状態の取り込み間隔。Worker 側の更新が 10 分毎なので 2 分で十分に追いつく。 */
@@ -75,11 +80,13 @@ function writeStored(key: string, value: string): void {
 
 export function startApp(root: HTMLElement): void {
   const mapEl = root.querySelector<HTMLElement>("#map")!;
+  const globeEl = root.querySelector<HTMLElement>("#globe")!;
   const panelEl = root.querySelector<HTMLElement>("#panel")!;
   const controlsEl = root.querySelector<HTMLElement>("#controls")!;
   const catalogEl = root.querySelector<HTMLElement>("#catalog")!;
   const wallEl = root.querySelector<HTMLElement>("#wall")!;
   const dialEl = root.querySelector<HTMLElement>("#dial")!;
+  const legendEl = root.querySelector<HTMLElement>("#legend")!;
   const breakEl = root.querySelector<HTMLElement>("#break")!;
 
   let view: ViewState = parseUrlState(location.search);
@@ -94,6 +101,7 @@ export function startApp(root: HTMLElement): void {
   let breakSession: { cam: Cam; startedAt: Date; minutes: BreakDuration } | null = null;
   let breakFinished: Cam | null = null;
   let breakTimer: number | null = null;
+  let locateStatus: LocateStatus = "idle";
 
   function recomputeNight(): void {
     nightIds = new Set(CAMS.filter((cam) => isNightAt(now, cam)).map((cam) => cam.id));
@@ -106,15 +114,102 @@ export function startApp(root: HTMLElement): void {
   const openCams = (): Cam[] =>
     view.view.map((id) => byId.get(id)).filter((cam): cam is Cam => cam !== undefined);
 
-  const mapView = createMapView(mapEl, CAMS, view.lang, (camId) => {
+  function selectCam(camId: string): void {
     // マーカーは開閉のトグル。新しく開いたものが先頭(音の出る側)に来る。
     const isOpen = view.view.includes(camId);
     const next = isOpen
       ? view.view.filter((id) => id !== camId)
       : [camId, ...view.view].slice(0, MAX_VIEW);
     update({ view: next });
-    if (!isOpen) mapView.focus(byId.get(camId)!);
-  });
+    if (!isOpen) {
+      const cam = byId.get(camId);
+      if (cam) focusCam(cam);
+    }
+  }
+
+  const mapView = createMapView(mapEl, CAMS, view.lang, selectCam);
+
+  let globeView: GlobeView | null = null;
+  let globeReady: Promise<void> | null = null;
+
+  function applyGlobe(): void {
+    if (globeView === null) return;
+    globeView.setStates(states);
+    globeView.setVisible(visibleCams());
+    globeView.setSelected(view.view);
+    globeView.setLang(view.lang);
+    globeView.drawTerminator(now);
+    globeView.invalidate();
+  }
+
+  function paintGlobeNotice(key: "globeLoading" | "globeUnsupported"): void {
+    const message = document.createElement("p");
+    message.className = "globe__unsupported";
+    message.textContent = t(key, view.lang);
+    globeEl.replaceChildren(message);
+  }
+
+  function ensureGlobe(): Promise<void> {
+    if (globeView === null && globeEl.childElementCount === 0) {
+      paintGlobeNotice("globeLoading");
+    }
+    globeReady ??= import("./ui/globe")
+      .then(({ createGlobeView, createUnsupportedView }) =>
+        createGlobeView(globeEl, CAMS, view.lang, selectCam).catch(() =>
+          createUnsupportedView(globeEl, view.lang),
+        ),
+      )
+      .then((view) => {
+        globeView = view;
+      })
+      .catch(() => {
+        paintGlobeNotice("globeUnsupported");
+      });
+    return globeReady.then(applyGlobe);
+  }
+
+  function focusCam(cam: Cam): void {
+    if (view.globe) void ensureGlobe().then(() => globeView?.focus(cam));
+    else mapView.focus(cam);
+  }
+
+  function goToViewport(lat: number, lng: number, zoom: number): void {
+    if (wallOpen) {
+      wallOpen = false;
+      wall.teardown();
+      render();
+    }
+    const viewport = { center: [lat, lng] as [number, number], zoom };
+    mapView.goTo(viewport);
+    if (view.globe) void ensureGlobe().then(() => globeView?.goTo(viewport));
+  }
+
+  async function locateHere(): Promise<void> {
+    if (locateStatus === "pending") return;
+    locateStatus = "pending";
+    render();
+    const locator =
+      typeof navigator === "undefined" ? undefined : navigator.geolocation;
+    const result = await requestLocation(locator);
+    if (!result.ok) {
+      locateStatus = result.reason;
+      render();
+      return;
+    }
+    const viewport = viewportForLocation(
+      result.position.lat,
+      result.position.lng,
+      result.position.accuracy,
+    );
+    if (viewport === null) {
+      locateStatus = "unavailable";
+      render();
+      return;
+    }
+    locateStatus = "idle";
+    render();
+    goToViewport(viewport.center[0], viewport.center[1], viewport.zoom);
+  }
 
   // 再生側が「埋め込めない」と言ってきたら、サーバ側の次の確認を待たずに印を落とす。
   // 同じ報せは何度も来るので、状態が変わるときだけ描き直す(でないと
@@ -147,9 +242,24 @@ export function startApp(root: HTMLElement): void {
     },
     onFocus(camId) {
       update({ view: [camId, ...view.view.filter((id) => id !== camId)] });
-      mapView.focus(byId.get(camId)!);
+      const cam = byId.get(camId);
+      if (cam) focusCam(cam);
     },
     onUnplayable: markUnplayable,
+  });
+
+  const panelResize = attachPanelResize({
+    app: root,
+    panel: panelEl,
+    lang: view.lang,
+    stored: readStored(PANEL_WIDTH_KEY),
+    onChange(encoded) {
+      writeStored(PANEL_WIDTH_KEY, encoded);
+    },
+    onLayout() {
+      mapView.invalidate();
+      globeView?.invalidate();
+    },
   });
 
   const wall = createWall(wallEl, markUnplayable);
@@ -254,12 +364,24 @@ export function startApp(root: HTMLElement): void {
       const cam = pickRandom(pool, Math.random);
       if (cam === null) return;
       update({ view: [cam.id] });
-      mapView.focus(cam);
+      focusCam(cam);
+    },
+    onLocate() {
+      void locateHere();
     },
     onToggleWall() {
       wallOpen = !wallOpen;
       if (!wallOpen) wall.teardown();
       render();
+    },
+    onSetGlobe(globe) {
+      const leavingWall = wallOpen;
+      if (leavingWall) {
+        wallOpen = false;
+        wall.teardown();
+      }
+      if (view.globe !== globe) update({ globe });
+      else if (leavingWall) render();
     },
   });
 
@@ -270,11 +392,20 @@ export function startApp(root: HTMLElement): void {
   }
 
   function paintDial(): void {
-    const dark = CAMS.filter((cam) => nightIds.has(cam.id)).length;
+    // 「全ての地点」は配信中フィルタ以外の絞り込みに従う。
+    // liveOnly を含めると分母が分子と同じになり、常に N / N になる。
+    const scoped = filterCams(
+      CAMS,
+      { states, nightIds, favoriteIds: new Set(favorites) },
+      { ...view, liveOnly: false },
+    );
+    const live = scoped.filter((cam) => states.get(cam.id)?.status === "live").length;
+    const caption = liveDialCaption(live, scoped.length, view.lang);
     dialEl.innerHTML =
-      `<span class="dial__count">${dark}</span>` +
-      `<span class="dial__total">/ ${CAMS.length}</span>` +
-      `<span class="dial__label">${t("darknessHeadline", view.lang)}</span>`;
+      `<span class="dial__count">${caption.count}</span>` +
+      `<span class="dial__total">${caption.total}</span>` +
+      `<span class="dial__label">${caption.label}</span>`;
+    dialEl.setAttribute("aria-label", caption.aria);
   }
 
   function paintCatalog(visible: number): void {
@@ -309,10 +440,13 @@ export function startApp(root: HTMLElement): void {
     const open = openCams();
 
     document.documentElement.lang = view.lang;
+    panelResize.setLang(view.lang);
     const inBreak = breakSession !== null || breakFinished !== null;
-    root.dataset["mode"] = inBreak ? "break" : wallOpen ? "wall" : "map";
+    const mode = inBreak ? "break" : wallOpen ? "wall" : view.globe ? "globe" : "map";
+    root.dataset["mode"] = mode;
     wallEl.hidden = !wallOpen || inBreak;
     breakEl.hidden = !inBreak;
+    globeEl.setAttribute("aria-label", t("globe", view.lang));
 
     if (breakSession !== null) {
       breakView.show(breakSession.cam, states.get(breakSession.cam.id), {
@@ -325,13 +459,23 @@ export function startApp(root: HTMLElement): void {
     }
     if (breakFinished !== null) return;
 
-    controls.update(view, wallOpen);
+    controls.update(view, wallOpen, locateStatus);
     mapView.setStates(states);
     mapView.setVisible(visible);
     mapView.setSelected(view.view);
     mapView.setLang(view.lang);
+    if (mode === "globe") {
+      void ensureGlobe().then(() => {
+        // hidden を外した直後はレイアウトが未確定なことがあるので、
+        // 次フレームでもう一度サイズを合わせる。
+        requestAnimationFrame(() => globeView?.invalidate());
+      });
+    } else {
+      mapView.invalidate();
+    }
     paintCatalog(visible.length);
     paintDial();
+    mountPinLegend(legendEl, view.lang);
 
     if (wallOpen) {
       // パネルは畳まれる(CSS)。同じ配信を二重に流さないよう中身も空にする。
@@ -351,17 +495,31 @@ export function startApp(root: HTMLElement): void {
   }
 
   render();
-  mapView.playIntro(now);
+  if (view.globe) {
+    mapView.drawTerminator(now);
+    void ensureGlobe();
+  } else {
+    mapView.playIntro(now);
+    const warm = (): void => {
+      void import("./ui/globe").then((mod) => mod.prefetchGlobeRuntime());
+    };
+    if (typeof requestIdleCallback === "function") requestIdleCallback(warm, { timeout: 2500 });
+    else setTimeout(warm, 800);
+  }
   void pullStates();
 
   setInterval(() => {
     now = new Date();
     recomputeNight();
     mapView.drawTerminator(now);
+    globeView?.drawTerminator(now);
     render();
   }, TICK_MS);
 
   setInterval(() => void pullStates(), STATE_POLL_MS);
 
-  addEventListener("resize", () => mapView.invalidate());
+  addEventListener("resize", () => {
+    mapView.invalidate();
+    globeView?.invalidate();
+  });
 }

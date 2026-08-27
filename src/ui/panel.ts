@@ -7,8 +7,9 @@ import { BREAK_DURATIONS_MIN, type BreakDuration } from "../domain/breakMode";
 import type { Cam, CamState } from "../domain/cams";
 import { formatLocalTime, utcOffsetLabel } from "../domain/localTime";
 import { weatherIcon, weatherLabel, type Lang } from "../domain/weather";
-import { fetchWeather } from "../api/client";
+import { fetchPlaceOverview, fetchWeather } from "../api/client";
 import { camName, categoryLabel, t } from "./i18n";
+import { mountPinLegend } from "./pin";
 import { mountPlayer, type PlayerHandle } from "./player";
 
 export interface PanelHandlers {
@@ -34,9 +35,13 @@ export type EmptyReason = "none" | "noMatch";
 
 interface Card {
   root: HTMLElement;
+  title: HTMLElement;
+  sub: HTMLElement;
   readout: HTMLElement;
+  overview: HTMLElement;
   actions: HTMLElement;
   player: PlayerHandle | null;
+  overviewKey: string;
 }
 
 /**
@@ -83,7 +88,11 @@ function emptyState(
   hint.className = "panel__hint";
   hint.textContent = t("emptyBody", lang);
 
-  el.append(h, body, durations, hint);
+  const legend = document.createElement("div");
+  legend.className = "legend legend--panel";
+  mountPinLegend(legend, lang);
+
+  el.append(h, body, durations, hint, legend);
   return el;
 }
 
@@ -119,7 +128,11 @@ export function createPanel(container: HTMLElement, handlers: PanelHandlers) {
   // 入れ替わったときだけ差し替える。
   const cardHost = document.createElement("div");
   const listHost = document.createElement("div");
-  container.append(cardHost, listHost);
+  // 幅ハンドルは panel 本体に固定したいので、中身だけをスクロールさせる。
+  const scroll = document.createElement("div");
+  scroll.className = "panel__scroll";
+  scroll.append(cardHost, listHost);
+  container.append(scroll);
 
   let current: { camId: string; card: Card } | null = null;
 
@@ -165,13 +178,16 @@ export function createPanel(container: HTMLElement, handlers: PanelHandlers) {
     const readout = document.createElement("div");
     readout.className = "readout";
 
+    const overview = document.createElement("div");
+    overview.className = "card__overview";
+
     const actions = document.createElement("div");
     actions.className = "card__actions";
 
-    bodyEl.append(title, sub, readout, actions);
+    bodyEl.append(title, sub, readout, overview, actions);
     root.append(bodyEl);
 
-    return { root, readout, actions, player };
+    return { root, title, sub, readout, overview, actions, player, overviewKey: "" };
   }
 
   function paintReadout(card: Card, cam: Cam, ctx: PanelContext): void {
@@ -200,6 +216,42 @@ export function createPanel(container: HTMLElement, handlers: PanelHandlers) {
       weatherSlot.textContent =
         `${weatherIcon(weather.code, weather.isDay)} ` +
         `${weatherLabel(weather.code, ctx.lang)} ${Math.round(weather.temperatureC)}°C`;
+    });
+  }
+
+  function titlesMatch(a: string, b: string): boolean {
+    return a.replace(/\s+/g, "").toLowerCase() === b.replace(/\s+/g, "").toLowerCase();
+  }
+
+  /** 時刻・天気の下。iframe には触れない。同じカメラと言語なら取り直さない。 */
+  function paintOverview(card: Card, cam: Cam, ctx: PanelContext): void {
+    const key = `${cam.id}:${ctx.lang}`;
+    if (card.overviewKey === key) return;
+    card.overviewKey = key;
+    card.overview.replaceChildren();
+
+    void fetchPlaceOverview(cam.lat, cam.lng, ctx.lang, cam.name).then((place) => {
+      if (place === null || card.overviewKey !== key) return;
+
+      if (!titlesMatch(place.title, camName(cam.name, ctx.lang))) {
+        const heading = document.createElement("p");
+        heading.className = "card__overview-title";
+        heading.textContent = place.title;
+        card.overview.append(heading);
+      }
+
+      const body = document.createElement("p");
+      body.className = "card__overview-body";
+      body.textContent = place.extract;
+      card.overview.append(body);
+
+      const source = document.createElement("a");
+      source.className = "card__overview-source";
+      source.href = place.url;
+      source.target = "_blank";
+      source.rel = "noopener noreferrer";
+      source.textContent = t("placeSource", ctx.lang);
+      card.overview.append(source);
     });
   }
 
@@ -269,7 +321,10 @@ export function createPanel(container: HTMLElement, handlers: PanelHandlers) {
       }
       // 既にある主役の iframe には触れず、周りの表示だけ描き替える。
       current.card.player?.setMuted(!ctx.soundOn);
+      current.card.title.textContent = camName(focused.name, ctx.lang);
+      current.card.sub.textContent = `${categoryLabel(focused.category, ctx.lang)} · ${focused.country}`;
       paintReadout(current.card, focused, ctx);
+      paintOverview(current.card, focused, ctx);
       paintActions(current.card, focused, ctx);
 
       const rest = selected.slice(1);
