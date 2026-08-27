@@ -121,8 +121,17 @@ export function createControls(container: HTMLElement, handlers: ControlHandlers
       langToggle.removeAttribute("aria-pressed");
 
       container.replaceChildren(
-        row("masthead__primary", group(search), group(random, locate, flatMap, globe, wall), group(langToggle)),
-        row("masthead__filters", group(...categories), group(...flags)),
+        row(
+          "masthead__primary",
+          group(random, locate, flatMap, globe, wall),
+          group(langToggle),
+        ),
+        row(
+          "masthead__filters",
+          group(search),
+          group(...categories),
+          group(...flags),
+        ),
       );
 
       // 入力中に再描画が挟まってもカーソルが飛ばないようにする。

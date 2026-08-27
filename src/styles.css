@@ -125,10 +125,6 @@ input {
   flex-wrap: wrap;
 }
 
-.masthead__primary {
-  justify-content: flex-end;
-}
-
 .stage {
   position: relative;
   min-height: 0;
