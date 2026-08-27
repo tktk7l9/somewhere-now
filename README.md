@@ -2,12 +2,15 @@
 
 [![Keyway Secrets](https://www.keyway.sh/badge.svg?repo=tktk7l9/somewhere-now)](https://www.keyway.sh/vaults/tktk7l9/somewhere-now)
 
+[somewhere-now.saitotakuya0719.workers.dev](https://somewhere-now.saitotakuya0719.workers.dev)
+
 地球のライブカメラを、地図から覗く。
 
 世界の YouTube ライブカメラ配信を地図上のマーカーから選んで、アプリの中でそのまま見る。
-地図には**いまの昼夜の境界**が引いてあり、「夜の場所だけ」を選んで街の深夜を眺めることもできる。
+平面図と地球儀のどちらにも**いまの昼夜の境界**が引いてあり、「夜の場所だけ」を選んで街の深夜を眺めることもできる。
 
-- 収録 **176 地点**・46 の国と地域（街・自然・動物・空港・港・火山・鉄道）
+- 収録 **5,720 地点**・118 の国と地域（街・自然・動物・空港・港・火山・鉄道・宇宙）
+- 平面図と**地球儀**を切り替え（ピンの琥珀は配信中、黒は停止）
 - 選んだ場所の**現地時刻**と**いまの天気**を表示
 - 最大 4 枚を 2×2 で**並べて見る**
 - 配信中を**視聴が多い順**に一覧できる
@@ -35,11 +38,11 @@
 | マスタ | 名前・座標・タイムゾーン・カテゴリ・配信元・**配信タイトル** | `src/data/cams.ts`（バンドル同梱） | 人がコミット |
 | 状態 | 解決済み videoId・live/offline/blocked・視聴者数 | Cloudflare KV（`/api/cams`） | Cron が自動 |
 
-Cron が 10 分ごとに全カメラの生存を確認し、配信が消えたカメラは 1 時間ごとにチャンネルから
+Cron が 10 分ごとに生存を確認し、配信が消えたカメラは 1 時間ごとにチャンネルから
 現在の配信を探し直す。フロントはマスタを持っているので、`/api/cams` が落ちても地図は出る。
 
 探し直すとき、**チャンネルから適当な 1 本を取ってきてはいけない**。1 つのチャンネルが
-何十本もライブを出していて（EarthCam は 42 本）、タイムズスクエアのピンに別の街の映像を
+何十本もライブを出していて（EarthCam だけで 47 台）、タイムズスクエアのピンに別の街の映像を
 出すことになる。だからマスタは配信タイトルを持っていて、それで見分ける。
 見分けがつかないときは、間違った配信を割り当てず offline のままにする
 — **誤った映像を出すより、映さない方がよい**。
@@ -52,31 +55,32 @@ Cron が 10 分ごとに全カメラの生存を確認し、配信が消えた�
 
 | | 単価 | 頻度 | 日あたり |
 |---|---|---|---|
-| 生存確認 `videos.list` | 1 unit / 50 件 | 10 分ごと | 576 |
-| 再探索（uploads を辿る） | 2〜6 units / チャンネル | 毎時・落ちたカメラを持つチャンネルだけ | 0〜1,152 |
+| 生存確認 `videos.list` | 1 unit / 50 件 | 10 分ごと | 16,560（全件を毎回確認した場合） |
+| 再探索（uploads を辿る） | 2〜6 units / チャンネル | 毎時・落ちたカメラを持つチャンネルのうち最大 8 | 0〜1,152 |
 | 再探索（検索へ後退） | 101 units | 毎時 1 回まで | 0〜2,424 |
-| | | **合計** | **576〜4,200** |
+| | | **合計** | **16,560〜20,136** |
 
-全カメラが生きている平常時は **576 units/日** しか使わない。上の幅は「全チャンネルで
-同時にカメラが落ちた」最悪値。
+5,720 件を 10 分ごとに全部確認すると 1 日 16,560 units になり、無料枠を超える。
+使用量は KV に日毎で積み、**8,000 units で当日の API 呼び出しを止める**（`DAILY_UNIT_BUDGET`）。
+打ち切られた分は翌日に回る。
 
-再探索は **チャンネル単位** でまとめる。176 台が 127 チャンネルにぶら下がっている
-（EarthCam だけで 25 台）ので、1 回の問い合わせでそのチャンネルのカメラを全部
-片付けられる。まず uploads プレイリストを辿り（目当てが揃った時点で打ち切る）、
-それでも見つからないときだけ検索（101 units）に後退する。後退は 1 回の実行で
-1 チャンネルまで。
+再探索は **チャンネル単位** でまとめる。5,720 台が 2,450 チャンネルにぶら下がっている
+ので、1 回の問い合わせでそのチャンネルのカメラを全部片付けられる。まず uploads
+プレイリストを辿り（目当てが揃った時点で打ち切る）、それでも見つからないときだけ
+検索（101 units）に後退する。後退は 1 回の実行で 1 チャンネルまで。チャンネルは
+2,450 あるので、毎時 8 本では一周に日数がかかる。生存確認の方が先で、再探索は
+「記録した videoId が死んだ」ときのためのもの。
 
 > 検索経路は**網羅を保証しない**。`eventType=live` の検索が 42 件返しながら、
 > ライブ中の配信を 1 本落としているのを実測で確認している（次ページも無し）。
 > uploads を辿る方が確実で、しかも 50 分の 1 の値段だった。
-
-使用量は KV に日毎で積み、**8,000 units で当日の API 呼び出しを止める**（`DAILY_UNIT_BUDGET`）。
 
 ## 開発
 
 ```sh
 npm install
 npm run dev          # Vite。/api/cams は本番のものを proxy して借りる
+npm run typecheck
 npm test
 npm run coverage     # 純ロジック層は 100% でないと落ちる
 npm run build
@@ -99,10 +103,17 @@ rm .env
 
 ### カメラを足す
 
+人手で選ぶ分は `scripts/cam-places.ts`。件数を伸ばす一括取り込みは
+`scripts/cam-places-bulk.ts`（人手の表は上書きしない）。どちらも
+`npm run cams:build` で座標とタイムゾーンを解決し、`src/data/cams.ts` を生成する。
+生成物は手で編集しない。
+
+**1 件ずつ（チャンネルが分かっている相手）**
+
 1. `scripts/seed-handles.ts` にチャンネルのハンドルを足す
 2. `npm run cams:discover` — いまライブ中の配信を集めて `scripts/out/candidates.json` に出す
 3. 出力を見て、地理が一意に定まるものを `scripts/cam-places.ts` に書く
-4. `npm run cams:build` — 座標とタイムゾーンを解決し、埋め込み可否を確かめて `src/data/cams.ts` を生成
+4. `npm run cams:build`
 
 チャンネル名を知らない相手（町のホテル、港の事務所、自治体）が出しているカメラは、
 キーワード検索で探す。`keyway pull -e development -f .env` してから
@@ -111,17 +122,35 @@ rm .env
 > 英語と日本語の語だけで回すと結果が英語圏に寄る。ポルトガル語・スペイン語・
 > 韓国語・中国語・ポーランド語などで、`regionCode` も振って掘り直すと別の井戸に当たる。
 > 一番の鉱脈は**ヨーロッパの小さな自治体・観光局**。中東と南アジアは、言語を変えても
-> 地名で名指ししても収穫が薄い（そもそも YouTube に出ているカメラが少ない）。
+> 地名で名指ししても収穫が薄い（そもそも YouTube に出しているカメラが少ない）。
 > 地名クエリは効く土地と効かない土地がはっきり分かれる — アイスランド・ギリシャ・
 > ネパールは名指しでよく当たり、Dubai や Cairo はニューヨークやケニアが返ってくる。
 
-`channelId` と `titleKey` は **`cam-places.ts` に固定する**。毎回のスクレイプ結果を
-参照すると、たまたま配信が落ちていたカメラがビルドのたびにマスタから消える
-（実際に起きた）。キュレーションの記録は、その時どきの配信状況から独立させる。
+**まとめて足す**
+
+[camlisted](https://github.com/zenith605-2/camlisted) と
+[Live-Environment-Streams](https://github.com/willytop8/Live-Environment-Streams)
+から、埋め込み可能な YouTube 配信を取り込む。
+
+```sh
+mkdir -p scripts/out
+curl -sL -o scripts/out/camlisted-streams.json \
+  https://raw.githubusercontent.com/zenith605-2/camlisted/main/data/streams.json
+curl -sL -o scripts/out/streams.geojson \
+  https://raw.githubusercontent.com/willytop8/Live-Environment-Streams/main/streams.geojson
+npm run cams:import-bulk
+npm run cams:build
+```
+
+`channelId` と `titleKey` は **`cam-places.ts` / `cam-places-bulk.ts` に固定する**。
+毎回のスクレイプ結果を参照すると、たまたま配信が落ちていたカメラがビルドのたびに
+マスタから消える（実際に起きた）。キュレーションの記録は、その時どきの配信状況から
+独立させる。
 
 座標は記憶で書かない。小さな町は Open-Meteo のジオコーディング（同名地の取り違えは
-`admin1` で弾く）、著名なランドマークだけ明示座標。**埋め込みが禁止されている配信は
-この時点で落ちる**ので、公開初日から死んだピンが並ぶことはない。
+`admin1` で弾く）、著名なランドマークだけ明示座標。人手キュレーションは埋め込み可否を
+この時点で確かめる。一括取り込み分は取り込み元で埋め込み可に絞ってある。
+**公開初日から死んだピンが並ぶことはない**。
 
 ### デプロイ
 
@@ -139,8 +168,10 @@ API キーは Google Cloud 側で **YouTube Data API v3 のみ**に制限する
 
 ## 技術構成
 
-Vite + TypeScript（フレームワーク無し） / Leaflet + OpenStreetMap / Cloudflare Workers + KV /
-Vitest。天気は Open-Meteo（キー不要）、昼夜の計算は自前（Meeus の太陽位置）。
+Vite + TypeScript（フレームワーク無し） / Leaflet + OpenStreetMap（平面図） /
+MapLibre GL（地球儀。国名・国境は同梱の Natural Earth） / Cloudflare Workers + KV /
+Vitest。天気は Open-Meteo（キー不要）、昼夜の計算は自前（Meeus の太陽位置）、
+地点の概要は Wikipedia。
 
 再生は `youtube-nocookie.com` の iframe だけで完結させ、**YouTube の IFrame Player API は読まない**。
 ミュート制御とエラー検知は `enablejsapi=1` の postMessage で足りるので、CSP の `script-src` を
