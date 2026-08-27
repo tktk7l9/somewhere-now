@@ -119,45 +119,33 @@ export function t(key: StringKey, lang: Lang): string {
   return STRINGS[key][lang];
 }
 
-/** ヘッダーに出す収録件数。絞っていないときは全件だけ、絞っているときは分子も出す。 */
-export function catalogCaption(
-  visible: number,
-  total: number,
-  lang: Lang,
-): { count: string; total: string | null; unit: string; aria: string } {
-  const unit = t("places", lang);
-  if (visible === total) {
-    return {
-      count: String(total),
-      total: null,
-      unit,
-      aria: lang === "ja" ? `全 ${total} ${unit}` : `${total} ${unit}`,
-    };
-  }
-  return {
-    count: String(visible),
-    total: `/ ${total}`,
-    unit,
-    aria: lang === "ja" ? `${total} ${unit}中 ${visible} ${unit}` : `${visible} of ${total} ${unit}`,
-  };
-}
-
-/** ダイヤルに出す配信中数 / 地点数。常に分子と分母を並べる。 */
+/** ダイヤルに出す配信中数 / 表示地点数。絞っているときは収録全件も添える。 */
 export function liveDialCaption(
   live: number,
-  total: number,
+  scoped: number,
+  catalog: number,
   lang: Lang,
 ): { count: string; total: string; label: string; aria: string } {
-  const label = t("liveHeadline", lang);
+  const headline = t("liveHeadline", lang);
   const places = t("places", lang);
+  const filtered = scoped !== catalog;
+  const label = filtered
+    ? lang === "ja"
+      ? `${headline} · 全 ${catalog} ${places}`
+      : `${headline} · ${catalog} total`
+    : headline;
+  const aria = filtered
+    ? lang === "ja"
+      ? `全 ${catalog} ${places}のうち ${scoped} ${places}を表示、うち ${live} ${places}が配信中`
+      : `${live} of ${scoped} shown ${places} are live (${catalog} total)`
+    : lang === "ja"
+      ? `${scoped} ${places}中 ${live} ${places}が配信中`
+      : `${live} of ${scoped} ${places} are live`;
   return {
     count: String(live),
-    total: `/ ${total}`,
+    total: `/ ${scoped}`,
     label,
-    aria:
-      lang === "ja"
-        ? `${total} ${places}中 ${live} ${places}が配信中`
-        : `${live} of ${total} ${places} are live`,
+    aria,
   };
 }
 

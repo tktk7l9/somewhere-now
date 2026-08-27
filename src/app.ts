@@ -23,7 +23,7 @@ import { isNightAt } from "./domain/terminator";
 import { MAX_VIEW, parseUrlState, toSearchString, type ViewState } from "./domain/urlState";
 import { fetchCamStates } from "./api/client";
 import { createControls, type LocateStatus } from "./ui/controls";
-import { catalogCaption, liveDialCaption, t } from "./ui/i18n";
+import { liveDialCaption, t } from "./ui/i18n";
 import { createBreakView } from "./ui/breakView";
 import type { GlobeView } from "./ui/globe";
 import { createMapView } from "./ui/map";
@@ -83,7 +83,6 @@ export function startApp(root: HTMLElement): void {
   const globeEl = root.querySelector<HTMLElement>("#globe")!;
   const panelEl = root.querySelector<HTMLElement>("#panel")!;
   const controlsEl = root.querySelector<HTMLElement>("#controls")!;
-  const catalogEl = root.querySelector<HTMLElement>("#catalog")!;
   const wallEl = root.querySelector<HTMLElement>("#wall")!;
   const dialEl = root.querySelector<HTMLElement>("#dial")!;
   const legendEl = root.querySelector<HTMLElement>("#legend")!;
@@ -400,31 +399,18 @@ export function startApp(root: HTMLElement): void {
       { ...view, liveOnly: false },
     );
     const live = scoped.filter((cam) => states.get(cam.id)?.status === "live").length;
-    const caption = liveDialCaption(live, scoped.length, view.lang);
-    dialEl.innerHTML =
-      `<span class="dial__count">${caption.count}</span>` +
-      `<span class="dial__total">${caption.total}</span>` +
-      `<span class="dial__label">${caption.label}</span>`;
-    dialEl.setAttribute("aria-label", caption.aria);
-  }
-
-  function paintCatalog(visible: number): void {
-    const caption = catalogCaption(visible, CAMS.length, view.lang);
+    const caption = liveDialCaption(live, scoped.length, CAMS.length, view.lang);
     const count = document.createElement("span");
-    count.className = "catalog__count";
+    count.className = "dial__count";
     count.textContent = caption.count;
-    const unit = document.createElement("span");
-    unit.className = "catalog__unit";
-    unit.textContent = caption.unit;
-    if (caption.total === null) {
-      catalogEl.replaceChildren(count, unit);
-    } else {
-      const total = document.createElement("span");
-      total.className = "catalog__total";
-      total.textContent = caption.total;
-      catalogEl.replaceChildren(count, total, unit);
-    }
-    catalogEl.setAttribute("aria-label", caption.aria);
+    const total = document.createElement("span");
+    total.className = "dial__total";
+    total.textContent = caption.total;
+    const label = document.createElement("span");
+    label.className = "dial__label";
+    label.textContent = caption.label;
+    dialEl.replaceChildren(count, total, label);
+    dialEl.setAttribute("aria-label", caption.aria);
   }
 
   const panelCtx = () => ({
@@ -473,7 +459,6 @@ export function startApp(root: HTMLElement): void {
     } else {
       mapView.invalidate();
     }
-    paintCatalog(visible.length);
     paintDial();
     mountPinLegend(legendEl, view.lang);
 
