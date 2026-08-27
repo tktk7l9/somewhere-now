@@ -74,9 +74,9 @@ input {
 .masthead {
   grid-column: 1 / -1;
   display: flex;
-  align-items: center;
-  gap: 24px;
-  padding: 10px 18px;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 8px 16px 10px;
   border-bottom: 1px solid var(--haze);
   background: var(--ink-3);
 }
@@ -88,6 +88,8 @@ input {
   text-decoration: none;
   color: inherit;
   flex-shrink: 0;
+  /* 1 段目のチップと光学的に揃える */
+  padding-top: 5px;
 }
 
 /* 半分が影になった円 = このアプリが見せているもの */
@@ -102,50 +104,25 @@ input {
 .brand__name {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 19px;
-  letter-spacing: 0.18em;
+  font-size: 18px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
-/* 収録地点の件数。絞ると分子が減り、分母の全件は残す。 */
-.catalog {
-  display: flex;
-  align-items: baseline;
-  margin: 0;
-  flex-shrink: 0;
-  font-variant-numeric: tabular-nums;
-  pointer-events: none;
-}
-
-.catalog__count {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 19px;
-  letter-spacing: 0.06em;
-  line-height: 1;
-}
-
-.catalog__total {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  color: var(--dim);
-  margin-left: 6px;
-}
-
-.catalog__unit {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--dim);
-  letter-spacing: 0.12em;
-  margin-left: 8px;
-}
-
 .masthead__controls {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.masthead__primary,
+.masthead__filters {
   display: flex;
   align-items: center;
   gap: 8px;
   flex-wrap: wrap;
-  margin-left: auto;
 }
 
 .stage {
@@ -213,9 +190,9 @@ html.resizing-panel iframe {
   font-family: var(--font-display);
   font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  padding: 5px 11px;
+  padding: 4px 10px;
   border: 1px solid var(--haze);
   border-radius: var(--radius);
   color: var(--dim);
@@ -257,7 +234,7 @@ html.resizing-panel iframe {
 .controls__group {
   display: flex;
   gap: 6px;
-  padding-right: 12px;
+  padding-right: 10px;
   border-right: 1px solid var(--haze);
 }
 
@@ -287,11 +264,12 @@ html.resizing-panel iframe {
 
 .dial__count {
   font-family: var(--font-display);
-  font-size: 46px;
+  font-size: 42px;
   font-weight: 600;
   line-height: 0.9;
   letter-spacing: 0.01em;
   font-variant-numeric: tabular-nums;
+  color: var(--lit);
 }
 
 .dial__total {
@@ -304,9 +282,9 @@ html.resizing-panel iframe {
 .dial__label {
   display: block;
   margin-top: 7px;
-  font-size: 13px;
+  font-size: 12px;
   color: var(--dim);
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
 .legend {
@@ -766,15 +744,15 @@ html.resizing-panel iframe {
     display: none;
   }
 
-  /* 狭い画面では折り返さず、1 段のまま横にスクロールさせる
+  /* 狭い画面では各段を折り返さず、ヘッダーごと横にスクロールさせる
      (3 段に折り返すと地図の取り分がなくなる)。 */
   .masthead {
-    gap: 12px;
     overflow-x: auto;
     scrollbar-width: thin;
   }
 
-  .masthead__controls {
+  .masthead__primary,
+  .masthead__filters {
     flex-wrap: nowrap;
   }
 
@@ -1042,8 +1020,7 @@ html.resizing-panel iframe {
 .app[data-mode="break"] .notes,
 .app[data-mode="break"] .panel,
 .app[data-mode="break"] .wall,
-.app[data-mode="break"] .masthead__controls,
-.app[data-mode="break"] .catalog {
+.app[data-mode="break"] .masthead__controls {
   display: none;
 }
 

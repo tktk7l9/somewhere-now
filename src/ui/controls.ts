@@ -39,6 +39,13 @@ function group(...children: readonly HTMLElement[]): HTMLElement {
   return el;
 }
 
+function row(className: string, ...children: readonly HTMLElement[]): HTMLElement {
+  const el = document.createElement("div");
+  el.className = className;
+  el.append(...children);
+  return el;
+}
+
 export function createControls(container: HTMLElement, handlers: ControlHandlers) {
   return {
     update(state: ViewState, wallOpen: boolean, locateStatus: LocateStatus): void {
@@ -114,11 +121,17 @@ export function createControls(container: HTMLElement, handlers: ControlHandlers
       langToggle.removeAttribute("aria-pressed");
 
       container.replaceChildren(
-        group(...categories),
-        group(...flags),
-        group(search),
-        group(random, locate, flatMap, globe, wall),
-        group(langToggle),
+        row(
+          "masthead__primary",
+          group(random, locate, flatMap, globe, wall),
+          group(langToggle),
+        ),
+        row(
+          "masthead__filters",
+          group(search),
+          group(...categories),
+          group(...flags),
+        ),
       );
 
       // 入力中に再描画が挟まってもカーソルが飛ばないようにする。
