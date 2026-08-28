@@ -552,11 +552,19 @@ export function startApp(root: HTMLElement): void {
     void ensureGlobe();
   } else {
     mapView.playIntro(now);
+    // 地球儀の先読みは「地図が出そろってから」。timeout 2500 で急かすと、
+    // 読み込みが混んでいるモバイルではまさに初期表示の最中に 300KB
+    // (maplibre + globe)を取りにいき、地図タイル(LCP)の帯域を奪う。
+    // load を待ってから暇な時間に回す。切り替えの速さは充分保てる。
     const warm = (): void => {
       void import("./ui/globe").then((mod) => mod.prefetchGlobeRuntime());
     };
-    if (typeof requestIdleCallback === "function") requestIdleCallback(warm, { timeout: 2500 });
-    else setTimeout(warm, 800);
+    const scheduleWarm = (): void => {
+      if (typeof requestIdleCallback === "function") requestIdleCallback(warm, { timeout: 10_000 });
+      else setTimeout(warm, 3_000);
+    };
+    if (document.readyState === "complete") scheduleWarm();
+    else addEventListener("load", scheduleWarm, { once: true });
   }
   void pullStates();
 
