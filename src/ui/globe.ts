@@ -9,7 +9,7 @@
 
 import type { GeoJSONSource, StyleSpecification } from "maplibre-gl";
 
-import type { Cam, CamState } from "../domain/cams";
+import type { Cam, PublicCamState } from "../domain/cams";
 import { coalesced } from "../domain/coalesce";
 import { GLOBE_ZOOM, INITIAL_VIEW, type MapViewport } from "../domain/mapView";
 import { nightPolygonGeoJSON, terminatorLineGeoJSON } from "../domain/terminator";
@@ -18,7 +18,7 @@ import { globeStyle, LABEL_LAYER_IDS, placeNameField, type GlobeStyleJson } from
 import { t } from "./i18n";
 
 export interface GlobeView {
-  setStates(states: ReadonlyMap<string, CamState>): void;
+  setStates(states: ReadonlyMap<string, PublicCamState>): void;
   setVisible(cams: readonly Cam[]): void;
   setSelected(camIds: readonly string[]): void;
   setLang(lang: Lang): void;
@@ -126,7 +126,7 @@ function mountGlobe(
 
   map.addControl(new NavigationControl({ showCompass: true, visualizePitch: false }), "top-right");
 
-  let states: ReadonlyMap<string, CamState> = new Map();
+  let states: ReadonlyMap<string, PublicCamState> = new Map();
   let selected: ReadonlySet<string> = new Set();
   let currentLang = lang;
   let visible: readonly Cam[] = cams;

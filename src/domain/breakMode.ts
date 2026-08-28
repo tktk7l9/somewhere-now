@@ -5,7 +5,7 @@
 // 昼なら夜の街へ。このアプリが元から持っている昼夜の計算を、そのまま
 // 気分転換の意味に使う。
 
-import type { Cam, CamState } from "./cams";
+import type { Cam, PublicCamState } from "./cams";
 import { pickRandom } from "./cams";
 
 /** 選べる休憩の長さ(分)。 */
@@ -24,7 +24,7 @@ export function isNightHour(hour: number): boolean {
 }
 
 export interface DestinationContext {
-  states: ReadonlyMap<string, CamState>;
+  states: ReadonlyMap<string, PublicCamState>;
   /** その土地がいま夜であるカメラの id。 */
   nightIds: ReadonlySet<string>;
   /** 直近に連れて行った場所。続けて同じところに行かないため。 */

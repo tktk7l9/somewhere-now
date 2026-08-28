@@ -7,7 +7,7 @@
 //      すると重い。待っている間もセルは登録済みにしておかないと、その間の
 //      再描画で同じカメラの枠が二重にできる。
 
-import type { Cam, CamState } from "../domain/cams";
+import type { Cam, PublicCamState } from "../domain/cams";
 import { camName } from "./i18n";
 import { mountPlayer, type PlayerHandle } from "./player";
 import type { Lang } from "../domain/weather";
@@ -37,7 +37,7 @@ export function createWall(container: HTMLElement, onUnplayable: (camId: string)
   return {
     update(
       selected: readonly Cam[],
-      states: ReadonlyMap<string, CamState>,
+      states: ReadonlyMap<string, PublicCamState>,
       lang: Lang,
       soundOn: boolean,
     ): void {

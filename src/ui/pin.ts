@@ -1,9 +1,9 @@
-import type { CamState } from "../domain/cams";
+import type { PublicCamState } from "../domain/cams";
 import type { Lang } from "../domain/weather";
 import { t } from "./i18n";
 
 /** 平面図と地球儀で同じピンを出す。 */
-export function pinHtml(status: CamState["status"] | undefined, selected: boolean): string {
+export function pinHtml(status: PublicCamState["status"] | undefined, selected: boolean): string {
   const classes = ["pin"];
   if (status === "live") classes.push("pin--live");
   else if (status === "offline" || status === "blocked") classes.push("pin--offline");
@@ -12,7 +12,7 @@ export function pinHtml(status: CamState["status"] | undefined, selected: boolea
 }
 
 const LEGEND: readonly {
-  status: CamState["status"] | undefined;
+  status: PublicCamState["status"] | undefined;
   label: "statusLive" | "pinOff";
 }[] = [
   { status: "live", label: "statusLive" },

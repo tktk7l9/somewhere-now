@@ -16,7 +16,7 @@ import {
   rememberRecent,
   type BreakDuration,
 } from "./domain/breakMode";
-import { filterCams, pickRandom, rankLiveByViewers, type Cam, type CamState } from "./domain/cams";
+import { filterCams, pickRandom, rankLiveByViewers, type Cam, type PublicCamState } from "./domain/cams";
 import { decodeFavorites, encodeFavorites, toggleFavorite } from "./domain/favorites";
 import { requestLocation, viewportForLocation } from "./domain/locate";
 import { isNightAt } from "./domain/terminator";
@@ -91,7 +91,7 @@ export function startApp(root: HTMLElement): void {
   const breakEl = root.querySelector<HTMLElement>("#break")!;
 
   let view: ViewState = parseUrlState(location.search);
-  let states: ReadonlyMap<string, CamState> = new Map();
+  let states: ReadonlyMap<string, PublicCamState> = new Map();
   let favorites = readFavorites();
   let wallOpen = false;
   let now = new Date();
@@ -237,8 +237,6 @@ export function startApp(root: HTMLElement): void {
       videoId: prior?.videoId ?? null,
       status: "blocked",
       viewers: null,
-      title: prior?.title ?? null,
-      checkedAt: new Date().toISOString(),
     });
     states = next;
     render();

@@ -3,7 +3,7 @@
 // iframe は置かない。数百件を並べても再描画で配信が繋ぎ直されないように、
 // 並びが同じなら行を使い回し、時刻と視聴者数と選択だけを書き換える。
 
-import type { Cam, CamState } from "../domain/cams";
+import type { Cam, PublicCamState } from "../domain/cams";
 import { formatLocalTime } from "../domain/localTime";
 import type { Lang } from "../domain/weather";
 import { camName, categoryLabel, t } from "./i18n";
@@ -13,7 +13,7 @@ export type WatchingReady = "loading" | "unavailable" | "ready";
 export interface WatchingContext {
   lang: Lang;
   now: Date;
-  states: ReadonlyMap<string, CamState>;
+  states: ReadonlyMap<string, PublicCamState>;
   ready: WatchingReady;
   /** カテゴリ・夜・お気に入り・検索のいずれかが掛かっているか。 */
   filtered: boolean;

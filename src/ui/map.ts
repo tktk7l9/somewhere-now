@@ -9,7 +9,7 @@ import "leaflet/dist/leaflet.css";
 import "leaflet.markercluster";
 import "leaflet.markercluster/dist/MarkerCluster.css";
 
-import type { Cam, CamState } from "../domain/cams";
+import type { Cam, PublicCamState } from "../domain/cams";
 import { coalesced } from "../domain/coalesce";
 import { INITIAL_VIEW, type MapViewport } from "../domain/mapView";
 import { nightPolygon, terminatorLine } from "../domain/terminator";
@@ -22,7 +22,7 @@ const INTRO_MS = 1100;
 const INTRO_LOOKBACK_HOURS = 6;
 
 export interface MapView {
-  setStates(states: ReadonlyMap<string, CamState>): void;
+  setStates(states: ReadonlyMap<string, PublicCamState>): void;
   setVisible(cams: readonly Cam[]): void;
   setSelected(camIds: readonly string[]): void;
   setLang(lang: Lang): void;
@@ -97,7 +97,7 @@ export function createMapView(
   map.addLayer(cluster);
 
   const markers = new Map<string, L.Marker>();
-  let states: ReadonlyMap<string, CamState> = new Map();
+  let states: ReadonlyMap<string, PublicCamState> = new Map();
   let selected: ReadonlySet<string> = new Set();
   let currentLang = lang;
   let visible: readonly Cam[] = cams;

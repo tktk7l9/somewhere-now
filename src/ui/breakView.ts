@@ -3,7 +3,7 @@
 // ここでの原則は「見る人に何も決めさせない」。行き先は breakMode が選び、
 // この画面は流すことと、静かに終わることだけを受け持つ。
 
-import type { Cam, CamState } from "../domain/cams";
+import type { Cam, PublicCamState } from "../domain/cams";
 import { formatLocalTime, utcOffsetLabel } from "../domain/localTime";
 import { weatherIcon, weatherLabel, type Lang } from "../domain/weather";
 import type { BreakProgress } from "../domain/breakMode";
@@ -77,7 +77,7 @@ export function createBreakView(container: HTMLElement, handlers: BreakHandlers)
 
   return {
     /** 行き先を映す。同じ場所のままなら iframe に触れない(触ると繋ぎ直しになる)。 */
-    show(cam: Cam, state: CamState | undefined, ctx: BreakContext): void {
+    show(cam: Cam, state: PublicCamState | undefined, ctx: BreakContext): void {
       done.hidden = true;
       overlay.hidden = false;
       bar.hidden = false;

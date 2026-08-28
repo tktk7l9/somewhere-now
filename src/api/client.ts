@@ -4,7 +4,7 @@
 //   Wikipedia        … 選択中のカメラの土地の概要(キー不要・CORS *)
 //   MyMemory         … 日本語版が無い概要を日本語へ訳す(キー不要・CORS *)
 
-import type { CamState } from "../domain/cams";
+import type { PublicCamState } from "../domain/cams";
 import {
   looksJapanese,
   myMemoryUrl,
@@ -19,7 +19,7 @@ import { openMeteoUrl, parseWeather, type Lang, type Weather } from "../domain/w
 
 export interface StatePayload {
   updatedAt: string;
-  cams: Record<string, CamState>;
+  cams: Record<string, PublicCamState>;
 }
 
 /** 失敗しても地図は動かしたいので、投げずに null を返す。 */

@@ -8,7 +8,7 @@
 // 送受信が仮に効かなくなっても、音は URL の mute パラメータで、生死は Worker の
 // 生存確認で担保されるので、体験が壊れるのではなく賢さが一段落ちるだけになる。
 
-import type { Cam, CamState } from "../domain/cams";
+import type { Cam, PublicCamState } from "../domain/cams";
 import { resolveEmbedUrl } from "../domain/cams";
 
 /** YouTube が返す埋め込み不可・削除済みのエラー番号。 */
@@ -30,7 +30,7 @@ interface MountOptions {
   onUnplayable?: () => void;
 }
 
-function embedSrc(cam: Cam, state: CamState | undefined, muted: boolean): string {
+function embedSrc(cam: Cam, state: PublicCamState | undefined, muted: boolean): string {
   const base = resolveEmbedUrl(cam, state);
   const params = new URLSearchParams({
     autoplay: "1",
@@ -48,7 +48,7 @@ function post(iframe: HTMLIFrameElement, message: Record<string, unknown>): void
 export function mountPlayer(
   container: HTMLElement,
   cam: Cam,
-  state: CamState | undefined,
+  state: PublicCamState | undefined,
   { muted, onUnplayable }: MountOptions,
 ): PlayerHandle {
   const iframe = document.createElement("iframe");

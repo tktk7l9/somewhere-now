@@ -8,6 +8,7 @@ import {
   resolvedVideoId,
   type Cam,
   type CamState,
+  publicStates,
 } from "./cams";
 
 const cam = (over: Partial<Cam> = {}): Cam => ({
@@ -274,5 +275,37 @@ describe("resolveEmbedUrl", () => {
     const url = resolveEmbedUrl(cam(), undefined);
     expect(url.startsWith("https://www.youtube-nocookie.com/")).toBe(true);
     expect(url).toContain("rel=0");
+  });
+});
+
+describe("publicStates", () => {
+  const state = (over: Partial<CamState> = {}): CamState => ({
+    videoId: "vid-a",
+    status: "live",
+    viewers: 42,
+    title: "とても長い配信タイトル",
+    checkedAt: "2026-08-28T00:50:56.730Z",
+    ...over,
+  });
+
+  it("ブラウザが読む 3 つだけに絞る", () => {
+    expect(publicStates({ a: state() })).toEqual({
+      a: { videoId: "vid-a", status: "live", viewers: 42 },
+    });
+  });
+
+  it("title と checkedAt は落とす(表示に使わないのに payload の半分を占める)", () => {
+    const [entry] = Object.values(publicStates({ a: state() }));
+    expect(Object.keys(entry).sort()).toEqual(["status", "videoId", "viewers"]);
+  });
+
+  it("全カメラを変換する", () => {
+    const out = publicStates({ a: state(), b: state({ status: "offline", viewers: null }) });
+    expect(out.b).toEqual({ videoId: "vid-a", status: "offline", viewers: null });
+    expect(Object.keys(out)).toHaveLength(2);
+  });
+
+  it("空でも壊れない", () => {
+    expect(publicStates({})).toEqual({});
   });
 });

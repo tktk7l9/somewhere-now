@@ -4,7 +4,7 @@
 // カメラ id で差分を取り、残るカードには触らない。
 
 import { BREAK_DURATIONS_MIN, type BreakDuration } from "../domain/breakMode";
-import type { Cam, CamState } from "../domain/cams";
+import type { Cam, PublicCamState } from "../domain/cams";
 import { formatLocalTime, utcOffsetLabel } from "../domain/localTime";
 import { weatherIcon, weatherLabel, type Lang } from "../domain/weather";
 import { fetchPlaceOverview, fetchWeather } from "../api/client";
@@ -24,7 +24,7 @@ export interface PanelHandlers {
 export interface PanelContext {
   lang: Lang;
   now: Date;
-  states: ReadonlyMap<string, CamState>;
+  states: ReadonlyMap<string, PublicCamState>;
   favoriteIds: ReadonlySet<string>;
   /** 音を出してよいか。既定は false(仕事の合間に開くので事故を避ける)。 */
   soundOn: boolean;
@@ -106,7 +106,7 @@ function chip(label: string, onClick: () => void, pressed?: boolean): HTMLButton
   return button;
 }
 
-function statusLabel(status: CamState["status"] | undefined, lang: Lang): string {
+function statusLabel(status: PublicCamState["status"] | undefined, lang: Lang): string {
   switch (status) {
     case "live":
       return t("statusLive", lang);

@@ -41,6 +41,25 @@ export interface Cam {
   source: CamSource;
 }
 
+/**
+ * ブラウザへ送る生存状態。表示に使う 3 つだけに絞る。
+ *
+ * title と checkedAt は KV には残す(再探索の手がかりと、確認の古い順に
+ * 並べるため)が、画面はどちらも読まない。5,720 台ぶんを毎回配ると
+ * 応答が 1MB を超え、その半分以上がこの 2 つで占められる。
+ */
+export type PublicCamState = Pick<CamState, "videoId" | "status" | "viewers">;
+
+/** KV の生存状態を、ブラウザへ送る形に絞る。 */
+export function publicStates(cams: Record<string, CamState>): Record<string, PublicCamState> {
+  return Object.fromEntries(
+    Object.entries(cams).map(([id, s]) => [
+      id,
+      { videoId: s.videoId, status: s.status, viewers: s.viewers },
+    ]),
+  );
+}
+
 export type CamStatus =
   /** 現在ライブ中かつ埋め込み可能。 */
   | "live"
@@ -125,7 +144,7 @@ export interface CamFilter {
 }
 
 export interface FilterContext {
-  states: ReadonlyMap<string, CamState>;
+  states: ReadonlyMap<string, PublicCamState>;
   /** 現在その土地が夜であるカメラの id。 */
   nightIds: ReadonlySet<string>;
   favoriteIds: ReadonlySet<string>;
@@ -158,7 +177,7 @@ export function pickRandom<T>(items: readonly T[], rng: () => number): T | null 
   return items[Math.min(items.length - 1, Math.floor(rng() * items.length))]!;
 }
 
-function viewerCount(states: ReadonlyMap<string, CamState>, id: string): number {
+function viewerCount(states: ReadonlyMap<string, PublicCamState>, id: string): number {
   return states.get(id)?.viewers ?? -1;
 }
 
@@ -169,7 +188,7 @@ function viewerCount(states: ReadonlyMap<string, CamState>, id: string): number 
  */
 export function rankLiveByViewers(
   cams: readonly Cam[],
-  states: ReadonlyMap<string, CamState>,
+  states: ReadonlyMap<string, PublicCamState>,
 ): Cam[] {
   return cams
     .filter((cam) => states.get(cam.id)?.status === "live")
@@ -190,7 +209,7 @@ const EMBED_PARAMS = "rel=0&playsinline=1&modestbranding=1";
  * 再生・生存確認・再探索が共有する videoId。状態が解決した id を最優先し、
  * 無ければマスタの id。どちらも無ければ null。
  */
-export function resolvedVideoId(cam: Cam, state: CamState | undefined): string | null {
+export function resolvedVideoId(cam: Cam, state: PublicCamState | undefined): string | null {
   return state?.videoId ?? cam.source.videoId;
 }
 
@@ -198,7 +217,7 @@ export function resolvedVideoId(cam: Cam, state: CamState | undefined): string |
  * 再生に使う iframe の URL。状態が解決した videoId を最優先し、無ければ
  * マスタの videoId、それも無ければチャンネルの現在のライブにフォールバックする。
  */
-export function resolveEmbedUrl(cam: Cam, state: CamState | undefined): string {
+export function resolveEmbedUrl(cam: Cam, state: PublicCamState | undefined): string {
   const videoId = resolvedVideoId(cam, state);
   if (videoId !== null) {
     return `${EMBED_ORIGIN}/embed/${videoId}?${EMBED_PARAMS}`;

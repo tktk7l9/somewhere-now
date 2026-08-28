@@ -7,7 +7,7 @@
 // 使ったクォータは KV の台帳に日毎で積み、予算を超えたら叩くのをやめる。
 
 import { CAMS } from "../src/data/cams";
-import type { CamState } from "../src/domain/cams";
+import { publicStates, type CamState } from "../src/domain/cams";
 import {
   DAILY_UNIT_BUDGET,
   ledgerForDay,
@@ -69,7 +69,10 @@ export default {
       if (request.method !== "GET") {
         return new Response("Method Not Allowed", { status: 405, headers: { allow: "GET" } });
       }
-      return jsonResponse(await readState(env), 60);
+      // KV には title と checkedAt も持つが、画面は読まない。5,720 台ぶんを
+      // そのまま配ると 1MB を超えるので、送る前に落とす。
+      const payload = await readState(env);
+      return jsonResponse({ updatedAt: payload.updatedAt, cams: publicStates(payload.cams) }, 60);
     }
 
     return env.ASSETS.fetch(request);
