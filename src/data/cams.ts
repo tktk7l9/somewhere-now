@@ -987,21 +987,6 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // 座標: Open-Meteo ジオコーディング "Nagoya", Aichi
-    id: "nagoya-station",
-    name: { ja: "名古屋駅", en: "Nagoya Station" },
-    lat: 35.1815,
-    lng: 136.9064,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "pI_u966ixNk",
-      channelId: "UCjmqhsGQ9J1QK4r5mUrZb4A",
-      titleKey: "名古屋駅 ライブカメラ 愛知 鉄道 新幹線 天気 夜景 【4K配信】 Japan Nagoya Live Camera",
-    },
-  },
-  {
     // 座標: 著名なランドマークとして明示指定
     id: "harajuku-station",
     name: { ja: "原宿駅・表参道口", en: "Harajuku Station" },
@@ -1272,21 +1257,6 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // 座標: Open-Meteo ジオコーディング "Benidorm", Valencia
-    id: "benidorm",
-    name: { ja: "ベニドルム海岸", en: "Benidorm Beach" },
-    lat: 38.5382,
-    lng: -0.131,
-    timeZone: "Europe/Madrid",
-    category: "nature",
-    country: "ES",
-    source: {
-      videoId: "M-2LWrTyPnY",
-      channelId: "UCVlxVWLL0C1U9HRe9Nt55Lw",
-      titleKey: "BENIDORM LIVE WEBCAM 🇪🇸 🔴 LIVE: Spain Resort Beach Twilight Real-Time 🌅🌊🏖️",
-    },
-  },
-  {
     // 座標: Open-Meteo ジオコーディング "Arrecife", Canary Islands
     id: "lanzarote-airport",
     name: { ja: "ランサローテ空港", en: "Lanzarote Airport" },
@@ -1419,21 +1389,6 @@ export const CAMS: Cam[] = [
       videoId: "kkVrj2cr9Ko",
       channelId: "UCmYyJaUxYiF5IbLx-0jFXHQ",
       titleKey: "🔴 LIVE Crystal Bay Yacht Club Lamai | Koh Samui Beach Webcam | Thailand 24/7 | 1080p HD",
-    },
-  },
-  {
-    // 座標: 著名なランドマークとして明示指定
-    id: "everest-view",
-    name: { ja: "エベレスト・ビュー（ネパール）", en: "Hotel Everest View, Nepal" },
-    lat: 27.8053,
-    lng: 86.7106,
-    timeZone: "Asia/Kathmandu",
-    category: "nature",
-    country: "NP",
-    source: {
-      videoId: "SXsPeIqGJMA",
-      channelId: "UCCCVkU6r9ZTD8E4z7AtuOIw",
-      titleKey: "WEBCAM NEPAL LIVE – PANORAMIC VIEWS FROM HOTEL EVEREST VIEW - NOW WITH LIVE AUDIO!",
     },
   },
   {
@@ -1737,21 +1692,6 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // 座標: Open-Meteo ジオコーディング "Seoul", Seoul
-    id: "seoul-seongsu",
-    name: { ja: "ソウル 聖水洞", en: "Seongsu, Seoul" },
-    lat: 37.566,
-    lng: 126.9784,
-    timeZone: "Asia/Seoul",
-    category: "city",
-    country: "KR",
-    source: {
-      videoId: "vUd4w805yNU",
-      channelId: "UCNdb9Zrjyn_6Ot_91JdRXlw",
-      titleKey: "성수 핫플 라이브(Seoul Korea Seongsu Station Live Cam)",
-    },
-  },
-  {
     // 座標: Open-Meteo ジオコーディング "Daejeon", Daejeon
     id: "daejeon-expo",
     name: { ja: "大田 エキスポ科学公園", en: "Expo Science Park, Daejeon" },
@@ -1944,21 +1884,6 @@ export const CAMS: Cam[] = [
       videoId: "5FBMg0K85Jg",
       channelId: "UCBHhwpHuJR4ZSH8gvxT0DdQ",
       titleKey: "Hastings Pier Webcam and English Channel LIVE HD",
-    },
-  },
-  {
-    // 座標: Open-Meteo ジオコーディング "St Petersburg", St.-Petersburg
-    id: "st-petersburg-nevsky",
-    name: { ja: "サンクトペテルブルク ネフスキー大通り", en: "Nevsky Prospect, St Petersburg" },
-    lat: 59.9386,
-    lng: 30.3141,
-    timeZone: "Europe/Moscow",
-    category: "city",
-    country: "RU",
-    source: {
-      videoId: "fUsJZTHeZn4",
-      channelId: "UCz1GKiqSoG2DSesCQ3SoFYg",
-      titleKey: "LIVE Nevskiy avenue St. Petersburg Russia Anichkov Palace Невский пр. Аничков дворец Санкт-Петербург",
     },
   },
   {
@@ -2247,21 +2172,6 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // 座標: Open-Meteo ジオコーディング "Havlíčkův Brod", Vysocina
-    id: "havlickuv-brod",
-    name: { ja: "ハヴリーチクーフ・ブロト広場", en: "Havlíčkův Brod Square" },
-    lat: 49.6069,
-    lng: 15.5794,
-    timeZone: "Europe/Prague",
-    category: "city",
-    country: "CZ",
-    source: {
-      videoId: "-ITtIF0sxRs",
-      channelId: "UC8eRoWTPlxALM729Vm854sA",
-      titleKey: "Havlíčkovo náměstí živě",
-    },
-  },
-  {
     // 座標: Open-Meteo ジオコーディング "Itaura", Uttar Pradesh
     id: "itaura-village",
     name: { ja: "イタウラ村（インド）", en: "Itaura Village, India" },
@@ -2409,21 +2319,6 @@ export const CAMS: Cam[] = [
       videoId: "-dGHAohQcSc",
       channelId: "UCef_Yfk6baScsTCcDxzXE5Q",
       titleKey: "Muizenberg Beach Live Webcam | REEF South Africa  @Reef-SA",
-    },
-  },
-  {
-    // 座標: Open-Meteo ジオコーディング "Cape Town", Western Cape
-    id: "clifton-beach",
-    name: { ja: "クリフトン海岸（ケープタウン）", en: "Clifton Beach, Cape Town" },
-    lat: -33.9258,
-    lng: 18.4232,
-    timeZone: "Africa/Johannesburg",
-    category: "nature",
-    country: "ZA",
-    source: {
-      videoId: "IGu55JrxyHU",
-      channelId: "UCLmKcWr9EjhgrlivvJQovOQ",
-      titleKey: "Clifton 4th beach webcam Live Stream, Cape Town",
     },
   },
   {
@@ -2667,21 +2562,6 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // 座標: Open-Meteo ジオコーディング "Lete", Gandaki Pradesh
-    id: "annapurna-lete",
-    name: { ja: "アンナプルナ（レテ村）", en: "Annapurna, Lete" },
-    lat: 28.635,
-    lng: 83.6052,
-    timeZone: "Asia/Kathmandu",
-    category: "nature",
-    country: "NP",
-    source: {
-      videoId: "HxUjr2fGO-M",
-      channelId: "UCbv8BrmNooNIUu9QDmOp7Qw",
-      titleKey: "WEBCAM NEPAL LIVE - STREAMING FROM KALOPANI GUEST HOUSE – LETE, MUSTANG, NEPAL",
-    },
-  },
-  {
     // 座標: Open-Meteo ジオコーディング "Denpasar", Bali
     id: "bali",
     name: { ja: "バリ島", en: "Bali, Indonesia" },
@@ -2739,21 +2619,6 @@ export const CAMS: Cam[] = [
       videoId: "ZjfFGJlkjmE",
       channelId: "UCoGAnM2Ek-KVDEQiyuN_XGg",
       titleKey: "Webcam Grote Markt - Groningen",
-    },
-  },
-  {
-    // 座標: Open-Meteo ジオコーディング "Málaga", Andalusia
-    id: "malaga-airport",
-    name: { ja: "マラガ空港", en: "Málaga Airport" },
-    lat: 36.7202,
-    lng: -4.4203,
-    timeZone: "Europe/Madrid",
-    category: "airport",
-    country: "ES",
-    source: {
-      videoId: "A6R81wOlQqs",
-      channelId: "UCKCw1qKElfcxE6A1KefdG5A",
-      titleKey: "🔵 LIVE from Malaga Airport (AGP/LEMG) - Costa del Sol - Andalucía - Spain - 24/7",
     },
   },
   {
@@ -5760,8 +5625,8 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "jp-live-24-pepe-yunika-vision-tokyo-shin",
     name: { ja: "【 LIVE 】東京都 新宿 24時間 ライブカメラ / 西武新宿駅 pepe前広場 交差点 （YUNIKA VISION前） Tokyo Shinjuku Live camera", en: "【 LIVE 】東京都 新宿 24時間 ライブカメラ / 西武新宿駅 pepe前広場 交差点 （YUNIKA VISION前） Tokyo Shinjuku Live camera" },
-    lat: 35.6895,
-    lng: 139.6917,
+    lat: 35.6912,
+    lng: 139.7085,
     timeZone: "Asia/Tokyo",
     category: "city",
     country: "JP",
@@ -17985,8 +17850,8 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "jp-tokyo-evening-walk-in-shinjuku-4k-hdr",
     name: { ja: "Tokyo Evening Walk in Shinjuku - 4K HDR 60fps Spatial Audio", en: "Tokyo Evening Walk in Shinjuku - 4K HDR 60fps Spatial Audio" },
-    lat: 35.6895,
-    lng: 139.6917,
+    lat: 35.6912,
+    lng: 139.7085,
     timeZone: "Asia/Tokyo",
     category: "city",
     country: "JP",
@@ -18015,8 +17880,8 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "jp-live-tokyo-shinjuku-jr-live-cam-omoid",
     name: { ja: "【LIVE】Tokyo Shinjuku JR Live Cam東京 新宿 鉄道 ライブカメラ OmoideYokocho 2024", en: "【LIVE】Tokyo Shinjuku JR Live Cam東京 新宿 鉄道 ライブカメラ OmoideYokocho 2024" },
-    lat: 35.6895,
-    lng: 139.6917,
+    lat: 35.6912,
+    lng: 139.7085,
     timeZone: "Asia/Tokyo",
     category: "railway",
     country: "JP",
@@ -21360,8 +21225,8 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "us-new-york-city-live-manhattan-fifth-av",
     name: { ja: "New York City LIVE Manhattan Fifth Avenue Walk", en: "New York City LIVE Manhattan Fifth Avenue Walk" },
-    lat: 38.4278,
-    lng: -84.8105,
+    lat: 40.7834,
+    lng: -73.9663,
     timeZone: "America/New_York",
     category: "city",
     country: "US",
@@ -23790,8 +23655,8 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "us-new-york-city-live-manhattan-walking",
     name: { ja: "New York City LIVE Manhattan Walking West Village, SoHo & Chinatown", en: "New York City LIVE Manhattan Walking West Village, SoHo & Chinatown" },
-    lat: 38.4278,
-    lng: -84.8105,
+    lat: 40.7834,
+    lng: -73.9663,
     timeZone: "America/New_York",
     category: "city",
     country: "US",
@@ -27975,9 +27840,9 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "us-city-of-orange-plaza-camera",
     name: { ja: "City of Orange Plaza Camera", en: "City of Orange Plaza Camera" },
-    lat: 44.98,
-    lng: -93.2638,
-    timeZone: "America/Chicago",
+    lat: 33.7878,
+    lng: -117.8531,
+    timeZone: "America/Los_Angeles",
     category: "city",
     country: "US",
     source: {
@@ -34770,8 +34635,8 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "jp-live-japan-kamagaya-station-taxi-pool",
     name: { ja: "【LIVE】東武鎌ヶ谷駅タクシープール ライブカメラ JAPAN KAMAGAYA STATION TAXI POOL livecamera livestream", en: "【LIVE】東武鎌ヶ谷駅タクシープール ライブカメラ JAPAN KAMAGAYA STATION TAXI POOL livecamera livestream" },
-    lat: 35.6854,
-    lng: 139.7531,
+    lat: 35.7697,
+    lng: 140.0024,
     timeZone: "Asia/Tokyo",
     category: "city",
     country: "JP",
@@ -34920,8 +34785,8 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "jp-24h-live-tokyo-shinjuku-kabukicho-liv",
     name: { ja: "【24Ｈ：LIVE】東京 新宿 歌舞伎町 交差点 ライブカメラ / Tokyo Shinjuku Kabukicho Live Camera【テイケイ屋上カメラ】 #靖国通り #４K #歌舞伎町", en: "【24Ｈ：LIVE】東京 新宿 歌舞伎町 交差点 ライブカメラ / Tokyo Shinjuku Kabukicho Live Camera【テイケイ屋上カメラ】 #靖国通り #４K #歌舞伎町" },
-    lat: 35.6895,
-    lng: 139.6917,
+    lat: 35.6946,
+    lng: 139.7023,
     timeZone: "Asia/Tokyo",
     category: "city",
     country: "JP",
@@ -34980,8 +34845,8 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "jp-24h-live-4k-tokyo-shinjuku-kabukicho",
     name: { ja: "【24Ｈ：LIVE】４K配信 東京 新宿 五丁目 交差点 ライブカメラ Tokyo Shinjuku Kabukicho Live Camera【テイケイ屋上カメラ】#靖国通り#明治通り#歌舞伎町", en: "【24Ｈ：LIVE】４K配信 東京 新宿 五丁目 交差点 ライブカメラ Tokyo Shinjuku Kabukicho Live Camera【テイケイ屋上カメラ】#靖国通り#明治通り#歌舞伎町" },
-    lat: 35.6895,
-    lng: 139.6917,
+    lat: 35.6912,
+    lng: 139.7085,
     timeZone: "Asia/Tokyo",
     category: "city",
     country: "JP",
@@ -35175,8 +35040,8 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "jp-live-tokyo-shinjuku-live-camera-jr-se",
     name: { ja: "【LIVE】カキカラ!! ライブカメラ TOKYO SHINJUKU 東京 新宿 鉄道 Live Camera JR 西武鉄道 Seibu", en: "【LIVE】カキカラ!! ライブカメラ TOKYO SHINJUKU 東京 新宿 鉄道 Live Camera JR 西武鉄道 Seibu" },
-    lat: 35.6895,
-    lng: 139.6917,
+    lat: 35.6912,
+    lng: 139.7085,
     timeZone: "Asia/Tokyo",
     category: "railway",
     country: "JP",
@@ -35415,8 +35280,8 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "jp-archive-2026-08-02-03-00-tokyo-kabuki",
     name: { ja: "新宿 歌舞伎町ARCHIVE 2026/08/02 03:00 東京 Tokyo Kabukicho Shinjuku Japan live", en: "新宿 歌舞伎町ARCHIVE 2026/08/02 03:00 東京 Tokyo Kabukicho Shinjuku Japan live" },
-    lat: 35.6895,
-    lng: 139.6917,
+    lat: 35.6946,
+    lng: 139.7023,
     timeZone: "Asia/Tokyo",
     category: "city",
     country: "JP",
@@ -35535,8 +35400,8 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "jp-archive-2026-08-03-03-00-tokyo-kabuki",
     name: { ja: "新宿 歌舞伎町ARCHIVE 2026/08/03 03:00 東京 Tokyo Kabukicho Shinjuku Japan live", en: "新宿 歌舞伎町ARCHIVE 2026/08/03 03:00 東京 Tokyo Kabukicho Shinjuku Japan live" },
-    lat: 35.6895,
-    lng: 139.6917,
+    lat: 35.6946,
+    lng: 139.7023,
     timeZone: "Asia/Tokyo",
     category: "city",
     country: "JP",
@@ -35955,8 +35820,8 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "jp-live-japan-kamagaya-station-livecamer",
     name: { ja: "【LIVE】東武鎌ヶ谷駅タクシー乗り場ライブカメラ JAPAN KAMAGAYA STATION LIVECAMERA livestream", en: "【LIVE】東武鎌ヶ谷駅タクシー乗り場ライブカメラ JAPAN KAMAGAYA STATION LIVECAMERA livestream" },
-    lat: 35.6854,
-    lng: 139.7531,
+    lat: 35.7697,
+    lng: 140.0024,
     timeZone: "Asia/Tokyo",
     category: "city",
     country: "JP",
@@ -36000,8 +35865,8 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "jp-24h-live-2-tokyo-shinjuku-kabukicho-l",
     name: { ja: "【24Ｈ：LIVE】東京 新宿 歌舞伎町 第２（区役所交差点）ライブカメラ / Tokyo Shinjuku Kabukicho Live Camera【テイケイ屋上カメラ】 #４K #歌舞伎町", en: "【24Ｈ：LIVE】東京 新宿 歌舞伎町 第２（区役所交差点）ライブカメラ / Tokyo Shinjuku Kabukicho Live Camera【テイケイ屋上カメラ】 #４K #歌舞伎町" },
-    lat: 35.6895,
-    lng: 139.6917,
+    lat: 35.6946,
+    lng: 139.7023,
     timeZone: "Asia/Tokyo",
     category: "city",
     country: "JP",
@@ -36150,8 +36015,8 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "jp-4k-japan-tokyo-4k-walking-tour-kappab",
     name: { ja: "七夕のかっぱ橋本通りから浅草まで散歩【4K東京街歩き】Japan Tokyo 4K walking tour/Kappabashi-hondori Street to Asakusa", en: "七夕のかっぱ橋本通りから浅草まで散歩【4K東京街歩き】Japan Tokyo 4K walking tour/Kappabashi-hondori Street to Asakusa" },
-    lat: 35.6854,
-    lng: 139.7531,
+    lat: 35.7169,
+    lng: 139.7957,
     timeZone: "Asia/Tokyo",
     category: "city",
     country: "JP",
@@ -36315,8 +36180,8 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "jp-archive-2026-07-20-03-00-tokyo-kabuki",
     name: { ja: "新宿 歌舞伎町ARCHIVE 2026/07/20 03:00 東京 Tokyo Kabukicho Shinjuku Japan live", en: "新宿 歌舞伎町ARCHIVE 2026/07/20 03:00 東京 Tokyo Kabukicho Shinjuku Japan live" },
-    lat: 35.6895,
-    lng: 139.6917,
+    lat: 35.6946,
+    lng: 139.7023,
     timeZone: "Asia/Tokyo",
     category: "city",
     country: "JP",
@@ -36480,8 +36345,8 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "jp-live-tokyo-kabukicho-shinjuku-japan-2",
     name: { ja: "新宿 歌舞伎町LIVE 東京 Tokyo Kabukicho Shinjuku Japan 24時間ライブ", en: "新宿 歌舞伎町LIVE 東京 Tokyo Kabukicho Shinjuku Japan 24時間ライブ" },
-    lat: 35.6895,
-    lng: 139.6917,
+    lat: 35.6946,
+    lng: 139.7023,
     timeZone: "Asia/Tokyo",
     category: "city",
     country: "JP",
@@ -36855,8 +36720,8 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "jp-live-2024-tokyo-shinjuku-live-ch",
     name: { ja: "【LIVE】2024 Tokyo Shinjuku 新宿 大ガード交差点 Live Ch", en: "【LIVE】2024 Tokyo Shinjuku 新宿 大ガード交差点 Live Ch" },
-    lat: 35.6895,
-    lng: 139.6917,
+    lat: 35.6912,
+    lng: 139.7085,
     timeZone: "Asia/Tokyo",
     category: "city",
     country: "JP",
@@ -36945,8 +36810,8 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "jp-live-24-tokyo-shinjuku-kabukicho-live",
     name: { ja: "【 LIVE 】東京都 新宿 歌舞伎町 24時間 ライブ / Tokyo Shinjuku Kabukicho Live", en: "【 LIVE 】東京都 新宿 歌舞伎町 24時間 ライブ / Tokyo Shinjuku Kabukicho Live" },
-    lat: 35.6895,
-    lng: 139.6917,
+    lat: 35.6946,
+    lng: 139.7023,
     timeZone: "Asia/Tokyo",
     category: "city",
     country: "JP",
@@ -36990,8 +36855,8 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "jp-24h-live-24-24h-tokyo-shinjuku-kabuki",
     name: { ja: "【24H：LIVE】24時間 東京 新宿 歌舞伎町 上空 お天気ライブカメラ 24h Tokyo Shinjuku Kabukicho Weather Camera（テイケイライブカメラ）", en: "【24H：LIVE】24時間 東京 新宿 歌舞伎町 上空 お天気ライブカメラ 24h Tokyo Shinjuku Kabukicho Weather Camera（テイケイライブカメラ）" },
-    lat: 35.6895,
-    lng: 139.6917,
+    lat: 35.6912,
+    lng: 139.7085,
     timeZone: "Asia/Tokyo",
     category: "city",
     country: "JP",
@@ -50880,8 +50745,8 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "jp-sapporo-streetcar-since-1918-live-24",
     name: { ja: "Sapporo Streetcar—Since 1918 Live 24/7 Japan Railcam | 路面電車 札幌市電 1918- | lofi beats", en: "Sapporo Streetcar—Since 1918 Live 24/7 Japan Railcam | 路面電車 札幌市電 1918- | lofi beats" },
-    lat: 35.6854,
-    lng: 139.7531,
+    lat: 43.0667,
+    lng: 141.35,
     timeZone: "Asia/Tokyo",
     category: "city",
     country: "JP",
@@ -51000,8 +50865,8 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "jp-live-kix-1-kansai-international-airpo",
     name: { ja: "【LIVE】関西国際空港(KIX)ライブカメラ 第1ターミナル｜ Kansai International Airport - Osaka, Japan＜カンテレNEWS＞", en: "【LIVE】関西国際空港(KIX)ライブカメラ 第1ターミナル｜ Kansai International Airport - Osaka, Japan＜カンテレNEWS＞" },
-    lat: 34.6938,
-    lng: 135.5011,
+    lat: 34.4273,
+    lng: 135.2441,
     timeZone: "Asia/Tokyo",
     category: "city",
     country: "JP",
@@ -51960,8 +51825,8 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "jp-news-live-kanazawa-ishikawa-japan",
     name: { ja: "【石川県・金沢市＆News LIVE チャンネル】Kanazawa, Ishikawa Japan #テレビ金沢 #ニュース #地震 #災害 #能登半島地震", en: "【石川県・金沢市＆News LIVE チャンネル】Kanazawa, Ishikawa Japan #テレビ金沢 #ニュース #地震 #災害 #能登半島地震" },
-    lat: 35.6854,
-    lng: 139.7531,
+    lat: 36.6,
+    lng: 136.6167,
     timeZone: "Asia/Tokyo",
     category: "city",
     country: "JP",
@@ -55500,9 +55365,9 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "us-chehalis-washington-usa-live-train-ca",
     name: { ja: "Chehalis, Washington, USA | LIVE Train Camera (Fixed View – North)", en: "Chehalis, Washington, USA | LIVE Train Camera (Fixed View – North)" },
-    lat: 35.4089,
-    lng: -80.5816,
-    timeZone: "America/New_York",
+    lat: 46.6621,
+    lng: -122.964,
+    timeZone: "America/Los_Angeles",
     category: "city",
     country: "US",
     source: {
@@ -55665,9 +55530,9 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "us-wailea-beach-live-cam-wailea-beach-re",
     name: { ja: "Wailea Beach LIVE Cam | Wailea Beach Resort – Marriott, Maui, Hawaii", en: "Wailea Beach LIVE Cam | Wailea Beach Resort – Marriott, Maui, Hawaii" },
-    lat: 46.9181,
-    lng: -104.0044,
-    timeZone: "America/Denver",
+    lat: 20.6897,
+    lng: -156.4419,
+    timeZone: "Pacific/Honolulu",
     category: "city",
     country: "US",
     source: {
@@ -57600,8 +57465,8 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "us-houston-texas-live-city-camera",
     name: { ja: "Houston, Texas | Live City Camera", en: "Houston, Texas | Live City Camera" },
-    lat: 44.98,
-    lng: -93.2638,
+    lat: 29.7633,
+    lng: -95.3633,
     timeZone: "America/Chicago",
     category: "city",
     country: "US",
@@ -58365,8 +58230,8 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "jp-tokyo-live-webcam-24-7-shinjuku-stree",
     name: { ja: "Tokyo Live Webcam 24/7 🇯🇵 | Shinjuku Streets • Chill Lounge & City Pop", en: "Tokyo Live Webcam 24/7 🇯🇵 | Shinjuku Streets • Chill Lounge & City Pop" },
-    lat: 35.6895,
-    lng: 139.6917,
+    lat: 35.6912,
+    lng: 139.7085,
     timeZone: "Asia/Tokyo",
     category: "city",
     country: "JP",
@@ -60810,8 +60675,8 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "us-dalton-georgia-usa-live-train-camera",
     name: { ja: "Dalton, Georgia, USA | LIVE Train Camera (Fixed View – North)", en: "Dalton, Georgia, USA | LIVE Train Camera (Fixed View – North)" },
-    lat: 35.4089,
-    lng: -80.5816,
+    lat: 34.7698,
+    lng: -84.9702,
     timeZone: "America/New_York",
     category: "city",
     country: "US",
@@ -60975,8 +60840,8 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "us-east-beverley-street-south-new-street",
     name: { ja: "East Beverley Street & South New Street | Staunton, VA", en: "East Beverley Street & South New Street | Staunton, VA" },
-    lat: 38.4278,
-    lng: -84.8105,
+    lat: 38.1499,
+    lng: -79.0732,
     timeZone: "America/New_York",
     category: "city",
     country: "US",
@@ -61035,9 +60900,9 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "us-live-florida-webcams-satellite-beach",
     name: { ja: "LIVE Florida Webcams | Satellite Beach Canals, Sounds, Weather, Skies, Boating, Wildlife", en: "LIVE Florida Webcams | Satellite Beach Canals, Sounds, Weather, Skies, Boating, Wildlife" },
-    lat: 46.9181,
-    lng: -104.0044,
-    timeZone: "America/Denver",
+    lat: 28.1761,
+    lng: -80.5901,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -62475,8 +62340,8 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "us-nubble-lighthouse-york-maine-usa-live",
     name: { ja: "Nubble Lighthouse, York, Maine USA - LIVE", en: "Nubble Lighthouse, York, Maine USA - LIVE" },
-    lat: 35.4089,
-    lng: -80.5816,
+    lat: 43.6898,
+    lng: -70.147,
     timeZone: "America/New_York",
     category: "city",
     country: "US",
@@ -64845,8 +64710,8 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "us-city-of-savanna-live-railcam-savanna",
     name: { ja: "City of Savanna Live Railcam - Savanna, IL #SteelHighway", en: "City of Savanna Live Railcam - Savanna, IL #SteelHighway" },
-    lat: 44.98,
-    lng: -93.2638,
+    lat: 42.0945,
+    lng: -90.1568,
     timeZone: "America/Chicago",
     category: "city",
     country: "US",
@@ -65580,9 +65445,9 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "us-shephard-s-beach-resort-clearwater-be",
     name: { ja: "Shephard's Beach Resort - Clearwater Beach, Florida", en: "Shephard's Beach Resort - Clearwater Beach, Florida" },
-    lat: 46.9181,
-    lng: -104.0044,
-    timeZone: "America/Denver",
+    lat: 27.9658,
+    lng: -82.8001,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -65730,9 +65595,9 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "us-live-beach-camera-i-laguna-beach-chri",
     name: { ja: "Live - Beach Camera I Laguna Beach Christian Retreat in Panama City Beach, Florida", en: "Live - Beach Camera I Laguna Beach Christian Retreat in Panama City Beach, Florida" },
-    lat: 46.9181,
-    lng: -104.0044,
-    timeZone: "America/Denver",
+    lat: 30.1766,
+    lng: -85.8055,
+    timeZone: "America/Chicago",
     category: "city",
     country: "US",
     source: {
@@ -71580,8 +71445,8 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "us-folkston-georgia-usa-live-train-c-2",
     name: { ja: "Folkston, Georgia, USA | LIVE Train Camera (Fixed View)", en: "Folkston, Georgia, USA | LIVE Train Camera (Fixed View)" },
-    lat: 35.4089,
-    lng: -80.5816,
+    lat: 30.831,
+    lng: -82.0113,
     timeZone: "America/New_York",
     category: "city",
     country: "US",
@@ -71595,9 +71460,9 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "us-quanah-texas-usa-live-train-camera-fi",
     name: { ja: "Quanah, Texas, USA | LIVE Train Camera (Fixed View — East)", en: "Quanah, Texas, USA | LIVE Train Camera (Fixed View — East)" },
-    lat: 35.4089,
-    lng: -80.5816,
-    timeZone: "America/New_York",
+    lat: 34.2978,
+    lng: -99.7404,
+    timeZone: "America/Chicago",
     category: "city",
     country: "US",
     source: {
@@ -71610,8 +71475,8 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "us-folkston-georgia-usa-live-train-c-3",
     name: { ja: "Folkston, Georgia, USA | LIVE Train Camera (Fixed View — Looking East)", en: "Folkston, Georgia, USA | LIVE Train Camera (Fixed View — Looking East)" },
-    lat: 35.4089,
-    lng: -80.5816,
+    lat: 30.831,
+    lng: -82.0113,
     timeZone: "America/New_York",
     category: "city",
     country: "US",
@@ -71625,8 +71490,8 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "us-jesup-georgia-usa-live-train-camera-v",
     name: { ja: "Jesup, Georgia, USA | LIVE Train Camera | Virtual Railfan (Fixed View – North)", en: "Jesup, Georgia, USA | LIVE Train Camera | Virtual Railfan (Fixed View – North)" },
-    lat: 35.4089,
-    lng: -80.5816,
+    lat: 31.6078,
+    lng: -81.8863,
     timeZone: "America/New_York",
     category: "city",
     country: "US",
@@ -71655,8 +71520,8 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "us-cohutta-georgia-usa-live-train-camera",
     name: { ja: "Cohutta, Georgia, USA | LIVE Train Camera (PTZ)", en: "Cohutta, Georgia, USA | LIVE Train Camera (PTZ)" },
-    lat: 35.4089,
-    lng: -80.5816,
+    lat: 34.9595,
+    lng: -84.9527,
     timeZone: "America/New_York",
     category: "city",
     country: "US",
@@ -71700,8 +71565,8 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "us-cresson-pennsylvania-usa-live-train-c",
     name: { ja: "Cresson, Pennsylvania, USA | LIVE Train Camera (Fixed View - West)", en: "Cresson, Pennsylvania, USA | LIVE Train Camera (Fixed View - West)" },
-    lat: 35.4089,
-    lng: -80.5816,
+    lat: 40.4598,
+    lng: -78.5917,
     timeZone: "America/New_York",
     category: "city",
     country: "US",
@@ -76215,9 +76080,9 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "us-greeley-colorado-usa-live-train-camer",
     name: { ja: "Greeley, Colorado, USA | LIVE Train Camera (PTZ)", en: "Greeley, Colorado, USA | LIVE Train Camera (PTZ)" },
-    lat: 35.4089,
-    lng: -80.5816,
-    timeZone: "America/New_York",
+    lat: 40.4233,
+    lng: -104.7091,
+    timeZone: "America/Denver",
     category: "city",
     country: "US",
     source: {
@@ -76230,9 +76095,9 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "us-muncie-indiana-usa-live-train-camera",
     name: { ja: "Muncie, Indiana, USA | LIVE Train Camera (PTZ)", en: "Muncie, Indiana, USA | LIVE Train Camera (PTZ)" },
-    lat: 35.4089,
-    lng: -80.5816,
-    timeZone: "America/New_York",
+    lat: 40.1934,
+    lng: -85.3864,
+    timeZone: "America/Indiana/Indianapolis",
     category: "city",
     country: "US",
     source: {
@@ -76920,9 +76785,9 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "us-prescott-wi-usa-train-east-cam-live-b",
     name: { ja: "Prescott, WI, USA Train East Cam LIVE | BNSF St. Croix Sub | PTZ Cam | MP 407.606", en: "Prescott, WI, USA Train East Cam LIVE | BNSF St. Croix Sub | PTZ Cam | MP 407.606" },
-    lat: 35.4089,
-    lng: -80.5816,
-    timeZone: "America/New_York",
+    lat: 44.7489,
+    lng: -92.8021,
+    timeZone: "America/Chicago",
     category: "city",
     country: "US",
     source: {
@@ -77880,9 +77745,9 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "us-boston-weather-cam-ma-live-cam-city-o",
     name: { ja: "Boston Weather Cam, MA Live Cam - City of Boston", en: "Boston Weather Cam, MA Live Cam - City of Boston" },
-    lat: 44.98,
-    lng: -93.2638,
-    timeZone: "America/Chicago",
+    lat: 42.3584,
+    lng: -71.0598,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -78960,8 +78825,8 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "us-panama-city-beach-live-cam-harpoon-ha",
     name: { ja: "Panama City Beach LIVE Cam | Harpoon Harry’s – Florida Gulf Coast", en: "Panama City Beach LIVE Cam | Harpoon Harry’s – Florida Gulf Coast" },
-    lat: 44.98,
-    lng: -93.2638,
+    lat: 30.1766,
+    lng: -85.8055,
     timeZone: "America/Chicago",
     category: "city",
     country: "US",
@@ -78990,8 +78855,8 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "us-new-york-aquarium-live-aqua-theater-s",
     name: { ja: "New York Aquarium LIVE | Aqua Theater Sea Lions – Brooklyn, NY", en: "New York Aquarium LIVE | Aqua Theater Sea Lions – Brooklyn, NY" },
-    lat: 38.4278,
-    lng: -84.8105,
+    lat: 40.6501,
+    lng: -73.9496,
     timeZone: "America/New_York",
     category: "city",
     country: "US",
@@ -81105,8 +80970,8 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "us-greencastle-pennsylvania-usa-live-tra",
     name: { ja: "Greencastle, Pennsylvania, USA | LIVE Train Camera (Fixed View – East)", en: "Greencastle, Pennsylvania, USA | LIVE Train Camera (Fixed View – East)" },
-    lat: 35.4089,
-    lng: -80.5816,
+    lat: 39.7904,
+    lng: -77.7278,
     timeZone: "America/New_York",
     category: "city",
     country: "US",
@@ -81120,8 +80985,8 @@ export const CAMS: Cam[] = [
     // 座標: 著名なランドマークとして明示指定
     id: "us-cocoa-florida-usa-live-train-camera-f",
     name: { ja: "Cocoa, Florida, USA | LIVE Train Camera (Fixed View – North)", en: "Cocoa, Florida, USA | LIVE Train Camera (Fixed View – North)" },
-    lat: 35.4089,
-    lng: -80.5816,
+    lat: 28.3861,
+    lng: -80.742,
     timeZone: "America/New_York",
     category: "city",
     country: "US",

@@ -11,6 +11,8 @@
 // 生成物: scripts/cam-places-bulk.ts
 
 import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { argv } from "node:process";
+import { fileURLToPath } from "node:url";
 import { CAM_PLACES_CURATED, type CamPlace, type PlaceQuery } from "./cam-places.ts";
 import { CAM_PLACES_BULK as EXISTING_BULK } from "./cam-places-bulk.ts";
 
@@ -291,7 +293,53 @@ function uniqueId(base: string, used: Set<string>): string {
   throw new Error(`id を確保できない: ${base}`);
 }
 
-function guessPlaceQueries(
+/**
+ * 「その語だけでは場所を特定しない」語。**落とさず、最後尾へ回す。**
+ *
+ * ジオコーダは「見つからない」とは滅多に言わない。`New` にはケンタッキー州の
+ * New が、`Beach` にはノースダコタ州の Beach が実在する。タイトルの断片を
+ * そのまま投げると、同名の寒村にピンが積み上がる(実測で New に 45 台・
+ * Beach に 32 台)。挙げてあるのは実データで先頭クエリになっていた語
+ * (`prioritizeGeocodeQueries` の単語別集計から拾った)。
+ */
+const GENERIC_PLACE_WORDS = new Set(
+  (
+    "new beach city bay view park port san saint st sea sky walk ski bird " +
+    "hotel river key big club inn town cat plaza now surf cape snow news fort " +
+    "best old nest road grand main time reef jazz like range car world hole " +
+    "lot area web zoo one most full day music camp rock ocean hall edge box " +
+    "lab peak ship two fish wild dock pan falls free demo coast station store " +
+    "rail tower train bad back red real today hot cove summit dash drone steel " +
+    "line downtown golf dam mount sample mix zoom tour bar pier lake vista usa " +
+    "japan korea taiwan italy texas maine nova royal spa marina isle koh roo " +
+    "santa las los rio playa praia mar sul les del von auf aan mit der das und " +
+    "vom see hong nord bald cams keys trains harbor island point north south " +
+    "east west upper lower central highway earthquake livestream spotting " +
+    "walking airport internacional webcam weather traffic panorama skyline " +
+    "sunrise sunset weekly daily night morning"
+  ).split(" "),
+);
+
+/**
+ * 地名として問い合わせてよい形か。
+ *
+ * 解像度・型番・日付・地震速報・括弧の残骸は、投げても意味のある場所は返らない
+ * のに「何か」は返ってくる。実データで先頭クエリになっていた例:
+ * `2026`(54 台)`M7.5`(33 台)`[4K]`(25 台)`PTZ`(25 台)`8/26`。
+ */
+function looksLikePlaceName(name: string): boolean {
+  // 文字を 1 つも含まない(数字・記号だけ)
+  if (!/[A-Za-z\u3040-\u30ff\u4e00-\u9fff\u00c0-\u024f\u0400-\u04ff]/.test(name)) return false;
+  // 数字で始まる: 2026 / 2160p / 24H / 8/26 / 360
+  if (/^\d/.test(name)) return false;
+  // 端に括弧・記号が残っている: [4K] / (SP) / Now: / .NL / RE- / Park,
+  if (/^[^\p{L}]|[:,;.\-/\\[\]()]$/u.test(name)) return false;
+  // 解像度・型番のたぐい: M7.5 / 4K / 2MP / I-35
+  if (/^[A-Z]{1,2}[-.]?\d/.test(name)) return false;
+  return true;
+}
+
+export function guessPlaceQueries(
   title: string,
   channelTitle: string,
   countryCode: string | null,
@@ -304,6 +352,7 @@ function guessPlaceQueries(
     if (/^(live|camera|webcam|stream|ao|vivo|en|the|and|for|with|from|cctv)$/i.test(n)) {
       return;
     }
+    if (!looksLikePlaceName(n)) return;
     queries.push({ name: n, countryCode: country, admin1 });
   };
 
@@ -788,14 +837,25 @@ function englishPlaceHint(hint: string, countryCode: string): PlaceQuery | null 
   return null;
 }
 
-function prioritizeGeocodeQueries(queries: PlaceQuery[]): PlaceQuery[] {
-  // ASCII(英語都市名)を先に、その中でも短いものを優先。漢字断片は枠を食い潰すので後回し。
+export function prioritizeGeocodeQueries(queries: PlaceQuery[]): PlaceQuery[] {
+  // 🔴 かつては「短い ASCII を先」にしていたが、それは地名でなく**一般語**を選ぶ規則
+  // だった。ジオコーダは "New" にも "Beach" にも実在の寒村を返すので、
+  // "New York City LIVE Manhattan" は Manhattan(9 文字)ではなく New(3 文字)で
+  // 引かれ、29 台がケンタッキー州の New に積み上がっていた。
+  //
+  // 語数の多い方が場所を絞る。単語 1 つしか無いなら、長い方が絞る。
+  // 一般語は「他に何も無いとき」だけ使う。
   const score = (q: PlaceQuery): number => {
     const ascii = /^[\x20-\x7E]+$/.test(q.name);
-    const len = q.name.length;
-    if (ascii && len >= 3 && len <= 24) return len; // 小さいほど先
-    if (ascii) return 100 + len;
-    return 1000 + len;
+    const words = q.name.split(/\s+/);
+    const generic = words.length === 1 && GENERIC_PLACE_WORDS.has(q.name.toLowerCase());
+
+    if (generic) return 3000 + q.name.length;
+    if (!ascii) return 2000 + q.name.length; // 漢字断片は枠を食い潰すので後回し
+    // 複数語(固有の地名らしい)を先に。同じ語数なら短い方から。
+    if (words.length >= 2 && q.name.length <= 40) return words.length * 100 + q.name.length;
+    // 単語 1 つ。長いほど場所を絞るので、長い順。
+    return 1000 - q.name.length;
   };
   const seen = new Set<string>();
   return [...queries]
@@ -809,12 +869,22 @@ function prioritizeGeocodeQueries(queries: PlaceQuery[]): PlaceQuery[] {
     .slice(0, 12);
 }
 
-async function resolveFromGeocode(
+/**
+ * 引き直しの根拠つき解決。
+ *
+ * `matchedName` は**ジオコーダが返した地名そのもの**。座標を書き換えてよいか
+ * どうかは、これが元のタイトルに出てくるかで判定する — 「タイトルが
+ * Manhattan と言っていて、Manhattan という名の場所が返った」なら信じてよい。
+ * そうでない引き直しは、当てずっぽうを別の当てずっぽうに替えるだけになる
+ * (実測: "New York City 4K Drone Video | Manhattan" はウェストバージニア州へ
+ * 飛んだ)。
+ */
+export async function resolveWithEvidence(
   title: string,
   channelTitle: string,
   countryCode: string,
   placeHint?: string,
-): Promise<NonNullable<CamPlace["at"]> | null> {
+): Promise<(NonNullable<CamPlace["at"]> & { matchedName: string; admin1: string }) | null> {
   const queries = guessPlaceQueries(title, channelTitle, countryCode.length > 0 ? countryCode : null);
   if (placeHint !== undefined && placeHint.trim().length >= 2) {
     const mapped = englishPlaceHint(placeHint, countryCode.length > 0 ? countryCode : "US");
@@ -841,10 +911,24 @@ async function resolveFromGeocode(
         lng,
         timeZone,
         country: hit.country_code,
+        matchedName: hit.name,
+        admin1: hit.admin1 ?? "",
       };
     }
   }
   return null;
+}
+
+export async function resolveFromGeocode(
+  title: string,
+  channelTitle: string,
+  countryCode: string,
+  placeHint?: string,
+): Promise<NonNullable<CamPlace["at"]> | null> {
+  const hit = await resolveWithEvidence(title, channelTitle, countryCode, placeHint);
+  if (hit === null) return null;
+  const { matchedName: _matchedName, admin1: _admin1, ...at } = hit;
+  return at;
 }
 
 function exportHeader(entries: CamPlace[]): string {
@@ -1198,4 +1282,8 @@ async function main(): Promise<void> {
   }
 }
 
-await main();
+// テストから純粋な部分だけを読めるように、生成は直接実行のときだけ走らせる。
+// (import.meta.main は Node 24 以降なので argv で見る — CI は 24、手元は 22)
+if (argv[1] !== undefined && fileURLToPath(import.meta.url) === argv[1]) {
+  await main();
+}
