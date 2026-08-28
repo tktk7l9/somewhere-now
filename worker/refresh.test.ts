@@ -4,7 +4,11 @@ import { MAX_VIDEO_IDS_PER_CALL } from "./youtube";
 import {
   DAILY_UNIT_BUDGET,
   MAX_LIST_CALLS_PER_SWEEP,
+  RECHECK_INTERVAL_MS,
+  ROLE_UNIT_BUDGET,
+  isDue,
   ledgerForDay,
+  pruneOrphans,
   rediscover,
   remainingUnits,
   sweepLiveness,
@@ -554,9 +558,13 @@ describe("sweepLiveness のサブリクエスト上限", () => {
   const many = (n: number): Cam[] => Array.from({ length: n }, (_, i) => cam(`c${i}`));
   const perSweep = MAX_LIST_CALLS_PER_SWEEP * MAX_VIDEO_IDS_PER_CALL;
 
-  const checkedAt = (id: string, at: string): [string, CamState] => [
+  const checkedAt = (
+    id: string,
+    at: string,
+    status: CamState["status"] = "live",
+  ): [string, CamState] => [
     id,
-    { videoId: `vid-${id}`, status: "live", viewers: null, title: null, checkedAt: at },
+    { videoId: `vid-${id}`, status, viewers: null, title: null, checkedAt: at },
   ];
 
   it("1 回の実行で listVideos を呼ぶ回数が上限を超えない", async () => {
@@ -592,12 +600,13 @@ describe("sweepLiveness のサブリクエスト上限", () => {
   });
 
   it("確認が古い順に投げ、同着なら台帳の順序を崩さない", async () => {
+    // 並び順そのものを見たいので、全台とも再確認の間隔は過ぎている状態にする。
     const cams = [cam("a"), cam("b"), cam("c"), cam("d")];
     const states = new Map<string, CamState>([
-      checkedAt("a", "2026-08-18T11:00:00Z"),
-      checkedAt("b", "2026-08-18T09:00:00Z"),
+      checkedAt("a", "2026-08-18T11:00:00Z", "offline"),
+      checkedAt("b", "2026-08-18T09:00:00Z", "offline"),
       // c は一度も確認していない → 最優先
-      checkedAt("d", "2026-08-18T11:00:00Z"), // a と同着
+      checkedAt("d", "2026-08-18T11:00:00Z", "offline"), // a と同着
     ]);
     const client = fakeClient({ videos: [] });
 
@@ -618,5 +627,142 @@ describe("sweepLiveness のサブリクエスト上限", () => {
     const { notes } = await sweepLiveness(many(5720), new Map(), client, NOW);
 
     expect(notes.join()).toContain("サブリクエスト");
+  });
+});
+
+describe("isDue", () => {
+  const at = (status: CamState["status"], checkedAt: string): CamState => ({
+    videoId: "v",
+    status,
+    viewers: null,
+    title: null,
+    checkedAt,
+  });
+
+  it("状態がまだ無いカメラは必ず確かめる", () => {
+    expect(isDue(undefined, NOW)).toBe(true);
+  });
+
+  it("ライブは 2 時間経つまで見送る", () => {
+    expect(isDue(at("live", "2026-08-18T11:30:00Z"), NOW)).toBe(false);
+  });
+
+  it("ライブでも間隔を過ぎたら確かめ直す", () => {
+    expect(isDue(at("live", "2026-08-18T09:00:00Z"), NOW)).toBe(true);
+  });
+
+  it("offline は 20 分で確かめ直す", () => {
+    expect(isDue(at("offline", "2026-08-18T11:30:00Z"), NOW)).toBe(true);
+  });
+
+  it("blocked も offline と同じ間隔で回す", () => {
+    expect(isDue(at("blocked", "2026-08-18T11:30:00Z"), NOW)).toBe(true);
+  });
+
+  it("直前に見た offline は見送る", () => {
+    expect(isDue(at("offline", "2026-08-18T11:55:00Z"), NOW)).toBe(false);
+  });
+
+  it("checkedAt が読めない状態は確かめる側に倒す", () => {
+    expect(isDue(at("live", "not-a-date"), NOW)).toBe(true);
+  });
+
+  it("ライブの間隔は offline より長い", () => {
+    expect(RECHECK_INTERVAL_MS.live).toBeGreaterThan(RECHECK_INTERVAL_MS.offline);
+  });
+});
+
+describe("sweepLiveness の間隔しぼり", () => {
+  const at = (id: string, status: CamState["status"], checkedAt: string): [string, CamState] => [
+    id,
+    { videoId: `vid-${id}`, status, viewers: null, title: null, checkedAt },
+  ];
+
+  it("まだ間隔の来ていないライブは問い合わせない", async () => {
+    const client = fakeClient({ videos: [] });
+    const states = new Map([at("a", "live", "2026-08-18T11:30:00Z")]);
+
+    const { states: updated, unitsUsed } = await sweepLiveness([cam("a")], states, client, NOW);
+
+    expect(client.listCalls).toEqual([]);
+    expect(updated.size).toBe(0);
+    expect(unitsUsed).toBe(0);
+  });
+
+  it("見送ったライブのぶんの枠を offline に回す", async () => {
+    // ライブ 60 台(直前に確認済み)と offline 10 台。素直に全件詰めると
+    // 1 回の呼び出し(50 件)がライブで埋まり、offline が次回送りになる。
+    const cams = [
+      ...Array.from({ length: 60 }, (_, i) => cam(`live${i}`)),
+      ...Array.from({ length: 10 }, (_, i) => cam(`off${i}`)),
+    ];
+    const states = new Map([
+      ...Array.from({ length: 60 }, (_, i) => at(`live${i}`, "live", "2026-08-18T11:59:00Z")),
+      ...Array.from({ length: 10 }, (_, i) => at(`off${i}`, "offline", "2026-08-18T11:00:00Z")),
+    ]);
+    const client = fakeClient({ videos: [] });
+
+    const { states: updated } = await sweepLiveness(cams, states, client, NOW);
+
+    expect(client.listCalls.length).toBe(1);
+    expect(updated.size).toBe(10);
+  });
+
+  it("誰も間隔が来ていなければ 1 度も叩かない", async () => {
+    const client = fakeClient({ videos: [] });
+    const states = new Map([at("a", "live", "2026-08-18T11:59:00Z")]);
+
+    const { notes } = await sweepLiveness([cam("a")], states, client, NOW);
+
+    expect(client.listCalls).toEqual([]);
+    expect(notes).toEqual([]);
+  });
+});
+
+describe("pruneOrphans", () => {
+  const state = (videoId: string): CamState => ({
+    videoId,
+    status: "live",
+    viewers: null,
+    title: null,
+    checkedAt: NOW.toISOString(),
+  });
+
+  it("マスタに無い id の状態を落とす", () => {
+    const states = new Map([
+      ["a", state("vid-a")],
+      ["gone", state("vid-gone")],
+    ]);
+
+    const { kept } = pruneOrphans(states, [cam("a")]);
+
+    expect([...kept.keys()]).toEqual(["a"]);
+  });
+
+  it("落とした id を報告する", () => {
+    const states = new Map([["gone", state("vid-gone")]]);
+
+    const { removed } = pruneOrphans(states, [cam("a")]);
+
+    expect(removed).toEqual(["gone"]);
+  });
+
+  it("孤児が無ければ何も報告しない", () => {
+    const states = new Map([["a", state("vid-a")]]);
+
+    const { kept, removed } = pruneOrphans(states, [cam("a")]);
+
+    expect(removed).toEqual([]);
+    expect(kept.size).toBe(1);
+  });
+});
+
+describe("ROLE_UNIT_BUDGET", () => {
+  it("役割ごとの予算の合計が日次上限に収まる", () => {
+    expect(ROLE_UNIT_BUDGET.sweep + ROLE_UNIT_BUDGET.rediscover).toBe(DAILY_UNIT_BUDGET);
+  });
+
+  it("再探索にも生存確認と同等の枠を残す", () => {
+    expect(ROLE_UNIT_BUDGET.rediscover).toBeGreaterThanOrEqual(ROLE_UNIT_BUDGET.sweep);
   });
 });
