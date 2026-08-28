@@ -1,0 +1,16 @@
+# gitleaks 設定。既定のルール一式をそのまま使い、誤検知だけを外す。
+#
+# カメラマスタの titleKey は「YouTube の配信タイトルを見分けるためのキーワード」で、
+# 公開されている配信名そのもの。秘密ではない。ところが "BerlinWebcam1" のような
+# 記号なしの英数字が続くタイトルを generic-api-key が鍵と誤認する。
+# カメラは 5,720 地点あり今後も増えるので、fingerprint を1件ずつ足すのではなく
+# titleKey の行そのものを対象外にする。
+[extend]
+useDefault = true
+
+[[rules]]
+id = "generic-api-key"
+[rules.allowlist]
+description = "カメラマスタ/収集スクリプトの titleKey（公開されている配信タイトル）"
+regexTarget = "line"
+regexes = ['''titleKey:\s*"''']
