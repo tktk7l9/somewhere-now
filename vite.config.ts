@@ -32,7 +32,7 @@ export default defineConfig({
   plugins: [camsAsset()],
   server: {
     // 生存状態は Worker が返すので、開発サーバー単体では存在しない。
-    // 借りてこないと「配信中のカメラ」が 0 件になり、休憩モードが動かせない。
+    // 借りてこないと「配信中だけ」も「視聴が多い順」も常に 0 件になる。
     proxy: {
       "/api": {
         target: "https://somewhere-now.saitotakuya0719.workers.dev",
