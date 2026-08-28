@@ -260,6 +260,9 @@ html.resizing-panel iframe {
 
 .dial {
   padding: 13px 17px 10px;
+  /* 中身は JS が入れるので、空のままだと見出しが 52px、数字が入ると 91px に
+     なって地図ごと下へ飛ぶ(CLS)。埋まったときの高さを最初から取っておく。 */
+  min-height: 89px;
 }
 
 .dial__count {
