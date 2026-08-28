@@ -127,9 +127,7 @@ async function buildCamsResponse(env: Env, ctx: ExecutionContext): Promise<Respo
  *
  * 効くのは 3 段で、下に行くほど確実:
  *   1. エッジのキャッシュ … Worker の応答は CDN に自動では載らないので自分で置く。
- *      ただし Cache API が確実に働くのは独自ドメインに載せた Worker で、
- *      workers.dev では素通りになることがある(公式ドキュメントが保証しているのは
- *      独自ドメインと Pages)。効かなくても下の 2 段が残るので害は無い。
+ *      workers.dev でも効いている(本番で cf-cache-status: HIT を実測)。
  *      独自ドメインを当てるときは Workers Caching(wrangler の cache.enabled)に
  *      移すと、ヒット時にこの関数ごと呼ばれなくなる。
  *   2. ETag … ブラウザは 2 分毎に取りに来るが中身が変わるのは 10 分毎なので、
@@ -184,14 +182,35 @@ export default {
   },
 } satisfies ExportedHandler<Env>;
 
+/**
+ * Cron の入口。**何があってもログを 1 行は残す**ことだけを引き受ける。
+ *
+ * 2026-08-28 に 3.6 時間ぶん更新が止まったとき、台帳も状態も動かず
+ * ログも空で、「Cron が発火していない」のか「発火したが落ちた」のかを
+ * 切り分ける手がかりが何も無かった。`scheduled` は `ctx.waitUntil` に
+ * 渡しているので、ここで投げた例外は誰も受け取らないまま消える。
+ */
 async function refresh(cron: string, env: Env): Promise<void> {
+  const role: Role = cron === SWEEP_CRON ? "sweep" : "rediscover";
+  // 発火した事実だけは先に残す。これが無いと沈黙の理由を追えない。
+  console.log(`[cron ${role}] 開始`);
+
+  try {
+    await update(role, env);
+  } catch (error) {
+    // ここに来るのは KV の読み込みなど、YouTube を叩く前で落ちたとき
+    // (その先は update の中の try が受けて台帳まで書く)。
+    console.error(`[cron ${role}] 更新を始める前に落ちた`, error);
+  }
+}
+
+async function update(role: Role, env: Env): Promise<void> {
   const apiKey = env.YOUTUBE_API_KEY;
   if (apiKey === undefined || apiKey === "") {
-    console.error("[cron] YOUTUBE_API_KEY が未設定のため更新を見送った");
+    console.error(`[cron ${role}] YOUTUBE_API_KEY が未設定のため更新を見送った`);
     return;
   }
 
-  const role: Role = cron === SWEEP_CRON ? "sweep" : "rediscover";
   const now = new Date();
   const ledger = ledgerForDay(
     await env.CAM_STATE.get<QuotaLedger>(LEDGER_KEY[role], "json"),
