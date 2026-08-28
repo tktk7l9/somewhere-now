@@ -9,7 +9,7 @@
 // 過去に無制限のポーリングでホスティングを落としているので、上限は「運用で
 // 気をつける」ではなくコードに埋める。
 
-import { resolvedVideoId, type Cam, type CamState } from "../src/domain/cams";
+import { resolvedVideoId, type Cam, type CamState, type CamStatus } from "../src/domain/cams";
 import { matchStream } from "../src/domain/streamMatch";
 import {
   CHANNEL_LOOKUP_COST,
@@ -20,19 +20,90 @@ import {
 } from "./youtube";
 
 /**
+ * 役割ごとの 1 日の枠。
+ *
+ * ひとつの財布を先着順で使うと、10 分毎に回る生存確認が 1 日ぶんを食い尽くし、
+ * 1 時間に 1 度しか来ない再探索が兵糧攻めになる(実測: 生存確認が全消費の 7 割を
+ * 占め、非ライブ 1,686 台を抱える 806 チャンネルの一巡に 4.2 日かかっていた)。
+ * 枠を分けておけば、片方が使い切っても他方は動く。
+ *
+ * 台帳も役割ごとに分けてある(worker/index.ts)。両方の Cron は毎正時に同時に
+ * 起きるので、ひとつの台帳を読んで書くと後勝ちで一方の消費が消える。
+ */
+export const ROLE_UNIT_BUDGET = {
+  /** 生存確認。RECHECK_INTERVAL_MS の間隔なら 1 日 3,500 unit ほどで収まる。 */
+  sweep: 4000,
+  /** 再探索。1 回 100 unit の検索を含むので、こちらを細らせない。 */
+  rediscover: 4000,
+} as const;
+
+/**
  * 1 日に使ってよい上限。無料枠 10,000 に対して余裕を残す。
  * 手動実行やデバッグのぶんを飲み込めるだけの隙間を空けている。
  */
-export const DAILY_UNIT_BUDGET = 8000;
+export const DAILY_UNIT_BUDGET = ROLE_UNIT_BUDGET.sweep + ROLE_UNIT_BUDGET.rediscover;
+
+/**
+ * 状態ごとの再確認の間隔。
+ *
+ * ライブカメラのほとんどは 24 時間流しっぱなしで、いちど live と分かった配信は
+ * そうそう変わらない。一方 offline / blocked は「新しい配信が始まったか」を
+ * 見に行く側で、変化はこちらに起きる。全件を同じ頻度で確かめると、動かない
+ * 4,000 件の再確認に予算の大半を使うことになる。
+ *
+ * 引き換えに、配信が終わったことに気づくのが最大 live の間隔ぶん遅れる。
+ * 再生できない配信を掴んだブラウザは自分で blocked に落とす(src/app.ts の
+ * markUnplayable)ので、見ている人の画面はそこまで待たされない。
+ */
+export const RECHECK_INTERVAL_MS: Record<CamStatus, number> = {
+  live: 2 * 60 * 60 * 1000,
+  offline: 20 * 60 * 1000,
+  blocked: 20 * 60 * 1000,
+  unknown: 20 * 60 * 1000,
+};
+
+/** 状態ごとの間隔を過ぎたか。まだ一度も見ていないカメラは必ず対象にする。 */
+export function isDue(state: CamState | undefined, now: Date): boolean {
+  if (state === undefined) return true;
+  const last = Date.parse(state.checkedAt);
+  // 読めない checkedAt は「確かめる」に倒す。放置して二度と見ないより安全。
+  if (Number.isNaN(last)) return true;
+  return now.getTime() - last >= RECHECK_INTERVAL_MS[state.status];
+}
+
+/**
+ * マスタから消えた id の状態を落とす。
+ *
+ * 生存確認も再探索もマスタを起点に回すので、id を採番し直したカメラの状態は
+ * どちらの目にも留まらないまま KV に残り続け、/api/cams でブラウザに配られる
+ * (実測: 6 件が 2 日前の状態で凍結していた)。書き戻すたびにここで掃く。
+ */
+export function pruneOrphans(
+  states: ReadonlyMap<string, CamState>,
+  cams: readonly Cam[],
+): { kept: Map<string, CamState>; removed: string[] } {
+  const known = new Set(cams.map((cam) => cam.id));
+  const kept = new Map<string, CamState>();
+  const removed: string[] = [];
+  for (const [camId, state] of states) {
+    if (known.has(camId)) kept.set(camId, state);
+    else removed.push(camId);
+  }
+  return { kept, removed };
+}
 
 /**
  * 1 回の実行で listVideos に投げてよい回数。
  *
  * Workers は 1 回の呼び出しで出せるサブリクエストが 50 で頭打ちになる
  * (超えると "Too many subrequests by single Worker invocation" で落ちる)。
- * KV の読み書きも同じ枠を食うので、上限そのものではなく余裕を残した数にする。
+ * KV の読み書きも同じ枠を食う。1 回の実行で使う KV は台帳の読み書きと状態の
+ * 読み・正本と写しの書き込みで 5 回あるので、そのぶんを引いて余裕を残す。
+ *
+ * RECHECK_INTERVAL_MS で絞ったあとの定常状態は 1 回あたり 25 回前後なので、
+ * ここに当たるのは間隔が揃って山になったときだけ。
  */
-export const MAX_LIST_CALLS_PER_SWEEP = 40;
+export const MAX_LIST_CALLS_PER_SWEEP = 38;
 
 export interface QuotaLedger {
   /** UTC の "YYYY-MM-DD"。Google のリセットは太平洋時間だが、安全側に倒す。 */
@@ -100,7 +171,11 @@ export async function sweepLiveness(
   // 入れ替わり、どこまで見たかを別途覚えておかなくてもマスタを一巡できる。
   const targets = new Map<string, string>();
   for (const cam of byStaleness(states, cams)) {
-    const videoId = resolvedVideoId(cam, states.get(cam.id));
+    const state = states.get(cam.id);
+    // 状態ごとの間隔が来ていないカメラは飛ばす。空いた枠はそのぶん、
+    // 変化の起きる offline / blocked 側に回る。
+    if (!isDue(state, now)) continue;
+    const videoId = resolvedVideoId(cam, state);
     if (videoId !== null) targets.set(cam.id, videoId);
   }
 

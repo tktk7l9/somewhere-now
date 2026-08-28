@@ -25,9 +25,24 @@
     <link rel="preload" as="image" href="https://tile.openstreetmap.org/2/2/0.png" crossorigin />
     <!-- 書体は font-display: swap なので描画を止めない。ファイル名が内容ハッシュ
          付きで固定できないこともあり、preload はしない。 -->
-    <meta property="og:title" content="somewhere-now" />
-    <meta property="og:description" content="地球のライブカメラを、地図から覗く。" />
+    <!-- 共有されたときに出る一枚。版下は scripts/og-card.html。
+         絶対 URL でないと拾わないクローラがいるので、ここだけドメインを直書きする。 -->
+    <meta property="og:title" content="somewhere-now — 地球のライブカメラを地図から覗く" />
+    <meta property="og:description" content="世界のYouTubeライブカメラ5,720地点を地図と地球儀から覗く。昼夜の境界を描き、いま夜の場所・昼の場所を選べます。" />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Somewhere Now" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:url" content="https://somewhere-now.saitotakuya0719.workers.dev/" />
+    <meta property="og:image" content="https://somewhere-now.saitotakuya0719.workers.dev/og.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="夜側に琥珀の灯がともる地球儀と、Somewhere Now の文字" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="somewhere-now — 地球のライブカメラを地図から覗く" />
+    <meta name="twitter:description" content="世界のYouTubeライブカメラ5,720地点を地図と地球儀から。昼夜の境界つき。" />
+    <meta name="twitter:image" content="https://somewhere-now.saitotakuya0719.workers.dev/og.png" />
+    <link rel="canonical" href="https://somewhere-now.saitotakuya0719.workers.dev/" />
     <meta name="theme-color" content="#0B1620" />
   </head>
   <body>
