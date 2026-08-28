@@ -1,0 +1,238 @@
+<!doctype html>
+<!--
+  public/og.png の版下。1200×630 で撮って public/og.png に置く。
+
+    npx -y http-server scripts -p 8791   (何でもよいので静的に配る)
+    …ブラウザを 1200×630 のビューポートで開き、スクリーンショットを撮る
+
+  file:// では書体が読めないので、必ず http で開くこと。
+  地点数を変えたときは .stats の数字も直す(README・index.html と揃える)。
+-->
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=Barlow:wght@400;500&family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #0b1620;
+        --ink-2: #132532;
+        --ink-3: #0e1d28;
+        --haze: #1e3a45;
+        --bone: #e8e2d4;
+        --dim: #7e9099;
+        --lit: #ffb94a;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { width: 1200px; height: 630px; }
+      body {
+        background: var(--ink);
+        color: var(--bone);
+        font-family: "Barlow", "Noto Sans JP", sans-serif;
+        overflow: hidden;
+        position: relative;
+      }
+      /* 夜側から差す、点いた窓のような明かり */
+      .glow {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(760px 560px at 78% 46%, rgba(255, 185, 74, 0.13), transparent 62%),
+          radial-gradient(900px 700px at 12% 92%, rgba(30, 58, 69, 0.55), transparent 70%);
+      }
+      /* 海図の枠 */
+      .frame {
+        position: absolute;
+        inset: 28px;
+        border: 1px solid rgba(30, 58, 69, 0.85);
+      }
+      .frame::before,
+      .frame::after {
+        content: "";
+        position: absolute;
+        background: var(--lit);
+      }
+      .frame::before { left: -1px; top: -1px; width: 46px; height: 2px; }
+      .frame::after { left: -1px; top: -1px; width: 2px; height: 46px; }
+
+      .wrap {
+        position: relative;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr 560px;
+        align-items: center;
+        padding: 0 78px;
+      }
+
+      .eyebrow {
+        font-family: "DM Mono", monospace;
+        font-size: 15px;
+        letter-spacing: 0.34em;
+        text-transform: uppercase;
+        color: var(--dim);
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      .eyebrow .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--lit);
+        box-shadow: 0 0 12px 2px rgba(255, 185, 74, 0.65);
+      }
+
+      h1 {
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 600;
+        font-size: 104px;
+        line-height: 0.94;
+        letter-spacing: 0.055em;
+        text-transform: uppercase;
+        margin: 26px 0 0;
+      }
+      h1 .b { color: var(--lit); }
+
+      .lede {
+        margin-top: 26px;
+        font-size: 27px;
+        line-height: 1.5;
+        color: var(--bone);
+        max-width: 20ch;
+      }
+
+      .rule {
+        margin-top: 34px;
+        width: 92px;
+        height: 1px;
+        background: var(--haze);
+      }
+
+      .stats {
+        margin-top: 26px;
+        display: flex;
+        gap: 46px;
+        font-family: "DM Mono", monospace;
+      }
+      .stat .n {
+        font-size: 38px;
+        font-weight: 500;
+        color: var(--bone);
+        line-height: 1;
+      }
+      .stat .k {
+        margin-top: 9px;
+        font-size: 13px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--dim);
+      }
+
+      .globe { display: block; margin-left: auto; }
+    </style>
+  </head>
+  <body>
+    <div class="glow"></div>
+    <div class="frame"></div>
+
+    <div class="wrap">
+      <div>
+        <div class="eyebrow"><span class="dot"></span><span>Live · Worldwide</span></div>
+        <h1>Somewhere<br /><span class="b">Now</span></h1>
+        <p class="lede">地球のライブカメラを、地図から覗く。</p>
+        <div class="rule"></div>
+        <div class="stats">
+          <div class="stat"><div class="n">5,720</div><div class="k">地点</div></div>
+          <div class="stat"><div class="n">118</div><div class="k">の国と地域</div></div>
+          <div class="stat"><div class="n">24h</div><div class="k">昼夜の境界</div></div>
+        </div>
+      </div>
+
+      <svg class="globe" width="520" height="520" viewBox="0 0 520 520" aria-hidden="true">
+        <defs>
+          <radialGradient id="sea" cx="38%" cy="32%" r="78%">
+            <stop offset="0%" stop-color="#17303e" />
+            <stop offset="70%" stop-color="#102434" />
+            <stop offset="100%" stop-color="#0a1622" />
+          </radialGradient>
+          <clipPath id="disc"><circle cx="260" cy="260" r="228" /></clipPath>
+          <linearGradient id="limb" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="rgba(255,185,74,0.55)" />
+            <stop offset="45%" stop-color="rgba(30,58,69,0.5)" />
+            <stop offset="100%" stop-color="rgba(30,58,69,0.15)" />
+          </linearGradient>
+        </defs>
+
+        <circle cx="260" cy="260" r="228" fill="url(#sea)" />
+
+        <g clip-path="url(#disc)" stroke="#1e3a45" fill="none" stroke-width="1">
+          <!-- 緯線 -->
+          <line x1="32" y1="260" x2="488" y2="260" stroke-opacity="0.9" />
+          <ellipse cx="260" cy="260" rx="228" ry="76" />
+          <ellipse cx="260" cy="260" rx="228" ry="152" />
+          <ellipse cx="260" cy="260" rx="228" ry="212" />
+          <!-- 経線 -->
+          <ellipse cx="260" cy="260" rx="76" ry="228" />
+          <ellipse cx="260" cy="260" rx="152" ry="228" />
+          <line x1="260" y1="32" x2="260" y2="488" />
+        </g>
+
+        <!-- 夜の側。ターミネータは傾いた楕円の縁として引く -->
+        <g clip-path="url(#disc)">
+          <path
+            d="M 260 32 A 228 228 0 0 1 260 488 A 138 228 0 0 0 260 32 Z"
+            fill="#050c14"
+            fill-opacity="0.72"
+          />
+          <path
+            d="M 260 32 A 138 228 0 0 1 260 488"
+            fill="none"
+            stroke="rgba(255,185,74,0.34)"
+            stroke-width="1.5"
+          />
+        </g>
+
+        <!-- カメラのピン。夜側は点いた窓として強く光る -->
+        <g id="pins" clip-path="url(#disc)"></g>
+
+        <circle cx="260" cy="260" r="228" fill="none" stroke="url(#limb)" stroke-width="1.5" />
+      </svg>
+    </div>
+
+    <script>
+      // 決まった見た目にしたいので擬似乱数は種つき。
+      let seed = 20260828;
+      const rnd = () => {
+        seed = (seed * 1664525 + 1013904223) % 4294967296;
+        return seed / 4294967296;
+      };
+
+      const pins = document.getElementById("pins");
+      const NS = "http://www.w3.org/2000/svg";
+      // 球面に一様に散らす(緯度は sin 一様)。経度は地図の見えている側だけ。
+      for (let i = 0; i < 190; i += 1) {
+        const lat = Math.asin(rnd() * 2 - 1);
+        const lon = (rnd() - 0.5) * Math.PI; // 見えている半球
+        const x = 260 + 228 * Math.cos(lat) * Math.sin(lon);
+        const y = 260 - 228 * Math.sin(lat);
+        // 縁に近いほど潰す(球に見せる)
+        const edge = Math.hypot(x - 260, y - 260) / 228;
+        if (edge > 0.97) continue;
+
+        // ターミネータ(x ≈ 260 の東側)より右を夜とみなす
+        const night = x > 260 + 6;
+        const c = document.createElementNS(NS, "circle");
+        c.setAttribute("cx", x.toFixed(1));
+        c.setAttribute("cy", y.toFixed(1));
+        c.setAttribute("r", night ? "3" : "2.4");
+        c.setAttribute("fill", night ? "#FFB94A" : "#3f5f6d");
+        if (night) c.setAttribute("opacity", (0.72 + rnd() * 0.28).toFixed(2));
+        pins.appendChild(c);
+      }
+    </script>
+  </body>
+</html>
