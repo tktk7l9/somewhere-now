@@ -1,7 +1,9 @@
 import type { Cam, CamState } from "../src/domain/cams";
 import type { YouTubeClient, YouTubeVideo } from "./youtube";
+import { MAX_VIDEO_IDS_PER_CALL } from "./youtube";
 import {
   DAILY_UNIT_BUDGET,
+  MAX_LIST_CALLS_PER_SWEEP,
   ledgerForDay,
   rediscover,
   remainingUnits,
@@ -545,5 +547,76 @@ describe("rediscover", () => {
     const { unitsUsed } = await rediscover([], new Map(), client, NOW, { maxChannels: 3 });
     expect(unitsUsed).toBe(0);
     expect(client.uploadCalls).toEqual([]);
+  });
+});
+
+describe("sweepLiveness のサブリクエスト上限", () => {
+  const many = (n: number): Cam[] => Array.from({ length: n }, (_, i) => cam(`c${i}`));
+  const perSweep = MAX_LIST_CALLS_PER_SWEEP * MAX_VIDEO_IDS_PER_CALL;
+
+  const checkedAt = (id: string, at: string): [string, CamState] => [
+    id,
+    { videoId: `vid-${id}`, status: "live", viewers: null, title: null, checkedAt: at },
+  ];
+
+  it("1 回の実行で listVideos を呼ぶ回数が上限を超えない", async () => {
+    // Workers は 1 呼び出しあたりのサブリクエストが 50 で頭打ちになる。
+    // 5,720 台を 50 件ずつ割ると 115 回になり、途中で必ず落ちる。
+    const client = fakeClient({ videos: [] });
+    await sweepLiveness(many(5720), new Map(), client, NOW);
+
+    expect(client.listCalls.length).toBeLessThanOrEqual(MAX_LIST_CALLS_PER_SWEEP);
+  });
+
+  it("上限で見送ったカメラは結果に含めない(offline と誤判定しない)", async () => {
+    const client = fakeClient({ videos: [] });
+    const { states } = await sweepLiveness(many(5720), new Map(), client, NOW);
+
+    expect(states.size).toBe(perSweep);
+  });
+
+  it("確認がいちばん古いカメラから先に見る", async () => {
+    // 先頭 perSweep 台はさっき確認したばかり、末尾 50 台は一度も見ていない。
+    // 素直に先頭から舐めると末尾は永遠に確認されない。
+    const cams = many(perSweep + 50);
+    const stale = new Map<string, CamState>(
+      cams.slice(0, perSweep).map((c) => checkedAt(c.id, "2026-08-18T11:59:00Z")),
+    );
+    const client = fakeClient({ videos: [] });
+
+    const { states } = await sweepLiveness(cams, stale, client, NOW);
+
+    for (const c of cams.slice(-50)) {
+      expect(states.has(c.id), `${c.id} が確認されていない`).toBe(true);
+    }
+  });
+
+  it("確認が古い順に投げ、同着なら台帳の順序を崩さない", async () => {
+    const cams = [cam("a"), cam("b"), cam("c"), cam("d")];
+    const states = new Map<string, CamState>([
+      checkedAt("a", "2026-08-18T11:00:00Z"),
+      checkedAt("b", "2026-08-18T09:00:00Z"),
+      // c は一度も確認していない → 最優先
+      checkedAt("d", "2026-08-18T11:00:00Z"), // a と同着
+    ]);
+    const client = fakeClient({ videos: [] });
+
+    await sweepLiveness(cams, states, client, NOW);
+
+    expect(client.listCalls[0]).toEqual(["vid-c", "vid-b", "vid-a", "vid-d"]);
+  });
+
+  it("全部を見終わったら打ち切りのメモは残さない", async () => {
+    const client = fakeClient({ videos: [] });
+    const { notes } = await sweepLiveness(many(10), new Map(), client, NOW);
+
+    expect(notes).toEqual([]);
+  });
+
+  it("上限で打ち切ったことをメモに残す", async () => {
+    const client = fakeClient({ videos: [] });
+    const { notes } = await sweepLiveness(many(5720), new Map(), client, NOW);
+
+    expect(notes.join()).toContain("サブリクエスト");
   });
 });

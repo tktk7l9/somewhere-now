@@ -25,6 +25,15 @@ import {
  */
 export const DAILY_UNIT_BUDGET = 8000;
 
+/**
+ * 1 回の実行で listVideos に投げてよい回数。
+ *
+ * Workers は 1 回の呼び出しで出せるサブリクエストが 50 で頭打ちになる
+ * (超えると "Too many subrequests by single Worker invocation" で落ちる)。
+ * KV の読み書きも同じ枠を食うので、上限そのものではなく余裕を残した数にする。
+ */
+export const MAX_LIST_CALLS_PER_SWEEP = 40;
+
 export interface QuotaLedger {
   /** UTC の "YYYY-MM-DD"。Google のリセットは太平洋時間だが、安全側に倒す。 */
   day: string;
@@ -59,6 +68,18 @@ function chunk<T>(items: readonly T[], size: number): T[][] {
   return chunks;
 }
 
+/** 状態が無いカメラを最優先にするための擬似的な確認時刻。 */
+const NEVER_CHECKED = "";
+
+/** 確認がいちばん古いものが先に来る並び。状態がまだ無いカメラが最優先。 */
+function byStaleness(states: ReadonlyMap<string, CamState>, cams: readonly Cam[]): Cam[] {
+  const at = (cam: Cam): string => states.get(cam.id)?.checkedAt ?? NEVER_CHECKED;
+  return [...cams].sort((a, b) => {
+    const [x, y] = [at(a), at(b)];
+    return x < y ? -1 : x > y ? 1 : 0;
+  });
+}
+
 /**
  * 既知の videoId を一括で確認し、live / offline / blocked を更新する。
  * videoId を持たないカメラは触らない(rediscover の担当)。
@@ -74,8 +95,11 @@ export async function sweepLiveness(
   const checkedAt = now.toISOString();
 
   // カメラ → 確認すべき videoId。状態が持つ id をマスタより優先する。
+  // 1 回の実行では全件を見られない(サブリクエスト上限)ので、確認がいちばん
+  // 古いものから順に詰める。こうしておけば実行のたびに対象がひとりでに
+  // 入れ替わり、どこまで見たかを別途覚えておかなくてもマスタを一巡できる。
   const targets = new Map<string, string>();
-  for (const cam of cams) {
+  for (const cam of byStaleness(states, cams)) {
     const videoId = resolvedVideoId(cam, states.get(cam.id));
     if (videoId !== null) targets.set(cam.id, videoId);
   }
@@ -88,14 +112,20 @@ export async function sweepLiveness(
   // 見つかったかどうかではなく「確認したかどうか」で判定を分ける。
   const queried = new Set<string>();
   let unitsUsed = 0;
+  let calls = 0;
   for (const ids of chunk(uniqueIds, MAX_VIDEO_IDS_PER_CALL)) {
     if (unitsUsed + UNIT_COST.videosList > unitBudget) {
       notes.push("予算が尽きたため生存確認を途中で打ち切った");
       break;
     }
+    if (calls >= MAX_LIST_CALLS_PER_SWEEP) {
+      notes.push("サブリクエスト上限に達したため生存確認を打ち切った(残りは次回)");
+      break;
+    }
     for (const video of await client.listVideos(ids)) found.set(video.id, video);
     for (const id of ids) queried.add(id);
     unitsUsed += UNIT_COST.videosList;
+    calls += 1;
   }
 
   const updated = new Map<string, CamState>();
@@ -128,9 +158,6 @@ export interface RediscoverOptions {
   maxSearches?: number;
   unitBudget?: number;
 }
-
-/** 状態が無いカメラを最優先にするための擬似的な確認時刻。 */
-const NEVER_CHECKED = "";
 
 function statusOf(video: YouTubeVideo): CamState["status"] {
   return video.embeddable ? "live" : "blocked";
