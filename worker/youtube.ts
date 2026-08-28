@@ -32,6 +32,15 @@ export const UNIT_COST = {
  */
 export const UPLOADS_MAX_PAGES = 3;
 
+/**
+ * チャンネル 1 本を uploads 経由で見るときに出す HTTP 呼び出しの最大数。
+ *
+ * 1 ページにつき playlistItems と videosList の 2 回。unit の額とは別に数える
+ * 必要がある — 検索は 1 回で 100 unit だが呼び出しは 1 回で、両者は比例しない。
+ * サブリクエスト上限(50)に効くのは unit ではなくこちら。
+ */
+export const MAX_CALLS_PER_CHANNEL = UPLOADS_MAX_PAGES * 2;
+
 /** チャンネルの現在のライブを引く 2 つの経路の上限額。 */
 export const CHANNEL_LOOKUP_COST = {
   /** uploads プレイリスト経由(ページ送り込み)。 */
@@ -163,6 +172,11 @@ export function parseVideosList(json: unknown): YouTubeVideo[] {
 export interface YouTubeClient {
   /** これまでに消費したクォータ(単位: unit)。 */
   readonly unitsUsed: number;
+  /**
+   * これまでに出した HTTP 呼び出しの回数。Workers のサブリクエスト上限に
+   * 効くのは unit ではなくこちらなので、別に数える。
+   */
+  readonly callsMade: number;
   /** ids は MAX_VIDEO_IDS_PER_CALL 件まで。 */
   listVideos(ids: readonly string[]): Promise<YouTubeVideo[]>;
   /**
@@ -180,10 +194,12 @@ export interface YouTubeClient {
 
 export function createYouTubeClient(apiKey: string, fetchImpl: typeof fetch): YouTubeClient {
   let unitsUsed = 0;
+  let callsMade = 0;
 
   // 失敗しても Google 側のクォータは消費されるので、先に積んでから投げる。
   async function call(url: string, cost: number): Promise<unknown> {
     unitsUsed += cost;
+    callsMade += 1;
     const res = await fetchImpl(url);
     if (!res.ok) {
       throw new Error(`YouTube API ${res.status}: ${await res.text()}`);
@@ -194,6 +210,10 @@ export function createYouTubeClient(apiKey: string, fetchImpl: typeof fetch): Yo
   return {
     get unitsUsed() {
       return unitsUsed;
+    },
+
+    get callsMade() {
+      return callsMade;
     },
 
     async listVideos(ids) {

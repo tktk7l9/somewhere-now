@@ -197,6 +197,20 @@ describe("createYouTubeClient", () => {
     expect(client.unitsUsed).toBe(102);
   });
 
+  it("呼び出し回数を unit とは別に数える", async () => {
+    // サブリクエスト上限に効くのは unit ではなく呼び出しの回数で、
+    // 両者は比例しない(検索は 1 回の呼び出しで 100 unit)。
+    const fetchImpl = vi.fn(async () => jsonResponse({ items: [] }));
+    const client = createYouTubeClient(KEY, fetchImpl as unknown as typeof fetch);
+
+    await client.listVideos(["a"]);
+    expect(client.callsMade).toBe(1);
+
+    await client.listChannelLiveStreamsViaSearch("UC1");
+    expect(client.callsMade).toBe(2);
+    expect(client.unitsUsed).toBe(101);
+  });
+
   it("uploads 経由でライブ中のものだけを返す", async () => {
     const fetchImpl = async (url: string) => {
       if (url.includes("/playlistItems")) {
