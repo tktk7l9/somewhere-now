@@ -31,3 +31,8 @@
 # Vite が内容ハッシュ付きで吐くので恒久キャッシュ可。
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
+
+# カメラのマスタ。内容ハッシュが付かない固定名なので immutable にはできない
+# (人がカメラを足したときに届かなくなる)。短く持って裏で取り直す。
+/cams.json
+  Cache-Control: public, max-age=300, stale-while-revalidate=86400

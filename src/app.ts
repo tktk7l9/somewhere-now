@@ -6,7 +6,6 @@
 //   favorites / panel-width … localStorage
 // それ以外(いま夜かどうか、現地時刻)は now から毎分導出する。
 
-import { CAMS } from "./data/cams";
 import {
   breakProgress,
   decodeRecent,
@@ -21,7 +20,7 @@ import { decodeFavorites, encodeFavorites, toggleFavorite } from "./domain/favor
 import { requestLocation, viewportForLocation } from "./domain/locate";
 import { isNightAt } from "./domain/terminator";
 import { MAX_VIEW, parseUrlState, toSearchString, type ViewState } from "./domain/urlState";
-import { fetchCamStates } from "./api/client";
+import { fetchCamStates, fetchCams } from "./api/client";
 import { createControls, type LocateStatus } from "./ui/controls";
 import { liveDialCaption, t } from "./ui/i18n";
 import { createBreakView } from "./ui/breakView";
@@ -43,8 +42,6 @@ const BREAK_TICK_MS = 1000;
 const STATE_POLL_MS = 120_000;
 /** 現地時刻と昼夜の再計算。 */
 const TICK_MS = 60_000;
-
-const byId = new Map(CAMS.map((cam) => [cam.id, cam]));
 
 function readFavorites(): string[] {
   try {
@@ -90,6 +87,11 @@ export function startApp(root: HTMLElement): void {
   const legendEl = root.querySelector<HTMLElement>("#legend")!;
   const breakEl = root.querySelector<HTMLElement>("#break")!;
 
+  // マスタは JSON で後から届く。地図はこれを待たずに作る(待つと LCP が
+  // そのぶん遅れる)。届いた時点でピンが乗る。
+  let cams: readonly Cam[] = [];
+  let byId = new Map<string, Cam>();
+
   let view: ViewState = parseUrlState(location.search);
   let states: ReadonlyMap<string, PublicCamState> = new Map();
   let favorites = readFavorites();
@@ -106,12 +108,12 @@ export function startApp(root: HTMLElement): void {
   let statesReady: "loading" | "unavailable" | "ready" = "loading";
 
   function recomputeNight(): void {
-    nightIds = new Set(CAMS.filter((cam) => isNightAt(now, cam)).map((cam) => cam.id));
+    nightIds = new Set(cams.filter((cam) => isNightAt(now, cam)).map((cam) => cam.id));
   }
   recomputeNight();
 
   const visibleCams = (): Cam[] =>
-    filterCams(CAMS, { states, nightIds, favoriteIds: new Set(favorites) }, view);
+    filterCams(cams, { states, nightIds, favoriteIds: new Set(favorites) }, view);
 
   const openCams = (): Cam[] =>
     view.view.map((id) => byId.get(id)).filter((cam): cam is Cam => cam !== undefined);
@@ -140,7 +142,7 @@ export function startApp(root: HTMLElement): void {
     if (cam) focusCam(cam);
   }
 
-  const mapView = createMapView(mapEl, CAMS, view.lang, selectCam);
+  const mapView = createMapView(mapEl, cams, view.lang, selectCam);
 
   let globeView: GlobeView | null = null;
   let globeReady: Promise<void> | null = null;
@@ -168,7 +170,7 @@ export function startApp(root: HTMLElement): void {
     }
     globeReady ??= import("./ui/globe")
       .then(({ createGlobeView, createUnsupportedView }) =>
-        createGlobeView(globeEl, CAMS, view.lang, selectCam).catch(() =>
+        createGlobeView(globeEl, cams, view.lang, selectCam).catch(() =>
           createUnsupportedView(globeEl, view.lang),
         ),
       )
@@ -421,12 +423,12 @@ export function startApp(root: HTMLElement): void {
     // 「全ての地点」は配信中フィルタ以外の絞り込みに従う。
     // liveOnly を含めると分母が分子と同じになり、常に N / N になる。
     const scoped = filterCams(
-      CAMS,
+      cams,
       { states, nightIds, favoriteIds: new Set(favorites) },
       { ...view, liveOnly: false },
     );
     const live = scoped.filter((cam) => states.get(cam.id)?.status === "live").length;
-    const caption = liveDialCaption(live, scoped.length, CAMS.length, view.lang);
+    const caption = liveDialCaption(live, scoped.length, cams.length, view.lang);
     const count = document.createElement("span");
     count.className = "dial__count";
     count.textContent = caption.count;
@@ -546,7 +548,19 @@ export function startApp(root: HTMLElement): void {
     render();
   }
 
+  // マスタが届いたらピンを乗せる。届くまでは地図だけが出ている。
+  async function loadCams(): Promise<void> {
+    const loaded = await fetchCams();
+    if (loaded.length === 0) return;
+    cams = loaded;
+    byId = new Map(loaded.map((cam) => [cam.id, cam]));
+    recomputeNight();
+    // URL で最初から選ばれているカメラは、ここで初めて開ける。
+    render();
+  }
+
   render();
+  void loadCams();
   if (view.globe) {
     mapView.drawTerminator(now);
     void ensureGlobe();

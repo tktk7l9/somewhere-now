@@ -4,7 +4,7 @@
 //   Wikipedia        … 選択中のカメラの土地の概要(キー不要・CORS *)
 //   MyMemory         … 日本語版が無い概要を日本語へ訳す(キー不要・CORS *)
 
-import type { PublicCamState } from "../domain/cams";
+import type { Cam, PublicCamState } from "../domain/cams";
 import {
   looksJapanese,
   myMemoryUrl,
@@ -20,6 +20,20 @@ import { openMeteoUrl, parseWeather, type Lang, type Weather } from "../domain/w
 export interface StatePayload {
   updatedAt: string;
   cams: Record<string, PublicCamState>;
+}
+
+/**
+ * カメラのマスタ。バンドルではなく静的な JSON として配っている
+ * (vite.config.ts の camsAsset)。地図はこれを待たずに出る。
+ */
+export async function fetchCams(): Promise<readonly Cam[]> {
+  try {
+    const res = await fetch("/cams.json");
+    if (!res.ok) return [];
+    return (await res.json()) as Cam[];
+  } catch {
+    return [];
+  }
 }
 
 /** 失敗しても地図は動かしたいので、投げずに null を返す。 */
