@@ -38,7 +38,11 @@ const SOUND_KEY = "somewhere-now:sound";
 const PANEL_WIDTH_KEY = "somewhere-now:panel-width";
 /** 休憩中の残り時間を描き替える間隔。 */
 const BREAK_TICK_MS = 1000;
-/** 生存状態の取り込み間隔。Worker 側の更新が 10 分毎なので 2 分で十分に追いつく。 */
+/**
+ * 生存状態の取り込み間隔。Worker 側の更新が 10 分毎なので 2 分で十分に追いつく。
+ * 応答には ETag が付いているので、変わっていない 5 回中 4 回は本文が飛ばない
+ * (ブラウザが If-None-Match を付けて 304 を受ける)。
+ */
 const STATE_POLL_MS = 120_000;
 /** 現地時刻と昼夜の再計算。 */
 const TICK_MS = 60_000;
@@ -74,6 +78,40 @@ function writeStored(key: string, value: string): void {
   } catch {
     // 保存できなくても、その回の体験は壊れない。
   }
+}
+
+/**
+ * 表に出ているあいだだけ回る繰り返し。
+ *
+ * 開きっぱなしの裏タブが 2 分毎に生存状態(144KB)を取り続けると、誰も見ていない
+ * のに 1 日 700 リクエスト・100MB になる。見えない地図の再描画も同じで、どちらも
+ * 何の役にも立たない。過去に上限なしのポーリングでホスティングを落としている
+ * ので、止められるものは止める。
+ *
+ * 表に戻ったときは間隔を待たずに 1 度走らせて追いつかせる。
+ */
+function everyWhileVisible(intervalMs: number, run: () => void): void {
+  let timer: number | null = null;
+
+  const start = (): void => {
+    if (timer === null) timer = window.setInterval(run, intervalMs);
+  };
+  const stop = (): void => {
+    if (timer === null) return;
+    clearInterval(timer);
+    timer = null;
+  };
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      stop();
+      return;
+    }
+    run();
+    start();
+  });
+
+  if (!document.hidden) start();
 }
 
 export function startApp(root: HTMLElement): void {
@@ -582,15 +620,15 @@ export function startApp(root: HTMLElement): void {
   }
   void pullStates();
 
-  setInterval(() => {
+  everyWhileVisible(TICK_MS, () => {
     now = new Date();
     recomputeNight();
     mapView.drawTerminator(now);
     globeView?.drawTerminator(now);
     render();
-  }, TICK_MS);
+  });
 
-  setInterval(() => void pullStates(), STATE_POLL_MS);
+  everyWhileVisible(STATE_POLL_MS, () => void pullStates());
 
   addEventListener("resize", () => {
     mapView.invalidate();
