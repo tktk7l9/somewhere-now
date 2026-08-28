@@ -10,6 +10,7 @@
 import type { GeoJSONSource, StyleSpecification } from "maplibre-gl";
 
 import type { Cam, CamState } from "../domain/cams";
+import { coalesced } from "../domain/coalesce";
 import { GLOBE_ZOOM, INITIAL_VIEW, type MapViewport } from "../domain/mapView";
 import { nightPolygonGeoJSON, terminatorLineGeoJSON } from "../domain/terminator";
 import type { Lang } from "../domain/weather";
@@ -226,6 +227,9 @@ function mountGlobe(
     map.getCanvas().style.cursor = "";
   });
 
+  // 地図側と同じく、続けて呼ばれた setter を 1 回の描き直しにまとめる。
+  const requestPaint = coalesced(() => whenReady(paintCams));
+
   whenReady(() => {
     paintCams();
     paintTerminator(new Date());
@@ -234,15 +238,15 @@ function mountGlobe(
   return {
     setStates(next) {
       states = next;
-      whenReady(paintCams);
+      requestPaint();
     },
     setVisible(next) {
       visible = next;
-      whenReady(paintCams);
+      requestPaint();
     },
     setSelected(camIds) {
       selected = new Set(camIds);
-      whenReady(paintCams);
+      requestPaint();
     },
     setLang(next) {
       currentLang = next;

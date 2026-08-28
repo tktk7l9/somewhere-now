@@ -10,6 +10,7 @@ import "leaflet.markercluster";
 import "leaflet.markercluster/dist/MarkerCluster.css";
 
 import type { Cam, CamState } from "../domain/cams";
+import { coalesced } from "../domain/coalesce";
 import { INITIAL_VIEW, type MapViewport } from "../domain/mapView";
 import { nightPolygon, terminatorLine } from "../domain/terminator";
 import { camName } from "./i18n";
@@ -112,6 +113,10 @@ export function createMapView(
     });
   }
 
+  // 4 つの setter が続けて呼ばれても描き直しは 1 回。5,720 台ぶんのマーカーを
+  // 毎回作り直すと、1 度の更新で 2 万個以上を捨てて作ることになる。
+  const requestRender = coalesced(() => render());
+
   function render(): void {
     cluster.clearLayers();
     markers.clear();
@@ -159,19 +164,19 @@ export function createMapView(
   return {
     setStates(next) {
       states = next;
-      render();
+      requestRender();
     },
     setVisible(next) {
       visible = next;
-      render();
+      requestRender();
     },
     setSelected(camIds) {
       selected = new Set(camIds);
-      render();
+      requestRender();
     },
     setLang(next) {
       currentLang = next;
-      render();
+      requestRender();
     },
     focus(cam) {
       map.flyTo([cam.lat, cam.lng], Math.max(map.getZoom(), 6), { duration: 0.8 });
