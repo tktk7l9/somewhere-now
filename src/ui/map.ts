@@ -120,6 +120,9 @@ export function createMapView(
   function render(): void {
     cluster.clearLayers();
     markers.clear();
+    // 1 台ずつ addLayer するとその都度クラスタを組み直すので、5,720 台では
+    // 数百 ms の固まりになる。まとめて渡すと内部で一括に組める。
+    const batch: L.Marker[] = [];
     for (const cam of visible) {
       const marker = L.marker([cam.lat, cam.lng], {
         icon: iconFor(cam),
@@ -129,8 +132,9 @@ export function createMapView(
       });
       marker.on("click", () => onSelect(cam.id));
       markers.set(cam.id, marker);
-      cluster.addLayer(marker);
+      batch.push(marker);
     }
+    cluster.addLayers(batch);
   }
 
   render();
