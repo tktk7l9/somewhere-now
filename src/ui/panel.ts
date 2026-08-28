@@ -3,7 +3,6 @@
 // 再描画のたびに iframe を作り直すと配信が止まって繋ぎ直しになるので、
 // カメラ id で差分を取り、残るカードには触らない。
 
-import { BREAK_DURATIONS_MIN, type BreakDuration } from "../domain/breakMode";
 import type { Cam, PublicCamState } from "../domain/cams";
 import { formatLocalTime, utcOffsetLabel } from "../domain/localTime";
 import { weatherIcon, weatherLabel, type Lang } from "../domain/weather";
@@ -13,7 +12,6 @@ import { mountPinLegend } from "./pin";
 import { mountPlayer, type PlayerHandle } from "./player";
 
 export interface PanelHandlers {
-  onStartBreak(minutes: BreakDuration): void;
   onToggleSound(): void;
   onToggleFavorite(camId: string): void;
   onClose(camId: string): void;
@@ -44,16 +42,8 @@ interface Card {
   overviewKey: string;
 }
 
-/**
- * 何も選んでいないときの面。ここは元々「まだ何も選んでいません」で終わって
- * いて何も起きなかった。休憩に来た人がいちばん最初に見る場所なので、
- * 「決めずに始められる入口」を置く。
- */
-function emptyState(
-  reason: EmptyReason,
-  lang: Lang,
-  onStartBreak: (minutes: BreakDuration) => void,
-): HTMLElement {
+/** 何も選んでいないときの面。次に何をすればよいかと、ピンの読み方だけ置く。 */
+function emptyState(reason: EmptyReason, lang: Lang): HTMLElement {
   const el = document.createElement("div");
   el.className = "panel__empty";
 
@@ -65,34 +55,16 @@ function emptyState(
   }
 
   const h = document.createElement("h2");
-  h.textContent = t("breakInvite", lang);
+  h.textContent = t("emptyTitle", lang);
+
   const body = document.createElement("p");
-  body.textContent = t("breakInviteBody", lang);
-
-  const durations = document.createElement("div");
-  durations.className = "breakstart";
-  for (const minutes of BREAK_DURATIONS_MIN) {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "breakstart__button";
-    const number = document.createElement("strong");
-    number.textContent = String(minutes);
-    const unit = document.createElement("span");
-    unit.textContent = t("breakMinutes", lang);
-    button.append(number, unit);
-    button.addEventListener("click", () => onStartBreak(minutes));
-    durations.append(button);
-  }
-
-  const hint = document.createElement("p");
-  hint.className = "panel__hint";
-  hint.textContent = t(reason === "watching" ? "watchingHint" : "emptyBody", lang);
+  body.textContent = t(reason === "watching" ? "watchingHint" : "emptyBody", lang);
 
   const legend = document.createElement("div");
   legend.className = "legend legend--panel";
   mountPinLegend(legend, lang);
 
-  el.append(h, body, durations, hint, legend);
+  el.append(h, body, legend);
   return el;
 }
 
@@ -290,7 +262,7 @@ export function createPanel(container: HTMLElement, handlers: PanelHandlers) {
     link.textContent = t("watchOnYouTube", ctx.lang);
 
     card.actions.replaceChildren(
-      chip(t(ctx.soundOn ? "breakMute" : "breakUnmute", ctx.lang), handlers.onToggleSound, ctx.soundOn),
+      chip(t(ctx.soundOn ? "soundOff" : "soundOn", ctx.lang), handlers.onToggleSound, ctx.soundOn),
       chip(t(favorited ? "unfavorite" : "favorite", ctx.lang), () => handlers.onToggleFavorite(cam.id), favorited),
       chip(t("removeFromView", ctx.lang), () => handlers.onClose(cam.id)),
       link,
@@ -306,7 +278,7 @@ export function createPanel(container: HTMLElement, handlers: PanelHandlers) {
           current.card.player?.destroy();
           current = null;
         }
-        cardHost.replaceChildren(emptyState(emptyReason, ctx.lang, handlers.onStartBreak));
+        cardHost.replaceChildren(emptyState(emptyReason, ctx.lang));
         listHost.replaceChildren();
         return;
       }

@@ -31,7 +31,7 @@ interface Row {
 function emptyMessage(ctx: WatchingContext): string {
   if (ctx.ready === "loading") return t("statusUnknown", ctx.lang);
   if (ctx.ready === "unavailable") return t("stateUnavailable", ctx.lang);
-  return ctx.filtered ? t("noMatch", ctx.lang) : t("breakNoLive", ctx.lang);
+  return ctx.filtered ? t("noMatch", ctx.lang) : t("noLive", ctx.lang);
 }
 
 function viewersLabel(viewers: number | null | undefined, lang: Lang): string {

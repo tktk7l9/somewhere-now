@@ -75,24 +75,9 @@ const STRINGS = {
     en: "Pin colors. Amber is live, black is off air.",
   },
   resizePanel: { ja: "パネルの幅を変える", en: "Resize panel" },
-
-  // ── 休憩モード ──
-  breakInvite: { ja: "少し休みませんか", en: "Take a break" },
-  breakInviteBody: {
-    ja: "行き先はこちらで選びます。いまのあなたと逆の時間帯へ連れて行きます。",
-    en: "We'll pick the place — somewhere on the opposite side of day and night from you.",
-  },
-  breakStart: { ja: "休憩する", en: "Start" },
-  breakMinutes: { ja: "分", en: "min" },
-  breakUnmute: { ja: "音を出す", en: "Sound on" },
-  breakMute: { ja: "音を消す", en: "Sound off" },
-  breakNext: { ja: "別の場所へ", en: "Somewhere else" },
-  breakStop: { ja: "やめる", en: "Stop" },
-  breakDoneTitle: { ja: "おつかれさま", en: "Break over" },
-  breakDoneBody: { ja: "行ってきた場所", en: "Where you went" },
-  breakAgain: { ja: "もう5分", en: "Five more minutes" },
-  breakBackToMap: { ja: "地図に戻る", en: "Back to the map" },
-  breakNoLive: {
+  soundOn: { ja: "音を出す", en: "Sound on" },
+  soundOff: { ja: "音を消す", en: "Sound off" },
+  noLive: {
     ja: "いま配信しているカメラがありません。少し時間をおいてください。",
     en: "No cameras are live right now. Try again in a little while.",
   },
