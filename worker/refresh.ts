@@ -13,6 +13,7 @@ import { resolvedVideoId, type Cam, type CamState, type CamStatus } from "../src
 import { matchStream } from "../src/domain/streamMatch";
 import {
   CHANNEL_LOOKUP_COST,
+  MAX_CALLS_PER_CHANNEL,
   MAX_VIDEO_IDS_PER_CALL,
   UNIT_COST,
   type YouTubeClient,
@@ -104,6 +105,22 @@ export function pruneOrphans(
  * ここに当たるのは間隔が揃って山になったときだけ。
  */
 export const MAX_LIST_CALLS_PER_SWEEP = 38;
+
+/**
+ * 1 回の再探索で出してよい HTTP 呼び出しの数。生存確認と同じ 50 の枠を、
+ * こちらも守らないといけない。
+ *
+ * **件数だけで抑えても足りない。** チャンネル 1 本は uploads を最大 3 ページ
+ * 辿って 6 回呼ぶので、24 本を許すと 144 回になり、半分以上が
+ * "Too many subrequests by single Worker invocation" で落ちる(2026-08-28 に
+ * 24 本中 12 本を落とした)。unit の予算はここでは歯止めにならない —
+ * 検索は 1 回の呼び出しで 100 unit なので、両者は比例しない。
+ *
+ * 実際の消費は 1 本あたり 2 回で済むことが多い(目当てが 1 ページ目にいれば
+ * 打ち切る)。最悪値で本数を切るのではなく**実測の呼び出し数で詰める**ことで、
+ * 空いているぶんだけ多くのチャンネルを回せる。
+ */
+export const MAX_CALLS_PER_REDISCOVER = 40;
 
 export interface QuotaLedger {
   /** UTC の "YYYY-MM-DD"。Google のリセットは太平洋時間だが、安全側に倒す。 */
@@ -232,6 +249,8 @@ export interface RediscoverOptions {
    */
   maxSearches?: number;
   unitBudget?: number;
+  /** 1 回の実行で出してよい HTTP 呼び出しの数(サブリクエスト上限より下)。 */
+  maxCalls?: number;
 }
 
 function statusOf(video: YouTubeVideo): CamState["status"] {
@@ -275,7 +294,12 @@ export async function rediscover(
   states: ReadonlyMap<string, CamState>,
   client: YouTubeClient,
   now: Date,
-  { maxChannels, maxSearches = 1, unitBudget = DAILY_UNIT_BUDGET }: RediscoverOptions,
+  {
+    maxChannels,
+    maxSearches = 1,
+    unitBudget = DAILY_UNIT_BUDGET,
+    maxCalls = MAX_CALLS_PER_REDISCOVER,
+  }: RediscoverOptions,
 ): Promise<RefreshResult> {
   const notes: string[] = [];
   const checkedAt = now.toISOString();
@@ -283,6 +307,9 @@ export async function rediscover(
   // 消費は必ずクライアントの実測から取る(自前で数えると失敗時にずれる)。
   const startUnits = client.unitsUsed;
   const spent = (): number => client.unitsUsed - startUnits;
+  // サブリクエスト上限に効くのは unit ではなく呼び出しの回数。別に数える。
+  const startCalls = client.callsMade;
+  const called = (): number => client.callsMade - startCalls;
 
   const staleness = (cam: Cam): string => states.get(cam.id)?.checkedAt ?? NEVER_CHECKED;
   let searchesUsed = 0;
@@ -314,6 +341,11 @@ export async function rediscover(
   for (const [channelId, channelCams] of channels) {
     if (spent() + CHANNEL_LOOKUP_COST.viaUploads > unitBudget) {
       notes.push("予算が尽きたため再探索を打ち切った");
+      break;
+    }
+    // このチャンネルが最悪まで辿っても枠に収まるときだけ手を出す。
+    if (called() + MAX_CALLS_PER_CHANNEL > maxCalls) {
+      notes.push("サブリクエスト上限に達したため再探索を打ち切った(残りは次回)");
       break;
     }
 
@@ -350,7 +382,8 @@ export async function rediscover(
     if (
       missing.length > 0 &&
       searchesUsed < maxSearches &&
-      spent() + CHANNEL_LOOKUP_COST.viaSearch <= unitBudget
+      spent() + CHANNEL_LOOKUP_COST.viaSearch <= unitBudget &&
+      called() + 2 <= maxCalls
     ) {
       searchesUsed += 1;
       try {

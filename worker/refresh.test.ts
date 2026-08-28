@@ -1,9 +1,10 @@
 import type { Cam, CamState } from "../src/domain/cams";
 import type { YouTubeClient, YouTubeVideo } from "./youtube";
-import { MAX_VIDEO_IDS_PER_CALL } from "./youtube";
+import { MAX_CALLS_PER_CHANNEL, MAX_VIDEO_IDS_PER_CALL } from "./youtube";
 import {
   DAILY_UNIT_BUDGET,
   MAX_LIST_CALLS_PER_SWEEP,
+  MAX_CALLS_PER_REDISCOVER,
   RECHECK_INTERVAL_MS,
   ROLE_UNIT_BUDGET,
   isDue,
@@ -56,6 +57,7 @@ function fakeClient(opts: {
   stopChecks: (boolean | null)[];
 } {
   let unitsUsed = 0;
+  let callsMade = 0;
   const byId = new Map((opts.videos ?? []).map((v) => [v.id, v]));
   const listCalls: string[][] = [];
   const uploadCalls: string[] = [];
@@ -70,15 +72,20 @@ function fakeClient(opts: {
     get unitsUsed() {
       return unitsUsed;
     },
+    get callsMade() {
+      return callsMade;
+    },
     async listVideos(ids) {
       listCalls.push([...ids]);
       if (ids.length === 0) return [];
       unitsUsed += 1;
+      callsMade += 1;
       return ids.map((id) => byId.get(id)).filter((v): v is YouTubeVideo => v !== undefined);
     },
     async listChannelLiveStreamsViaUploads(channelId, shouldStop) {
       uploadCalls.push(channelId);
       unitsUsed += 2;
+      callsMade += 2;
       if (opts.failUploads === true) throw new Error("boom");
       const live = opts.uploads?.[channelId] ?? [];
       // 打ち切り判定が呼ばれることを、テスト側でも確かめられるようにする。
@@ -88,6 +95,7 @@ function fakeClient(opts: {
     async listChannelLiveStreamsViaSearch(channelId) {
       searchCalls.push(channelId);
       unitsUsed += 101;
+      callsMade += 2;
       if (opts.failSearch === true) throw new Error("boom");
       return opts.search?.[channelId] ?? opts.uploads?.[channelId] ?? [];
     },
@@ -764,5 +772,89 @@ describe("ROLE_UNIT_BUDGET", () => {
 
   it("再探索にも生存確認と同等の枠を残す", () => {
     expect(ROLE_UNIT_BUDGET.rediscover).toBeGreaterThanOrEqual(ROLE_UNIT_BUDGET.sweep);
+  });
+});
+
+describe("rediscover のサブリクエスト上限", () => {
+  // Workers は 1 回の呼び出しで出せるサブリクエストが 50 で頭打ちになる。
+  // チャンネル 1 本の再探索は uploads を最大 3 ページ辿り、1 ページにつき
+  // playlistItems + videosList の 2 回を出すので、最悪 6 回かかる。
+  // 件数だけで上限を切ると 24 本 × 6 = 144 回になって半分が落ちる(実際に落ちた)。
+  const manyChannels = (n: number): Cam[] =>
+    Array.from({ length: n }, (_, i) =>
+      cam(`c${i}`, {
+        source: {
+          videoId: `vid-c${i}`,
+          channelId: `UC${String(i).padStart(22, "0")}`,
+          titleKey: `title-c${i}`,
+        },
+      }),
+    );
+
+  /** 全カメラが offline = 全チャンネルが再探索の対象。 */
+  const allOffline = (cams: readonly Cam[]): Map<string, CamState> =>
+    new Map(
+      cams.map((c) => [
+        c.id,
+        {
+          videoId: c.source.videoId,
+          status: "offline" as const,
+          viewers: null,
+          title: null,
+          checkedAt: "2026-08-18T00:00:00Z",
+        },
+      ]),
+    );
+
+  it("1 回の実行で出す呼び出しがサブリクエストの枠を超えない", async () => {
+    const cams = manyChannels(60);
+    const client = fakeClient({});
+
+    await rediscover(cams, allOffline(cams), client, NOW, {
+      maxChannels: 60,
+      maxSearches: 0,
+    });
+
+    expect(client.callsMade).toBeLessThanOrEqual(MAX_CALLS_PER_REDISCOVER);
+  });
+
+  it("最後の 1 本が最悪の回数を使っても超えないところで止める", async () => {
+    const cams = manyChannels(60);
+    const client = fakeClient({});
+
+    await rediscover(cams, allOffline(cams), client, NOW, {
+      maxChannels: 60,
+      maxSearches: 0,
+    });
+
+    // 次の 1 本が最悪 MAX_CALLS_PER_CHANNEL 回使っても枠に収まる時点で止まる。
+    expect(client.callsMade + MAX_CALLS_PER_CHANNEL).toBeGreaterThan(
+      MAX_CALLS_PER_REDISCOVER,
+    );
+  });
+
+  it("打ち切ったことをメモに残す", async () => {
+    const cams = manyChannels(60);
+    const client = fakeClient({});
+
+    const { notes } = await rediscover(cams, allOffline(cams), client, NOW, {
+      maxChannels: 60,
+      maxSearches: 0,
+    });
+
+    expect(notes.join()).toContain("サブリクエスト");
+  });
+
+  it("枠に収まる本数なら打ち切らない", async () => {
+    const cams = manyChannels(3);
+    const client = fakeClient({});
+
+    const { notes } = await rediscover(cams, allOffline(cams), client, NOW, {
+      maxChannels: 3,
+      maxSearches: 0,
+    });
+
+    expect(client.uploadCalls.length).toBe(3);
+    expect(notes.join()).not.toContain("サブリクエスト");
   });
 });
