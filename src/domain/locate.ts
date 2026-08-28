@@ -2,6 +2,7 @@
 // ここでは「取れた座標を地図の箱に収めて、付近が見えるズームを決める」だけをする。
 // 自動では取らない。押したときだけ。位置は URL にも残さない。
 
+import type { Cam, PublicCamState } from "./cams";
 import type { MapViewport } from "./mapView";
 
 /** 平面図の maxBounds と同じ。極はメルカトルが壊れるので 85° で切る。 */
@@ -96,6 +97,67 @@ export function viewportForLocation(
     center: [clampLat(lat), wrapLng(lng)],
     zoom: zoomForAccuracy(accuracyMeters),
   };
+}
+
+/** 大円距離に使う地球の半径(km)。 */
+const EARTH_RADIUS_KM = 6371;
+
+const toRadians = (degrees: number): number => (degrees * Math.PI) / 180;
+
+/**
+ * 2 点の大円距離(km)。
+ *
+ * 日付変更線をまたいでも効く。経度差は三角関数を通るので周期的で、
+ * 東経 179° と西経 179° は 358° ではなく 2° 離れていると出る。
+ */
+export function distanceKm(
+  from: { lat: number; lng: number },
+  to: { lat: number; lng: number },
+): number {
+  const halfLat = toRadians(to.lat - from.lat) / 2;
+  const halfLng = toRadians(to.lng - from.lng) / 2;
+  const h =
+    Math.sin(halfLat) ** 2 +
+    Math.cos(toRadians(from.lat)) * Math.cos(toRadians(to.lat)) * Math.sin(halfLng) ** 2;
+  // 丸め誤差で h が 1 をわずかに超えると asin が NaN を返す。
+  return 2 * EARTH_RADIUS_KM * Math.asin(Math.min(1, Math.sqrt(h)));
+}
+
+function viewerCount(states: ReadonlyMap<string, PublicCamState>, cam: Cam): number {
+  return states.get(cam.id)?.viewers ?? -1;
+}
+
+/**
+ * 現在地にいちばん近いカメラ。
+ *
+ * **配信中を優先する。** すぐ隣のカメラが止まっていることは普通にあり、
+ * 「近いが何も映らない」より「少し遠いが映っている」方が用を足す。
+ * 1 台も配信していないときだけ、状態を問わず近い順で選ぶ。
+ *
+ * **距離が同じなら視聴の多い方。** マスタの 3,394 台(6 割)は同じ座標を
+ * 共有する束に入っていて、いちばん大きい束は都心の 1 点に 203 台ある。
+ * そこでは近さで差が付かないので、並び順という無意味な基準ではなく、
+ * いま実際に見られている方を採る。
+ *
+ * 座標が壊れているカメラは候補から外す。誤った場所へ連れて行かない。
+ */
+export function nearestCam(
+  cams: readonly Cam[],
+  states: ReadonlyMap<string, PublicCamState>,
+  from: { lat: number; lng: number },
+): Cam | null {
+  if (!Number.isFinite(from.lat) || !Number.isFinite(from.lng)) return null;
+
+  const live = cams.filter((cam) => states.get(cam.id)?.status === "live");
+  const pool = live.length > 0 ? live : cams;
+
+  const measured = pool
+    .map((cam) => ({ cam, km: distanceKm(from, cam) }))
+    .filter(({ km }) => Number.isFinite(km));
+  if (measured.length === 0) return null;
+
+  measured.sort((a, b) => a.km - b.km || viewerCount(states, b.cam) - viewerCount(states, a.cam));
+  return measured[0]!.cam;
 }
 
 export function requestLocation(locator: Locator | undefined | null): Promise<LocateOutcome> {

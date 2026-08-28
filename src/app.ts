@@ -8,7 +8,7 @@
 
 import { filterCams, pickRandom, rankLiveByViewers, type Cam, type PublicCamState } from "./domain/cams";
 import { decodeFavorites, encodeFavorites, toggleFavorite } from "./domain/favorites";
-import { requestLocation, viewportForLocation } from "./domain/locate";
+import { nearestCam, requestLocation, viewportForLocation } from "./domain/locate";
 import { isNightAt } from "./domain/terminator";
 import { MAX_VIEW, parseUrlState, toSearchString, type ViewState } from "./domain/urlState";
 import { fetchCamStates, fetchCams } from "./api/client";
@@ -244,7 +244,16 @@ export function startApp(root: HTMLElement): void {
       return;
     }
     locateStatus = "idle";
-    render();
+    // 寄っただけでは何も映らないので、近くで実際に配信しているものを開く。
+    // 地図は「いまいる場所へ」の名の通り現在地に寄せたままにする(カメラの方へ
+    // 飛ばすと、押した本人がどこにいるのか分からなくなる)。
+    // 絞り込みは尊重する — 自然だけを見ている人を、隣の街へ連れて行かない。
+    const nearest = nearestCam(visibleCams(), states, result.position);
+    if (nearest === null) render();
+    else {
+      const rest = view.view.filter((id) => id !== nearest.id);
+      update({ view: [nearest.id, ...rest].slice(0, MAX_VIEW) });
+    }
     goToViewport(viewport.center[0], viewport.center[1], viewport.zoom);
   }
 

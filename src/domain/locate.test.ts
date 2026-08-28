@@ -3,12 +3,38 @@ import {
   MAP_LAT_LIMIT,
   classifyLocateError,
   clampLat,
+  distanceKm,
+  nearestCam,
   requestLocation,
   viewportForLocation,
   wrapLng,
   zoomForAccuracy,
   type Locator,
 } from "./locate";
+import type { Cam, PublicCamState } from "./cams";
+
+const cam = (id: string, lat: number, lng: number): Cam => ({
+  id,
+  name: { ja: id, en: id },
+  lat,
+  lng,
+  timeZone: "UTC",
+  category: "city",
+  country: "JP",
+  source: { videoId: "abcdefghijk", channelId: "UC0000000000000000000000", titleKey: id },
+});
+
+const states = (
+  entries: Record<string, PublicCamState["status"] | [PublicCamState["status"], number]>,
+): ReadonlyMap<string, PublicCamState> =>
+  new Map(
+    Object.entries(entries).map(([id, entry]) => {
+      const [status, viewers] = Array.isArray(entry) ? entry : ([entry, null] as const);
+      return [id, { videoId: "abcdefghijk", status, viewers }];
+    }),
+  );
+
+const TOKYO = { lat: 35.6812, lng: 139.7671 };
 
 describe("classifyLocateError", () => {
   it("権限拒否と時間切れを分け、それ以外は取れなかったことにする", () => {
@@ -177,5 +203,129 @@ describe("requestLocation", () => {
     expect(LOCATE_OPTIONS.enableHighAccuracy).toBe(false);
     expect(LOCATE_OPTIONS.timeout).toBe(10_000);
     expect(LOCATE_OPTIONS.maximumAge).toBe(60_000);
+  });
+});
+
+describe("distanceKm", () => {
+  it("同じ点は 0", () => {
+    expect(distanceKm(TOKYO, TOKYO)).toBe(0);
+  });
+
+  it("実距離に合う(東京駅→大阪駅は約 400km)", () => {
+    expect(distanceKm(TOKYO, { lat: 34.7025, lng: 135.4959 })).toBeCloseTo(403, 0);
+  });
+
+  it("赤道 1 度はおよそ 111km", () => {
+    expect(distanceKm({ lat: 0, lng: 0 }, { lat: 0, lng: 1 })).toBeCloseTo(111.2, 1);
+  });
+
+  it("日付変更線をまたいでも遠回りしない", () => {
+    // 東経 179° と西経 179° は 2° 離れている(358° ではない)。
+    const across = distanceKm({ lat: 0, lng: 179 }, { lat: 0, lng: -179 });
+    expect(across).toBeCloseTo(222.4, 1);
+  });
+
+  it("対蹠点は地球半周", () => {
+    expect(distanceKm({ lat: 0, lng: 0 }, { lat: 0, lng: 180 })).toBeCloseTo(20015, 0);
+  });
+
+  it("向きを変えても同じ長さ", () => {
+    const osaka = { lat: 34.7025, lng: 135.4959 };
+    expect(distanceKm(TOKYO, osaka)).toBeCloseTo(distanceKm(osaka, TOKYO), 9);
+  });
+});
+
+describe("nearestCam", () => {
+  const near = cam("near", 35.69, 139.7);
+  const far = cam("far", 34.7, 135.5);
+
+  it("配信中のうち、いちばん近いものを返す", () => {
+    const found = nearestCam([far, near], states({ near: "live", far: "live" }), TOKYO);
+    expect(found?.id).toBe("near");
+  });
+
+  it("並び順に関わらず近い方を選ぶ", () => {
+    const found = nearestCam([near, far], states({ near: "live", far: "live" }), TOKYO);
+    expect(found?.id).toBe("near");
+  });
+
+  it("近くが止まっていれば、少し遠くても配信中を選ぶ", () => {
+    const found = nearestCam([near, far], states({ near: "offline", far: "live" }), TOKYO);
+    expect(found?.id).toBe("far");
+  });
+
+  it("状態が届いていないカメラは配信中と見なさない", () => {
+    const found = nearestCam([near, far], states({ far: "live" }), TOKYO);
+    expect(found?.id).toBe("far");
+  });
+
+  it("1 台も配信していないときは、状態を問わず近い方へ後退する", () => {
+    const found = nearestCam([far, near], states({ near: "offline", far: "blocked" }), TOKYO);
+    expect(found?.id).toBe("near");
+  });
+
+  it("候補が無ければ null", () => {
+    expect(nearestCam([], states({}), TOKYO)).toBeNull();
+  });
+
+  it("現在地が壊れていたら選ばない", () => {
+    expect(nearestCam([near], states({ near: "live" }), { lat: Number.NaN, lng: 139 })).toBeNull();
+    expect(nearestCam([near], states({ near: "live" }), { lat: 35, lng: Number.NaN })).toBeNull();
+  });
+
+  it("座標が壊れているカメラは飛ばす", () => {
+    const broken = cam("broken", Number.NaN, Number.NaN);
+    const found = nearestCam([broken, far], states({ broken: "live", far: "live" }), TOKYO);
+    expect(found?.id).toBe("far");
+  });
+
+  it("同じ座標に載っている束からは、いま視聴の多い方を選ぶ", () => {
+    // マスタの 6 割は座標を共有している。近さで差が付かないので並び順で
+    // 決めてはいけない。
+    const quiet = cam("quiet", 35.6895, 139.6917);
+    const busy = cam("busy", 35.6895, 139.6917);
+    const found = nearestCam(
+      [quiet, busy],
+      states({ quiet: ["live", 12], busy: ["live", 9000] }),
+      TOKYO,
+    );
+    expect(found?.id).toBe("busy");
+  });
+
+  it("視聴者数が分からない配信より、分かっている方を採る", () => {
+    const unknown = cam("unknown", 35.6895, 139.6917);
+    const counted = cam("counted", 35.6895, 139.6917);
+    const found = nearestCam(
+      [unknown, counted],
+      states({ unknown: "live", counted: ["live", 0] }),
+      TOKYO,
+    );
+    expect(found?.id).toBe("counted");
+  });
+
+  it("近さは視聴者数より優先する", () => {
+    const nearQuiet = cam("near-quiet", 35.69, 139.7);
+    const farBusy = cam("far-busy", 34.7, 135.5);
+    const found = nearestCam(
+      [farBusy, nearQuiet],
+      states({ "near-quiet": ["live", 1], "far-busy": ["live", 99999] }),
+      TOKYO,
+    );
+    expect(found?.id).toBe("near-quiet");
+  });
+
+  it("測れるカメラが 1 台も無ければ null", () => {
+    const broken = cam("broken", Number.NaN, 0);
+    expect(nearestCam([broken], states({ broken: "live" }), TOKYO)).toBeNull();
+  });
+
+  it("日付変更線の向こう側でも近い方を選ぶ", () => {
+    const east = cam("east", 0, 179);
+    const west = cam("west", 0, -179);
+    const found = nearestCam([east, west], states({ east: "live", west: "live" }), {
+      lat: 0,
+      lng: -179.5,
+    });
+    expect(found?.id).toBe("west");
   });
 });
