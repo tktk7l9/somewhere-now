@@ -320,6 +320,11 @@ const GENERIC_PLACE_WORDS = new Set(
   ).split(" "),
 );
 
+/** その語だけでは場所を特定しないか。引き直しの門番(corroborate.ts)も使う。 */
+export function isGenericPlaceWord(word: string): boolean {
+  return GENERIC_PLACE_WORDS.has(word.trim().toLowerCase());
+}
+
 /**
  * 地名として問い合わせてよい形か。
  *
@@ -446,12 +451,15 @@ export function guessPlaceQueries(
     tryPush(city, "US", admin1.length > 2 ? admin1 : undefined);
   }
 
-  for (const part of cleaned.split(/[|–—]/)) {
+  // 区切りは | だけではない。日本語・韓国語のタイトルは ・／｜ で場所を書く
+  // ("大阪・心斎橋" "京都 銀閣寺ライブ中継カメラ／Ginkaku-ji Temple")。
+  // ここを見ていなかったので、心斎橋も銀閣寺も候補にすら挙がっていなかった。
+  for (const part of cleaned.split(/[|｜/／・–—]/)) {
     const segment = part.trim();
     if (segment.length >= 2 && segment.length <= 40) tryPush(segment, cc);
   }
 
-  const head = cleaned.split(/[-–—(]/)[0]?.trim();
+  const head = cleaned.split(/[-–—(|｜/／・]/)[0]?.trim();
   if (head !== undefined && head.length >= 2 && head.length <= 40) {
     tryPush(head, cc);
   }
@@ -851,10 +859,16 @@ export function prioritizeGeocodeQueries(queries: PlaceQuery[]): PlaceQuery[] {
     const generic = words.length === 1 && GENERIC_PLACE_WORDS.has(q.name.toLowerCase());
 
     if (generic) return 3000 + q.name.length;
-    if (!ascii) return 2000 + q.name.length; // 漢字断片は枠を食い潰すので後回し
     // 複数語(固有の地名らしい)を先に。同じ語数なら短い方から。
-    if (words.length >= 2 && q.name.length <= 40) return words.length * 100 + q.name.length;
-    // 単語 1 つ。長いほど場所を絞るので、長い順。
+    if (ascii && words.length >= 2 && q.name.length <= 40) {
+      return words.length * 100 + q.name.length;
+    }
+    // 🔴 CJK の地名は ASCII の単語 1 つより先に試す。単語 1 つはたいてい
+    // 都市別名("Osaka" "Kyoto")で、それは市の代表点しか返さない。
+    // "心斎橋" や "銀閣寺" の方が場所を絞る。空振りしても次の候補へ落ちる
+    // だけなので、先に試して損はない。
+    if (!ascii) return 500 + q.name.length;
+    // ASCII の単語 1 つ。長いほど場所を絞るので、長い順。
     return 1000 - q.name.length;
   };
   const seen = new Set<string>();

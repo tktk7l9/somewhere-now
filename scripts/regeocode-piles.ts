@@ -17,7 +17,7 @@ import { readFile, writeFile } from "node:fs/promises";
 import { argv } from "node:process";
 import { CAM_PLACES_BULK } from "./cam-places-bulk.ts";
 import { isCorroborated } from "./corroborate.ts";
-import { resolveWithEvidence } from "./import-bulk-cams.ts";
+import { isGenericPlaceWord, resolveWithEvidence } from "./import-bulk-cams.ts";
 
 const OUTPUT_PATH = "scripts/cam-places-bulk.ts";
 const MIN_PILE = Number(argv[2] ?? 10);
@@ -70,7 +70,7 @@ for (const [i, place] of targets.entries()) {
     // 国をまたぐ引き直しは信用しない。国コードは配信元由来で、
     // タイトルの断片より当てになる。
     kept++;
-  } else if (!isCorroborated(next.matchedName, next.admin1, title, channel)) {
+  } else if (!isCorroborated(next.matchedName, next.admin1, title, channel, isGenericPlaceWord)) {
     unverified++;
   } else {
     updates.set(place.id, { lat: next.lat, lng: next.lng, timeZone: next.timeZone });
