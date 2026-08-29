@@ -1673,7 +1673,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UC8bU0LyP49R7pL49LFwsPsg",
     videoId: "QffFETOybpc",
     titleKey: "【沖縄NOW!!】恩納村マリブビーチからLIVE映像！マリンレジャーや台風の状況、沖縄からの癒し映像としても是非！！",
-    at: { lat: 26.5069, lng: 127.9458, timeZone: "Asia/Tokyo", country: "JP" },
+    at: { lat: 26.4954, lng: 127.851, timeZone: "Asia/Tokyo", country: "JP" },
   },
   {
     id: "jp-live-24-fst-net",
@@ -1860,7 +1860,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UC18wakGTIO6r-3e44biki3g",
     videoId: "z1MErdsqsw8",
     titleKey: "湯野上温泉駅 ライブカメラ | Yunokami Onsen Station Live Camera",
-    at: { lat: 36.0003, lng: 139.1031, timeZone: "Asia/Tokyo", country: "JP" },
+    at: { lat: 37.3, lng: 139.9, timeZone: "Asia/Tokyo", country: "JP" },
   },
   {
     id: "jp-shirahama-japan",
@@ -1915,7 +1915,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCoQBJMzcwmXrRSHBFAlTsIw",
     videoId: "dfVK7ld38Ys",
     titleKey: "【ライブ】いまの渋谷・スクランブル交差点　ライブカメラ　Shibuya Scramble Crossing - Tokyo, Japan　 Live Cam",
-    at: { lat: 35.6895, lng: 139.6917, timeZone: "Asia/Tokyo", country: "JP" },
+    at: { lat: 35.6589, lng: 139.7066, timeZone: "Asia/Tokyo", country: "JP" },
   },
   {
     id: "jp-sumida-river-in-tokyo",
@@ -2047,7 +2047,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCBFDJXGCOdMjVtg2AnReoXA",
     videoId: "gFRtAAmiFbE",
     titleKey: "【 LIVE 】 東京 新宿 歌舞伎町 ライブ ２ / 『 Kabukicho Live Channel II 』",
-    at: { lat: 35.6895, lng: 139.6917, timeZone: "Asia/Tokyo", country: "JP" },
+    at: { lat: 35.6912, lng: 139.7085, timeZone: "Asia/Tokyo", country: "JP" },
   },
   {
     id: "jp-tokyo-japan-4",
@@ -2080,7 +2080,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCkAB51Lbgor6SW8aE4S3zuQ",
     videoId: "YUVih7O_yF4",
     titleKey: "東京ライブカメラ Tokyo live camera｜両国・相撲の街｜伝統ある下町風景｜24時間",
-    at: { lat: 35.6895, lng: 139.6917, timeZone: "Asia/Tokyo", country: "JP" },
+    at: { lat: 35.695, lng: 139.7942, timeZone: "Asia/Tokyo", country: "JP" },
   },
   {
     id: "jp-tokyo-japan-6",
@@ -4775,7 +4775,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UC_FuR9GFVJE2A8H02sQmHWw",
     videoId: "FeAZyuvghVY",
     titleKey: "🔴Lago di Piediluco Live Webcam",
-    at: { lat: 39.3534, lng: 16.918, timeZone: "Europe/Rome", country: "IT" },
+    at: { lat: 42.5354, lng: 12.7608, timeZone: "Europe/Rome", country: "IT" },
   },
   {
     id: "it-montefalco-live-webcam",
@@ -5776,7 +5776,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCZN_xkkEPhr15LSQoVVg9sA",
     videoId: "JNVTH8R58Lk",
     titleKey: "Range DuNoir Pass, WY",
-    at: { lat: 31.3127, lng: -87.2355, timeZone: "America/Chicago", country: "US" },
+    at: { lat: 43.5658, lng: -109.8157, timeZone: "America/Denver", country: "US" },
   },
   {
     id: "us-vla-today-karl-g-jansky-very-large-ar",
@@ -5842,7 +5842,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UC-bPJdfIq5zqIP_PQ7rUJaA",
     videoId: "DgGeCeD_HBU",
     titleKey: "LIVE Rail Cam – Fullerton, California | BNSF Mainline + Amtrak + Metrolink | RailStream",
-    at: { lat: 37.2998, lng: -92.3049, timeZone: "America/Chicago", country: "US" },
+    at: { lat: 33.8703, lng: -117.9253, timeZone: "America/Los_Angeles", country: "US" },
   },
   {
     id: "us-cnu-construction-webcam",
@@ -6304,7 +6304,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UC-bPJdfIq5zqIP_PQ7rUJaA",
     videoId: "NKLtXovsWnc",
     titleKey: "LIVE Rail Cam – Berea, Ohio | CSX &NS",
-    at: { lat: 37.2998, lng: -92.3049, timeZone: "America/Chicago", country: "US" },
+    at: { lat: 41.3662, lng: -81.8543, timeZone: "America/New_York", country: "US" },
   },
   {
     id: "us-boston-harbor-massachusetts-live-hyat",
@@ -6403,7 +6403,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UC-bPJdfIq5zqIP_PQ7rUJaA",
     videoId: "a_IsaWR8fBE",
     titleKey: "LIVE Rail Cam – Waldwick,NJ | NJT & NS | RailStream",
-    at: { lat: 37.2998, lng: -92.3049, timeZone: "America/Chicago", country: "US" },
+    at: { lat: 41.0106, lng: -74.1179, timeZone: "America/New_York", country: "US" },
   },
   {
     id: "us-live-rail-cam-northwood-ohio-vickers",
@@ -6414,7 +6414,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UC-bPJdfIq5zqIP_PQ7rUJaA",
     videoId: "VxijdxNKA9M",
     titleKey: "LIVE Rail Cam – Northwood, Ohio | Vickers Crossing",
-    at: { lat: 37.2998, lng: -92.3049, timeZone: "America/Chicago", country: "US" },
+    at: { lat: 41.6073, lng: -83.4688, timeZone: "America/New_York", country: "US" },
   },
   {
     id: "us-virginia-beach-fishing-pier-live-cam",
@@ -7206,7 +7206,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UC-bPJdfIq5zqIP_PQ7rUJaA",
     videoId: "3VJXqn2ZI7Y",
     titleKey: "LIVE Rail Cam – Fostoria, Ohio | CSX (ex-B&O) | RailStream",
-    at: { lat: 37.2998, lng: -92.3049, timeZone: "America/Chicago", country: "US" },
+    at: { lat: 41.157, lng: -83.4169, timeZone: "America/New_York", country: "US" },
   },
   {
     id: "us-the-rooftop-bar-oceanside-ca-san-dieg",
@@ -10055,7 +10055,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UC_mzz_JnzArhhpGUy8KdGwg",
     videoId: "vBJ0e1u5d-w",
     titleKey: "England, London’s Richmond During 30°C Heatwave ☀️ South West London Summer Walk 2026 [4K HDR]",
-    at: { lat: 53.7044, lng: -1.2475, timeZone: "Europe/London", country: "GB" },
+    at: { lat: 51.4617, lng: -0.3063, timeZone: "Europe/London", country: "GB" },
   },
   {
     id: "gb-live-heathrow-plane-spotting-landings",
@@ -10143,7 +10143,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCBvZ2hEzZZaWAIrUHVN6YUw",
     videoId: "yI8vbOusf4g",
     titleKey: "England, Central London Sunset Walk | Relaxing Walking tour in West End London [4K HDR]",
-    at: { lat: 53.7044, lng: -1.2475, timeZone: "Europe/London", country: "GB" },
+    at: { lat: 51.5085, lng: -0.1257, timeZone: "Europe/London", country: "GB" },
   },
   {
     id: "gb-isle-of-sky-glasgow-edinburgh-scotlan",
@@ -10154,7 +10154,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCEZ_zB95xT6J8u33-pBF6UA",
     videoId: "p-Wv1LfMV74",
     titleKey: "Isle Of Sky, Glasgow & Edinburgh Scotland | 4K HDR Walking tour",
-    at: { lat: 50.6795, lng: -1.2876, timeZone: "Europe/London", country: "GB" },
+    at: { lat: 55.9521, lng: -3.1965, timeZone: "Europe/London", country: "GB" },
   },
   {
     id: "gb-how-london-looks-during-a-32-c-heatwa",
@@ -10341,7 +10341,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCBvZ2hEzZZaWAIrUHVN6YUw",
     videoId: "5KcBEgTtAVk",
     titleKey: "England, London City Street Tour 2026 | 4K HDR Virtual Walking Tour | Top 10 Things to do in London",
-    at: { lat: 53.7044, lng: -1.2475, timeZone: "Europe/London", country: "GB" },
+    at: { lat: 51.5085, lng: -0.1257, timeZone: "Europe/London", country: "GB" },
   },
   {
     id: "gl-nuuk-airport-south",
@@ -11221,7 +11221,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCqRTj-Nu_8to3jIBlXptOtA",
     videoId: "_dWyKj7I9JM",
     titleKey: "Walking Shibuya Crossing at Night, Binaural City Sounds in Tokyo | 4k",
-    at: { lat: 35.6895, lng: 139.6917, timeZone: "Asia/Tokyo", country: "JP" },
+    at: { lat: 35.6589, lng: 139.7066, timeZone: "Asia/Tokyo", country: "JP" },
   },
   {
     id: "jp-tokyo-japan-4k-hdr-walking-tour-day-n",
@@ -11617,7 +11617,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCpZ8Uw1siUVlrg_RUfCZVyQ",
     videoId: "wZgeqLaDjWA",
     titleKey: "【4K】 Walk Seoul Korea - 서울 한남동 카페거리 걷기 | Hannam-dong Cafe Street [용산구2 | Yongsan-gu2] 16(2)-1",
-    at: { lat: 34.1153, lng: 127.5139, timeZone: "Asia/Seoul", country: "KR" },
+    at: { lat: 37.5365, lng: 127.0027, timeZone: "Asia/Seoul", country: "KR" },
   },
   {
     id: "kr-live-busan-night-walk-seomyeon-street",
@@ -12079,7 +12079,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UC1Lz8E2e08WqN6q7p2pgdAg",
     videoId: "5boZ1Vw95OU",
     titleKey: "Puerto Vallarta, Jalisco en vivo visto desde Hyatt Ziva Puerto Vallarta",
-    at: { lat: 21.0445, lng: -86.8471, timeZone: "America/Cancun", country: "MX" },
+    at: { lat: 20.617, lng: -105.2302, timeZone: "America/Mexico_City", country: "MX" },
   },
   {
     id: "mx-vista-de-la-laguna-de-nichupte-desde",
@@ -13630,7 +13630,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCnvLGayHxWh5YZjpJjZ6WRg",
     videoId: "3N7rsMx_3gs",
     titleKey: "Walking in New York at Night 🌃 Midtown Manhattan / NYC Walking Tour 4K",
-    at: { lat: 38.4722, lng: -101.9727, timeZone: "America/Denver", country: "US" },
+    at: { lat: 40.7834, lng: -73.9663, timeZone: "America/New_York", country: "US" },
   },
   {
     id: "us-ocean-city-md-boardwalk-beach-cam-pli",
@@ -13883,7 +13883,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCOIkT9bq-1N2BvrsBjhNlag",
     videoId: "nUdVtKcprJU",
     titleKey: "Big 10 Curve at Arvada, Colorado, USA | LIVE Train Camera (PTZ)",
-    at: { lat: 64.1525, lng: -145.8422, timeZone: "America/Anchorage", country: "US" },
+    at: { lat: 39.8028, lng: -105.0875, timeZone: "America/Denver", country: "US" },
   },
   {
     id: "us-waikiki-beach-live-cam-park-shore-2",
@@ -14180,7 +14180,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCaG0IHN1RMOZ4-U3wDXAkwA",
     videoId: "6IaMqotNF_s",
     titleKey: "🔴 Live Now: 24/7 Kilauea Volcano Livestream in Hawaii (Cam B)",
-    at: { lat: 33.8314, lng: -118.0728, timeZone: "America/Los_Angeles", country: "US" },
+    at: { lat: 22.2121, lng: -159.4134, timeZone: "Pacific/Honolulu", country: "US" },
   },
   {
     id: "us-st-clair-river-from-the-voyageur-rest",
@@ -14235,7 +14235,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCpb8WxAsZPIwaAsNbbKLzmg",
     videoId: "1l-nqyyhzro",
     titleKey: "🔴 Ocean City NJ Live Beach Cams — 24/7 Boardwalk & Surf",
-    at: { lat: 39.6026, lng: -78.9439, timeZone: "America/New_York", country: "US" },
+    at: { lat: 39.2776, lng: -74.5746, timeZone: "America/New_York", country: "US" },
   },
   {
     id: "us-bald-eagle-live-cam-2-traverse-city-m",
@@ -14246,7 +14246,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCob_chLKvtrcg8KE-KpQiig",
     videoId: "Va7LIyQkOBI",
     titleKey: "BALD EAGLE Live Cam 2 Traverse City, MI #baldeagle #eaglelivecam #wildlife #nature",
-    at: { lat: 33.854, lng: -87.1828, timeZone: "America/Chicago", country: "US" },
+    at: { lat: 47.2552, lng: -88.2643, timeZone: "America/Detroit", country: "US" },
   },
   {
     id: "us-traverse-city-mi-bald-eagle-nest-live",
@@ -14400,7 +14400,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCqLFAHac-UD2ueQmcf2r-CQ",
     videoId: "1V9nWQHwIwQ",
     titleKey: "Hawaii live stream 4K.  Ala Moana, Magic Island, Honolulu. Surfers, beach, and fireworks on Friday.",
-    at: { lat: 33.8314, lng: -118.0728, timeZone: "America/Los_Angeles", country: "US" },
+    at: { lat: 21.3069, lng: -157.8583, timeZone: "Pacific/Honolulu", country: "US" },
   },
   {
     id: "us-live-bird-feeder-camera-in-oklahoma-s",
@@ -14697,7 +14697,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCOIkT9bq-1N2BvrsBjhNlag",
     videoId: "blcDjPvPbss",
     titleKey: "Tower 55 in Fort Worth, Texas, USA | LIVE Train Camera (PTZ)",
-    at: { lat: 47.8055, lng: -92.2746, timeZone: "America/Chicago", country: "US" },
+    at: { lat: 32.7254, lng: -97.3208, timeZone: "America/Chicago", country: "US" },
   },
   {
     id: "us-harbor-plaza-great-lakes-aquarium",
@@ -15137,7 +15137,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCOIkT9bq-1N2BvrsBjhNlag",
     videoId: "9SLt3AT0rXk",
     titleKey: "Trains in the Street at La Grange, Kentucky, USA | LIVE Train Camera (PTZ)",
-    at: { lat: 42.2882, lng: -71.3267, timeZone: "America/New_York", country: "US" },
+    at: { lat: 38.4076, lng: -85.3788, timeZone: "America/New_York", country: "US" },
   },
   {
     id: "us-las-vegas-airport-live-24-7-with-view",
@@ -15280,7 +15280,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCYKmFCRiBTTQs1IUiCBM0RQ",
     videoId: "pGY4pVVF10E",
     titleKey: "Osprey Webcam Cape Henlopen State Park, Lewes, Delaware",
-    at: { lat: 27.1962, lng: -82.4904, timeZone: "America/New_York", country: "US" },
+    at: { lat: 38.7298, lng: -75.0863, timeZone: "America/New_York", country: "US" },
   },
   {
     id: "us-boston-weather-cam-ma-live-cam-green",
@@ -15335,7 +15335,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCTkxSTO0A1d5_6_Nc4sVYtg",
     videoId: "iY8G7URAbgI",
     titleKey: "Live View of Lazelle St in Sturgis SD from Sturgis Liquor",
-    at: { lat: 37.2634, lng: -88.1386, timeZone: "America/Chicago", country: "US" },
+    at: { lat: 44.4097, lng: -103.5091, timeZone: "America/Denver", country: "US" },
   },
   {
     id: "us-key-west-southernmost-point-live-2",
@@ -16105,7 +16105,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCTkxSTO0A1d5_6_Nc4sVYtg",
     videoId: "B7TPT-LSeAQ",
     titleKey: "Live View of Main Street From Tower in Sturgis, SD",
-    at: { lat: 37.2634, lng: -88.1386, timeZone: "America/Chicago", country: "US" },
+    at: { lat: 44.4097, lng: -103.5091, timeZone: "America/Denver", country: "US" },
   },
   {
     id: "us-live-disney-magic-kingdom-ambience-re",
@@ -16930,7 +16930,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCTkxSTO0A1d5_6_Nc4sVYtg",
     videoId: "uu82CI54eJU",
     titleKey: "Live View from Hotel Sturgis on Main St. and Harley-Davidson Way in Sturgis SD",
-    at: { lat: 37.2634, lng: -88.1386, timeZone: "America/Chicago", country: "US" },
+    at: { lat: 44.4097, lng: -103.5091, timeZone: "America/Denver", country: "US" },
   },
   {
     id: "us-top-of-crest-lift-brighton-ski-resort",
@@ -17084,7 +17084,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCrI8aOr8G4tGjGUk6hRPpAA",
     videoId: "JELaF9xTQNk",
     titleKey: "MIAMI 8K Virtual Tour 🇺🇸 🐬 Brickell Skyline, Miami Beach & Florida Coastal Escape ✈️",
-    at: { lat: 25.7743, lng: -80.1937, timeZone: "America/New_York", country: "US" },
+    at: { lat: 25.7501, lng: -80.2045, timeZone: "America/New_York", country: "US" },
   },
   {
     id: "us-sample-1080p-hi-definition-cctv-foota",
@@ -18327,7 +18327,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCnvLGayHxWh5YZjpJjZ6WRg",
     videoId: "S10r_zF_ar4",
     titleKey: "Walking in New York at Night - Summer in Manhattan NYC Walking Tour 4K",
-    at: { lat: 38.4722, lng: -101.9727, timeZone: "America/Denver", country: "US" },
+    at: { lat: 40.7834, lng: -73.9663, timeZone: "America/New_York", country: "US" },
   },
   {
     id: "us-winter-walk-in-manhattan-new-york-wal",
@@ -18338,7 +18338,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCnvLGayHxWh5YZjpJjZ6WRg",
     videoId: "2F_5_wuk8BI",
     titleKey: "Winter Walk in MANHATTAN 🗽 New York Walking tour, NYC",
-    at: { lat: 45.8197, lng: -91.0118, timeZone: "America/Chicago", country: "US" },
+    at: { lat: 40.7834, lng: -73.9663, timeZone: "America/New_York", country: "US" },
   },
   {
     id: "us-a-day-in-the-life-of-an-american-truc",
@@ -18602,7 +18602,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UC8gbWbcNNyb5-NIXvFklkOA",
     videoId: "MnBqd6bB4Jw",
     titleKey: "Seaside Inn, Kennebunk Beach, Maine US - LIVE",
-    at: { lat: 36.6111, lng: -121.8516, timeZone: "America/Los_Angeles", country: "US" },
+    at: { lat: 43.384, lng: -70.5448, timeZone: "America/New_York", country: "US" },
   },
   {
     id: "us-live-late-night-sights-sounds-of-pure",
@@ -18822,7 +18822,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UC-bPJdfIq5zqIP_PQ7rUJaA",
     videoId: "Jil1EgWZndY",
     titleKey: "Big Boy in Fostoria, Ohio – Live from Our NKP Camera",
-    at: { lat: 64.1525, lng: -145.8422, timeZone: "America/Anchorage", country: "US" },
+    at: { lat: 41.157, lng: -83.4169, timeZone: "America/New_York", country: "US" },
   },
   {
     id: "us-otter-indoor-cam",
@@ -18866,7 +18866,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCaG0IHN1RMOZ4-U3wDXAkwA",
     videoId: "FVdmnpJ2kM0",
     titleKey: "🔴 Live Now:  24/7 Kilauea Volcano Watch in Hawaii (Multi-cams)",
-    at: { lat: 33.8314, lng: -118.0728, timeZone: "America/Los_Angeles", country: "US" },
+    at: { lat: 22.2121, lng: -159.4134, timeZone: "Pacific/Honolulu", country: "US" },
   },
   {
     id: "us-cabo-san-lucas-baja-california-sur-en",
@@ -19130,7 +19130,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCr7fDhVsKZw-Gayfgdl0jfg",
     videoId: "Zz9hMrxl20I",
     titleKey: "Live Stream — Public Square, Watertown NY — Jake Johnson Properties",
-    at: { lat: 43.2417, lng: -75.2568, timeZone: "America/New_York", country: "US" },
+    at: { lat: 43.9748, lng: -75.9108, timeZone: "America/New_York", country: "US" },
   },
   {
     id: "us-live-stream-dry-hill-ski-area-waterto",
@@ -19284,7 +19284,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCrtIIVfi-5tMlVXdMDzOMUA",
     videoId: "61pi8UjLOlo",
     titleKey: "Lake Hood Seaplane Base, Anchorage, Alaska, USA | StreamTime LIVE",
-    at: { lat: 46.5763, lng: -119.0067, timeZone: "America/Los_Angeles", country: "US" },
+    at: { lat: 61.2181, lng: -149.9003, timeZone: "America/Anchorage", country: "US" },
   },
   {
     id: "us-live-view-of-nederland-co-from-busey",
@@ -19658,7 +19658,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UC-KS6AGW3J43aFF-KOQ6VAw",
     videoId: "awTeFw1hPp4",
     titleKey: "[LIVE] Tarpon Feeding Dock at Robbie's Marina in Islamorada",
-    at: { lat: 28.0397, lng: -82.5665, timeZone: "America/New_York", country: "US" },
+    at: { lat: 24.9243, lng: -80.6278, timeZone: "America/New_York", country: "US" },
   },
   {
     id: "us-live-faro-blanco-marina-of-suntex",
@@ -23277,7 +23277,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCPPFGmTUyM4iDIgp2_zJi5g",
     videoId: "f50R4vDlCmA",
     titleKey: "【iTSCOMライブ配信】渋谷 ライブカメラ LIVE Camera/ Tokyo Shibuya",
-    at: { lat: 35.6895, lng: 139.6917, timeZone: "Asia/Tokyo", country: "JP" },
+    at: { lat: 35.6589, lng: 139.7066, timeZone: "Asia/Tokyo", country: "JP" },
   },
   {
     id: "jp-lake-kawaguchiko-sightseeing-boat-app",
@@ -23552,7 +23552,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCCpZAU0b2vZv598fDBlTlqw",
     videoId: "3e_uPkJCTNo",
     titleKey: "🔴【LIVE】那覇空港・瀬長島・沖縄ライブカメラ【海と飛行機の見えるステーキ専門店 ヨナーズガーデン】Okinawa Naha Airport Yonars Garden",
-    at: { lat: 26.5069, lng: 127.9458, timeZone: "Asia/Tokyo", country: "JP" },
+    at: { lat: 26.1758, lng: 127.6419, timeZone: "Asia/Tokyo", country: "JP" },
   },
   {
     id: "jp-24h-live-tokyo-shinjuku-kabukicho-liv",
@@ -24091,7 +24091,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCp1PQJKoJfZcfAcYlOh8sKA",
     videoId: "5BG3KJVFRVM",
     titleKey: "利尻島　仙法志御崎公園LIVE配信！-Rishiri Island, Hokkaido-",
-    at: { lat: 33.6636, lng: 130.421, timeZone: "Asia/Tokyo", country: "JP" },
+    at: { lat: 45.1806, lng: 141.2431, timeZone: "Asia/Tokyo", country: "JP" },
   },
   {
     id: "jp-live-rishiri-island-hokkaido-2",
@@ -24102,7 +24102,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCp1PQJKoJfZcfAcYlOh8sKA",
     videoId: "enBReBFAk7U",
     titleKey: "利尻島　オタドマリ沼Live配信　-Rishiri Island, Hokkaido-",
-    at: { lat: 33.6636, lng: 130.421, timeZone: "Asia/Tokyo", country: "JP" },
+    at: { lat: 45.1806, lng: 141.2431, timeZone: "Asia/Tokyo", country: "JP" },
   },
   {
     id: "jp-live-kyoto-station-hachijo-taxi-staio",
@@ -24146,7 +24146,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCPPFGmTUyM4iDIgp2_zJi5g",
     videoId: "AADZvNj8db4",
     titleKey: "【iTSCOMライブ配信】用賀 ライブカメラ LIVE Camera/ Tokyo Metropolitan Expressway Yoga Tollgate",
-    at: { lat: 35.6895, lng: 139.6917, timeZone: "Asia/Tokyo", country: "JP" },
+    at: { lat: 35.6253, lng: 139.6389, timeZone: "Asia/Tokyo", country: "JP" },
   },
   {
     id: "jp-what-s-happening-in-tokyo-right-now-l",
@@ -24377,7 +24377,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCIMs8atP2qoxcfAvhiFlzGQ",
     videoId: "G6sibWr2-aA",
     titleKey: "Blizzard and Whiteout in Sapporo in the Evening | January 13, 2026",
-    at: { lat: 39.35, lng: 141.9167, timeZone: "Asia/Tokyo", country: "JP" },
+    at: { lat: 43.0667, lng: 141.35, timeZone: "Asia/Tokyo", country: "JP" },
   },
   {
     id: "jp-live-2026-07-19-17-00-osaka-japan-tra",
@@ -24476,7 +24476,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCOsw8Of0n0JFV-nbnAmDizw",
     videoId: "cTD7nITGhE0",
     titleKey: "【LIVE】✈️福岡空港ライブカメラ Fukuoka Airport Live Camera 24/7",
-    at: { lat: 33.6, lng: 130.4167, timeZone: "Asia/Tokyo", country: "JP" },
+    at: { lat: 33.5859, lng: 130.4507, timeZone: "Asia/Tokyo", country: "JP" },
   },
   {
     id: "jp-live-the-philosopher-s-path-kyoto-liv",
@@ -24564,7 +24564,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCrpdkCQKI1mfwB7WdKFOgYQ",
     videoId: "3KZ20aH_Oq4",
     titleKey: "【4K】東京ライブカメラ 荒川 土手 / Tokyo Live Camera Arakawa River",
-    at: { lat: 35.6895, lng: 139.6917, timeZone: "Asia/Tokyo", country: "JP" },
+    at: { lat: 35.7383, lng: 139.7805, timeZone: "Asia/Tokyo", country: "JP" },
   },
   {
     id: "jp-yamaguchi-ube-airport-live-live",
@@ -24795,7 +24795,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCkAB51Lbgor6SW8aE4S3zuQ",
     videoId: "66w-y4i91hE",
     titleKey: "東京ライブカメラ Tokyo live camera｜港区・築地｜夕焼けと都心の景色｜24時間配信",
-    at: { lat: 35.6895, lng: 139.6917, timeZone: "Asia/Tokyo", country: "JP" },
+    at: { lat: 35.6581, lng: 139.7515, timeZone: "Asia/Tokyo", country: "JP" },
   },
   {
     id: "jp-4k-hdr-azabudai-hills-to-roppongi-hil",
@@ -24883,7 +24883,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCpWU25qIleNLmUEF9VwBdMA",
     videoId: "uCbr0YLxsac",
     titleKey: "【LIVE】 桜島 ライブカメラ D 【鹿児島市】/ Sakurajima, an active volcano live cam (Kagoshima City) JAPAN",
-    at: { lat: 31.5918, lng: 130.6564, timeZone: "Asia/Tokyo", country: "JP" },
+    at: { lat: 31.5833, lng: 130.6667, timeZone: "Asia/Tokyo", country: "JP" },
   },
   {
     id: "jp-live-a-sakurajima-an-active-volcano-l",
@@ -24894,7 +24894,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCpWU25qIleNLmUEF9VwBdMA",
     videoId: "eF9PohrRP_o",
     titleKey: "【LIVE】桜島 ライブカメラA【遠景】鹿児島県 垂水市 フェリー/ Sakurajima, an active volcano live cam JAPAN\"",
-    at: { lat: 31.5918, lng: 130.6564, timeZone: "Asia/Tokyo", country: "JP" },
+    at: { lat: 31.5833, lng: 130.6667, timeZone: "Asia/Tokyo", country: "JP" },
   },
   {
     id: "jp-2-pon-yamubetsu-river-camera-near-wes",
@@ -24916,7 +24916,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCpWU25qIleNLmUEF9VwBdMA",
     videoId: "Mfq8V8uE0SU",
     titleKey: "【LIVE】桜島 ライブカメラＣ【火口】鹿児島県 垂水市 / Live Streaming Sakurajima Crater Kagoshima, JAPAN'",
-    at: { lat: 31.5918, lng: 130.6564, timeZone: "Asia/Tokyo", country: "JP" },
+    at: { lat: 31.5833, lng: 130.6667, timeZone: "Asia/Tokyo", country: "JP" },
   },
   {
     id: "jp-jr-live-streaming-from-jr-sapporo-sta",
@@ -25103,7 +25103,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCRZMs9s1P6o0b1nGibmtkJA",
     videoId: "NfR1Y-mYEtg",
     titleKey: "[4K Live] 桜島 ライブカメラ 鹿児島県 垂水市 Sakurajima Living Volcano Kagoshima Japan",
-    at: { lat: 31.5918, lng: 130.6564, timeZone: "Asia/Tokyo", country: "JP" },
+    at: { lat: 31.5833, lng: 130.6667, timeZone: "Asia/Tokyo", country: "JP" },
   },
   {
     id: "jp-stv-livecamera-hokkaido-japan",
@@ -25158,7 +25158,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCr-N09hc5QmOUg1kkB1D2Xg",
     videoId: "BYqCey1VTkw",
     titleKey: "正月明けの阿佐ヶ谷を散歩【4K東京街歩き】Japan Tokyo 4K walking tour/Asagaya",
-    at: { lat: 35.6854, lng: 139.7531, timeZone: "Asia/Tokyo", country: "JP" },
+    at: { lat: 35.7021, lng: 139.6375, timeZone: "Asia/Tokyo", country: "JP" },
   },
   {
     id: "jp-24-live-ojika-island-nagasaki-japan-i",
@@ -27644,7 +27644,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UC0ZZNq6f8khQvqBSnNFQV4g",
     videoId: "tZ9LDNP83xw",
     titleKey: "Hamptons.com - LIVE SURF CAM! Ponquogue Beach Pavilion, Hampton Bays, New York",
-    at: { lat: 29.9849, lng: -84.421, timeZone: "America/New_York", country: "US" },
+    at: { lat: 40.8565, lng: -72.5051, timeZone: "America/New_York", country: "US" },
   },
   {
     id: "us-viewstar-budget-camera-2-megapixel-hi",
@@ -27930,7 +27930,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCGOxU-8iNOeoG3a337shXoA",
     videoId: "SHfAtWHr9Ks",
     titleKey: "Underwater Camera - Deerfield Beach, Florida",
-    at: { lat: 45.3072, lng: -70.4329, timeZone: "America/New_York", country: "US" },
+    at: { lat: 26.3184, lng: -80.0998, timeZone: "America/New_York", country: "US" },
   },
   {
     id: "us-lujiigarden-bird-feeder-cam",
@@ -29305,7 +29305,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UC-KS6AGW3J43aFF-KOQ6VAw",
     videoId: "kfo6G_FeaUU",
     titleKey: "[LIVE] Underwater Tarpon Feeding Dock at Robbie's Marina in Islamorada",
-    at: { lat: 28.0397, lng: -82.5665, timeZone: "America/New_York", country: "US" },
+    at: { lat: 24.9243, lng: -80.6278, timeZone: "America/New_York", country: "US" },
   },
   {
     id: "us-live-la-trattoria-oceanside-cam",
@@ -30185,7 +30185,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCwNfkYp9gKIvQDN1kPhpCsQ",
     videoId: "YZMZSqz9fx8",
     titleKey: "大阪ライブカメラ　【LIVE】大阪 心斎橋 ユニクロ前 24時間ライブカメラ｜高感度屋外IPカメラ配信｜FST.NET",
-    at: { lat: 34.6938, lng: 135.5011, timeZone: "Asia/Tokyo", country: "JP" },
+    at: { lat: 34.6751, lng: 135.5003, timeZone: "Asia/Tokyo", country: "JP" },
   },
   {
     id: "jp-live-jct-tokyo-highway-live-camer-14",
@@ -30548,7 +30548,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCvnoz9Xda2mwTb6KhfYBUnQ",
     videoId: "G1XL6DbczYk",
     titleKey: "4k 東京ライブカメラ  @tokyo  live camera  ドコモタワー #国立競技場・新宿御苑・新宿・渋谷 ＠国立競技場 ＠東京ライブカメラ #tokyo#東京ライブカメラ",
-    at: { lat: 35.6895, lng: 139.6917, timeZone: "Asia/Tokyo", country: "JP" },
+    at: { lat: 35.6912, lng: 139.7085, timeZone: "Asia/Tokyo", country: "JP" },
   },
   {
     id: "jp-live-tokyo-highway-live-camera-20-8",
@@ -30867,7 +30867,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCcipaSh5J0DwFRvoaAl0P3g",
     videoId: "0GVPhWWUStc",
     titleKey: "東京新聞ライブカメラ_霞が関",
-    at: { lat: 35.6895, lng: 139.6917, timeZone: "Asia/Tokyo", country: "JP" },
+    at: { lat: 35.6713, lng: 139.7467, timeZone: "Asia/Tokyo", country: "JP" },
   },
   {
     id: "jp-4k-tokyo-walk-shin-okubo-70",
@@ -31142,7 +31142,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UC1QHI-zQvIIkptXJsupfTZg",
     videoId: "BBayXL-zPC4",
     titleKey: "Lincolnville, Maine - Harbor Cam",
-    at: { lat: 42.0334, lng: -87.8834, timeZone: "America/Chicago", country: "US" },
+    at: { lat: 44.2812, lng: -69.0087, timeZone: "America/New_York", country: "US" },
   },
   {
     id: "kr-live-cam-i-seoul-seokchon-lake-seoul",
@@ -33001,7 +33001,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCe0IyAHwKBq-ohmOxboQGEg",
     videoId: "6mYHv47tpKE",
     titleKey: "旧軽井沢町営駐車場ライブカメラ",
-    at: { lat: 36.3483, lng: 138.597, timeZone: "Asia/Tokyo", country: "JP" },
+    at: { lat: 36.3578, lng: 138.6352, timeZone: "Asia/Tokyo", country: "JP" },
   },
   {
     id: "jp-2026-8-11-pm-4-32",
@@ -33089,7 +33089,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCe0IyAHwKBq-ohmOxboQGEg",
     videoId: "VPtrs9gWyk8",
     titleKey: "旧軽井沢町営駐車場出入口付近ライブカメラ",
-    at: { lat: 36.3483, lng: 138.597, timeZone: "Asia/Tokyo", country: "JP" },
+    at: { lat: 36.3578, lng: 138.6352, timeZone: "Asia/Tokyo", country: "JP" },
   },
   {
     id: "us-andare-residences-live-stream",
@@ -35212,7 +35212,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCIMs8atP2qoxcfAvhiFlzGQ",
     videoId: "T95GNcqeKdE",
     titleKey: "Sapporo Mt. Moiwa 24/7 Live | 🚡 藻岩山ロープウェイ | lofi, beats to relax, chill",
-    at: { lat: 33.512, lng: 130.3645, timeZone: "Asia/Tokyo", country: "JP" },
+    at: { lat: 43.0667, lng: 141.35, timeZone: "Asia/Tokyo", country: "JP" },
   },
   {
     id: "jp-80",
@@ -35685,7 +35685,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCHS_cf4svIgX1HJl25wzWGQ",
     videoId: "hpkFTc_r3xE",
     titleKey: "愛知県名古屋市天白区野並ライブカメラ",
-    at: { lat: 35.1815, lng: 136.9064, timeZone: "Asia/Tokyo", country: "JP" },
+    at: { lat: 35.1018, lng: 136.955, timeZone: "Asia/Tokyo", country: "JP" },
   },
   {
     id: "jp-jct-shinsuzaki-jct-nagoya-expressway",
@@ -35839,7 +35839,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCU2Q1oGMqU1TWF8nIuoY4gg",
     videoId: "uO_tG5ThCFA",
     titleKey: "沖縄県うるま市州崎ライブカメラ",
-    at: { lat: 26.213, lng: 127.6785, timeZone: "Asia/Tokyo", country: "JP" },
+    at: { lat: 26.3761, lng: 127.8591, timeZone: "Asia/Tokyo", country: "JP" },
   },
   {
     id: "jp-95",
@@ -35927,7 +35927,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UC-NuZ8QbpIIDK8ZhzsOyEpQ",
     videoId: "5ZIw5x5jnQg",
     titleKey: "🔴 【4K Live】沖縄ライブカメラ cafe CAHAYA BULAN OKINAWA JAPAN(本部町備瀬 )",
-    at: { lat: 26.213, lng: 127.6785, timeZone: "Asia/Tokyo", country: "JP" },
+    at: { lat: 26.1919, lng: 127.7246, timeZone: "Asia/Tokyo", country: "JP" },
   },
   {
     id: "jp-tnc-live",
@@ -35949,7 +35949,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCWFKZJdFJIIH1E9DGYBaY0A",
     videoId: "0EeGabC__4E",
     titleKey: "8月26日(水)｜【LIVE】石垣島ライブカメラ（名蔵湾・フサキビーチ） ／ ISHIGAKIJIMA OKINAWA JAPAN",
-    at: { lat: 26.213, lng: 127.6785, timeZone: "Asia/Tokyo", country: "JP" },
+    at: { lat: 24.4, lng: 124.2, timeZone: "Asia/Tokyo", country: "JP" },
   },
   {
     id: "jp-akita-japan-live",
@@ -35982,7 +35982,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCN4r4N7n0nRmyfWbzXHi-Xg",
     videoId: "Tlc3uegvdrQ",
     titleKey: "モトブテラス ライブカメラ｜沖縄北部 本部町 Okinawa Live cam",
-    at: { lat: 26.213, lng: 127.6785, timeZone: "Asia/Tokyo", country: "JP" },
+    at: { lat: 26.1919, lng: 127.7246, timeZone: "Asia/Tokyo", country: "JP" },
   },
   {
     id: "jp-live-live-streaming-from-sendai-airpo",
@@ -36015,7 +36015,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCNt5Ctj5uR_A5jTn_yZ9mVQ",
     videoId: "zRT3miyL4YA",
     titleKey: "[LIVE]宮城・閖上港ライブカメラ/Live streaming from Yuriage Port facing the Pacific Ocean",
-    at: { lat: 33.6006, lng: 130.3653, timeZone: "Asia/Tokyo", country: "JP" },
+    at: { lat: 38.1725, lng: 140.9428, timeZone: "Asia/Tokyo", country: "JP" },
   },
   {
     id: "jp-miyagi-sendai-livecamera-world-cam",
@@ -36180,7 +36180,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCynXCHprmOfyGzGSnqgp6Wg",
     videoId: "rXBP07YI-wk",
     titleKey: "【LIVE】上野城ライブカメラ 桜島と鹿児島市内  /  Sakurajima and Kagoshima city in Japan.  /  Vulcão com câmera ao vivo",
-    at: { lat: 31.5667, lng: 130.55, timeZone: "Asia/Tokyo", country: "JP" },
+    at: { lat: 31.5918, lng: 130.6564, timeZone: "Asia/Tokyo", country: "JP" },
   },
   {
     id: "jp-amami-airport-by-kyt-live",
@@ -36257,7 +36257,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UC5JpiO6tF8uRAZERl5dMcYQ",
     videoId: "QCjlVmoCazI",
     titleKey: "【上ノ国町ライブカメラ】②ラウンドアバウト拡大 Roundabout Town Kaminokuni , Hokkaido ,Japan",
-    at: { lat: 43.432, lng: 142.9347, timeZone: "Asia/Tokyo", country: "JP" },
+    at: { lat: 41.8026, lng: 140.1106, timeZone: "Asia/Tokyo", country: "JP" },
   },
   {
     id: "jp-1r228-roundabout-town-kaminokuni-hokk",
@@ -36268,7 +36268,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UC5JpiO6tF8uRAZERl5dMcYQ",
     videoId: "6bQyyhNOzY0",
     titleKey: "【上ノ国町ライブカメラ】①R228 ラウンドアバウト Roundabout Town Kaminokuni , Hokkaido ,Japan",
-    at: { lat: 43.432, lng: 142.9347, timeZone: "Asia/Tokyo", country: "JP" },
+    at: { lat: 41.8026, lng: 140.1106, timeZone: "Asia/Tokyo", country: "JP" },
   },
   {
     id: "jp-4k-4k-mount-fuji-webcams-oshino-hakka",
@@ -36444,7 +36444,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCk-EAKT8Q5O2tm_TlhTmgOw",
     videoId: "va8zBSJWHVM",
     titleKey: "Live Cam 台北市河岸直播即時影像 台湾、台北のライブカメラ川岸の夜景 河岸美景 relax music Sleep peacefully, help sleep, relax the mind",
-    at: { lat: 24.5789, lng: 121.1081, timeZone: "Asia/Taipei", country: "TW" },
+    at: { lat: 25.0531, lng: 121.5264, timeZone: "Asia/Taipei", country: "TW" },
   },
   {
     id: "tw-live-taipei-city-views-24-7-bgm-exclu",
@@ -36510,7 +36510,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCuDX3wjWXvaDO6fF456D6Zg",
     videoId: "vXvblXi-PGo",
     titleKey: "🔴【LIVE】Taiwan Taipei Songshan Airport (RCSS/TSA) ATC Tracking｜臺北松山機場｜即時航班動態＆塔台通訊｜夜間限定臺北區域管制",
-    at: { lat: 25.0531, lng: 121.5264, timeZone: "Asia/Taipei", country: "TW" },
+    at: { lat: 25.0431, lng: 121.5797, timeZone: "Asia/Taipei", country: "TW" },
   },
   {
     id: "tw-live-1-24-7-365-24h-lofi-l20-g-09",
@@ -37511,7 +37511,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCLqR7wwudU-KtpBQO8gf2Rg",
     videoId: "d2Ii5ybhbQY",
     titleKey: "🔴 Scotland Edinburgh UK LIVE Cam Webcam Stream 4K HD Arthur's Seat. Salisbury Crags. 12hr Rewind.",
-    at: { lat: 53.8578, lng: -1.642, timeZone: "Europe/London", country: "GB" },
+    at: { lat: 55.9521, lng: -3.1965, timeZone: "Europe/London", country: "GB" },
   },
   {
     id: "de-germany-now",
@@ -38534,7 +38534,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCYUbNjkuE4lsr2v1Id2O1oA",
     videoId: "FLoSUN_Vrz4",
     titleKey: "Vollmer Peak, California Live Camera | 24/7 Stream",
-    at: { lat: 34.2407, lng: -81.3234, timeZone: "America/New_York", country: "US" },
+    at: { lat: 37.8833, lng: -122.2219, timeZone: "America/Los_Angeles", country: "US" },
   },
   {
     id: "us-castro-street-cam-1-live-stream",
@@ -38699,7 +38699,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCCEeBYYhHrHuFBGM3yLjvqg",
     videoId: "tYBI0xrWDII",
     titleKey: "Miami Intracoastal Live | Sunny Isles Beach | Aventura | Florida",
-    at: { lat: 25.7743, lng: -80.1937, timeZone: "America/New_York", country: "US" },
+    at: { lat: 25.9506, lng: -80.1228, timeZone: "America/New_York", country: "US" },
   },
   {
     id: "us-pacific-cams-west-coasta-tourcaliforn",
@@ -38732,7 +38732,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UC5lNakfSdpqXCW214H5sBgQ",
     videoId: "TZAvviB_o-4",
     titleKey: "LIVE: The Kahala Resort & Hotel | Oahu Hawaii Live Beach Cam | Oahu Ocean View",
-    at: { lat: 20.7, lng: -155.9972, timeZone: "Pacific/Honolulu", country: "US" },
+    at: { lat: 21.2769, lng: -157.7876, timeZone: "Pacific/Honolulu", country: "US" },
   },
   {
     id: "us-south-shore-surf-cam",
@@ -38765,7 +38765,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCGG6iTf5eFcFY0OeIyjfbVQ",
     videoId: "bZ4uxyLqV-E",
     titleKey: "Live Cam From The Best Western In Jacksonville Beach, Fl.",
-    at: { lat: 35.3438, lng: -77.8489, timeZone: "America/New_York", country: "US" },
+    at: { lat: 30.3322, lng: -81.6556, timeZone: "America/New_York", country: "US" },
   },
   {
     id: "us-wailea-beach-live-cam-wailea-beach-re",
@@ -39986,7 +39986,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UC88QpAaX8sdqm1fWYSjzbSQ",
     videoId: "OYqo4dqYjh0",
     titleKey: "The Rooftop Bar (Fixed Wide West) | Oceanside, CA | San Diego Web Cam",
-    at: { lat: 32.7892, lng: -114.5561, timeZone: "America/Los_Angeles", country: "US" },
+    at: { lat: 33.1959, lng: -117.3795, timeZone: "America/Los_Angeles", country: "US" },
   },
   {
     id: "no-port-og-nordfjordeid",
@@ -40063,7 +40063,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UC2W2O6m0KmMvRoGe3IbCvhA",
     videoId: "S6v-8dHcd04",
     titleKey: "🔴Assisi - Piazza del Comune Live Webcam",
-    at: { lat: 45.7693, lng: 7.5569, timeZone: "Europe/Rome", country: "IT" },
+    at: { lat: 43.0667, lng: 12.6211, timeZone: "Europe/Rome", country: "IT" },
   },
   {
     id: "it-webcam-live-firenze-in-diretta",
@@ -40129,7 +40129,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCaG0IHN1RMOZ4-U3wDXAkwA",
     videoId: "iws3rh5vLAQ",
     titleKey: "🔴 Live Now: 24/7 Kilauea Volcano Livestream in Hawaii (Cam A)",
-    at: { lat: 33.8314, lng: -118.0728, timeZone: "America/Los_Angeles", country: "US" },
+    at: { lat: 22.2121, lng: -159.4134, timeZone: "Pacific/Honolulu", country: "US" },
   },
   {
     id: "us-live-now-24-7-kilauea-volcano-liv-3",
@@ -40140,7 +40140,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCaG0IHN1RMOZ4-U3wDXAkwA",
     videoId: "Nvjf1vZZrkk",
     titleKey: "🔴 Live Now: 24/7 Kilauea Volcano Livestream in Hawaii (Cam C)",
-    at: { lat: 33.8314, lng: -118.0728, timeZone: "America/Los_Angeles", country: "US" },
+    at: { lat: 22.2121, lng: -159.4134, timeZone: "Pacific/Honolulu", country: "US" },
   },
   {
     id: "us-kilauea-volcano-is-erupting-lava-eart",
@@ -40206,7 +40206,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCmNzcktAazbptWVqhOFH88g",
     videoId: "9NJ1zF2zxOg",
     titleKey: "Hawaii volcano eruption 24/7 monitoring",
-    at: { lat: 33.8314, lng: -118.0728, timeZone: "America/Los_Angeles", country: "US" },
+    at: { lat: 19.4428, lng: -155.234, timeZone: "Pacific/Honolulu", country: "US" },
   },
   {
     id: "us-v2cam-kilauea-volcano-hawaii-east-hal",
@@ -40261,7 +40261,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UC9q8SxVyzGAA9k_dNJjJnyw",
     videoId: "1-Je0zLBUxY",
     titleKey: "Houston, Texas | Live Downtown Skyline Camera",
-    at: { lat: 39.4348, lng: -80.1317, timeZone: "America/New_York", country: "US" },
+    at: { lat: 29.7633, lng: -95.3633, timeZone: "America/Chicago", country: "US" },
   },
   {
     id: "us-houston-texas-live-hobby-airport-came",
@@ -40272,7 +40272,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UC9q8SxVyzGAA9k_dNJjJnyw",
     videoId: "hboDcda_M7s",
     titleKey: "Houston, Texas | Live Hobby Airport Camera",
-    at: { lat: 39.4348, lng: -80.1317, timeZone: "America/New_York", country: "US" },
+    at: { lat: 29.7633, lng: -95.3633, timeZone: "America/Chicago", country: "US" },
   },
   {
     id: "us-live-kilauea-episode-54-watch-next-er",
@@ -40360,7 +40360,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UC9YtvuF-DrWVieSt4OqoY3A",
     videoId: "SiNdj5dEq_8",
     titleKey: "【#ライブカメラ】 情報カメラ #大通公園   #北海道",
-    at: { lat: 43.452, lng: 142.8198, timeZone: "Asia/Tokyo", country: "JP" },
+    at: { lat: 43.0594, lng: 141.3437, timeZone: "Asia/Tokyo", country: "JP" },
   },
   {
     id: "jp-101",
@@ -40888,7 +40888,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCARB8y6PuoOBjZXJKIG-LDw",
     videoId: "BxMeMnX6Qqw",
     titleKey: "【4K】Taiwan Taoyuan International Airport (TPE/RCTP) ｜Live Camera 3｜桃園國際機場｜大古山",
-    at: { lat: 24.9937, lng: 121.297, timeZone: "Asia/Taipei", country: "TW" },
+    at: { lat: 25.0777, lng: 121.2328, timeZone: "Asia/Taipei", country: "TW" },
   },
   {
     id: "cn-chek-news-victoria-harbour-cam-24-7-l",
@@ -41944,7 +41944,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCbZNp6qI3ffGgYhnAF9whyQ",
     videoId: "hfOgGUhdybo",
     titleKey: "🔴 LIVE: Praia Ponta Gorda Beach Webcam, Funchal | Madeira-Web",
-    at: { lat: 39.0515, lng: -27.9711, timeZone: "Atlantic/Azores", country: "PT" },
+    at: { lat: 32.6657, lng: -16.9255, timeZone: "Atlantic/Madeira", country: "PT" },
   },
   {
     id: "pt-madeira-island-live-rolling-multi-cam",
@@ -42406,7 +42406,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCxaKME3e34j3aTESZZ3h7Sg",
     videoId: "7KCnwGgb7OM",
     titleKey: "Benson, AZ | UPRR Lordsburg Sub MP 1032 - PTZ | SouthWest RailCams LIVE",
-    at: { lat: 37.4817, lng: -100.8438, timeZone: "America/Chicago", country: "US" },
+    at: { lat: 31.9679, lng: -110.2945, timeZone: "America/Phoenix", country: "US" },
   },
   {
     id: "us-live-24-7-goodyear-civic-square-cam",
@@ -42428,7 +42428,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCWowQG7UH7CL50ihuJP_J1w",
     videoId: "hVzxl2gSQ18",
     titleKey: "🔴 LIVE: Nashville Sunset Cam • 24/7 Horizon View from Downtown",
-    at: { lat: 37.2634, lng: -88.1386, timeZone: "America/Chicago", country: "US" },
+    at: { lat: 36.1659, lng: -86.7844, timeZone: "America/Chicago", country: "US" },
   },
   {
     id: "us-city-of-murfreesboro-traffic-cameras",
@@ -42879,7 +42879,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCn9JnDto9d2-nn4lvJE3Iqw",
     videoId: "GXan5ROsd08",
     titleKey: "CBC News LIVE: Calgary",
-    at: { lat: 45.0001, lng: -79.5829, timeZone: "America/Toronto", country: "CA" },
+    at: { lat: 51.0501, lng: -114.0853, timeZone: "America/Edmonton", country: "CA" },
   },
   {
     id: "ca-web-cam-club-nautique-de-l-ile-d-orle",
@@ -43000,7 +43000,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCt5YT3gOz4HXJcPTC_tce-A",
     videoId: "4Cdk-DqFg9A",
     titleKey: "Barra da Lagoa - Florianópolis - Santa Catarina - Brasil - AO VIVO",
-    at: { lat: -9.4061, lng: -38.2147, timeZone: "America/Bahia", country: "BR" },
+    at: { lat: -27.5787, lng: -48.4316, timeZone: "America/Sao_Paulo", country: "BR" },
   },
   {
     id: "br-ao-vivo-relogio-hora-atual-em-brasili",
@@ -43616,7 +43616,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCRj7u6fmW8RYQl98hcwbwng",
     videoId: "75K1IfdF2MM",
     titleKey: "Live Colorado Springs Webcam | Pikes Peak & Prospect Lake View",
-    at: { lat: 34.2407, lng: -81.3234, timeZone: "America/New_York", country: "US" },
+    at: { lat: 38.8339, lng: -104.8214, timeZone: "America/Denver", country: "US" },
   },
   {
     id: "us-socalmountains-com-goldmine-mountain",
@@ -45816,7 +45816,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCED0EjiTpphqDS4GnLimLyQ",
     videoId: "SNvppiU1-IM",
     titleKey: "Grand Avenue Bridge in Glenwood Springs Live Camera",
-    at: { lat: 39.1911, lng: -106.8175, timeZone: "America/Denver", country: "US" },
+    at: { lat: 39.5505, lng: -107.3248, timeZone: "America/Denver", country: "US" },
   },
   {
     id: "us-steamboatelevated-com-elevated-proper",
@@ -45915,7 +45915,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UC3tMdjhsqPmxmIF92ECuWZw",
     videoId: "f4Ma-tx708w",
     titleKey: "OLD FORGE NY NORTH STREET PAVILION",
-    at: { lat: 44.9342, lng: -68.6453, timeZone: "America/New_York", country: "US" },
+    at: { lat: 42.8762, lng: -78.0228, timeZone: "America/New_York", country: "US" },
   },
   {
     id: "us-access-laporte-county-beachcam",
@@ -46025,7 +46025,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCxaKME3e34j3aTESZZ3h7Sg",
     videoId: "S2YHshIN0F8",
     titleKey: "San Luis Obispo, CA | UPRR Santa Barbara Sub, MP 248.7 - PTZ (Chat) | SouthWest RailCams LIVE",
-    at: { lat: 32.7157, lng: -117.1647, timeZone: "America/Los_Angeles", country: "US" },
+    at: { lat: 35.2828, lng: -120.6596, timeZone: "America/Los_Angeles", country: "US" },
   },
   {
     id: "us-uninhabited-island-klein-curacao-miss",
@@ -46080,7 +46080,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UC9q8SxVyzGAA9k_dNJjJnyw",
     videoId: "PMVJd8xOUkE",
     titleKey: "Galveston, Texas | Live Beach Camera",
-    at: { lat: 39.4348, lng: -80.1317, timeZone: "America/New_York", country: "US" },
+    at: { lat: 29.3013, lng: -94.7977, timeZone: "America/Chicago", country: "US" },
   },
   {
     id: "us-jimmy-s-crows-nest-sunrise",
@@ -46223,7 +46223,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCsqb_tTzpWSOYgcoTlLiZRg",
     videoId: "R6mgkdG33Do",
     titleKey: "Galveston Texas  24/7 Live Camera  BNSF Railroad, Fishing, Sunsets, Trains and More!",
-    at: { lat: 39.4348, lng: -80.1317, timeZone: "America/New_York", country: "US" },
+    at: { lat: 29.3013, lng: -94.7977, timeZone: "America/Chicago", country: "US" },
   },
   {
     id: "us-jimmy-s-fish-house-sunset",
@@ -46344,7 +46344,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCT79PPV5AGa9r74shsSWW2A",
     videoId: "KYxUtgc-_Og",
     titleKey: "Glensheen Lake Cam | Duluth, MN | Livestream",
-    at: { lat: 46.5763, lng: -119.0067, timeZone: "America/Los_Angeles", country: "US" },
+    at: { lat: 46.7833, lng: -92.1066, timeZone: "America/Chicago", country: "US" },
   },
   {
     id: "us-gomv-com-oak-bluffs-circuit-ave-massa",
@@ -46377,7 +46377,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UC_JkC_sNaRfTrbRw9_b2QoA",
     videoId: "W01huIwqSEo",
     titleKey: "Jewfish Creek Bridge, Live WebCam - Key Largo, Florida Keys",
-    at: { lat: 46.8218, lng: -123.0962, timeZone: "America/Los_Angeles", country: "US" },
+    at: { lat: 25.1837, lng: -80.3881, timeZone: "America/New_York", country: "US" },
   },
   {
     id: "us-obx-osprey-cam-perch-cam",
@@ -46718,7 +46718,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCsghjvIsGFKH2cAjbRt7g6w",
     videoId: "Pwt0tZlt9eE",
     titleKey: "Lockeport Crescent Beach Centre, Nova Scotia",
-    at: { lat: 45.4501, lng: -79.2496, timeZone: "America/Toronto", country: "CA" },
+    at: { lat: 43.6999, lng: -65.1124, timeZone: "America/Halifax", country: "CA" },
   },
   {
     id: "ca-baccaro-point-lighthouse-nova-scotia",
@@ -46729,7 +46729,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCsghjvIsGFKH2cAjbRt7g6w",
     videoId: "5mYXkctDMsA",
     titleKey: "Baccaro Point Lighthouse, Nova Scotia",
-    at: { lat: 45.4501, lng: -79.2496, timeZone: "America/Toronto", country: "CA" },
+    at: { lat: 43.4791, lng: -65.4739, timeZone: "America/Halifax", country: "CA" },
   },
   {
     id: "ca-burntcoat-head-nova-scotia",
@@ -46740,7 +46740,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCsghjvIsGFKH2cAjbRt7g6w",
     videoId: "RdQ-e-iCkVI",
     titleKey: "Burntcoat Head, Nova Scotia",
-    at: { lat: 45.4501, lng: -79.2496, timeZone: "America/Toronto", country: "CA" },
+    at: { lat: 45.312, lng: -63.7897, timeZone: "America/Halifax", country: "CA" },
   },
   {
     id: "ca-tangier-nova-scotia",
@@ -46751,7 +46751,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCsghjvIsGFKH2cAjbRt7g6w",
     videoId: "LDcLOaAzu7U",
     titleKey: "Tangier, Nova Scotia",
-    at: { lat: 45.4501, lng: -79.2496, timeZone: "America/Toronto", country: "CA" },
+    at: { lat: 44.8002, lng: -62.6986, timeZone: "America/Halifax", country: "CA" },
   },
   {
     id: "ca-enjoy-a-view-of-the-st-john-s-harbour",
@@ -46927,7 +46927,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCpPLxYC6uNNfNrSQokButSg",
     videoId: "KJb3pSYYkTQ",
     titleKey: "CBC News LIVE: Newfoundland and Labrador",
-    at: { lat: 45.0001, lng: -79.5829, timeZone: "America/Toronto", country: "CA" },
+    at: { lat: 48.5648, lng: -55.7788, timeZone: "America/St_Johns", country: "CA" },
   },
   {
     id: "ca-newfoundland-power-osprey-nestcam",
@@ -47378,7 +47378,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCIMs8atP2qoxcfAvhiFlzGQ",
     videoId: "X-vzOfg0yPk",
     titleKey: "Sapporo in Summer, lofi radio 24 hours | August 16, 2026 | 札幌市中央区交差点",
-    at: { lat: 43.0667, lng: 141.35, timeZone: "Asia/Tokyo", country: "JP" },
+    at: { lat: 44.6833, lng: 141.8833, timeZone: "Asia/Tokyo", country: "JP" },
   },
   {
     id: "jp-fm-japan-kamakura-live-camera-okiishi",
@@ -47719,7 +47719,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCekmK9BsmFY_PujFeV6ryqg",
     videoId: "sFhl7CFnNZA",
     titleKey: "【LIVEカメラ】大分空港（Oita Airport）",
-    at: { lat: 33.2794, lng: 131.4975, timeZone: "Asia/Tokyo", country: "JP" },
+    at: { lat: 33.4794, lng: 131.7372, timeZone: "Asia/Tokyo", country: "JP" },
   },
   {
     id: "jp-no-19-live",
@@ -48005,7 +48005,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCpOav19GgbSHnP2iwOa5Y2Q",
     videoId: "jUnFuJSj0OU",
     titleKey: "【墾丁LIVE】南灣即時影像  Kenting Nanwan bay Live Camera Taiwan / Just Hi就是海沙灘海景民宿提供",
-    at: { lat: 25.1917, lng: 121.5872, timeZone: "Asia/Taipei", country: "TW" },
+    at: { lat: 21.9594, lng: 120.7664, timeZone: "Asia/Taipei", country: "TW" },
   },
   {
     id: "tw-vandana-monastery-live-camera-hualien",
@@ -48764,7 +48764,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCfSkpvV2OZcpFaWcdNPyztQ",
     videoId: "Bbkpy6iBkdw",
     titleKey: "🔴Poetto Beach - Sardinia, Italy - Live Cam",
-    at: { lat: 44.0195, lng: 12.6381, timeZone: "Europe/Rome", country: "IT" },
+    at: { lat: 39.2, lng: 9.1592, timeZone: "Europe/Rome", country: "IT" },
   },
   {
     id: "it-live-webcam-scilla-rc",
@@ -49699,7 +49699,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCj1PZwjt4DM2EK9KYip9ibQ",
     videoId: "oSoxU_r1nUI",
     titleKey: "Oberwiesenthal live - Blick auf den Ort und den Keilberg",
-    at: { lat: 47.963, lng: 8.4717, timeZone: "Europe/Berlin", country: "DE" },
+    at: { lat: 50.4194, lng: 12.9684, timeZone: "Europe/Berlin", country: "DE" },
   },
   {
     id: "es-luanco-en-directo-24-7-asturias-mar-c",
@@ -52757,7 +52757,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCSkLEC-P3Z8GJWZbZp1bQhA",
     videoId: "FSqjgJGMww0",
     titleKey: "Final Episode - San Francisco - Shelter in Place - Day 49 - 53 #FlyWithMe",
-    at: { lat: 37.7749, lng: -122.4194, timeZone: "America/Los_Angeles", country: "US" },
+    at: { lat: 38.3323, lng: -87.4453, timeZone: "America/Chicago", country: "US" },
   },
   {
     id: "us-brownwood-usa",
@@ -54253,7 +54253,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCJId-kbfsO5K4kU9cKE_TqA",
     videoId: "jezOtndOTLk",
     titleKey: "Flossmoor Station Restaurant & Brewery Live Railcam South - Flossmoor, IL #steelhighway",
-    at: { lat: 37.3292, lng: -86.3647, timeZone: "America/Chicago", country: "US" },
+    at: { lat: 41.5428, lng: -87.6848, timeZone: "America/Chicago", country: "US" },
   },
   {
     id: "us-flossmoor-station-restaurant-brew-2",
@@ -54264,7 +54264,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCJId-kbfsO5K4kU9cKE_TqA",
     videoId: "ILFGE7mXEnw",
     titleKey: "Flossmoor Station Restaurant & Brewery Live Railcam North - Flossmoor, IL #steelhighway",
-    at: { lat: 40.8486, lng: -111.9069, timeZone: "America/Denver", country: "US" },
+    at: { lat: 41.5428, lng: -87.6848, timeZone: "America/Chicago", country: "US" },
   },
   {
     id: "us-griffith-tower-live-railcam-griffith",
@@ -54275,7 +54275,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCJId-kbfsO5K4kU9cKE_TqA",
     videoId: "FyhL5VPRNxk",
     titleKey: "Griffith Tower Live Railcam - Griffith, IN #SteelHighway",
-    at: { lat: 47.8055, lng: -92.2746, timeZone: "America/Chicago", country: "US" },
+    at: { lat: 41.5284, lng: -87.4236, timeZone: "America/Chicago", country: "US" },
   },
   {
     id: "us-whiting-indiana-live-railcam-whiting",
@@ -55089,7 +55089,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UC8gbWbcNNyb5-NIXvFklkOA",
     videoId: "LwzKzhHb0XM",
     titleKey: "Southwest Harbor, Maine - Acadia National Park LIVE",
-    at: { lat: 39.7625, lng: -87.2292, timeZone: "America/Indiana/Indianapolis", country: "US" },
+    at: { lat: 44.2798, lng: -68.325, timeZone: "America/New_York", country: "US" },
   },
   {
     id: "us-carrabassett-valley-regional-airport",
@@ -55100,7 +55100,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UC8gbWbcNNyb5-NIXvFklkOA",
     videoId: "FGiuprRXSRs",
     titleKey: "Carrabassett Valley Regional Airport, Maine US",
-    at: { lat: 42.0334, lng: -87.8834, timeZone: "America/Chicago", country: "US" },
+    at: { lat: 45.0778, lng: -70.212, timeZone: "America/New_York", country: "US" },
   },
   {
     id: "us-moosehead-lake-at-rockwood-maine-the",
@@ -55111,7 +55111,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UC8gbWbcNNyb5-NIXvFklkOA",
     videoId: "LllTVXeOo10",
     titleKey: "Moosehead Lake at Rockwood, Maine - The Birches Resort,  CAM 1",
-    at: { lat: 46.5763, lng: -119.0067, timeZone: "America/Los_Angeles", country: "US" },
+    at: { lat: 45.5834, lng: -69.7137, timeZone: "America/New_York", country: "US" },
   },
   {
     id: "us-jordan-pond-acadia-national-park-star",
@@ -55133,7 +55133,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UC8gbWbcNNyb5-NIXvFklkOA",
     videoId: "xY64buYp9lc",
     titleKey: "Moosehead Lake at Rockwood, Maine - The Birches Resort,  CAM 2",
-    at: { lat: 46.5763, lng: -119.0067, timeZone: "America/Los_Angeles", country: "US" },
+    at: { lat: 45.5834, lng: -69.7137, timeZone: "America/New_York", country: "US" },
   },
   {
     id: "us-jackman-maine-airport-cam-right",
@@ -55144,7 +55144,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UC8gbWbcNNyb5-NIXvFklkOA",
     videoId: "OaDGC8RwMWw",
     titleKey: "Jackman, Maine - Airport - Cam Right",
-    at: { lat: 42.0334, lng: -87.8834, timeZone: "America/Chicago", country: "US" },
+    at: { lat: 45.6239, lng: -70.2545, timeZone: "America/New_York", country: "US" },
   },
   {
     id: "us-moosehead-lake-maine-live-cam",
@@ -55155,7 +55155,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UC8gbWbcNNyb5-NIXvFklkOA",
     videoId: "EGh3HIea6v4",
     titleKey: "Moosehead Lake, Maine - LIVE cam",
-    at: { lat: 46.5763, lng: -119.0067, timeZone: "America/Los_Angeles", country: "US" },
+    at: { lat: 45.5834, lng: -69.7137, timeZone: "America/New_York", country: "US" },
   },
   {
     id: "us-brewster-s-bait-tackle-back-channel-p",
@@ -55485,7 +55485,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCWe6K8h_5sXGCnzvt-exu8Q",
     videoId: "AspLvGaVG-4",
     titleKey: "🔴LIVE Trains Railcam | Essex, Montana",
-    at: { lat: 42.2882, lng: -71.3267, timeZone: "America/New_York", country: "US" },
+    at: { lat: 48.278, lng: -113.6126, timeZone: "America/Denver", country: "US" },
   },
   {
     id: "us-live-trains-railcam-hummelstown-penns",
@@ -55496,7 +55496,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCWe6K8h_5sXGCnzvt-exu8Q",
     videoId: "ecrEy4BMf-o",
     titleKey: "🔴 LIVE Trains Railcam | Hummelstown, Pennsylvania",
-    at: { lat: 42.2882, lng: -71.3267, timeZone: "America/New_York", country: "US" },
+    at: { lat: 40.2654, lng: -76.7083, timeZone: "America/New_York", country: "US" },
   },
   {
     id: "us-live-trains-ad-free-essex-montana",
@@ -55507,7 +55507,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCWe6K8h_5sXGCnzvt-exu8Q",
     videoId: "fg2OY6jx64Q",
     titleKey: "🔴Live Trains Ad Free | Essex, Montana",
-    at: { lat: 33.8826, lng: -83.6632, timeZone: "America/New_York", country: "US" },
+    at: { lat: 48.278, lng: -113.6126, timeZone: "America/Denver", country: "US" },
   },
   {
     id: "us-live-trains-railcam-london-ontario",
@@ -55540,7 +55540,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCWe6K8h_5sXGCnzvt-exu8Q",
     videoId: "83zOF_E687I",
     titleKey: "🔴 LIVE Trains AD Free | St Louis, Missouri",
-    at: { lat: 33.8826, lng: -83.6632, timeZone: "America/New_York", country: "US" },
+    at: { lat: 38.6273, lng: -90.1979, timeZone: "America/Chicago", country: "US" },
   },
   {
     id: "us-live-trains-ad-free-caliente-nevada-p",
@@ -55892,7 +55892,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCrtIIVfi-5tMlVXdMDzOMUA",
     videoId: "D_QLnNslBBo",
     titleKey: "Midway International Airport | Chicago, IL | StreamTime LIVE",
-    at: { lat: 31.9974, lng: -102.0779, timeZone: "America/Chicago", country: "US" },
+    at: { lat: 41.85, lng: -87.65, timeZone: "America/Chicago", country: "US" },
   },
   {
     id: "us-live-keauhou-bay-live-cam-kona-big-is",
@@ -55903,7 +55903,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCspnu6n44ydqafj6nFIw5hw",
     videoId: "DACIU_YzthU",
     titleKey: "LIVE Keauhou Bay Live Cam | Kona, Big Island, Hawaii",
-    at: { lat: 35.7423, lng: -90.5623, timeZone: "America/Chicago", country: "US" },
+    at: { lat: 19.5606, lng: -155.9623, timeZone: "Pacific/Honolulu", country: "US" },
   },
   {
     id: "us-la-jolla-live-cam-scripps-inn-ocean-v",
@@ -55914,7 +55914,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCspnu6n44ydqafj6nFIw5hw",
     videoId: "_AcnANYh0gE",
     titleKey: "La Jolla Live Cam | Scripps Inn Ocean View – San Diego, California",
-    at: { lat: 30.878, lng: -91.6807, timeZone: "America/Chicago", country: "US" },
+    at: { lat: 32.8473, lng: -117.2742, timeZone: "America/Los_Angeles", country: "US" },
   },
   {
     id: "us-hanalei-colony-resort-live-cam-kauai",
@@ -55925,7 +55925,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCspnu6n44ydqafj6nFIw5hw",
     videoId: "TY4_G2-jIZM",
     titleKey: "Hanalei Colony Resort Live Cam | Kauai Beach, Hawaii",
-    at: { lat: 22.0494, lng: -159.531, timeZone: "Pacific/Honolulu", country: "US" },
+    at: { lat: 22.2017, lng: -159.5031, timeZone: "Pacific/Honolulu", country: "US" },
   },
   {
     id: "us-jellyfish-live-cam-georgia-aquarium-l",
@@ -55936,7 +55936,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCspnu6n44ydqafj6nFIw5hw",
     videoId: "9k0nKO_BlFQ",
     titleKey: "Jellyfish Live Cam | Georgia Aquarium LIVE – Atlanta, Georgia",
-    at: { lat: 34.4534, lng: -86.9281, timeZone: "America/Chicago", country: "US" },
+    at: { lat: 33.749, lng: -84.388, timeZone: "America/New_York", country: "US" },
   },
   {
     id: "us-surveillancemap-live-new-year-s-eve-a",
@@ -56266,7 +56266,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCARB8y6PuoOBjZXJKIG-LDw",
     videoId: "68GFgzQxrXs",
     titleKey: "【4K】Taiwan Taoyuan International Airport (TPE/RCTP)｜ Live Camera ｜桃園國際機場｜桃園國際機場凱悅酒店",
-    at: { lat: 24.9937, lng: 121.297, timeZone: "Asia/Taipei", country: "TW" },
+    at: { lat: 25.0777, lng: 121.2328, timeZone: "Asia/Taipei", country: "TW" },
   },
   {
     id: "tw-taoyuan-baling-live-cam",
@@ -56288,7 +56288,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCARB8y6PuoOBjZXJKIG-LDw",
     videoId: "0D6QgDOdI6c",
     titleKey: "【2K】Taiwan Taoyuan International Airport (TPE/RCTP)｜Dual View with Flight Info｜桃園國際機場｜凱悅酒店｜動態資訊頻道",
-    at: { lat: 24.9937, lng: 121.297, timeZone: "Asia/Taipei", country: "TW" },
+    at: { lat: 25.0777, lng: 121.2328, timeZone: "Asia/Taipei", country: "TW" },
   },
   {
     id: "tw-4k-xucuogang-wetland-live-cam",
@@ -57146,7 +57146,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UC5RV1g0fRYXfrt75hqvohKw",
     videoId: "zVsCxyi47Kk",
     titleKey: "LIVE Walrus Cam: First Beach View – Round Island, Alaska | explore.org",
-    at: { lat: 37.2634, lng: -88.1386, timeZone: "America/Chicago", country: "US" },
+    at: { lat: 55.2495, lng: -131.3844, timeZone: "America/Sitka", country: "US" },
   },
   {
     id: "za-a-day-of-little-ones-safarilive-s-2",
@@ -57575,7 +57575,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCxaKME3e34j3aTESZZ3h7Sg",
     videoId: "hbmeqWdDLjk",
     titleKey: "Gallup, NM | BNSF Gallup Sub, MP 157.5 - East (Chat) | SouthWest RailCams LIVE",
-    at: { lat: 37.4817, lng: -100.8438, timeZone: "America/Chicago", country: "US" },
+    at: { lat: 35.5281, lng: -108.7426, timeZone: "America/Denver", country: "US" },
   },
   {
     id: "jp-175",
@@ -57597,7 +57597,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCJOKZ03IvVCbahaPloXPaww",
     videoId: "r7W90hKKpKA",
     titleKey: "お天気カメラ 北海道旭川市  Live camera / Asahikawa, Hokkaido, Japan",
-    at: { lat: 35.6854, lng: 139.7531, timeZone: "Asia/Tokyo", country: "JP" },
+    at: { lat: 43.7706, lng: 142.3649, timeZone: "Asia/Tokyo", country: "JP" },
   },
   {
     id: "us-santa-fe-nm-nmrx-santa-fe-sub-mp-18-3",
@@ -57608,7 +57608,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCxaKME3e34j3aTESZZ3h7Sg",
     videoId: "R168_-P5PQw",
     titleKey: "Santa Fe, NM | NMRX Santa Fe Sub, MP 18.32 - Static (Chat) | SouthWest RailCams LIVE",
-    at: { lat: 37.4817, lng: -100.8438, timeZone: "America/Chicago", country: "US" },
+    at: { lat: 35.687, lng: -105.9378, timeZone: "America/Denver", country: "US" },
   },
   {
     id: "jp-176",
@@ -58037,7 +58037,7 @@ export const CAM_PLACES_BULK = [
     channelId: "UCZ1u9UmmVsKg1BsBzqwCd4Q",
     videoId: "-yDDiTj7yd8",
     titleKey: "Durisdeer, Scotland Live Stream Webcam",
-    at: { lat: 53.8578, lng: -1.642, timeZone: "Europe/London", country: "GB" },
+    at: { lat: 55.3149, lng: -3.7442, timeZone: "Europe/London", country: "GB" },
   },
   {
     id: "gb-live-camera-from-the-royal-oak-saunde",

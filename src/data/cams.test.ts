@@ -11,10 +11,15 @@ describe("カメラのマスタデータ", () => {
   });
 
   /**
-   * 同じ座標に何台も載っているのは、ジオコーダが地名でなく一般語を引いた跡。
-   * ここは**上限の見張り**であって目標値ではない — 減らすのはよいこと。
+   * 同じ座標に何台も載っているのは、多くがジオコーダの当てずっぽうの跡。
+   * ただし**束そのものが悪いわけではない** — 歌舞伎町の 17 台のように、
+   * 本当に同じ場所にあるカメラは同じ座標になる。だからこれは精度の指標では
+   * なく、**悪化していないことの見張り**。
+   *
+   * 数字は現時点の実測(高水位)であって目標ではない。減らすのはよいこと。
    * 増えたら、取り込みの問い合わせがまた壊れたということ
    * (`scripts/import-bulk-cams.ts` の `prioritizeGeocodeQueries`)。
+   * 意図して増やしたときだけ、この数を上げ直す。
    */
   it("同じ座標に積み上がったカメラが増えていない", () => {
     const byCoord = new Map<string, number>();
@@ -25,8 +30,8 @@ describe("カメラのマスタデータ", () => {
     const counts = [...byCoord.values()];
     const piled = counts.filter((n) => n > 1).reduce((sum, n) => sum + n, 0);
 
-    // 2026-08-28 時点: 3,377 台 / 最大の束 188 台。
-    expect(piled).toBeLessThanOrEqual(3377);
-    expect(Math.max(...counts)).toBeLessThanOrEqual(188);
+    // 2026-08-29 時点: 3,311 台 / 最大の束 178 台。
+    expect(piled).toBeLessThanOrEqual(3311);
+    expect(Math.max(...counts)).toBeLessThanOrEqual(178);
   });
 });
