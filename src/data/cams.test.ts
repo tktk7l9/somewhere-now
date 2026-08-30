@@ -30,8 +30,8 @@ describe("カメラのマスタデータ", () => {
     const counts = [...byCoord.values()];
     const piled = counts.filter((n) => n > 1).reduce((sum, n) => sum + n, 0);
 
-    // 2026-08-29 時点: 3,311 台 / 最大の束 178 台。
-    expect(piled).toBeLessThanOrEqual(3311);
-    expect(Math.max(...counts)).toBeLessThanOrEqual(178);
+    // 2026-08-29 時点: 3,202 台 / 最大の束 175 台。
+    expect(piled).toBeLessThanOrEqual(3202);
+    expect(Math.max(...counts)).toBeLessThanOrEqual(175);
   });
 });
