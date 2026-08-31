@@ -267,9 +267,14 @@ html.resizing-panel iframe {
   border-right: 1px solid var(--haze);
 }
 
+/* 各段の最後の群だけは右端へ寄せる。すべて左に詰めると、広い画面では帯の
+   右半分が丸ごと空いて、ヘッダーが途中で終わったように見える。右へ出すのは
+   1 段目が言語、2 段目が状態の絞り込み ＝ どちらも「どこを見るか」ではなく
+   「どう見せるか」の側なので、離しても並びの意味が壊れない。 */
 .controls__group:last-child {
   border-right: none;
   padding-right: 0;
+  margin-left: auto;
 }
 
 /* ── 署名: 夜の割合とピンの色 ─────────────────────────── */
