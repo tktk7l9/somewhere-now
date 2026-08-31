@@ -140,6 +140,8 @@ export interface CamFilter {
   liveOnly?: boolean;
   nightOnly?: boolean;
   favoritesOnly?: boolean;
+  /** 「番組」も出すか。未指定 ＝ 出さない(既定で伏せる)。 */
+  broadcasts?: boolean;
   query?: string;
 }
 
@@ -148,6 +150,8 @@ export interface FilterContext {
   /** 現在その土地が夜であるカメラの id。 */
   nightIds: ReadonlySet<string>;
   favoriteIds: ReadonlySet<string>;
+  /** テレビ・ラジオ・アニメ等、カメラでないものの id(domain/broadcast.ts)。 */
+  broadcastIds: ReadonlySet<string>;
 }
 
 export function filterCams(
@@ -163,6 +167,7 @@ export function filterCams(
     if (filter.liveOnly && ctx.states.get(cam.id)?.status !== "live") return false;
     if (filter.nightOnly && !ctx.nightIds.has(cam.id)) return false;
     if (filter.favoritesOnly && !ctx.favoriteIds.has(cam.id)) return false;
+    if (!filter.broadcasts && ctx.broadcastIds.has(cam.id)) return false;
     if (query !== "") {
       const haystack = `${cam.name.ja} ${cam.name.en}`.toLowerCase();
       if (!haystack.includes(query)) return false;

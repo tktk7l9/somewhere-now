@@ -20,6 +20,11 @@ const STRINGS = {
   liveOnly: { ja: "配信中だけ", en: "Live only" },
   nightOnly: { ja: "夜の場所だけ", en: "Night only" },
   favoritesOnly: { ja: "お気に入りだけ", en: "Favorites" },
+  showBroadcasts: { ja: "番組も出す", en: "Include broadcasts" },
+  showBroadcastsHint: {
+    ja: "テレビ・ラジオ・アニメ・環境音など、カメラでない配信も一覧と地図に出します。",
+    en: "Also show TV, radio, cartoons and ambience streams — the ones that aren't cameras.",
+  },
   takeMeSomewhere: { ja: "どこかへ連れてって", en: "Take me somewhere" },
   locate: { ja: "いまいる場所へ", en: "Where I am" },
   locatePending: { ja: "場所を探しています…", en: "Finding you…" },

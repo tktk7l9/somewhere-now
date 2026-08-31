@@ -6,6 +6,7 @@
 //   favorites / panel-width … localStorage
 // それ以外(いま夜かどうか、現地時刻)は now から毎分導出する。
 
+import { broadcastIds } from "./domain/broadcast";
 import { filterCams, pickRandom, rankLiveByViewers, type Cam, type PublicCamState } from "./domain/cams";
 import { decodeFavorites, encodeFavorites, toggleFavorite } from "./domain/favorites";
 import { nearestCam, requestLocation, viewportForLocation } from "./domain/locate";
@@ -122,6 +123,8 @@ export function startApp(root: HTMLElement): void {
   let wallOpen = false;
   let now = new Date();
   let nightIds = new Set<string>();
+  // 番組(テレビ・ラジオ・アニメ等)の id。マスタが届いた時点で 1 度だけ作る。
+  let broadcasts = new Set<string>();
   // 音は既定で出さない。仕事の合間に開くので、押した瞬間に鳴るのは事故になる。
   let soundOn = readStored(SOUND_KEY) === "on";
   let locateStatus: LocateStatus = "idle";
@@ -133,7 +136,11 @@ export function startApp(root: HTMLElement): void {
   recomputeNight();
 
   const visibleCams = (): Cam[] =>
-    filterCams(cams, { states, nightIds, favoriteIds: new Set(favorites) }, view);
+    filterCams(
+      cams,
+      { states, nightIds, favoriteIds: new Set(favorites), broadcastIds: broadcasts },
+      view,
+    );
 
   const openCams = (): Cam[] =>
     view.view.map((id) => byId.get(id)).filter((cam): cam is Cam => cam !== undefined);
@@ -388,11 +395,14 @@ export function startApp(root: HTMLElement): void {
     // liveOnly を含めると分母が分子と同じになり、常に N / N になる。
     const scoped = filterCams(
       cams,
-      { states, nightIds, favoriteIds: new Set(favorites) },
+      { states, nightIds, favoriteIds: new Set(favorites), broadcastIds: broadcasts },
       { ...view, liveOnly: false },
     );
     const live = scoped.filter((cam) => states.get(cam.id)?.status === "live").length;
-    const caption = liveDialCaption(live, scoped.length, cams.length, view.lang);
+    // 収録全件からも番組は差し引く。伏せているぶんを分母に混ぜると、
+    // 何も絞っていないのに常に「全 N 地点」が出てしまう。
+    const catalog = view.broadcasts ? cams.length : cams.length - broadcasts.size;
+    const caption = liveDialCaption(live, scoped.length, catalog, view.lang);
     const count = document.createElement("span");
     count.className = "dial__count";
     count.textContent = caption.count;
@@ -503,6 +513,7 @@ export function startApp(root: HTMLElement): void {
     if (loaded.length === 0) return;
     cams = loaded;
     byId = new Map(loaded.map((cam) => [cam.id, cam]));
+    broadcasts = broadcastIds(loaded);
     recomputeNight();
     // URL で最初から選ばれているカメラは、ここで初めて開ける。
     render();

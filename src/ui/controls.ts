@@ -23,12 +23,21 @@ export interface ControlHandlers {
   onSetGlobe(globe: boolean): void;
 }
 
-function chip(label: string, pressed: boolean, onClick: () => void): HTMLButtonElement {
+function chip(
+  label: string,
+  pressed: boolean,
+  onClick: () => void,
+  title?: string,
+): HTMLButtonElement {
   const button = document.createElement("button");
   button.type = "button";
   button.className = "chip";
   button.textContent = label;
   button.setAttribute("aria-pressed", String(pressed));
+  if (title !== undefined) {
+    button.title = title;
+    button.setAttribute("aria-label", `${label}. ${title}`);
+  }
   button.addEventListener("click", onClick);
   return button;
 }
@@ -70,6 +79,13 @@ export function createControls(container: HTMLElement, handlers: ControlHandlers
         ),
         chip(t("favoritesOnly", lang), state.favoritesOnly, () =>
           handlers.onChange({ favoritesOnly: !state.favoritesOnly }),
+        ),
+        // 既定で伏せている側なので、何が戻ってくるのかを添える。
+        chip(
+          t("showBroadcasts", lang),
+          state.broadcasts,
+          () => handlers.onChange({ broadcasts: !state.broadcasts }),
+          t("showBroadcastsHint", lang),
         ),
       ];
 
