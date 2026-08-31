@@ -21,6 +21,31 @@ export const INITIAL_VIEW: MapViewport = {
  */
 export const GLOBE_ZOOM = 2.8;
 
+/** タイル 1 枚の辺(px)。世界 1 枚は 256 * 2^z px になる。 */
+export const TILE_SIZE = 256;
+
+/**
+ * その大きさの器を世界 1 枚が覆いきる、最小のズーム。
+ *
+ * 地図は世界 1 枚に留めてある(夜のポリゴンが 1 枚ぶんしか無いので、繰り返すと
+ * 影の無い世界が横に並ぶ)。1 枚は 256 * 2^z px しか無いから、器の方が大きいと
+ * 必ず端に地の色が出る — 1,056px のステージに z2(1,024px)を置けば左右に
+ * 16px ずつ余り、1,536px なら 256px も余る。埋める術は無いので、覆えるところ
+ * まで寄せる。
+ *
+ * 器の寸法が取れないとき(まだ display:none の面)は floor をそのまま返す。
+ * 1px 足しているのは、ぴったりに合わせると丸めで髪の毛ほどの隙間が残るため。
+ */
+export function coveringZoom(
+  width: number,
+  height: number,
+  floor: number = INITIAL_VIEW.zoom,
+): number {
+  const span = Math.max(width, height);
+  if (!Number.isFinite(span) || span <= 0) return floor;
+  return Math.max(floor, Math.log2((span + 1) / TILE_SIZE));
+}
+
 /** その緯度経度を含むタイルの座標(Web メルカトル・XYZ 方式)。 */
 export function tileAt(lat: number, lng: number, zoom: number): { x: number; y: number } {
   const n = 2 ** zoom;

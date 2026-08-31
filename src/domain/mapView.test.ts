@@ -1,5 +1,5 @@
 import { readFileSync } from "node:fs";
-import { INITIAL_VIEW, GLOBE_ZOOM, tileAt, tileUrl } from "./mapView";
+import { INITIAL_VIEW, GLOBE_ZOOM, TILE_SIZE, coveringZoom, tileAt, tileUrl } from "./mapView";
 
 describe("tileAt", () => {
   it("ズーム 0 では世界が 1 枚に収まる", () => {
@@ -38,6 +38,37 @@ describe("GLOBE_ZOOM", () => {
   it("大陸とピンが読める距離で、まだ球として見える", () => {
     expect(GLOBE_ZOOM).toBeGreaterThanOrEqual(INITIAL_VIEW.zoom);
     expect(GLOBE_ZOOM).toBeLessThan(5);
+  });
+});
+
+describe("coveringZoom", () => {
+  it("世界 1 枚で足りる器では初期ズームのまま", () => {
+    expect(coveringZoom(1000, 640)).toBe(INITIAL_VIEW.zoom);
+    expect(coveringZoom(390, 388)).toBe(INITIAL_VIEW.zoom);
+  });
+
+  it("器が世界より広ければ、覆えるところまで寄る", () => {
+    // z2 の世界は 1,024px。1,056px のステージには 32px 足りない。
+    expect(coveringZoom(1056, 810)).toBeGreaterThan(2);
+    expect(coveringZoom(1056, 810)).toBeLessThan(2.1);
+    expect(coveringZoom(1536, 960)).toBeGreaterThan(2.5);
+  });
+
+  it("縦長でも塞ぐ(長い方の辺で決める)", () => {
+    expect(coveringZoom(600, 1400)).toBe(coveringZoom(1400, 600));
+    expect(coveringZoom(600, 1400)).toBeGreaterThan(2.4);
+  });
+
+  it("寄せたズームは、その辺をちょうど覆う", () => {
+    for (const span of [1056, 1536, 1920, 2560]) {
+      expect(TILE_SIZE * 2 ** coveringZoom(span, span)).toBeGreaterThanOrEqual(span);
+    }
+  });
+
+  it("寸法が取れないうちは floor を返す(display:none の面)", () => {
+    expect(coveringZoom(0, 0)).toBe(INITIAL_VIEW.zoom);
+    expect(coveringZoom(Number.NaN, Number.NaN)).toBe(INITIAL_VIEW.zoom);
+    expect(coveringZoom(0, 0, 3)).toBe(3);
   });
 });
 
