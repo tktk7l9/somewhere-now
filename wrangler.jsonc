@@ -31,10 +31,13 @@
       "id": "3a47608f6d7e4e0a9bb43c824ee5dee8",
     },
   ],
+  // worker/schedule.ts の CRON と対で持つ(schedule.test.ts が突き合わせる)。
+  // 再探索を :05 に置いてあるのは、毎正時だと 10 分ごとの生存確認と同時に起きて
+  // 同じ正本を読み書きし、後勝ちで一方の消費と状態が消えるため。
   "triggers": {
     "crons": [
       "*/10 * * * *", // 生存スイープ: videos.list(1 unit / 50件)
-      "0 * * * *", // 再探索: search.list(100 units) を予算内で
+      "5 * * * *", // 再探索: search.list(100 units) を予算内で
     ],
   },
   "observability": {

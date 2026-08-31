@@ -7,6 +7,7 @@ const PURE_GLOBS = [
   "src/domain/**/*.ts",
   "worker/youtube.ts",
   "worker/refresh.ts",
+  "worker/schedule.ts",
 ];
 
 export default defineConfig({

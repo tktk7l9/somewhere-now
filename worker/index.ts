@@ -7,7 +7,7 @@
 // 使ったクォータは KV の台帳に日毎で積み、予算を超えたら叩くのをやめる。
 
 import { CAMS } from "../src/data/cams";
-import { publicStates, type CamState } from "../src/domain/cams";
+import { publicStates } from "../src/domain/cams";
 import {
   ROLE_UNIT_BUDGET,
   ledgerForDay,
@@ -17,6 +17,13 @@ import {
   sweepLiveness,
   type QuotaLedger,
 } from "./refresh";
+import {
+  ledgerIn,
+  roleForCron,
+  withLedger,
+  type Role,
+  type StatePayload,
+} from "./schedule";
 import { createYouTubeClient } from "./youtube";
 
 interface Env {
@@ -37,19 +44,21 @@ const STATE_KEY = "cam-state:v1";
 const PUBLIC_KEY = "cam-state-public:v1";
 
 /**
- * クォータ台帳は役割ごとに分ける。
+ * 2026-08-28〜08-31 に台帳を置いていたキー。**引き継ぎにしか使わない**。
  *
- * 2 つの Cron は毎正時に**同時に**起きる。ひとつの台帳を読んで書くと、
- * 両者が同じ値を読んで別々に書き戻し、後勝ちで一方の消費が丸ごと消える
- * (1 日 24 回ぶん取りこぼし、上限ガードが実際の消費を見失う)。
- * 書き手を 1 つに固定すれば競合そのものが無くなる。
+ * 台帳は正本(STATE_KEY)に同居させた。別キーに分けると 1 実行あたりの書き込みが
+ * 1 本増え、Cron 7 回/時 × 24 時間 = 504 write/日 と無料枠(1,000/日)の半分を
+ * 焼いていた(2026-08-31 に Cloudflare の 50% 警告で発覚)。
+ *
+ * ここを読むのは「正本がまだ台帳を持っていない」ときだけ＝役割ごとに 1 度きり。
+ * 移行の途中でゼロから数え直すと、**その日ぶんの上限ガードが丸ごと外れる**
+ * (2026-08-27 に生存確認が 7,300 unit を焼いた種類の事故を止められなくなる)。
+ * 両方の役割が新しい正本を書き終えたら、このキーごと消してよい。
  */
-const LEDGER_KEY = {
+const LEGACY_LEDGER_KEY: Record<Role, string> = {
   sweep: "quota-ledger:sweep:v1",
   rediscover: "quota-ledger:rediscover:v1",
-} as const;
-
-type Role = keyof typeof LEDGER_KEY;
+};
 
 /**
  * 1 時間あたりに探し直すチャンネル数の**上限**。
@@ -71,14 +80,6 @@ const REDISCOVER_SEARCHES_PER_RUN = 1;
  */
 const REDISCOVER_UNITS_PER_RUN = Math.floor(ROLE_UNIT_BUDGET.rediscover / 24);
 
-/** wrangler.jsonc の triggers.crons と対応させること。 */
-const SWEEP_CRON = "*/10 * * * *";
-
-interface StatePayload {
-  updatedAt: string;
-  cams: Record<string, CamState>;
-}
-
 /** PUBLIC_KEY に添える目印。本文を parse せずに ETag を作るために使う。 */
 interface PublicMeta {
   updatedAt: string;
@@ -87,6 +88,22 @@ interface PublicMeta {
 async function readState(env: Env): Promise<StatePayload> {
   const stored = await env.CAM_STATE.get<StatePayload>(STATE_KEY, "json");
   return stored ?? { updatedAt: new Date(0).toISOString(), cams: {} };
+}
+
+/**
+ * その役割の台帳を、正本から取り出す。
+ * 正本がまだ持っていなければ旧キーから引き継ぐ(役割ごとに 1 度きり)。
+ */
+async function ledgerFor(
+  payload: StatePayload,
+  role: Role,
+  env: Env,
+  now: Date,
+): Promise<QuotaLedger> {
+  const carried = ledgerIn(payload, role, now);
+  if (carried !== null) return carried;
+  const legacy = await env.CAM_STATE.get<QuotaLedger>(LEGACY_LEDGER_KEY[role], "json");
+  return ledgerForDay(legacy, now);
 }
 
 /** ブラウザへ配る本文。表示に使う 3 つだけに絞る。 */
@@ -194,7 +211,13 @@ export default {
  * 渡しているので、ここで投げた例外は誰も受け取らないまま消える。
  */
 async function refresh(cron: string, env: Env): Promise<void> {
-  const role: Role = cron === SWEEP_CRON ? "sweep" : "rediscover";
+  const role = roleForCron(cron);
+  if (role === null) {
+    // 既定の役割に倒すと、wrangler.jsonc だけを書き換えたときに全実行が
+    // 片方の役割になり、枠も台帳も入れ替わったまま気づけない。
+    console.error(`[cron] 知らない Cron 式が発火した: ${cron}`);
+    return;
+  }
   // 発火した事実だけは先に残す。これが無いと沈黙の理由を追えない。
   console.log(`[cron ${role}] 開始`);
 
@@ -215,19 +238,19 @@ async function update(role: Role, env: Env): Promise<void> {
   }
 
   const now = new Date();
-  const ledger = ledgerForDay(
-    await env.CAM_STATE.get<QuotaLedger>(LEDGER_KEY[role], "json"),
-    now,
-  );
+  const payload = await readState(env);
+  const ledger = await ledgerFor(payload, role, env, now);
   const budget = remainingUnits(ledger, ROLE_UNIT_BUDGET[role]);
   if (budget === 0) {
     console.warn(`[cron ${role}] 本日の枠(${ROLE_UNIT_BUDGET[role]})を使い切ったので何もしない`);
     return;
   }
 
-  const payload = await readState(env);
   const states = new Map(Object.entries(payload.cams));
   const client = createYouTubeClient(apiKey, fetch);
+  // 更新に失敗しても台帳だけは進めたいので、書き戻す正本を try の外に置く。
+  // 差し替わったかどうか(= next !== payload)が、写しを作り直すかの判定にもなる。
+  let next = payload;
 
   try {
     const result =
@@ -242,12 +265,7 @@ async function update(role: Role, env: Env): Promise<void> {
     for (const [camId, state] of result.states) states.set(camId, state);
     // マスタから消えた id の状態はどちらの経路も触らないので、ここで掃く。
     const { kept, removed } = pruneOrphans(states, CAMS);
-    const updatedAt = now.toISOString();
-    const next: StatePayload = { updatedAt, cams: Object.fromEntries(kept) };
-
-    await env.CAM_STATE.put(STATE_KEY, JSON.stringify(next));
-    // 読み出し側が組み立て直さずに済むよう、配る形の写しも一緒に置く。
-    await env.CAM_STATE.put(PUBLIC_KEY, publicBody(next), { metadata: { updatedAt } });
+    next = { ...payload, updatedAt: now.toISOString(), cams: Object.fromEntries(kept) };
 
     const live = [...kept.values()].filter((s) => s.status === "live").length;
     console.log(`[cron ${role}] 更新 ${result.states.size} 件 / ライブ ${live} 件`);
@@ -263,7 +281,19 @@ async function update(role: Role, env: Env): Promise<void> {
     // ここを try の中に置くと、キーが不正なまま Cron が回り続けたときに
     // 上限ガードが気づかないまま 1 日ぶんの枠を焼くことになる。
     const used = ledger.used + client.unitsUsed;
-    await env.CAM_STATE.put(LEDGER_KEY[role], JSON.stringify({ day: ledger.day, used }));
+    // 正本は台帳を相乗りさせて **1 度だけ** 書く。台帳を別キーに分けると
+    // 実行あたりの書き込みが 3 本になり、KV の無料枠の半分を焼く。
+    await env.CAM_STATE.put(
+      STATE_KEY,
+      JSON.stringify(withLedger(next, role, { day: ledger.day, used })),
+    );
+    // 写しは中身が入れ替わったときだけ。更新に失敗した回は正本と同じなので、
+    // 書き直しても内容が変わらない(＝ただ枠を減らすだけ)。
+    if (next !== payload) {
+      await env.CAM_STATE.put(PUBLIC_KEY, publicBody(next), {
+        metadata: { updatedAt: next.updatedAt },
+      });
+    }
     console.log(
       `[cron ${role}] 消費 ${client.unitsUsed} unit (本日計 ${used}/${ROLE_UNIT_BUDGET[role]})`,
     );
