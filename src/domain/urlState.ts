@@ -18,6 +18,11 @@ export interface ViewState {
   globe: boolean;
   /** 配信中を視聴者数の多い順に並べた一覧。既定は地図。 */
   watching: boolean;
+  /**
+   * テレビ・ラジオ・アニメ等の「番組」も出す。既定は false ＝ 出さない。
+   * 見せたいのは定点カメラなので、既定は伏せる側に倒す(domain/broadcast.ts)。
+   */
+  broadcasts: boolean;
   query: string;
   lang: Lang;
 }
@@ -48,6 +53,7 @@ export function parseUrlState(search: string): ViewState {
     favoritesOnly: params.get("fav") === "1",
     globe: params.get("globe") === "1",
     watching: params.get("watching") === "1",
+    broadcasts: params.get("bc") === "1",
     query: (params.get("q") ?? "").trim(),
     lang,
   };
@@ -67,6 +73,7 @@ export function toSearchString(state: ViewState): string {
   if (state.favoritesOnly) params.set("fav", "1");
   if (state.globe) params.set("globe", "1");
   if (state.watching) params.set("watching", "1");
+  if (state.broadcasts) params.set("bc", "1");
   if (state.query !== "") params.set("q", state.query);
   if (state.lang !== "ja") params.set("lang", state.lang);
 

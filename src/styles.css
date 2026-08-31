@@ -62,6 +62,35 @@ input {
   outline-offset: 2px;
 }
 
+/* スクロールバーは海図の罫と同じ細さ・同じ色にする。既定の帯は 15px あって、
+   パネルと一覧の幅を実際に食う(見た目だけの話ではない)。
+   標準プロパティを解さないブラウザにだけ WebKit の擬似要素を出す — 両方書くと
+   Safari が常時表示の旧式スクロールバーに戻る。 */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--haze) transparent;
+}
+
+@supports not (scrollbar-width: thin) {
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--haze);
+    border-radius: 999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2a4c5b;
+  }
+}
+
 /* ── 骨格 ───────────────────────────────────────────── */
 
 .app {
@@ -238,9 +267,14 @@ html.resizing-panel iframe {
   border-right: 1px solid var(--haze);
 }
 
+/* 各段の最後の群だけは右端へ寄せる。すべて左に詰めると、広い画面では帯の
+   右半分が丸ごと空いて、ヘッダーが途中で終わったように見える。右へ出すのは
+   1 段目が言語、2 段目が状態の絞り込み ＝ どちらも「どこを見るか」ではなく
+   「どう見せるか」の側なので、離しても並びの意味が壊れない。 */
 .controls__group:last-child {
   border-right: none;
   padding-right: 0;
+  margin-left: auto;
 }
 
 /* ── 署名: 夜の割合とピンの色 ─────────────────────────── */
@@ -786,15 +820,20 @@ html.resizing-panel iframe {
 }
 
 .watching__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-right: 8px;
   border-bottom: 1px solid var(--haze);
 }
 
 .watching__row {
+  flex: 1;
+  min-width: 0;
   display: grid;
   grid-template-columns: 3.2em 1fr auto;
   gap: 12px;
   align-items: center;
-  width: 100%;
   padding: 11px 12px;
   text-align: left;
   border-radius: var(--radius);
@@ -850,6 +889,36 @@ html.resizing-panel iframe {
   white-space: nowrap;
 }
 
+/* 「どこなのか」を見にいく口。地図が主役なので、行を押したときの
+   「その配信を開く」よりは控えめに置き、触れたときだけ琥珀に点く。 */
+.watching__jump {
+  flex: none;
+  display: flex;
+  gap: 4px;
+}
+
+.watching__go {
+  padding: 5px 9px;
+  border: 1px solid var(--haze);
+  border-radius: var(--radius);
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--dim);
+  white-space: nowrap;
+  transition:
+    color 160ms var(--ease),
+    border-color 160ms var(--ease),
+    background-color 160ms var(--ease);
+}
+
+.watching__go:hover,
+.watching__go:focus-visible {
+  color: var(--lit);
+  border-color: var(--lit);
+  background-color: var(--lit-soft);
+}
+
 .app[data-mode="watching"] .map,
 .app[data-mode="watching"] .globe,
 .app[data-mode="watching"] .notes,
@@ -878,7 +947,6 @@ html.resizing-panel iframe {
      (3 段に折り返すと地図の取り分がなくなる)。 */
   .masthead {
     overflow-x: auto;
-    scrollbar-width: thin;
   }
 
   .masthead__primary,
@@ -915,6 +983,24 @@ html.resizing-panel iframe {
   .watching__viewers {
     grid-column: 2;
     white-space: normal;
+  }
+}
+
+/* 名前の幅が惜しくなる幅から、飛び先は行の下へ回す。 */
+@media (max-width: 560px) {
+  .watching__item {
+    flex-wrap: wrap;
+  }
+
+  /* 下の余白は飛び先の側だけが持つ。両方が持つと帯が離れて別の行に見える。 */
+  .watching__row {
+    padding-bottom: 4px;
+  }
+
+  .watching__jump {
+    flex: 1 0 100%;
+    justify-content: flex-end;
+    padding: 0 4px 10px;
   }
 }
 

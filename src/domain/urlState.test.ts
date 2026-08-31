@@ -8,6 +8,7 @@ const DEFAULTS: ViewState = {
   favoritesOnly: false,
   globe: false,
   watching: false,
+  broadcasts: false,
   query: "",
   lang: "ja",
 };
@@ -115,6 +116,13 @@ describe("toSearchString", () => {
     expect(params.get("watching")).toBe("1");
   });
 
+  it("番組も出すときだけ bc=1 が載る", () => {
+    expect(toSearchString({ ...DEFAULTS, broadcasts: true })).toBe("?bc=1");
+    expect(toSearchString(DEFAULTS)).toBe("");
+    expect(parseUrlState("?bc=1").broadcasts).toBe(true);
+    expect(parseUrlState("").broadcasts).toBe(false);
+  });
+
   it("往復しても状態が保たれる", () => {
     const state: ViewState = {
       view: ["a", "b"],
@@ -124,6 +132,7 @@ describe("toSearchString", () => {
       favoritesOnly: true,
       globe: true,
       watching: true,
+      broadcasts: true,
       query: "porto",
       lang: "en",
     };

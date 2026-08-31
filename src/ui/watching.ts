@@ -2,13 +2,40 @@
 //
 // iframe は置かない。数百件を並べても再描画で配信が繋ぎ直されないように、
 // 並びが同じなら行を使い回し、時刻と視聴者数と選択だけを書き換える。
+//
+// 行そのものは「その配信を開く」。一覧に留まったまま次々に覗けるようにするため。
+// 「どこなのか」を知りたいときのために、平面図と地球儀へ飛ぶ口を各行に置く
+// (ボタンは入れ子にできないので、行の外に並べる)。
 
 import type { Cam, PublicCamState } from "../domain/cams";
 import { formatLocalTime } from "../domain/localTime";
 import type { Lang } from "../domain/weather";
-import { camName, categoryLabel, t } from "./i18n";
+import { camName, categoryLabel, t, type StringKey } from "./i18n";
 
 export type WatchingReady = "loading" | "unavailable" | "ready";
+
+/** 飛び先。平面図(Leaflet)か地球儀(MapLibre)か。 */
+export type JumpTarget = "flat" | "globe";
+
+interface JumpSpec {
+  target: JumpTarget;
+  /** ボタンに出す短い名。 */
+  short: StringKey;
+  /** title と読み上げに使う、何が起きるかを書いた名。 */
+  full: StringKey;
+}
+
+const JUMP_TARGETS: readonly JumpSpec[] = [
+  { target: "flat", short: "flatMap", full: "showOnFlatMap" },
+  { target: "globe", short: "globe", full: "showOnGlobe" },
+];
+
+export interface WatchingHandlers {
+  /** 行を押した。一覧に留まったまま、その配信を先頭に上げる。 */
+  onPick(camId: string): void;
+  /** 飛び先を押した。一覧を閉じ、その面でその地点に寄せる。 */
+  onJump(camId: string, target: JumpTarget): void;
+}
 
 export interface WatchingContext {
   lang: Lang;
@@ -26,6 +53,7 @@ interface Row {
   name: HTMLElement;
   meta: HTMLElement;
   viewers: HTMLElement;
+  jumps: readonly { spec: JumpSpec; button: HTMLButtonElement }[];
 }
 
 function emptyMessage(ctx: WatchingContext): string {
@@ -48,7 +76,7 @@ function rankedKey(ranked: readonly Cam[], lang: Lang): string {
   return `${lang}:${ranked.map((cam) => cam.id).join(",")}`;
 }
 
-export function createWatchingList(container: HTMLElement, onPick: (camId: string) => void) {
+export function createWatchingList(container: HTMLElement, handlers: WatchingHandlers) {
   const header = document.createElement("header");
   header.className = "watching__header";
   const title = document.createElement("h2");
@@ -70,10 +98,18 @@ export function createWatchingList(container: HTMLElement, onPick: (camId: strin
 
   function paintRow(row: Row, cam: Cam, rank: number, current: boolean, ctx: WatchingContext): void {
     const state = ctx.states.get(cam.id);
+    const label = camName(cam.name, ctx.lang);
     row.rank.textContent = String(rank);
-    row.name.textContent = camName(cam.name, ctx.lang);
+    row.name.textContent = label;
     row.meta.textContent = metaLabel(cam, ctx);
     row.viewers.textContent = viewersLabel(state?.viewers, ctx.lang);
+    for (const { spec, button } of row.jumps) {
+      const full = t(spec.full, ctx.lang);
+      button.textContent = t(spec.short, ctx.lang);
+      button.title = full;
+      // 同じ文言のボタンが件数ぶん並ぶので、読み上げには地点名まで載せる。
+      button.setAttribute("aria-label", `${full}: ${label}`);
+    }
     if (current) row.root.setAttribute("aria-current", "true");
     else row.root.removeAttribute("aria-current");
   }
@@ -82,7 +118,7 @@ export function createWatchingList(container: HTMLElement, onPick: (camId: strin
     const root = document.createElement("button");
     root.type = "button";
     root.className = "watching__row";
-    root.addEventListener("click", () => onPick(cam.id));
+    root.addEventListener("click", () => handlers.onPick(cam.id));
 
     const rankEl = document.createElement("span");
     rankEl.className = "watching__rank";
@@ -97,7 +133,16 @@ export function createWatchingList(container: HTMLElement, onPick: (camId: strin
     viewers.className = "watching__viewers";
 
     root.append(rankEl, body, viewers);
-    const row: Row = { camId: cam.id, root, rank: rankEl, name, meta, viewers };
+
+    const jumps = JUMP_TARGETS.map((spec) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "watching__go";
+      button.addEventListener("click", () => handlers.onJump(cam.id, spec.target));
+      return { spec, button };
+    });
+
+    const row: Row = { camId: cam.id, root, rank: rankEl, name, meta, viewers, jumps };
     paintRow(row, cam, rank, current, ctx);
     return row;
   }
@@ -139,7 +184,10 @@ export function createWatchingList(container: HTMLElement, onPick: (camId: strin
         rows.push(row);
         const item = document.createElement("li");
         item.className = "watching__item";
-        item.append(row.root);
+        const jump = document.createElement("span");
+        jump.className = "watching__jump";
+        jump.append(...row.jumps.map((entry) => entry.button));
+        item.append(row.root, jump);
         list.append(item);
       });
       paintedKey = key;

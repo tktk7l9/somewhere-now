@@ -11,7 +11,7 @@ import "leaflet.markercluster/dist/MarkerCluster.css";
 
 import type { Cam, PublicCamState } from "../domain/cams";
 import { coalesced } from "../domain/coalesce";
-import { INITIAL_VIEW, type MapViewport } from "../domain/mapView";
+import { coveringZoom, INITIAL_VIEW, type MapViewport } from "../domain/mapView";
 import { nightPolygon, terminatorLine } from "../domain/terminator";
 import { camName } from "./i18n";
 import { pinHtml } from "./pin";
@@ -39,11 +39,18 @@ export function createMapView(
   lang: Lang,
   onSelect: (camId: string) => void,
 ): MapView {
+  // 世界 1 枚が器を覆う最小のズーム。ここを下限にしないと、広い画面では
+  // 地図の左右(縦長なら上下)に地の色の帯が出る。器がまだ display:none で
+  // 寸法を持たないときは INITIAL_VIEW.zoom のまま始まり、invalidate() で直る。
+  const initialZoom = coveringZoom(container.clientWidth, container.clientHeight);
+
   const map = L.map(container, {
     // index.html がこの初期表示のタイルを preload している(domain/mapView.ts)。
+    // 器に合わせて寄せてもタイルの階は round(zoom) なので、ステージが
+    // 1,448px までは z2 のまま = preload はそのまま効く。
     center: INITIAL_VIEW.center,
-    zoom: INITIAL_VIEW.zoom,
-    minZoom: 2,
+    zoom: initialZoom,
+    minZoom: initialZoom,
     maxZoom: 16,
     // 左上は署名(夜の割合)の場所なので、操作は右上へ逃がす。
     zoomControl: false,
@@ -214,6 +221,11 @@ export function createMapView(
     },
     invalidate() {
       map.invalidateSize();
+      // 器の大きさが変わったら下限も引き直す。setMinZoom は今のズームが
+      // 下回っていれば、そのぶん寄せてくれる。
+      const size = map.getSize();
+      const min = coveringZoom(size.x, size.y);
+      if (min !== map.getMinZoom()) map.setMinZoom(min);
     },
   };
 }

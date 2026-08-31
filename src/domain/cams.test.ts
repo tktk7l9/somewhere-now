@@ -109,7 +109,12 @@ describe("filterCams", () => {
     ["shibuya-crossing", state()],
     ["zoo", state({ status: "offline" })],
   ]);
-  const ctx = { states, nightIds: new Set(["zoo"]), favoriteIds: new Set(["zoo"]) };
+  const ctx = {
+    states,
+    nightIds: new Set(["zoo"]),
+    favoriteIds: new Set(["zoo"]),
+    broadcastIds: new Set<string>(),
+  };
 
   it("既定では全件返す", () => {
     expect(filterCams(cams, ctx, {})).toEqual(cams);
@@ -143,6 +148,21 @@ describe("filterCams", () => {
     expect(filterCams(cams, ctx, { query: "shibuya" })).toEqual([tokyo]);
     expect(filterCams(cams, ctx, { query: "動物" })).toEqual([zoo]);
     expect(filterCams(cams, ctx, { query: "  " })).toEqual(cams);
+  });
+
+  it("番組は既定で落ちる", () => {
+    const withTv = { ...ctx, broadcastIds: new Set(["zoo"]) };
+    expect(filterCams(cams, withTv, {})).toEqual([tokyo]);
+  });
+
+  it("番組も出すと指定すれば戻る", () => {
+    const withTv = { ...ctx, broadcastIds: new Set(["zoo"]) };
+    expect(filterCams(cams, withTv, { broadcasts: true })).toEqual(cams);
+  });
+
+  it("番組を出しても他の絞り込みは効いたまま", () => {
+    const withTv = { ...ctx, broadcastIds: new Set(["zoo"]) };
+    expect(filterCams(cams, withTv, { broadcasts: true, liveOnly: true })).toEqual([tokyo]);
   });
 
   it("条件を重ねると積になる", () => {
