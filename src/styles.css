@@ -62,6 +62,35 @@ input {
   outline-offset: 2px;
 }
 
+/* スクロールバーは海図の罫と同じ細さ・同じ色にする。既定の帯は 15px あって、
+   パネルと一覧の幅を実際に食う(見た目だけの話ではない)。
+   標準プロパティを解さないブラウザにだけ WebKit の擬似要素を出す — 両方書くと
+   Safari が常時表示の旧式スクロールバーに戻る。 */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--haze) transparent;
+}
+
+@supports not (scrollbar-width: thin) {
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--haze);
+    border-radius: 999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2a4c5b;
+  }
+}
+
 /* ── 骨格 ───────────────────────────────────────────── */
 
 .app {
@@ -913,7 +942,6 @@ html.resizing-panel iframe {
      (3 段に折り返すと地図の取り分がなくなる)。 */
   .masthead {
     overflow-x: auto;
-    scrollbar-width: thin;
   }
 
   .masthead__primary,
