@@ -67,4 +67,13 @@ describe("視聴が多い順の文言", () => {
     expect(t("watchingLead", "en")).toContain("how many people are watching");
     expect(t("watchingHint", "ja")).toContain("一覧");
   });
+
+  it("飛び先は、短い名(ボタン)と何が起きるか(読み上げ)の二段で持つ", () => {
+    expect(t("flatMap", "ja")).toBe("平面図");
+    expect(t("globe", "ja")).toBe("地球儀");
+    expect(t("showOnFlatMap", "ja")).toBe("平面図で見る");
+    expect(t("showOnGlobe", "ja")).toBe("地球儀で見る");
+    expect(t("showOnFlatMap", "en")).toBe("Show on the map");
+    expect(t("showOnGlobe", "en")).toBe("Show on the globe");
+  });
 });

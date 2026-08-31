@@ -57,6 +57,8 @@ const STRINGS = {
     ja: "一覧から地点を選ぶと、その場所の今が流れます。",
     en: "Pick a place from the list to see what it looks like there now.",
   },
+  showOnFlatMap: { ja: "平面図で見る", en: "Show on the map" },
+  showOnGlobe: { ja: "地球儀で見る", en: "Show on the globe" },
   backToMap: { ja: "地図に戻る", en: "Back to map" },
   focusThis: { ja: "これを見る", en: "Watch this" },
   alsoOpen: { ja: "開いているカメラ", en: "Also open" },

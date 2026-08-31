@@ -20,7 +20,7 @@ import { mountPinLegend } from "./ui/pin";
 import { createPanel } from "./ui/panel";
 import { attachPanelResize } from "./ui/panelResize";
 import { createWall } from "./ui/wall";
-import { createWatchingList } from "./ui/watching";
+import { createWatchingList, type JumpTarget } from "./ui/watching";
 
 const FAVORITES_KEY = "somewhere-now:favorites";
 const SOUND_KEY = "somewhere-now:sound";
@@ -155,6 +155,23 @@ export function startApp(root: HTMLElement): void {
   function pickFromList(camId: string): void {
     if (view.view[0] === camId) return;
     update({ view: [camId, ...view.view.filter((id) => id !== camId)].slice(0, MAX_VIEW) });
+  }
+
+  /**
+   * 一覧から地図へ飛ぶ。押した地点を先頭に上げ、一覧を畳んで、選ばれた面に寄せる。
+   *
+   * update は 1 回で済ませる(view と watching と globe を別々に流すと、その途中の
+   * 状態で地図が描き直されて無駄に揺れる)。focusCam は view.globe を見て飛び先を
+   * 決めるので、update のあとに呼ぶ。
+   */
+  function jumpFromList(camId: string, target: JumpTarget): void {
+    update({
+      view: [camId, ...view.view.filter((id) => id !== camId)].slice(0, MAX_VIEW),
+      watching: false,
+      globe: target === "globe",
+    });
+    const cam = byId.get(camId);
+    if (cam) focusCam(cam);
   }
 
   function focusOpenCam(): void {
@@ -306,7 +323,10 @@ export function startApp(root: HTMLElement): void {
   });
 
   const wall = createWall(wallEl, markUnplayable);
-  const watchingList = createWatchingList(watchingEl, pickFromList);
+  const watchingList = createWatchingList(watchingEl, {
+    onPick: pickFromList,
+    onJump: jumpFromList,
+  });
 
   function toggleSound(): void {
     soundOn = !soundOn;

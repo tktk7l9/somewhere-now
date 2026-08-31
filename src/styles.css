@@ -786,15 +786,20 @@ html.resizing-panel iframe {
 }
 
 .watching__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-right: 8px;
   border-bottom: 1px solid var(--haze);
 }
 
 .watching__row {
+  flex: 1;
+  min-width: 0;
   display: grid;
   grid-template-columns: 3.2em 1fr auto;
   gap: 12px;
   align-items: center;
-  width: 100%;
   padding: 11px 12px;
   text-align: left;
   border-radius: var(--radius);
@@ -848,6 +853,36 @@ html.resizing-panel iframe {
   color: var(--lit);
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
+}
+
+/* 「どこなのか」を見にいく口。地図が主役なので、行を押したときの
+   「その配信を開く」よりは控えめに置き、触れたときだけ琥珀に点く。 */
+.watching__jump {
+  flex: none;
+  display: flex;
+  gap: 4px;
+}
+
+.watching__go {
+  padding: 5px 9px;
+  border: 1px solid var(--haze);
+  border-radius: var(--radius);
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--dim);
+  white-space: nowrap;
+  transition:
+    color 160ms var(--ease),
+    border-color 160ms var(--ease),
+    background-color 160ms var(--ease);
+}
+
+.watching__go:hover,
+.watching__go:focus-visible {
+  color: var(--lit);
+  border-color: var(--lit);
+  background-color: var(--lit-soft);
 }
 
 .app[data-mode="watching"] .map,
@@ -915,6 +950,24 @@ html.resizing-panel iframe {
   .watching__viewers {
     grid-column: 2;
     white-space: normal;
+  }
+}
+
+/* 名前の幅が惜しくなる幅から、飛び先は行の下へ回す。 */
+@media (max-width: 560px) {
+  .watching__item {
+    flex-wrap: wrap;
+  }
+
+  /* 下の余白は飛び先の側だけが持つ。両方が持つと帯が離れて別の行に見える。 */
+  .watching__row {
+    padding-bottom: 4px;
+  }
+
+  .watching__jump {
+    flex: 1 0 100%;
+    justify-content: flex-end;
+    padding: 0 4px 10px;
   }
 }
 
