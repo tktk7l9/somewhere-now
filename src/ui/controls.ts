@@ -63,6 +63,28 @@ function row(className: string, ...children: readonly HTMLElement[]): HTMLElemen
 }
 
 export function createControls(container: HTMLElement, handlers: ControlHandlers) {
+  // 検索欄だけは作り直さず、最初の 1 つを使い続ける。
+  //
+  // 以前は再描画のたびに作り直していた。1 文字打つたびに onChange → 再描画と
+  // 回るので、打っている本人の入力欄が毎回 DOM から消えて別物に入れ替わる
+  // (実測: 3 文字打つと最初の要素は isConnected: false)。焦点を当て直す細工で
+  // 英字は誤魔化せていたが、変換を伴う入力は途中で流れる。この見出しは
+  // 1 分毎の時計と 2 分毎の生存状態でも再描画されるので、打っている最中に
+  // 割り込まれるのは例外ではなく日常。
+  const search = document.createElement("input");
+  search.type = "search";
+  search.className = "search";
+  search.addEventListener("input", () => handlers.onChange({ query: search.value }));
+
+  const primaryRow = row("masthead__primary");
+  const filtersRow = row("masthead__filters");
+  filtersRow.id = FILTERS_ID;
+  container.append(primaryRow, filtersRow);
+
+  // 中身が変わっていない段は作り直さない。作り直すと焦点が飛ぶ。
+  let primaryKey: string | null = null;
+  let filtersKey: string | null = null;
+
   return {
     update(
       state: ViewState,
@@ -71,6 +93,40 @@ export function createControls(container: HTMLElement, handlers: ControlHandlers
       filtersOpen: boolean,
     ): void {
       const { lang } = state;
+
+      const placeholder = t("search", lang);
+      if (search.placeholder !== placeholder) {
+        search.placeholder = placeholder;
+        search.setAttribute("aria-label", placeholder);
+      }
+      // 打っている最中に同じ値を書き戻すとカーソルが末尾へ飛ぶ。
+      if (search.value !== state.query) search.value = state.query;
+
+      const mapOpen = !wallOpen && !state.watching && !state.globe;
+      const globeOpen = !wallOpen && !state.watching && state.globe;
+      const watchingOpen = !wallOpen && state.watching;
+      const active = activeFilterCount(state);
+
+      const nextPrimaryKey = [
+        lang,
+        locateStatus,
+        mapOpen,
+        globeOpen,
+        wallOpen,
+        watchingOpen,
+        filtersOpen,
+        active,
+      ].join("\u0000");
+
+      const nextFiltersKey = [
+        lang,
+        state.categories.join(","),
+        state.liveOnly,
+        state.nightOnly,
+        state.favoritesOnly,
+      ].join("\u0000");
+
+      if (nextPrimaryKey === primaryKey && nextFiltersKey === filtersKey) return;
 
       const categories = CAM_CATEGORIES.map((category) =>
         chip(categoryLabel(category, lang), state.categories.includes(category), () => {
@@ -92,14 +148,6 @@ export function createControls(container: HTMLElement, handlers: ControlHandlers
           handlers.onChange({ favoritesOnly: !state.favoritesOnly }),
         ),
       ];
-
-      const search = document.createElement("input");
-      search.type = "search";
-      search.className = "search";
-      search.placeholder = t("search", lang);
-      search.value = state.query;
-      search.setAttribute("aria-label", t("search", lang));
-      search.addEventListener("input", () => handlers.onChange({ query: search.value }));
 
       const random = document.createElement("button");
       random.type = "button";
@@ -124,10 +172,6 @@ export function createControls(container: HTMLElement, handlers: ControlHandlers
       }
       locate.addEventListener("click", handlers.onLocate);
 
-      const mapOpen = !wallOpen && !state.watching && !state.globe;
-      const globeOpen = !wallOpen && !state.watching && state.globe;
-      const watchingOpen = !wallOpen && state.watching;
-
       const flatMap = chip(t("flatMap", lang), mapOpen, () => handlers.onSetGlobe(false));
       const globe = chip(t("globe", lang), globeOpen, () => handlers.onSetGlobe(true));
       const wall = chip(t(wallOpen ? "backToMap" : "wall", lang), wallOpen, handlers.onToggleWall);
@@ -141,7 +185,6 @@ export function createControls(container: HTMLElement, handlers: ControlHandlers
       // 狭い画面では検索・カテゴリ・フラグの段を畳めるようにする(常に開いたままだと、
       // 見出しが 2 段とも横スクロールになって、どの機能があるのか誰にも見えない)。
       // 広い画面では CSS がこのチップを消し、段は開いたままになる。
-      const active = activeFilterCount(state);
       const filtersToggle = chip(
         active === 0 ? t("filters", lang) : `${t("filters", lang)} ${active}`,
         filtersOpen,
@@ -152,27 +195,17 @@ export function createControls(container: HTMLElement, handlers: ControlHandlers
       filtersToggle.setAttribute("aria-expanded", String(filtersOpen));
       filtersToggle.setAttribute("aria-controls", FILTERS_ID);
 
-      const filtersRow = row(
-        "masthead__filters",
-        group(search),
-        group(...categories),
-        group(...flags),
-      );
-      filtersRow.id = FILTERS_ID;
-
-      container.replaceChildren(
-        row(
-          "masthead__primary",
+      if (nextPrimaryKey !== primaryKey) {
+        primaryKey = nextPrimaryKey;
+        primaryRow.replaceChildren(
           group(random, locate, flatMap, globe, wall, watching),
           group(filtersToggle, langToggle),
-        ),
-        filtersRow,
-      );
+        );
+      }
 
-      // 入力中に再描画が挟まってもカーソルが飛ばないようにする。
-      if (document.activeElement === document.body && state.query !== "") {
-        search.focus();
-        search.setSelectionRange(state.query.length, state.query.length);
+      if (nextFiltersKey !== filtersKey) {
+        filtersKey = nextFiltersKey;
+        filtersRow.replaceChildren(group(search), group(...categories), group(...flags));
       }
     },
   };

@@ -420,8 +420,14 @@ export function startApp(root: HTMLElement): void {
     const focusedId = focused?.id;
     if (focusedId === gripFocus) return;
     gripFocus = focusedId;
-    if (focusedId === undefined) sheet?.lower();
-    else sheet?.raise();
+    if (focusedId === undefined) {
+      sheet?.lower();
+      return;
+    }
+    sheet?.raise();
+    // 絞り込みの段とパネルが同時に出ていると、狭い画面では地図が 74px の帯に
+    // なる。主役が決まった＝見る方に移ったので、段は畳む。
+    filtersOpen = false;
   }
 
   const panelCtx = () => ({
@@ -561,6 +567,14 @@ export function startApp(root: HTMLElement): void {
   });
 
   everyWhileVisible(STATE_POLL_MS, () => void pullStates());
+
+  // 開いた絞り込みは地図の上に垂れているので、地図を触ったら畳む。
+  // 広い画面では段が常に出ているので、これは効いても何も動かない。
+  stageEl.addEventListener("pointerdown", () => {
+    if (!filtersOpen) return;
+    filtersOpen = false;
+    render();
+  });
 
   addEventListener("resize", () => {
     mapView.invalidate();
