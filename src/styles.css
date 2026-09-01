@@ -191,10 +191,15 @@ input {
   transition: background 0.15s var(--ease);
 }
 
-.panel-resize:hover::before,
 .panel-resize:focus-visible::before,
 html.resizing-panel .panel-resize::before {
   background: var(--lit);
+}
+
+@media (hover: hover) {
+  .panel-resize:hover::before {
+    background: var(--lit);
+  }
 }
 
 html.resizing-panel {
@@ -224,7 +229,16 @@ html.resizing-panel iframe {
   display: inline-block;
 }
 
-.chip:hover {
+/* hover は指のある画面では「押した跡」として残り続ける(sticky hover)。
+   問い合わせで囲って、指す道具のある画面にだけ渡す。 */
+@media (hover: hover) {
+  .chip:hover {
+    color: var(--bone);
+    border-color: var(--dim);
+  }
+}
+
+.chip:active {
   color: var(--bone);
   border-color: var(--dim);
 }
@@ -375,8 +389,10 @@ html.resizing-panel iframe {
   border-bottom-color: var(--haze);
 }
 
-.map .leaflet-bar a:hover {
-  background: var(--haze);
+@media (hover: hover) {
+  .map .leaflet-bar a:hover {
+    background: var(--haze);
+  }
 }
 
 .night-shade,
@@ -443,8 +459,10 @@ html.resizing-panel iframe {
   border-top-color: var(--haze);
 }
 
-.globe .maplibregl-ctrl-group button:hover {
-  background: var(--haze);
+@media (hover: hover) {
+  .globe .maplibregl-ctrl-group button:hover {
+    background: var(--haze);
+  }
 }
 
 .globe .maplibregl-ctrl-icon {
@@ -472,6 +490,7 @@ html.resizing-panel iframe {
 /* ── マーカー ───────────────────────────────────────── */
 
 .pin {
+  position: relative;
   display: block;
   width: 13px;
   height: 13px;
@@ -479,6 +498,22 @@ html.resizing-panel iframe {
   border: 1.5px solid var(--dim);
   background: var(--ink);
   transition: transform 0.15s var(--ease);
+}
+
+/* 13px の点は指では狙えない。見た目は変えず、当たり判定だけを外へ広げる。
+   拡大(--selected の scale)に付いてこないよう、割合ではなく px で。 */
+@media (pointer: coarse) {
+  .pin::after,
+  .cluster::after {
+    content: "";
+    position: absolute;
+    inset: -11px;
+    border-radius: 50%;
+  }
+
+  .cluster::after {
+    inset: -7px;
+  }
 }
 
 .pin--live {
@@ -495,8 +530,10 @@ html.resizing-panel iframe {
   transform: scale(1.55);
 }
 
-.pin:hover {
-  transform: scale(1.3);
+@media (hover: hover) {
+  .pin:hover {
+    transform: scale(1.3);
+  }
 }
 
 /* いまいる場所。カメラのピンと並べても見間違えないよう、塗り潰しの琥珀にする。
@@ -521,6 +558,7 @@ html.resizing-panel iframe {
 }
 
 .cluster {
+  position: relative;
   display: grid;
   place-items: center;
   width: 30px;
@@ -675,8 +713,10 @@ html.resizing-panel iframe {
   text-decoration: none;
 }
 
-.card__overview-source:hover {
-  color: var(--bone);
+@media (hover: hover) {
+  .card__overview-source:hover {
+    color: var(--bone);
+  }
 }
 
 @keyframes breathe {
@@ -827,8 +867,14 @@ html.resizing-panel iframe {
   border-radius: var(--radius);
 }
 
-.watching__row:hover {
-  background: rgba(232, 226, 212, 0.04);
+@media (hover: hover) {
+  .watching__row:hover {
+    background: rgba(232, 226, 212, 0.04);
+  }
+}
+
+.watching__row:active {
+  background: rgba(232, 226, 212, 0.07);
 }
 
 .watching__row[aria-current="true"] {
@@ -882,6 +928,36 @@ html.resizing-panel iframe {
 .app[data-mode="watching"] .notes,
 .app[data-mode="watching"] .wall {
   display: none;
+}
+
+/* ── 指で使う画面 ───────────────────────────────────── */
+
+@media (pointer: coarse) {
+  /* 素のチップは高さ 26px。指の的は 44px 欲しいので、内側を厚くしたうえで
+     擬似要素で外へ少し広げる(隣と重ならない範囲で)。 */
+  .chip {
+    position: relative;
+    padding: 8px 12px;
+  }
+
+  .chip::after {
+    content: "";
+    position: absolute;
+    inset: -3px -2px;
+  }
+
+  .card__actions .chip,
+  .openrow .chip {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+
+  /* iOS は 16px 未満の入力欄に焦点が当たると画面ごと拡大し、戻さない。
+     はじめから 16px にしておく。 */
+  .search {
+    font-size: 16px;
+    padding: 8px 10px;
+  }
 }
 
 /* ── 応答 ───────────────────────────────────────────── */
