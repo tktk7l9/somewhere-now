@@ -64,14 +64,21 @@ input {
 
 /* ── 骨格 ───────────────────────────────────────────── */
 
+/* 列は minmax(0, …)。素の 1fr は「中身の最小幅」を下回れないので、折り返さない
+   チップの束(カテゴリ 8 個)が入っているだけで列ごと画面より広くなり、
+   ページ全体が横に伸びる(狭い画面で実測 390px の画面に 677px の骨格が載った)。 */
 .app {
   display: grid;
-  grid-template-columns: 1fr var(--panel-w);
+  grid-template-columns: minmax(0, 1fr) var(--panel-w);
   grid-template-rows: auto 1fr;
   height: 100dvh;
 }
 
 .masthead {
+  position: relative;
+  /* 開いた絞り込みの段が地図の上に垂れるので、Leaflet の操作(z-index 1000)より
+     上に置く。でないとズームボタンが検索欄を突き抜けて出る。 */
+  z-index: 1100;
   grid-column: 1 / -1;
   display: flex;
   align-items: flex-start;
@@ -216,6 +223,11 @@ html.resizing-panel iframe {
 .chip:disabled {
   opacity: 0.55;
   cursor: wait;
+}
+
+/* 絞り込みの段の開閉。広い画面では段がそのまま見えているので出さない。 */
+.chip--filters {
+  display: none;
 }
 
 .search {
@@ -861,7 +873,7 @@ html.resizing-panel iframe {
 
 @media (max-width: 900px) {
   .app {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     grid-template-rows: auto 46dvh 1fr;
   }
 
@@ -874,16 +886,80 @@ html.resizing-panel iframe {
     display: none;
   }
 
-  /* 狭い画面では各段を折り返さず、ヘッダーごと横にスクロールさせる
-     (3 段に折り返すと地図の取り分がなくなる)。 */
-  .masthead {
-    overflow-x: auto;
-    scrollbar-width: thin;
+  /* 狭い画面では畳んで、開いたときは折り返して全部見せる。
+     以前はヘッダーごと横スクロールさせていたが、初期表示で見えるのが
+     「どこかへ連れてって」と検索欄だけになり、カテゴリ 8 個・フラグ 3 個・
+     地球儀・並べて見る・視聴が多い順が、横に振らないと存在すら分からなかった。
+     しかも 2 段が連動して動くので、片方を見ながらもう片方は使えない。 */
+  .chip--filters {
+    display: inline-block;
   }
 
-  .masthead__primary,
-  .masthead__filters {
-    flex-wrap: nowrap;
+  .app[data-filters="closed"] .masthead__filters {
+    display: none;
+  }
+
+  /* 開いた段は、見出しを縦に伸ばすのではなく地図の上に垂らす。
+     居場所を押し広げると、絞り込んでいる間ずっと地図が痩せる。 */
+  .app[data-filters="open"] .masthead__filters {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 700;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 12px;
+    background: var(--ink-3);
+    border-bottom: 1px solid var(--haze);
+    box-shadow: 0 14px 26px rgba(2, 8, 12, 0.5);
+  }
+
+  .masthead__filters .controls__group {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .masthead__filters .controls__group:not(:last-child) {
+    padding-bottom: 10px;
+    padding-right: 0;
+    border-right: none;
+    border-bottom: 1px solid var(--haze);
+  }
+
+  .masthead__filters .search {
+    width: 100%;
+  }
+
+  /* ブランド名は 150px を食う。マークだけ残し、名前は読み上げにだけ渡す。 */
+  .brand__name {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .masthead {
+    gap: 12px;
+    padding: 8px 12px 10px;
+  }
+
+  /* 束の中も折り返す。束は既定で折り返さないので、カテゴリ 8 個の束は
+     画面の外へはみ出して黙って切れる(地球儀・並べて見る・視聴が多い順が
+     見えなくなっていた)。縦の区切り線は折り返すと意味を失うので落とす。 */
+  .controls__group {
+    flex-wrap: wrap;
+    padding-right: 0;
+    border-right: none;
+  }
+
+  /* 1 段目は束ごと畳んでチップを直接並べる。束が箱のままだと束の境目で必ず
+     行が変わり、右端が空いていても次のチップが下りてしまう(実測 4 行)。 */
+  .masthead__primary .controls__group {
+    display: contents;
   }
 
   .notes {

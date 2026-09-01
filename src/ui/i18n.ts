@@ -17,6 +17,7 @@ const STRINGS = {
     en: "places are live",
   },
   search: { ja: "地名で絞り込む", en: "Filter by name" },
+  filters: { ja: "絞り込み", en: "Filters" },
   liveOnly: { ja: "配信中だけ", en: "Live only" },
   nightOnly: { ja: "夜の場所だけ", en: "Night only" },
   favoritesOnly: { ja: "お気に入りだけ", en: "Favorites" },

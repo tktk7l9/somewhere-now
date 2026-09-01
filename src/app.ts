@@ -126,6 +126,9 @@ export function startApp(root: HTMLElement): void {
   let soundOn = readStored(SOUND_KEY) === "on";
   let locateStatus: LocateStatus = "idle";
   let statesReady: "loading" | "unavailable" | "ready" = "loading";
+  // 絞り込みの段を開いているか。狭い画面でだけ意味を持つ(広い画面では CSS が
+  // 常に開いて見せる)。URL には載せない — 共有したい状態ではなく、手元の都合。
+  let filtersOpen = false;
 
   function recomputeNight(): void {
     nightIds = new Set(cams.filter((cam) => isNightAt(now, cam)).map((cam) => cam.id));
@@ -344,6 +347,10 @@ export function startApp(root: HTMLElement): void {
       update({ watching: opening });
       if (!opening) focusOpenCam();
     },
+    onToggleFilters() {
+      filtersOpen = !filtersOpen;
+      render();
+    },
     onSetGlobe(globe) {
       const leavingWall = wallOpen;
       if (leavingWall) {
@@ -409,11 +416,12 @@ export function startApp(root: HTMLElement): void {
           ? "globe"
           : "map";
     root.dataset["mode"] = mode;
+    root.dataset["filters"] = filtersOpen ? "open" : "closed";
     wallEl.hidden = !wallOpen;
     watchingEl.hidden = !watchingOpen;
     globeEl.setAttribute("aria-label", t("globe", view.lang));
 
-    controls.update(view, wallOpen, locateStatus);
+    controls.update(view, wallOpen, locateStatus, filtersOpen);
     mapView.setStates(states);
     mapView.setVisible(visible);
     mapView.setSelected(view.view);

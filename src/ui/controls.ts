@@ -7,6 +7,9 @@ import { categoryLabel, t, type StringKey } from "./i18n";
 
 export type LocateStatus = "idle" | "pending" | LocateFailure;
 
+/** 「絞り込み」チップが開閉する段。aria-controls で結ぶために id を固定する。 */
+const FILTERS_ID = "masthead-filters";
+
 const LOCATE_ERROR_KEY: Record<LocateFailure, StringKey> = {
   denied: "locateDenied",
   unavailable: "locateUnavailable",
@@ -20,7 +23,19 @@ export interface ControlHandlers {
   onLocate(): void;
   onToggleWall(): void;
   onToggleWatching(): void;
+  onToggleFilters(): void;
   onSetGlobe(globe: boolean): void;
+}
+
+/** 「絞り込み」の見出しに添える、いま効いている条件の数。 */
+function activeFilterCount(state: ViewState): number {
+  return (
+    state.categories.length +
+    (state.liveOnly ? 1 : 0) +
+    (state.nightOnly ? 1 : 0) +
+    (state.favoritesOnly ? 1 : 0) +
+    (state.query === "" ? 0 : 1)
+  );
 }
 
 function chip(label: string, pressed: boolean, onClick: () => void): HTMLButtonElement {
@@ -49,7 +64,12 @@ function row(className: string, ...children: readonly HTMLElement[]): HTMLElemen
 
 export function createControls(container: HTMLElement, handlers: ControlHandlers) {
   return {
-    update(state: ViewState, wallOpen: boolean, locateStatus: LocateStatus): void {
+    update(
+      state: ViewState,
+      wallOpen: boolean,
+      locateStatus: LocateStatus,
+      filtersOpen: boolean,
+    ): void {
       const { lang } = state;
 
       const categories = CAM_CATEGORIES.map((category) =>
@@ -118,18 +138,35 @@ export function createControls(container: HTMLElement, handlers: ControlHandlers
       );
       langToggle.removeAttribute("aria-pressed");
 
+      // 狭い画面では検索・カテゴリ・フラグの段を畳めるようにする(常に開いたままだと、
+      // 見出しが 2 段とも横スクロールになって、どの機能があるのか誰にも見えない)。
+      // 広い画面では CSS がこのチップを消し、段は開いたままになる。
+      const active = activeFilterCount(state);
+      const filtersToggle = chip(
+        active === 0 ? t("filters", lang) : `${t("filters", lang)} ${active}`,
+        filtersOpen,
+        handlers.onToggleFilters,
+      );
+      filtersToggle.classList.add("chip--filters");
+      filtersToggle.removeAttribute("aria-pressed");
+      filtersToggle.setAttribute("aria-expanded", String(filtersOpen));
+      filtersToggle.setAttribute("aria-controls", FILTERS_ID);
+
+      const filtersRow = row(
+        "masthead__filters",
+        group(search),
+        group(...categories),
+        group(...flags),
+      );
+      filtersRow.id = FILTERS_ID;
+
       container.replaceChildren(
         row(
           "masthead__primary",
           group(random, locate, flatMap, globe, wall, watching),
-          group(langToggle),
+          group(filtersToggle, langToggle),
         ),
-        row(
-          "masthead__filters",
-          group(search),
-          group(...categories),
-          group(...flags),
-        ),
+        filtersRow,
       );
 
       // 入力中に再描画が挟まってもカーソルが飛ばないようにする。
