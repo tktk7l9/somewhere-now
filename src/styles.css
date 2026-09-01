@@ -431,15 +431,27 @@ html.resizing-panel iframe {
   outline: none;
 }
 
-.globe .maplibregl-ctrl-attrib {
+/* MapLibre の CSS は動的 import なので、この表より後に載る。向こうの帰属表示は
+   `.maplibregl-ctrl.maplibregl-ctrl-attrib` と `.maplibregl-ctrl-attrib.maplibregl-compact`
+   の 2 クラスで書いてあり、`.globe .maplibregl-ctrl-attrib` と同じ強さ ＝ 後から
+   来た向こうが勝つ。狭い画面では帰属表示をパネルの上まで持ち上げるので、負けると
+   白い錠剤が地図の真ん中に浮く。`.globe.maplibregl-map` で 1 段強くする。 */
+.globe.maplibregl-map .maplibregl-ctrl-attrib {
   background: rgba(11, 22, 32, 0.86);
   color: var(--dim);
   font-family: var(--font-mono);
   font-size: 10px;
 }
 
-.globe .maplibregl-ctrl-attrib a {
+.globe.maplibregl-map .maplibregl-ctrl-attrib a {
   color: var(--dim);
+}
+
+/* 畳む・開くの ⓘ。暗い地に暗い印は見えないので、他の操作子と同じく反転する。 */
+.globe.maplibregl-map .maplibregl-ctrl-attrib.maplibregl-compact::after,
+.globe.maplibregl-map .maplibregl-ctrl-attrib-button {
+  background-color: transparent;
+  filter: invert(0.88) sepia(0.15);
 }
 
 .globe .maplibregl-ctrl-group {
