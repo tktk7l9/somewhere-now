@@ -1,5 +1,13 @@
 import { readFileSync } from "node:fs";
-import { INITIAL_VIEW, GLOBE_ZOOM, tileAt, tileUrl } from "./mapView";
+import {
+  INITIAL_VIEW,
+  GLOBE_MIN_ZOOM,
+  GLOBE_ZOOM,
+  GLOBE_ZOOM_EDGE,
+  globeZoomFor,
+  tileAt,
+  tileUrl,
+} from "./mapView";
 
 describe("tileAt", () => {
   it("ズーム 0 では世界が 1 枚に収まる", () => {
@@ -38,6 +46,34 @@ describe("GLOBE_ZOOM", () => {
   it("大陸とピンが読める距離で、まだ球として見える", () => {
     expect(GLOBE_ZOOM).toBeGreaterThanOrEqual(INITIAL_VIEW.zoom);
     expect(GLOBE_ZOOM).toBeLessThan(5);
+  });
+});
+
+describe("globeZoomFor", () => {
+  it("選んだときと同じ短辺ならそのまま", () => {
+    expect(globeZoomFor(1056, GLOBE_ZOOM_EDGE)).toBeCloseTo(GLOBE_ZOOM, 6);
+  });
+
+  it("短辺が半分になればズームを 1 段下げる", () => {
+    expect(globeZoomFor(GLOBE_ZOOM_EDGE / 2, 2000)).toBeCloseTo(GLOBE_ZOOM - 1, 6);
+    expect(globeZoomFor(2000, GLOBE_ZOOM_EDGE * 2)).toBeCloseTo(GLOBE_ZOOM + 1, 6);
+  });
+
+  it("短辺で決まる。長い方には引っぱられない", () => {
+    expect(globeZoomFor(390, 695)).toBeCloseTo(globeZoomFor(695, 390), 6);
+  });
+
+  it("手に持つ画面では球が収まるところまで引く", () => {
+    expect(globeZoomFor(390, 695)).toBeLessThan(2);
+  });
+
+  it("極端に引きすぎて球を点にはしない", () => {
+    expect(globeZoomFor(10, 10)).toBe(GLOBE_MIN_ZOOM);
+  });
+
+  it("測れないうちは既定のまま(表示前は幅も高さも 0 になる)", () => {
+    expect(globeZoomFor(0, 0)).toBe(GLOBE_ZOOM);
+    expect(globeZoomFor(Number.NaN, 400)).toBe(GLOBE_ZOOM);
   });
 });
 

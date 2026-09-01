@@ -776,6 +776,11 @@ html.resizing-panel iframe {
   left: 0;
   bottom: 0;
   z-index: 2;
+  /* 長い題は 1 行に留める。狭い画面では 2 行に折り返して映像を横帯で塞ぐ。 */
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   padding: 5px 10px;
   background: rgba(11, 22, 32, 0.82);
   font-family: var(--font-display);
@@ -1177,9 +1182,10 @@ html.resizing-panel iframe {
     pointer-events: none;
   }
 
-  /* 一覧の最後の行がつまみの裏に埋まらないよう、畳んだ分を空けておく。 */
+  /* 一覧の最後の行がパネルの裏に埋まらないよう、いまの高さのぶん空けておく。
+     畳んだ高さで固定すると、上げているあいだ末尾に届かなくなる。 */
   .watching__list {
-    padding-bottom: calc(var(--sheet-peek) + 16px);
+    padding-bottom: calc(var(--sheet-h, var(--sheet-peek)) + 16px);
   }
 
   /* 並べて見るときはパネルごと畳むので、格子は縦一列。狭い画面で 2 列に

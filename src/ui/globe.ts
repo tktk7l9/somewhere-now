@@ -11,7 +11,7 @@ import type { GeoJSONSource, StyleSpecification } from "maplibre-gl";
 
 import type { Cam, PublicCamState } from "../domain/cams";
 import { coalesced } from "../domain/coalesce";
-import { GLOBE_ZOOM, INITIAL_VIEW, type MapViewport } from "../domain/mapView";
+import { GLOBE_MIN_ZOOM, globeZoomFor, INITIAL_VIEW, type MapViewport } from "../domain/mapView";
 import { nightPolygonGeoJSON, terminatorLineGeoJSON } from "../domain/terminator";
 import type { Lang } from "../domain/weather";
 import { globeStyle, LABEL_LAYER_IDS, placeNameField, type GlobeStyleJson } from "./globeStyle";
@@ -111,9 +111,14 @@ function mountGlobe(
     container,
     style: style as StyleSpecification,
     center: [lng, lat],
-    zoom: GLOBE_ZOOM,
+    // 球の大きさを画面の短辺に合わせる。固定のズームだと、狭い画面では球が
+    // 画面より大きくなって地球儀に見えない。
+    zoom: globeZoomFor(
+      container.clientWidth || window.innerWidth,
+      container.clientHeight || window.innerHeight,
+    ),
     pitch: 18,
-    minZoom: 0.6,
+    minZoom: GLOBE_MIN_ZOOM,
     maxZoom: 16,
     fadeDuration: 0,
     localIdeographFontFamily: false,
