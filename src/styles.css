@@ -1219,6 +1219,16 @@ html.resizing-panel iframe {
   .app {
     grid-template-columns: minmax(0, 1fr) minmax(232px, 42vw);
   }
+
+  /* 倒すと足りないのは高さの方。チップを詰めて見出しを 1 段に収める
+     (2 段だと高さ 390px の画面の 4 分の 1 を見出しが持っていく)。 */
+  .chip {
+    padding: 6px 10px;
+  }
+
+  .masthead {
+    padding: 7px 12px 8px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

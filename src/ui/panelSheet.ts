@@ -138,6 +138,10 @@ export function attachPanelSheet({
 
   grip.addEventListener("pointerdown", (event) => {
     if (!active() || event.button !== 0) return;
+    // 掴んで動かした回の click は捨てるが、その click が来ないこともある
+    // (掴んだ指を離した先がつまみの外だと発火しない)。捨てる印を次に掴んだ
+    // ところで必ず戻さないと、そのあとの 1 回が黙って効かなくなる。
+    suppressClick = false;
     grip.setPointerCapture(event.pointerId);
     drag = {
       pointerId: event.pointerId,
