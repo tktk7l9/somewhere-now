@@ -38,6 +38,8 @@ export function createMapView(
   cams: readonly Cam[],
   lang: Lang,
   onSelect: (camId: string) => void,
+  /** 下から出るパネルが地図の下端を覆っている高さ(px)。横に並ぶ画面では 0。 */
+  obscuredBottom: () => number = () => 0,
 ): MapView {
   const map = L.map(container, {
     // index.html がこの初期表示のタイルを preload している(domain/mapView.ts)。
@@ -159,10 +161,22 @@ export function createMapView(
     }).addTo(map);
   }
 
+  /**
+   * 覆われている高さの半分だけ地図の中心を南へ寄せる ＝ 的が見えている側の
+   * まん中に来る。緯度で足すと高緯度でずれるので、いったん画素に直して足す。
+   */
+  function aimAt(lat: number, lng: number, zoom: number): L.LatLng {
+    const hidden = obscuredBottom();
+    if (hidden < 8) return L.latLng(lat, lng);
+    const point = map.project([lat, lng], zoom).add(new L.Point(0, hidden / 2));
+    return map.unproject(point, zoom);
+  }
+
   function fly(lat: number, lng: number, zoom: number): void {
     const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduced) map.setView([lat, lng], zoom);
-    else map.flyTo([lat, lng], zoom, { duration: 0.8 });
+    const target = aimAt(lat, lng, zoom);
+    if (reduced) map.setView(target, zoom);
+    else map.flyTo(target, zoom, { duration: 0.8 });
   }
 
   return {
@@ -183,7 +197,8 @@ export function createMapView(
       requestRender();
     },
     focus(cam) {
-      map.flyTo([cam.lat, cam.lng], Math.max(map.getZoom(), 6), { duration: 0.8 });
+      const zoom = Math.max(map.getZoom(), 6);
+      map.flyTo(aimAt(cam.lat, cam.lng, zoom), zoom, { duration: 0.8 });
     },
     goTo(view) {
       const [lat, lng] = view.center;

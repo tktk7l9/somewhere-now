@@ -270,6 +270,8 @@ export function createPanel(container: HTMLElement, handlers: PanelHandlers) {
   }
 
   return {
+    /** 下から出るシート(panelSheet.ts)が畳むときに触れなくする相手。 */
+    scroll,
     update(selected: readonly Cam[], ctx: PanelContext, emptyReason: EmptyReason = "none"): void {
       const focused = selected[0];
 

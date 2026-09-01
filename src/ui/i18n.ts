@@ -76,6 +76,9 @@ const STRINGS = {
     en: "Pin colors. Amber is live, black is off air.",
   },
   resizePanel: { ja: "パネルの幅を変える", en: "Resize panel" },
+  sheetExpand: { ja: "パネルを広げる", en: "Open the panel" },
+  sheetCollapse: { ja: "パネルを畳む", en: "Close the panel" },
+  sheetIdle: { ja: "地図から地点を選ぶ", en: "Pick a place on the map" },
   soundOn: { ja: "音を出す", en: "Sound on" },
   soundOff: { ja: "音を消す", en: "Sound off" },
   noLive: {

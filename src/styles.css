@@ -140,6 +140,8 @@ input {
 
 .panel {
   position: relative;
+  display: flex;
+  flex-direction: column;
   border-left: 1px solid var(--haze);
   background: var(--ink-2);
   overflow: hidden;
@@ -147,8 +149,21 @@ input {
 }
 
 .panel__scroll {
-  height: 100%;
+  flex: 1;
+  min-height: 0;
   overflow-y: auto;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* ── 下から出るパネル(狭い縦長の画面だけ) ─────────────── */
+
+/* シートとして振る舞うかは CSS が決め、JS はこの値を読む(panelSheet.ts)。 */
+.app {
+  --sheet: 0;
+}
+
+.panel-grip {
+  display: none;
 }
 
 .panel-resize {
@@ -872,16 +887,7 @@ html.resizing-panel iframe {
 /* ── 応答 ───────────────────────────────────────────── */
 
 @media (max-width: 900px) {
-  .app {
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: auto 46dvh 1fr;
-  }
-
-  .panel {
-    border-left: none;
-    border-top: 1px solid var(--haze);
-  }
-
+  /* 8px の縦棒は指では掴めない。狭い画面での幅の割り当ては CSS で決める。 */
   .panel-resize {
     display: none;
   }
@@ -979,10 +985,6 @@ html.resizing-panel iframe {
     font-size: 34px;
   }
 
-  .app[data-mode="watching"] {
-    grid-template-rows: auto 1fr 42dvh;
-  }
-
   .watching__row {
     grid-template-columns: 2.6em 1fr;
     grid-template-rows: auto auto;
@@ -991,6 +993,149 @@ html.resizing-panel iframe {
   .watching__viewers {
     grid-column: 2;
     white-space: normal;
+  }
+}
+
+/* 狭くて縦に長い画面 ＝ 手に持った端末。地図にはステージ全部を渡し、
+   パネルは下から重ねる。上下は panelSheet.ts が data-sheet で切り替える。
+   以前はここで縦に 46dvh / 1fr と割っていたが、何も選んでいなくても
+   「まだ何も選んでいません」が画面の半分を占め、残った地図の上にさらに
+   配信数の札が乗るので、実際に見える地図は画面の 3 分の 1 だけだった。 */
+@media (max-width: 900px) and (orientation: portrait) {
+  .app {
+    --sheet: 1;
+    --sheet-peek: calc(56px + env(safe-area-inset-bottom));
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+
+  .stage,
+  .panel {
+    grid-area: 2 / 1;
+  }
+
+  .panel {
+    align-self: end;
+    /* Leaflet の操作と帰属表示は z-index 1000。地図の上に重ねる以上、
+       それより上に置かないと縮尺の表示がパネルの文字を突き抜ける。 */
+    z-index: 1050;
+    width: 100%;
+    max-height: 100%;
+    padding-bottom: env(safe-area-inset-bottom);
+    border-left: none;
+    border-top: 1px solid var(--haze);
+    border-radius: 14px 14px 0 0;
+    box-shadow: 0 -14px 30px rgba(2, 8, 12, 0.5);
+    transition: height 0.26s var(--ease);
+  }
+
+  .panel__scroll {
+    padding-bottom: 0;
+  }
+
+  /* 高さは panelSheet.ts が px で書く。止まり木を CSS 側に置くと、上げ切った
+     高さを JS から確かめられない(補間の途中の値しか読めない)。 */
+  .panel {
+    height: var(--sheet-h, var(--sheet-peek));
+  }
+
+  /* 掴んでいる間は指に直に付ける。補間を挟むと遅れて付いてくる。 */
+  html.dragging-sheet .panel {
+    transition: none;
+  }
+
+  .panel-grip {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    width: 100%;
+    min-height: 56px;
+    padding: 9px 16px 0;
+    /* 掴んで上下に振る操作なので、ブラウザのスクロールには渡さない。 */
+    touch-action: none;
+  }
+
+  .panel-grip__bar {
+    width: 42px;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--haze);
+  }
+
+  .panel-grip__label {
+    max-width: 100%;
+    overflow: hidden;
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    line-height: 1.3;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--bone);
+  }
+
+  .app[data-sheet="peek"] .panel-grip__label {
+    color: var(--dim);
+  }
+
+  /* 上げてしまえばカードに同じ名前が出るので、つまみは棒だけに戻す。 */
+  .app[data-sheet="half"] .panel-grip,
+  .app[data-sheet="full"] .panel-grip {
+    min-height: 0;
+    padding-bottom: 9px;
+  }
+
+  .app[data-sheet="half"] .panel-grip__label,
+  .app[data-sheet="full"] .panel-grip__label {
+    display: none;
+  }
+
+  html.dragging-sheet {
+    user-select: none;
+  }
+
+  html.dragging-sheet iframe {
+    pointer-events: none;
+  }
+
+  /* 一覧の最後の行がつまみの裏に埋まらないよう、畳んだ分を空けておく。 */
+  .watching__list {
+    padding-bottom: calc(var(--sheet-peek) + 16px);
+  }
+
+  /* 並べて見るときはパネルごと畳むので、格子は縦一列。狭い画面で 2 列に
+     割ると 1 枚が 195px になり、何が映っているか分からない。 */
+  .wall {
+    grid-template-columns: 1fr;
+  }
+
+  /* 地図の下端はパネルが重なる場所になった。帰属表示は消せないので、
+     パネルの上端に載せて always 見えるようにする。 */
+  .map .leaflet-bottom,
+  .globe .maplibregl-ctrl-bottom-right,
+  .globe .maplibregl-ctrl-bottom-left {
+    bottom: var(--sheet-h, var(--sheet-peek));
+  }
+
+  /* パネルを上げているあいだ、配信数の札は見える地図の半分を覆ってしまう。
+     いま見ているのはカメラの方なので、そのあいだは引っ込める。 */
+  .app[data-sheet="half"] .notes,
+  .app[data-sheet="full"] .notes {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s var(--ease), visibility 0.2s;
+  }
+}
+
+/* 狭くて横に長い画面 ＝ 端末を横に倒した状態。縦に積むと(高さ 390px の画面で)
+   地図が 179px になり、パネルにも何も収まらない。左右に分けたまま、幅だけを
+   画面に合わせる。 */
+@media (max-width: 900px) and (orientation: landscape) {
+  .app {
+    grid-template-columns: minmax(0, 1fr) minmax(232px, 42vw);
   }
 }
 

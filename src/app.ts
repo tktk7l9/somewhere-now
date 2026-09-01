@@ -13,12 +13,13 @@ import { isNightAt } from "./domain/terminator";
 import { MAX_VIEW, parseUrlState, toSearchString, type ViewState } from "./domain/urlState";
 import { fetchCamStates, fetchCams } from "./api/client";
 import { createControls, type LocateStatus } from "./ui/controls";
-import { liveDialCaption, t } from "./ui/i18n";
+import { camName, liveDialCaption, t } from "./ui/i18n";
 import type { GlobeView } from "./ui/globe";
 import { createMapView } from "./ui/map";
 import { mountPinLegend } from "./ui/pin";
 import { createPanel } from "./ui/panel";
 import { attachPanelResize } from "./ui/panelResize";
+import { attachPanelSheet, type PanelSheetHandle } from "./ui/panelSheet";
 import { createWall } from "./ui/wall";
 import { createWatchingList } from "./ui/watching";
 
@@ -104,6 +105,7 @@ function everyWhileVisible(intervalMs: number, run: () => void): void {
 export function startApp(root: HTMLElement): void {
   const mapEl = root.querySelector<HTMLElement>("#map")!;
   const globeEl = root.querySelector<HTMLElement>("#globe")!;
+  const stageEl = root.querySelector<HTMLElement>(".stage")!;
   const panelEl = root.querySelector<HTMLElement>("#panel")!;
   const controlsEl = root.querySelector<HTMLElement>("#controls")!;
   const wallEl = root.querySelector<HTMLElement>("#wall")!;
@@ -165,7 +167,13 @@ export function startApp(root: HTMLElement): void {
     if (cam) focusCam(cam);
   }
 
-  const mapView = createMapView(mapEl, cams, view.lang, selectCam);
+  // 下から出るパネルは地図の下端を覆う。寄せるときはその分だけ的を上げないと、
+  // 選んだピンがそのままパネルの裏に隠れる。シートはパネルより後に作るので、
+  // 覆っている高さは呼ばれた時点で読む。
+  let sheet: PanelSheetHandle | null = null;
+  const obscuredBottom = (): number => sheet?.obscuredBottom() ?? 0;
+
+  const mapView = createMapView(mapEl, cams, view.lang, selectCam, obscuredBottom);
 
   let globeView: GlobeView | null = null;
   let globeReady: Promise<void> | null = null;
@@ -193,7 +201,7 @@ export function startApp(root: HTMLElement): void {
     }
     globeReady ??= import("./ui/globe")
       .then(({ createGlobeView, createUnsupportedView }) =>
-        createGlobeView(globeEl, cams, view.lang, selectCam).catch(() =>
+        createGlobeView(globeEl, cams, view.lang, selectCam, obscuredBottom).catch(() =>
           createUnsupportedView(globeEl, view.lang),
         ),
       )
@@ -308,6 +316,14 @@ export function startApp(root: HTMLElement): void {
     },
   });
 
+  sheet = attachPanelSheet({
+    app: root,
+    stage: stageEl,
+    panel: panelEl,
+    scroll: panel.scroll,
+    lang: view.lang,
+  });
+
   const wall = createWall(wallEl, markUnplayable);
   const watchingList = createWatchingList(watchingEl, pickFromList);
 
@@ -393,6 +409,21 @@ export function startApp(root: HTMLElement): void {
     dialEl.setAttribute("aria-label", caption.aria);
   }
 
+  // 下から出るパネルのつまみ。畳んでいても主役が誰かは読める。
+  // 上げ下げは「主役が入れ替わったとき」だけ。毎回の再描画で上げると、
+  // 自分で畳んだそばから 1 分毎の時計の更新に押し戻される。
+  let gripFocus: string | undefined;
+
+  function paintSheetGrip(open: readonly Cam[]): void {
+    const focused = open[0];
+    sheet?.setLabel(focused ? camName(focused.name, view.lang) : t("sheetIdle", view.lang));
+    const focusedId = focused?.id;
+    if (focusedId === gripFocus) return;
+    gripFocus = focusedId;
+    if (focusedId === undefined) sheet?.lower();
+    else sheet?.raise();
+  }
+
   const panelCtx = () => ({
     lang: view.lang,
     now,
@@ -407,6 +438,8 @@ export function startApp(root: HTMLElement): void {
 
     document.documentElement.lang = view.lang;
     panelResize.setLang(view.lang);
+    sheet?.setLang(view.lang);
+    paintSheetGrip(open);
     const watchingOpen = view.watching && !wallOpen;
     const mode = wallOpen
       ? "wall"
