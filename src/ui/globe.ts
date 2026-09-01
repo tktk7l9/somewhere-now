@@ -11,7 +11,7 @@ import type { GeoJSONSource, StyleSpecification } from "maplibre-gl";
 
 import type { Cam, PublicCamState } from "../domain/cams";
 import { coalesced } from "../domain/coalesce";
-import { GLOBE_ZOOM, INITIAL_VIEW, type MapViewport } from "../domain/mapView";
+import { GLOBE_MIN_ZOOM, globeZoomFor, INITIAL_VIEW, type MapViewport } from "../domain/mapView";
 import { nightPolygonGeoJSON, terminatorLineGeoJSON } from "../domain/terminator";
 import type { Lang } from "../domain/weather";
 import { globeStyle, LABEL_LAYER_IDS, placeNameField, type GlobeStyleJson } from "./globeStyle";
@@ -77,6 +77,8 @@ export async function createGlobeView(
   cams: readonly Cam[],
   lang: Lang,
   onSelect: (camId: string) => void,
+  /** 下から出るパネルが球の下端を覆っている高さ(px)。横に並ぶ画面では 0。 */
+  obscuredBottom: () => number = () => 0,
 ): Promise<GlobeView> {
   try {
     const maplibre = await import("maplibre-gl");
@@ -86,7 +88,7 @@ export async function createGlobeView(
     maplibre.setWorkerUrl(workerUrl);
     await import("maplibre-gl/dist/maplibre-gl.css");
     container.replaceChildren();
-    return mountGlobe(maplibre, container, cams, lang, onSelect, globeStyle(lang));
+    return mountGlobe(maplibre, container, cams, lang, onSelect, globeStyle(lang), obscuredBottom);
   } catch {
     return createUnsupportedView(container, lang);
   }
@@ -99,6 +101,7 @@ function mountGlobe(
   lang: Lang,
   onSelect: (camId: string) => void,
   style: GlobeStyleJson,
+  obscuredBottom: () => number,
 ): GlobeView {
   const [lat, lng] = INITIAL_VIEW.center;
   const MapLibreMap = maplibre.Map;
@@ -108,9 +111,14 @@ function mountGlobe(
     container,
     style: style as StyleSpecification,
     center: [lng, lat],
-    zoom: GLOBE_ZOOM,
+    // 球の大きさを画面の短辺に合わせる。固定のズームだと、狭い画面では球が
+    // 画面より大きくなって地球儀に見えない。
+    zoom: globeZoomFor(
+      container.clientWidth || window.innerWidth,
+      container.clientHeight || window.innerHeight,
+    ),
     pitch: 18,
-    minZoom: 0.6,
+    minZoom: GLOBE_MIN_ZOOM,
     maxZoom: 16,
     fadeDuration: 0,
     localIdeographFontFamily: false,
@@ -138,6 +146,12 @@ function mountGlobe(
     if (failed) return;
     if (ready) fn();
     else queued.push(fn);
+  }
+
+  /** 覆われている高さの半分だけ的を上げる ＝ 見えている側のまん中に来る。 */
+  function aimOffset(): [number, number] {
+    const hidden = obscuredBottom();
+    return hidden < 8 ? [0, 0] : [0, -hidden / 2];
   }
 
   function markReady(): void {
@@ -265,6 +279,7 @@ function mountGlobe(
         map.flyTo({
           center: [cam.lng, cam.lat],
           zoom: Math.max(map.getZoom(), 4),
+          offset: aimOffset(),
           duration: 800,
         });
       });
@@ -275,6 +290,7 @@ function mountGlobe(
         map.flyTo({
           center: [view.center[1], view.center[0]],
           zoom: view.zoom,
+          offset: aimOffset(),
           duration: reduced ? 0 : 800,
         });
       });

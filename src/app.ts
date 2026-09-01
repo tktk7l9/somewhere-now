@@ -13,12 +13,13 @@ import { isNightAt } from "./domain/terminator";
 import { MAX_VIEW, parseUrlState, toSearchString, type ViewState } from "./domain/urlState";
 import { fetchCamStates, fetchCams } from "./api/client";
 import { createControls, type LocateStatus } from "./ui/controls";
-import { liveDialCaption, t } from "./ui/i18n";
+import { camName, liveDialCaption, t } from "./ui/i18n";
 import type { GlobeView } from "./ui/globe";
 import { createMapView } from "./ui/map";
 import { mountPinLegend } from "./ui/pin";
 import { createPanel } from "./ui/panel";
 import { attachPanelResize } from "./ui/panelResize";
+import { attachPanelSheet, type PanelSheetHandle } from "./ui/panelSheet";
 import { createWall } from "./ui/wall";
 import { createWatchingList } from "./ui/watching";
 
@@ -104,6 +105,7 @@ function everyWhileVisible(intervalMs: number, run: () => void): void {
 export function startApp(root: HTMLElement): void {
   const mapEl = root.querySelector<HTMLElement>("#map")!;
   const globeEl = root.querySelector<HTMLElement>("#globe")!;
+  const stageEl = root.querySelector<HTMLElement>(".stage")!;
   const panelEl = root.querySelector<HTMLElement>("#panel")!;
   const controlsEl = root.querySelector<HTMLElement>("#controls")!;
   const wallEl = root.querySelector<HTMLElement>("#wall")!;
@@ -126,6 +128,9 @@ export function startApp(root: HTMLElement): void {
   let soundOn = readStored(SOUND_KEY) === "on";
   let locateStatus: LocateStatus = "idle";
   let statesReady: "loading" | "unavailable" | "ready" = "loading";
+  // 絞り込みの段を開いているか。狭い画面でだけ意味を持つ(広い画面では CSS が
+  // 常に開いて見せる)。URL には載せない — 共有したい状態ではなく、手元の都合。
+  let filtersOpen = false;
 
   function recomputeNight(): void {
     nightIds = new Set(cams.filter((cam) => isNightAt(now, cam)).map((cam) => cam.id));
@@ -162,7 +167,13 @@ export function startApp(root: HTMLElement): void {
     if (cam) focusCam(cam);
   }
 
-  const mapView = createMapView(mapEl, cams, view.lang, selectCam);
+  // 下から出るパネルは地図の下端を覆う。寄せるときはその分だけ的を上げないと、
+  // 選んだピンがそのままパネルの裏に隠れる。シートはパネルより後に作るので、
+  // 覆っている高さは呼ばれた時点で読む。
+  let sheet: PanelSheetHandle | null = null;
+  const obscuredBottom = (): number => sheet?.obscuredBottom() ?? 0;
+
+  const mapView = createMapView(mapEl, cams, view.lang, selectCam, obscuredBottom);
 
   let globeView: GlobeView | null = null;
   let globeReady: Promise<void> | null = null;
@@ -190,7 +201,7 @@ export function startApp(root: HTMLElement): void {
     }
     globeReady ??= import("./ui/globe")
       .then(({ createGlobeView, createUnsupportedView }) =>
-        createGlobeView(globeEl, cams, view.lang, selectCam).catch(() =>
+        createGlobeView(globeEl, cams, view.lang, selectCam, obscuredBottom).catch(() =>
           createUnsupportedView(globeEl, view.lang),
         ),
       )
@@ -305,6 +316,14 @@ export function startApp(root: HTMLElement): void {
     },
   });
 
+  sheet = attachPanelSheet({
+    app: root,
+    stage: stageEl,
+    panel: panelEl,
+    scroll: panel.scroll,
+    lang: view.lang,
+  });
+
   const wall = createWall(wallEl, markUnplayable);
   const watchingList = createWatchingList(watchingEl, pickFromList);
 
@@ -343,6 +362,10 @@ export function startApp(root: HTMLElement): void {
       }
       update({ watching: opening });
       if (!opening) focusOpenCam();
+    },
+    onToggleFilters() {
+      filtersOpen = !filtersOpen;
+      render();
     },
     onSetGlobe(globe) {
       const leavingWall = wallOpen;
@@ -386,6 +409,27 @@ export function startApp(root: HTMLElement): void {
     dialEl.setAttribute("aria-label", caption.aria);
   }
 
+  // 下から出るパネルのつまみ。畳んでいても主役が誰かは読める。
+  // 上げ下げは「主役が入れ替わったとき」だけ。毎回の再描画で上げると、
+  // 自分で畳んだそばから 1 分毎の時計の更新に押し戻される。
+  let gripFocus: string | undefined;
+
+  function paintSheetGrip(open: readonly Cam[]): void {
+    const focused = open[0];
+    sheet?.setLabel(focused ? camName(focused.name, view.lang) : t("sheetIdle", view.lang));
+    const focusedId = focused?.id;
+    if (focusedId === gripFocus) return;
+    gripFocus = focusedId;
+    if (focusedId === undefined) {
+      sheet?.lower();
+      return;
+    }
+    sheet?.raise();
+    // 絞り込みの段とパネルが同時に出ていると、狭い画面では地図が 74px の帯に
+    // なる。主役が決まった＝見る方に移ったので、段は畳む。
+    filtersOpen = false;
+  }
+
   const panelCtx = () => ({
     lang: view.lang,
     now,
@@ -400,6 +444,8 @@ export function startApp(root: HTMLElement): void {
 
     document.documentElement.lang = view.lang;
     panelResize.setLang(view.lang);
+    sheet?.setLang(view.lang);
+    paintSheetGrip(open);
     const watchingOpen = view.watching && !wallOpen;
     const mode = wallOpen
       ? "wall"
@@ -409,11 +455,12 @@ export function startApp(root: HTMLElement): void {
           ? "globe"
           : "map";
     root.dataset["mode"] = mode;
+    root.dataset["filters"] = filtersOpen ? "open" : "closed";
     wallEl.hidden = !wallOpen;
     watchingEl.hidden = !watchingOpen;
     globeEl.setAttribute("aria-label", t("globe", view.lang));
 
-    controls.update(view, wallOpen, locateStatus);
+    controls.update(view, wallOpen, locateStatus, filtersOpen);
     mapView.setStates(states);
     mapView.setVisible(visible);
     mapView.setSelected(view.view);
@@ -520,6 +567,14 @@ export function startApp(root: HTMLElement): void {
   });
 
   everyWhileVisible(STATE_POLL_MS, () => void pullStates());
+
+  // 開いた絞り込みは地図の上に垂れているので、地図を触ったら畳む。
+  // 広い画面では段が常に出ているので、これは効いても何も動かない。
+  stageEl.addEventListener("pointerdown", () => {
+    if (!filtersOpen) return;
+    filtersOpen = false;
+    render();
+  });
 
   addEventListener("resize", () => {
     mapView.invalidate();

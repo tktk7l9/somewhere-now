@@ -64,14 +64,21 @@ input {
 
 /* ── 骨格 ───────────────────────────────────────────── */
 
+/* 列は minmax(0, …)。素の 1fr は「中身の最小幅」を下回れないので、折り返さない
+   チップの束(カテゴリ 8 個)が入っているだけで列ごと画面より広くなり、
+   ページ全体が横に伸びる(狭い画面で実測 390px の画面に 677px の骨格が載った)。 */
 .app {
   display: grid;
-  grid-template-columns: 1fr var(--panel-w);
+  grid-template-columns: minmax(0, 1fr) var(--panel-w);
   grid-template-rows: auto 1fr;
   height: 100dvh;
 }
 
 .masthead {
+  position: relative;
+  /* 開いた絞り込みの段が地図の上に垂れるので、Leaflet の操作(z-index 1000)より
+     上に置く。でないとズームボタンが検索欄を突き抜けて出る。 */
+  z-index: 1100;
   grid-column: 1 / -1;
   display: flex;
   align-items: flex-start;
@@ -133,6 +140,8 @@ input {
 
 .panel {
   position: relative;
+  display: flex;
+  flex-direction: column;
   border-left: 1px solid var(--haze);
   background: var(--ink-2);
   overflow: hidden;
@@ -140,8 +149,21 @@ input {
 }
 
 .panel__scroll {
-  height: 100%;
+  flex: 1;
+  min-height: 0;
   overflow-y: auto;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* ── 下から出るパネル(狭い縦長の画面だけ) ─────────────── */
+
+/* シートとして振る舞うかは CSS が決め、JS はこの値を読む(panelSheet.ts)。 */
+.app {
+  --sheet: 0;
+}
+
+.panel-grip {
+  display: none;
 }
 
 .panel-resize {
@@ -169,10 +191,15 @@ input {
   transition: background 0.15s var(--ease);
 }
 
-.panel-resize:hover::before,
 .panel-resize:focus-visible::before,
 html.resizing-panel .panel-resize::before {
   background: var(--lit);
+}
+
+@media (hover: hover) {
+  .panel-resize:hover::before {
+    background: var(--lit);
+  }
 }
 
 html.resizing-panel {
@@ -202,7 +229,16 @@ html.resizing-panel iframe {
   display: inline-block;
 }
 
-.chip:hover {
+/* hover は指のある画面では「押した跡」として残り続ける(sticky hover)。
+   問い合わせで囲って、指す道具のある画面にだけ渡す。 */
+@media (hover: hover) {
+  .chip:hover {
+    color: var(--bone);
+    border-color: var(--dim);
+  }
+}
+
+.chip:active {
   color: var(--bone);
   border-color: var(--dim);
 }
@@ -216,6 +252,11 @@ html.resizing-panel iframe {
 .chip:disabled {
   opacity: 0.55;
   cursor: wait;
+}
+
+/* 絞り込みの段の開閉。広い画面では段がそのまま見えているので出さない。 */
+.chip--filters {
+  display: none;
 }
 
 .search {
@@ -348,8 +389,10 @@ html.resizing-panel iframe {
   border-bottom-color: var(--haze);
 }
 
-.map .leaflet-bar a:hover {
-  background: var(--haze);
+@media (hover: hover) {
+  .map .leaflet-bar a:hover {
+    background: var(--haze);
+  }
 }
 
 .night-shade,
@@ -388,15 +431,27 @@ html.resizing-panel iframe {
   outline: none;
 }
 
-.globe .maplibregl-ctrl-attrib {
+/* MapLibre の CSS は動的 import なので、この表より後に載る。向こうの帰属表示は
+   `.maplibregl-ctrl.maplibregl-ctrl-attrib` と `.maplibregl-ctrl-attrib.maplibregl-compact`
+   の 2 クラスで書いてあり、`.globe .maplibregl-ctrl-attrib` と同じ強さ ＝ 後から
+   来た向こうが勝つ。狭い画面では帰属表示をパネルの上まで持ち上げるので、負けると
+   白い錠剤が地図の真ん中に浮く。`.globe.maplibregl-map` で 1 段強くする。 */
+.globe.maplibregl-map .maplibregl-ctrl-attrib {
   background: rgba(11, 22, 32, 0.86);
   color: var(--dim);
   font-family: var(--font-mono);
   font-size: 10px;
 }
 
-.globe .maplibregl-ctrl-attrib a {
+.globe.maplibregl-map .maplibregl-ctrl-attrib a {
   color: var(--dim);
+}
+
+/* 畳む・開くの ⓘ。暗い地に暗い印は見えないので、他の操作子と同じく反転する。 */
+.globe.maplibregl-map .maplibregl-ctrl-attrib.maplibregl-compact::after,
+.globe.maplibregl-map .maplibregl-ctrl-attrib-button {
+  background-color: transparent;
+  filter: invert(0.88) sepia(0.15);
 }
 
 .globe .maplibregl-ctrl-group {
@@ -416,8 +471,10 @@ html.resizing-panel iframe {
   border-top-color: var(--haze);
 }
 
-.globe .maplibregl-ctrl-group button:hover {
-  background: var(--haze);
+@media (hover: hover) {
+  .globe .maplibregl-ctrl-group button:hover {
+    background: var(--haze);
+  }
 }
 
 .globe .maplibregl-ctrl-icon {
@@ -445,6 +502,7 @@ html.resizing-panel iframe {
 /* ── マーカー ───────────────────────────────────────── */
 
 .pin {
+  position: relative;
   display: block;
   width: 13px;
   height: 13px;
@@ -452,6 +510,22 @@ html.resizing-panel iframe {
   border: 1.5px solid var(--dim);
   background: var(--ink);
   transition: transform 0.15s var(--ease);
+}
+
+/* 13px の点は指では狙えない。見た目は変えず、当たり判定だけを外へ広げる。
+   拡大(--selected の scale)に付いてこないよう、割合ではなく px で。 */
+@media (pointer: coarse) {
+  .pin::after,
+  .cluster::after {
+    content: "";
+    position: absolute;
+    inset: -11px;
+    border-radius: 50%;
+  }
+
+  .cluster::after {
+    inset: -7px;
+  }
 }
 
 .pin--live {
@@ -468,8 +542,10 @@ html.resizing-panel iframe {
   transform: scale(1.55);
 }
 
-.pin:hover {
-  transform: scale(1.3);
+@media (hover: hover) {
+  .pin:hover {
+    transform: scale(1.3);
+  }
 }
 
 /* いまいる場所。カメラのピンと並べても見間違えないよう、塗り潰しの琥珀にする。
@@ -494,6 +570,7 @@ html.resizing-panel iframe {
 }
 
 .cluster {
+  position: relative;
   display: grid;
   place-items: center;
   width: 30px;
@@ -648,8 +725,10 @@ html.resizing-panel iframe {
   text-decoration: none;
 }
 
-.card__overview-source:hover {
-  color: var(--bone);
+@media (hover: hover) {
+  .card__overview-source:hover {
+    color: var(--bone);
+  }
 }
 
 @keyframes breathe {
@@ -709,6 +788,11 @@ html.resizing-panel iframe {
   left: 0;
   bottom: 0;
   z-index: 2;
+  /* 長い題は 1 行に留める。狭い画面では 2 行に折り返して映像を横帯で塞ぐ。 */
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   padding: 5px 10px;
   background: rgba(11, 22, 32, 0.82);
   font-family: var(--font-display);
@@ -800,8 +884,14 @@ html.resizing-panel iframe {
   border-radius: var(--radius);
 }
 
-.watching__row:hover {
-  background: rgba(232, 226, 212, 0.04);
+@media (hover: hover) {
+  .watching__row:hover {
+    background: rgba(232, 226, 212, 0.04);
+  }
+}
+
+.watching__row:active {
+  background: rgba(232, 226, 212, 0.07);
 }
 
 .watching__row[aria-current="true"] {
@@ -857,33 +947,118 @@ html.resizing-panel iframe {
   display: none;
 }
 
+/* ── 指で使う画面 ───────────────────────────────────── */
+
+@media (pointer: coarse) {
+  /* 素のチップは高さ 26px。指の的は 44px 欲しいので、内側を厚くしたうえで
+     擬似要素で外へ少し広げる(隣と重ならない範囲で)。 */
+  .chip {
+    position: relative;
+    padding: 8px 12px;
+  }
+
+  .chip::after {
+    content: "";
+    position: absolute;
+    inset: -3px -2px;
+  }
+
+  .card__actions .chip,
+  .openrow .chip {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+
+  /* iOS は 16px 未満の入力欄に焦点が当たると画面ごと拡大し、戻さない。
+     はじめから 16px にしておく。 */
+  .search {
+    font-size: 16px;
+    padding: 8px 10px;
+  }
+}
+
 /* ── 応答 ───────────────────────────────────────────── */
 
 @media (max-width: 900px) {
-  .app {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 46dvh 1fr;
-  }
-
-  .panel {
-    border-left: none;
-    border-top: 1px solid var(--haze);
-  }
-
+  /* 8px の縦棒は指では掴めない。狭い画面での幅の割り当ては CSS で決める。 */
   .panel-resize {
     display: none;
   }
 
-  /* 狭い画面では各段を折り返さず、ヘッダーごと横にスクロールさせる
-     (3 段に折り返すと地図の取り分がなくなる)。 */
-  .masthead {
-    overflow-x: auto;
-    scrollbar-width: thin;
+  /* 狭い画面では畳んで、開いたときは折り返して全部見せる。
+     以前はヘッダーごと横スクロールさせていたが、初期表示で見えるのが
+     「どこかへ連れてって」と検索欄だけになり、カテゴリ 8 個・フラグ 3 個・
+     地球儀・並べて見る・視聴が多い順が、横に振らないと存在すら分からなかった。
+     しかも 2 段が連動して動くので、片方を見ながらもう片方は使えない。 */
+  .chip--filters {
+    display: inline-block;
   }
 
-  .masthead__primary,
-  .masthead__filters {
-    flex-wrap: nowrap;
+  .app[data-filters="closed"] .masthead__filters {
+    display: none;
+  }
+
+  /* 開いた段は、見出しを縦に伸ばすのではなく地図の上に垂らす。
+     居場所を押し広げると、絞り込んでいる間ずっと地図が痩せる。 */
+  .app[data-filters="open"] .masthead__filters {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 700;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 12px;
+    background: var(--ink-3);
+    border-bottom: 1px solid var(--haze);
+    box-shadow: 0 14px 26px rgba(2, 8, 12, 0.5);
+  }
+
+  .masthead__filters .controls__group {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .masthead__filters .controls__group:not(:last-child) {
+    padding-bottom: 10px;
+    padding-right: 0;
+    border-right: none;
+    border-bottom: 1px solid var(--haze);
+  }
+
+  .masthead__filters .search {
+    width: 100%;
+  }
+
+  /* ブランド名は 150px を食う。マークだけ残し、名前は読み上げにだけ渡す。 */
+  .brand__name {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .masthead {
+    gap: 12px;
+    padding: 8px 12px 10px;
+  }
+
+  /* 束の中も折り返す。束は既定で折り返さないので、カテゴリ 8 個の束は
+     画面の外へはみ出して黙って切れる(地球儀・並べて見る・視聴が多い順が
+     見えなくなっていた)。縦の区切り線は折り返すと意味を失うので落とす。 */
+  .controls__group {
+    flex-wrap: wrap;
+    padding-right: 0;
+    border-right: none;
+  }
+
+  /* 1 段目は束ごと畳んでチップを直接並べる。束が箱のままだと束の境目で必ず
+     行が変わり、右端が空いていても次のチップが下りてしまう(実測 4 行)。 */
+  .masthead__primary .controls__group {
+    display: contents;
   }
 
   .notes {
@@ -903,10 +1078,6 @@ html.resizing-panel iframe {
     font-size: 34px;
   }
 
-  .app[data-mode="watching"] {
-    grid-template-rows: auto 1fr 42dvh;
-  }
-
   .watching__row {
     grid-template-columns: 2.6em 1fr;
     grid-template-rows: auto auto;
@@ -915,6 +1086,160 @@ html.resizing-panel iframe {
   .watching__viewers {
     grid-column: 2;
     white-space: normal;
+  }
+}
+
+/* 狭くて縦に長い画面 ＝ 手に持った端末。地図にはステージ全部を渡し、
+   パネルは下から重ねる。上下は panelSheet.ts が data-sheet で切り替える。
+   以前はここで縦に 46dvh / 1fr と割っていたが、何も選んでいなくても
+   「まだ何も選んでいません」が画面の半分を占め、残った地図の上にさらに
+   配信数の札が乗るので、実際に見える地図は画面の 3 分の 1 だけだった。 */
+@media (max-width: 900px) and (orientation: portrait) {
+  .app {
+    --sheet: 1;
+    --sheet-peek: calc(56px + env(safe-area-inset-bottom));
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+
+  .stage,
+  .panel {
+    grid-area: 2 / 1;
+  }
+
+  .panel {
+    align-self: end;
+    /* Leaflet の操作と帰属表示は z-index 1000。地図の上に重ねる以上、
+       それより上に置かないと縮尺の表示がパネルの文字を突き抜ける。 */
+    z-index: 1050;
+    width: 100%;
+    max-height: 100%;
+    padding-bottom: env(safe-area-inset-bottom);
+    border-left: none;
+    border-top: 1px solid var(--haze);
+    border-radius: 14px 14px 0 0;
+    box-shadow: 0 -14px 30px rgba(2, 8, 12, 0.5);
+    transition: height 0.26s var(--ease);
+  }
+
+  .panel__scroll {
+    padding-bottom: 0;
+  }
+
+  /* 高さは panelSheet.ts が px で書く。止まり木を CSS 側に置くと、上げ切った
+     高さを JS から確かめられない(補間の途中の値しか読めない)。 */
+  .panel {
+    height: var(--sheet-h, var(--sheet-peek));
+  }
+
+  /* 掴んでいる間は指に直に付ける。補間を挟むと遅れて付いてくる。 */
+  html.dragging-sheet .panel {
+    transition: none;
+  }
+
+  .panel-grip {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    width: 100%;
+    min-height: 56px;
+    padding: 9px 16px 0;
+    /* 掴んで上下に振る操作なので、ブラウザのスクロールには渡さない。 */
+    touch-action: none;
+  }
+
+  .panel-grip__bar {
+    width: 42px;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--haze);
+  }
+
+  .panel-grip__label {
+    max-width: 100%;
+    overflow: hidden;
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    line-height: 1.3;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--bone);
+  }
+
+  .app[data-sheet="peek"] .panel-grip__label {
+    color: var(--dim);
+  }
+
+  /* 上げてしまえばカードに同じ名前が出るので、つまみは棒だけに戻す。 */
+  .app[data-sheet="half"] .panel-grip,
+  .app[data-sheet="full"] .panel-grip {
+    min-height: 0;
+    padding-bottom: 9px;
+  }
+
+  .app[data-sheet="half"] .panel-grip__label,
+  .app[data-sheet="full"] .panel-grip__label {
+    display: none;
+  }
+
+  html.dragging-sheet {
+    user-select: none;
+  }
+
+  html.dragging-sheet iframe {
+    pointer-events: none;
+  }
+
+  /* 一覧の最後の行がパネルの裏に埋まらないよう、いまの高さのぶん空けておく。
+     畳んだ高さで固定すると、上げているあいだ末尾に届かなくなる。 */
+  .watching__list {
+    padding-bottom: calc(var(--sheet-h, var(--sheet-peek)) + 16px);
+  }
+
+  /* 並べて見るときはパネルごと畳むので、格子は縦一列。狭い画面で 2 列に
+     割ると 1 枚が 195px になり、何が映っているか分からない。 */
+  .wall {
+    grid-template-columns: 1fr;
+  }
+
+  /* 地図の下端はパネルが重なる場所になった。帰属表示は消せないので、
+     パネルの上端に載せて always 見えるようにする。 */
+  .map .leaflet-bottom,
+  .globe .maplibregl-ctrl-bottom-right,
+  .globe .maplibregl-ctrl-bottom-left {
+    bottom: var(--sheet-h, var(--sheet-peek));
+  }
+
+  /* パネルを上げているあいだ、配信数の札は見える地図の半分を覆ってしまう。
+     いま見ているのはカメラの方なので、そのあいだは引っ込める。 */
+  .app[data-sheet="half"] .notes,
+  .app[data-sheet="full"] .notes {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s var(--ease), visibility 0.2s;
+  }
+}
+
+/* 狭くて横に長い画面 ＝ 端末を横に倒した状態。縦に積むと(高さ 390px の画面で)
+   地図が 179px になり、パネルにも何も収まらない。左右に分けたまま、幅だけを
+   画面に合わせる。 */
+@media (max-width: 900px) and (orientation: landscape) {
+  .app {
+    grid-template-columns: minmax(0, 1fr) minmax(232px, 42vw);
+  }
+
+  /* 倒すと足りないのは高さの方。チップを詰めて見出しを 1 段に収める
+     (2 段だと高さ 390px の画面の 4 分の 1 を見出しが持っていく)。 */
+  .chip {
+    padding: 6px 10px;
+  }
+
+  .masthead {
+    padding: 7px 12px 8px;
   }
 }
 

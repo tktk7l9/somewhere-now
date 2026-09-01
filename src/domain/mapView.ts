@@ -18,8 +18,28 @@ export const INITIAL_VIEW: MapViewport = {
  * 地球儀の初期ズーム。球だと分かる距離を保ちつつ、大陸とカメラのピンが
  * 読めるところまで寄る。中心は INITIAL_VIEW と同じ(大西洋)で、UI 側で
  * [lng, lat] に組み替える。
+ *
+ * この値は下の短辺で選んである。ズームは画面の大きさを見ないので、そのまま
+ * 狭い画面に渡すと球が画面からはみ出して地球儀に見えない(実測: 幅 390px の
+ * 画面にアフリカ大陸だけが平らに広がる)。
  */
 export const GLOBE_ZOOM = 2.8;
+
+/** GLOBE_ZOOM を選んだときの画面の短辺(1440×900 のブラウザで地図が取る高さ)。 */
+export const GLOBE_ZOOM_EDGE = 809;
+
+/** これより引くと球が点になる。地球儀側の minZoom と同じ値。 */
+export const GLOBE_MIN_ZOOM = 0.6;
+
+/**
+ * その画面での地球儀の初期ズーム。短辺が半分になればズームを 1 段下げる
+ * ＝ 画面の短辺に対する球の大きさが、どの画面でも同じになる。
+ */
+export function globeZoomFor(width: number, height: number): number {
+  const edge = Math.min(width, height);
+  if (!(edge > 0)) return GLOBE_ZOOM;
+  return Math.max(GLOBE_MIN_ZOOM, GLOBE_ZOOM + Math.log2(edge / GLOBE_ZOOM_EDGE));
+}
 
 /** その緯度経度を含むタイルの座標(Web メルカトル・XYZ 方式)。 */
 export function tileAt(lat: number, lng: number, zoom: number): { x: number; y: number } {
