@@ -27,13 +27,13 @@
     "@fontsource/dm-mono": "^5.3.0",
     "leaflet": "^1.9.4",
     "leaflet.markercluster": "^1.5.3",
-    "maplibre-gl": "^6.6.0"
+    "maplibre-gl": "^6.8.0"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^5.20260818.1",
     "@types/leaflet": "^1.9.22",
     "@types/leaflet.markercluster": "^1.5.6",
-    "@types/node": "^26.2.0",
+    "@types/node": "^26.5.0",
     "@vitest/coverage-v8": "^4.1.6",
     "typescript": "7.0.2",
     "vite": "^8.2.2",
