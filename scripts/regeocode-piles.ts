@@ -1,23 +1,25 @@
-// 同じ座標に積み上がっているカメラの座標を引き直す。
+// Re-geocodes the coordinates of cameras piled up on the same coordinates.
 //
-// なぜ要るか: ジオコーダに投げる問い合わせの並べ替えが「短い ASCII を先」に
-// なっていて、地名でなく一般語("New" "Beach" "City")が選ばれていた。結果、
-// 5,720 台のうち 3,394 台(59%)が同じ座標の束に載っていた。最大の束は都心の
-// 1 点に 203 台。"New York City" の 29 台はケンタッキー州の New にいた。
+// Why it is needed: the ordering of queries sent to the geocoder was "short ASCII first",
+// so generic words ("New" "Beach" "City") were chosen instead of place names. As a result,
+// 3,394 of 5,720 cameras (59%) sat on piles sharing the same coordinates. The largest pile
+// was 203 cameras on 1 point in central Tokyo. The 29 cameras of "New York City" were at
+// New in Kentucky.
 //
-// 並べ替えは import-bulk-cams.ts で直した。このスクリプトは、その規則で
-// **既存の束だけ**を引き直す。
+// The ordering was fixed in import-bulk-cams.ts. This script re-geocodes
+// **only the existing piles** with that rule.
 //
-// 🔴 引き直しの採否は**2 つのジオコーダの一致**で決める。タイトルの文字列
-// だけを見る門番(corroborate.ts)には限界があった — 同じ州の中の同名地
-// (カウアイ島の Kilauea という町 vs キラウエア火山)は、州も一致し矛盾も
-// 無いので見抜けない。Open-Meteo は「人口のある土地」の辞書なので施設を
-// 知らず、Photon(OSM)は施設を知っている。**独立した 2 つが同じ場所を
-// 指したときだけ**動かす。片方だけが正しくても採らない。
+// 🔴 Whether to adopt a re-geocoding is decided by **agreement of 2 geocoders**. The
+// gatekeeper that looks only at the title string (corroborate.ts) had a limit — same-name
+// places within the same state (the town called Kilauea on Kauai vs Kilauea volcano)
+// cannot be detected because the state matches and there is no contradiction. Open-Meteo
+// is a dictionary of "populated places" and does not know facilities, while Photon (OSM)
+// knows facilities. Move **only when 2 independent sources point to the same place**.
+// Even if only one of them is correct, it is not adopted.
 //
-//   node --experimental-strip-types scripts/regeocode-piles.ts [最小の束の大きさ]
+//   node --experimental-strip-types scripts/regeocode-piles.ts [minimum pile size]
 //
-// 生成物: scripts/cam-places-bulk.ts(座標だけを書き換える)
+// Output: scripts/cam-places-bulk.ts (only the coordinates are rewritten)
 
 import { readFile, writeFile } from "node:fs/promises";
 import { argv } from "node:process";
@@ -27,9 +29,9 @@ import { photonLookup } from "./photon.ts";
 
 const OUTPUT_PATH = "scripts/cam-places-bulk.ts";
 const MIN_PILE = Number(argv[2] ?? 10);
-/** 引き直した先がここより遠ければ「動かした」と数える(km)。 */
+/** If the re-geocoded destination is farther than this, it counts as "moved" (km). */
 const MOVED_KM = 1;
-/** 2 つのジオコーダがこの距離に収まっていれば「同じ場所を指した」と見なす。 */
+/** If the 2 geocoders fall within this distance, they are regarded as "pointing to the same place". */
 const AGREE_KM = 25;
 
 const toRad = (d: number): number => (d * Math.PI) / 180;
@@ -65,8 +67,8 @@ for (const [i, place] of targets.entries()) {
   const title = place.titleKey ?? place.nameEn;
   const channel = place.handle ?? "";
 
-  // 先に Open-Meteo。動かす提案が出ないなら Photon は呼ばない(公開インスタンス
-  // への問い合わせを、必要な分だけに絞る)。
+  // Open-Meteo first. If no move is proposed, Photon is not called (queries to the
+  // public instance are limited to what is needed).
   let next: Awaited<ReturnType<typeof resolveWithEvidence>> = null;
   try {
     next = await resolveWithEvidence(title, channel, before.country);
@@ -79,8 +81,8 @@ for (const [i, place] of targets.entries()) {
   } else if (distanceKm(before, next) < MOVED_KM) {
     kept++;
   } else if (next.country.toUpperCase() !== before.country.toUpperCase()) {
-    // 国をまたぐ引き直しは信用しない。国コードは配信元由来で、
-    // タイトルの断片より当てになる。
+    // A re-geocoding that crosses countries is not trusted. The country code comes from
+    // the stream source and is more reliable than fragments of the title.
     kept++;
   } else {
     const other = await photonLookup(title);
@@ -89,12 +91,12 @@ for (const [i, place] of targets.entries()) {
     } else if (other.countryCode !== "" && other.countryCode !== before.country.toUpperCase()) {
       unverified++;
     } else if (distanceKm(next, other) > AGREE_KM) {
-      // 2 つが別の場所を指した。どちらが正しいかは決められないので動かさない。
+      // The 2 pointed to different places. Which is correct cannot be decided, so do not move.
       disagreed++;
     } else if (distanceKm(before, other) < MOVED_KM) {
       kept++;
     } else {
-      // 一致した。地物単位で細かい Photon の座標を採る。
+      // They agreed. Take Photon's coordinates, which are finer, at feature level.
       updates.set(place.id, { lat: other.lat, lng: other.lng, timeZone: next.timeZone });
       moved++;
     }

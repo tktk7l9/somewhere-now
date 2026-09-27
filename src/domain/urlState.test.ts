@@ -13,36 +13,36 @@ const DEFAULTS: ViewState = {
 };
 
 describe("parseUrlState", () => {
-  it("空のクエリでは既定値を返す", () => {
+  it("returns the defaults for an empty query", () => {
     expect(parseUrlState("")).toEqual(DEFAULTS);
     expect(parseUrlState("?")).toEqual(DEFAULTS);
   });
 
-  it("?cam= を 1 枚のビューとして読む", () => {
+  it("reads ?cam= as a single view", () => {
     expect(parseUrlState("?cam=shibuya").view).toEqual(["shibuya"]);
   });
 
-  it("?view= をマルチビューとして読む", () => {
+  it("reads ?view= as a multi-view", () => {
     expect(parseUrlState("?view=a,b,c").view).toEqual(["a", "b", "c"]);
   });
 
-  it("ビューの枚数を上限で切る", () => {
+  it("cuts the number of views at the limit", () => {
     expect(parseUrlState("?view=a,b,c,d,e,f").view).toHaveLength(MAX_VIEW);
   });
 
-  it("ビューの重複と空文字を落とす", () => {
+  it("drops duplicate and empty views", () => {
     expect(parseUrlState("?view=a,,a,b").view).toEqual(["a", "b"]);
   });
 
-  it("?cam= と ?view= が両方あれば view を優先する", () => {
+  it("prefers view when both ?cam= and ?view= exist", () => {
     expect(parseUrlState("?cam=x&view=a,b").view).toEqual(["a", "b"]);
   });
 
-  it("既知のカテゴリだけを採る", () => {
+  it("takes known categories only", () => {
     expect(parseUrlState("?cat=city,bogus,animal").categories).toEqual(["city", "animal"]);
   });
 
-  it("真偽フラグを読む", () => {
+  it("reads boolean flags", () => {
     const s = parseUrlState("?live=1&night=1&fav=1&globe=1&watching=1");
     expect([s.liveOnly, s.nightOnly, s.favoritesOnly, s.globe, s.watching]).toEqual([
       true,
@@ -53,35 +53,35 @@ describe("parseUrlState", () => {
     ]);
   });
 
-  it("1 以外の値はフラグを立てない", () => {
+  it("does not set a flag for values other than 1", () => {
     expect(parseUrlState("?live=0").liveOnly).toBe(false);
     expect(parseUrlState("?live=true").liveOnly).toBe(false);
   });
 
-  it("検索語を読み、前後の空白を落とす", () => {
+  it("reads the search term and drops leading and trailing whitespace", () => {
     expect(parseUrlState("?q=%20venice%20").query).toBe("venice");
   });
 
-  it("既知の言語だけを採る", () => {
+  it("takes known languages only", () => {
     expect(parseUrlState("?lang=en").lang).toBe("en");
     expect(parseUrlState("?lang=fr").lang).toBe("ja");
   });
 });
 
 describe("toSearchString", () => {
-  it("既定値だけなら空文字を返す(URL を汚さない)", () => {
+  it("returns an empty string for defaults only (does not clutter the URL)", () => {
     expect(toSearchString(DEFAULTS)).toBe("");
   });
 
-  it("1 枚だけなら共有しやすい ?cam= を使う", () => {
+  it("uses the easy-to-share ?cam= for a single view", () => {
     expect(toSearchString({ ...DEFAULTS, view: ["shibuya"] })).toBe("?cam=shibuya");
   });
 
-  it("複数枚なら ?view= を使う", () => {
+  it("uses ?view= for several views", () => {
     expect(toSearchString({ ...DEFAULTS, view: ["a", "b"] })).toBe("?view=a%2Cb");
   });
 
-  it("立っているフラグと絞り込みだけを載せる", () => {
+  it("carries only the set flags and filters", () => {
     const s = toSearchString({
       ...DEFAULTS,
       categories: ["city", "animal"],
@@ -99,7 +99,7 @@ describe("toSearchString", () => {
     expect(params.get("watching")).toBeNull();
   });
 
-  it("night と fav と globe と watching も載る", () => {
+  it("carries night, fav, globe and watching too", () => {
     const params = new URLSearchParams(
       toSearchString({
         ...DEFAULTS,
@@ -115,7 +115,7 @@ describe("toSearchString", () => {
     expect(params.get("watching")).toBe("1");
   });
 
-  it("往復しても状態が保たれる", () => {
+  it("keeps the state across a round trip", () => {
     const state: ViewState = {
       view: ["a", "b"],
       categories: ["harbor"],

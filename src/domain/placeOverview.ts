@@ -1,9 +1,10 @@
-// 選択中のカメラの「その土地はどういう場所か」。Wikipedia はキー不要・CORS
-// 許可なのでブラウザから直接叩く(天気と同じ。Worker を経由しない)。
+// "What kind of place is this" for the selected camera. Wikipedia needs no key and allows
+// CORS, so the browser hits it directly (same as weather; it does not go through the Worker).
 //
-// いちばん近い記事を距離順で取ると、タイムズスクエアのピンに「2017 年の
-// 車両突入事件」が載る。だから名前と座標を一緒に渡し、場所の記事を先に出す。
-// 日本語 UI では、英語の本文は日本語版 Wikipedia があればそちら、無ければ訳す。
+// Taking the nearest article by distance puts "the 2017 vehicle-ramming incident" on the Times
+// Square pin. So the name and coordinates are passed together and place articles come first. In the
+// Japanese UI, an English body uses the Japanese Wikipedia edition if one exists, and is translated
+// otherwise.
 
 import type { Lang } from "./weather";
 
@@ -11,19 +12,22 @@ export interface PlaceOverview {
   title: string;
   extract: string;
   url: string;
-  /** 英語記事に日本語版があるときの題名。機械翻訳よりこちらを優先する。 */
+  /**
+   * Title of the Japanese edition when the English article has one. Preferred over machine
+   * translation.
+   */
   jaTitle?: string;
   jaUrl?: string;
 }
 
-/** 座標は天気と同じく小数第 4 位。キャッシュキーが細かくなりすぎないように。 */
+/** Coordinates use 4 decimal places like weather. So the cache key does not get too fine. */
 function roundCoord(n: number): string {
   return String(Number(n.toFixed(4)));
 }
 
 /**
- * 検索語から引用符などを落として、Cirrus の演算子に食べられないようにする。
- * 空になったら呼び出し側は座標だけの検索に落とす。
+ * Drops quotes and the like from the search term so Cirrus operators do not swallow it.
+ * When it becomes empty, the caller falls back to a coordinates-only search.
  */
 export function sanitizeSearchName(name: string): string {
   return name.replace(/["'\\]/g, " ").replace(/\s+/g, " ").trim();
@@ -62,7 +66,7 @@ export function wikipediaSearchUrl(lat: number, lng: number, lang: Lang, name?: 
   return `https://${wikipediaHost(lang)}/w/api.php?${params}`;
 }
 
-/** 日本語版の題名が分かっているときに、その本文だけを取りに行く。 */
+/** When the title of the Japanese edition is known, fetches only that body. */
 export function wikipediaExtractUrl(title: string, lang: Lang): string {
   const params = new URLSearchParams({
     action: "query",
@@ -79,12 +83,12 @@ export function wikipediaExtractUrl(title: string, lang: Lang): string {
   return `https://${wikipediaHost(lang)}/w/api.php?${params}`;
 }
 
-/** ひらがな・カタカナ・漢字があれば日本語とみなす。英日の切り分けに使う。 */
+/** Treats text with hiragana, katakana or kanji as Japanese. Used to tell English from Japanese. */
 export function looksJapanese(text: string): boolean {
   return /[\u3040-\u30FF\u4E00-\u9FFF]/.test(text);
 }
 
-/** MyMemory は 500 バイト制限。概要は 450 字で切れば収まる。 */
+/** MyMemory has a 500-byte limit. Cutting the overview at 450 characters fits. */
 export const TRANSLATE_MAX_CHARS = 450;
 
 export function myMemoryUrl(text: string): string {

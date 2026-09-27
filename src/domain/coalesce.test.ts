@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { coalesced } from "./coalesce";
 
-/** 手で流せる偽スケジューラ。 */
+/** A fake scheduler that is flushed by hand. */
 function manualScheduler(): { schedule: (cb: () => void) => void; flush: () => void } {
   let pending: (() => void)[] = [];
   return {
@@ -15,7 +15,7 @@ function manualScheduler(): { schedule: (cb: () => void) => void; flush: () => v
 }
 
 describe("coalesced", () => {
-  it("続けて何度呼んでも実行は 1 回にまとまる", () => {
+  it("runs only once no matter how many times it is called in a row", () => {
     const { schedule, flush } = manualScheduler();
     let runs = 0;
     const request = coalesced(() => void (runs += 1), schedule);
@@ -28,7 +28,7 @@ describe("coalesced", () => {
     expect(runs).toBe(1);
   });
 
-  it("まとめる前は実行しない(予約するだけ)", () => {
+  it("does not run before the flush (it only schedules)", () => {
     const { schedule } = manualScheduler();
     let runs = 0;
     const request = coalesced(() => void (runs += 1), schedule);
@@ -38,7 +38,7 @@ describe("coalesced", () => {
     expect(runs).toBe(0);
   });
 
-  it("一度流したあとに頼めばまた実行する", () => {
+  it("runs again when requested after a flush", () => {
     const { schedule, flush } = manualScheduler();
     let runs = 0;
     const request = coalesced(() => void (runs += 1), schedule);
@@ -51,7 +51,7 @@ describe("coalesced", () => {
     expect(runs).toBe(2);
   });
 
-  it("一度も頼まなければ実行しない", () => {
+  it("does not run if it was never requested", () => {
     const { schedule, flush } = manualScheduler();
     let runs = 0;
     coalesced(() => void (runs += 1), schedule);

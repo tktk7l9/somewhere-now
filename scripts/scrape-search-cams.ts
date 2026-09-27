@@ -1,5 +1,5 @@
-// YouTube の検索結果ページからライブ配信を集め、API キー無しで候補を増やす。
-// 429 対策で間隔を空け、途中結果を都度保存して再開できる。
+// Collects live streams from YouTube search result pages to add candidates without an API key.
+// Requests are spaced out against 429, and partial results are saved each time so it can resume.
 //
 //   npm run cams:scrape-search
 //   → scripts/out/search-scrape.json
@@ -142,7 +142,7 @@ const CITY_QUERIES: Query[] = [
   { q: "live cam Poland city square", countryCode: "PL", note: "ポーランド" },
   { q: "live cam Texas downtown", countryCode: "US", note: "テキサス" },
   { q: "live cam Japan street crossing", countryCode: "JP", note: "日本街" },
-  // ── wave 2: 追加都市 ──────────────────────────────────
+  // ── wave 2: additional cities ─────────────────────────
   { q: "Nagoya live camera Japan", countryCode: "JP", note: "名古屋EN" },
   { q: "Shibuya live camera", countryCode: "JP", note: "渋谷" },
   { q: "Shinjuku live camera", countryCode: "JP", note: "新宿" },
@@ -339,7 +339,7 @@ const CITY_QUERIES: Query[] = [
   { q: "webcam Ostsee", countryCode: "DE", note: "バルト海DE" },
   { q: "live cam Arctic", countryCode: "NO", note: "北極圏" },
   { q: "live cam aurora", countryCode: "NO", note: "オーロラ" },
-  // wave 4 — 件数稼ぎ
+  // wave 4 — boosting the count
   { q: "live webcam beach florida 24/7", countryCode: "US", note: "FLビーチ2" },
   { q: "live webcam beach california 24/7", countryCode: "US", note: "CAビーチ2" },
   { q: "live webcam beach hawaii 24/7", countryCode: "US", note: "HIビーチ2" },
@@ -396,7 +396,7 @@ const CITY_QUERIES: Query[] = [
   { q: "live cam harbour Vancouver", countryCode: "CA", note: "バンクーバー港2" },
   { q: "live cam harbour Hong Kong", countryCode: "HK", note: "香港港" },
   { q: "live cam harbour Singapore", countryCode: "SG", note: "SG港" },
-  // wave 5 — さらに都市・国を広げる
+  // wave 5 — widen to more cities and countries
   { q: "live webcam Alaska", countryCode: "US", note: "アラスカ" },
   { q: "live webcam Montana", countryCode: "US", note: "モンタナ" },
   { q: "live webcam Colorado ski", countryCode: "US", note: "コロラド" },

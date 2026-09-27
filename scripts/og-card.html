@@ -1,12 +1,13 @@
 <!doctype html>
 <!--
-  public/og.png の版下。1200×630 で撮って public/og.png に置く。
+  Artwork for public/og.png. Capture at 1200×630 and put it at public/og.png.
 
-    npx -y http-server scripts -p 8791   (何でもよいので静的に配る)
-    …ブラウザを 1200×630 のビューポートで開き、スクリーンショットを撮る
+    npx -y http-server scripts -p 8791   (anything that serves it statically is fine)
+    …open the browser with a 1200×630 viewport and take a screenshot
 
-  file:// では書体が読めないので、必ず http で開くこと。
-  地点数を変えたときは .stats の数字も直す(README・index.html と揃える)。
+  Fonts cannot be loaded over file://, so always open it over http.
+  When the number of locations changes, fix the numbers in .stats too (keep in line with
+  README and index.html).
 -->
 <html lang="ja">
   <head>
@@ -36,7 +37,7 @@
         overflow: hidden;
         position: relative;
       }
-      /* 夜側から差す、点いた窓のような明かり */
+      /* Light like a lit window, shining in from the night side */
       .glow {
         position: absolute;
         inset: 0;
@@ -44,7 +45,7 @@
           radial-gradient(760px 560px at 78% 46%, rgba(255, 185, 74, 0.13), transparent 62%),
           radial-gradient(900px 700px at 12% 92%, rgba(30, 58, 69, 0.55), transparent 70%);
       }
-      /* 海図の枠 */
+      /* Frame of the nautical chart */
       .frame {
         position: absolute;
         inset: 28px;
@@ -170,18 +171,18 @@
         <circle cx="260" cy="260" r="228" fill="url(#sea)" />
 
         <g clip-path="url(#disc)" stroke="#1e3a45" fill="none" stroke-width="1">
-          <!-- 緯線 -->
+          <!-- Parallels -->
           <line x1="32" y1="260" x2="488" y2="260" stroke-opacity="0.9" />
           <ellipse cx="260" cy="260" rx="228" ry="76" />
           <ellipse cx="260" cy="260" rx="228" ry="152" />
           <ellipse cx="260" cy="260" rx="228" ry="212" />
-          <!-- 経線 -->
+          <!-- Meridians -->
           <ellipse cx="260" cy="260" rx="76" ry="228" />
           <ellipse cx="260" cy="260" rx="152" ry="228" />
           <line x1="260" y1="32" x2="260" y2="488" />
         </g>
 
-        <!-- 夜の側。ターミネータは傾いた楕円の縁として引く -->
+        <!-- The night side. The terminator is drawn as the edge of a tilted ellipse -->
         <g clip-path="url(#disc)">
           <path
             d="M 260 32 A 228 228 0 0 1 260 488 A 138 228 0 0 0 260 32 Z"
@@ -196,7 +197,7 @@
           />
         </g>
 
-        <!-- カメラのピン。夜側は点いた窓として強く光る -->
+        <!-- Camera pins. On the night side they glow strongly as lit windows -->
         <g id="pins" clip-path="url(#disc)"></g>
 
         <circle cx="260" cy="260" r="228" fill="none" stroke="url(#limb)" stroke-width="1.5" />
@@ -204,7 +205,7 @@
     </div>
 
     <script>
-      // 決まった見た目にしたいので擬似乱数は種つき。
+      // The look should be fixed, so the pseudo-random numbers are seeded.
       let seed = 20260828;
       const rnd = () => {
         seed = (seed * 1664525 + 1013904223) % 4294967296;
@@ -213,17 +214,18 @@
 
       const pins = document.getElementById("pins");
       const NS = "http://www.w3.org/2000/svg";
-      // 球面に一様に散らす(緯度は sin 一様)。経度は地図の見えている側だけ。
+      // Scatter uniformly on the sphere (latitude is uniform in sin). Longitude only on
+      // the visible side of the map.
       for (let i = 0; i < 190; i += 1) {
         const lat = Math.asin(rnd() * 2 - 1);
-        const lon = (rnd() - 0.5) * Math.PI; // 見えている半球
+        const lon = (rnd() - 0.5) * Math.PI; // the visible hemisphere
         const x = 260 + 228 * Math.cos(lat) * Math.sin(lon);
         const y = 260 - 228 * Math.sin(lat);
-        // 縁に近いほど潰す(球に見せる)
+        // Squash more the closer to the edge (to make it look like a sphere)
         const edge = Math.hypot(x - 260, y - 260) / 228;
         if (edge > 0.97) continue;
 
-        // ターミネータ(x ≈ 260 の東側)より右を夜とみなす
+        // Treat what is to the right of the terminator (east of x ≈ 260) as night
         const night = x > 260 + 6;
         const c = document.createElementNS(NS, "circle");
         c.setAttribute("cx", x.toFixed(1));

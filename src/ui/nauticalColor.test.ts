@@ -9,27 +9,27 @@ import {
 } from "./nauticalColor";
 
 describe("parseCssColor", () => {
-  it("名前と transparent を読む", () => {
+  it("reads names and transparent", () => {
     expect(parseCssColor("black")).toEqual({ r: 0, g: 0, b: 0, a: 1 });
     expect(parseCssColor(" White ")).toEqual({ r: 255, g: 255, b: 255, a: 1 });
     expect(parseCssColor("transparent")).toEqual({ r: 0, g: 0, b: 0, a: 0 });
   });
 
-  it("hex の桁数を全部読む", () => {
+  it("reads every hex digit count", () => {
     expect(parseCssColor("#fc8")).toEqual({ r: 255, g: 204, b: 136, a: 1 });
     expect(parseCssColor("#fde8")).toEqual({ r: 255, g: 221, b: 238, a: 136 / 255 });
     expect(parseCssColor("#f8f4f0")).toEqual({ r: 248, g: 244, b: 240, a: 1 });
     expect(parseCssColor("#ffffff80")).toEqual({ r: 255, g: 255, b: 255, a: 128 / 255 });
   });
 
-  it("rgb / rgba とパーセントを読む", () => {
+  it("reads rgb / rgba and percentages", () => {
     expect(parseCssColor("rgb(158,189,255)")).toEqual({ r: 158, g: 189, b: 255, a: 1 });
     expect(parseCssColor("rgba(176, 213, 154, 1)")).toEqual({ r: 176, g: 213, b: 154, a: 1 });
     expect(parseCssColor("rgb(50% 0% 100%)")).toEqual({ r: 127.5, g: 0, b: 255, a: 1 });
     expect(parseCssColor("rgba(0, 0, 0, 50%)")).toEqual({ r: 0, g: 0, b: 0, a: 0.5 });
   });
 
-  it("hsl / hsla を読む", () => {
+  it("reads hsl / hsla", () => {
     expect(parseCssColor("hsl(0,0%,100%)")).toEqual({ r: 255, g: 255, b: 255, a: 1 });
     expect(parseCssColor("hsl(0,0%,70%)")).toEqual({ r: 178.5, g: 178.5, b: 178.5, a: 1 });
     expect(parseCssColor("hsl(120deg, 100%, 50%)")?.a).toBe(1);
@@ -39,7 +39,7 @@ describe("parseCssColor", () => {
     expect(orange?.r).toBeGreaterThan(orange?.b ?? 0);
   });
 
-  it("壊れた指定は null", () => {
+  it("is null for a broken value", () => {
     expect(parseCssColor("nope")).toBeNull();
     expect(parseCssColor("rgb(1, 2)")).toBeNull();
     expect(parseCssColor("hsl(1, 2)")).toBeNull();
@@ -50,7 +50,7 @@ describe("parseCssColor", () => {
 });
 
 describe("nauticalizeRgb", () => {
-  it("白は暗く、黒は明るくなる(平面図の invert)", () => {
+  it("makes white dark and black bright (the invert of the flat map)", () => {
     expect(nauticalizeRgb(255, 255, 255)).toEqual([0, 0, 0]);
     const [r, g, b] = nauticalizeRgb(0, 0, 0);
     expect(r).toBeGreaterThan(180);
@@ -60,7 +60,7 @@ describe("nauticalizeRgb", () => {
 });
 
 describe("nauticalizeReliefRgb", () => {
-  it("中間色の差が平面図用より残る", () => {
+  it("keeps more difference between mid-tones than the flat map version", () => {
     const chart = Math.abs(nauticalizeRgb(160, 150, 120)[0]! - nauticalizeRgb(90, 100, 80)[0]!);
     const relief = Math.abs(
       nauticalizeReliefRgb(160, 150, 120)[0]! - nauticalizeReliefRgb(90, 100, 80)[0]!,
@@ -70,7 +70,7 @@ describe("nauticalizeReliefRgb", () => {
 });
 
 describe("nauticalizeImageData", () => {
-  it("RGB だけ変換し alpha は触らない", () => {
+  it("converts only RGB and does not touch alpha", () => {
     const chart = { data: new Uint8ClampedArray([255, 255, 255, 200]) } as ImageData;
     nauticalizeImageData(chart, false);
     expect([...chart.data]).toEqual([0, 0, 0, 200]);
@@ -82,17 +82,17 @@ describe("nauticalizeImageData", () => {
 });
 
 describe("nauticalizeCssColor / walkCssColors", () => {
-  it("色でない文字列はそのまま", () => {
+  it("leaves a non-color string as is", () => {
     expect(nauticalizeCssColor("Noto Sans Regular")).toBe("Noto Sans Regular");
   });
 
-  it("不透明は rgb、透明は rgba で出す", () => {
+  it("outputs rgb when opaque and rgba when transparent", () => {
     expect(formatCssColor({ r: 10, g: 20, b: 30, a: 1 })).toBe("rgb(10, 20, 30)");
     expect(formatCssColor({ r: 10, g: 20, b: 30, a: 0.49 })).toBe("rgba(10, 20, 30, 0.49)");
     expect(nauticalizeCssColor("transparent")).toBe("rgba(0, 0, 0, 0)");
   });
 
-  it("入れ子の色だけ塗る", () => {
+  it("paints only the nested colors", () => {
     expect(
       walkCssColors({
         paint: {
@@ -110,7 +110,7 @@ describe("nauticalizeCssColor / walkCssColors", () => {
     });
   });
 
-  it("プリミティブはそのまま", () => {
+  it("leaves primitives as is", () => {
     expect(walkCssColors(null)).toBeNull();
     expect(walkCssColors(3)).toBe(3);
     expect(walkCssColors(true)).toBe(true);
@@ -164,8 +164,8 @@ const LIBERTY_COLORS = [
   "rgba(95, 208, 100, 1)",
 ];
 
-describe("OpenFreeMap liberty の色", () => {
-  it("図式に出る指定をすべて変換できる", () => {
+describe("colors of OpenFreeMap liberty", () => {
+  it("can convert every value that appears in the style", () => {
     for (const color of LIBERTY_COLORS) {
       expect(parseCssColor(color), color).not.toBeNull();
       expect(nauticalizeCssColor(color), color).not.toBe(color);

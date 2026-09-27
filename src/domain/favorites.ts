@@ -1,5 +1,5 @@
-// お気に入りの localStorage 表現。読み書きの副作用は UI 側に置き、ここは
-// 文字列 ⇄ id 配列の変換だけを持つ(だから node のテストで完全に検証できる)。
+// The localStorage representation of favorites. The read/write side effects live on the UI side;
+// this only holds the string <-> id array conversion (so node tests can verify it completely).
 
 const SCHEMA_VERSION = 1;
 
@@ -15,7 +15,7 @@ export function decodeFavorites(raw: string | null): string[] {
 
   if (typeof parsed !== "object" || parsed === null || Array.isArray(parsed)) return [];
   const { v, ids } = parsed as { v?: unknown; ids?: unknown };
-  // 版が違うものは読まない。古い形を新しい形として誤読するより空の方が安全。
+  // Do not read a different version. Empty is safer than misreading an old shape as the new one.
   if (v !== SCHEMA_VERSION || !Array.isArray(ids)) return [];
 
   return ids.filter((id): id is string => typeof id === "string");

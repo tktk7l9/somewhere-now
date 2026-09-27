@@ -1,14 +1,16 @@
-// 連続した更新要求を 1 回の実行にまとめる。
+// Coalesces consecutive update requests into a single run.
 //
-// 地図と地球儀は「状態・表示対象・選択・言語」を別々のメソッドで受け取るので、
-// 素直に書くと 1 度の画面更新で 4 回描き直すことになる。カメラが 5,720 台あると
-// この 4 倍がそのままピン生成の 4 倍になり、モバイルで数秒の固まりになる。
+// The map and the globe receive "state, visible targets, selection, language" through
+// separate methods, so written naively one screen update redraws 4 times. With 5,720 cameras
+// that factor of 4 becomes 4 times the pin creation, which freezes mobile for several seconds.
 //
-// DOM に触らない純粋な仕組みなので、ここ(テスト必須の層)に置く。
+// A pure mechanism that does not touch the DOM, so it lives here (the layer where tests are
+// mandatory).
 
 /**
- * `run` の実行要求をまとめる関数を返す。まとめる単位は `schedule` が決める
- * (既定はマイクロタスク＝同じ処理の流れの中で出た要求はすべて 1 回にまとまる)。
+ * Returns a function that coalesces requests to run `run`. `schedule` decides the unit of
+ * coalescing (default is a microtask = all requests made in the same flow of execution become 1
+ * run).
  */
 export function coalesced(run: () => void, schedule: (cb: () => void) => void = queueMicrotask): () => void {
   let queued = false;

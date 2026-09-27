@@ -1,6 +1,6 @@
-// 地球儀の地図スタイル。平面図は OSM ラスタに地名と国境が焼き付いている。
-// 地球儀でベクトルタイルの place に頼ると、衝突やグリフで名前が消える。
-// 国境と国名・主要都市は Natural Earth を同梱した GeoJSON で必ず描く。
+// The map style of the globe. The flat map has place names and borders baked into the OSM raster.
+// On the globe, relying on place in vector tiles loses names to collisions and glyphs. Borders,
+// country names and major cities are always drawn from GeoJSON bundled from Natural Earth.
 
 import type { ExpressionSpecification } from "maplibre-gl";
 
@@ -45,7 +45,7 @@ function emptyCollection(): { type: "FeatureCollection"; features: never[] } {
   return { type: "FeatureCollection", features: [] };
 }
 
-/** 同梱 GeoJSON は ja / en。無い方の言語に退く。 */
+/** The bundled GeoJSON has ja / en. Falls back to the language that exists. */
 export function placeNameField(lang: Lang): ExpressionSpecification {
   if (lang === "ja") {
     return ["coalesce", ["get", "ja"], ["get", "en"]];

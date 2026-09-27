@@ -1,4 +1,4 @@
-// 見出しの操作列。ラベルは「押すと何が起きるか」をそのまま書く。
+// The control row of the masthead. Labels say plainly "what happens when pressed".
 
 import { CAM_CATEGORIES, type CamCategory } from "../domain/cams";
 import type { LocateFailure } from "../domain/locate";
@@ -7,7 +7,10 @@ import { categoryLabel, t, type StringKey } from "./i18n";
 
 export type LocateStatus = "idle" | "pending" | LocateFailure;
 
-/** 「絞り込み」チップが開閉する段。aria-controls で結ぶために id を固定する。 */
+/**
+ * The row that the "絞り込み" (Filters) chip opens and closes. The id is fixed so aria-controls can
+ * link to it.
+ */
 const FILTERS_ID = "masthead-filters";
 
 const LOCATE_ERROR_KEY: Record<LocateFailure, StringKey> = {
@@ -27,7 +30,7 @@ export interface ControlHandlers {
   onSetGlobe(globe: boolean): void;
 }
 
-/** 「絞り込み」の見出しに添える、いま効いている条件の数。 */
+/** The number of conditions in effect now, added to the "絞り込み" heading. */
 function activeFilterCount(state: ViewState): number {
   return (
     state.categories.length +
@@ -63,14 +66,15 @@ function row(className: string, ...children: readonly HTMLElement[]): HTMLElemen
 }
 
 export function createControls(container: HTMLElement, handlers: ControlHandlers) {
-  // 検索欄だけは作り直さず、最初の 1 つを使い続ける。
+  // Only the search field is not rebuilt; the first one keeps being used.
   //
-  // 以前は再描画のたびに作り直していた。1 文字打つたびに onChange → 再描画と
-  // 回るので、打っている本人の入力欄が毎回 DOM から消えて別物に入れ替わる
-  // (実測: 3 文字打つと最初の要素は isConnected: false)。焦点を当て直す細工で
-  // 英字は誤魔化せていたが、変換を伴う入力は途中で流れる。この見出しは
-  // 1 分毎の時計と 2 分毎の生存状態でも再描画されるので、打っている最中に
-  // 割り込まれるのは例外ではなく日常。
+  // Before, it was rebuilt on every redraw. Each typed character goes onChange -> redraw, so the
+  // input field of the person typing disappeared from the DOM every time and was swapped for
+  // another one (measured: after typing 3 characters the first element is isConnected: false). A
+  // trick that re-focused it covered up Latin letters, but input that involves conversion gets
+  // committed midway. This masthead is also redrawn by the clock every 1 minute and the liveness
+  // state every 2 minutes, so being interrupted while typing is not the exception but the everyday
+  // case.
   const search = document.createElement("input");
   search.type = "search";
   search.className = "search";
@@ -81,7 +85,7 @@ export function createControls(container: HTMLElement, handlers: ControlHandlers
   filtersRow.id = FILTERS_ID;
   container.append(primaryRow, filtersRow);
 
-  // 中身が変わっていない段は作り直さない。作り直すと焦点が飛ぶ。
+  // A row whose content has not changed is not rebuilt. Rebuilding makes focus jump.
   let primaryKey: string | null = null;
   let filtersKey: string | null = null;
 
@@ -99,7 +103,7 @@ export function createControls(container: HTMLElement, handlers: ControlHandlers
         search.placeholder = placeholder;
         search.setAttribute("aria-label", placeholder);
       }
-      // 打っている最中に同じ値を書き戻すとカーソルが末尾へ飛ぶ。
+      // Writing back the same value while typing makes the cursor jump to the end.
       if (search.value !== state.query) search.value = state.query;
 
       const mapOpen = !wallOpen && !state.watching && !state.globe;
@@ -182,9 +186,9 @@ export function createControls(container: HTMLElement, handlers: ControlHandlers
       );
       langToggle.removeAttribute("aria-pressed");
 
-      // 狭い画面では検索・カテゴリ・フラグの段を畳めるようにする(常に開いたままだと、
-      // 見出しが 2 段とも横スクロールになって、どの機能があるのか誰にも見えない)。
-      // 広い画面では CSS がこのチップを消し、段は開いたままになる。
+      // On narrow screens, let the row of search, categories and flags collapse (if always open,
+      // both rows of the masthead become horizontal scrolls and nobody can see which features
+      // exist). On wide screens CSS hides this chip and the row stays open.
       const filtersToggle = chip(
         active === 0 ? t("filters", lang) : `${t("filters", lang)} ${active}`,
         filtersOpen,

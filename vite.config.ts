@@ -2,14 +2,15 @@ import { defineConfig, type Plugin } from "vite";
 import { CAMS } from "./src/data/cams";
 
 /**
- * カメラのマスタを JS ではなく静的な JSON として配る。
+ * Serves the camera master as static JSON instead of JS.
  *
- * 5,720 台をバンドルに同梱すると、それだけでメインの JS が 2.6MB になる。
- * 地図はその JS を全部読んで実行し終わるまで作られないので、タイル(LCP の
- * 対象)が出るのが数秒遅れていた。JSON に切り出せば地図は即座に出て、
- * ピンだけが少し遅れて乗る。JSON は実行を伴わないぶん読むのも速い。
+ * Bundling 5,720 cameras makes the main JS 2.6MB on its own.
+ * The map is not created until all of that JS has been loaded and executed, so the tiles
+ * (the LCP target) appeared several seconds late. Split out into JSON, the map appears
+ * immediately and only the pins land a little later. JSON involves no execution, so it
+ * is also faster to read.
  *
- * 正本は src/data/cams.ts のままで、ここはその写しを出すだけ。
+ * The source of truth stays src/data/cams.ts; this only emits a copy of it.
  */
 function camsAsset(): Plugin {
   const json = JSON.stringify(CAMS);
@@ -31,8 +32,9 @@ function camsAsset(): Plugin {
 export default defineConfig({
   plugins: [camsAsset()],
   server: {
-    // 生存状態は Worker が返すので、開発サーバー単体では存在しない。
-    // 借りてこないと「配信中だけ」も「視聴が多い順」も常に 0 件になる。
+    // The liveness state is returned by the Worker, so it does not exist on the dev server alone.
+    // Unless it is borrowed, both "配信中だけ" (Live only) and "視聴が多い順" (Most watching)
+    // always show 0 items.
     proxy: {
       "/api": {
         target: "https://somewhere-now.saitotakuya0719.workers.dev",

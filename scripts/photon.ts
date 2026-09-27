@@ -1,35 +1,35 @@
-// 2 つめのジオコーダ(Photon / OSM ベース)。
+// The second geocoder (Photon / OSM based).
 //
-// なぜ要るか: Open-Meteo のジオコーディングは**人口のある土地**の辞書で、
-// 施設や地物を知らない。だから "Kilauea Volcano" にはカウアイ島の Kilauea
-// という町を、"Port Miami Cruise Ship Terminals" にはケンタッキー州の何かを
-// 返す。Photon は OSM を引くので施設が出る(実測でどちらも正解を返した)。
+// Why it is needed: Open-Meteo geocoding is a dictionary of **populated places** and does
+// not know facilities or features. So for "Kilauea Volcano" it returns the town called
+// Kilauea on Kauai, and for "Port Miami Cruise Ship Terminals" something in Kentucky.
+// Photon looks up OSM, so facilities come out (measured: it returned the right answer for both).
 //
-// これ単体で信じるのではなく、**2 つが同じ場所を指したときだけ採用する**
-// ための片方として使う(scripts/regeocode-piles.ts)。
+// It is not trusted on its own; it is used as one half so that a result is
+// **adopted only when the 2 point to the same place** (scripts/regeocode-piles.ts).
 //
-// 公開インスタンスへの負荷を上げないこと。1 秒 1 件を超えない。
+// Do not raise the load on the public instance. Do not exceed 1 request per second.
 
 const ENDPOINT = "https://photon.komoot.io/api/";
 const USER_AGENT =
   "somewhere-now-cam-curation/1.0 (github.com/tktk7l9/somewhere-now; one-off data curation)";
-/** 公開インスタンスの作法。詰めないこと。 */
+/** Etiquette for the public instance. Do not shorten it. */
 const DELAY_MS = 1200;
 
 export interface PhotonHit {
   lat: number;
   lng: number;
-  /** OSM 上の名前。タイトルとの突き合わせに使う。 */
+  /** Name on OSM. Used for matching against the title. */
   name: string;
-  /** 州・都道府県。無いことがある。 */
+  /** State / prefecture. May be absent. */
   state: string;
-  /** ISO 3166-1 alpha-2(大文字)。 */
+  /** ISO 3166-1 alpha-2 (uppercase). */
   countryCode: string;
 }
 
 const cache = new Map<string, PhotonHit | null>();
 
-/** 検索語を組み立てる。装飾を落として、場所らしい部分だけ残す。 */
+/** Builds the search term. Drops decoration and keeps only the place-like part. */
 export function photonQuery(title: string): string {
   return title
     .replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/gu, " ")

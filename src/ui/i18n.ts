@@ -1,5 +1,5 @@
-// 表示文言。世界のカメラを見せるアプリなので英語も最初から入れる。
-// 文言は「その操作で何が起きるか」をそのまま書く(Submit ではなく Save changes)。
+// Display strings. The app shows cameras of the world, so English is in from the start.
+// Strings say plainly "what that action does" (Save changes, not Submit).
 
 import type { CamCategory } from "../domain/cams";
 import type { Lang } from "../domain/weather";
@@ -118,7 +118,10 @@ export function t(key: StringKey, lang: Lang): string {
   return STRINGS[key][lang];
 }
 
-/** ダイヤルに出す配信中数 / 表示地点数。絞っているときは収録全件も添える。 */
+/**
+ * The live count / shown place count for the dial. When filtered, the full catalog count is added
+ * too.
+ */
 export function liveDialCaption(
   live: number,
   scoped: number,

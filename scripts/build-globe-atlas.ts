@@ -1,6 +1,6 @@
-// Natural Earth 110m から地球儀用の国境線・国名点・都市点を摘む。
-// ベクトルタイルの place / boundary に頼ると環境によって地名が消える。
-// 使い方: node --experimental-strip-types scripts/build-globe-atlas.ts
+// Picks border lines, country-name points and city points for the globe from Natural Earth 110m.
+// Relying on the place / boundary layers of vector tiles makes place names disappear in some environments.
+// Usage: node --experimental-strip-types scripts/build-globe-atlas.ts
 
 const BORDERS =
   "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_boundary_lines_land.geojson";
