@@ -11,6 +11,6 @@ useDefault = true
 [[rules]]
 id = "generic-api-key"
 [rules.allowlist]
-description = "カメラマスタ/収集スクリプトの titleKey（公開されている配信タイトル）"
+description = "titleKey in the camera master data and collection scripts (public stream titles)"
 regexTarget = "line"
 regexes = ['''titleKey:\s*"''']

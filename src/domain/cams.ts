@@ -99,7 +99,7 @@ function isFiniteInRange(value: number, limit: number): boolean {
 }
 
 /**
- * Lists inconsistencies in the master data in human-readable Japanese. An empty array means healthy.
+ * Lists inconsistencies in the master data in human-readable English. An empty array means healthy.
  * Used to validate the output of the generation script in CI tests.
  */
 export function collectCamProblems(cams: readonly Cam[]): string[] {
@@ -108,27 +108,27 @@ export function collectCamProblems(cams: readonly Cam[]): string[] {
 
   for (const cam of cams) {
     const at = `[${cam.id}]`;
-    if (seen.has(cam.id)) problems.push(`${at} id が重複しています`);
+    if (seen.has(cam.id)) problems.push(`${at} duplicate id`);
     seen.add(cam.id);
 
-    if (!ID_RE.test(cam.id)) problems.push(`${at} id の書式が不正です(kebab-case のみ)`);
-    if (!isFiniteInRange(cam.lat, 90)) problems.push(`${at} 緯度が範囲外です: ${cam.lat}`);
-    if (!isFiniteInRange(cam.lng, 180)) problems.push(`${at} 経度が範囲外です: ${cam.lng}`);
+    if (!ID_RE.test(cam.id)) problems.push(`${at} invalid id format (kebab-case only)`);
+    if (!isFiniteInRange(cam.lat, 90)) problems.push(`${at} latitude out of range: ${cam.lat}`);
+    if (!isFiniteInRange(cam.lng, 180)) problems.push(`${at} longitude out of range: ${cam.lng}`);
     if (!isResolvableTimeZone(cam.timeZone)) {
-      problems.push(`${at} タイムゾーンを解決できません: ${cam.timeZone}`);
+      problems.push(`${at} cannot resolve time zone: ${cam.timeZone}`);
     }
     if (cam.name.ja.trim() === "" || cam.name.en.trim() === "") {
-      problems.push(`${at} 表示名が空です`);
+      problems.push(`${at} empty display name`);
     }
-    if (!COUNTRY_RE.test(cam.country)) problems.push(`${at} 国コードが不正です: ${cam.country}`);
+    if (!COUNTRY_RE.test(cam.country)) problems.push(`${at} invalid country code: ${cam.country}`);
     if (!CHANNEL_ID_RE.test(cam.source.channelId)) {
-      problems.push(`${at} channelId が不正です: ${cam.source.channelId}`);
+      problems.push(`${at} invalid channelId: ${cam.source.channelId}`);
     }
     if (cam.source.videoId !== null && !VIDEO_ID_RE.test(cam.source.videoId)) {
-      problems.push(`${at} videoId が不正です: ${cam.source.videoId}`);
+      problems.push(`${at} invalid videoId: ${cam.source.videoId}`);
     }
     if (cam.source.titleKey.trim() === "") {
-      problems.push(`${at} titleKey が空です(再探索でカメラを見分けられません)`);
+      problems.push(`${at} empty titleKey (the camera cannot be told apart on rediscovery)`);
     }
   }
   return problems;

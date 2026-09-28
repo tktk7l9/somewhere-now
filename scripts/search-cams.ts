@@ -26,18 +26,18 @@ interface Query {
 const QUERIES: Query[] = [
   // Digging by language only returns "streams that happen to be popular" in that language area.
   // Specifying a place name directly lets us search for that place's cameras by name.
-  { q: "Istanbul live cam", note: "トルコ" },
+  { q: "Istanbul live cam", note: "Turkey" },
   { q: "Dubai live cam", note: "UAE" },
-  { q: "Cairo live cam", note: "エジプト" },
-  { q: "Mumbai live cam", note: "インド" },
-  { q: "Colombo Sri Lanka live cam", note: "スリランカ" },
-  { q: "Kathmandu live cam", note: "ネパール" },
-  { q: "Lagos Nigeria live cam", note: "ナイジェリア" },
-  { q: "Marrakech Morocco live cam", note: "モロッコ" },
-  { q: "Reykjavik Iceland live cam", note: "アイスランド" },
-  { q: "Vienna live cam", note: "オーストリア" },
-  { q: "Athens Greece live cam", note: "ギリシャ" },
-  { q: "Jakarta live cam", note: "インドネシア" },
+  { q: "Cairo live cam", note: "Egypt" },
+  { q: "Mumbai live cam", note: "India" },
+  { q: "Colombo Sri Lanka live cam", note: "Sri Lanka" },
+  { q: "Kathmandu live cam", note: "Nepal" },
+  { q: "Lagos Nigeria live cam", note: "Nigeria" },
+  { q: "Marrakech Morocco live cam", note: "Morocco" },
+  { q: "Reykjavik Iceland live cam", note: "Iceland" },
+  { q: "Vienna live cam", note: "Austria" },
+  { q: "Athens Greece live cam", note: "Greece" },
+  { q: "Jakarta live cam", note: "Indonesia" },
 ];
 /** Upper limit of quota that may be used up. search.list costs 100 unit per call. */
 const MAX_QUERIES = 12;
