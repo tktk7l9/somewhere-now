@@ -2,6 +2,7 @@
 
 import { CAM_CATEGORIES, type CamCategory } from "../domain/cams";
 import { activeFilterCount } from "../domain/filters";
+import { focusWasLost } from "../domain/focus";
 import type { LocateFailure } from "../domain/locate";
 import type { ViewState } from "../domain/urlState";
 import { categoryLabel, t, type StringKey } from "./i18n";
@@ -34,6 +35,34 @@ export interface ControlHandlers {
   onToggleWatching(): void;
   onToggleFilters(): void;
   onSetGlobe(globe: boolean): void;
+}
+
+const FOCUSABLE = "button, input";
+
+/** A position whose control was disabled when focus should have returned to it. */
+const parkedFocus = new WeakMap<HTMLElement, number>();
+
+/**
+ * Rebuilds a row of controls. The row is rebuilt on every press (the pressed state and labels
+ * change), which used to drop keyboard focus to the top of the page after each chip. The
+ * controls keep their order, so focus goes back to the control at the same position (SHIG 94).
+ * "Where I am" is disabled while it waits; focus is parked and returns when it is enabled.
+ */
+function replaceKeepingFocus(row: HTMLElement, build: () => HTMLElement[]): void {
+  const before = [...row.querySelectorAll<HTMLElement>(FOCUSABLE)];
+  let at = before.indexOf(document.activeElement as HTMLElement);
+  const parked = parkedFocus.get(row);
+  parkedFocus.delete(row);
+  if (at === -1 && parked !== undefined && focusWasLost(document.activeElement, document.body)) {
+    at = parked;
+  }
+  // Built only now: building moves persistent controls (the search box) out of the row.
+  row.replaceChildren(...build());
+  if (at === -1) return;
+  const target = row.querySelectorAll<HTMLElement>(FOCUSABLE)[at];
+  if (target === undefined || document.activeElement === target) return;
+  if (target.matches(":disabled")) parkedFocus.set(row, at);
+  else target.focus({ preventScroll: true });
 }
 
 function chip(label: string, pressed: boolean, onClick: () => void): HTMLButtonElement {
@@ -197,15 +226,19 @@ export function createControls(container: HTMLElement, handlers: ControlHandlers
 
       if (nextPrimaryKey !== primaryKey) {
         primaryKey = nextPrimaryKey;
-        primaryRow.replaceChildren(
+        replaceKeepingFocus(primaryRow, () => [
           group(random, locate, flatMap, globe, wall, watching),
           group(filtersToggle, langToggle),
-        );
+        ]);
       }
 
       if (nextFiltersKey !== filtersKey) {
         filtersKey = nextFiltersKey;
-        filtersRow.replaceChildren(group(search), group(...categories), group(...flags));
+        replaceKeepingFocus(filtersRow, () => [
+          group(search),
+          group(...categories),
+          group(...flags),
+        ]);
       }
     },
   };

@@ -8,7 +8,7 @@
 
 import { filterCams, pickRandom, rankLiveByViewers, type Cam, type PublicCamState } from "./domain/cams";
 import { decodeFavorites, encodeFavorites, toggleFavorite } from "./domain/favorites";
-import { activeFilterCount, clearedFilters } from "./domain/filters";
+import { activeFilterCount, clearedFilters, emptyPickReason } from "./domain/filters";
 import { nearestCam, requestLocation, viewportForLocation } from "./domain/locate";
 import { isNightAt } from "./domain/terminator";
 import { MAX_VIEW, parseUrlState, toSearchString, type ViewState } from "./domain/urlState";
@@ -377,11 +377,12 @@ export function startApp(root: HTMLElement): void {
       const cam = pickRandom(pool, Math.random);
       if (cam === null) {
         // Pressing it and seeing nothing happen reads as broken (SHIG 55, 58).
-        const filtered = activeFilterCount(view) > 0;
+        const reason = emptyPickReason(cams.length, view);
+        const key = reason === "notLoaded" ? "camsNotLoaded" : reason === "noMatch" ? "noMatchShort" : "noLive";
         notice.show(
-          t(filtered ? "noMatchShort" : "noLive", view.lang),
+          t(key, view.lang),
           view.lang,
-          filtered ? { label: t("clearFilters", view.lang), run: clearFilters } : undefined,
+          reason === "noMatch" ? { label: t("clearFilters", view.lang), run: clearFilters } : undefined,
         );
         return;
       }

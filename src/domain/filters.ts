@@ -20,3 +20,12 @@ export function activeFilterCount(state: FilterFields): number {
 export function clearedFilters(): FilterFields {
   return { categories: [], liveOnly: false, nightOnly: false, favoritesOnly: false, query: "" };
 }
+
+/** Why "Take me somewhere" found nothing to pick, so the notice can say it plainly (SHIG 55). */
+export type EmptyPickReason = "notLoaded" | "noMatch" | "noLive";
+
+export function emptyPickReason(total: number, state: FilterFields): EmptyPickReason {
+  // Until the camera list arrives (or when it failed), "nothing is live" would be untrue.
+  if (total === 0) return "notLoaded";
+  return activeFilterCount(state) > 0 ? "noMatch" : "noLive";
+}

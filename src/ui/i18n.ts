@@ -108,6 +108,10 @@ const STRINGS = {
     ja: "生存状態を取得できませんでした。地図と再生は使えます。",
     en: "Could not load live state. The map and player still work.",
   },
+  camsNotLoaded: {
+    ja: "カメラの一覧をまだ読み込めていません。少し待ってからもう一度押してください。",
+    en: "The camera list has not loaded yet. Wait a moment and try again.",
+  },
   noMatchShort: { ja: "条件に合うカメラがありません", en: "No cameras match" },
   clearFilters: { ja: "絞り込みを解除", en: "Clear filters" },
   sheetIdleWatching: { ja: "一覧から地点を選ぶ", en: "Pick a place from the list" },

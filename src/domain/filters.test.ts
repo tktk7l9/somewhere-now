@@ -1,4 +1,4 @@
-import { activeFilterCount, clearedFilters } from "./filters";
+import { activeFilterCount, clearedFilters, emptyPickReason } from "./filters";
 import { parseUrlState } from "./urlState";
 
 describe("activeFilterCount", () => {
@@ -23,5 +23,19 @@ describe("clearedFilters", () => {
     expect(cleared.view).toEqual(["a"]);
     expect(cleared.lang).toBe("en");
     expect(cleared.globe).toBe(true);
+  });
+});
+
+describe("emptyPickReason", () => {
+  it("says the list has not loaded while there are no cameras at all", () => {
+    expect(emptyPickReason(0, parseUrlState("?q=tokyo"))).toBe("notLoaded");
+  });
+
+  it("blames the filters when any is on", () => {
+    expect(emptyPickReason(5711, parseUrlState("?night=1"))).toBe("noMatch");
+  });
+
+  it("says nothing is live when no filter is on", () => {
+    expect(emptyPickReason(5711, parseUrlState(""))).toBe("noLive");
   });
 });

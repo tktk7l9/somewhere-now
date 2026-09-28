@@ -2,9 +2,13 @@
 //
 // Used where an action would otherwise end in silence: a camera closed (with undo), the
 // location lookup failing, "Take me somewhere" with nothing to pick (SHIG 54, 55, 57, 58).
-// It is a live region, so screen readers hear it too (SHIG 94). It never takes focus and
-// never blocks the map; it fades out by itself, but not while the pointer or focus is on it.
+// It is a live region, so screen readers hear it too (SHIG 94). It never blocks the map; it
+// fades out by itself, but not while the pointer or focus is on it. It takes focus only when
+// the pressed control vanished with the action (closing a camera removes its own button), so a
+// keyboard user can still reach the undo; it never pulls focus away from a control still there.
+// Escape dismisses it.
 
+import { focusWasLost } from "../domain/focus";
 import type { Lang } from "../domain/weather";
 import { t } from "./i18n";
 
@@ -80,6 +84,9 @@ export function createNotice(host: HTMLElement): NoticeHandle {
   root.addEventListener("focusout", (event) => {
     if (!root.contains(event.relatedTarget as Node | null)) release();
   });
+  root.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") hide();
+  });
 
   return {
     show(message, lang, action) {
@@ -105,6 +112,10 @@ export function createNotice(host: HTMLElement): NoticeHandle {
       buttons.push(dismiss);
       actionSlot.replaceChildren(...buttons);
       root.hidden = false;
+      const [first] = buttons;
+      if (action && first && focusWasLost(document.activeElement, document.body)) {
+        first.focus({ preventScroll: true });
+      }
       if (!held) schedule();
     },
     hide,
