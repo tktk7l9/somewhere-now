@@ -29,6 +29,14 @@
   box-sizing: border-box;
 }
 
+/* The hidden attribute must always win. The UA rule is only `display: none` at the lowest
+   specificity, so any component rule that sets display (.wall is a grid) silently overrides it.
+   The "hidden" side-by-side wall then stayed laid out over the stage and moved with the masthead
+   when the web font arrived: CLS 0.128 on mobile (Lighthouse, 2026-09-29). */
+[hidden] {
+  display: none !important;
+}
+
 html,
 body {
   height: 100%;
@@ -74,6 +82,16 @@ input {
   grid-template-columns: minmax(0, 1fr) var(--panel-w);
   grid-template-rows: auto 1fr;
   height: 100dvh;
+}
+
+/* Until the first render, keep everything below the masthead invisible (it is still laid out).
+   The chips of the masthead are built by JS, so the masthead grows from 1 row (the brand) to
+   several rows the moment the app starts, pushing down whatever was painted under it (measured on
+   a phone: 39px -> 149px, CLS 0.128). Before JS the stage and the panel are empty boxes, so
+   nothing is lost by not painting them; app.ts sets data-ready in the same task as that first
+   render, so there is no frame in between. */
+.app:not([data-ready]) > :not(.masthead) {
+  visibility: hidden;
 }
 
 .masthead {
@@ -1356,10 +1374,6 @@ html.resizing-panel iframe {
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
   font-size: 14px;
   animation: notice-in 0.18s var(--ease);
-}
-
-.notice[hidden] {
-  display: none;
 }
 
 .notice__body {

@@ -588,6 +588,9 @@ export function startApp(root: HTMLElement): void {
   }
 
   render();
+  // Reveal the stage and the panel only now that the masthead has its final height (see
+  // `.app:not([data-ready])` in styles.css). Same task as render(), so no frame sits in between.
+  root.dataset["ready"] = "";
   void loadCams();
   if (view.globe) {
     mapView.drawTerminator(now);
