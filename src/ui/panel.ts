@@ -245,6 +245,11 @@ export function createPanel(container: HTMLElement, handlers: PanelHandlers) {
     const status = ctx.states.get(cam.id)?.status;
     const dot = document.createElement("span");
     dot.className = `openrow__dot${status === "live" ? " openrow__dot--live" : ""}`;
+    dot.setAttribute("aria-hidden", "true");
+    // The dot tells live from not live by fill alone; screen readers get it in words (SHIG 94).
+    const statusText = document.createElement("span");
+    statusText.className = "visually-hidden";
+    statusText.textContent = statusLabel(status, ctx.lang);
 
     const name = document.createElement("span");
     name.className = "openrow__name";
@@ -254,7 +259,7 @@ export function createPanel(container: HTMLElement, handlers: PanelHandlers) {
     clock.className = "openrow__time";
     clock.textContent = formatLocalTime(ctx.now, cam.timeZone);
 
-    row.append(dot, name, clock);
+    row.append(dot, name, statusText, clock);
     row.append(
       chip(t("focusThis", ctx.lang), () => handlers.onFocus(cam.id)),
       chip(t("removeFromView", ctx.lang), () => handlers.onClose(cam.id)),

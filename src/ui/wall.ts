@@ -69,6 +69,7 @@ export function createWall(
         if (!keep.has(camId)) drop(camId);
       }
       container.dataset["count"] = String(selected.length);
+      container.setAttribute("aria-label", t("wall", lang));
       if (selected.length === 0) paintEmpty(lang);
       else empty.remove();
 
