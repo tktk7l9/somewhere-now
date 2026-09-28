@@ -46,35 +46,35 @@ describe("collectCamProblems", () => {
 
   it("detects duplicate ids", () => {
     const problems = collectCamProblems([cam(), cam({ lat: 1 })]);
-    expect(problems.join(" ")).toContain("id が重複");
+    expect(problems.join(" ")).toContain("duplicate id");
   });
 
   it("detects an id format violation", () => {
-    expect(collectCamProblems([cam({ id: "Shibuya_Crossing" })]).join(" ")).toContain("id の書式");
+    expect(collectCamProblems([cam({ id: "Shibuya_Crossing" })]).join(" ")).toContain("invalid id format");
   });
 
   it("detects out-of-range latitude and longitude", () => {
-    expect(collectCamProblems([cam({ lat: 91 })]).join(" ")).toContain("緯度");
-    expect(collectCamProblems([cam({ lng: -181 })]).join(" ")).toContain("経度");
+    expect(collectCamProblems([cam({ lat: 91 })]).join(" ")).toContain("latitude");
+    expect(collectCamProblems([cam({ lng: -181 })]).join(" ")).toContain("longitude");
   });
 
   it("detects NaN coordinates", () => {
-    expect(collectCamProblems([cam({ lat: Number.NaN })]).join(" ")).toContain("緯度");
+    expect(collectCamProblems([cam({ lat: Number.NaN })]).join(" ")).toContain("latitude");
   });
 
   it("detects an IANA time zone that cannot be resolved", () => {
     expect(collectCamProblems([cam({ timeZone: "Mars/Olympus" })]).join(" ")).toContain(
-      "タイムゾーン",
+      "time zone",
     );
   });
 
   it("detects an empty display name", () => {
-    expect(collectCamProblems([cam({ name: { ja: "", en: "X" } })]).join(" ")).toContain("表示名");
-    expect(collectCamProblems([cam({ name: { ja: "X", en: " " } })]).join(" ")).toContain("表示名");
+    expect(collectCamProblems([cam({ name: { ja: "", en: "X" } })]).join(" ")).toContain("display name");
+    expect(collectCamProblems([cam({ name: { ja: "X", en: " " } })]).join(" ")).toContain("display name");
   });
 
   it("detects a country code format violation", () => {
-    expect(collectCamProblems([cam({ country: "jpn" })]).join(" ")).toContain("国コード");
+    expect(collectCamProblems([cam({ country: "jpn" })]).join(" ")).toContain("country code");
   });
 
   it("detects an empty titleKey", () => {
