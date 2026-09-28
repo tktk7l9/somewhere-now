@@ -1,7 +1,9 @@
-// 配信中を視聴者数の多い順に並べた一覧。地図の代わりに地点を拾うための面。
+// List of live streams sorted by viewer count, highest first. A surface for picking a place
+// instead of using the map.
 //
-// iframe は置かない。数百件を並べても再描画で配信が繋ぎ直されないように、
-// 並びが同じなら行を使い回し、時刻と視聴者数と選択だけを書き換える。
+// No iframe is placed here. So that a re-render does not reconnect streams even with several
+// hundred rows, rows are reused when the order is the same, and only the time, the viewer
+// count and the selection are rewritten.
 
 import type { Cam, PublicCamState } from "../domain/cams";
 import { formatLocalTime } from "../domain/localTime";
@@ -15,7 +17,7 @@ export interface WatchingContext {
   now: Date;
   states: ReadonlyMap<string, PublicCamState>;
   ready: WatchingReady;
-  /** カテゴリ・夜・お気に入り・検索のいずれかが掛かっているか。 */
+  /** Whether any of category, night, favorites or search is applied. */
   filtered: boolean;
 }
 

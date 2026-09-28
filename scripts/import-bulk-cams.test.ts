@@ -1,8 +1,8 @@
-// ジオコーダに投げる問い合わせの組み立て。ネットワークには触らない。
+// Building the queries sent to the geocoder. Does not touch the network.
 //
-// ここが壊れると「地図に出るピンの位置」が静かに壊れる。実際に壊れていて、
-// 5,720 台のうち 3,394 台(59%)が同じ座標の束に積み上がっていた。
-// 下のケースは全部、その実データから採った。
+// If this breaks, "the position of the pins on the map" breaks quietly. It actually was
+// broken, and 3,394 of 5,720 cameras (59%) were piled up on piles sharing the same coordinates.
+// All cases below were taken from that real data.
 
 import { guessPlaceQueries, prioritizeGeocodeQueries } from "./import-bulk-cams.ts";
 
@@ -12,8 +12,8 @@ const top = (title: string, channel = "", cc: string | null = "US"): string =>
 const names = (title: string, channel = "", cc: string | null = "US"): string[] =>
   prioritizeGeocodeQueries(guessPlaceQueries(title, channel, cc)).map((q) => q.name);
 
-describe("地名になり得ない断片は問い合わせない", () => {
-  it("数字で始まるものを落とす(解像度・年・日付)", () => {
+describe("does not query fragments that cannot be a place name", () => {
+  it("drops anything starting with a digit (resolution, year, date)", () => {
     const got = names("2026 Times Square 4K 2160p 8/26 360 24H");
     expect(got).not.toContain("2026");
     expect(got).not.toContain("2160p");
@@ -22,35 +22,36 @@ describe("地名になり得ない断片は問い合わせない", () => {
     expect(got).not.toContain("24H");
   });
 
-  it("地震速報の断片や型番を落とす", () => {
+  it("drops earthquake alert fragments and model numbers", () => {
     const got = names("M7.5 Earthquake I-35 2MP PTZ");
     for (const junk of ["M7.5", "I-35", "2MP"]) expect(got).not.toContain(junk);
   });
 
-  it("括弧・句読点の残骸を落とす", () => {
+  it("drops leftovers of brackets and punctuation", () => {
     const got = names("[4K] Osaka (SP) Now: Park, .NL RE-");
     for (const junk of ["[4K]", "(SP)", "Now:", "Park,", ".NL", "RE-"]) {
       expect(got).not.toContain(junk);
     }
   });
 
-  it("文字を含まないものは問い合わせない", () => {
+  it("does not query anything that contains no letter", () => {
     for (const q of names("--- 24/7 ///")) expect(q).toMatch(/[\p{L}]/u);
   });
 });
 
-describe("先頭に来る問い合わせ", () => {
-  // 🔴 実データの回帰: この 2 件で 54 台がまったく違う土地に積み上がっていた。
-  it("New York は New(ケンタッキー州)でなく地名の方で引く", () => {
+describe("the query that comes first", () => {
+  // 🔴 Regression from real data: with these 2 cases, 54 cameras were piled up in
+  // entirely different places.
+  it("New York is looked up by the place name, not New (Kentucky)", () => {
     expect(top("New York City LIVE Manhattan")).not.toBe("New");
     expect(names("New York City LIVE Manhattan")).toContain("New York City Manhattan");
   });
 
-  it("Beach Cam は Beach(ノースダコタ州)でなく地名の方で引く", () => {
+  it("Beach Cam is looked up by the place name, not Beach (North Dakota)", () => {
     expect(top("Beach Cam (Solglimt B & B)", "Solglimt")).not.toBe("Beach");
   });
 
-  it("語数の多い方を先に試す(場所を絞るのは語数)", () => {
+  it("tries the one with more words first (word count is what narrows the place)", () => {
     const got = names("Ocean City Maryland Boardwalk");
     const single = got.findIndex((n) => !n.includes(" "));
     const multi = got.findIndex((n) => n.includes(" "));
@@ -58,18 +59,18 @@ describe("先頭に来る問い合わせ", () => {
     expect(multi).toBeLessThan(single === -1 ? Number.POSITIVE_INFINITY : single);
   });
 
-  it("単語 1 つしか無いときは長い方が先(短い一般語に負けない)", () => {
+  it("with only 1 word the longer comes first (does not lose to a short generic word)", () => {
     const got = names("Manhattan New");
     expect(got.indexOf("Manhattan")).toBeLessThan(got.indexOf("New"));
   });
 
-  it("一般語は捨てずに最後尾へ回す(他が空振りしたときの最後の手段)", () => {
+  it("generic words are not discarded but moved to the very end (last resort when the others miss)", () => {
     const got = names("Beach");
     expect(got).toContain("Beach");
     expect(got[got.length - 1]).toBe("Beach");
   });
 
-  it("都市別名は今までどおり効く", () => {
+  it("city aliases still work as before", () => {
     expect(names("渋谷スクランブル交差点 ライブカメラ", "", "JP")).toContain("Tokyo");
   });
 });

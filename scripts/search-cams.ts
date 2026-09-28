@@ -1,11 +1,11 @@
-// キーワード検索で、まだ知らないライブカメラのチャンネルを探す。
+// Finds live camera channels not yet known, by keyword search.
 //
-// チャンネル起点(discover-cams.ts)だと、こちらが名前を知っている運営しか
-// 見つからない。実際には「町のホテル」「港の事務所」のような小さなチャンネルが
-// 1 台ずつ出しているものが多いので、検索で拾う。
+// Starting from channels (discover-cams.ts) only finds operators whose names we already
+// know. In reality many cameras are put out one at a time by small channels such as
+// "a hotel in town" or "a harbour office", so they are picked up by search.
 //
-// search.list は 100 unit と高いので、問い合わせ数を必ず上限で抑える。
-// これはデータを作るときに手で回す道具で、本番の Worker からは呼ばない。
+// search.list is expensive at 100 unit, so the number of queries is always capped.
+// This is a tool run by hand when building data, and is not called from the production Worker.
 //
 //   keyway run -e development -- npm run cams:search
 
@@ -13,19 +13,19 @@ import { mkdir, writeFile } from "node:fs/promises";
 import { CAM_PLACES_CURATED } from "./cam-places.ts";
 
 /**
- * 探す語。地域が偏るので、言語と regionCode を振って別々の井戸を掘る。
- * 1 語 100 unit なので、増やすときは MAX_QUERIES と相談すること。
+ * Search terms. Regions get skewed, so language and regionCode are varied to dig separate wells.
+ * 1 term costs 100 unit, so check against MAX_QUERIES when adding more.
  */
 interface Query {
   q: string;
-  /** 検索結果をこの国向けに寄せる。 */
+  /** Biases search results toward this country. */
   regionCode?: string;
   note: string;
 }
 
 const QUERIES: Query[] = [
-  // 言語で掘ると、その言語圏に「たまたま人気の配信」が返るだけになる。
-  // 地名を直接指定すると、その土地のカメラを名指しで探せる。
+  // Digging by language only returns "streams that happen to be popular" in that language area.
+  // Specifying a place name directly lets us search for that place's cameras by name.
   { q: "Istanbul live cam", note: "トルコ" },
   { q: "Dubai live cam", note: "UAE" },
   { q: "Cairo live cam", note: "エジプト" },
@@ -39,7 +39,7 @@ const QUERIES: Query[] = [
   { q: "Athens Greece live cam", note: "ギリシャ" },
   { q: "Jakarta live cam", note: "インドネシア" },
 ];
-/** 使い切ってよいクォータの上限。search.list は 1 回 100 unit。 */
+/** Upper limit of quota that may be used up. search.list costs 100 unit per call. */
 const MAX_QUERIES = 12;
 
 interface Hit {
@@ -92,7 +92,7 @@ async function main(): Promise<void> {
     console.log(`  [${query.note}] "${query.q}" → ${found.length} 件`);
   }
 
-  // 既に持っているチャンネルは除く。
+  // Exclude channels we already have.
   const fresh = hits.filter((h) => !known.has(h.channelId));
   const byChannel = new Map<string, Hit[]>();
   for (const h of fresh) {

@@ -1,7 +1,7 @@
 import { defineConfig } from "vitest/config";
 
-// 純ロジック層(天体計算・ドメイン・Worker の API クライアントと更新アルゴリズム)は
-// 100% を維持する。UI(Leaflet / iframe / DOM)と Worker のエントリは対象外。
+// The pure logic layer (astronomy calculations, domain, the Worker's API client and update
+// algorithm) stays at 100%. The UI (Leaflet / iframe / DOM) and the Worker entry are excluded.
 const PURE_GLOBS = [
   "src/astro/**/*.ts",
   "src/domain/**/*.ts",

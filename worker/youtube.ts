@@ -1,15 +1,17 @@
-// YouTube Data API v3 の最小クライアント。
+// Minimal client for the YouTube Data API v3.
 //
-// URL の組み立てと応答の解釈を純関数に切り出し、ネットワークを触る部分だけを
-// createYouTubeClient に閉じ込めている(fetch を注入するので単体テストできる)。
+// URL building and response parsing are split out into pure functions, and only the part
+// that touches the network is confined to createYouTubeClient (fetch is injected, so it
+// can be unit tested).
 //
-// クォータ: 無料枠は 10,000 units/日。videos.list は 1 件でも 50 件でも 1 unit
-// なので生存確認はまとめて投げる。search.list は 100 unit と高いので、videoId
-// が死んだカメラの再探索にだけ、予算を見ながら使う。
+// Quota: the free tier is 10,000 units/day. videos.list is 1 unit whether for 1 item or
+// 50 items, so the liveness sweep sends them in bulk. search.list is expensive at 100 units,
+// so it is used only for rediscovery of cameras whose videoId died, while watching the
+// budget.
 
 const API_BASE = "https://www.googleapis.com/youtube/v3";
 
-/** videos.list が 1 回で受け取れる id の上限(API 仕様)。 */
+/** Upper limit of ids that videos.list accepts in 1 call (API spec). */
 export const MAX_VIDEO_IDS_PER_CALL = 50;
 
 export const UNIT_COST = {
@@ -19,36 +21,39 @@ export const UNIT_COST = {
 } as const;
 
 /**
- * uploads プレイリストを何ページまで遡るか。
+ * How many pages back to walk the uploads playlist.
  *
- * 深く遡っても意味は薄い。再探索が要るのは「配信が終わって**新しい配信**が
- * 始まった」ときで、新しい配信は投稿履歴の先頭に来るから。奥に沈んでいるのは
- * 何ヶ月も続いている配信で、それは videoId が変わらないので生存確認の側で拾える
- * (VirtualRailfan は 400 本遡っても目当てに届かない配信があったが、それは
- *  ずっとライブのままのもので、再探索の出番が無いものだった)。
+ * Walking deep has little value. Rediscovery is needed when "a stream ended and a **new
+ * stream** started", and a new stream comes at the head of the upload history. What has
+ * sunk deep are streams that have run for months, and since their videoId does not change
+ * the liveness sweep picks them up
+ * (VirtualRailfan had streams that were not reached even after walking back 400 videos,
+ *  but those had stayed live the whole time, so rediscovery had no part to play).
  *
- * 一方で上限を上げると、二度と戻らないカメラを毎時ずっと高く探し続けることに
- * なる。浅くしておく。目当てが揃えばさらに手前で打ち切る。
+ * Raising the limit, on the other hand, means searching every hour, forever and at a high
+ * price, for cameras that will never come back. Keep it shallow. If the targets are all
+ * found, it stops even earlier.
  */
 export const UPLOADS_MAX_PAGES = 3;
 
 /**
- * チャンネル 1 本を uploads 経由で見るときに出す HTTP 呼び出しの最大数。
+ * Maximum number of HTTP calls made when looking at 1 channel via uploads.
  *
- * 1 ページにつき playlistItems と videosList の 2 回。unit の額とは別に数える
- * 必要がある — 検索は 1 回で 100 unit だが呼び出しは 1 回で、両者は比例しない。
- * サブリクエスト上限(50)に効くのは unit ではなくこちら。
+ * 2 calls per page, playlistItems and videosList. This has to be counted separately from
+ * the unit amount - a search is 100 units in 1 go but only 1 call, so the two are not
+ * proportional. What counts against the subrequest limit (50) is this, not units.
  */
 export const MAX_CALLS_PER_CHANNEL = UPLOADS_MAX_PAGES * 2;
 
-/** チャンネルの現在のライブを引く 2 つの経路の上限額。 */
+/** Maximum cost of the 2 paths for looking up a channel's current live streams. */
 export const CHANNEL_LOOKUP_COST = {
-  /** uploads プレイリスト経由(ページ送り込み)。 */
+  /** Via the uploads playlist (including paging). */
   viaUploads: UPLOADS_MAX_PAGES * (UNIT_COST.playlistItems + UNIT_COST.videosList),
   /**
-   * 検索経由。**網羅は保証されない** — eventType=live の検索が、実際にライブ中の
-   * 配信を返さないことを実測で確認している(42 件返しつつ、ライブ中の 1 本が
-   * 欠けていた。次ページも無し)。uploads で見つからなかったときの当てにすぎない。
+   * Via search. **Exhaustiveness is not guaranteed** - it has been confirmed by measurement
+   * that a search with eventType=live does not return a stream that is actually live
+   * (it returned 42 items while 1 live stream was missing. No next page either). It is no
+   * more than a fallback for when uploads did not find it.
    */
   viaSearch: UNIT_COST.searchLive + UNIT_COST.videosList,
 } as const;
@@ -56,9 +61,9 @@ export const CHANNEL_LOOKUP_COST = {
 export interface YouTubeVideo {
   id: string;
   title: string;
-  /** いま配信中か(snippet.liveBroadcastContent === "live")。 */
+  /** Whether it is live now (snippet.liveBroadcastContent === "live"). */
   isLive: boolean;
-  /** 外部サイトへの埋め込みが許可されているか。 */
+  /** Whether embedding on external sites is allowed. */
   embeddable: boolean;
   viewers: number | null;
 }
@@ -78,8 +83,8 @@ export function searchLiveUrl(apiKey: string, channelId: string): string {
     channelId,
     eventType: "live",
     type: "video",
-    // 1 チャンネルが何十本もライブを出しているので、1 本だけ取ると
-    // 別のカメラを掴む。全部取ってタイトルで見分ける。
+    // 1 channel puts out dozens of live streams, so taking just 1 grabs a different
+    // camera. Take them all and tell them apart by title.
     maxResults: String(MAX_VIDEO_IDS_PER_CALL),
     key: apiKey,
   });
@@ -87,8 +92,8 @@ export function searchLiveUrl(apiKey: string, channelId: string): string {
 }
 
 /**
- * チャンネルの「アップロード」プレイリスト id。チャンネル id の接頭辞を
- * UC → UU に変えたものになる(YouTube の仕様)。
+ * Id of the channel's "uploads" playlist. It is the channel id with its prefix changed
+ * from UC to UU (YouTube spec).
  */
 export function uploadsPlaylistId(channelId: string): string {
   return `UU${channelId.slice(2)}`;
@@ -161,7 +166,7 @@ export function parseVideosList(json: unknown): YouTubeVideo[] {
       id: item["id"],
       title: typeof snippet["title"] === "string" ? snippet["title"] : "",
       isLive: snippet["liveBroadcastContent"] === "live",
-      // status を欠く応答は制限なしとみなす(埋め込み可の既定に倒す)。
+      // A response lacking status is treated as unrestricted (falls to the embeddable default).
       embeddable: status === null ? true : status["embeddable"] !== false,
       viewers: Number.isFinite(viewers) && viewersRaw !== undefined ? viewers : null,
     });
@@ -170,25 +175,25 @@ export function parseVideosList(json: unknown): YouTubeVideo[] {
 }
 
 export interface YouTubeClient {
-  /** これまでに消費したクォータ(単位: unit)。 */
+  /** Quota consumed so far (in units). */
   readonly unitsUsed: number;
   /**
-   * これまでに出した HTTP 呼び出しの回数。Workers のサブリクエスト上限に
-   * 効くのは unit ではなくこちらなので、別に数える。
+   * Number of HTTP calls made so far. What counts against the Workers subrequest limit is
+   * this, not units, so it is counted separately.
    */
   readonly callsMade: number;
-  /** ids は MAX_VIDEO_IDS_PER_CALL 件まで。 */
+  /** ids holds up to MAX_VIDEO_IDS_PER_CALL items. */
   listVideos(ids: readonly string[]): Promise<YouTubeVideo[]>;
   /**
-   * uploads プレイリストを遡って、いまライブ中のものを返す。
-   * shouldStop が true を返した時点でページ送りをやめる(目当てが 1 ページ目に
-   * 居るのが普通なので、これがあるかどうかで消費が 8 倍変わる)。
+   * Walks back the uploads playlist and returns those that are live now.
+   * Stops paging as soon as shouldStop returns true (the target is normally on page 1, so
+   * having this or not changes consumption by 8 times).
    */
   listChannelLiveStreamsViaUploads(
     channelId: string,
     shouldStop?: (live: readonly YouTubeVideo[]) => boolean,
   ): Promise<YouTubeVideo[]>;
-  /** 検索でチャンネルのライブを網羅する。確実だが高い(101 unit)。 */
+  /** Covers the channel's live streams exhaustively by search. Reliable but costly (101 units). */
   listChannelLiveStreamsViaSearch(channelId: string): Promise<YouTubeVideo[]>;
 }
 
@@ -196,7 +201,7 @@ export function createYouTubeClient(apiKey: string, fetchImpl: typeof fetch): Yo
   let unitsUsed = 0;
   let callsMade = 0;
 
-  // 失敗しても Google 側のクォータは消費されるので、先に積んでから投げる。
+  // Quota on Google's side is consumed even on failure, so add it up first and then send.
   async function call(url: string, cost: number): Promise<unknown> {
     unitsUsed += cost;
     callsMade += 1;
@@ -251,7 +256,7 @@ export function createYouTubeClient(apiKey: string, fetchImpl: typeof fetch): Yo
     },
   };
 
-  /** 動画 id の集まりから、いまライブ中のものだけを返す。50 件ずつ問い合わせる。 */
+  /** From a set of video ids, returns only those live now. Queries 50 items at a time. */
   async function liveAmong(ids: readonly string[]): Promise<YouTubeVideo[]> {
     const live: YouTubeVideo[] = [];
     for (let i = 0; i < ids.length; i += MAX_VIDEO_IDS_PER_CALL) {

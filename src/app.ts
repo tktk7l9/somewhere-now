@@ -1,10 +1,10 @@
-// 画面全体の組み立て。
+// Assembly of the whole screen.
 //
-// 状態は 3 つだけ:
-//   ViewState  … URL に載る(開いているカメラ・絞り込み・言語)
-//   states     … Worker から来る生存状態
+// There are only 3 pieces of state:
+//   ViewState  … carried in the URL (open cameras, filters, language)
+//   states     … liveness state coming from the Worker
 //   favorites / panel-width … localStorage
-// それ以外(いま夜かどうか、現地時刻)は now から毎分導出する。
+// Everything else (whether it is night now, local time) is derived from now every minute.
 
 import { filterCams, pickRandom, rankLiveByViewers, type Cam, type PublicCamState } from "./domain/cams";
 import { decodeFavorites, encodeFavorites, toggleFavorite } from "./domain/favorites";
@@ -27,12 +27,12 @@ const FAVORITES_KEY = "somewhere-now:favorites";
 const SOUND_KEY = "somewhere-now:sound";
 const PANEL_WIDTH_KEY = "somewhere-now:panel-width";
 /**
- * 生存状態の取り込み間隔。Worker 側の更新が 10 分毎なので 2 分で十分に追いつく。
- * 応答には ETag が付いているので、変わっていない 5 回中 4 回は本文が飛ばない
- * (ブラウザが If-None-Match を付けて 304 を受ける)。
+ * Polling interval for the liveness state. The Worker updates every 10 minutes, so 2
+ * minutes keeps up well enough. The response carries an ETag, so in the 4 out of 5 times
+ * nothing changed, no body is sent (the browser adds If-None-Match and receives 304).
  */
 const STATE_POLL_MS = 120_000;
-/** 現地時刻と昼夜の再計算。 */
+/** Recalculation of local time and day/night. */
 const TICK_MS = 60_000;
 
 function readFavorites(): string[] {
@@ -47,11 +47,11 @@ function writeFavorites(ids: readonly string[]): void {
   try {
     localStorage.setItem(FAVORITES_KEY, encodeFavorites(ids));
   } catch {
-    // プライベートブラウジング等で書けなくても、その回だけ諦めれば済む。
+    // Even if it cannot be written, e.g. in private browsing, giving up for that one time is enough.
   }
 }
 
-/** localStorage は使えないことがあるので、読み書きとも失敗を飲み込む。 */
+/** localStorage may be unavailable, so failures are swallowed for both reads and writes. */
 function readStored(key: string): string | null {
   try {
     return localStorage.getItem(key);
@@ -64,19 +64,19 @@ function writeStored(key: string, value: string): void {
   try {
     localStorage.setItem(key, value);
   } catch {
-    // 保存できなくても、その回の体験は壊れない。
+    // Even if it cannot be saved, the experience of that session does not break.
   }
 }
 
 /**
- * 表に出ているあいだだけ回る繰り返し。
+ * A repetition that runs only while the tab is in the foreground.
  *
- * 開きっぱなしの裏タブが 2 分毎に生存状態(144KB)を取り続けると、誰も見ていない
- * のに 1 日 700 リクエスト・100MB になる。見えない地図の再描画も同じで、どちらも
- * 何の役にも立たない。過去に上限なしのポーリングでホスティングを落としている
- * ので、止められるものは止める。
+ * If a background tab left open keeps fetching the liveness state (144KB) every 2 minutes,
+ * it becomes 700 requests and 100MB a day although nobody is watching. Redrawing an
+ * invisible map is the same; neither is of any use. Unbounded polling has taken the
+ * hosting down in the past, so whatever can be stopped is stopped.
  *
- * 表に戻ったときは間隔を待たずに 1 度走らせて追いつかせる。
+ * On returning to the foreground, run once without waiting for the interval to catch up.
  */
 function everyWhileVisible(intervalMs: number, run: () => void): void {
   let timer: number | null = null;
@@ -113,8 +113,8 @@ export function startApp(root: HTMLElement): void {
   const dialEl = root.querySelector<HTMLElement>("#dial")!;
   const legendEl = root.querySelector<HTMLElement>("#legend")!;
 
-  // マスタは JSON で後から届く。地図はこれを待たずに作る(待つと LCP が
-  // そのぶん遅れる)。届いた時点でピンが乗る。
+  // The master arrives later as JSON. The map is built without waiting for it (waiting
+  // delays LCP by that much). Pins are placed when it arrives.
   let cams: readonly Cam[] = [];
   let byId = new Map<string, Cam>();
 
@@ -124,12 +124,13 @@ export function startApp(root: HTMLElement): void {
   let wallOpen = false;
   let now = new Date();
   let nightIds = new Set<string>();
-  // 音は既定で出さない。仕事の合間に開くので、押した瞬間に鳴るのは事故になる。
+  // No sound by default. The app is opened between tasks at work, so sounding the moment
+  // something is pressed is an accident.
   let soundOn = readStored(SOUND_KEY) === "on";
   let locateStatus: LocateStatus = "idle";
   let statesReady: "loading" | "unavailable" | "ready" = "loading";
-  // 絞り込みの段を開いているか。狭い画面でだけ意味を持つ(広い画面では CSS が
-  // 常に開いて見せる)。URL には載せない — 共有したい状態ではなく、手元の都合。
+  // Whether the filter row is open. Meaningful only on narrow screens (on wide screens CSS
+  // always shows it open). Not carried in the URL — it is not state to share, but a local convenience.
   let filtersOpen = false;
 
   function recomputeNight(): void {
@@ -144,7 +145,7 @@ export function startApp(root: HTMLElement): void {
     view.view.map((id) => byId.get(id)).filter((cam): cam is Cam => cam !== undefined);
 
   function selectCam(camId: string): void {
-    // マーカーは開閉のトグル。新しく開いたものが先頭(音の出る側)に来る。
+    // A marker toggles open/closed. The newly opened one comes first (the side that plays sound).
     const isOpen = view.view.includes(camId);
     const next = isOpen
       ? view.view.filter((id) => id !== camId)
@@ -156,7 +157,7 @@ export function startApp(root: HTMLElement): void {
     }
   }
 
-  /** 一覧から選ぶ。既に開いていれば先頭に上げ、閉じてあるものは開く。トグルはしない。 */
+  /** Pick from the list. If already open, raise it to the front; if closed, open it. Does not toggle. */
   function pickFromList(camId: string): void {
     if (view.view[0] === camId) return;
     update({ view: [camId, ...view.view.filter((id) => id !== camId)].slice(0, MAX_VIEW) });
@@ -167,9 +168,9 @@ export function startApp(root: HTMLElement): void {
     if (cam) focusCam(cam);
   }
 
-  // 下から出るパネルは地図の下端を覆う。寄せるときはその分だけ的を上げないと、
-  // 選んだピンがそのままパネルの裏に隠れる。シートはパネルより後に作るので、
-  // 覆っている高さは呼ばれた時点で読む。
+  // The panel that rises from the bottom covers the bottom edge of the map. When focusing,
+  // the target must be raised by that much, or the chosen pin stays hidden behind the panel.
+  // The sheet is created after the panel, so the covered height is read at call time.
   let sheet: PanelSheetHandle | null = null;
   const obscuredBottom = (): number => sheet?.obscuredBottom() ?? 0;
 
@@ -255,10 +256,10 @@ export function startApp(root: HTMLElement): void {
       return;
     }
     locateStatus = "idle";
-    // 寄っただけでは何も映らないので、近くで実際に配信しているものを開く。
-    // 地図は「いまいる場所へ」の名の通り現在地に寄せたままにする(カメラの方へ
-    // 飛ばすと、押した本人がどこにいるのか分からなくなる)。
-    // 絞り込みは尊重する — 自然だけを見ている人を、隣の街へ連れて行かない。
+    // Just moving there shows nothing, so open one nearby that is actually streaming.
+    // The map stays on the current location, as the name "いまいる場所へ" (Where I am) says
+    // (flying to the camera would leave the person who pressed it unsure where they are).
+    // Filters are respected — someone looking only at nature is not taken to the next town.
     const nearest = nearestCam(visibleCams(), states, result.position);
     if (nearest === null) render();
     else {
@@ -268,9 +269,9 @@ export function startApp(root: HTMLElement): void {
     goToViewport(viewport.center[0], viewport.center[1], viewport.zoom);
   }
 
-  // 再生側が「埋め込めない」と言ってきたら、サーバ側の次の確認を待たずに印を落とす。
-  // 同じ報せは何度も来るので、状態が変わるときだけ描き直す(でないと
-  // エラー→再描画→再読込→エラー の循環になる)。
+  // When the player says "cannot be embedded", drop the mark without waiting for the next
+  // server-side check. The same notice arrives many times, so redraw only when the state
+  // changes (otherwise it becomes a cycle of error→redraw→reload→error).
   function markUnplayable(camId: string): void {
     if (states.get(camId)?.status === "blocked") return;
     const next = new Map(states);
@@ -387,8 +388,8 @@ export function startApp(root: HTMLElement): void {
   }
 
   function paintDial(): void {
-    // 「全ての地点」は配信中フィルタ以外の絞り込みに従う。
-    // liveOnly を含めると分母が分子と同じになり、常に N / N になる。
+    // "All locations" follows the filters other than the live filter.
+    // Including liveOnly makes the denominator equal to the numerator, so it is always N / N.
     const scoped = filterCams(
       cams,
       { states, nightIds, favoriteIds: new Set(favorites) },
@@ -409,9 +410,10 @@ export function startApp(root: HTMLElement): void {
     dialEl.setAttribute("aria-label", caption.aria);
   }
 
-  // 下から出るパネルのつまみ。畳んでいても主役が誰かは読める。
-  // 上げ下げは「主役が入れ替わったとき」だけ。毎回の再描画で上げると、
-  // 自分で畳んだそばから 1 分毎の時計の更新に押し戻される。
+  // The grip of the panel that rises from the bottom. Even when collapsed, which camera is
+  // the lead can be read. Raising and lowering happens only "when the lead changes". Raising
+  // on every redraw would push it back up on the clock update every 1 minute right after
+  // the user collapsed it.
   let gripFocus: string | undefined;
 
   function paintSheetGrip(open: readonly Cam[]): void {
@@ -425,8 +427,8 @@ export function startApp(root: HTMLElement): void {
       return;
     }
     sheet?.raise();
-    // 絞り込みの段とパネルが同時に出ていると、狭い画面では地図が 74px の帯に
-    // なる。主役が決まった＝見る方に移ったので、段は畳む。
+    // With the filter row and the panel both shown, the map becomes a 74px band on a
+    // narrow screen. A lead was chosen = the user moved on to watching, so collapse the row.
     filtersOpen = false;
   }
 
@@ -467,8 +469,8 @@ export function startApp(root: HTMLElement): void {
     mapView.setLang(view.lang);
     if (mode === "globe") {
       void ensureGlobe().then(() => {
-        // hidden を外した直後はレイアウトが未確定なことがあるので、
-        // 次フレームでもう一度サイズを合わせる。
+        // Right after hidden is removed the layout may not be settled yet, so
+        // fit the size once more on the next frame.
         requestAnimationFrame(() => globeView?.invalidate());
       });
     } else {
@@ -478,7 +480,7 @@ export function startApp(root: HTMLElement): void {
     mountPinLegend(legendEl, view.lang);
 
     if (wallOpen) {
-      // パネルは畳まれる(CSS)。同じ配信を二重に流さないよう中身も空にする。
+      // The panel is collapsed (CSS). Its content is emptied too so the same stream is not played twice.
       watchingList.teardown();
       panel.update([], panelCtx());
       wall.update(open, states, view.lang, soundOn);
@@ -524,14 +526,14 @@ export function startApp(root: HTMLElement): void {
     render();
   }
 
-  // マスタが届いたらピンを乗せる。届くまでは地図だけが出ている。
+  // Place the pins when the master arrives. Until then only the map is shown.
   async function loadCams(): Promise<void> {
     const loaded = await fetchCams();
     if (loaded.length === 0) return;
     cams = loaded;
     byId = new Map(loaded.map((cam) => [cam.id, cam]));
     recomputeNight();
-    // URL で最初から選ばれているカメラは、ここで初めて開ける。
+    // Cameras selected in the URL from the start can only be opened here.
     render();
   }
 
@@ -542,10 +544,10 @@ export function startApp(root: HTMLElement): void {
     void ensureGlobe();
   } else {
     mapView.playIntro(now);
-    // 地球儀の先読みは「地図が出そろってから」。timeout 2500 で急かすと、
-    // 読み込みが混んでいるモバイルではまさに初期表示の最中に 300KB
-    // (maplibre + globe)を取りにいき、地図タイル(LCP)の帯域を奪う。
-    // load を待ってから暇な時間に回す。切り替えの速さは充分保てる。
+    // Prefetching the globe happens "after the map is fully shown". Rushing it with
+    // timeout 2500 makes a mobile with congested loading fetch 300KB (maplibre + globe)
+    // right in the middle of the initial render, taking bandwidth from the map tiles (LCP).
+    // Wait for load, then do it in idle time. Switching stays fast enough.
     const warm = (): void => {
       void import("./ui/globe").then((mod) => mod.prefetchGlobeRuntime());
     };
@@ -568,8 +570,8 @@ export function startApp(root: HTMLElement): void {
 
   everyWhileVisible(STATE_POLL_MS, () => void pullStates());
 
-  // 開いた絞り込みは地図の上に垂れているので、地図を触ったら畳む。
-  // 広い画面では段が常に出ているので、これは効いても何も動かない。
+  // The opened filters hang over the map, so collapse them when the map is touched.
+  // On wide screens the row is always shown, so even when this fires nothing moves.
   stageEl.addEventListener("pointerdown", () => {
     if (!filtersOpen) return;
     filtersOpen = false;

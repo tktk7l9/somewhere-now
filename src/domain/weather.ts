@@ -1,5 +1,5 @@
-// 選択中のカメラの「いまそこの天気」。Open-Meteo はキー不要・CORS 全許可なので
-// ブラウザから直接叩く(Worker を経由しない)。
+// "The weather there right now" for the selected camera. Open-Meteo needs no key and
+// allows CORS for all, so the browser hits it directly (it does not go through the Worker).
 
 export interface Weather {
   temperatureC: number;
@@ -10,7 +10,7 @@ export interface Weather {
 
 export type Lang = "ja" | "en";
 
-/** 座標は小数第 4 位(約 11m)で十分。CDN キャッシュが効きやすいよう丸める。 */
+/** 4 decimal places (about 11m) is enough for coordinates. Rounded so the CDN cache hits well. */
 export function openMeteoUrl(lat: number, lng: number): string {
   const round = (n: number) => String(Number(n.toFixed(4)));
   return (
@@ -35,7 +35,7 @@ export function parseWeather(json: unknown): Weather | null {
   return { temperatureC: temp, code, isDay: isDay === 1 };
 }
 
-// WMO のコードを、地図の脇に一行で出せる粒度までまとめる。
+// Groups WMO codes down to a granularity that fits on one line beside the map.
 type WeatherKind =
   | "clear"
   | "partly"
@@ -97,8 +97,8 @@ export function weatherLabel(code: number, lang: Lang): string {
   return kind === undefined ? UNKNOWN_LABEL[lang] : LABELS[kind][lang];
 }
 
-// 空の状態しか分からない種類(快晴・晴れ時々曇り)だけ昼夜で絵柄を変える。
-// 雨や雪は見た目そのものなので変えない。
+// Only the kinds that tell just the state of the sky (clear, partly cloudy) change the
+// picture between day and night. Rain and snow are the look itself, so they do not change.
 const ICONS: Record<WeatherKind, { day: string; night: string }> = {
   clear: { day: "☀️", night: "🌙" },
   partly: { day: "⛅", night: "☁️" },

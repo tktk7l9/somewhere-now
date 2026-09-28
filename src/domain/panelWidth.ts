@@ -1,15 +1,17 @@
-// 右パネルの幅。お気に入りと同じく個人のレイアウトなので URL には載せない。
-// 地図が潰れて主役が消えないよう、下限と「地図の取り分」をここで決める。
+// Width of the right panel. Like favorites it is a personal layout, so it is not put in the URL.
+// The minimum and the "map's share" are decided here so the map is not crushed and the lead role
+// lost.
 
-/** 既定。CSS の --panel-w と同じ。 */
+/** Default. Same as --panel-w in CSS. */
 export const PANEL_WIDTH_DEFAULT = 384;
 export const PANEL_WIDTH_MIN = 280;
 export const PANEL_WIDTH_MAX = 640;
-/** 平面図/地球儀に必ず残す幅。これより狭くすると地図が読めなくなる。 */
+/** Width always left for the flat map / globe. Narrower than this and the map becomes unreadable. */
 export const PANEL_MAP_MIN = 360;
 
 /**
- * 保存値の読み取り。整数だけを受け、壊れていたら null(呼び出し側が既定に戻す)。
+ * Reads the saved value. Accepts integers only; null when broken (the caller falls back to the
+ * default).
  */
 export function parsePanelWidth(raw: string | null): number | null {
   if (raw === null || raw === "") return null;
@@ -24,8 +26,8 @@ export function encodePanelWidth(width: number): string {
 }
 
 /**
- * パネル幅を地図が残る範囲に収める。
- * 窓が極端に狭いときは地図の取り分を優先し、下限を下回っても窓に収める。
+ * Clamps the panel width to a range that leaves the map. When the window is extremely narrow, the
+ * map's share wins and it fits the window even below the minimum.
  */
 export function clampPanelWidth(width: number, viewportWidth: number): number {
   const vw = Number.isFinite(viewportWidth) ? Math.floor(viewportWidth) : 0;
@@ -36,7 +38,7 @@ export function clampPanelWidth(width: number, viewportWidth: number): number {
   return Math.min(hi, Math.max(lo, raw));
 }
 
-/** 保存値(または欠落)から、いまの窓に収まる幅を出す。 */
+/** From the saved value (or its absence), gives the width that fits the current window. */
 export function resolvePanelWidth(raw: string | null, viewportWidth: number): number {
   const parsed = parsePanelWidth(raw);
   return clampPanelWidth(parsed ?? PANEL_WIDTH_DEFAULT, viewportWidth);

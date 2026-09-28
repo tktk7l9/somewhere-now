@@ -1,30 +1,31 @@
-// 狭い縦長の画面での、下から出るパネル。
+// The panel that comes up from the bottom on narrow portrait screens.
 //
-// 横に並べる余地が無い画面では、パネルは地図の下半分を常に占める居候だった。
-// 何も選んでいなくても「まだ何も選んでいません」が画面の半分を持っていき、
-// 残った 46dvh の地図の上にさらに配信数の札が乗る ＝ 実際に地図が見えるのは
-// 画面の 3 分の 1 だけ(実測 390×290)。
+// On screens with no room to place things side by side, the panel was a lodger that always
+// occupied the lower half of the map. Even with nothing selected, the empty message
+// "まだ何も選んでいません" (Nothing selected yet) took half the screen, and the stream-count
+// badge sat on top of the remaining 46dvh of map = the map actually visible was only
+// one third of the screen (measured 390x290).
 //
-// そこで地図にはステージ全部を渡し、パネルは上に重ねて高さだけを変える。
-// 3 つの止まり木を持つ:
-//   peek … つまみと主役の名前だけ。地図がほぼ全画面
-//   half … 映像と操作が収まる
-//   full … 土地の説明まで読む
+// So the map gets the whole stage, and the panel is laid over it and only changes its height.
+// It has 3 perches:
+//   peek ... only the grip and the name of the lead camera. The map is almost full screen
+//   half ... the video and the controls fit
+//   full ... read as far as the description of the place
 //
-// 幅ハンドル(panelResize.ts)と同じく、iframe には触らない。付け外しすると
-// 配信が繋ぎ直されるので、動かすのは高さだけ。
+// Like the width handle (panelResize.ts), it never touches the iframe. Detaching and
+// re-attaching it makes the stream reconnect, so only the height moves.
 
 import type { Lang } from "../domain/weather";
 import { t } from "./i18n";
 
 export type SheetStop = "peek" | "half" | "full";
 
-/** half の高さ。映像(16:9)と題と読みが収まり、地図もまだ半分近く残る。 */
+/** Height of half. Video (16:9), title and reading fit, and nearly half the map remains. */
 const HALF_OF_STAGE = 0.56;
-/** つまみを掴んで離したとき、どこに落ち着くか。ステージ高さに対する割合。 */
+/** Where the sheet settles when the grip is grabbed and released. Ratio of the stage height. */
 const SNAP_TO_HALF_ABOVE = 0.18;
 const SNAP_TO_FULL_ABOVE = 0.82;
-/** これ以下の動きは「掴んだ」ではなく「押した」と見なす。 */
+/** Movement at or below this counts as a "press", not a "grab". */
 const TAP_SLOP_PX = 6;
 
 export interface PanelSheetOptions {
@@ -37,13 +38,16 @@ export interface PanelSheetOptions {
 
 export interface PanelSheetHandle {
   setLang(lang: Lang): void;
-  /** つまみに出す一行。主役の名前か、まだ選んでいないときの誘い。 */
+  /**
+   * The one line shown on the grip. The lead camera's name, or an invitation when nothing is
+   * selected yet.
+   */
   setLabel(text: string): void;
-  /** 畳んでいるときだけ half まで上げる。既に上がっていれば触らない。 */
+  /** Raises to half only while collapsed. Does nothing if already raised. */
   raise(): void;
-  /** 主役がいなくなったら畳む。 */
+  /** Collapses when the lead camera is gone. */
   lower(): void;
-  /** 地図の下端がパネルに覆われている高さ(px)。横に並んでいるときは 0。 */
+  /** Height (px) of the map's bottom edge covered by the panel. 0 when laid out side by side. */
   obscuredBottom(): number;
 }
 
@@ -73,7 +77,7 @@ export function attachPanelSheet({
   grip.append(bar, label);
   panel.prepend(grip);
 
-  /** シートとして振る舞う画面かどうかは CSS が決める(--sheet)。 */
+  /** CSS decides whether this screen behaves as a sheet (--sheet). */
   function active(): boolean {
     return getComputedStyle(app).getPropertyValue("--sheet").trim() === "1";
   }
@@ -86,17 +90,18 @@ export function attachPanelSheet({
   }
 
   /**
-   * 止まり木の高さは JS が決めて px で書く。
+   * JS decides the perch heights and writes them in px.
    *
-   * CSS 側で peek/half/full を書き分け、高さを実測で拾おうとすると、上げ下げに
-   * 補間が掛かっているせいで「これから向かう高さ」ではなく「まだ動いていない
-   * 高さ」が返る。地図を寄せるのは選んだ直後なので、その値で的をずらすと
-   * 上げ切ったパネルの裏にピンが沈む(実測: 201px ずらすべきところを 28px)。
+   * If CSS defines peek/half/full and the height is picked up by measuring, the raise/lower
+   * transition is interpolated, so what comes back is "the height that has not moved yet",
+   * not "the height it is heading to". The map is panned right after a selection, so
+   * offsetting the target by that value sinks the pin behind the fully raised panel
+   * (measured: 28px where the offset should have been 201px).
    */
   function heightFor(next: SheetStop): number {
     if (next === "peek") {
-      // 畳んだときの高さ＝つまみ＋下端の安全域。安全域は env() なので JS からは
-      // 読めないが、パネルの下 padding として解決済みの px を借りられる。
+      // Collapsed height = grip + bottom safe area. The safe area is env(), so JS cannot
+      // read it, but the px already resolved as the panel's bottom padding can be borrowed.
       const safe = Number.parseFloat(getComputedStyle(panel).paddingBottom) || 0;
       return grip.offsetHeight + safe;
     }
@@ -106,10 +111,10 @@ export function attachPanelSheet({
 
   function apply(): void {
     app.dataset["sheet"] = stop;
-    // つまみは上げると棒だけに縮む。高さを測る前に見た目を確定させる。
+    // The grip shrinks to just the bar when raised. Settle the appearance before measuring height.
     app.style.setProperty("--sheet-h", `${heightFor(stop)}px`);
-    // 畳んでいる間は中身に触れないようにする。見えていないのに指も読み上げも
-    // 届くと、どこを触っているのか分からなくなる。
+    // While collapsed, keep the content untouchable. If fingers and screen readers reach
+    // content that is not visible, the user cannot tell what they are touching.
     scroll.inert = active() && stop === "peek";
     paintLabels();
   }
@@ -138,9 +143,9 @@ export function attachPanelSheet({
 
   grip.addEventListener("pointerdown", (event) => {
     if (!active() || event.button !== 0) return;
-    // 掴んで動かした回の click は捨てるが、その click が来ないこともある
-    // (掴んだ指を離した先がつまみの外だと発火しない)。捨てる印を次に掴んだ
-    // ところで必ず戻さないと、そのあとの 1 回が黙って効かなくなる。
+    // The click from a grab-and-move is discarded, but that click may never arrive
+    // (it does not fire when the finger is released outside the grip). Unless the discard
+    // flag is always reset at the next grab, the following 1 click silently stops working.
     suppressClick = false;
     grip.setPointerCapture(event.pointerId);
     drag = {
@@ -192,7 +197,7 @@ export function attachPanelSheet({
     }
   });
 
-  // 画面が回ると half / full の高さの元になるステージが変わる。
+  // When the screen rotates, the stage that half / full heights are based on changes.
   addEventListener("resize", () => {
     if (drag === null) apply();
   });

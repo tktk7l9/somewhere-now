@@ -1,5 +1,5 @@
-// カメラのマスタデータ(リポジトリ同梱)と生存状態(KV 由来)の型、および
-// 両者を突き合わせる純粋な操作。Worker とフロントの両方から参照される。
+// Types for the camera master data (bundled in the repository) and the liveness state
+// (from KV), and pure operations that match the two. Referenced from both the Worker and the front end.
 
 export const CAM_CATEGORIES = [
   "city",
@@ -15,42 +15,42 @@ export const CAM_CATEGORIES = [
 export type CamCategory = (typeof CAM_CATEGORIES)[number];
 
 export interface CamSource {
-  /** 既知の配信 videoId。チャンネルしか分かっていない場合は null。 */
+  /** Known stream videoId. null when only the channel is known. */
   videoId: string | null;
-  /** 配信元チャンネル。videoId が死んだときの再探索に使う。 */
+  /** Source channel. Used for rediscovery when the videoId dies. */
   channelId: string;
   /**
-   * 配信タイトル。1 つのチャンネルが何十本もライブを出しているので、
-   * 再探索のときに「どれがこのカメラか」を見分ける鍵になる
-   * (これが無いと、チャンネルの別のカメラの映像を割り当ててしまう)。
+   * Stream title. A single channel puts out dozens of live streams, so in
+   * rediscovery this is the key for telling "which one is this camera"
+   * (without it, the video of another camera on the channel gets assigned).
    */
   titleKey: string;
 }
 
-/** リポジトリにコミットされる不変のカメラ定義。 */
+/** Immutable camera definition committed to the repository. */
 export interface Cam {
   id: string;
   name: { ja: string; en: string };
   lat: number;
   lng: number;
-  /** IANA タイムゾーン。現地時刻の表示に使う。 */
+  /** IANA time zone. Used to display local time. */
   timeZone: string;
   category: CamCategory;
-  /** ISO 3166-1 alpha-2。 */
+  /** ISO 3166-1 alpha-2. */
   country: string;
   source: CamSource;
 }
 
 /**
- * ブラウザへ送る生存状態。表示に使う 3 つだけに絞る。
+ * Liveness state sent to the browser. Narrowed to only the 3 fields used for display.
  *
- * title と checkedAt は KV には残す(再探索の手がかりと、確認の古い順に
- * 並べるため)が、画面はどちらも読まない。5,720 台ぶんを毎回配ると
- * 応答が 1MB を超え、その半分以上がこの 2 つで占められる。
+ * title and checkedAt are kept in KV (as a clue for rediscovery, and to sort by oldest
+ * check first), but the screen reads neither. Serving 5,720 cameras' worth every time
+ * makes the response exceed 1MB, and more than half of it is taken by these 2.
  */
 export type PublicCamState = Pick<CamState, "videoId" | "status" | "viewers">;
 
-/** KV の生存状態を、ブラウザへ送る形に絞る。 */
+/** Narrows the liveness state in KV to the shape sent to the browser. */
 export function publicStates(cams: Record<string, CamState>): Record<string, PublicCamState> {
   return Object.fromEntries(
     Object.entries(cams).map(([id, s]) => [
@@ -61,22 +61,22 @@ export function publicStates(cams: Record<string, CamState>): Record<string, Pub
 }
 
 export type CamStatus =
-  /** 現在ライブ中かつ埋め込み可能。 */
+  /** Currently live and embeddable. */
   | "live"
-  /** 配信が見つからない、または終了している。 */
+  /** The stream is not found, or has ended. */
   | "offline"
-  /** 存在するが埋め込みが禁止されている。 */
+  /** Exists but embedding is prohibited. */
   | "blocked"
-  /** まだ確認できていない(状態 API が落ちている等)。 */
+  /** Not confirmed yet (e.g. the state API is down). */
   | "unknown";
 
-/** Cron が更新し KV に載る可変の状態。 */
+/** Mutable state updated by Cron and stored in KV. */
 export interface CamState {
   videoId: string | null;
   status: CamStatus;
   viewers: number | null;
   title: string | null;
-  /** ISO 8601。 */
+  /** ISO 8601. */
   checkedAt: string;
 }
 
@@ -99,8 +99,8 @@ function isFiniteInRange(value: number, limit: number): boolean {
 }
 
 /**
- * マスタデータの不整合を人間が読める日本語で列挙する。空配列なら健全。
- * 生成スクリプトの出力を CI のテストで検証するために使う。
+ * Lists inconsistencies in the master data in human-readable Japanese. An empty array means healthy.
+ * Used to validate the output of the generation script in CI tests.
  */
 export function collectCamProblems(cams: readonly Cam[]): string[] {
   const problems: string[] = [];
@@ -135,7 +135,7 @@ export function collectCamProblems(cams: readonly Cam[]): string[] {
 }
 
 export interface CamFilter {
-  /** 空または未指定なら絞らない。 */
+  /** Does not filter when empty or unspecified. */
   categories?: readonly CamCategory[];
   liveOnly?: boolean;
   nightOnly?: boolean;
@@ -145,7 +145,7 @@ export interface CamFilter {
 
 export interface FilterContext {
   states: ReadonlyMap<string, PublicCamState>;
-  /** 現在その土地が夜であるカメラの id。 */
+  /** ids of cameras whose place is currently in night. */
   nightIds: ReadonlySet<string>;
   favoriteIds: ReadonlySet<string>;
 }
@@ -171,7 +171,7 @@ export function filterCams(
   });
 }
 
-/** rng は [0,1) を返すこと。テスト可能にするため注入する。 */
+/** rng must return [0,1). Injected to make it testable. */
 export function pickRandom<T>(items: readonly T[], rng: () => number): T | null {
   if (items.length === 0) return null;
   return items[Math.min(items.length - 1, Math.floor(rng() * items.length))]!;
@@ -182,9 +182,9 @@ function viewerCount(states: ReadonlyMap<string, PublicCamState>, id: string): n
 }
 
 /**
- * 配信中のカメラを、いま見ている人数の多い順に並べる。
- * 視聴者数が分からない配信は末尾に置く（誤った順位を付けない）。
- * 同数のときは id の昇順で安定させる。
+ * Orders live cameras by the number of people watching now, highest first.
+ * Streams with unknown viewer count are put at the end (no wrong rank is given).
+ * On a tie, stabilizes by ascending id.
  */
 export function rankLiveByViewers(
   cams: readonly Cam[],
@@ -202,20 +202,20 @@ export function rankLiveByViewers(
 }
 
 const EMBED_ORIGIN = "https://www.youtube-nocookie.com";
-// rel=0 で関連動画を抑え、playsinline でモバイルの全画面奪取を防ぐ。
+// rel=0 suppresses related videos, and playsinline prevents the fullscreen takeover on mobile.
 const EMBED_PARAMS = "rel=0&playsinline=1&modestbranding=1";
 
 /**
- * 再生・生存確認・再探索が共有する videoId。状態が解決した id を最優先し、
- * 無ければマスタの id。どちらも無ければ null。
+ * The videoId shared by playback, the liveness sweep and rediscovery. The id resolved by
+ * the state has top priority; if absent, the master's id. If neither exists, null.
  */
 export function resolvedVideoId(cam: Cam, state: PublicCamState | undefined): string | null {
   return state?.videoId ?? cam.source.videoId;
 }
 
 /**
- * 再生に使う iframe の URL。状態が解決した videoId を最優先し、無ければ
- * マスタの videoId、それも無ければチャンネルの現在のライブにフォールバックする。
+ * URL of the iframe used for playback. The videoId resolved by the state has top priority;
+ * if absent, the master's videoId; if that is absent too, falls back to the channel's current live stream.
  */
 export function resolveEmbedUrl(cam: Cam, state: PublicCamState | undefined): string {
   const videoId = resolvedVideoId(cam, state);

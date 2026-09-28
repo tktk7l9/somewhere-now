@@ -1,8 +1,8 @@
-// 地図。主役であり、同時に唯一の案内でもある。
+// The map. It is the lead, and at the same time the only guide.
 //
-// 素の OSM は明るすぎて夜の影が乗らないので、タイルは CSS で海図の色に寄せて
-// いる(styles.css の .leaflet-tile-pane)。その上に太陽高度 0° の線で切った
-// 夜側のポリゴンを重ねる ＝ このアプリの署名。
+// Plain OSM is too bright for the shadow of night to show, so the tiles are moved toward chart
+// colors with CSS (.leaflet-tile-pane in styles.css). On top of that goes the night-side polygon
+// cut along the line of solar altitude 0° = the signature of this app.
 
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
@@ -17,7 +17,7 @@ import { camName } from "./i18n";
 import { pinHtml } from "./pin";
 import type { Lang } from "../domain/weather";
 
-/** 導入で夜が流れ込んでくる長さと、その巻き戻し幅。 */
+/** The duration over which night flows in during the intro, and how far it rewinds. */
 const INTRO_MS = 1100;
 const INTRO_LOOKBACK_HOURS = 6;
 
@@ -38,19 +38,23 @@ export function createMapView(
   cams: readonly Cam[],
   lang: Lang,
   onSelect: (camId: string) => void,
-  /** 下から出るパネルが地図の下端を覆っている高さ(px)。横に並ぶ画面では 0。 */
+  /**
+   * The height (px) by which the panel rising from the bottom covers the lower edge of the map. 0
+   * on screens laid out side by side.
+   */
   obscuredBottom: () => number = () => 0,
 ): MapView {
   const map = L.map(container, {
-    // index.html がこの初期表示のタイルを preload している(domain/mapView.ts)。
+    // index.html preloads the tiles of this initial view (domain/mapView.ts).
     center: INITIAL_VIEW.center,
     zoom: INITIAL_VIEW.zoom,
     minZoom: 2,
     maxZoom: 16,
-    // 左上は署名(夜の割合)の場所なので、操作は右上へ逃がす。
+    // The top left is the place of the signature (share of night), so the controls move to the top
+    // right.
     zoomControl: false,
     worldCopyJump: false,
-    // 夜のポリゴンは世界 1 枚ぶんしか無いので、地図も 1 枚に留める。
+    // The night polygon covers only a single world, so the map stays at a single world too.
     maxBounds: L.latLngBounds([-85, -180], [85, 180]),
     maxBoundsViscosity: 1,
   });
@@ -60,8 +64,8 @@ export function createMapView(
   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
     maxZoom: 19,
-    // 世界 1 枚に留める。bounds を切らないと端で存在しないタイルを取りにいって
-    // 400 が並ぶ。
+    // Stay at a single world. Without cutting bounds it fetches nonexistent tiles at the edges and
+    // 400s line up.
     noWrap: true,
     bounds: L.latLngBounds([-85.06, -180], [85.06, 180]),
   }).addTo(map);
@@ -74,7 +78,7 @@ export function createMapView(
     interactive: false,
   }).addTo(map);
 
-  // 影だけだと境界がぼやけるので、日の出・日の入りの線そのものを細く引く。
+  // The shadow alone blurs the boundary, so the sunrise/sunset line itself is drawn thin.
   const line = L.polyline([], {
     className: "terminator",
     color: "#ffb94a",
@@ -108,22 +112,23 @@ export function createMapView(
     const status = states.get(cam.id)?.status;
     return L.divIcon({
       html: pinHtml(status, selected.has(cam.id)),
-      // クラスタの見た目をライブ有無で変えるため、状態をアイコンに載せておく。
+      // To change the cluster look by whether it has live cameras, carry the state on the icon.
       className: status === "live" ? "is-live" : "",
       iconSize: [13, 13],
       iconAnchor: [6.5, 6.5],
     });
   }
 
-  // 4 つの setter が続けて呼ばれても描き直しは 1 回。5,720 台ぶんのマーカーを
-  // 毎回作り直すと、1 度の更新で 2 万個以上を捨てて作ることになる。
+  // Even when the 4 setters are called in a row, there is 1 redraw. Rebuilding the markers for
+  // 5,720 cameras every time means discarding and creating over 20,000 in a single update.
   const requestRender = coalesced(() => render());
 
   function render(): void {
     cluster.clearLayers();
     markers.clear();
-    // 1 台ずつ addLayer するとその都度クラスタを組み直すので、5,720 台では
-    // 数百 ms の固まりになる。まとめて渡すと内部で一括に組める。
+    // Calling addLayer one camera at a time rebuilds the clusters each time, which at 5,720 cameras
+    // becomes a freeze of several hundred ms. Passing them together lets it build in one batch
+    // internally.
     const batch: L.Marker[] = [];
     for (const cam of visible) {
       const marker = L.marker([cam.lat, cam.lng], {
@@ -162,8 +167,9 @@ export function createMapView(
   }
 
   /**
-   * 覆われている高さの半分だけ地図の中心を南へ寄せる ＝ 的が見えている側の
-   * まん中に来る。緯度で足すと高緯度でずれるので、いったん画素に直して足す。
+   * Shift the map center south by only half the covered height = the aim comes to the middle of the
+   * visible side. Adding in latitude drifts at high latitudes, so convert to pixels first and add
+   * there.
    */
   function aimAt(lat: number, lng: number, zoom: number): L.LatLng {
     const hidden = obscuredBottom();
@@ -215,12 +221,12 @@ export function createMapView(
         this.drawTerminator(now);
         return;
       }
-      // 夜が east から流れ込んでくるところを見せてから、いまの位置に落ち着く。
+      // Show night flowing in from the east, then settle at the current position.
       const from = now.getTime() - INTRO_LOOKBACK_HOURS * 3_600_000;
       const start = performance.now();
       const step = (frame: number): void => {
         const progress = Math.min(1, (frame - start) / INTRO_MS);
-        // 終盤ほど減速させて、現在時刻にすっと収める。
+        // Decelerate more toward the end so it eases into the current time.
         const eased = 1 - (1 - progress) ** 3;
         this.drawTerminator(new Date(from + (now.getTime() - from) * eased));
         if (progress < 1) requestAnimationFrame(step);

@@ -1,8 +1,10 @@
-// ブラウザ側のデータ取得。
-//   /api/cams        … Worker が KV から返すライブ生存状態(APIキーは通らない)
-//   Open-Meteo       … 選択中のカメラの天気だけを直接取る
-//   Wikipedia        … 選択中のカメラの土地の概要(キー不要・CORS *)
-//   MyMemory         … 日本語版が無い概要を日本語へ訳す(キー不要・CORS *)
+// Data fetching on the browser side.
+//   /api/cams        … live liveness state the Worker returns from KV (the API key does
+//                      not pass through)
+//   Open-Meteo       … fetches directly only the weather of the selected camera
+//   Wikipedia        … overview of the selected camera's place (no key needed, CORS *)
+//   MyMemory         … translates into Japanese an overview that has no Japanese version
+//                      (no key needed, CORS *)
 
 import type { Cam, PublicCamState } from "../domain/cams";
 import {
@@ -23,8 +25,8 @@ export interface StatePayload {
 }
 
 /**
- * カメラのマスタ。バンドルではなく静的な JSON として配っている
- * (vite.config.ts の camsAsset)。地図はこれを待たずに出る。
+ * The camera master. Served as static JSON, not in the bundle
+ * (camsAsset in vite.config.ts). The map appears without waiting for it.
  */
 export async function fetchCams(): Promise<readonly Cam[]> {
   try {
@@ -36,7 +38,7 @@ export async function fetchCams(): Promise<readonly Cam[]> {
   }
 }
 
-/** 失敗しても地図は動かしたいので、投げずに null を返す。 */
+/** The map should keep working even on failure, so return null instead of throwing. */
 export async function fetchCamStates(): Promise<StatePayload | null> {
   try {
     const res = await fetch("/api/cams");
@@ -87,7 +89,7 @@ async function translateToJapanese(text: string): Promise<string | null> {
   }
 }
 
-/** 日本語で見せる。日本語版があればそれを取り、無ければ機械翻訳する。 */
+/** Show in Japanese. Take the Japanese version if there is one; otherwise machine-translate. */
 async function localizeToJapanese(place: PlaceOverview): Promise<PlaceOverview> {
   if (looksJapanese(place.extract)) return place;
 
@@ -105,9 +107,10 @@ async function localizeToJapanese(place: PlaceOverview): Promise<PlaceOverview> 
 }
 
 /**
- * 土地の概要。名前付き検索が空でも座標だけの検索に落とし、日本語 Wikipedia が
- * 無ければ英語へ。日本語 UI では英語の本文を翻訳する。失敗してもパネルは
- * 時刻と天気だけで成立するので null。
+ * Overview of the place. Even if the named search is empty it falls back to a
+ * coordinates-only search, and to English if there is no Japanese Wikipedia. In the
+ * Japanese UI the English body is translated. On failure the panel still works with just
+ * the time and weather, so null.
  */
 export async function fetchPlaceOverview(
   lat: number,

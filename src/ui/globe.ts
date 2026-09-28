@@ -1,11 +1,11 @@
-// 地球儀。平面図(Leaflet)とは別に、同じ昼夜の境界を球の上に載せる。
+// The globe. Separate from the flat map (Leaflet), it puts the same day/night boundary on a sphere.
 //
-// MapLibre の globe projection を使う。平面図は OSM ラスタ + CSS フィルタで
-// 海図色にしている。キャンバス全体への CSS フィルタは夜の影まで反転するので
-// 使えない。国名・国境は同梱の Natural Earth GeoJSON で描く。ベクトルタイルの
-// place に頼ると衝突やグリフで消える。
-// MapLibre 本体は動的 import。先に読むと、非対応環境ではモジュール評価の
-// 時点で落ちて、案内を出すコードに届かない。
+// Uses the MapLibre globe projection. The flat map gets its chart colors from OSM raster + a CSS
+// filter. A CSS filter over the whole canvas would invert even the shadow of night, so it cannot be
+// used. Country names and borders are drawn from the bundled Natural Earth GeoJSON. Relying on
+// place in vector tiles loses them to collisions and glyphs.
+// MapLibre itself is a dynamic import. Loaded up front, it crashes at module evaluation in
+// unsupported environments and never reaches the code that shows the notice.
 
 import type { GeoJSONSource, StyleSpecification } from "maplibre-gl";
 
@@ -77,13 +77,16 @@ export async function createGlobeView(
   cams: readonly Cam[],
   lang: Lang,
   onSelect: (camId: string) => void,
-  /** 下から出るパネルが球の下端を覆っている高さ(px)。横に並ぶ画面では 0。 */
+  /**
+   * The height (px) by which the panel rising from the bottom covers the lower edge of the sphere.
+   * 0 on screens laid out side by side.
+   */
   obscuredBottom: () => number = () => 0,
 ): Promise<GlobeView> {
   try {
     const maplibre = await import("maplibre-gl");
-    // Vite は import.meta.url から worker の隣ファイルを解けない。GeoJSON(ピン・夜)
-    // が worker 待ちのままになり、球だけが空で残る。
+    // Vite cannot resolve the file next to the worker from import.meta.url. GeoJSON (pins, night)
+    // stays waiting for the worker and only the sphere remains, empty.
     const { default: workerUrl } = await import("maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url");
     maplibre.setWorkerUrl(workerUrl);
     await import("maplibre-gl/dist/maplibre-gl.css");
@@ -111,8 +114,8 @@ function mountGlobe(
     container,
     style: style as StyleSpecification,
     center: [lng, lat],
-    // 球の大きさを画面の短辺に合わせる。固定のズームだと、狭い画面では球が
-    // 画面より大きくなって地球儀に見えない。
+    // Fit the size of the sphere to the short edge of the screen. With a fixed zoom, on a narrow
+    // screen the sphere gets bigger than the screen and does not look like a globe.
     zoom: globeZoomFor(
       container.clientWidth || window.innerWidth,
       container.clientHeight || window.innerHeight,
@@ -148,7 +151,7 @@ function mountGlobe(
     else queued.push(fn);
   }
 
-  /** 覆われている高さの半分だけ的を上げる ＝ 見えている側のまん中に来る。 */
+  /** Raise the aim by only half the covered height = it comes to the middle of the visible side. */
   function aimOffset(): [number, number] {
     const hidden = obscuredBottom();
     return hidden < 8 ? [0, 0] : [0, -hidden / 2];
@@ -170,15 +173,15 @@ function mountGlobe(
     try {
       map.remove();
     } catch {
-      // 既に死んでいるコンテキストなら、メッセージを出すだけでよい。
+      // If the context is already dead, showing the message is enough.
     }
     createUnsupportedView(container, currentLang);
   }
 
   map.on("style.load", () => {
     map.setProjection({ type: "globe" });
-    // 地球儀では raster タイル待ちで `load` が来ないことがある。
-    // style が載った時点でソースは使えるので、ピンはここで入れる。
+    // On the globe, `load` sometimes never comes while waiting for raster tiles. The sources are
+    // usable once the style is in, so the pins go in here.
     markReady();
   });
   map.on("load", markReady);
@@ -241,7 +244,7 @@ function mountGlobe(
     map.getCanvas().style.cursor = "";
   });
 
-  // 地図側と同じく、続けて呼ばれた setter を 1 回の描き直しにまとめる。
+  // Same as the map side: coalesce setters called in a row into 1 repaint.
   const requestPaint = coalesced(() => whenReady(paintCams));
 
   whenReady(() => {

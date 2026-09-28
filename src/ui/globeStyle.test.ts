@@ -9,17 +9,17 @@ import {
 } from "./globeStyle";
 
 describe("placeNameField", () => {
-  it("日本語は ja を先に見る", () => {
+  it("looks at ja first for Japanese", () => {
     expect(placeNameField("ja")[1]).toEqual(["get", "ja"]);
   });
 
-  it("英語は en を先に見る", () => {
+  it("looks at en first for English", () => {
     expect(placeNameField("en")[1]).toEqual(["get", "en"]);
   });
 });
 
 describe("globeAtlas", () => {
-  it("日本と東京を含み、国境線がある", () => {
+  it("contains Japan and Tokyo, and has borders", () => {
     const countries = atlas.countries.features.map((f) => f.properties);
     const cities = atlas.cities.features.map((f) => f.properties);
     expect(countries.some((p) => p.ja === "日本" && p.en === "Japan")).toBe(true);
@@ -29,7 +29,7 @@ describe("globeAtlas", () => {
 });
 
 describe("globeStyle", () => {
-  it("同梱の国境と国名を夜の影とピンより手前に置く", () => {
+  it("puts the bundled borders and country names in front of the shadow of night and the pins", () => {
     const style = globeStyle("ja");
     expect(style.projection).toEqual({ type: "globe" });
     expect(style.glyphs).toBe(`${GLOBE_TILES_ORIGIN}/fonts/{fontstack}/{range}.pbf`);
@@ -64,7 +64,7 @@ describe("globeStyle", () => {
     });
   });
 
-  it("英語図式は en から始まる", () => {
+  it("starts from en for the English style", () => {
     const style = globeStyle("en");
     const city = style.layers.find((layer) => layer.id === "label-city");
     expect(city?.["layout"]).toMatchObject({ "text-field": placeNameField("en") });

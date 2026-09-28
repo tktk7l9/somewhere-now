@@ -1,13 +1,14 @@
-// 生存状態の更新アルゴリズムとクォータ会計。
+// Update algorithm for the liveness state, and quota accounting.
 //
-// 二段構え:
-//   sweepLiveness … 既知の videoId をまとめて確認する。50 件で 1 unit と安いので
-//                    高頻度(10 分毎)に回す。
-//   rediscover    … videoId が死んだカメラのチャンネルを検索し直す。1 件 100 unit
-//                    と高いので、件数と予算の両方で必ず抑える。
+// Two stages:
+//   sweepLiveness ... checks known videoIds in bulk. It is cheap at 1 unit per 50 items, so
+//                     it runs at high frequency (every 10 minutes).
+//   rediscover    ... searches again in the channel of a camera whose videoId died. It is
+//                     expensive at 100 units per item, so it is always held down by both
+//                     count and budget.
 //
-// 過去に無制限のポーリングでホスティングを落としているので、上限は「運用で
-// 気をつける」ではなくコードに埋める。
+// Unlimited polling took the hosting down in the past, so the caps are not "be careful in
+// operation" but built into the code.
 
 import { resolvedVideoId, type Cam, type CamState, type CamStatus } from "../src/domain/cams";
 import { matchStream } from "../src/domain/streamMatch";
@@ -21,40 +22,42 @@ import {
 } from "./youtube";
 
 /**
- * 役割ごとの 1 日の枠。
+ * Daily budget per role.
  *
- * ひとつの財布を先着順で使うと、10 分毎に回る生存確認が 1 日ぶんを食い尽くし、
- * 1 時間に 1 度しか来ない再探索が兵糧攻めになる(実測: 生存確認が全消費の 7 割を
- * 占め、非ライブ 1,686 台を抱える 806 チャンネルの一巡に 4.2 日かかっていた)。
- * 枠を分けておけば、片方が使い切っても他方は動く。
+ * If a single wallet is used first come first served, the liveness sweep that runs every
+ * 10 minutes eats up the whole day's share, and rediscovery, which comes only once per hour,
+ * is starved out (measured: the liveness sweep took 70% of all consumption, and one round of
+ * the 806 channels holding 1,686 non-live cameras took 4.2 days).
+ * With the budgets split, one side can use its share up and the other still runs.
  *
- * 台帳も役割ごとに分けてある(worker/index.ts)。両方の Cron は毎正時に同時に
- * 起きるので、ひとつの台帳を読んで書くと後勝ちで一方の消費が消える。
+ * The quota ledger is also split per role (worker/index.ts). Both Crons fire together on
+ * the hour, so reading and writing a single ledger loses one side's consumption through
+ * last write wins.
  */
 export const ROLE_UNIT_BUDGET = {
-  /** 生存確認。RECHECK_INTERVAL_MS の間隔なら 1 日 3,500 unit ほどで収まる。 */
+  /** Liveness sweep. At the RECHECK_INTERVAL_MS intervals it fits in about 3,500 units a day. */
   sweep: 4000,
-  /** 再探索。1 回 100 unit の検索を含むので、こちらを細らせない。 */
+  /** Rediscovery. It includes searches at 100 units each, so do not thin this one out. */
   rediscover: 4000,
 } as const;
 
 /**
- * 1 日に使ってよい上限。無料枠 10,000 に対して余裕を残す。
- * 手動実行やデバッグのぶんを飲み込めるだけの隙間を空けている。
+ * Upper limit that may be used per day. Leaves headroom against the free tier of 10,000.
+ * The gap is wide enough to absorb manual runs and debugging.
  */
 export const DAILY_UNIT_BUDGET = ROLE_UNIT_BUDGET.sweep + ROLE_UNIT_BUDGET.rediscover;
 
 /**
- * 状態ごとの再確認の間隔。
+ * Recheck interval per status.
  *
- * ライブカメラのほとんどは 24 時間流しっぱなしで、いちど live と分かった配信は
- * そうそう変わらない。一方 offline / blocked は「新しい配信が始まったか」を
- * 見に行く側で、変化はこちらに起きる。全件を同じ頻度で確かめると、動かない
- * 4,000 件の再確認に予算の大半を使うことになる。
+ * Most live cameras stream around the clock for 24 hours, and a stream once known to be
+ * live rarely changes. offline / blocked, on the other hand, is the side that goes to see
+ * "has a new stream started", and changes happen here. Checking everything at the same
+ * frequency spends most of the budget on rechecking 4,000 items that do not move.
  *
- * 引き換えに、配信が終わったことに気づくのが最大 live の間隔ぶん遅れる。
- * 再生できない配信を掴んだブラウザは自分で blocked に落とす(src/app.ts の
- * markUnplayable)ので、見ている人の画面はそこまで待たされない。
+ * In exchange, noticing that a stream has ended is delayed by up to the live interval.
+ * A browser that got hold of an unplayable stream drops it to blocked by itself
+ * (markUnplayable in src/app.ts), so the viewer's screen is not kept waiting that long.
  */
 export const RECHECK_INTERVAL_MS: Record<CamStatus, number> = {
   live: 2 * 60 * 60 * 1000,
@@ -63,21 +66,22 @@ export const RECHECK_INTERVAL_MS: Record<CamStatus, number> = {
   unknown: 20 * 60 * 1000,
 };
 
-/** 状態ごとの間隔を過ぎたか。まだ一度も見ていないカメラは必ず対象にする。 */
+/** Whether the per-status interval has passed. A camera never checked yet is always a target. */
 export function isDue(state: CamState | undefined, now: Date): boolean {
   if (state === undefined) return true;
   const last = Date.parse(state.checkedAt);
-  // 読めない checkedAt は「確かめる」に倒す。放置して二度と見ないより安全。
+  // An unreadable checkedAt falls to "check it". Safer than leaving it and never looking again.
   if (Number.isNaN(last)) return true;
   return now.getTime() - last >= RECHECK_INTERVAL_MS[state.status];
 }
 
 /**
- * マスタから消えた id の状態を落とす。
+ * Drops the state of ids removed from the master.
  *
- * 生存確認も再探索もマスタを起点に回すので、id を採番し直したカメラの状態は
- * どちらの目にも留まらないまま KV に残り続け、/api/cams でブラウザに配られる
- * (実測: 6 件が 2 日前の状態で凍結していた)。書き戻すたびにここで掃く。
+ * Both the liveness sweep and rediscovery run starting from the master, so the state of a
+ * camera whose id was renumbered stays in KV without either of them seeing it, and is
+ * served to the browser at /api/cams (measured: 6 items were frozen in their state from
+ * 2 days earlier). They are swept out here on every write-back.
  */
 export function pruneOrphans(
   states: ReadonlyMap<string, CamState>,
@@ -94,45 +98,46 @@ export function pruneOrphans(
 }
 
 /**
- * 1 回の実行で listVideos に投げてよい回数。
+ * Number of listVideos calls allowed in 1 run.
  *
- * Workers は 1 回の呼び出しで出せるサブリクエストが 50 で頭打ちになる
- * (超えると "Too many subrequests by single Worker invocation" で落ちる)。
- * KV の読み書きも同じ枠を食う。1 回の実行で使う KV は台帳の読み書きと状態の
- * 読み・正本と写しの書き込みで 5 回あるので、そのぶんを引いて余裕を残す。
+ * Workers caps the subrequests that 1 invocation can make at 50
+ * (beyond that it fails with "Too many subrequests by single Worker invocation").
+ * KV reads and writes eat the same allowance. 1 run uses KV 5 times, for reading and
+ * writing the ledger, reading the state, and writing the source of truth and the public
+ * copy, so that much is subtracted and headroom is left.
  *
- * RECHECK_INTERVAL_MS で絞ったあとの定常状態は 1 回あたり 25 回前後なので、
- * ここに当たるのは間隔が揃って山になったときだけ。
+ * The steady state after narrowing by RECHECK_INTERVAL_MS is around 25 calls per run, so
+ * this is hit only when intervals line up and pile into a peak.
  */
 export const MAX_LIST_CALLS_PER_SWEEP = 38;
 
 /**
- * 1 回の再探索で出してよい HTTP 呼び出しの数。生存確認と同じ 50 の枠を、
- * こちらも守らないといけない。
+ * Number of HTTP calls allowed in 1 rediscovery run. The same allowance of 50 as the
+ * liveness sweep has to be respected here too.
  *
- * **件数だけで抑えても足りない。** チャンネル 1 本は uploads を最大 3 ページ
- * 辿って 6 回呼ぶので、24 本を許すと 144 回になり、半分以上が
- * "Too many subrequests by single Worker invocation" で落ちる(2026-08-28 に
- * 24 本中 12 本を落とした)。unit の予算はここでは歯止めにならない —
- * 検索は 1 回の呼び出しで 100 unit なので、両者は比例しない。
+ * **Holding it down by count alone is not enough.** 1 channel walks up to 3 pages of
+ * uploads and makes 6 calls, so allowing 24 channels becomes 144 calls, and more than half
+ * fail with "Too many subrequests by single Worker invocation" (on 2026-08-28, 12 of 24
+ * channels were dropped). The unit budget is no brake here -
+ * a search is 100 units in 1 call, so the two are not proportional.
  *
- * 実際の消費は 1 本あたり 2 回で済むことが多い(目当てが 1 ページ目にいれば
- * 打ち切る)。最悪値で本数を切るのではなく**実測の呼び出し数で詰める**ことで、
- * 空いているぶんだけ多くのチャンネルを回せる。
+ * Actual consumption is often just 2 calls per channel (it stops early if the target is on
+ * page 1). By **packing by the measured call count** instead of cutting the channel count
+ * at the worst case, more channels can be covered by however much capacity is free.
  */
 export const MAX_CALLS_PER_REDISCOVER = 40;
 
 export interface QuotaLedger {
-  /** UTC の "YYYY-MM-DD"。Google のリセットは太平洋時間だが、安全側に倒す。 */
+  /** "YYYY-MM-DD" in UTC. Google resets on Pacific Time, but this errs on the safe side. */
   day: string;
   used: number;
 }
 
 export interface RefreshResult {
-  /** 更新のあったカメラだけを含む。呼び出し側が既存の状態にマージする。 */
+  /** Contains only the cameras that were updated. The caller merges it into the existing state. */
   states: Map<string, CamState>;
   unitsUsed: number;
-  /** ログに残す観測メモ。 */
+  /** Observation notes to leave in the log. */
   notes: string[];
 }
 
@@ -140,7 +145,7 @@ export function utcDay(date: Date): string {
   return date.toISOString().slice(0, 10);
 }
 
-/** 日をまたいでいたらゼロから数え直す。 */
+/** Recounts from zero if the day has rolled over. */
 export function ledgerForDay(stored: QuotaLedger | null, now: Date): QuotaLedger {
   const day = utcDay(now);
   return stored !== null && stored.day === day ? stored : { day, used: 0 };
@@ -156,10 +161,10 @@ function chunk<T>(items: readonly T[], size: number): T[][] {
   return chunks;
 }
 
-/** 状態が無いカメラを最優先にするための擬似的な確認時刻。 */
+/** Pseudo check time that gives cameras without a state the top priority. */
 const NEVER_CHECKED = "";
 
-/** 確認がいちばん古いものが先に来る並び。状態がまだ無いカメラが最優先。 */
+/** Order with the oldest check first. Cameras that have no state yet get the top priority. */
 function byStaleness(states: ReadonlyMap<string, CamState>, cams: readonly Cam[]): Cam[] {
   const at = (cam: Cam): string => states.get(cam.id)?.checkedAt ?? NEVER_CHECKED;
   return [...cams].sort((a, b) => {
@@ -169,8 +174,8 @@ function byStaleness(states: ReadonlyMap<string, CamState>, cams: readonly Cam[]
 }
 
 /**
- * 既知の videoId を一括で確認し、live / offline / blocked を更新する。
- * videoId を持たないカメラは触らない(rediscover の担当)。
+ * Checks known videoIds in bulk and updates live / offline / blocked.
+ * Cameras without a videoId are not touched (rediscover is in charge of them).
  */
 export async function sweepLiveness(
   cams: readonly Cam[],
@@ -182,26 +187,26 @@ export async function sweepLiveness(
   const notes: string[] = [];
   const checkedAt = now.toISOString();
 
-  // カメラ → 確認すべき videoId。状態が持つ id をマスタより優先する。
-  // 1 回の実行では全件を見られない(サブリクエスト上限)ので、確認がいちばん
-  // 古いものから順に詰める。こうしておけば実行のたびに対象がひとりでに
-  // 入れ替わり、どこまで見たかを別途覚えておかなくてもマスタを一巡できる。
+  // Camera -> videoId to check. The id held by the state takes priority over the master.
+  // 1 run cannot look at everything (subrequest limit), so they are packed in order from
+  // the oldest check. This way the targets rotate by themselves on every run, and the
+  // master gets a full round without separately remembering how far the check got.
   const targets = new Map<string, string>();
   for (const cam of byStaleness(states, cams)) {
     const state = states.get(cam.id);
-    // 状態ごとの間隔が来ていないカメラは飛ばす。空いた枠はそのぶん、
-    // 変化の起きる offline / blocked 側に回る。
+    // Skip cameras whose per-status interval has not come yet. The freed capacity goes to
+    // the offline / blocked side, where changes happen.
     if (!isDue(state, now)) continue;
     const videoId = resolvedVideoId(cam, state);
     if (videoId !== null) targets.set(cam.id, videoId);
   }
 
-  // 複数のカメラが同じ配信を指すことがあるので重複を潰してから投げる。
+  // Several cameras can point at the same stream, so duplicates are removed before sending.
   const uniqueIds = [...new Set(targets.values())];
   const found = new Map<string, Awaited<ReturnType<YouTubeClient["listVideos"]>>[number]>();
 
-  // 実際に問い合わせた id。打ち切った分を「配信が消えた」と誤判定しないため、
-  // 見つかったかどうかではなく「確認したかどうか」で判定を分ける。
+  // The ids actually queried. So that the part cut off is not misjudged as "the stream is
+  // gone", the decision branches on "was it checked", not on whether it was found.
   const queried = new Set<string>();
   let unitsUsed = 0;
   let calls = 0;
@@ -240,16 +245,17 @@ export async function sweepLiveness(
 }
 
 export interface RediscoverOptions {
-  /** 1 回の実行で探し直すチャンネル数の上限。 */
+  /** Upper limit on the number of channels rediscovered in 1 run. */
   maxChannels: number;
   /**
-   * 高い検索経路(101 unit)に落とせる回数の上限。安い経路は全チャンネルに
-   * 掛けてよいが、こちらは配給制にしないと、全チャンネルが取りこぼした日に
-   * 1 日ぶんの枠を数時間で焼く。
+   * Upper limit on how many times it may fall back to the expensive search path
+   * (101 units). The cheap path may be applied to every channel, but unless this one is
+   * rationed, on a day when every channel misses it burns a whole day's budget in a few
+   * hours.
    */
   maxSearches?: number;
   unitBudget?: number;
-  /** 1 回の実行で出してよい HTTP 呼び出しの数(サブリクエスト上限より下)。 */
+  /** Number of HTTP calls allowed in 1 run (below the subrequest limit). */
   maxCalls?: number;
 }
 
@@ -258,8 +264,8 @@ function statusOf(video: YouTubeVideo): CamState["status"] {
 }
 
 /**
- * 配信を割り当てられなかったときの状態。liveness の結論は生存確認に残し、
- * 記録済みの videoId は消さない。
+ * State for when no stream could be assigned. The liveness conclusion is left to the
+ * liveness sweep, and the recorded videoId is not erased.
  */
 function keepRecorded(
   cam: Cam,
@@ -277,17 +283,17 @@ function keepRecorded(
 }
 
 /**
- * ライブでないカメラのチャンネルから、現在の配信を探し直す。
+ * Searches again for the current stream in the channels of cameras that are not live.
  *
- * 1 つのチャンネルが何十本もライブを出しているので、
- *   - 問い合わせは**チャンネル単位**にまとめる(EarthCam の 25 台が 1 回で済む)
- *   - どれがどのカメラかは**配信タイトル**で見分ける
- * の 2 点が要になる。チャンネルから適当な 1 本を取ると、タイムズスクエアの
- * ピンに別の街の映像を出してしまう。
+ * A single channel puts out dozens of live streams, so 2 points are key:
+ *   - queries are grouped **per channel** (EarthCam's 25 cameras take 1 query)
+ *   - which stream is which camera is told apart by the **stream title**
+ * Taking an arbitrary stream from the channel shows another city's video on the
+ * Times Square pin.
  *
- * 経路は安い順に試す。uploads プレイリスト(2 unit)で足りなければ、
- * 網羅できる検索(101 unit)に落とす。見分けがつかなかったカメラは、
- * 間違った配信を割り当てず offline のままにする。
+ * Paths are tried from the cheapest. If the uploads playlist (2 units) is not enough, it
+ * falls back to the search that can be exhaustive (101 units). A camera that could not be
+ * told apart is left offline rather than assigned a wrong stream.
  */
 export async function rediscover(
   cams: readonly Cam[],
@@ -304,10 +310,12 @@ export async function rediscover(
   const notes: string[] = [];
   const checkedAt = now.toISOString();
   const updated = new Map<string, CamState>();
-  // 消費は必ずクライアントの実測から取る(自前で数えると失敗時にずれる)。
+  // Consumption is always taken from the client's measured value (counting it ourselves
+  // drifts on failure).
   const startUnits = client.unitsUsed;
   const spent = (): number => client.unitsUsed - startUnits;
-  // サブリクエスト上限に効くのは unit ではなく呼び出しの回数。別に数える。
+  // What counts against the subrequest limit is the number of calls, not units. Count it
+  // separately.
   const startCalls = client.callsMade;
   const called = (): number => client.callsMade - startCalls;
 
@@ -318,17 +326,17 @@ export async function rediscover(
   for (const cam of cams) {
     const state = states.get(cam.id);
     if (state?.status === "live") continue;
-    // 生存確認がまだ一度も触っていないカメラには手を出さない。再探索は
-    // 「記録した videoId が死んだ」ときのためのもので、チャンネルを浚う
-    // 都合上いつも取りこぼす(長く続いている配信は投稿履歴の奥に沈む)。
-    // 生きているカメラを先回りして offline にしてしまうのは本末転倒。
+    // Do not touch cameras the liveness sweep has never touched yet. Rediscovery is for
+    // when "the recorded videoId died", and because it dredges a channel it always misses
+    // some (long-running streams sink deep into the upload history).
+    // Marking a living camera offline ahead of time defeats the purpose.
     if (state === undefined && resolvedVideoId(cam, undefined) !== null) continue;
     const list = byChannel.get(cam.source.channelId);
     if (list === undefined) byChannel.set(cam.source.channelId, [cam]);
     else list.push(cam);
   }
 
-  // 最も長く放っておかれたカメラを抱えるチャンネルから片付ける。
+  // Start with the channels holding the camera that has been left alone the longest.
   const oldest = (list: readonly Cam[]): string =>
     list.map(staleness).reduce((a, b) => (a < b ? a : b));
   const channels = [...byChannel.entries()]
@@ -343,13 +351,13 @@ export async function rediscover(
       notes.push("予算が尽きたため再探索を打ち切った");
       break;
     }
-    // このチャンネルが最悪まで辿っても枠に収まるときだけ手を出す。
+    // Take this channel on only when it fits the allowance even if walked to the worst case.
     if (called() + MAX_CALLS_PER_CHANNEL > maxCalls) {
       notes.push("サブリクエスト上限に達したため再探索を打ち切った(残りは次回)");
       break;
     }
 
-    // このチャンネルで探しているカメラが全部見つかったら、その先は要らない。
+    // Once every camera being looked for in this channel is found, nothing further is needed.
     const foundAll = (live: readonly YouTubeVideo[]): boolean =>
       channelCams.every((cam) => matchStream(cam.source.titleKey, live) !== null);
 
@@ -378,7 +386,8 @@ export async function rediscover(
     };
 
     let missing = resolve();
-    // 直近 50 本に無かっただけかもしれないので、余裕があれば網羅する検索に落とす。
+    // It may just not have been in the latest 50, so if there is room fall back to the
+    // exhaustive search.
     if (
       missing.length > 0 &&
       searchesUsed < maxSearches &&

@@ -1,8 +1,8 @@
-// 既知チャンネルの /streams からライブ配信を浚い、search-scrape.json にマージする。
-// API キー不要。探索用の手回し道具。
+// Sweeps live streams from /streams of known channels and merges them into search-scrape.json.
+// No API key needed. A hand-run tool for exploration.
 //
 //   npm run cams:scrape-channels
-//   → scripts/out/search-scrape.json に追記
+//   → appended to scripts/out/search-scrape.json
 
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { CAM_PLACES_CURATED } from "./cam-places.ts";
@@ -105,7 +105,7 @@ async function main(): Promise<void> {
     // first run
   }
 
-  // 既知 bulk の多配信チャンネル + seed ハンドル
+  // Multi-stream channels from the known bulk set + seed handles
   const channelCounts = new Map<string, { handle: string; n: number }>();
   for (const place of [...CAM_PLACES_CURATED, ...CAM_PLACES_BULK]) {
     const prev = channelCounts.get(place.channelId) ?? { handle: place.handle, n: 0 };

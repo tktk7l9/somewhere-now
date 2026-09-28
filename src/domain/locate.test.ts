@@ -37,7 +37,7 @@ const states = (
 const TOKYO = { lat: 35.6812, lng: 139.7671 };
 
 describe("classifyLocateError", () => {
-  it("権限拒否と時間切れを分け、それ以外は取れなかったことにする", () => {
+  it("separates permission denial and timeout, and treats the rest as unavailable", () => {
     expect(classifyLocateError(1)).toBe("denied");
     expect(classifyLocateError(3)).toBe("timeout");
     expect(classifyLocateError(2)).toBe("unavailable");
@@ -47,7 +47,7 @@ describe("classifyLocateError", () => {
 });
 
 describe("clampLat", () => {
-  it("メルカトルが壊れる極を地図の箱に収める", () => {
+  it("clamps the poles, where Mercator breaks, into the map box", () => {
     expect(clampLat(0)).toBe(0);
     expect(clampLat(MAP_LAT_LIMIT)).toBe(MAP_LAT_LIMIT);
     expect(clampLat(-MAP_LAT_LIMIT)).toBe(-MAP_LAT_LIMIT);
@@ -57,7 +57,7 @@ describe("clampLat", () => {
 });
 
 describe("wrapLng", () => {
-  it("世界 1 枚の経度へ畳む", () => {
+  it("wraps to the longitude of a single world", () => {
     expect(wrapLng(0)).toBe(0);
     expect(wrapLng(139.76)).toBeCloseTo(139.76);
     expect(wrapLng(180)).toBe(180);
@@ -70,7 +70,7 @@ describe("wrapLng", () => {
 });
 
 describe("zoomForAccuracy", () => {
-  it("精度が分かるときは付近が見える距離にする", () => {
+  it("uses a distance that shows the vicinity when the accuracy is known", () => {
     expect(zoomForAccuracy(0)).toBe(15);
     expect(zoomForAccuracy(50)).toBe(15);
     expect(zoomForAccuracy(51)).toBe(14);
@@ -86,7 +86,7 @@ describe("zoomForAccuracy", () => {
     expect(zoomForAccuracy(20_001)).toBe(9);
   });
 
-  it("精度が壊れているときは街くらいの既定に戻す", () => {
+  it("falls back to a city-scale default when the accuracy is broken", () => {
     expect(zoomForAccuracy(Number.NaN)).toBe(12);
     expect(zoomForAccuracy(Number.POSITIVE_INFINITY)).toBe(12);
     expect(zoomForAccuracy(-1)).toBe(12);
@@ -94,21 +94,21 @@ describe("zoomForAccuracy", () => {
 });
 
 describe("viewportForLocation", () => {
-  it("東京の付近は街の縮尺で返す", () => {
+  it("returns the vicinity of Tokyo at city scale", () => {
     expect(viewportForLocation(35.68, 139.76, 80)).toEqual({
       center: [35.68, 139.76],
       zoom: 14,
     });
   });
 
-  it("極と日付変更線を地図の箱に収める", () => {
+  it("clamps the poles and the date line into the map box", () => {
     expect(viewportForLocation(89, 190, 100)).toEqual({
       center: [MAP_LAT_LIMIT, wrapLng(190)],
       zoom: 14,
     });
   });
 
-  it("壊れた座標は飛ばさない", () => {
+  it("does not fly to broken coordinates", () => {
     expect(viewportForLocation(Number.NaN, 0, 10)).toBeNull();
     expect(viewportForLocation(0, Number.NaN, 10)).toBeNull();
     expect(viewportForLocation(Number.POSITIVE_INFINITY, 0, 10)).toBeNull();
@@ -122,12 +122,12 @@ function fakeLocator(
 }
 
 describe("requestLocation", () => {
-  it("locator が無ければ非対応", async () => {
+  it("is unsupported when there is no locator", async () => {
     expect(await requestLocation(undefined)).toEqual({ ok: false, reason: "unsupported" });
     expect(await requestLocation(null)).toEqual({ ok: false, reason: "unsupported" });
   });
 
-  it("取れた座標をそのまま返す", async () => {
+  it("returns the obtained coordinates as is", async () => {
     const locator = fakeLocator((success) => {
       success({ coords: { latitude: 35.68, longitude: 139.76, accuracy: 40 } });
     });
@@ -137,7 +137,7 @@ describe("requestLocation", () => {
     });
   });
 
-  it("精度が壊れていても位置さえあれば成功にする", async () => {
+  it("succeeds as long as there is a position, even with broken accuracy", async () => {
     const locator = fakeLocator((success) => {
       success({ coords: { latitude: 1, longitude: 2, accuracy: Number.NaN } });
     });
@@ -147,21 +147,21 @@ describe("requestLocation", () => {
     });
   });
 
-  it("座標が壊れていれば取れなかったことにする", async () => {
+  it("treats broken coordinates as unavailable", async () => {
     const locator = fakeLocator((success) => {
       success({ coords: { latitude: Number.NaN, longitude: 0, accuracy: 10 } });
     });
     expect(await requestLocation(locator)).toEqual({ ok: false, reason: "unavailable" });
   });
 
-  it("経度だけ壊れても飛ばさない", async () => {
+  it("does not fly when only the longitude is broken", async () => {
     const locator = fakeLocator((success) => {
       success({ coords: { latitude: 0, longitude: Number.NaN, accuracy: 10 } });
     });
     expect(await requestLocation(locator)).toEqual({ ok: false, reason: "unavailable" });
   });
 
-  it("拒否・時間切れ・その他を振り分ける", async () => {
+  it("sorts denial, timeout and other errors", async () => {
     expect(
       await requestLocation(
         fakeLocator((_s, error) => {
@@ -185,14 +185,14 @@ describe("requestLocation", () => {
     ).toEqual({ ok: false, reason: "unavailable" });
   });
 
-  it("API が例外を投げても落ちない", async () => {
+  it("does not crash when the API throws", async () => {
     const locator = fakeLocator(() => {
       throw new Error("nope");
     });
     expect(await requestLocation(locator)).toEqual({ ok: false, reason: "unavailable" });
   });
 
-  it("ブラウザへ渡す待ち時間と鮮度を固定する", async () => {
+  it("pins the timeout and freshness passed to the browser", async () => {
     let seen: unknown;
     const locator = fakeLocator((_s, _e, options) => {
       seen = options;
@@ -207,29 +207,29 @@ describe("requestLocation", () => {
 });
 
 describe("distanceKm", () => {
-  it("同じ点は 0", () => {
+  it("is 0 for the same point", () => {
     expect(distanceKm(TOKYO, TOKYO)).toBe(0);
   });
 
-  it("実距離に合う(東京駅→大阪駅は約 400km)", () => {
+  it("matches the real distance (Tokyo Station to Osaka Station is about 400km)", () => {
     expect(distanceKm(TOKYO, { lat: 34.7025, lng: 135.4959 })).toBeCloseTo(403, 0);
   });
 
-  it("赤道 1 度はおよそ 111km", () => {
+  it("is roughly 111km for 1 degree at the equator", () => {
     expect(distanceKm({ lat: 0, lng: 0 }, { lat: 0, lng: 1 })).toBeCloseTo(111.2, 1);
   });
 
-  it("日付変更線をまたいでも遠回りしない", () => {
-    // 東経 179° と西経 179° は 2° 離れている(358° ではない)。
+  it("does not take the long way around across the date line", () => {
+    // 179° E and 179° W are 2° apart (not 358°).
     const across = distanceKm({ lat: 0, lng: 179 }, { lat: 0, lng: -179 });
     expect(across).toBeCloseTo(222.4, 1);
   });
 
-  it("対蹠点は地球半周", () => {
+  it("is half the globe for the antipode", () => {
     expect(distanceKm({ lat: 0, lng: 0 }, { lat: 0, lng: 180 })).toBeCloseTo(20015, 0);
   });
 
-  it("向きを変えても同じ長さ", () => {
+  it("is the same length in either direction", () => {
     const osaka = { lat: 34.7025, lng: 135.4959 };
     expect(distanceKm(TOKYO, osaka)).toBeCloseTo(distanceKm(osaka, TOKYO), 9);
   });
@@ -239,49 +239,49 @@ describe("nearestCam", () => {
   const near = cam("near", 35.69, 139.7);
   const far = cam("far", 34.7, 135.5);
 
-  it("配信中のうち、いちばん近いものを返す", () => {
+  it("returns the nearest one among those that are live", () => {
     const found = nearestCam([far, near], states({ near: "live", far: "live" }), TOKYO);
     expect(found?.id).toBe("near");
   });
 
-  it("並び順に関わらず近い方を選ぶ", () => {
+  it("picks the nearer one regardless of order", () => {
     const found = nearestCam([near, far], states({ near: "live", far: "live" }), TOKYO);
     expect(found?.id).toBe("near");
   });
 
-  it("近くが止まっていれば、少し遠くても配信中を選ぶ", () => {
+  it("picks a live one slightly farther away when the near one is stopped", () => {
     const found = nearestCam([near, far], states({ near: "offline", far: "live" }), TOKYO);
     expect(found?.id).toBe("far");
   });
 
-  it("状態が届いていないカメラは配信中と見なさない", () => {
+  it("does not treat a camera whose state has not arrived as live", () => {
     const found = nearestCam([near, far], states({ far: "live" }), TOKYO);
     expect(found?.id).toBe("far");
   });
 
-  it("1 台も配信していないときは、状態を問わず近い方へ後退する", () => {
+  it("falls back to the nearer one regardless of state when none is live", () => {
     const found = nearestCam([far, near], states({ near: "offline", far: "blocked" }), TOKYO);
     expect(found?.id).toBe("near");
   });
 
-  it("候補が無ければ null", () => {
+  it("is null when there are no candidates", () => {
     expect(nearestCam([], states({}), TOKYO)).toBeNull();
   });
 
-  it("現在地が壊れていたら選ばない", () => {
+  it("does not pick when the current location is broken", () => {
     expect(nearestCam([near], states({ near: "live" }), { lat: Number.NaN, lng: 139 })).toBeNull();
     expect(nearestCam([near], states({ near: "live" }), { lat: 35, lng: Number.NaN })).toBeNull();
   });
 
-  it("座標が壊れているカメラは飛ばす", () => {
+  it("skips cameras with broken coordinates", () => {
     const broken = cam("broken", Number.NaN, Number.NaN);
     const found = nearestCam([broken, far], states({ broken: "live", far: "live" }), TOKYO);
     expect(found?.id).toBe("far");
   });
 
-  it("同じ座標に載っている束からは、いま視聴の多い方を選ぶ", () => {
-    // マスタの 6 割は座標を共有している。近さで差が付かないので並び順で
-    // 決めてはいけない。
+  it("picks the one with more viewers now from a bundle at the same coordinates", () => {
+    // 60% of the master data shares coordinates. Nearness makes no difference there,
+    // so it must not be decided by order.
     const quiet = cam("quiet", 35.6895, 139.6917);
     const busy = cam("busy", 35.6895, 139.6917);
     const found = nearestCam(
@@ -292,7 +292,7 @@ describe("nearestCam", () => {
     expect(found?.id).toBe("busy");
   });
 
-  it("視聴者数が分からない配信より、分かっている方を採る", () => {
+  it("takes the stream with a known viewer count over one with an unknown count", () => {
     const unknown = cam("unknown", 35.6895, 139.6917);
     const counted = cam("counted", 35.6895, 139.6917);
     const found = nearestCam(
@@ -303,7 +303,7 @@ describe("nearestCam", () => {
     expect(found?.id).toBe("counted");
   });
 
-  it("近さは視聴者数より優先する", () => {
+  it("puts nearness ahead of viewer count", () => {
     const nearQuiet = cam("near-quiet", 35.69, 139.7);
     const farBusy = cam("far-busy", 34.7, 135.5);
     const found = nearestCam(
@@ -314,12 +314,12 @@ describe("nearestCam", () => {
     expect(found?.id).toBe("near-quiet");
   });
 
-  it("測れるカメラが 1 台も無ければ null", () => {
+  it("is null when no camera can be measured", () => {
     const broken = cam("broken", Number.NaN, 0);
     expect(nearestCam([broken], states({ broken: "live" }), TOKYO)).toBeNull();
   });
 
-  it("日付変更線の向こう側でも近い方を選ぶ", () => {
+  it("picks the nearer one on the other side of the date line too", () => {
     const east = cam("east", 0, 179);
     const west = cam("west", 0, -179);
     const found = nearestCam([east, west], states({ east: "live", west: "live" }), {

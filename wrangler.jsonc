@@ -2,17 +2,17 @@
  * somewhere-now — Cloudflare Workers
  * https://developers.cloudflare.com/workers/static-assets/
  *
- * 静的アセット(Vite の dist)に加えて Worker スクリプトを持つ:
- *   - fetch     … /api/cams でライブ生存状態(KV)を返す
- *   - scheduled … Cron Trigger から YouTube Data API を叩いて KV を更新する
+ * Has a Worker script in addition to the static assets (Vite's dist):
+ *   - fetch     ... returns the live liveness state (KV) at /api/cams
+ *   - scheduled ... calls the YouTube Data API from a Cron Trigger and updates KV
  *
- * 静的アセットが先に解決され、マッチしないパスだけ Worker に来る。
- * セキュリティヘッダーは public/_headers が dist へコピーされて効く
- * (ただし _headers は静的アセットにしか効かないので、/api/* のヘッダは
- *  worker/index.ts が自前で付ける)。
+ * Static assets are resolved first, and only paths that do not match reach the Worker.
+ * Security headers take effect through public/_headers being copied into dist
+ * (but _headers only applies to static assets, so worker/index.ts sets the headers
+ *  for paths under /api/ itself).
  *
- * YOUTUBE_API_KEY は `wrangler secret put YOUTUBE_API_KEY` で設定する
- * (ローカルは .dev.vars。どちらも git に入れない)。
+ * YOUTUBE_API_KEY is set with `wrangler secret put YOUTUBE_API_KEY`
+ * (locally it is .dev.vars. Neither goes into git).
  */
 {
   "$schema": "node_modules/wrangler/config-schema.json",
@@ -22,7 +22,7 @@
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS",
-    // 状態は全てクエリパラメータなので SPA ルーティングは不要。
+    // All state lives in query parameters, so SPA routing is not needed.
     "not_found_handling": "404-page",
   },
   "kv_namespaces": [
@@ -31,13 +31,14 @@
       "id": "3a47608f6d7e4e0a9bb43c824ee5dee8",
     },
   ],
-  // worker/schedule.ts の CRON と対で持つ(schedule.test.ts が突き合わせる)。
-  // 再探索を :05 に置いてあるのは、毎正時だと 10 分ごとの生存確認と同時に起きて
-  // 同じ正本を読み書きし、後勝ちで一方の消費と状態が消えるため。
+  // Kept as a pair with CRON in worker/schedule.ts (schedule.test.ts cross-checks them).
+  // Rediscovery sits at :05 because on the hour it would fire together with the 10-minute
+  // liveness sweep, both would read and write the same source of truth, and with last write
+  // wins the consumption and state of one of them would be lost.
   "triggers": {
     "crons": [
-      "*/10 * * * *", // 生存スイープ: videos.list(1 unit / 50件)
-      "5 * * * *", // 再探索: search.list(100 units) を予算内で
+      "*/10 * * * *", // liveness sweep: videos.list (1 unit / 50 items)
+      "5 * * * *", // rediscovery: search.list (100 units), within the budget
     ],
   },
   "observability": {

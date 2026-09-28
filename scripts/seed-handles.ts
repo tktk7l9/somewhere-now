@@ -1,7 +1,8 @@
-// 探索の出発点になる YouTube チャンネルのハンドル。
+// Handles of the YouTube channels that serve as starting points for exploration.
 //
-// ここに書くのは「人間が目で検証できるもの」だけ(ハンドルと、どんなカメラかのメモ)。
-// channelId と videoId は推測せず、discover-cams.ts が実際に取得して確かめる。
+// Only "things a human can verify by eye" are written here (the handle and a note on what
+// kind of camera it is). channelId and videoId are not guessed; discover-cams.ts actually
+// fetches and confirms them.
 
 export interface SeedHandle {
   handle: string;
@@ -9,7 +10,7 @@ export interface SeedHandle {
 }
 
 export const SEED_HANDLES: SeedHandle[] = [
-  // 多地点を同時配信している運営(1 チャンネルから何十本も取れる)
+  // Operators streaming many locations at once (dozens of streams from 1 channel)
   { handle: "SkylineWebcams", note: "世界各地の観光地・街・自然" },
   { handle: "explore", note: "explore.org - 動物・自然" },
   { handle: "earthTV", note: "世界の都市" },
@@ -22,7 +23,7 @@ export const SEED_HANDLES: SeedHandle[] = [
   { handle: "webcamsdemexico", note: "メキシコ各地" },
   { handle: "CamerasDeMexico", note: "メキシコ各地(別系統)" },
 
-  // 単一地点だが有名なもの
+  // Single location but famous
   { handle: "NASA", note: "ISS からの地球" },
   { handle: "MontereyBayAquarium", note: "水族館" },
   { handle: "sandiegozoo", note: "動物園" },
@@ -33,17 +34,18 @@ export const SEED_HANDLES: SeedHandle[] = [
   { handle: "YellowstoneNPS", note: "イエローストーン国立公園" },
   { handle: "Rakuten", note: "(存在確認用のダミー: ライブカメラではない)" },
 
-  // 日本
+  // Japan
   { handle: "weathernews", note: "ウェザーニュース(各地のカメラ)" },
   { handle: "ANNnewsCH", note: "ANN(24 時間ライブ)" },
   { handle: "tbsnewsdig", note: "TBS NEWS DIG" },
   { handle: "kanaloco", note: "神奈川新聞" },
   { handle: "TokyoStreetView", note: "東京の街歩き・定点" },
-  // ── 以下は 2 巡目の候補。カメラが 8 チャンネルに集中し米国に偏っていたので、
-  //    ヨーロッパ・アジア・南半球を厚くするために足した。実在とライブ状況は
-  //    discover-cams.ts が確かめる(存在しないハンドルは失敗として報告される)。
+  // ── Below are the candidates of round 2. Cameras were concentrated in 8 channels and
+  //    skewed to the US, so these were added to strengthen Europe, Asia and the southern
+  //    hemisphere. Existence and live status are confirmed by discover-cams.ts
+  //    (a handle that does not exist is reported as a failure).
 
-  // ヨーロッパ
+  // Europe
   { handle: "BalticLiveCam", note: "バルト三国・欧州各地" },
   { handle: "LiveFromIceland", note: "アイスランド(火山・オーロラ)" },
   { handle: "RailCamUK", note: "英国の鉄道" },
@@ -57,7 +59,7 @@ export const SEED_HANDLES: SeedHandle[] = [
   { handle: "camaraslive", note: "スペイン各地" },
   { handle: "PolskaKamera", note: "ポーランド各地" },
 
-  // アジア
+  // Asia
   { handle: "FNNnewsCH", note: "FNN(24 時間ライブ)" },
   { handle: "nhk", note: "NHK" },
   { handle: "ntv", note: "日テレ" },
@@ -69,7 +71,7 @@ export const SEED_HANDLES: SeedHandle[] = [
   { handle: "CNAInsider", note: "シンガポール" },
   { handle: "IndiaToday", note: "インド" },
 
-  // アフリカ・南半球・その他
+  // Africa, southern hemisphere, others
   { handle: "WildEarth", note: "アフリカのサファリ(実況付きライブ)" },
   { handle: "AfricamLive", note: "アフリカの水場" },
   { handle: "DjumaGameReserve", note: "南アフリカ ジュマ" },
