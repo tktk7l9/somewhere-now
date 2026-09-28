@@ -42,7 +42,7 @@ export function firingMinutes(cron: string): number[] {
   }
   const fixed = /^(\d+) \* \* \* \*$/.exec(cron);
   if (fixed !== null) return [Number(fixed[1])];
-  throw new Error(`分を解釈できない Cron 式: ${cron}`);
+  throw new Error(`Cron expression whose minute field cannot be parsed: ${cron}`);
 }
 
 /**

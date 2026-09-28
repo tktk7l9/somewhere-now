@@ -62,7 +62,7 @@ async function search(apiKey: string, query: Query): Promise<Hit[]> {
   });
   if (query.regionCode !== undefined) params.set("regionCode", query.regionCode);
   const res = await fetch(`https://www.googleapis.com/youtube/v3/search?${params.toString()}`);
-  if (!res.ok) throw new Error(`検索に失敗 HTTP ${res.status}: ${await res.text()}`);
+  if (!res.ok) throw new Error(`search failed HTTP ${res.status}: ${await res.text()}`);
   const json = (await res.json()) as {
     items?: { id?: { videoId?: string }; snippet?: Record<string, string> }[];
   };
@@ -79,7 +79,7 @@ async function search(apiKey: string, query: Query): Promise<Hit[]> {
 
 async function main(): Promise<void> {
   const apiKey = process.env["YOUTUBE_API_KEY"];
-  if (apiKey === undefined || apiKey === "") throw new Error("YOUTUBE_API_KEY が無い");
+  if (apiKey === undefined || apiKey === "") throw new Error("YOUTUBE_API_KEY is missing");
 
   const known = new Set(CAM_PLACES_CURATED.map((p) => p.channelId));
   const hits: Hit[] = [];
@@ -89,7 +89,7 @@ async function main(): Promise<void> {
     const found = await search(apiKey, query);
     units += 100;
     hits.push(...found);
-    console.log(`  [${query.note}] "${query.q}" → ${found.length} 件`);
+    console.log(`  [${query.note}] "${query.q}" → ${found.length} hits`);
   }
 
   // Exclude channels we already have.
@@ -107,7 +107,7 @@ async function main(): Promise<void> {
     JSON.stringify([...byChannel.entries()].map(([channelId, items]) => ({ channelId, items })), null, 2) + "\n",
   );
   console.log(
-    `\n消費 ${units} unit / ヒット ${hits.length} 件 / 未知のチャンネル ${byChannel.size} 本` +
+    `\nused ${units} unit / ${hits.length} hits / ${byChannel.size} unknown channels` +
       ` → scripts/out/search-hits.json`,
   );
 }

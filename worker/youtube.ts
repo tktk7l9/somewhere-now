@@ -224,7 +224,7 @@ export function createYouTubeClient(apiKey: string, fetchImpl: typeof fetch): Yo
     async listVideos(ids) {
       if (ids.length > MAX_VIDEO_IDS_PER_CALL) {
         throw new Error(
-          `videos.list は 1 回 ${MAX_VIDEO_IDS_PER_CALL} 件まで(${ids.length} 件渡された)`,
+          `videos.list takes at most ${MAX_VIDEO_IDS_PER_CALL} ids per call (${ids.length} were passed)`,
         );
       }
       if (ids.length === 0) return [];

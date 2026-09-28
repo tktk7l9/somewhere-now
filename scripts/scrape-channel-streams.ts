@@ -100,7 +100,7 @@ async function main(): Promise<void> {
   try {
     const existing = JSON.parse(await readFile(OUT, "utf8")) as ScrapeHit[];
     for (const hit of existing) byVideo.set(hit.videoId, hit);
-    console.log(`既存 scrape ${byVideo.size} 件`);
+    console.log(`existing scrape ${byVideo.size}`);
   } catch {
     // first run
   }
@@ -138,7 +138,7 @@ async function main(): Promise<void> {
       const result = await scrapeChannelUrl(target.url);
       const channelId = result.channelId ?? target.channelIdHint;
       if (channelId === undefined || channelId.length === 0) {
-        console.log(`✗ ${target.label} — channelId なし`);
+        console.log(`✗ ${target.label} — no channelId`);
       } else {
         const countryCode = majorityCountry(channelId);
         const channelTitle = result.channelTitle || target.label;
@@ -157,7 +157,7 @@ async function main(): Promise<void> {
           added++;
         }
         console.log(
-          `✓ ${target.label} — live ${result.lives.length} / 新規 ${newForChannel} (${channelId})`,
+          `✓ ${target.label} — live ${result.lives.length} / new ${newForChannel} (${channelId})`,
         );
       }
     } catch (error) {
@@ -170,7 +170,7 @@ async function main(): Promise<void> {
   }
 
   await writeFile(OUT, JSON.stringify([...byVideo.values()], null, 2) + "\n");
-  console.log(`\n合計 ${byVideo.size} 件 (+${added}) → ${OUT}`);
+  console.log(`\ntotal ${byVideo.size} (+${added}) → ${OUT}`);
 }
 
 await main();

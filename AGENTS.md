@@ -1,162 +1,172 @@
-# somewhere-now — 開発規約
+# somewhere-now — Development rules
 
-## このアプリの前提
+## Premise of this app
 
-世界の YouTube ライブカメラを地図から覗くアプリ。**主役は地図と、その上の昼夜の境界**。
-配色は海図（深い藍緑）、差し色は「夜に点いた窓」としての琥珀 1 色だけ。
+An app for looking into the world's YouTube live cameras from a map. **The lead is the map and the
+day/night boundary drawn on it.**
+The palette is a nautical chart (deep teal), and the only accent is a single amber, as "a window lit at night".
 
-## 層と責務
+## Layers and responsibilities
 
-| 場所 | 責務 | テスト |
+| Location | Responsibility | Tests |
 |---|---|---|
-| `src/astro/` | 太陽位置（Meeus）。skydial から移植 | **100% 必須** |
-| `src/domain/` | 型・昼夜・現地時刻・天気コード・URL 状態・お気に入り | **100% 必須** |
-| `worker/youtube.ts` `worker/refresh.ts` | API クライアントと更新アルゴリズム | **100% 必須** |
-| `src/ui/` `worker/index.ts` | DOM・Leaflet・iframe・エントリ | 対象外 |
-| `src/data/cams.ts` | 生成物。**手で編集しない** | 検証テストあり |
+| `src/astro/` | Solar position (Meeus). Ported from skydial | **100% required** |
+| `src/domain/` | Types, day/night, local time, weather codes, URL state, favourites | **100% required** |
+| `worker/youtube.ts` `worker/refresh.ts` | API client and the refresh algorithm | **100% required** |
+| `src/ui/` `worker/index.ts` | DOM, Leaflet, iframe, entry points | Out of scope |
+| `src/data/cams.ts` | Generated. **Do not edit by hand** | Has a validation test |
 
-`npm run coverage` は上の 100% 対象が 1 行でも欠けると落ちる。閾値が空振りしていないか
-疑ったら、わざと未到達のコードを足して落ちることを確かめる。
+`npm run coverage` fails if even one line of the 100% targets above is missing. If you suspect
+the threshold is not actually biting, add unreachable code on purpose and confirm that it fails.
 
-## 踏んだ地雷（同じ穴に落ちないこと）
+## Landmines we stepped on (do not fall into the same hole)
 
-- **iframe は DOM から外して入れ直すとリロードされる。** 再描画のたびに `append` し直すと
-  配信が繋ぎ直しになり、さらに「エラー → 再描画 → 再読込 → エラー」の無限ループになって
-  タブごと落ちる（実測で 20 秒に 521 回の再読込）。プレイヤーの置き場所は固定し、
-  **主役が入れ替わったときだけ**差し替える（`src/ui/panel.ts` / `src/ui/wall.ts`）。
-- **エラー通知は何度も来る。** `onUnplayable` は状態が変わるときだけ再描画する。
-- **並べて見るときはプレイヤーを 1 枚ずつずらして立ち上げる。** 同じフレームで 4 枚を
-  初期化すると重い。待っている間もセルは登録済みにしておかないと、その間の再描画で
-  同じカメラの枠が二重にできる。
-- **`compute-pressure` は再生オリジンに委譲する。** 拒否したままだとプレイヤーが際限なく
-  再試行して、毎秒数百件の違反ログが出る。
-- **`span` は inline なので幅高さが効かない。** マーカーが線に潰れる。
-- **`_headers` は複数マッチを カンマ連結する。** CSP は `/*` の 1 ブロックだけに書く。
-- 🔴 **チャンネルから「適当な 1 本」を取ってはいけない。** 57 台が 8 チャンネルにしか
-  ぶら下がっておらず(EarthCam だけで 25 台)、1 チャンネルが 42 本のライブを出している。
-  `search.list&maxResults=1` で再探索すると、タイムズスクエアのピンにニュージャージーの
-  映像を出す。**配信タイトルで見分ける**(`src/domain/streamMatch.ts`)。しかもタイトルは
-  括弧の中だけが違う("(Fixed View)" と "(Fixed View - Looking East)")ので、緩い一致は禁物。
-  **見分けがつかないときは offline にする** — 誤った映像を出すより映さない方がよい。
-- **再探索は生存確認より当てにならない。** チャンネルを浚う都合上いつも取りこぼす
-  (長く続いている配信は投稿履歴の奥に沈む)。だから**生存確認がまだ触っていない
-  カメラには手を出さない**し、見つからなくても問い合わせが失敗しても、
-  記録済みの videoId は消さない。先回りして offline にすると、生きている
-  カメラが最大 10 分グレーになる(実際に起きた: イルリサットの氷山カメラ)。
-- **座標を記憶で書かない。** ジオコーダに任せ、同名地は `admin1` で弾く。解決できない
-  場所は近似で埋めず**落とす**。
-- 🔴 **ジオコーダは「見つからない」とは言わない。短い語を投げると必ず何かが返る。**
-  問い合わせの並べ替えが「短い ASCII を先」になっていて、地名ではなく**一般語**が
-  選ばれていた。`New` にはケンタッキー州の New が、`Beach` にはノースダコタ州の
-  Beach が実在するので、`New York City LIVE Manhattan` は 9 文字の Manhattan ではなく
-  3 文字の New で引かれ、**29 台がケンタッキーに積み上がっていた**。`2026` `M7.5`
-  `[4K]` `PTZ` まで問い合わせになっていて、**5,720 台中 3,394 台(59%)が同じ座標の束**に
-  載っていた。**語数の多い方が場所を絞る**(`prioritizeGeocodeQueries`)。地名になり得ない
-  文字列は投げない(`looksLikePlaceName`)。
-- 🔴 **座標を引き直すときは「地名が一致した」で満足しない。州まで見る。**
-  `Marysville, Michigan USA` に対してジオコーダは**ノースダコタ州の Michigan という町**を
-  返す。名前は一致するのに 1,900km 違う。`Redondo Beach`(カリフォルニア)はワシントン州の
-  Redondo に、`Bangor MI` はメイン州の Bangor に飛んだ(いずれも実測)。
-  **地名と admin1 の両方がタイトルに出ているときだけ**動かし、判定できないものは
-  据え置く(`scripts/regeocode-piles.ts`)。粗いままの方が、誤った場所よりよい。
-- 🔴 **大きい束だけを見てサンプリングすると、精度を読み違える。** 引き直しの門番を
-  緩めてよいか確かめるとき、上位の束から 42 件抜いて 10/10 正しかったので通した。
-  だが上位の束は東京・大阪・ソウル・京都で、**日本語の固有名詞は同名地が少ない**。
-  無作為に 30 件抜き直したら **17 件が誤り**だった(`NYC Live Cam`→オーストラリア、
-  `Port Miami`→ケンタッキー州、`Jacksonville Beach Pier`→ユタ州)。英語のタイトルは
-  Thermal・Wedge・Trail・Port のような普通の名詞でできていて、そのどれもが同名の町
-  として実在する。**採否を決める標本は、必ず母集団から無作為に取る。**
-- **同じ州の中の同名地は、タイトルの文字列だけでは見抜けない。** カウアイ島の
-  Kilauea という町のせいで、キラウエア火山のカメラが 250km 動く。州も一致し矛盾も
-  無いので、文字列を見る門番は通してしまう。
-  → **独立した 2 つのジオコーダの一致で決める**(`scripts/photon.ts`)。
-- **Open-Meteo のジオコーディングは「人口のある土地」の辞書で、施設を知らない。**
-  だから `Kilauea Volcano` にカウアイ島の町を、`Port Miami Cruise Ship Terminals` に
-  ケンタッキー州の何かを返す。**Photon(OSM)は地物を知っている** — 実測で
-  Grand Teton National Park・Atlanta History Center・江の島ヨットハーバー・
-  Woody Bay 駅を正しく引いた。2 つが 25km 以内で一致したときだけ動かすと、
-  無作為 26 件で 23 件が正しかった。**片方だけが正しくても採らない**
-  (どちらが正しいかを決める材料が無いので)。
-- **Nominatim の公開インスタンスは一括ジオコーディングを規約で認めていない。**
-  同じ OSM でも Photon を使い、1.2 秒に 1 件・識別できる User-Agent で叩く。
-  問い合わせは「動かす提案が出たカメラ」だけに絞る。
-- 🔴 **規模が 100 倍になったら、定数の「根拠コメント」も嘘になる。** 再探索の
-  `REDISCOVER_CHANNELS_PER_RUN = 8` には「チャンネルは 8 本しかないので毎時すべてを
-  見直せる」と書いてあったが、それはカメラ 57 台の頃の話。5,720 台・2,450 チャンネルに
-  なった後もコメントごと残っていて、非ライブ 1,686 台を抱える 806 チャンネルの一巡に
-  **4.2 日**かかっていた。件数を増やしたら、件数に依存した定数を全部数え直す。
-- 🔴 **同時に起きる Cron でひとつの台帳を読んで書かない。** `*/10 * * * *` と
-  `0 * * * *` は毎正時に**同時に**発火する。両方が同じ台帳を読んで別々に書き戻すと
-  後勝ちで一方の消費が丸ごと消え、上限ガードが実際の消費を見失う。KV に atomic は
-  無いので、**書き手を 1 つに固定する**(役割ごとにキーを分ける)のが唯一の逃げ道。
-- **全件を同じ頻度で確認すると、動かないものの再確認で予算が溶ける。** ライブは
-  24 時間続くので 2 時間おきで足り、変化は offline / blocked 側に起きる
-  (`RECHECK_INTERVAL_MS`)。空いた枠はそのまま再探索に回る。
-- **マスタから id を消したら、KV の状態は誰も掃かない。** 生存確認も再探索もマスタを
-  起点に回すので、採番し直したカメラの状態はどちらの目にも留まらず、`/api/cams` で
-  ブラウザに配られ続ける(実測で 6 件が 2 日前のまま凍結していた)。書き戻すたびに
-  `pruneOrphans` で掃く。
-- **`/api/cams` で正本を組み立て直さない。** 正本は 1.2MB あり、毎リクエストで
-  parse → 射影 → stringify すると 100〜300ms かかる。**配る形の写しを更新時に作って
-  KV に置き**、読み出しはそれを返すだけにする。ETag は KV のメタデータに入れた
-  updatedAt から作れば、本文を読まずに 304 を返せる。
-- **裏タブのポーリングを止める。** 開きっぱなしのタブが 2 分毎に 144KB を取り続けると
-  1 日 700 リクエストになる。`everyWhileVisible`(`src/app.ts`)で `document.hidden` の
-  あいだは止め、表に戻ったら間隔を待たずに 1 度追いつかせる。
-- 🔴 **サブリクエスト上限(50)に効くのは unit ではなく「呼び出しの回数」。** 検索は
-  1 回の呼び出しで 100 unit なので、両者は比例しない。unit の予算を守っていても
-  上限には当たる。**チャンネル 1 本の再探索は uploads を 3 ページ辿って 6 回呼ぶ**ので、
-  件数だけで 24 本を許すと 144 回になって半分以上が落ちる(2026-08-28 に実際に落とした)。
-  歯止めは件数ではなく `client.callsMade` の実測で入れる — 目当てが 1 ページ目にいれば
-  2 回で済むので、実測で詰めた方が空いている枠を使い切れる。
-  **再探索の一巡を速くしたいなら、1 回の本数ではなく Cron の頻度を上げること。**
-- 🔴 **`ctx.waitUntil` に渡した関数の例外は、誰も受け取らないまま消える。** Cron の
-  本体をそこへ渡しているので、KV の読み込みで落ちるとログにも台帳にも何も残らず、
-  **更新が静かに止まる**(2026-08-28 に 3.6 時間ぶん止まり、原因を特定する手がかりが
-  ゼロだった)。入口で `[cron <role>] 開始` を必ず 1 行吐き、本体は必ず try で包む。
-  「発火していない」と「発火したが落ちた」は、この 1 行があって初めて分かれる。
-- **`scripts/` は node の型剥がし実行**なので import に拡張子が要る。`src/` は不要。
+- **An iframe reloads when it is detached from the DOM and inserted again.** Re-`append`ing it on
+  every re-render reconnects the stream, and on top of that it becomes an endless loop of
+  "error → re-render → reload → error" that takes the whole tab down (measured: 521 reloads in
+  20 seconds). Fix the place where the player lives, and swap it
+  **only when the lead changes** (`src/ui/panel.ts` / `src/ui/wall.ts`).
+- **Error notifications arrive many times.** `onUnplayable` re-renders only when the state changes.
+- **When viewing side by side, start the players one at a time, staggered.** Initialising 4 in
+  the same frame is heavy. The cell must stay registered while it waits, otherwise a re-render
+  in the meantime creates a duplicate frame for the same camera.
+- **Delegate `compute-pressure` to the playback origin.** If it stays denied, the player retries
+  without end and produces hundreds of violation log entries per second.
+- **`span` is inline, so width and height have no effect.** The marker collapses into a line.
+- **`_headers` joins multiple matches with commas.** Write the CSP in the single `/*` block only.
+- 🔴 **Never take "some stream" from a channel.** 57 cameras hang off only 8 channels
+  (EarthCam alone has 25), and a single channel puts out 42 live streams.
+  Rediscovery with `search.list&maxResults=1` shows New Jersey footage on the Times Square
+  pin. **Tell streams apart by their title** (`src/domain/streamMatch.ts`). On top of that, titles
+  differ only inside the parentheses ("(Fixed View)" and "(Fixed View - Looking East)"), so loose matching is forbidden.
+  **When the streams cannot be told apart, go offline** — showing nothing is better than showing the wrong footage.
+- **Rediscovery is less reliable than the liveness sweep.** Because it dredges the channel, it always
+  misses some (a stream that has been running for a long time sinks deep into the upload history).
+  So it **does not touch a camera the liveness sweep has not touched yet**, and whether the stream
+  is not found or the request fails, it does not erase the recorded videoId. Going offline
+  pre-emptively leaves a living camera grey for up to 10 minutes (this actually happened: the
+  iceberg camera in Ilulissat).
+- **Do not write coordinates from memory.** Leave it to the geocoder, and reject same-name places
+  with `admin1`. A place that cannot be resolved is **dropped**, not filled in with an approximation.
+- 🔴 **A geocoder never says "not found". Throw a short word at it and something always comes back.**
+  The query ordering was "short ASCII first", so **common words** were chosen instead of
+  place names. There is a real New in Kentucky for `New` and a real Beach in North Dakota for
+  `Beach`, so `New York City LIVE Manhattan` was looked up by the 3-letter New rather than the
+  9-letter Manhattan, and **29 cameras had piled up in Kentucky**. Even `2026` `M7.5`
+  `[4K]` `PTZ` had become queries, and **3,394 of 5,720 cameras (59%) were sitting on a pile at
+  the same coordinates**. **The query with more words narrows the place** (`prioritizeGeocodeQueries`).
+  Do not send strings that cannot be a place name (`looksLikePlaceName`).
+- 🔴 **When re-geocoding, do not be satisfied with "the place name matched". Check the state too.**
+  For `Marysville, Michigan USA` the geocoder returns **a town called Michigan in North Dakota**.
+  The name matches and yet it is 1,900km off. `Redondo Beach` (California) flew to Redondo in
+  Washington State, and `Bangor MI` to Bangor in Maine (both measured).
+  Move a camera **only when both the place name and admin1 appear in the title**, and leave
+  anything that cannot be judged where it is (`scripts/regeocode-piles.ts`). Staying coarse is better than a wrong place.
+- 🔴 **Sampling from the large piles only makes you misread the accuracy.** To check whether the
+  re-geocoding gatekeeper could be loosened, 42 were drawn from the top piles, 10/10 were correct, and it was let through.
+  But the top piles were Tokyo, Osaka, Seoul and Kyoto, and **Japanese proper nouns have few same-name places**.
+  Drawing 30 again at random, **17 were wrong** (`NYC Live Cam` → Australia,
+  `Port Miami` → Kentucky, `Jacksonville Beach Pier` → Utah). English titles are made of
+  ordinary nouns such as Thermal, Wedge, Trail and Port, and every one of them exists as a town
+  of the same name. **The sample that decides adoption must always be drawn at random from the population.**
+- **Same-name places inside the same state cannot be caught from the title string alone.** Because
+  of a town called Kilauea on Kauai, the Kilauea volcano camera moves 250km. The state matches
+  and there is no contradiction, so a gatekeeper that looks at strings lets it through.
+  → **Decide by agreement between two independent geocoders** (`scripts/photon.ts`).
+- **Open-Meteo geocoding is a dictionary of "populated places" and does not know facilities.**
+  That is why it returns a town on Kauai for `Kilauea Volcano` and something in Kentucky for
+  `Port Miami Cruise Ship Terminals`. **Photon (OSM) knows features** — measured, it correctly
+  resolved Grand Teton National Park, Atlanta History Center, Enoshima Yacht Harbor and
+  Woody Bay station. Moving a camera only when the two agree within 25km gave
+  23 correct out of 26 random samples. **Do not adopt when only one of them is correct**
+  (there is nothing to decide which one is correct).
+- **The public Nominatim instance does not permit bulk geocoding under its terms.**
+  Use Photon, which is also OSM, at 1 request per 1.2 seconds with an identifiable User-Agent.
+  Limit the queries to "cameras for which a move has been proposed".
+- 🔴 **When the scale grows 100 times, the "rationale comments" on constants become lies too.** Rediscovery's
+  `REDISCOVER_CHANNELS_PER_RUN = 8` carried the comment "there are only 8 channels, so all of
+  them can be reviewed every hour", but that was from the days of 57 cameras. It stayed, comment and all,
+  after the move to 5,720 cameras and 2,450 channels, and one round over the 806 channels holding
+  1,686 non-live cameras was taking **4.2 days**. When you increase a count, recount every constant that depends on a count.
+- 🔴 **Do not read and write a single quota ledger from Crons that fire at the same time.** `*/10 * * * *` and
+  `0 * * * *` fire **simultaneously** at the top of every hour. If both read the same quota ledger and
+  write back separately, the last write wins, the usage of one of them disappears entirely, and the
+  limit guard loses track of the real usage. KV has no atomic operation, so **pinning the writer to
+  one** (splitting the key per role) is the only way out.
+- **Checking everything at the same frequency melts the budget on re-checking things that do not change.** A live stream
+  runs for 24 hours, so every 2 hours is enough, and changes happen on the offline / blocked side
+  (`RECHECK_INTERVAL_MS`). The freed budget goes straight to rediscovery.
+- **When an id is removed from the master, nobody sweeps the state in KV.** Both the liveness sweep and
+  rediscovery start from the master, so the state of a renumbered camera catches neither eye and keeps
+  being served to browsers from `/api/cams` (measured: 6 entries were frozen as they were 2 days before).
+  Sweep with `pruneOrphans` on every write-back.
+- **Do not rebuild the source of truth in `/api/cams`.** The source of truth is 1.2MB, and
+  parse → project → stringify on every request takes 100–300ms. **Build the public copy, in the shape
+  that is served, at refresh time and put it in KV**, and have reads do nothing but return it. If the ETag is
+  built from the updatedAt stored in the KV metadata, 304 can be returned without reading the body.
+- **Stop polling in background tabs.** A tab left open that keeps fetching 144KB every 2 minutes
+  makes 700 requests a day. With `everyWhileVisible` (`src/app.ts`), stop while
+  `document.hidden` is true, and on returning to the foreground catch up once without waiting for the interval.
+- 🔴 **What counts against the subrequest limit (50) is not units but "the number of calls".** A search
+  costs 100 units in a single call, so the two are not proportional. You can hit the limit even while
+  keeping to the unit budget. **Rediscovery of one channel walks 3 pages of uploads and makes 6 calls**,
+  so allowing 24 channels by count alone comes to 144 calls and more than half fail (this actually failed on 2026-08-28).
+  Put the brake on the measured `client.callsMade`, not on a count — if the target is on the first page
+  it takes only 2 calls, so tightening by measurement uses up the free budget better.
+  **To make a round of rediscovery faster, raise the Cron frequency, not the number per run.**
+- 🔴 **An exception from a function passed to `ctx.waitUntil` disappears without anyone receiving it.** The Cron
+  body is passed there, so if it crashes while reading KV, nothing is left in the logs or in the quota ledger, and
+  **the refresh stops silently** (on 2026-08-28 it stopped for 3.6 hours, and there was zero evidence
+  to identify the cause). Always emit the single line `[cron <role>] start` at the entry, and always wrap the body in try.
+  "Did not fire" and "fired but crashed" can only be told apart once this one line exists.
+- **`scripts/` runs with node's type stripping**, so imports need the extension. `src/` does not.
 
-## 音の原則
+## Principles for sound
 
-- **音は既定で鳴らさない。** 仕事の合間に開くアプリなので、押した瞬間に音が出るのは事故。
-  本人が明示的に出したときだけ鳴らし、その選択は localStorage に覚えておく。
-- **鳴るのは主役の 1 本だけ。** パネルも「並べて見る」も、先頭のカメラ以外は必ずミュート。
+- **Sound is off by default.** This is an app opened between tasks at work, so sound coming out the moment something is pressed is an accident.
+  Play sound only when the user explicitly turns it on, and remember that choice in localStorage.
+- **Only the one lead stream plays sound.** In the panel and in "並べて見る" (Video wall) alike, every camera other than the first is always muted.
 
-## 外部への依存と、その守り方
+## External dependencies and how to guard them
 
-- **wrangler は素の環境変数をバインディングとして読まない**(実測)。`.env` か `.dev.vars` の
-  **ファイル**が要る。よって `keyway run -- wrangler dev` は効かない。ローカルで Cron を
-  動かすときは `keyway pull -e development -f .env` で引いてきて、終わったら消す。
-- **YouTube Data API**: キーは Worker の secret のみ。クォータは KV の台帳で日毎に積み、
-  `DAILY_UNIT_BUDGET` で止める。上限は「運用で気をつける」ではなくコードに埋める。
-- **OpenStreetMap タイル**: 帰属表示を消さない。CSS フィルタはタイル画像だけに掛ける。
-- **Open-Meteo**: キー不要。選択中のカメラ 1 件だけ叩き、結果はメモリにキャッシュする。
+- **wrangler does not read plain environment variables as bindings** (measured). It needs a `.env` or `.dev.vars`
+  **file**. Therefore `keyway run -- wrangler dev` does not work. To run the Cron locally,
+  pull with `keyway pull -e development -f .env`, and delete the file when done.
+- **YouTube Data API**: the key lives only in the Worker's secret. Quota is accumulated per day in the quota ledger in KV and
+  stopped by `DAILY_UNIT_BUDGET`. The limit is not "taken care of in operations"; it is built into the code.
+- **OpenStreetMap tiles**: do not remove the attribution. Apply the CSS filter to the tile images only.
+- **Open-Meteo**: no key needed. Call it only for the one selected camera, and cache the result in memory.
 
 ## CSP
 
-`script-src 'self'` を維持すること。YouTube の IFrame Player API を読むと外部ホストが要るので、
-**読まない**。制御は `enablejsapi=1` の postMessage で行う。
+Keep `script-src 'self'`. Loading YouTube's IFrame Player API requires an external host, so
+**do not load it**. Control is done through postMessage with `enablejsapi=1`.
 
-## コミット
+## Commits
 
-1 コミット 1 意図。生成物（`src/data/cams.ts`）を更新したら、生成に使ったスクリプトの
-変更と同じコミットに入れる。
+1 commit, 1 intent. When the generated file (`src/data/cams.ts`) is updated, put it in the same commit as
+the change to the script used to generate it.
+
+## Language
+
+- Code, comments, test titles, log messages and internal error messages are written in English.
+- Japanese is used only for text shown to the user in the app (`src/ui/i18n.ts` and other UI strings) and for data such as camera names.
+- Commit messages and PR descriptions follow the existing convention of this repository.
 
 ## Cursor Cloud specific instructions
 
-依存は起動時の update スクリプト（`npm ci`）で入る。以下は自明でない運用メモのみ。
+Dependencies are installed by the update script at startup (`npm ci`). Below are only the non-obvious operational notes.
 
-- **開発サーバは `npm run dev`（Vite / port 5173）。** `/api/cams`（Worker）無しでも地図・
-  マーカー・パネル・現地時刻・天気は動く。バックグラウンドで動かすなら tmux で。
-- **主要チェックは `npm run typecheck` → `npm run coverage` → `npm run build`**（CI の
-  `.github/workflows/ci.yml` と同じ）。**lint ステップは無い**（ESLint 未導入）。
-  `coverage` は純ロジック層が 1 行でも欠けると落ちる（`vitest.config.ts` の閾値）。
-- **Node は CI が 24、この VM のベースは 22.x。** 22 で typecheck/coverage/build/dev は
-  全て通る（実測）。バージョン差で困ったら nvm で 24 に切り替えられる。
-- **ライブ映像の再生は Cloud では基本映らない。** `/api/cams` が videoId を解決しないうえ、
-  YouTube 側が自動化ブラウザに「Sign in to confirm you're not a bot」を返すため。
-  地図・マーカー・パネル・時刻・天気が出れば健全。映像の確認を再生成合否の基準にしない。
-- **Cron / Worker（`npm run dev:worker`）を動かすときだけ `YOUTUBE_API_KEY` が要る。**
-  wrangler は素の環境変数を読まず `.env` / `.dev.vars` の**ファイル**が要る（README 参照）。
-  キーが無ければ生存確認・再探索は試さない。
+- **The dev server is `npm run dev` (Vite / port 5173).** Even without `/api/cams` (the Worker), the map,
+  markers, panel, local time and weather work. To run it in the background, use tmux.
+- **The main checks are `npm run typecheck` → `npm run coverage` → `npm run build`** (the same as
+  `.github/workflows/ci.yml` in CI). **There is no lint step** (ESLint is not installed).
+  `coverage` fails if even one line of the pure-logic layers is missing (the thresholds in `vitest.config.ts`).
+- **Node is 24 in CI, and the base of this VM is 22.x.** typecheck/coverage/build/dev all
+  pass on 22 (measured). If the version difference causes trouble, you can switch to 24 with nvm.
+- **Live video playback basically does not show in Cloud.** `/api/cams` does not resolve the videoId, and
+  YouTube returns "Sign in to confirm you're not a bot" to automated browsers.
+  If the map, markers, panel, time and weather appear, it is healthy. Do not use checking the video as the pass/fail criterion for regeneration.
+- **`YOUTUBE_API_KEY` is needed only when running the Cron / Worker (`npm run dev:worker`).**
+  wrangler does not read plain environment variables and needs a `.env` / `.dev.vars` **file** (see README).
+  Without the key, the liveness sweep and rediscovery are not attempted.

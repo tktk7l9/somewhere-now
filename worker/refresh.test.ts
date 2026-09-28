@@ -212,7 +212,7 @@ describe("sweepLiveness", () => {
     const client = fakeClient({ videos: [] });
     const { unitsUsed, notes } = await sweepLiveness(cams, new Map(), client, NOW, 1);
     expect(unitsUsed).toBe(1);
-    expect(notes.join(" ")).toContain("予算");
+    expect(notes.join(" ")).toContain("budget");
   });
 
   it("never calls even once when the budget is 0", async () => {
@@ -328,7 +328,7 @@ describe("rediscover", () => {
     const { states, notes } = await rediscover([times], new Map(), client, NOW, { maxChannels: 1 });
 
     expect(states.get("times-square")).toMatchObject({ status: "offline", videoId: null });
-    expect(notes.join(" ")).toContain("見分けがつかず");
+    expect(notes.join(" ")).toContain("could not tell the streams apart");
   });
 
   it("handles cameras on the same channel together in 1 query", async () => {
@@ -507,7 +507,7 @@ describe("rediscover", () => {
       unitBudget: 1,
     });
     expect(unitsUsed).toBe(0);
-    expect(notes.join(" ")).toContain("予算");
+    expect(notes.join(" ")).toContain("budget");
   });
 
   it("does not fail everything on 1 channel's failure, and marks that camera unknown", async () => {
@@ -516,7 +516,7 @@ describe("rediscover", () => {
       maxChannels: 1,
     });
     expect(states.get("a")!.status).toBe("unknown");
-    expect(notes.join(" ")).toContain("失敗");
+    expect(notes.join(" ")).toContain("rediscovery failed");
   });
 
   it("does not erase the recorded videoId even when rediscovery fails", async () => {
@@ -551,7 +551,7 @@ describe("rediscover", () => {
       maxChannels: 1,
     });
     expect(states.get("a")!.status).toBe("offline");
-    expect(notes.join(" ")).toContain("検索での再探索に失敗");
+    expect(notes.join(" ")).toContain("rediscovery via search failed");
   });
 
   it("queries nothing when there are no targets", async () => {
@@ -603,7 +603,7 @@ describe("sweepLiveness subrequest limit", () => {
     const { states } = await sweepLiveness(cams, stale, client, NOW);
 
     for (const c of cams.slice(-50)) {
-      expect(states.has(c.id), `${c.id} が確認されていない`).toBe(true);
+      expect(states.has(c.id), `${c.id} was not checked`).toBe(true);
     }
   });
 
@@ -634,7 +634,7 @@ describe("sweepLiveness subrequest limit", () => {
     const client = fakeClient({ videos: [] });
     const { notes } = await sweepLiveness(many(5720), new Map(), client, NOW);
 
-    expect(notes.join()).toContain("サブリクエスト");
+    expect(notes.join()).toContain("subrequest");
   });
 });
 
@@ -843,7 +843,7 @@ describe("rediscover subrequest limit", () => {
       maxSearches: 0,
     });
 
-    expect(notes.join()).toContain("サブリクエスト");
+    expect(notes.join()).toContain("subrequest");
   });
 
   it("does not cut off when the channel count fits the allowance", async () => {
@@ -856,6 +856,6 @@ describe("rediscover subrequest limit", () => {
     });
 
     expect(client.uploadCalls.length).toBe(3);
-    expect(notes.join()).not.toContain("サブリクエスト");
+    expect(notes.join()).not.toContain("subrequest");
   });
 });

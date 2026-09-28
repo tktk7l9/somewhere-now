@@ -82,17 +82,17 @@ async function geocode(query: NonNullable<CamPlace["place"]>): Promise<GeocodeHi
     `&countryCode=${query.countryCode}`;
 
   const res = await fetch(url);
-  if (!res.ok) throw new Error(`ジオコーディング失敗 HTTP ${res.status}`);
+  if (!res.ok) throw new Error(`geocoding failed HTTP ${res.status}`);
 
   const results = ((await res.json()) as { results?: GeocodeHit[] }).results ?? [];
-  if (results.length === 0) throw new Error(`該当なし: ${query.name}`);
+  if (results.length === 0) throw new Error(`no match: ${query.name}`);
 
   if (query.admin1 === undefined) return results[0]!;
 
   const hit = results.find((r) => r.admin1 === query.admin1);
   if (hit === undefined) {
     const seen = [...new Set(results.map((r) => r.admin1 ?? "?"))].join(", ");
-    throw new Error(`admin1 が一致しない(期待: ${query.admin1} / 候補: ${seen})`);
+    throw new Error(`admin1 does not match (expected: ${query.admin1} / candidates: ${seen})`);
   }
   return hit;
 }
@@ -143,11 +143,11 @@ async function resolvePlace(
   embeddability: Embeddability,
 ): Promise<{ resolved?: Resolved; failure?: string; warning?: string }> {
   if (embeddability === "forbidden") {
-    return { failure: `[${place.id}] 埋め込み再生が禁止されている(所有者の設定)ので外した` };
+    return { failure: `[${place.id}] dropped because embedded playback is forbidden (owner's setting)` };
   }
   const warning =
     embeddability === "unknown"
-      ? `[${place.id}] 記録した配信が消えている。カメラは残すので、再探索が次の配信を探す`
+      ? `[${place.id}] the recorded stream is gone. The camera is kept, so rediscovery looks for the next stream`
       : undefined;
 
   if (place.at !== undefined) {
@@ -232,13 +232,13 @@ async function main(): Promise<void> {
 
   await writeFile("src/data/cams.ts", serialize(resolved));
 
-  console.log(`✓ ${resolved.length} 件を src/data/cams.ts に書き出した`);
+  console.log(`✓ wrote ${resolved.length} cameras to src/data/cams.ts`);
   if (warnings.length > 0) {
-    console.log(`\n△ 残したが注意が要る ${warnings.length} 件:`);
+    console.log(`\n△ kept but needs attention: ${warnings.length}:`);
     for (const w of warnings) console.log(`  ${w}`);
   }
   if (failures.length > 0) {
-    console.log(`\n✗ 取り込めなかった ${failures.length} 件:`);
+    console.log(`\n✗ could not be imported: ${failures.length}:`);
     for (const f of failures) console.log(`  ${f}`);
   }
 }
