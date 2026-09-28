@@ -528,7 +528,7 @@ async function search(query: Query): Promise<ScrapeHit[]> {
       headers: { "user-agent": UA, "accept-language": "en-US,en" },
     });
     if (res.status === 429) {
-      console.log(`  429 → ${RETRY_WAIT_MS / 1000}s 待機 (attempt ${attempt + 1})`);
+      console.log(`  429 → ${RETRY_WAIT_MS / 1000}s wait (attempt ${attempt + 1})`);
       await new Promise((r) => setTimeout(r, RETRY_WAIT_MS * (attempt + 1)));
       continue;
     }
@@ -556,7 +556,7 @@ async function main(): Promise<void> {
       byVideo.set(hit.videoId, hit);
       doneQueries.add(hit.query);
     }
-    console.log(`再開: 既存 ${byVideo.size} 件 / 済クエリ ${doneQueries.size}`);
+    console.log(`resuming: existing ${byVideo.size} / queries done ${doneQueries.size}`);
   } catch {
     // first run
   }
@@ -569,7 +569,7 @@ async function main(): Promise<void> {
   for (const query of CITY_QUERIES) {
     index++;
     if (doneQueries.has(query.q)) {
-      console.log(`[${index}/${CITY_QUERIES.length}] ${query.note}: skip (済)`);
+      console.log(`[${index}/${CITY_QUERIES.length}] ${query.note}: skip (done)`);
       continue;
     }
     try {
@@ -596,7 +596,7 @@ async function main(): Promise<void> {
   }
 
   await flush();
-  console.log(`\n✓ ${byVideo.size} 件 → ${OUT}`);
+  console.log(`\n✓ ${byVideo.size} streams → ${OUT}`);
 }
 
 await main();

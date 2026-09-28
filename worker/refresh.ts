@@ -212,11 +212,11 @@ export async function sweepLiveness(
   let calls = 0;
   for (const ids of chunk(uniqueIds, MAX_VIDEO_IDS_PER_CALL)) {
     if (unitsUsed + UNIT_COST.videosList > unitBudget) {
-      notes.push("予算が尽きたため生存確認を途中で打ち切った");
+      notes.push("liveness sweep cut short because the budget ran out");
       break;
     }
     if (calls >= MAX_LIST_CALLS_PER_SWEEP) {
-      notes.push("サブリクエスト上限に達したため生存確認を打ち切った(残りは次回)");
+      notes.push("liveness sweep cut short because the subrequest limit was reached (the rest waits for the next run)");
       break;
     }
     for (const video of await client.listVideos(ids)) found.set(video.id, video);
@@ -348,12 +348,12 @@ export async function rediscover(
 
   for (const [channelId, channelCams] of channels) {
     if (spent() + CHANNEL_LOOKUP_COST.viaUploads > unitBudget) {
-      notes.push("予算が尽きたため再探索を打ち切った");
+      notes.push("rediscovery cut short because the budget ran out");
       break;
     }
     // Take this channel on only when it fits the allowance even if walked to the worst case.
     if (called() + MAX_CALLS_PER_CHANNEL > maxCalls) {
-      notes.push("サブリクエスト上限に達したため再探索を打ち切った(残りは次回)");
+      notes.push("rediscovery cut short because the subrequest limit was reached (the rest waits for the next run)");
       break;
     }
 
@@ -365,7 +365,7 @@ export async function rediscover(
     try {
       streams = await client.listChannelLiveStreamsViaUploads(channelId, foundAll);
     } catch (error) {
-      notes.push(`[${channelId}] 再探索に失敗: ${String(error)}`);
+      notes.push(`[${channelId}] rediscovery failed: ${String(error)}`);
       for (const cam of channelCams) {
         updated.set(cam.id, keepRecorded(cam, states.get(cam.id), "unknown", checkedAt));
       }
@@ -399,11 +399,11 @@ export async function rediscover(
         streams = await client.listChannelLiveStreamsViaSearch(channelId);
         missing = resolve();
       } catch (error) {
-        notes.push(`[${channelId}] 検索での再探索に失敗: ${String(error)}`);
+        notes.push(`[${channelId}] rediscovery via search failed: ${String(error)}`);
       }
     }
     if (missing.length > 0) {
-      notes.push(`[${channelId}] 見分けがつかず据え置き: ${missing.join(", ")}`);
+      notes.push(`[${channelId}] could not tell the streams apart, left as is: ${missing.join(", ")}`);
     }
 
     for (const cam of channelCams) {

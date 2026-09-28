@@ -224,25 +224,25 @@ async function refresh(cron: string, env: Env): Promise<void> {
   if (role === null) {
     // Falling back to a default role would make every run take one role when only
     // wrangler.jsonc is edited, and the budget and the ledger would stay swapped unnoticed.
-    console.error(`[cron] 知らない Cron 式が発火した: ${cron}`);
+    console.error(`[cron] an unknown Cron expression fired: ${cron}`);
     return;
   }
   // Record the fact that it fired first. Without this the reason for silence cannot be traced.
-  console.log(`[cron ${role}] 開始`);
+  console.log(`[cron ${role}] start`);
 
   try {
     await update(role, env);
   } catch (error) {
     // Execution gets here when it crashed before calling YouTube, such as on the KV read
     // (beyond that, the try inside update catches it and still writes the ledger).
-    console.error(`[cron ${role}] 更新を始める前に落ちた`, error);
+    console.error(`[cron ${role}] crashed before the refresh started`, error);
   }
 }
 
 async function update(role: Role, env: Env): Promise<void> {
   const apiKey = env.YOUTUBE_API_KEY;
   if (apiKey === undefined || apiKey === "") {
-    console.error(`[cron ${role}] YOUTUBE_API_KEY が未設定のため更新を見送った`);
+    console.error(`[cron ${role}] refresh skipped because YOUTUBE_API_KEY is not set`);
     return;
   }
 
@@ -251,7 +251,7 @@ async function update(role: Role, env: Env): Promise<void> {
   const ledger = await ledgerFor(payload, role, env, now);
   const budget = remainingUnits(ledger, ROLE_UNIT_BUDGET[role]);
   if (budget === 0) {
-    console.warn(`[cron ${role}] 本日の枠(${ROLE_UNIT_BUDGET[role]})を使い切ったので何もしない`);
+    console.warn(`[cron ${role}] today's budget (${ROLE_UNIT_BUDGET[role]}) is used up, doing nothing`);
     return;
   }
 
@@ -278,14 +278,14 @@ async function update(role: Role, env: Env): Promise<void> {
     next = { ...payload, updatedAt: now.toISOString(), cams: Object.fromEntries(kept) };
 
     const live = [...kept.values()].filter((s) => s.status === "live").length;
-    console.log(`[cron ${role}] 更新 ${result.states.size} 件 / ライブ ${live} 件`);
+    console.log(`[cron ${role}] refreshed ${result.states.size} / live ${live}`);
     if (removed.length > 0) {
-      console.warn(`[cron ${role}] マスタに無い状態を掃除: ${removed.join(", ")}`);
+      console.warn(`[cron ${role}] pruned states missing from the master: ${removed.join(", ")}`);
     }
     for (const note of result.notes) console.warn(`[cron ${role}] ${note}`);
   } catch (error) {
     // Give up on updating the state. The next run can redo it.
-    console.error(`[cron ${role}] 更新に失敗`, error);
+    console.error(`[cron ${role}] refresh failed`, error);
   } finally {
     // Even on failure the quota on Google's side has been consumed, so always write the ledger.
     // If this sat inside the try, then when Cron keeps running with an invalid key the cap
@@ -307,7 +307,7 @@ async function update(role: Role, env: Env): Promise<void> {
       });
     }
     console.log(
-      `[cron ${role}] 消費 ${client.unitsUsed} unit (本日計 ${used}/${ROLE_UNIT_BUDGET[role]})`,
+      `[cron ${role}] used ${client.unitsUsed} unit (today's total ${used}/${ROLE_UNIT_BUDGET[role]})`,
     );
   }
 }

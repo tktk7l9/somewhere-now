@@ -53,7 +53,7 @@ for (const place of CAM_PLACES_BULK) {
 }
 
 const targets = [...piles.values()].filter((v) => v.length >= MIN_PILE).flat();
-console.log(`束(${MIN_PILE}台以上)に載っているカメラ: ${targets.length} / ${CAM_PLACES_BULK.length}`);
+console.log(`cameras sitting on a pile (${MIN_PILE} or more): ${targets.length} / ${CAM_PLACES_BULK.length}`);
 
 const updates = new Map<string, { lat: number; lng: number; timeZone: string }>();
 let moved = 0;
@@ -104,16 +104,16 @@ for (const [i, place] of targets.entries()) {
 
   if ((i + 1) % 50 === 0) {
     console.log(
-      `  … ${i + 1}/${targets.length}  動かした ${moved} / 据え置き ${kept} / 不一致 ${disagreed} / 裏取れず ${unverified} / 引けず ${failed}`,
+      `  … ${i + 1}/${targets.length}  moved ${moved} / kept ${kept} / disagreed ${disagreed} / unverified ${unverified} / lookup failed ${failed}`,
     );
   }
 }
 
 console.log(
-  `\n動かした ${moved} / 据え置き ${kept} / 不一致(据え置き) ${disagreed} / 裏取れず(据え置き) ${unverified} / 引けず ${failed}`,
+  `\nmoved ${moved} / kept ${kept} / disagreed (kept) ${disagreed} / unverified (kept) ${unverified} / lookup failed ${failed}`,
 );
 if (updates.size === 0) {
-  console.log("書き換えるものが無い。");
+  console.log("nothing to rewrite.");
 } else {
   const source = await readFile(OUTPUT_PATH, "utf8");
   let out = source;
@@ -127,5 +127,5 @@ if (updates.size === 0) {
     out = replaced;
   }
   await writeFile(OUTPUT_PATH, out);
-  console.log(`✓ ${rewritten} 件の座標を ${OUTPUT_PATH} に書き戻した`);
+  console.log(`✓ wrote ${rewritten} coordinates back to ${OUTPUT_PATH}`);
 }

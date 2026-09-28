@@ -291,7 +291,7 @@ function uniqueId(base: string, used: Set<string>): string {
       return candidate;
     }
   }
-  throw new Error(`id を確保できない: ${base}`);
+  throw new Error(`could not allocate an id: ${base}`);
 }
 
 /**
@@ -1031,7 +1031,7 @@ async function main(): Promise<void> {
     });
   }
   if (droppedTz > 0) {
-    console.log(`既存 bulk から未対応 TZ を ${droppedTz} 件除外`);
+    console.log(`dropped ${droppedTz} entries with an unsupported TZ from the existing bulk`);
   }
 
   const existingTitleKeys = new Set(
@@ -1055,12 +1055,12 @@ async function main(): Promise<void> {
   }
 
   if (need <= 0) {
-    console.log(`既に ${CAM_PLACES_CURATED.length + bulk.length} 件あるので追加不要(id/TZ 修復のみ)`);
+    console.log(`already ${CAM_PLACES_CURATED.length + bulk.length} cameras, nothing to add (id/TZ repair only)`);
     await flush();
     return;
   }
 
-  console.log(`既存 bulk ${repaired.length} 件 / あと ${need} 件追加`);
+  console.log(`existing bulk ${repaired.length} / ${need} more to add`);
 
   // Read the scrape results as additional candidates (continue even if absent)
   let scrapeHits: {
@@ -1073,9 +1073,9 @@ async function main(): Promise<void> {
   }[] = [];
   try {
     scrapeHits = JSON.parse(await readFile(SCRAPE_PATH, "utf8")) as typeof scrapeHits;
-    console.log(`scrape 候補 ${scrapeHits.length} 件`);
+    console.log(`scrape candidates ${scrapeHits.length}`);
   } catch {
-    console.log("scrape 結果なし(scripts/out/search-scrape.json)");
+    console.log("no scrape result (scripts/out/search-scrape.json)");
   }
 
   // Phase 1: geojson YouTube (with coordinates).
@@ -1140,7 +1140,7 @@ async function main(): Promise<void> {
       seenVideos.add(videoId);
       if (bulk.length % 25 === 0) {
         await flush();
-        console.log(`  … ${bulk.length} 件 (phase 1)`);
+        console.log(`  … ${bulk.length} cameras (phase 1)`);
       }
     }
   }
@@ -1195,7 +1195,7 @@ async function main(): Promise<void> {
     });
   }
 
-  console.log(`phase 2 候補 ${candidates.length} 件`);
+  console.log(`phase 2 candidates ${candidates.length}`);
 
   const PHASE2_CONCURRENCY = 8;
   let candidateIndex = 0;
@@ -1219,7 +1219,7 @@ async function main(): Promise<void> {
       );
       if (at == null) {
         unresolved.push({ ...stream, country: countryCode });
-        failures.push(`[${stream.videoId}] 座標未解決: ${stream.title}`);
+        failures.push(`[${stream.videoId}] coordinates unresolved: ${stream.title}`);
         continue;
       }
 
@@ -1237,7 +1237,7 @@ async function main(): Promise<void> {
       });
       if (added && bulk.length % 50 === 0) {
         await flush();
-        console.log(`  … ${bulk.length} 件 (phase 2)`);
+        console.log(`  … ${bulk.length} cameras (phase 2)`);
       }
     }
   }
@@ -1249,17 +1249,17 @@ async function main(): Promise<void> {
   const skipNominatim = process.env["SKIP_NOMINATIM"] === "1";
   if (stillNeed <= 0 || unresolved.length === 0 || skipNominatim) {
     await flush();
-    console.log(`✓ ${bulk.length} 件を ${OUTPUT_PATH} に書き出した (目標追加 ${need} 件)`);
+    console.log(`✓ wrote ${bulk.length} cameras to ${OUTPUT_PATH} (target: ${need} to add)`);
     if (skipNominatim && stillNeed > 0) {
-      console.log(`(Nominatim スキップ: 残り ${stillNeed} / 未解決 ${unresolved.length})`);
+      console.log(`(Nominatim skipped: remaining ${stillNeed} / unresolved ${unresolved.length})`);
     }
     if (failures.length > 0) {
-      console.log(`\n△ Open-Meteo 未解決 ${failures.length} 件`);
+      console.log(`\n△ unresolved by Open-Meteo: ${failures.length}`);
     }
     return;
   }
   const nominatimBudget = Math.min(unresolved.length, stillNeed + 50, 1500);
-  console.log(`phase 3 Nominatim 候補 ${nominatimBudget}/${unresolved.length} 件 / あと ${stillNeed}`);
+  console.log(`phase 3 Nominatim candidates ${nominatimBudget}/${unresolved.length} / ${stillNeed} more to add`);
   for (const stream of unresolved.slice(0, nominatimBudget)) {
     if (bulk.length >= targetBulk) break;
     const countryCode = stream.country;
@@ -1293,14 +1293,14 @@ async function main(): Promise<void> {
     });
     if (added && bulk.length % 25 === 0) {
       await flush();
-      console.log(`  … ${bulk.length} 件 (phase 3)`);
+      console.log(`  … ${bulk.length} cameras (phase 3)`);
     }
   }
 
   await flush();
-  console.log(`✓ ${bulk.length} 件を ${OUTPUT_PATH} に書き出した (目標追加 ${need} 件)`);
+  console.log(`✓ wrote ${bulk.length} cameras to ${OUTPUT_PATH} (target: ${need} to add)`);
   if (failures.length > 0) {
-    console.log(`\n△ スキップ ${failures.length} 件 (先頭 5 件):`);
+    console.log(`\n△ skipped ${failures.length} (first 5):`);
     for (const f of failures.slice(0, 5)) console.log(`  ${f}`);
   }
 }

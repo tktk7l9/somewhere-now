@@ -90,7 +90,7 @@ async function fetchChannel(handle: string, note: string): Promise<ChannelResult
   const channelId = /"externalId":"(UC[A-Za-z0-9_-]{22})"/.exec(html)?.[1] ?? null;
   const data = extractInitialData(html);
   if (data === null) {
-    return { handle, note, channelId, live: [], error: "ytInitialData を読めなかった" };
+    return { handle, note, channelId, live: [], error: "could not read ytInitialData" };
   }
   return { handle, note, channelId, live: extractLive(data) };
 }
@@ -104,7 +104,7 @@ async function main(): Promise<void> {
       const result = await fetchChannel(handle, note);
       results.push(result);
       const mark = result.channelId === null ? "✗" : "✓";
-      console.log(`${mark} @${handle} — ${result.live.length} live (${result.channelId ?? "未解決"})`);
+      console.log(`${mark} @${handle} — ${result.live.length} live (${result.channelId ?? "unresolved"})`);
     } catch (error) {
       results.push({ handle, note, channelId: null, live: [], error: String(error) });
       console.log(`✗ @${handle} — ${String(error)}`);
@@ -118,7 +118,7 @@ async function main(): Promise<void> {
   await writeFile("scripts/out/candidates.json", JSON.stringify(results, null, 2) + "\n");
 
   const totalLive = results.reduce((sum, r) => sum + r.live.length, 0);
-  console.log(`\n${results.length} チャンネル / ライブ配信 ${totalLive} 本 → scripts/out/candidates.json`);
+  console.log(`\n${results.length} channels / ${totalLive} live streams → scripts/out/candidates.json`);
 }
 
 await main();
