@@ -17,6 +17,8 @@ export interface PanelHandlers {
   onClose(camId: string): void;
   onFocus(camId: string): void;
   onUnplayable(camId: string): void;
+  /** The way out of an empty result: turns every filter off (SHIG 55, 60). */
+  onClearFilters(): void;
 }
 
 export interface PanelContext {
@@ -46,14 +48,14 @@ interface Card {
 }
 
 /** The surface when nothing is selected. Holds only what to do next and how to read the pins. */
-function emptyState(reason: EmptyReason, lang: Lang): HTMLElement {
+function emptyState(reason: EmptyReason, lang: Lang, onClearFilters: () => void): HTMLElement {
   const el = document.createElement("div");
   el.className = "panel__empty";
 
   if (reason === "noMatch") {
     const p = document.createElement("p");
     p.textContent = t("noMatch", lang);
-    el.append(p);
+    el.append(p, chip(t("clearFilters", lang), onClearFilters));
     return el;
   }
 
@@ -288,7 +290,7 @@ export function createPanel(container: HTMLElement, handlers: PanelHandlers) {
           current.card.player?.destroy();
           current = null;
         }
-        cardHost.replaceChildren(emptyState(emptyReason, ctx.lang));
+        cardHost.replaceChildren(emptyState(emptyReason, ctx.lang, handlers.onClearFilters));
         listHost.replaceChildren();
         return;
       }

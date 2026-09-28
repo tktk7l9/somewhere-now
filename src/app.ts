@@ -8,6 +8,7 @@
 
 import { filterCams, pickRandom, rankLiveByViewers, type Cam, type PublicCamState } from "./domain/cams";
 import { decodeFavorites, encodeFavorites, toggleFavorite } from "./domain/favorites";
+import { activeFilterCount, clearedFilters } from "./domain/filters";
 import { nearestCam, requestLocation, viewportForLocation } from "./domain/locate";
 import { isNightAt } from "./domain/terminator";
 import { MAX_VIEW, parseUrlState, toSearchString, type ViewState } from "./domain/urlState";
@@ -306,6 +307,7 @@ export function startApp(root: HTMLElement): void {
       if (cam) focusCam(cam);
     },
     onUnplayable: markUnplayable,
+    onClearFilters: clearFilters,
   });
 
   const panelResize = attachPanelResize({
@@ -330,8 +332,12 @@ export function startApp(root: HTMLElement): void {
     lang: view.lang,
   });
 
-  const wall = createWall(wallEl, markUnplayable);
-  const watchingList = createWatchingList(watchingEl, pickFromList);
+  const wall = createWall(wallEl, markUnplayable, () => {
+    wallOpen = false;
+    wall.teardown();
+    render();
+  });
+  const watchingList = createWatchingList(watchingEl, pickFromList, clearFilters);
 
   /**
    * Closing happens at once (no confirm) and the notice offers to take it back: a mis-tap
@@ -350,6 +356,11 @@ export function startApp(root: HTMLElement): void {
     });
   }
 
+  function clearFilters(): void {
+    notice.hide();
+    update(clearedFilters());
+  }
+
   function toggleSound(): void {
     soundOn = !soundOn;
     writeStored(SOUND_KEY, soundOn ? "on" : "off");
@@ -364,7 +375,17 @@ export function startApp(root: HTMLElement): void {
       const live = visibleCams().filter((cam) => states.get(cam.id)?.status === "live");
       const pool = live.length > 0 ? live : visibleCams();
       const cam = pickRandom(pool, Math.random);
-      if (cam === null) return;
+      if (cam === null) {
+        // Pressing it and seeing nothing happen reads as broken (SHIG 55, 58).
+        const filtered = activeFilterCount(view) > 0;
+        notice.show(
+          t(filtered ? "noMatchShort" : "noLive", view.lang),
+          view.lang,
+          filtered ? { label: t("clearFilters", view.lang), run: clearFilters } : undefined,
+        );
+        return;
+      }
+      notice.hide();
       update({ view: [cam.id] });
       focusCam(cam);
     },
@@ -438,9 +459,9 @@ export function startApp(root: HTMLElement): void {
   // the user collapsed it.
   let gripFocus: string | undefined;
 
-  function paintSheetGrip(open: readonly Cam[]): void {
+  function paintSheetGrip(open: readonly Cam[], idle: "sheetIdle" | "sheetIdleWatching" | "noMatchShort"): void {
     const focused = open[0];
-    sheet?.setLabel(focused ? camName(focused.name, view.lang) : t("sheetIdle", view.lang));
+    sheet?.setLabel(focused ? camName(focused.name, view.lang) : t(idle, view.lang));
     const focusedId = focused?.id;
     if (focusedId === gripFocus) return;
     gripFocus = focusedId;
@@ -469,8 +490,17 @@ export function startApp(root: HTMLElement): void {
     document.documentElement.lang = view.lang;
     panelResize.setLang(view.lang);
     sheet?.setLang(view.lang);
-    paintSheetGrip(open);
     const watchingOpen = view.watching && !wallOpen;
+    // The collapsed grip is the only line visible on a narrow screen, so it says what is going
+    // on: nothing matches, or the list (not the map) is the place to pick from (SHIG 55, 59).
+    paintSheetGrip(
+      open,
+      cams.length > 0 && visible.length === 0
+        ? "noMatchShort"
+        : watchingOpen
+          ? "sheetIdleWatching"
+          : "sheetIdle",
+    );
     const mode = wallOpen
       ? "wall"
       : watchingOpen
@@ -516,11 +546,8 @@ export function startApp(root: HTMLElement): void {
         now,
         states,
         ready: statesReady,
-        filtered:
-          view.categories.length > 0 ||
-          view.nightOnly ||
-          view.favoritesOnly ||
-          view.query !== "",
+        // liveOnly is left out: the list holds only live places anyway.
+        filtered: activeFilterCount({ ...view, liveOnly: false }) > 0,
       });
       panel.update(
         open,

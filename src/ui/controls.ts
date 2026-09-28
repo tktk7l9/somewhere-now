@@ -1,6 +1,7 @@
 // The control row of the masthead. Labels say plainly "what happens when pressed".
 
 import { CAM_CATEGORIES, type CamCategory } from "../domain/cams";
+import { activeFilterCount } from "../domain/filters";
 import type { LocateFailure } from "../domain/locate";
 import type { ViewState } from "../domain/urlState";
 import { categoryLabel, t, type StringKey } from "./i18n";
@@ -33,17 +34,6 @@ export interface ControlHandlers {
   onToggleWatching(): void;
   onToggleFilters(): void;
   onSetGlobe(globe: boolean): void;
-}
-
-/** The number of conditions in effect now, added to the "絞り込み" heading. */
-function activeFilterCount(state: ViewState): number {
-  return (
-    state.categories.length +
-    (state.liveOnly ? 1 : 0) +
-    (state.nightOnly ? 1 : 0) +
-    (state.favoritesOnly ? 1 : 0) +
-    (state.query === "" ? 0 : 1)
-  );
 }
 
 function chip(label: string, pressed: boolean, onClick: () => void): HTMLButtonElement {

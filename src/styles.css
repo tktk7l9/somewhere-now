@@ -1402,3 +1402,38 @@ html.resizing-panel iframe {
   }
 }
 
+/* ── Empty wall ─────────────────────────────────────── */
+
+.wall__empty {
+  grid-column: 1 / -1;
+  align-self: center;
+  justify-self: center;
+  max-width: 420px;
+  padding: 24px;
+  text-align: center;
+  color: var(--dim);
+}
+
+.wall[data-count="0"] {
+  background: var(--ink);
+}
+
+.wall__empty h2 {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  color: var(--bone);
+  margin: 0 0 8px;
+}
+
+.wall__empty p {
+  margin: 0 0 16px;
+  font-size: 14px;
+}
+
+.panel__empty .chip,
+.watching__empty-action {
+  margin-top: 14px;
+}
+

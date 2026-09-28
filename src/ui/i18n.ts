@@ -108,8 +108,16 @@ const STRINGS = {
     ja: "生存状態を取得できませんでした。地図と再生は使えます。",
     en: "Could not load live state. The map and player still work.",
   },
+  noMatchShort: { ja: "条件に合うカメラがありません", en: "No cameras match" },
+  clearFilters: { ja: "絞り込みを解除", en: "Clear filters" },
+  sheetIdleWatching: { ja: "一覧から地点を選ぶ", en: "Pick a place from the list" },
   undo: { ja: "元に戻す", en: "Undo" },
   dismiss: { ja: "通知を閉じる", en: "Dismiss" },
+  wallEmptyTitle: { ja: "並べるカメラがまだありません", en: "Nothing to show side by side yet" },
+  wallEmptyBody: {
+    ja: "地図でマーカーを選ぶと、最大4か所までここに並びます。",
+    en: "Pick markers on the map, and up to 4 places line up here.",
+  },
   night: { ja: "夜", en: "Night" },
   day: { ja: "昼", en: "Day" },
 } satisfies Record<string, Dict>;
