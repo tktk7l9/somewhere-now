@@ -1,6 +1,8 @@
 // The control row of the masthead. Labels say plainly "what happens when pressed".
 
 import { CAM_CATEGORIES, type CamCategory } from "../domain/cams";
+import { activeFilterCount } from "../domain/filters";
+import { focusWasLost } from "../domain/focus";
 import type { LocateFailure } from "../domain/locate";
 import type { ViewState } from "../domain/urlState";
 import { categoryLabel, t, type StringKey } from "./i18n";
@@ -20,6 +22,11 @@ const LOCATE_ERROR_KEY: Record<LocateFailure, StringKey> = {
   unsupported: "locateUnsupported",
 };
 
+/** Why "Where I am" failed, in the user's words. */
+export function locateFailureMessage(reason: LocateFailure, lang: ViewState["lang"]): string {
+  return t(LOCATE_ERROR_KEY[reason], lang);
+}
+
 export interface ControlHandlers {
   onChange(patch: Partial<ViewState>): void;
   onRandom(): void;
@@ -30,15 +37,32 @@ export interface ControlHandlers {
   onSetGlobe(globe: boolean): void;
 }
 
-/** The number of conditions in effect now, added to the "絞り込み" heading. */
-function activeFilterCount(state: ViewState): number {
-  return (
-    state.categories.length +
-    (state.liveOnly ? 1 : 0) +
-    (state.nightOnly ? 1 : 0) +
-    (state.favoritesOnly ? 1 : 0) +
-    (state.query === "" ? 0 : 1)
-  );
+const FOCUSABLE = "button, input";
+
+/** A position whose control was disabled when focus should have returned to it. */
+const parkedFocus = new WeakMap<HTMLElement, number>();
+
+/**
+ * Rebuilds a row of controls. The row is rebuilt on every press (the pressed state and labels
+ * change), which used to drop keyboard focus to the top of the page after each chip. The
+ * controls keep their order, so focus goes back to the control at the same position (SHIG 94).
+ * "Where I am" is disabled while it waits; focus is parked and returns when it is enabled.
+ */
+function replaceKeepingFocus(row: HTMLElement, build: () => HTMLElement[]): void {
+  const before = [...row.querySelectorAll<HTMLElement>(FOCUSABLE)];
+  let at = before.indexOf(document.activeElement as HTMLElement);
+  const parked = parkedFocus.get(row);
+  parkedFocus.delete(row);
+  if (at === -1 && parked !== undefined && focusWasLost(document.activeElement, document.body)) {
+    at = parked;
+  }
+  // Built only now: building moves persistent controls (the search box) out of the row.
+  row.replaceChildren(...build());
+  if (at === -1) return;
+  const target = row.querySelectorAll<HTMLElement>(FOCUSABLE)[at];
+  if (target === undefined || document.activeElement === target) return;
+  if (target.matches(":disabled")) parkedFocus.set(row, at);
+  else target.focus({ preventScroll: true });
 }
 
 function chip(label: string, pressed: boolean, onClick: () => void): HTMLButtonElement {
@@ -166,11 +190,12 @@ export function createControls(container: HTMLElement, handlers: ControlHandlers
       locate.className = "chip";
       locate.textContent = locateLabel;
       locate.disabled = locateStatus === "pending";
-      locate.setAttribute("aria-live", "polite");
       locate.setAttribute("aria-label", locateLabel);
       if (locateStatus === "pending") locate.setAttribute("aria-busy", "true");
+      // The failure itself is announced by the notice over the stage (app.ts). The label keeps
+      // the reason for anyone who lands on the button later.
       if (locateStatus !== "idle" && locateStatus !== "pending") {
-        const detail = t(LOCATE_ERROR_KEY[locateStatus], lang);
+        const detail = locateFailureMessage(locateStatus, lang);
         locate.title = detail;
         locate.setAttribute("aria-label", `${t("locate", lang)}. ${detail}`);
       }
@@ -201,15 +226,19 @@ export function createControls(container: HTMLElement, handlers: ControlHandlers
 
       if (nextPrimaryKey !== primaryKey) {
         primaryKey = nextPrimaryKey;
-        primaryRow.replaceChildren(
+        replaceKeepingFocus(primaryRow, () => [
           group(random, locate, flatMap, globe, wall, watching),
           group(filtersToggle, langToggle),
-        );
+        ]);
       }
 
       if (nextFiltersKey !== filtersKey) {
         filtersKey = nextFiltersKey;
-        filtersRow.replaceChildren(group(search), group(...categories), group(...flags));
+        replaceKeepingFocus(filtersRow, () => [
+          group(search),
+          group(...categories),
+          group(...flags),
+        ]);
       }
     },
   };

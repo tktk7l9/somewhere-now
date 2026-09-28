@@ -17,6 +17,8 @@ export interface PanelHandlers {
   onClose(camId: string): void;
   onFocus(camId: string): void;
   onUnplayable(camId: string): void;
+  /** The way out of an empty result: turns every filter off (SHIG 55, 60). */
+  onClearFilters(): void;
 }
 
 export interface PanelContext {
@@ -46,14 +48,14 @@ interface Card {
 }
 
 /** The surface when nothing is selected. Holds only what to do next and how to read the pins. */
-function emptyState(reason: EmptyReason, lang: Lang): HTMLElement {
+function emptyState(reason: EmptyReason, lang: Lang, onClearFilters: () => void): HTMLElement {
   const el = document.createElement("div");
   el.className = "panel__empty";
 
   if (reason === "noMatch") {
     const p = document.createElement("p");
     p.textContent = t("noMatch", lang);
-    el.append(p);
+    el.append(p, chip(t("clearFilters", lang), onClearFilters));
     return el;
   }
 
@@ -243,6 +245,11 @@ export function createPanel(container: HTMLElement, handlers: PanelHandlers) {
     const status = ctx.states.get(cam.id)?.status;
     const dot = document.createElement("span");
     dot.className = `openrow__dot${status === "live" ? " openrow__dot--live" : ""}`;
+    dot.setAttribute("aria-hidden", "true");
+    // The dot tells live from not live by fill alone; screen readers get it in words (SHIG 94).
+    const statusText = document.createElement("span");
+    statusText.className = "visually-hidden";
+    statusText.textContent = statusLabel(status, ctx.lang);
 
     const name = document.createElement("span");
     name.className = "openrow__name";
@@ -252,7 +259,7 @@ export function createPanel(container: HTMLElement, handlers: PanelHandlers) {
     clock.className = "openrow__time";
     clock.textContent = formatLocalTime(ctx.now, cam.timeZone);
 
-    row.append(dot, name, clock);
+    row.append(dot, name, statusText, clock);
     row.append(
       chip(t("focusThis", ctx.lang), () => handlers.onFocus(cam.id)),
       chip(t("removeFromView", ctx.lang), () => handlers.onClose(cam.id)),
@@ -288,7 +295,7 @@ export function createPanel(container: HTMLElement, handlers: PanelHandlers) {
           current.card.player?.destroy();
           current = null;
         }
-        cardHost.replaceChildren(emptyState(emptyReason, ctx.lang));
+        cardHost.replaceChildren(emptyState(emptyReason, ctx.lang, handlers.onClearFilters));
         listHost.replaceChildren();
         return;
       }

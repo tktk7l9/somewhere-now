@@ -50,7 +50,11 @@ function rankedKey(ranked: readonly Cam[], lang: Lang): string {
   return `${lang}:${ranked.map((cam) => cam.id).join(",")}`;
 }
 
-export function createWatchingList(container: HTMLElement, onPick: (camId: string) => void) {
+export function createWatchingList(
+  container: HTMLElement,
+  onPick: (camId: string) => void,
+  onClearFilters: () => void,
+) {
   const header = document.createElement("header");
   header.className = "watching__header";
   const title = document.createElement("h2");
@@ -61,8 +65,15 @@ export function createWatchingList(container: HTMLElement, onPick: (camId: strin
   count.className = "watching__count";
   header.append(title, lead, count);
 
-  const empty = document.createElement("p");
+  const empty = document.createElement("div");
   empty.className = "watching__empty";
+  const emptyText = document.createElement("p");
+  emptyText.className = "watching__empty-text";
+  // An empty result caused by filters gets the way out right under the message (SHIG 55, 60).
+  const clear = document.createElement("button");
+  clear.type = "button";
+  clear.className = "chip watching__empty-action";
+  clear.addEventListener("click", onClearFilters);
 
   const list = document.createElement("ol");
   list.className = "watching__list";
@@ -113,7 +124,10 @@ export function createWatchingList(container: HTMLElement, onPick: (camId: strin
       count.textContent = `${ranked.length} ${t("places", ctx.lang)}`;
 
       if (ranked.length === 0) {
-        empty.textContent = emptyMessage(ctx);
+        emptyText.textContent = emptyMessage(ctx);
+        clear.textContent = t("clearFilters", ctx.lang);
+        if (ctx.ready === "ready" && ctx.filtered) empty.replaceChildren(emptyText, clear);
+        else empty.replaceChildren(emptyText);
         container.replaceChildren(header, empty);
         rows.length = 0;
         paintedKey = "";

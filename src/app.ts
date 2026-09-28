@@ -8,12 +8,15 @@
 
 import { filterCams, pickRandom, rankLiveByViewers, type Cam, type PublicCamState } from "./domain/cams";
 import { decodeFavorites, encodeFavorites, toggleFavorite } from "./domain/favorites";
+import { activeFilterCount, clearedFilters, emptyPickReason } from "./domain/filters";
 import { nearestCam, requestLocation, viewportForLocation } from "./domain/locate";
 import { isNightAt } from "./domain/terminator";
 import { MAX_VIEW, parseUrlState, toSearchString, type ViewState } from "./domain/urlState";
+import { closeCam, reopenCam } from "./domain/viewEdit";
 import { fetchCamStates, fetchCams } from "./api/client";
-import { createControls, type LocateStatus } from "./ui/controls";
-import { camName, liveDialCaption, t } from "./ui/i18n";
+import { createControls, locateFailureMessage, type LocateStatus } from "./ui/controls";
+import { camName, closedNotice, liveDialCaption, t } from "./ui/i18n";
+import { createNotice } from "./ui/notice";
 import type { GlobeView } from "./ui/globe";
 import { createMapView } from "./ui/map";
 import { mountPinLegend } from "./ui/pin";
@@ -112,6 +115,7 @@ export function startApp(root: HTMLElement): void {
   const watchingEl = root.querySelector<HTMLElement>("#watching")!;
   const dialEl = root.querySelector<HTMLElement>("#dial")!;
   const legendEl = root.querySelector<HTMLElement>("#legend")!;
+  const notice = createNotice(stageEl);
 
   // The master arrives later as JSON. The map is built without waiting for it (waiting
   // delays LCP by that much). Pins are placed when it arrives.
@@ -242,6 +246,9 @@ export function startApp(root: HTMLElement): void {
     const result = await requestLocation(locator);
     if (!result.ok) {
       locateStatus = result.reason;
+      // Before, the reason lived only in the button's title, so a failure looked like nothing
+      // happened (SHIG 55, 66).
+      notice.show(locateFailureMessage(result.reason, view.lang), view.lang);
       render();
       return;
     }
@@ -252,6 +259,7 @@ export function startApp(root: HTMLElement): void {
     );
     if (viewport === null) {
       locateStatus = "unavailable";
+      notice.show(locateFailureMessage("unavailable", view.lang), view.lang);
       render();
       return;
     }
@@ -292,15 +300,14 @@ export function startApp(root: HTMLElement): void {
       writeFavorites(favorites);
       render();
     },
-    onClose(camId) {
-      update({ view: view.view.filter((id) => id !== camId) });
-    },
+    onClose: closeWithUndo,
     onFocus(camId) {
       update({ view: [camId, ...view.view.filter((id) => id !== camId)] });
       const cam = byId.get(camId);
       if (cam) focusCam(cam);
     },
     onUnplayable: markUnplayable,
+    onClearFilters: clearFilters,
   });
 
   const panelResize = attachPanelResize({
@@ -325,8 +332,34 @@ export function startApp(root: HTMLElement): void {
     lang: view.lang,
   });
 
-  const wall = createWall(wallEl, markUnplayable);
-  const watchingList = createWatchingList(watchingEl, pickFromList);
+  const wall = createWall(wallEl, markUnplayable, () => {
+    wallOpen = false;
+    wall.teardown();
+    render();
+  });
+  const watchingList = createWatchingList(watchingEl, pickFromList, clearFilters);
+
+  /**
+   * Closing happens at once (no confirm) and the notice offers to take it back: a mis-tap
+   * otherwise costs the search that found the camera (SHIG 54, 57).
+   */
+  function closeWithUndo(camId: string): void {
+    const { view: next, closed } = closeCam(view.view, camId);
+    if (closed === null) return;
+    update({ view: next });
+    const cam = byId.get(camId);
+    notice.show(closedNotice(cam ? camName(cam.name, view.lang) : camId, view.lang), view.lang, {
+      label: t("undo", view.lang),
+      run() {
+        update({ view: reopenCam(view.view, closed, MAX_VIEW) });
+      },
+    });
+  }
+
+  function clearFilters(): void {
+    notice.hide();
+    update(clearedFilters());
+  }
 
   function toggleSound(): void {
     soundOn = !soundOn;
@@ -342,7 +375,18 @@ export function startApp(root: HTMLElement): void {
       const live = visibleCams().filter((cam) => states.get(cam.id)?.status === "live");
       const pool = live.length > 0 ? live : visibleCams();
       const cam = pickRandom(pool, Math.random);
-      if (cam === null) return;
+      if (cam === null) {
+        // Pressing it and seeing nothing happen reads as broken (SHIG 55, 58).
+        const reason = emptyPickReason(cams.length, view);
+        const key = reason === "notLoaded" ? "camsNotLoaded" : reason === "noMatch" ? "noMatchShort" : "noLive";
+        notice.show(
+          t(key, view.lang),
+          view.lang,
+          reason === "noMatch" ? { label: t("clearFilters", view.lang), run: clearFilters } : undefined,
+        );
+        return;
+      }
+      notice.hide();
       update({ view: [cam.id] });
       focusCam(cam);
     },
@@ -416,9 +460,9 @@ export function startApp(root: HTMLElement): void {
   // the user collapsed it.
   let gripFocus: string | undefined;
 
-  function paintSheetGrip(open: readonly Cam[]): void {
+  function paintSheetGrip(open: readonly Cam[], idle: "sheetIdle" | "sheetIdleWatching" | "noMatchShort"): void {
     const focused = open[0];
-    sheet?.setLabel(focused ? camName(focused.name, view.lang) : t("sheetIdle", view.lang));
+    sheet?.setLabel(focused ? camName(focused.name, view.lang) : t(idle, view.lang));
     const focusedId = focused?.id;
     if (focusedId === gripFocus) return;
     gripFocus = focusedId;
@@ -447,8 +491,17 @@ export function startApp(root: HTMLElement): void {
     document.documentElement.lang = view.lang;
     panelResize.setLang(view.lang);
     sheet?.setLang(view.lang);
-    paintSheetGrip(open);
     const watchingOpen = view.watching && !wallOpen;
+    // The collapsed grip is the only line visible on a narrow screen, so it says what is going
+    // on: nothing matches, or the list (not the map) is the place to pick from (SHIG 55, 59).
+    paintSheetGrip(
+      open,
+      cams.length > 0 && visible.length === 0
+        ? "noMatchShort"
+        : watchingOpen
+          ? "sheetIdleWatching"
+          : "sheetIdle",
+    );
     const mode = wallOpen
       ? "wall"
       : watchingOpen
@@ -494,11 +547,8 @@ export function startApp(root: HTMLElement): void {
         now,
         states,
         ready: statesReady,
-        filtered:
-          view.categories.length > 0 ||
-          view.nightOnly ||
-          view.favoritesOnly ||
-          view.query !== "",
+        // liveOnly is left out: the list holds only live places anyway.
+        filtered: activeFilterCount({ ...view, liveOnly: false }) > 0,
       });
       panel.update(
         open,

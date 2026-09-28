@@ -8,7 +8,7 @@
 //      time creates a duplicate frame for the same camera.
 
 import type { Cam, PublicCamState } from "../domain/cams";
-import { camName } from "./i18n";
+import { camName, t } from "./i18n";
 import { mountPlayer, type PlayerHandle } from "./player";
 import type { Lang } from "../domain/weather";
 
@@ -22,8 +22,31 @@ interface Cell {
   timer: number | null;
 }
 
-export function createWall(container: HTMLElement, onUnplayable: (camId: string) => void) {
+export function createWall(
+  container: HTMLElement,
+  onUnplayable: (camId: string) => void,
+  onBackToMap: () => void,
+) {
   const cells = new Map<string, Cell>();
+
+  // With nothing open, the wall used to be a blank dark stage. Say what fills it and give the
+  // way back (SHIG 32, 55, 60).
+  const empty = document.createElement("div");
+  empty.className = "wall__empty";
+  const emptyTitle = document.createElement("h2");
+  const emptyBody = document.createElement("p");
+  const back = document.createElement("button");
+  back.type = "button";
+  back.className = "chip";
+  back.addEventListener("click", onBackToMap);
+  empty.append(emptyTitle, emptyBody, back);
+
+  function paintEmpty(lang: Lang): void {
+    emptyTitle.textContent = t("wallEmptyTitle", lang);
+    emptyBody.textContent = t("wallEmptyBody", lang);
+    back.textContent = t("backToMap", lang);
+    if (!empty.isConnected) container.append(empty);
+  }
 
   function drop(camId: string): void {
     const cell = cells.get(camId);
@@ -46,6 +69,9 @@ export function createWall(container: HTMLElement, onUnplayable: (camId: string)
         if (!keep.has(camId)) drop(camId);
       }
       container.dataset["count"] = String(selected.length);
+      container.setAttribute("aria-label", t("wall", lang));
+      if (selected.length === 0) paintEmpty(lang);
+      else empty.remove();
 
       let newcomers = 0;
       selected.forEach((cam, index) => {
