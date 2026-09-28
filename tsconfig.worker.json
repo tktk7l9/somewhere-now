@@ -1,6 +1,6 @@
 {
-  // Worker は DOM ではなく Workers ランタイムの型で検査する。src/domain だけは
-  // 共有するので include に含める(UI 層は Worker から参照しない)。
+  // The Worker is checked against the Workers runtime types, not the DOM. Only src/domain
+  // is shared, so it is included (the Worker never references the UI layer).
   "compilerOptions": {
     "target": "ES2022",
     "module": "ESNext",
@@ -19,7 +19,7 @@
     "types": ["vitest/globals", "@cloudflare/workers-types"]
   },
   "include": ["worker", "src/domain", "src/data"],
-  // src 側のテストは node や vite の型を使うので、本体の tsconfig に任せる
-  // (Worker の型だけで検査すると解決できない)。
+  // Tests under src use node and vite types, so leave them to the main tsconfig
+  // (they cannot be resolved with the Worker types alone).
   "exclude": ["src/**/*.test.ts"]
 }
