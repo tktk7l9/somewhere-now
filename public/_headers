@@ -1,24 +1,27 @@
-# Cloudflare Workers static assets のヘッダー定義。
+# Header definitions for Cloudflare Workers static assets.
 # https://developers.cloudflare.com/workers/static-assets/headers/
 #
-# 注意: 複数のルールがマッチすると同名ヘッダーはカンマ連結される(CSP を2本
-# 書くと積集合になって事故る)ので、CSP は下の /* 1ブロックだけに書くこと。
+# Note: when several rules match, headers with the same name are joined with commas
+# (two CSPs become their intersection and break things), so write the CSP only in the
+# single /* block below.
 #
-# 再生は iframe だけで完結させ、YouTube の IFrame Player API(外部スクリプト)は
-# 読まない。ミュート制御とエラー検知は enablejsapi=1 の postMessage で足りるので、
-# script-src は 'self' のまま保てる。frame-src が再生用 iframe。
-# connect-src の open-meteo は選択中カメラの現地の天気(キー不要・CORS *)。
-# *.wikipedia.org は選択中カメラの土地の概要(キー不要・CORS *)。
-# api.mymemory.translated.net は日本語版が無い記事の概要を日本語へ訳す(キー不要・CORS *)。
-# tile.openstreetmap.org は平面図(Leaflet の <img>)用。地球儀の国名・国境は
-# 同梱 GeoJSON。陰影ラスタと文字グリフだけ tiles.openfreemap.org を
-# connect-src / img-src で許可する。
+# Playback is done entirely in iframes; the YouTube IFrame Player API (an external
+# script) is not loaded. Mute control and error detection only need postMessage with
+# enablejsapi=1, so script-src can stay 'self'. frame-src is the playback iframe.
+# open-meteo in connect-src is the local weather of the selected camera (no key, CORS *).
+# *.wikipedia.org is the overview of the selected camera's place (no key, CORS *).
+# api.mymemory.translated.net translates overviews of articles with no Japanese version
+# into Japanese (no key, CORS *).
+# tile.openstreetmap.org is for the flat map (Leaflet <img>). Country names and borders
+# on the globe are bundled GeoJSON. Only the shaded-relief raster and text glyphs from
+# tiles.openfreemap.org are allowed in connect-src / img-src.
 #
-# compute-pressure は再生オリジンにだけ委譲する。拒否したままだとプレイヤーが
-# 際限なく再試行して、4 枚並べたときに毎秒数百件の違反ログでタブごと落ちる
-# (実測)。粒度の粗い CPU 負荷を、既に映像を配信している相手にだけ渡す形。
+# compute-pressure is delegated only to the playback origin. If it stays denied, the
+# player retries endlessly and, with 4 streams side by side, hundreds of violation logs
+# per second crash the whole tab (measured). This hands coarse CPU load only to the party
+# already streaming the video.
 #
-# /api/* は Worker が返すので _headers の対象外。ヘッダは worker/index.ts が付ける。
+# /api/* is served by the Worker, so _headers does not apply. worker/index.ts adds those headers.
 
 /*
   Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob: https://tile.openstreetmap.org https://tiles.openfreemap.org https://i.ytimg.com; font-src 'self' data:; connect-src 'self' https://api.open-meteo.com https://*.wikipedia.org https://api.mymemory.translated.net https://tile.openstreetmap.org https://tiles.openfreemap.org; frame-src https://www.youtube-nocookie.com https://www.youtube.com; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'
@@ -28,11 +31,12 @@
   Permissions-Policy: camera=(), microphone=(), geolocation=(self), payment=(), compute-pressure=(self "https://www.youtube-nocookie.com")
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
 
-# Vite が内容ハッシュ付きで吐くので恒久キャッシュ可。
+# Vite emits these with content hashes, so they can be cached forever.
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
-# カメラのマスタ。内容ハッシュが付かない固定名なので immutable にはできない
-# (人がカメラを足したときに届かなくなる)。短く持って裏で取り直す。
+# The camera master data. It has a fixed name without a content hash, so it cannot be
+# immutable (cameras someone adds would never reach users). Keep it short-lived and
+# refetch in the background.
 /cams.json
   Cache-Control: public, max-age=300, stale-while-revalidate=86400
