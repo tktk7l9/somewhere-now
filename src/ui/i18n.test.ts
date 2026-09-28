@@ -1,4 +1,4 @@
-import { liveDialCaption, t } from "./i18n";
+import { closedNotice, liveDialCaption, t } from "./i18n";
 
 describe("liveDialCaption", () => {
   it("puts the live count and the full catalog side by side when not filtered", () => {
@@ -66,5 +66,12 @@ describe("wording of the most-watched order", () => {
     expect(t("watchingLead", "ja")).toContain("人数の多い順");
     expect(t("watchingLead", "en")).toContain("how many people are watching");
     expect(t("watchingHint", "ja")).toContain("一覧");
+  });
+});
+
+describe("closedNotice", () => {
+  it("names the camera that was closed", () => {
+    expect(closedNotice("渋谷", "ja")).toBe("「渋谷」を閉じました");
+    expect(closedNotice("Shibuya", "en")).toBe("Closed Shibuya");
   });
 });

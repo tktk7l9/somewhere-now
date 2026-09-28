@@ -108,6 +108,8 @@ const STRINGS = {
     ja: "生存状態を取得できませんでした。地図と再生は使えます。",
     en: "Could not load live state. The map and player still work.",
   },
+  undo: { ja: "元に戻す", en: "Undo" },
+  dismiss: { ja: "通知を閉じる", en: "Dismiss" },
   night: { ja: "夜", en: "Night" },
   day: { ja: "昼", en: "Day" },
 } satisfies Record<string, Dict>;
@@ -149,6 +151,11 @@ export function liveDialCaption(
     label,
     aria,
   };
+}
+
+/** The notice after a camera is closed. Paired with an undo button. */
+export function closedNotice(name: string, lang: Lang): string {
+  return lang === "ja" ? `「${name}」を閉じました` : `Closed ${name}`;
 }
 
 const CATEGORY_LABELS: Record<CamCategory, Dict> = {

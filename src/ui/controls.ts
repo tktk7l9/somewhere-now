@@ -20,6 +20,11 @@ const LOCATE_ERROR_KEY: Record<LocateFailure, StringKey> = {
   unsupported: "locateUnsupported",
 };
 
+/** Why "Where I am" failed, in the user's words. */
+export function locateFailureMessage(reason: LocateFailure, lang: ViewState["lang"]): string {
+  return t(LOCATE_ERROR_KEY[reason], lang);
+}
+
 export interface ControlHandlers {
   onChange(patch: Partial<ViewState>): void;
   onRandom(): void;
@@ -166,11 +171,12 @@ export function createControls(container: HTMLElement, handlers: ControlHandlers
       locate.className = "chip";
       locate.textContent = locateLabel;
       locate.disabled = locateStatus === "pending";
-      locate.setAttribute("aria-live", "polite");
       locate.setAttribute("aria-label", locateLabel);
       if (locateStatus === "pending") locate.setAttribute("aria-busy", "true");
+      // The failure itself is announced by the notice over the stage (app.ts). The label keeps
+      // the reason for anyone who lands on the button later.
       if (locateStatus !== "idle" && locateStatus !== "pending") {
-        const detail = t(LOCATE_ERROR_KEY[locateStatus], lang);
+        const detail = locateFailureMessage(locateStatus, lang);
         locate.title = detail;
         locate.setAttribute("aria-label", `${t("locate", lang)}. ${detail}`);
       }

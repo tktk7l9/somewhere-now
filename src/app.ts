@@ -11,9 +11,11 @@ import { decodeFavorites, encodeFavorites, toggleFavorite } from "./domain/favor
 import { nearestCam, requestLocation, viewportForLocation } from "./domain/locate";
 import { isNightAt } from "./domain/terminator";
 import { MAX_VIEW, parseUrlState, toSearchString, type ViewState } from "./domain/urlState";
+import { closeCam, reopenCam } from "./domain/viewEdit";
 import { fetchCamStates, fetchCams } from "./api/client";
-import { createControls, type LocateStatus } from "./ui/controls";
-import { camName, liveDialCaption, t } from "./ui/i18n";
+import { createControls, locateFailureMessage, type LocateStatus } from "./ui/controls";
+import { camName, closedNotice, liveDialCaption, t } from "./ui/i18n";
+import { createNotice } from "./ui/notice";
 import type { GlobeView } from "./ui/globe";
 import { createMapView } from "./ui/map";
 import { mountPinLegend } from "./ui/pin";
@@ -112,6 +114,7 @@ export function startApp(root: HTMLElement): void {
   const watchingEl = root.querySelector<HTMLElement>("#watching")!;
   const dialEl = root.querySelector<HTMLElement>("#dial")!;
   const legendEl = root.querySelector<HTMLElement>("#legend")!;
+  const notice = createNotice(stageEl);
 
   // The master arrives later as JSON. The map is built without waiting for it (waiting
   // delays LCP by that much). Pins are placed when it arrives.
@@ -242,6 +245,9 @@ export function startApp(root: HTMLElement): void {
     const result = await requestLocation(locator);
     if (!result.ok) {
       locateStatus = result.reason;
+      // Before, the reason lived only in the button's title, so a failure looked like nothing
+      // happened (SHIG 55, 66).
+      notice.show(locateFailureMessage(result.reason, view.lang), view.lang);
       render();
       return;
     }
@@ -252,6 +258,7 @@ export function startApp(root: HTMLElement): void {
     );
     if (viewport === null) {
       locateStatus = "unavailable";
+      notice.show(locateFailureMessage("unavailable", view.lang), view.lang);
       render();
       return;
     }
@@ -292,9 +299,7 @@ export function startApp(root: HTMLElement): void {
       writeFavorites(favorites);
       render();
     },
-    onClose(camId) {
-      update({ view: view.view.filter((id) => id !== camId) });
-    },
+    onClose: closeWithUndo,
     onFocus(camId) {
       update({ view: [camId, ...view.view.filter((id) => id !== camId)] });
       const cam = byId.get(camId);
@@ -327,6 +332,23 @@ export function startApp(root: HTMLElement): void {
 
   const wall = createWall(wallEl, markUnplayable);
   const watchingList = createWatchingList(watchingEl, pickFromList);
+
+  /**
+   * Closing happens at once (no confirm) and the notice offers to take it back: a mis-tap
+   * otherwise costs the search that found the camera (SHIG 54, 57).
+   */
+  function closeWithUndo(camId: string): void {
+    const { view: next, closed } = closeCam(view.view, camId);
+    if (closed === null) return;
+    update({ view: next });
+    const cam = byId.get(camId);
+    notice.show(closedNotice(cam ? camName(cam.name, view.lang) : camId, view.lang), view.lang, {
+      label: t("undo", view.lang),
+      run() {
+        update({ view: reopenCam(view.view, closed, MAX_VIEW) });
+      },
+    });
+  }
 
   function toggleSound(): void {
     soundOn = !soundOn;
