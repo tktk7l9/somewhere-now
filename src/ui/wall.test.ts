@@ -140,9 +140,12 @@ describe("createWall", () => {
   it("does not start a player for a cell that left the page while waiting", () => {
     const { container, wall } = setup();
     wall.update([TOKYO, REYKJAVIK], NO_STATES, "ja", false);
-    container.querySelectorAll(".wall__cell")[1]!.remove();
+    const detached = container.querySelectorAll(".wall__cell")[1]!;
+    detached.remove();
     vi.advanceTimersByTime(5_000);
     expect(container.querySelectorAll("iframe")).toHaveLength(1);
+    // Checked on the detached cell itself: the container would not show a frame mounted there.
+    expect(detached.querySelector("iframe")).toBeNull();
   });
 
   it("empties the container on teardown", () => {

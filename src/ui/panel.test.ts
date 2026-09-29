@@ -50,6 +50,9 @@ describe("createPanel", () => {
     api.fetchWeather.mockReset().mockResolvedValue(null);
     api.fetchPlaceOverview.mockReset().mockResolvedValue(null);
   });
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
 
   it("shows what to do next and how to read the pins when nothing is open", () => {
     const { panel } = setup();
@@ -102,7 +105,6 @@ describe("createPanel", () => {
     const { panel } = setup();
     panel.update([TOKYO], ctx({ lang: "en", states: new Map([["tokyo", live(4_321)]]) }));
     expect(screen.getByText(/4,321 watching/)).toBeTruthy();
-    vi.restoreAllMocks();
   });
 
   it("starts with sound when the user has turned sound on", () => {

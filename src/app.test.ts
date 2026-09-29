@@ -174,7 +174,11 @@ describe("startApp", () => {
   afterEach(() => {
     releaseListeners();
     vi.restoreAllMocks();
+    vi.unstubAllGlobals();
     vi.useRealTimers();
+    // Tests that stub these restore them too, but only when they reach the end.
+    Object.defineProperty(navigator, "geolocation", { configurable: true, value: undefined });
+    Object.defineProperty(document, "hidden", { configurable: true, value: false });
   });
 
   it("reveals the screen after the first render and shows what is live", async () => {
@@ -726,6 +730,19 @@ describe("startApp", () => {
       expect(fakes.api.fetchCamStates.mock.calls.length).toBe(polls + 2);
       vi.advanceTimersByTime(120_000);
       expect(fakes.api.fetchCamStates.mock.calls.length).toBe(polls + 3);
+    });
+
+    it("does not stack a second poll when the tab reports visible while already polling", async () => {
+      vi.useFakeTimers({ toFake: ["setInterval", "clearInterval"] });
+      await start();
+      const polls = fakes.api.fetchCamStates.mock.calls.length;
+
+      // Some browsers fire visibilitychange without a hidden phase (e.g. on window focus).
+      document.dispatchEvent(new Event("visibilitychange"));
+      expect(fakes.api.fetchCamStates.mock.calls.length).toBe(polls + 1);
+
+      vi.advanceTimersByTime(120_000);
+      expect(fakes.api.fetchCamStates.mock.calls.length).toBe(polls + 2);
     });
 
     it("keeps the last live state when a later poll fails", async () => {
