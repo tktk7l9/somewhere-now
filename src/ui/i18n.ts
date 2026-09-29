@@ -165,6 +165,16 @@ export function liveDialCaption(
   };
 }
 
+/**
+ * "N watching", grouped in the UI language rather than the browser's. The panel and the list show
+ * the same number, so they must not disagree (a German browser used to give "4.321" in one and
+ * "4,321" in the other).
+ */
+export function viewersText(viewers: number, lang: Lang): string {
+  const locale = lang === "ja" ? "ja-JP" : "en-US";
+  return `${viewers.toLocaleString(locale)} ${t("viewers", lang)}`;
+}
+
 /** The notice after a camera is closed. Paired with an undo button. */
 export function closedNotice(name: string, lang: Lang): string {
   return lang === "ja" ? `「${name}」を閉じました` : `Closed ${name}`;
