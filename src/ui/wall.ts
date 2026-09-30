@@ -14,20 +14,46 @@ import type { Lang } from "../domain/weather";
 
 const STAGGER_MS = 1500;
 
+export interface WallHandlers {
+  onUnplayable(camId: string): void;
+  onBackToMap(): void;
+  /** Takes one camera off the wall (the caller pairs it with undo, SHIG 54). */
+  onClose(camId: string): void;
+  onToggleSound(): void;
+}
+
 interface Cell {
   root: HTMLElement;
   caption: HTMLElement;
+  /** Shown on the lead cell only: it is the one that can make sound (SHIG 25, 30). */
+  sound: HTMLButtonElement;
+  close: HTMLButtonElement;
   /** null while waiting to start. */
   player: PlayerHandle | null;
   timer: number | null;
 }
 
+function tool(className: string): HTMLButtonElement {
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = `chip wall__tool ${className}`;
+  return button;
+}
+
 export function createWall(
   container: HTMLElement,
-  onUnplayable: (camId: string) => void,
-  onBackToMap: () => void,
+  { onUnplayable, onBackToMap, onClose, onToggleSound }: WallHandlers,
 ) {
   const cells = new Map<string, Cell>();
+
+  /** The bar under the video: name, and the cell's own controls (SHIG 8, 23). */
+  function paintBar(cell: Cell, cam: Cam, index: number, lang: Lang, soundOn: boolean): void {
+    cell.caption.textContent = camName(cam.name, lang);
+    cell.sound.textContent = t("soundOn", lang);
+    cell.sound.setAttribute("aria-pressed", String(soundOn));
+    cell.sound.hidden = index !== 0;
+    cell.close.textContent = t("removeFromView", lang);
+  }
 
   // With nothing open, the wall used to be a blank dark stage. Say what fills it and give the
   // way back (SHIG 32, 55, 60).
@@ -77,7 +103,7 @@ export function createWall(
       selected.forEach((cam, index) => {
         const existing = cells.get(cam.id);
         if (existing !== undefined) {
-          existing.caption.textContent = camName(cam.name, lang);
+          paintBar(existing, cam, index, lang, soundOn);
           existing.player?.setTitle(camName(cam.name, lang));
           existing.player?.setMuted(!(soundOn && index === 0));
           return;
@@ -86,13 +112,20 @@ export function createWall(
         // Place the frame and caption immediately, and start only the videos one after another.
         const root = document.createElement("div");
         root.className = "wall__cell";
+        const bar = document.createElement("div");
+        bar.className = "wall__bar";
         const caption = document.createElement("span");
         caption.className = "wall__caption";
-        caption.textContent = camName(cam.name, lang);
-        root.append(caption);
+        const sound = tool("wall__tool--sound");
+        sound.addEventListener("click", onToggleSound);
+        const close = tool("wall__tool--close");
+        close.addEventListener("click", () => onClose(cam.id));
+        bar.append(caption, sound, close);
+        root.append(bar);
         container.append(root);
 
-        const cell: Cell = { root, caption, player: null, timer: null };
+        const cell: Cell = { root, caption, sound, close, player: null, timer: null };
+        paintBar(cell, cam, index, lang, soundOn);
         // Register first, so a re-render during the wait does not create a duplicate.
         cells.set(cam.id, cell);
 

@@ -281,6 +281,13 @@ html.resizing-panel iframe {
   display: none;
 }
 
+/* Chips with a label in two lengths ("絞り込みを解除" / "解除", "English" / "EN"). Narrow screens show
+   the short one so the primary row keeps its line count (SHIG 85); the full label stays as the
+   accessible name. */
+.chip--two-lengths .chip__short {
+  display: none;
+}
+
 .search {
   background: var(--ink);
   border: 1px solid var(--haze);
@@ -779,6 +786,11 @@ html.resizing-panel iframe {
   font-size: 12px;
 }
 
+/* Pushed to the far end of its line, away from the toggles (SHIG 16). */
+.card__actions .chip--close {
+  margin-left: auto;
+}
+
 /* ── Wall ───────────────────────────────────────────── */
 
 .wall {
@@ -814,24 +826,47 @@ html.resizing-panel iframe {
   border: 0;
 }
 
-.wall__caption {
+/* The bar under the video: the name and the cell's own controls (close, and sound on the lead cell),
+   so one camera can be handled where it is shown instead of back in the panel (SHIG 8, 23). It hugs
+   the left edge and lets pointer events through outside its children, so the player's own controls
+   on the right stay reachable. */
+.wall__bar {
   position: absolute;
   left: 0;
   bottom: 0;
   z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 100%;
+  padding: 4px 6px 4px 10px;
+  background: rgba(11, 22, 32, 0.82);
+  pointer-events: none;
+}
+
+.wall__bar > * {
+  pointer-events: auto;
+}
+
+.wall__caption {
   /* Keep a long title on 1 line. On a narrow screen it wraps to 2 lines and blocks the video with a
      horizontal band. */
-  max-width: 100%;
+  min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  padding: 5px 10px;
-  background: rgba(11, 22, 32, 0.82);
+  padding: 2px 4px 2px 0;
   font-family: var(--font-display);
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.09em;
   text-transform: uppercase;
+}
+
+.wall__tool {
+  flex: 0 0 auto;
+  font-size: 11px;
+  padding: 3px 8px;
 }
 
 /* When viewing side by side, collapse both the map and the panel and give the video all the
@@ -1037,6 +1072,14 @@ html.resizing-panel iframe {
      one could not be used while looking at the other. */
   .chip--filters {
     display: inline-block;
+  }
+
+  .chip--two-lengths .chip__long {
+    display: none;
+  }
+
+  .chip--two-lengths .chip__short {
+    display: inline;
   }
 
   .app[data-filters="closed"] .masthead__filters {

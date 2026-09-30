@@ -35,6 +35,8 @@ export interface ControlHandlers {
   onToggleWatching(): void;
   onToggleFilters(): void;
   onSetGlobe(globe: boolean): void;
+  /** Turns every filter off at once (SHIG 60, 22). */
+  onClearFilters(): void;
 }
 
 const FOCUSABLE = "button, input";
@@ -59,10 +61,36 @@ function replaceKeepingFocus(row: HTMLElement, build: () => HTMLElement[]): void
   // Built only now: building moves persistent controls (the search box) out of the row.
   row.replaceChildren(...build());
   if (at === -1) return;
-  const target = row.querySelectorAll<HTMLElement>(FOCUSABLE)[at];
+  const after = [...row.querySelectorAll<HTMLElement>(FOCUSABLE)];
+  // A control that vanished with its own press (clearing the filters hides the clear chip) hands
+  // focus to the nearest one before it that is still shown (the filters chip is display: none on
+  // wide screens), so keyboard focus stays in the row.
+  const shown = (el: HTMLElement): boolean => !el.hidden && getComputedStyle(el).display !== "none";
+  const target = after[at]?.hidden ? after.slice(0, at).reverse().find(shown) : after[at];
   if (target === undefined || document.activeElement === target) return;
   if (target.matches(":disabled")) parkedFocus.set(row, at);
   else target.focus({ preventScroll: true });
+}
+
+/**
+ * A label in two lengths. The full one is the accessible name and shows on wide screens; narrow
+ * screens show the short one so the primary row keeps its 3 lines and the map does not shrink
+ * when a chip appears (SHIG 85). CSS picks which span is visible (.chip__long / .chip__short).
+ */
+function setTwoLengthLabel(button: HTMLButtonElement, long: string, short: string): void {
+  let longEl = button.querySelector<HTMLElement>(".chip__long");
+  let shortEl = button.querySelector<HTMLElement>(".chip__short");
+  if (longEl === null || shortEl === null) {
+    longEl = document.createElement("span");
+    longEl.className = "chip__long";
+    shortEl = document.createElement("span");
+    shortEl.className = "chip__short";
+    shortEl.setAttribute("aria-hidden", "true");
+    button.replaceChildren(longEl, shortEl);
+  }
+  longEl.textContent = long;
+  shortEl.textContent = short;
+  button.setAttribute("aria-label", long);
 }
 
 function chip(label: string, pressed: boolean, onClick: () => void): HTMLButtonElement {
@@ -104,6 +132,17 @@ export function createControls(container: HTMLElement, handlers: ControlHandlers
   search.className = "search";
   search.addEventListener("input", () => handlers.onChange({ query: search.value }));
 
+  // The way out of any filter (SHIG 60, 22). It sits in the primary row beside the "絞り込み N"
+  // chip: on a narrow screen that row stays visible while the filter row is collapsed, and on a
+  // wide screen the filter row is full and a chip appearing there wrapped it onto a third line,
+  // pushing the map down on every toggle (SHIG 85). Built once, like the search box, and shown
+  // with hidden: typing the first character makes it appear, and rebuilding the filter row at that
+  // moment would detach the box mid-composition.
+  const clear = document.createElement("button");
+  clear.type = "button";
+  clear.className = "chip chip--clear chip--two-lengths";
+  clear.addEventListener("click", handlers.onClearFilters);
+
   const primaryRow = row("masthead__primary");
   const filtersRow = row("masthead__filters");
   filtersRow.id = FILTERS_ID;
@@ -130,10 +169,12 @@ export function createControls(container: HTMLElement, handlers: ControlHandlers
       // Writing back the same value while typing makes the cursor jump to the end.
       if (search.value !== state.query) search.value = state.query;
 
+      const active = activeFilterCount(state);
+      setTwoLengthLabel(clear, t("clearFilters", lang), t("clearFiltersShort", lang));
+
       const mapOpen = !wallOpen && !state.watching && !state.globe;
       const globeOpen = !wallOpen && !state.watching && state.globe;
       const watchingOpen = !wallOpen && state.watching;
-      const active = activeFilterCount(state);
 
       const nextPrimaryKey = [
         lang,
@@ -206,10 +247,14 @@ export function createControls(container: HTMLElement, handlers: ControlHandlers
       const wall = chip(t(wallOpen ? "backToMap" : "wall", lang), wallOpen, handlers.onToggleWall);
       const watching = chip(t("watching", lang), watchingOpen, handlers.onToggleWatching);
 
-      const langToggle = chip("JA / EN", false, () =>
-        handlers.onChange({ lang: lang === "ja" ? "en" : "ja" }),
-      );
+      // Named after where it goes, in that language: "JA / EN" said neither which one is on
+      // nor which one a press would give (SHIG 49, 71).
+      const nextLang = lang === "ja" ? "en" : "ja";
+      const langToggle = chip("", false, () => handlers.onChange({ lang: nextLang }));
+      langToggle.classList.add("chip--two-lengths");
+      setTwoLengthLabel(langToggle, t("switchLang", lang), t("switchLangShort", lang));
       langToggle.removeAttribute("aria-pressed");
+      langToggle.lang = nextLang;
 
       // On narrow screens, let the row of search, categories and flags collapse (if always open,
       // both rows of the masthead become horizontal scrolls and nobody can see which features
@@ -226,10 +271,17 @@ export function createControls(container: HTMLElement, handlers: ControlHandlers
 
       if (nextPrimaryKey !== primaryKey) {
         primaryKey = nextPrimaryKey;
-        replaceKeepingFocus(primaryRow, () => [
-          group(random, locate, flatMap, globe, wall, watching),
-          group(filtersToggle, langToggle),
-        ]);
+        replaceKeepingFocus(primaryRow, () => {
+          // Hidden only here, after the focus position was read: Chrome blurs a focused element
+          // the moment it gets hidden (measured), and read afterwards the row would find nothing
+          // to hand focus back from. The chip's state changes only with `active`, which is in the
+          // key, so this build runs every time it needs to change.
+          clear.hidden = active === 0;
+          return [
+            group(random, locate, flatMap, globe, wall, watching),
+            group(filtersToggle, clear, langToggle),
+          ];
+        });
       }
 
       if (nextFiltersKey !== filtersKey) {

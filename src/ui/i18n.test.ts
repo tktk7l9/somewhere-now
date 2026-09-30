@@ -1,4 +1,4 @@
-import { closedNotice, liveDialCaption, t, viewersText } from "./i18n";
+import { closedNotice, countryName, liveDialCaption, t, viewersText } from "./i18n";
 
 describe("liveDialCaption", () => {
   it("puts the live count and the full catalog side by side when not filtered", () => {
@@ -81,5 +81,21 @@ describe("viewersText", () => {
     expect(viewersText(12_345, "ja")).toBe("12,345 人が視聴中");
     expect(viewersText(12_345, "en")).toBe("12,345 watching");
     expect(viewersText(0, "en")).toBe("0 watching");
+  });
+});
+
+describe("countryName", () => {
+  it("says the country in the UI language instead of the ISO code (SHIG 11)", () => {
+    expect(countryName("JP", "ja")).toBe("日本");
+    expect(countryName("JP", "en")).toBe("Japan");
+    expect(countryName("IS", "ja")).toBe("アイスランド");
+  });
+
+  it("falls back to the code when the runtime cannot name it", () => {
+    const original = Intl.DisplayNames;
+    vi.stubGlobal("Intl", { ...Intl, DisplayNames: undefined });
+    expect(countryName("FR", "ja")).toBe("FR");
+    vi.stubGlobal("Intl", { ...Intl, DisplayNames: original });
+    vi.unstubAllGlobals();
   });
 });

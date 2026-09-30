@@ -62,8 +62,9 @@ const STRINGS = {
   focusThis: { ja: "これを見る", en: "Watch this" },
   alsoOpen: { ja: "開いているカメラ", en: "Also open" },
   removeFromView: { ja: "閉じる", en: "Close" },
-  favorite: { ja: "お気に入りに入れる", en: "Add to favorites" },
-  unfavorite: { ja: "お気に入りから外す", en: "Remove from favorites" },
+  // Toggles keep one label and show their state through aria-pressed, so the lit chip is never
+  // read as "the action to take next" (SHIG 49).
+  favorite: { ja: "お気に入り", en: "Favorite" },
   watchOnYouTube: { ja: "YouTube で見る", en: "Watch on YouTube" },
   emptyTitle: { ja: "まだ何も選んでいません", en: "Nothing selected yet" },
   emptyBody: {
@@ -83,7 +84,10 @@ const STRINGS = {
   sheetCollapse: { ja: "パネルを畳む", en: "Close the panel" },
   sheetIdle: { ja: "地図から地点を選ぶ", en: "Pick a place on the map" },
   soundOn: { ja: "音を出す", en: "Sound on" },
-  soundOff: { ja: "音を消す", en: "Sound off" },
+  /** The language chip names its destination, in that language (SHIG 49, 71). */
+  switchLang: { ja: "English", en: "日本語" },
+  /** The same, as the code a narrow screen has room for. */
+  switchLangShort: { ja: "EN", en: "JA" },
   noLive: {
     ja: "いま配信しているカメラがありません。少し時間をおいてください。",
     en: "No cameras are live right now. Try again in a little while.",
@@ -117,6 +121,8 @@ const STRINGS = {
   },
   noMatchShort: { ja: "条件に合うカメラがありません", en: "No cameras match" },
   clearFilters: { ja: "絞り込みを解除", en: "Clear filters" },
+  /** Shown beside "絞り込み N" on narrow screens, where the full label would wrap the row. */
+  clearFiltersShort: { ja: "解除", en: "Clear" },
   sheetIdleWatching: { ja: "一覧から地点を選ぶ", en: "Pick a place from the list" },
   undo: { ja: "元に戻す", en: "Undo" },
   dismiss: { ja: "通知を閉じる", en: "Dismiss" },
@@ -200,4 +206,24 @@ export function categoryLabel(category: CamCategory, lang: Lang): string {
 
 export function camName(name: { ja: string; en: string }, lang: Lang): string {
   return name[lang];
+}
+
+const countryNames = new Map<string, string>();
+
+/**
+ * "日本" / "Japan" for the ISO code the master carries. The screen speaks the user's words, not the
+ * data's (SHIG 11, 28). When the runtime cannot name the code, the code itself is shown.
+ */
+export function countryName(code: string, lang: Lang): string {
+  const key = `${lang}:${code}`;
+  const cached = countryNames.get(key);
+  if (cached !== undefined) return cached;
+  let name = code;
+  try {
+    name = new Intl.DisplayNames([lang === "ja" ? "ja-JP" : "en-US"], { type: "region", fallback: "none" }).of(code) ?? code;
+  } catch {
+    name = code;
+  }
+  countryNames.set(key, name);
+  return name;
 }

@@ -2,6 +2,7 @@ import {
   CAM_CATEGORIES,
   collectCamProblems,
   filterCams,
+  normalizeSearchText,
   pickRandom,
   rankLiveByViewers,
   resolveEmbedUrl,
@@ -147,6 +148,36 @@ describe("filterCams", () => {
 
   it("stacking conditions gives their intersection", () => {
     expect(filterCams(cams, ctx, { categories: ["animal"], liveOnly: true })).toEqual([]);
+  });
+
+  // The search accepts what people type, not what the data happens to be (SHIG 50).
+  describe("lenient search", () => {
+    const zurich = cam({ id: "zurich", name: { ja: "チューリッヒ駅", en: "Zürich Station" } });
+    const all = [tokyo, zoo, zurich];
+
+    it("ignores full-width letters and full-width spaces", () => {
+      expect(filterCams(all, ctx, { query: "ｓｈｉｂｕｙａ　ｃｒｏｓｓｉｎｇ" })).toEqual([tokyo]);
+    });
+
+    it("ignores diacritics", () => {
+      expect(filterCams(all, ctx, { query: "zurich" })).toEqual([zurich]);
+      expect(filterCams(all, ctx, { query: "ZÜRICH" })).toEqual([zurich]);
+    });
+
+    it("matches hiragana against a katakana name", () => {
+      expect(filterCams(all, ctx, { query: "ちゅーりっひ" })).toEqual([zurich]);
+    });
+
+    it("matches every word in any order", () => {
+      expect(filterCams(all, ctx, { query: "crossing shibuya" })).toEqual([tokyo]);
+      expect(filterCams(all, ctx, { query: "shibuya station" })).toEqual([]);
+    });
+  });
+});
+
+describe("normalizeSearchText", () => {
+  it("folds case, width, diacritics and kana, and collapses spaces", () => {
+    expect(normalizeSearchText("  Ｚürich　ふじ  SAN ")).toBe("zurich フジ san");
   });
 });
 

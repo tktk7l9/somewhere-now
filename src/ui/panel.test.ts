@@ -87,7 +87,7 @@ describe("createPanel", () => {
     expect(new URL(frame.src).pathname).toBe("/embed/tok-live");
     expect(new URL(frame.src).searchParams.get("mute")).toBe("1");
     expect(screen.getByRole("heading", { name: "東京の交差点" })).toBeTruthy();
-    expect(screen.getByText("街 · JP")).toBeTruthy();
+    expect(screen.getByText("街 · 日本")).toBeTruthy();
     expect(screen.getByText("12:00")).toBeTruthy();
     expect(screen.getByText("UTC+9")).toBeTruthy();
     expect(screen.getByText(/4,321 人が視聴中/)).toBeTruthy();
@@ -122,7 +122,7 @@ describe("createPanel", () => {
     const { container, panel } = setup();
     panel.update([TOKYO], ctx({ soundOn: true }));
     expect(new URL(container.querySelector("iframe")!.src).searchParams.get("mute")).toBe("0");
-    expect(screen.getByRole("button", { name: "音を消す" }).getAttribute("aria-pressed")).toBe("true");
+    expect(screen.getByRole("button", { name: "音を出す" }).getAttribute("aria-pressed")).toBe("true");
   });
 
   it("shows why a stopped stream cannot play instead of a player", () => {
@@ -149,13 +149,18 @@ describe("createPanel", () => {
     panel.update([TOKYO], ctx({ favoriteIds: new Set(["tokyo"]) }));
 
     await user.click(screen.getByRole("button", { name: "音を出す" }));
-    await user.click(screen.getByRole("button", { name: "お気に入りから外す" }));
+    await user.click(screen.getByRole("button", { name: "お気に入り" }));
     await user.click(screen.getByRole("button", { name: "閉じる" }));
 
     expect(handlers.onToggleSound).toHaveBeenCalledTimes(1);
     expect(handlers.onToggleFavorite).toHaveBeenCalledWith("tokyo");
     expect(handlers.onClose).toHaveBeenCalledWith("tokyo");
-    expect(screen.getByRole("button", { name: "お気に入りから外す" }).getAttribute("aria-pressed")).toBe("true");
+    expect(screen.getByRole("button", { name: "お気に入り" }).getAttribute("aria-pressed")).toBe("true");
+    expect(screen.getByRole("button", { name: "音を出す" }).getAttribute("aria-pressed")).toBe("false");
+    // "閉じる" sits last and apart, so the toggles next to it are not mis-tapped into it (SHIG 16, 13).
+    const actions = [...document.querySelector(".card__actions")!.children];
+    expect(actions.at(-1)!.textContent).toBe("閉じる");
+    expect(actions.at(-1)!.classList.contains("chip--close")).toBe(true);
   });
 
   it("keeps the same player when only the surroundings change", () => {
@@ -169,7 +174,7 @@ describe("createPanel", () => {
     expect(container.querySelector("iframe")).toBe(frame);
     expect(JSON.parse(post.mock.calls.at(-1)![0] as string).func).toBe("unMute");
     expect(screen.getByRole("heading", { name: "Tokyo Crossing" })).toBeTruthy();
-    expect(screen.getByText("City · JP")).toBeTruthy();
+    expect(screen.getByText("City · Japan")).toBeTruthy();
   });
 
   it("swaps the player only when the lead changes", () => {

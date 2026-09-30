@@ -21,6 +21,7 @@ function setup() {
     onToggleWatching: vi.fn(),
     onToggleFilters: vi.fn(),
     onSetGlobe: vi.fn(),
+    onClearFilters: vi.fn(),
   };
   const controls = createControls(container, handlers as unknown as ControlHandlers);
   const render = (
@@ -40,13 +41,13 @@ describe("createControls", () => {
     const { render } = setup();
     render();
 
-    for (const name of ["どこかへ連れてって", "いまいる場所へ", "並べて見る", "視聴が多い順", "JA / EN"]) {
+    for (const name of ["どこかへ連れてって", "いまいる場所へ", "並べて見る", "視聴が多い順", "English"]) {
       expect(screen.getByRole("button", { name })).toBeTruthy();
     }
     expect(pressed("平面図")).toBe("true");
     expect(pressed("地球儀")).toBe("false");
     expect(pressed("並べて見る")).toBe("false");
-    expect(screen.getByRole("button", { name: "JA / EN" }).hasAttribute("aria-pressed")).toBe(false);
+    expect(screen.getByRole("button", { name: "English" }).hasAttribute("aria-pressed")).toBe(false);
     expect(screen.getByRole("searchbox", { name: "地名で絞り込む" })).toBeTruthy();
   });
 
@@ -113,17 +114,22 @@ describe("createControls", () => {
     expect(handlers.onToggleFilters).toHaveBeenCalledTimes(1);
   });
 
-  it("switches language both ways", async () => {
+  // The chip names the language it switches to, in that language, so it reads neither as the
+  // current state nor as a two-way toggle whose direction is unclear (SHIG 49, 71).
+  it("switches language both ways, naming the destination", async () => {
     const user = userEvent.setup();
     const { handlers, render } = setup();
     render();
-    await user.click(screen.getByRole("button", { name: "JA / EN" }));
+    expect(screen.getByRole("button", { name: "English" }).getAttribute("lang")).toBe("en");
+    await user.click(screen.getByRole("button", { name: "English" }));
     expect(handlers.onChange).toHaveBeenLastCalledWith({ lang: "en" });
 
     render(state({ lang: "en" }));
     expect(screen.getByRole("button", { name: "Take me somewhere" })).toBeTruthy();
     expect(screen.getByRole("searchbox", { name: "Filter by name" })).toBeTruthy();
-    await user.click(screen.getByRole("button", { name: "JA / EN" }));
+    expect(screen.queryByRole("button", { name: "English" })).toBeNull();
+    expect(screen.getByRole("button", { name: "日本語" }).getAttribute("lang")).toBe("ja");
+    await user.click(screen.getByRole("button", { name: "日本語" }));
     expect(handlers.onChange).toHaveBeenLastCalledWith({ lang: "ja" });
   });
 
@@ -134,6 +140,69 @@ describe("createControls", () => {
     expect(toggle.getAttribute("aria-expanded")).toBe("true");
     const controlled = toggle.getAttribute("aria-controls")!;
     expect(container.querySelector(`#${controlled}`)?.contains(screen.getByRole("searchbox"))).toBe(true);
+  });
+
+  // The only way out of a filter used to be the empty state; with one result left, every chip
+  // had to be turned off by hand (SHIG 60, 22).
+  it("offers to clear every filter, only while one is on, without rebuilding the search box", async () => {
+    const user = userEvent.setup();
+    const { handlers, render } = setup();
+    render();
+    expect(screen.queryByRole("button", { name: "絞り込みを解除" })).toBeNull();
+
+    render(state({ categories: ["city"] }));
+    const clear = screen.getByRole("button", { name: "絞り込みを解除" });
+    await user.click(clear);
+    expect(handlers.onClearFilters).toHaveBeenCalledTimes(1);
+
+    // Typing alone counts as a filter, and the box the person types in stays the same element.
+    const search = screen.getByRole("searchbox");
+    render(state({ query: "tok" }));
+    expect(screen.getByRole("button", { name: "絞り込みを解除" })).toBe(clear);
+    expect(screen.getByRole("searchbox")).toBe(search);
+    render(state());
+    expect(screen.queryByRole("button", { name: "絞り込みを解除" })).toBeNull();
+
+    render(state({ liveOnly: true, lang: "en" }));
+    expect(screen.getByRole("button", { name: "Clear filters" })).toBeTruthy();
+  });
+
+  /**
+   * Chrome blurs a focused element synchronously the moment it is hidden (measured in headless
+   * Chrome: focusout fires from inside the `hidden` assignment). jsdom keeps it focused, which
+   * would hide a lost focus, so the chip gets Chrome's behaviour here.
+   */
+  function blurWhenHiddenLikeChrome(el: HTMLElement): void {
+    const proto = Object.getOwnPropertyDescriptor(HTMLElement.prototype, "hidden")!;
+    Object.defineProperty(el, "hidden", {
+      get: proto.get,
+      set(value: boolean) {
+        proto.set!.call(el, value);
+        if (value && document.activeElement === el) el.blur();
+      },
+    });
+  }
+
+  it("keeps keyboard focus in the row when the pressed clear chip disappears", () => {
+    const { render } = setup();
+    render(state({ categories: ["city"] }));
+    blurWhenHiddenLikeChrome(screen.getByRole("button", { name: "絞り込みを解除" }));
+    screen.getByRole("button", { name: "絞り込みを解除" }).focus();
+    render(state());
+    expect(document.activeElement).toBe(screen.getByRole("button", { name: "絞り込み" }));
+
+    // On wide screens the filters chip is display: none, so focus skips past it.
+    const wide = document.createElement("style");
+    wide.textContent = ".chip--filters { display: none; }";
+    document.head.append(wide);
+    try {
+      render(state({ categories: ["city"] }));
+      screen.getByRole("button", { name: "絞り込みを解除" }).focus();
+      render(state());
+      expect(document.activeElement).toBe(screen.getByRole("button", { name: "視聴が多い順" }));
+    } finally {
+      wide.remove();
+    }
   });
 
   it("disables the locate chip and says it is searching while pending", () => {

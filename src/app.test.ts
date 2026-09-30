@@ -213,9 +213,14 @@ describe("startApp", () => {
     expect(params().get("view")).toBe("reykjavik,tokyo");
     expect(within(panel()).getByRole("heading", { name: "開いているカメラ" })).toBeTruthy();
 
+    // Pressing an open pin closes it the same way the panel does: at once, with undo (SHIG 6, 54).
     map.onSelect("reykjavik");
     expect(params().get("cam")).toBe("tokyo");
     expect(map.focus).toHaveBeenCalledTimes(2);
+    expect(within(noticeBox()).getByRole("status").textContent).toBe("「レイキャビクの港」を閉じました");
+    await userEvent.setup().click(screen.getByRole("button", { name: "元に戻す" }));
+    expect(params().get("view")).toBe("reykjavik,tokyo");
+    map.onSelect("reykjavik");
 
     // Closing the last one lowers the bottom sheet and the grip invites a pick again.
     map.onSelect("tokyo");
@@ -229,6 +234,54 @@ describe("startApp", () => {
     expect(document.documentElement.lang).toBe("en");
     expect(within(panel()).getByRole("heading", { name: "Nairobi Waterhole" })).toBeTruthy();
     expect(within(panel()).getByText("Tokyo Crossing")).toBeTruthy();
+  });
+
+  // A shared link used to open the panel while the map stayed on its initial view, with the
+  // camera's pin hidden inside a cluster on the other side of the world (SHIG 24, 59).
+  it("brings the lead camera of a shared URL into view on the map", async () => {
+    const { map } = await start({ url: "/?view=nairobi,tokyo" });
+    expect(map.focus).toHaveBeenCalledTimes(1);
+    expect(map.focus).toHaveBeenCalledWith(NAIROBI);
+  });
+
+  it("brings the lead camera of a shared URL into view on the globe", async () => {
+    const { map } = await start({ url: "/?cam=tokyo&globe=1" });
+    await waitFor(() => expect(fakes.globe?.focus).toHaveBeenCalledWith(TOKYO));
+    expect(map.focus).not.toHaveBeenCalled();
+  });
+
+  it("does not move the map when the shared URL names no camera", async () => {
+    const { map } = await start({ url: "/?cat=city" });
+    expect(map.focus).not.toHaveBeenCalled();
+  });
+
+  // The list covers the map (display: none), and Leaflet cannot fly a map that has no size:
+  // it threw "Invalid LatLng (NaN, NaN)" on every frame. The flight waits for the list to close.
+  it("waits until the list closes before flying to the lead camera of a shared URL", async () => {
+    const user = userEvent.setup();
+    const { map } = await start({ url: "/?watching=1&cam=tokyo" });
+    expect(map.focus).not.toHaveBeenCalled();
+
+    await user.click(screen.getByRole("button", { name: "視聴が多い順" }));
+    expect(map.focus).toHaveBeenCalledTimes(1);
+    expect(map.focus).toHaveBeenCalledWith(TOKYO);
+  });
+
+  it("names the tab after the lead camera so open tabs can be told apart", async () => {
+    document.title = "somewhere-now — 地球のライブカメラを地図から覗く";
+    const user = userEvent.setup();
+    const { map } = await start({ url: "/?cam=tokyo" });
+    expect(document.title).toBe("東京の交差点 — Somewhere Now");
+
+    map.onSelect("reykjavik");
+    expect(document.title).toBe("レイキャビクの港 — Somewhere Now");
+
+    await user.click(screen.getByRole("button", { name: "English" }));
+    expect(document.title).toBe("Reykjavik Harbor — Somewhere Now");
+
+    map.onSelect("reykjavik");
+    map.onSelect("tokyo");
+    expect(document.title).toBe("somewhere-now — 地球のライブカメラを地図から覗く");
   });
 
   it("closes a camera at once and brings it back with undo", async () => {
@@ -263,15 +316,17 @@ describe("startApp", () => {
     const user = userEvent.setup();
     await start({ url: "/?cam=tokyo" });
 
-    await user.click(screen.getByRole("button", { name: "お気に入りに入れる" }));
+    // The labels stay put and only the pressed state moves, so "音を出す" lit amber cannot be
+    // misread as the action to take next (SHIG 49).
+    await user.click(screen.getByRole("button", { name: "お気に入り" }));
     expect(localStorage.getItem("somewhere-now:favorites")).toContain("tokyo");
-    expect(screen.getByRole("button", { name: "お気に入りから外す" })).toBeTruthy();
+    expect(screen.getByRole("button", { name: "お気に入り", pressed: true })).toBeTruthy();
 
-    await user.click(screen.getByRole("button", { name: "音を出す" }));
+    await user.click(screen.getByRole("button", { name: "音を出す", pressed: false }));
     expect(localStorage.getItem("somewhere-now:sound")).toBe("on");
-    expect(screen.getByRole("button", { name: "音を消す" })).toBeTruthy();
-    await user.click(screen.getByRole("button", { name: "音を消す" }));
+    await user.click(screen.getByRole("button", { name: "音を出す", pressed: true }));
     expect(localStorage.getItem("somewhere-now:sound")).toBe("off");
+    expect(screen.getByRole("button", { name: "音を出す", pressed: false })).toBeTruthy();
   });
 
   it("starts with sound when it was left on and restores favorites", async () => {
@@ -294,10 +349,10 @@ describe("startApp", () => {
     });
     await start({ url: "/?cam=tokyo" });
 
-    await user.click(screen.getByRole("button", { name: "お気に入りに入れる" }));
+    await user.click(screen.getByRole("button", { name: "お気に入り" }));
     await user.click(screen.getByRole("button", { name: "音を出す" }));
-    expect(screen.getByRole("button", { name: "お気に入りから外す" })).toBeTruthy();
-    expect(screen.getByRole("button", { name: "音を消す" })).toBeTruthy();
+    expect(screen.getByRole("button", { name: "お気に入り", pressed: true })).toBeTruthy();
+    expect(screen.getByRole("button", { name: "音を出す", pressed: true })).toBeTruthy();
   });
 
   it("filters by typing and by chips, updating the URL and the dial", async () => {
@@ -314,6 +369,15 @@ describe("startApp", () => {
     await user.click(screen.getByRole("button", { name: "動物" }));
     expect(params().get("cat")).toBe("animal");
     expect(map.setVisible).toHaveBeenLastCalledWith([NAIROBI]);
+
+    // One press in the filter row turns everything off, even with results still showing (SHIG 60).
+    await user.type(screen.getByRole("searchbox"), "ナイロビ");
+    const controls = document.getElementById("controls")!;
+    await user.click(within(controls).getByRole("button", { name: "絞り込みを解除" }));
+    expect(location.search).toBe("");
+    expect((screen.getByRole("searchbox") as HTMLInputElement).value).toBe("");
+    expect(map.setVisible).toHaveBeenLastCalledWith(ALL_CAMS);
+    expect(within(controls).queryByRole("button", { name: "絞り込みを解除" })).toBeNull();
   });
 
   it("offers to clear the filters when they hide every camera", async () => {
@@ -514,6 +578,28 @@ describe("startApp", () => {
       expect(wall.childElementCount).toBe(0);
     });
 
+    it("closes a camera from its wall cell with undo, and toggles sound from the lead cell", async () => {
+      const user = userEvent.setup();
+      const { root } = await start({ url: "/?view=tokyo,nairobi" });
+      await user.click(screen.getByRole("button", { name: "並べて見る" }));
+      const wall = document.getElementById("wall")!;
+
+      await user.click(within(wall).getByRole("button", { name: "音を出す" }));
+      expect(localStorage.getItem("somewhere-now:sound")).toBe("on");
+      expect(within(wall).getByRole("button", { name: "音を出す" }).getAttribute("aria-pressed")).toBe("true");
+
+      const cell = within(wall).getByText("ナイロビの水場").closest<HTMLElement>(".wall__cell")!;
+      await user.click(within(cell).getByRole("button", { name: "閉じる" }));
+      expect(root.dataset["mode"]).toBe("wall");
+      expect(params().get("cam")).toBe("tokyo");
+      expect(within(wall).queryByText("ナイロビの水場")).toBeNull();
+      const undo = screen.getByRole("button", { name: "元に戻す" });
+      expect(document.activeElement).toBe(undo);
+      await user.click(undo);
+      expect(params().get("view")).toBe("tokyo,nairobi");
+      expect(within(wall).getByText("ナイロビの水場")).toBeTruthy();
+    });
+
     it("offers the way back from an empty wall", async () => {
       const user = userEvent.setup();
       const { root } = await start();
@@ -695,7 +781,7 @@ describe("startApp", () => {
   it("switches the whole screen to English", async () => {
     const user = userEvent.setup();
     await start({ url: "/?cam=tokyo" });
-    await user.click(screen.getByRole("button", { name: "JA / EN" }));
+    await user.click(screen.getByRole("button", { name: "English" }));
     expect(params().get("lang")).toBe("en");
     expect(document.documentElement.lang).toBe("en");
     expect(within(panel()).getByRole("heading", { name: "Tokyo Crossing" })).toBeTruthy();

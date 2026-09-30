@@ -117,6 +117,8 @@ export function startApp(root: HTMLElement): void {
   const notesEl = root.querySelector<HTMLElement>("#notes")!;
   const legendEl = root.querySelector<HTMLElement>("#legend")!;
   const notice = createNotice(stageEl);
+  // The tab is named after the lead camera; with nothing open it returns to this.
+  const baseTitle = document.title;
 
   // The master arrives later as JSON. The map is built without waiting for it (waiting
   // delays LCP by that much). Pins are placed when it arrives.
@@ -151,15 +153,14 @@ export function startApp(root: HTMLElement): void {
 
   function selectCam(camId: string): void {
     // A marker toggles open/closed. The newly opened one comes first (the side that plays sound).
-    const isOpen = view.view.includes(camId);
-    const next = isOpen
-      ? view.view.filter((id) => id !== camId)
-      : [camId, ...view.view].slice(0, MAX_VIEW);
-    update({ view: next });
-    if (!isOpen) {
-      const cam = byId.get(camId);
-      if (cam) focusCam(cam);
+    // Closing goes the same way as the panel's "閉じる": at once, with undo (SHIG 6, 54).
+    if (view.view.includes(camId)) {
+      closeWithUndo(camId);
+      return;
     }
+    update({ view: [camId, ...view.view].slice(0, MAX_VIEW) });
+    const cam = byId.get(camId);
+    if (cam) focusCam(cam);
   }
 
   /** Pick from the list. If already open, raise it to the front; if closed, open it. Does not toggle. */
@@ -333,10 +334,15 @@ export function startApp(root: HTMLElement): void {
     lang: view.lang,
   });
 
-  const wall = createWall(wallEl, markUnplayable, () => {
-    wallOpen = false;
-    wall.teardown();
-    render();
+  const wall = createWall(wallEl, {
+    onUnplayable: markUnplayable,
+    onBackToMap() {
+      wallOpen = false;
+      wall.teardown();
+      render();
+    },
+    onClose: closeWithUndo,
+    onToggleSound: toggleSound,
   });
   const watchingList = createWatchingList(watchingEl, pickFromList, clearFilters);
 
@@ -413,6 +419,7 @@ export function startApp(root: HTMLElement): void {
       filtersOpen = !filtersOpen;
       render();
     },
+    onClearFilters: clearFilters,
     onSetGlobe(globe) {
       const leavingWall = wallOpen;
       if (leavingWall) {
@@ -490,6 +497,9 @@ export function startApp(root: HTMLElement): void {
     const open = openCams();
 
     document.documentElement.lang = view.lang;
+    // Several tabs of this app look alike in the tab strip unless each says what it shows (SHIG 59).
+    const lead = open[0];
+    document.title = lead ? `${camName(lead.name, view.lang)} — Somewhere Now` : baseTitle;
     panelResize.setLang(view.lang);
     sheet?.setLang(view.lang);
     const watchingOpen = view.watching && !wallOpen;
@@ -589,6 +599,12 @@ export function startApp(root: HTMLElement): void {
     recomputeNight();
     // Cameras selected in the URL from the start can only be opened here.
     render();
+    // A shared link lands on the camera it names. Before, the panel opened while the map stayed
+    // on the initial view, with the pin hidden in a cluster on the other side of the world (SHIG 24, 59).
+    // Not while the list covers the map: Leaflet's flyTo on a display: none map has no size to
+    // animate over and throws "Invalid LatLng (NaN, NaN)" on every frame (measured, ~100 errors).
+    // Leaving the list focuses the lead anyway (onToggleWatching / onSetGlobe).
+    if (!view.watching) focusOpenCam();
   }
 
   render();
