@@ -779,6 +779,11 @@ html.resizing-panel iframe {
   font-size: 12px;
 }
 
+/* Pushed to the far end of its line, away from the toggles (SHIG 16). */
+.card__actions .chip--close {
+  margin-left: auto;
+}
+
 /* ── Wall ───────────────────────────────────────────── */
 
 .wall {

@@ -157,6 +157,10 @@ describe("createPanel", () => {
     expect(handlers.onClose).toHaveBeenCalledWith("tokyo");
     expect(screen.getByRole("button", { name: "お気に入り" }).getAttribute("aria-pressed")).toBe("true");
     expect(screen.getByRole("button", { name: "音を出す" }).getAttribute("aria-pressed")).toBe("false");
+    // "閉じる" sits last and apart, so the toggles next to it are not mis-tapped into it (SHIG 16, 13).
+    const actions = [...document.querySelector(".card__actions")!.children];
+    expect(actions.at(-1)!.textContent).toBe("閉じる");
+    expect(actions.at(-1)!.classList.contains("chip--close")).toBe(true);
   });
 
   it("keeps the same player when only the surroundings change", () => {

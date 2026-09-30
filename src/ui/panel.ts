@@ -277,11 +277,15 @@ export function createPanel(container: HTMLElement, handlers: PanelHandlers) {
     link.rel = "noopener noreferrer";
     link.textContent = t("watchOnYouTube", ctx.lang);
 
+    // "閉じる" goes last and apart from the two toggles, so a finger aiming at sound or favorite
+    // does not close the camera instead (SHIG 16, 13).
+    const close = chip(t("removeFromView", ctx.lang), () => handlers.onClose(cam.id));
+    close.classList.add("chip--close");
     card.actions.replaceChildren(
       chip(t("soundOn", ctx.lang), handlers.onToggleSound, ctx.soundOn),
       chip(t("favorite", ctx.lang), () => handlers.onToggleFavorite(cam.id), favorited),
-      chip(t("removeFromView", ctx.lang), () => handlers.onClose(cam.id)),
       link,
+      close,
     );
   }
 

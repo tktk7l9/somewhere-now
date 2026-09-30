@@ -36,8 +36,9 @@ function emptyMessage(ctx: WatchingContext): string {
   return ctx.filtered ? t("noMatch", ctx.lang) : t("noLive", ctx.lang);
 }
 
+/** An unknown count leaves the slot empty: a dash is noise that says nothing (SHIG 1, 11). */
 function viewersLabel(viewers: number | null | undefined, lang: Lang): string {
-  if (viewers === null || viewers === undefined) return "—";
+  if (viewers === null || viewers === undefined) return "";
   return viewersText(viewers, lang);
 }
 

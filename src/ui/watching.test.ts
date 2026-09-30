@@ -55,8 +55,10 @@ describe("createWatchingList", () => {
     // 03:00 UTC is 12:00 in Tokyo.
     expect(within(first).getByText(/街 · 日本 · 12:00/)).toBeTruthy();
 
+    // An unknown count leaves the slot empty rather than showing a placeholder dash (SHIG 1, 11).
     const unknownViewers = screen.getByRole("button", { name: /ナイロビの水場/ });
-    expect(within(unknownViewers).getByText("—")).toBeTruthy();
+    expect(within(unknownViewers).queryByText("—")).toBeNull();
+    expect(unknownViewers.querySelector(".watching__viewers")!.textContent).toBe("");
   });
 
   it("formats viewer counts for English", () => {
