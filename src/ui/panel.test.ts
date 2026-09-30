@@ -122,7 +122,7 @@ describe("createPanel", () => {
     const { container, panel } = setup();
     panel.update([TOKYO], ctx({ soundOn: true }));
     expect(new URL(container.querySelector("iframe")!.src).searchParams.get("mute")).toBe("0");
-    expect(screen.getByRole("button", { name: "音を消す" }).getAttribute("aria-pressed")).toBe("true");
+    expect(screen.getByRole("button", { name: "音を出す" }).getAttribute("aria-pressed")).toBe("true");
   });
 
   it("shows why a stopped stream cannot play instead of a player", () => {
@@ -149,13 +149,14 @@ describe("createPanel", () => {
     panel.update([TOKYO], ctx({ favoriteIds: new Set(["tokyo"]) }));
 
     await user.click(screen.getByRole("button", { name: "音を出す" }));
-    await user.click(screen.getByRole("button", { name: "お気に入りから外す" }));
+    await user.click(screen.getByRole("button", { name: "お気に入り" }));
     await user.click(screen.getByRole("button", { name: "閉じる" }));
 
     expect(handlers.onToggleSound).toHaveBeenCalledTimes(1);
     expect(handlers.onToggleFavorite).toHaveBeenCalledWith("tokyo");
     expect(handlers.onClose).toHaveBeenCalledWith("tokyo");
-    expect(screen.getByRole("button", { name: "お気に入りから外す" }).getAttribute("aria-pressed")).toBe("true");
+    expect(screen.getByRole("button", { name: "お気に入り" }).getAttribute("aria-pressed")).toBe("true");
+    expect(screen.getByRole("button", { name: "音を出す" }).getAttribute("aria-pressed")).toBe("false");
   });
 
   it("keeps the same player when only the surroundings change", () => {

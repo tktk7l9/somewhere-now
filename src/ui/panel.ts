@@ -278,8 +278,8 @@ export function createPanel(container: HTMLElement, handlers: PanelHandlers) {
     link.textContent = t("watchOnYouTube", ctx.lang);
 
     card.actions.replaceChildren(
-      chip(t(ctx.soundOn ? "soundOff" : "soundOn", ctx.lang), handlers.onToggleSound, ctx.soundOn),
-      chip(t(favorited ? "unfavorite" : "favorite", ctx.lang), () => handlers.onToggleFavorite(cam.id), favorited),
+      chip(t("soundOn", ctx.lang), handlers.onToggleSound, ctx.soundOn),
+      chip(t("favorite", ctx.lang), () => handlers.onToggleFavorite(cam.id), favorited),
       chip(t("removeFromView", ctx.lang), () => handlers.onClose(cam.id)),
       link,
     );

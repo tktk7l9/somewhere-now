@@ -40,13 +40,13 @@ describe("createControls", () => {
     const { render } = setup();
     render();
 
-    for (const name of ["どこかへ連れてって", "いまいる場所へ", "並べて見る", "視聴が多い順", "JA / EN"]) {
+    for (const name of ["どこかへ連れてって", "いまいる場所へ", "並べて見る", "視聴が多い順", "English"]) {
       expect(screen.getByRole("button", { name })).toBeTruthy();
     }
     expect(pressed("平面図")).toBe("true");
     expect(pressed("地球儀")).toBe("false");
     expect(pressed("並べて見る")).toBe("false");
-    expect(screen.getByRole("button", { name: "JA / EN" }).hasAttribute("aria-pressed")).toBe(false);
+    expect(screen.getByRole("button", { name: "English" }).hasAttribute("aria-pressed")).toBe(false);
     expect(screen.getByRole("searchbox", { name: "地名で絞り込む" })).toBeTruthy();
   });
 
@@ -113,17 +113,22 @@ describe("createControls", () => {
     expect(handlers.onToggleFilters).toHaveBeenCalledTimes(1);
   });
 
-  it("switches language both ways", async () => {
+  // The chip names the language it switches to, in that language, so it reads neither as the
+  // current state nor as a two-way toggle whose direction is unclear (SHIG 49, 71).
+  it("switches language both ways, naming the destination", async () => {
     const user = userEvent.setup();
     const { handlers, render } = setup();
     render();
-    await user.click(screen.getByRole("button", { name: "JA / EN" }));
+    expect(screen.getByRole("button", { name: "English" }).getAttribute("lang")).toBe("en");
+    await user.click(screen.getByRole("button", { name: "English" }));
     expect(handlers.onChange).toHaveBeenLastCalledWith({ lang: "en" });
 
     render(state({ lang: "en" }));
     expect(screen.getByRole("button", { name: "Take me somewhere" })).toBeTruthy();
     expect(screen.getByRole("searchbox", { name: "Filter by name" })).toBeTruthy();
-    await user.click(screen.getByRole("button", { name: "JA / EN" }));
+    expect(screen.queryByRole("button", { name: "English" })).toBeNull();
+    expect(screen.getByRole("button", { name: "日本語" }).getAttribute("lang")).toBe("ja");
+    await user.click(screen.getByRole("button", { name: "日本語" }));
     expect(handlers.onChange).toHaveBeenLastCalledWith({ lang: "ja" });
   });
 

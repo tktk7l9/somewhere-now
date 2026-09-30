@@ -206,10 +206,12 @@ export function createControls(container: HTMLElement, handlers: ControlHandlers
       const wall = chip(t(wallOpen ? "backToMap" : "wall", lang), wallOpen, handlers.onToggleWall);
       const watching = chip(t("watching", lang), watchingOpen, handlers.onToggleWatching);
 
-      const langToggle = chip("JA / EN", false, () =>
-        handlers.onChange({ lang: lang === "ja" ? "en" : "ja" }),
-      );
+      // Named after where it goes, in that language: "JA / EN" said neither which one is on
+      // nor which one a press would give (SHIG 49, 71).
+      const nextLang = lang === "ja" ? "en" : "ja";
+      const langToggle = chip(t("switchLang", lang), false, () => handlers.onChange({ lang: nextLang }));
       langToggle.removeAttribute("aria-pressed");
+      langToggle.lang = nextLang;
 
       // On narrow screens, let the row of search, categories and flags collapse (if always open,
       // both rows of the masthead become horizontal scrolls and nobody can see which features

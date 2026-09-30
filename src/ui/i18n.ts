@@ -62,8 +62,9 @@ const STRINGS = {
   focusThis: { ja: "これを見る", en: "Watch this" },
   alsoOpen: { ja: "開いているカメラ", en: "Also open" },
   removeFromView: { ja: "閉じる", en: "Close" },
-  favorite: { ja: "お気に入りに入れる", en: "Add to favorites" },
-  unfavorite: { ja: "お気に入りから外す", en: "Remove from favorites" },
+  // Toggles keep one label and show their state through aria-pressed, so the lit chip is never
+  // read as "the action to take next" (SHIG 49).
+  favorite: { ja: "お気に入り", en: "Favorite" },
   watchOnYouTube: { ja: "YouTube で見る", en: "Watch on YouTube" },
   emptyTitle: { ja: "まだ何も選んでいません", en: "Nothing selected yet" },
   emptyBody: {
@@ -83,7 +84,8 @@ const STRINGS = {
   sheetCollapse: { ja: "パネルを畳む", en: "Close the panel" },
   sheetIdle: { ja: "地図から地点を選ぶ", en: "Pick a place on the map" },
   soundOn: { ja: "音を出す", en: "Sound on" },
-  soundOff: { ja: "音を消す", en: "Sound off" },
+  /** The language chip names its destination, in that language (SHIG 49, 71). */
+  switchLang: { ja: "English", en: "日本語" },
   noLive: {
     ja: "いま配信しているカメラがありません。少し時間をおいてください。",
     en: "No cameras are live right now. Try again in a little while.",

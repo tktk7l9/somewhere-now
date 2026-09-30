@@ -259,7 +259,7 @@ describe("startApp", () => {
     map.onSelect("reykjavik");
     expect(document.title).toBe("レイキャビクの港 — Somewhere Now");
 
-    await user.click(screen.getByRole("button", { name: "JA / EN" }));
+    await user.click(screen.getByRole("button", { name: "English" }));
     expect(document.title).toBe("Reykjavik Harbor — Somewhere Now");
 
     map.onSelect("reykjavik");
@@ -299,15 +299,17 @@ describe("startApp", () => {
     const user = userEvent.setup();
     await start({ url: "/?cam=tokyo" });
 
-    await user.click(screen.getByRole("button", { name: "お気に入りに入れる" }));
+    // The labels stay put and only the pressed state moves, so "音を出す" lit amber cannot be
+    // misread as the action to take next (SHIG 49).
+    await user.click(screen.getByRole("button", { name: "お気に入り" }));
     expect(localStorage.getItem("somewhere-now:favorites")).toContain("tokyo");
-    expect(screen.getByRole("button", { name: "お気に入りから外す" })).toBeTruthy();
+    expect(screen.getByRole("button", { name: "お気に入り", pressed: true })).toBeTruthy();
 
-    await user.click(screen.getByRole("button", { name: "音を出す" }));
+    await user.click(screen.getByRole("button", { name: "音を出す", pressed: false }));
     expect(localStorage.getItem("somewhere-now:sound")).toBe("on");
-    expect(screen.getByRole("button", { name: "音を消す" })).toBeTruthy();
-    await user.click(screen.getByRole("button", { name: "音を消す" }));
+    await user.click(screen.getByRole("button", { name: "音を出す", pressed: true }));
     expect(localStorage.getItem("somewhere-now:sound")).toBe("off");
+    expect(screen.getByRole("button", { name: "音を出す", pressed: false })).toBeTruthy();
   });
 
   it("starts with sound when it was left on and restores favorites", async () => {
@@ -330,10 +332,10 @@ describe("startApp", () => {
     });
     await start({ url: "/?cam=tokyo" });
 
-    await user.click(screen.getByRole("button", { name: "お気に入りに入れる" }));
+    await user.click(screen.getByRole("button", { name: "お気に入り" }));
     await user.click(screen.getByRole("button", { name: "音を出す" }));
-    expect(screen.getByRole("button", { name: "お気に入りから外す" })).toBeTruthy();
-    expect(screen.getByRole("button", { name: "音を消す" })).toBeTruthy();
+    expect(screen.getByRole("button", { name: "お気に入り", pressed: true })).toBeTruthy();
+    expect(screen.getByRole("button", { name: "音を出す", pressed: true })).toBeTruthy();
   });
 
   it("filters by typing and by chips, updating the URL and the dial", async () => {
@@ -731,7 +733,7 @@ describe("startApp", () => {
   it("switches the whole screen to English", async () => {
     const user = userEvent.setup();
     await start({ url: "/?cam=tokyo" });
-    await user.click(screen.getByRole("button", { name: "JA / EN" }));
+    await user.click(screen.getByRole("button", { name: "English" }));
     expect(params().get("lang")).toBe("en");
     expect(document.documentElement.lang).toBe("en");
     expect(within(panel()).getByRole("heading", { name: "Tokyo Crossing" })).toBeTruthy();
