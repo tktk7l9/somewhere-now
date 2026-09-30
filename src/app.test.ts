@@ -255,6 +255,18 @@ describe("startApp", () => {
     expect(map.focus).not.toHaveBeenCalled();
   });
 
+  // The list covers the map (display: none), and Leaflet cannot fly a map that has no size:
+  // it threw "Invalid LatLng (NaN, NaN)" on every frame. The flight waits for the list to close.
+  it("waits until the list closes before flying to the lead camera of a shared URL", async () => {
+    const user = userEvent.setup();
+    const { map } = await start({ url: "/?watching=1&cam=tokyo" });
+    expect(map.focus).not.toHaveBeenCalled();
+
+    await user.click(screen.getByRole("button", { name: "視聴が多い順" }));
+    expect(map.focus).toHaveBeenCalledTimes(1);
+    expect(map.focus).toHaveBeenCalledWith(TOKYO);
+  });
+
   it("names the tab after the lead camera so open tabs can be told apart", async () => {
     document.title = "somewhere-now — 地球のライブカメラを地図から覗く";
     const user = userEvent.setup();

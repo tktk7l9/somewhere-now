@@ -601,7 +601,10 @@ export function startApp(root: HTMLElement): void {
     render();
     // A shared link lands on the camera it names. Before, the panel opened while the map stayed
     // on the initial view, with the pin hidden in a cluster on the other side of the world (SHIG 24, 59).
-    focusOpenCam();
+    // Not while the list covers the map: Leaflet's flyTo on a display: none map has no size to
+    // animate over and throws "Invalid LatLng (NaN, NaN)" on every frame (measured, ~100 errors).
+    // Leaving the list focuses the lead anyway (onToggleWatching / onSetGlobe).
+    if (!view.watching) focusOpenCam();
   }
 
   render();
