@@ -231,6 +231,42 @@ describe("startApp", () => {
     expect(within(panel()).getByText("Tokyo Crossing")).toBeTruthy();
   });
 
+  // A shared link used to open the panel while the map stayed on its initial view, with the
+  // camera's pin hidden inside a cluster on the other side of the world (SHIG 24, 59).
+  it("brings the lead camera of a shared URL into view on the map", async () => {
+    const { map } = await start({ url: "/?view=nairobi,tokyo" });
+    expect(map.focus).toHaveBeenCalledTimes(1);
+    expect(map.focus).toHaveBeenCalledWith(NAIROBI);
+  });
+
+  it("brings the lead camera of a shared URL into view on the globe", async () => {
+    const { map } = await start({ url: "/?cam=tokyo&globe=1" });
+    await waitFor(() => expect(fakes.globe?.focus).toHaveBeenCalledWith(TOKYO));
+    expect(map.focus).not.toHaveBeenCalled();
+  });
+
+  it("does not move the map when the shared URL names no camera", async () => {
+    const { map } = await start({ url: "/?cat=city" });
+    expect(map.focus).not.toHaveBeenCalled();
+  });
+
+  it("names the tab after the lead camera so open tabs can be told apart", async () => {
+    document.title = "somewhere-now — 地球のライブカメラを地図から覗く";
+    const user = userEvent.setup();
+    const { map } = await start({ url: "/?cam=tokyo" });
+    expect(document.title).toBe("東京の交差点 — Somewhere Now");
+
+    map.onSelect("reykjavik");
+    expect(document.title).toBe("レイキャビクの港 — Somewhere Now");
+
+    await user.click(screen.getByRole("button", { name: "JA / EN" }));
+    expect(document.title).toBe("Reykjavik Harbor — Somewhere Now");
+
+    map.onSelect("reykjavik");
+    map.onSelect("tokyo");
+    expect(document.title).toBe("somewhere-now — 地球のライブカメラを地図から覗く");
+  });
+
   it("closes a camera at once and brings it back with undo", async () => {
     const user = userEvent.setup();
     const { map } = await start({ url: "/?view=tokyo,reykjavik" });

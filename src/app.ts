@@ -117,6 +117,8 @@ export function startApp(root: HTMLElement): void {
   const notesEl = root.querySelector<HTMLElement>("#notes")!;
   const legendEl = root.querySelector<HTMLElement>("#legend")!;
   const notice = createNotice(stageEl);
+  // The tab is named after the lead camera; with nothing open it returns to this.
+  const baseTitle = document.title;
 
   // The master arrives later as JSON. The map is built without waiting for it (waiting
   // delays LCP by that much). Pins are placed when it arrives.
@@ -490,6 +492,9 @@ export function startApp(root: HTMLElement): void {
     const open = openCams();
 
     document.documentElement.lang = view.lang;
+    // Several tabs of this app look alike in the tab strip unless each says what it shows (SHIG 59).
+    const lead = open[0];
+    document.title = lead ? `${camName(lead.name, view.lang)} — Somewhere Now` : baseTitle;
     panelResize.setLang(view.lang);
     sheet?.setLang(view.lang);
     const watchingOpen = view.watching && !wallOpen;
@@ -589,6 +594,9 @@ export function startApp(root: HTMLElement): void {
     recomputeNight();
     // Cameras selected in the URL from the start can only be opened here.
     render();
+    // A shared link lands on the camera it names. Before, the panel opened while the map stayed
+    // on the initial view, with the pin hidden in a cluster on the other side of the world (SHIG 24, 59).
+    focusOpenCam();
   }
 
   render();
