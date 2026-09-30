@@ -566,6 +566,28 @@ describe("startApp", () => {
       expect(wall.childElementCount).toBe(0);
     });
 
+    it("closes a camera from its wall cell with undo, and toggles sound from the lead cell", async () => {
+      const user = userEvent.setup();
+      const { root } = await start({ url: "/?view=tokyo,nairobi" });
+      await user.click(screen.getByRole("button", { name: "並べて見る" }));
+      const wall = document.getElementById("wall")!;
+
+      await user.click(within(wall).getByRole("button", { name: "音を出す" }));
+      expect(localStorage.getItem("somewhere-now:sound")).toBe("on");
+      expect(within(wall).getByRole("button", { name: "音を出す" }).getAttribute("aria-pressed")).toBe("true");
+
+      const cell = within(wall).getByText("ナイロビの水場").closest<HTMLElement>(".wall__cell")!;
+      await user.click(within(cell).getByRole("button", { name: "閉じる" }));
+      expect(root.dataset["mode"]).toBe("wall");
+      expect(params().get("cam")).toBe("tokyo");
+      expect(within(wall).queryByText("ナイロビの水場")).toBeNull();
+      const undo = screen.getByRole("button", { name: "元に戻す" });
+      expect(document.activeElement).toBe(undo);
+      await user.click(undo);
+      expect(params().get("view")).toBe("tokyo,nairobi");
+      expect(within(wall).getByText("ナイロビの水場")).toBeTruthy();
+    });
+
     it("offers the way back from an empty wall", async () => {
       const user = userEvent.setup();
       const { root } = await start();

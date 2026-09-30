@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { screen } from "@testing-library/dom";
+import { screen, within } from "@testing-library/dom";
 import userEvent from "@testing-library/user-event";
 
 import { KILAUEA, NAIROBI, REYKJAVIK, TOKYO } from "./__fixtures__/cams";
@@ -13,9 +13,13 @@ function setup() {
   document.body.append(container);
   const onUnplayable = vi.fn();
   const onBack = vi.fn();
-  const wall = createWall(container, onUnplayable, onBack);
-  return { container, wall, onUnplayable, onBack };
+  const onClose = vi.fn();
+  const onToggleSound = vi.fn();
+  const wall = createWall(container, { onUnplayable, onBackToMap: onBack, onClose, onToggleSound });
+  return { container, wall, onUnplayable, onBack, onClose, onToggleSound };
 }
+
+const cellOf = (name: string): HTMLElement => screen.getByText(name).closest<HTMLElement>(".wall__cell")!;
 
 function mutedParams(container: HTMLElement): string[] {
   return [...container.querySelectorAll("iframe")].map(
@@ -158,6 +162,40 @@ describe("createWall", () => {
     expect(container.querySelectorAll("iframe")).toHaveLength(1);
     // Checked on the detached cell itself: the container would not show a frame mounted there.
     expect(detached.querySelector("iframe")).toBeNull();
+  });
+
+  // A cell used to show only its name; taking one camera off the wall meant going back to the
+  // map and finding "閉じる" in the panel (SHIG 8, 23, 60).
+  it("closes one camera from its own cell", async () => {
+    const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime });
+    const { wall, onClose } = setup();
+    wall.update([TOKYO, REYKJAVIK], NO_STATES, "ja", false);
+
+    await user.click(within(cellOf("レイキャビクの港")).getByRole("button", { name: "閉じる" }));
+    expect(onClose).toHaveBeenCalledWith("reykjavik");
+    expect(onClose).toHaveBeenCalledTimes(1);
+  });
+
+  // Only the lead cell can make sound, so that cell carries the switch and shows its state
+  // (SHIG 25, 30); nothing said which cell had the sound before.
+  it("puts the sound switch on the lead cell only and follows the order and the state", async () => {
+    const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime });
+    const { wall, onToggleSound } = setup();
+    wall.update([TOKYO, REYKJAVIK], NO_STATES, "ja", false);
+
+    expect(screen.getAllByRole("button", { name: "音を出す" })).toHaveLength(1);
+    const sound = within(cellOf("東京の交差点")).getByRole("button", { name: "音を出す" });
+    expect(sound.getAttribute("aria-pressed")).toBe("false");
+    await user.click(sound);
+    expect(onToggleSound).toHaveBeenCalledTimes(1);
+
+    wall.update([TOKYO, REYKJAVIK], NO_STATES, "ja", true);
+    expect(sound.getAttribute("aria-pressed")).toBe("true");
+
+    wall.update([REYKJAVIK, TOKYO], NO_STATES, "en", true);
+    expect(screen.getAllByRole("button", { name: "Sound on" })).toHaveLength(1);
+    expect(within(cellOf("Reykjavik Harbor")).getByRole("button", { name: "Sound on" })).toBeTruthy();
+    expect(within(cellOf("Tokyo Crossing")).queryByRole("button", { name: "Sound on" })).toBeNull();
   });
 
   it("empties the container on teardown", () => {

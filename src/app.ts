@@ -334,10 +334,15 @@ export function startApp(root: HTMLElement): void {
     lang: view.lang,
   });
 
-  const wall = createWall(wallEl, markUnplayable, () => {
-    wallOpen = false;
-    wall.teardown();
-    render();
+  const wall = createWall(wallEl, {
+    onUnplayable: markUnplayable,
+    onBackToMap() {
+      wallOpen = false;
+      wall.teardown();
+      render();
+    },
+    onClose: closeWithUndo,
+    onToggleSound: toggleSound,
   });
   const watchingList = createWatchingList(watchingEl, pickFromList, clearFilters);
 
