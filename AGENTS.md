@@ -13,10 +13,15 @@ The palette is a nautical chart (deep teal), and the only accent is a single amb
 | `src/astro/` | Solar position (Meeus). Ported from skydial | **100% required** |
 | `src/domain/` | Types, day/night, local time, weather codes, URL state, favourites | **100% required** |
 | `worker/youtube.ts` `worker/refresh.ts` | API client and the refresh algorithm | **100% required** |
-| `src/ui/` `worker/index.ts` | DOM, Leaflet, iframe, entry points | Out of scope |
+| `src/ui/` `src/app.ts` `src/api/` | DOM, iframe, fetch, screen assembly | jsdom + Testing Library, per-glob threshold (reached − 2) in `vitest.config.ts` |
+| `src/ui/map.ts` `src/ui/globe.ts` | Leaflet / MapLibre (canvas, WebGL) | Out of scope (jsdom cannot render them; `app.test.ts` swaps in fakes) |
+| `worker/index.ts` `src/main.ts` | Entry points | Out of scope |
 | `src/data/cams.ts` | Generated. **Do not edit by hand** | Has a validation test |
 
-`npm run coverage` fails if even one line of the 100% targets above is missing. If you suspect
+`npm run coverage` fails if even one line of the 100% targets above is missing, or if the UI layer
+drops under its threshold. UI tests opt into the DOM with `// @vitest-environment jsdom` at the top
+of the file (the default environment stays node), drive the screen through roles and visible text,
+and use the fictional cameras in `src/ui/__fixtures__/cams.ts`. If you suspect
 the threshold is not actually biting, add unreachable code on purpose and confirm that it fails.
 
 ## Landmines we stepped on (do not fall into the same hole)

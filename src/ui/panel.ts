@@ -7,7 +7,7 @@ import type { Cam, PublicCamState } from "../domain/cams";
 import { formatLocalTime, utcOffsetLabel } from "../domain/localTime";
 import { weatherIcon, weatherLabel, type Lang } from "../domain/weather";
 import { fetchPlaceOverview, fetchWeather } from "../api/client";
-import { camName, categoryLabel, t } from "./i18n";
+import { camName, categoryLabel, t, viewersText } from "./i18n";
 import { mountPinLegend } from "./pin";
 import { mountPlayer, type PlayerHandle } from "./player";
 
@@ -182,7 +182,7 @@ export function createPanel(container: HTMLElement, handlers: PanelHandlers) {
       const viewers = document.createElement("span");
       viewers.className = "readout__live";
       viewers.innerHTML = '<span class="readout__dot"></span>';
-      viewers.append(`${state.viewers.toLocaleString()} ${t("viewers", ctx.lang)}`);
+      viewers.append(viewersText(state.viewers, ctx.lang));
       card.readout.append(viewers);
     }
 
