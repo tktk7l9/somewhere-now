@@ -96,6 +96,18 @@ describe("createWall", () => {
     expect(screen.getByText("Tokyo Crossing")).toBeTruthy();
   });
 
+  it("names each frame in the UI language and renames it on switch without remounting", () => {
+    const { container, wall } = setup();
+    wall.update([TOKYO], NO_STATES, "en", false);
+    vi.advanceTimersByTime(0);
+    const frame = container.querySelector("iframe")!;
+    expect(frame.title).toBe("Tokyo Crossing");
+
+    wall.update([TOKYO], NO_STATES, "ja", false);
+    expect(container.querySelector("iframe")).toBe(frame);
+    expect(frame.title).toBe("東京の交差点");
+  });
+
   it("leaves running players untouched and only toggles sound on re-render", () => {
     const { container, wall } = setup();
     wall.update([TOKYO], NO_STATES, "ja", false);

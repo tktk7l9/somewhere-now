@@ -107,7 +107,7 @@ const APP_HTML = `
       <div class="globe" id="globe"></div>
       <section class="wall" id="wall" hidden></section>
       <section class="watching" id="watching" hidden></section>
-      <aside class="notes"><div class="dial" id="dial"></div><div class="legend" id="legend"></div></aside>
+      <aside class="notes" id="notes"><div class="dial" id="dial"></div><div class="legend" id="legend"></div></aside>
     </main>
     <aside class="panel" id="panel"></aside>
   </div>`;
@@ -700,6 +700,10 @@ describe("startApp", () => {
     expect(document.documentElement.lang).toBe("en");
     expect(within(panel()).getByRole("heading", { name: "Tokyo Crossing" })).toBeTruthy();
     expect(screen.getByRole("separator").getAttribute("aria-label")).toBe("Resize panel");
+    // The two asides are landmarks and must stay distinguishable by name in either language.
+    expect(screen.getByRole("complementary", { name: "Selected camera" })).toBe(panel());
+    expect(screen.getByRole("complementary", { name: "Live count and pin colors" })).toBeTruthy();
+    expect(within(panel()).getByTitle("Tokyo Crossing").tagName).toBe("IFRAME");
   });
 
   describe("polling", () => {

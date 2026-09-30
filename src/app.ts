@@ -114,6 +114,7 @@ export function startApp(root: HTMLElement): void {
   const wallEl = root.querySelector<HTMLElement>("#wall")!;
   const watchingEl = root.querySelector<HTMLElement>("#watching")!;
   const dialEl = root.querySelector<HTMLElement>("#dial")!;
+  const notesEl = root.querySelector<HTMLElement>("#notes")!;
   const legendEl = root.querySelector<HTMLElement>("#legend")!;
   const notice = createNotice(stageEl);
 
@@ -514,6 +515,9 @@ export function startApp(root: HTMLElement): void {
     wallEl.hidden = !wallOpen;
     watchingEl.hidden = !watchingOpen;
     globeEl.setAttribute("aria-label", t("globe", view.lang));
+    // Both asides are landmarks; without distinct names a screen reader lists them as "complementary" twice.
+    notesEl.setAttribute("aria-label", t("notesAria", view.lang));
+    panelEl.setAttribute("aria-label", t("panelAria", view.lang));
 
     controls.update(view, wallOpen, locateStatus, filtersOpen);
     mapView.setStates(states);
