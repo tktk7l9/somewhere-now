@@ -53,7 +53,7 @@ describe("createWatchingList", () => {
     expect(within(first).getByText("1")).toBeTruthy();
     expect(within(first).getByText("12,345 人が視聴中")).toBeTruthy();
     // 03:00 UTC is 12:00 in Tokyo.
-    expect(within(first).getByText(/街 · JP · 12:00/)).toBeTruthy();
+    expect(within(first).getByText(/街 · 日本 · 12:00/)).toBeTruthy();
 
     const unknownViewers = screen.getByRole("button", { name: /ナイロビの水場/ });
     expect(within(unknownViewers).getByText("—")).toBeTruthy();

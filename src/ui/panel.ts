@@ -7,7 +7,7 @@ import type { Cam, PublicCamState } from "../domain/cams";
 import { formatLocalTime, utcOffsetLabel } from "../domain/localTime";
 import { weatherIcon, weatherLabel, type Lang } from "../domain/weather";
 import { fetchPlaceOverview, fetchWeather } from "../api/client";
-import { camName, categoryLabel, t, viewersText } from "./i18n";
+import { camName, categoryLabel, countryName, t, viewersText } from "./i18n";
 import { mountPinLegend } from "./pin";
 import { mountPlayer, type PlayerHandle } from "./player";
 
@@ -151,7 +151,7 @@ export function createPanel(container: HTMLElement, handlers: PanelHandlers) {
 
     const sub = document.createElement("p");
     sub.className = "card__sub";
-    sub.textContent = `${categoryLabel(cam.category, ctx.lang)} · ${cam.country}`;
+    sub.textContent = `${categoryLabel(cam.category, ctx.lang)} · ${countryName(cam.country, ctx.lang)}`;
 
     const readout = document.createElement("div");
     readout.className = "readout";
@@ -313,7 +313,7 @@ export function createPanel(container: HTMLElement, handlers: PanelHandlers) {
       current.card.player?.setMuted(!ctx.soundOn);
       current.card.player?.setTitle(camName(focused.name, ctx.lang));
       current.card.title.textContent = camName(focused.name, ctx.lang);
-      current.card.sub.textContent = `${categoryLabel(focused.category, ctx.lang)} · ${focused.country}`;
+      current.card.sub.textContent = `${categoryLabel(focused.category, ctx.lang)} · ${countryName(focused.country, ctx.lang)}`;
       paintReadout(current.card, focused, ctx);
       paintOverview(current.card, focused, ctx);
       paintActions(current.card, focused, ctx);

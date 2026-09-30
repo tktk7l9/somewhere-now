@@ -87,7 +87,7 @@ describe("createPanel", () => {
     expect(new URL(frame.src).pathname).toBe("/embed/tok-live");
     expect(new URL(frame.src).searchParams.get("mute")).toBe("1");
     expect(screen.getByRole("heading", { name: "東京の交差点" })).toBeTruthy();
-    expect(screen.getByText("街 · JP")).toBeTruthy();
+    expect(screen.getByText("街 · 日本")).toBeTruthy();
     expect(screen.getByText("12:00")).toBeTruthy();
     expect(screen.getByText("UTC+9")).toBeTruthy();
     expect(screen.getByText(/4,321 人が視聴中/)).toBeTruthy();
@@ -169,7 +169,7 @@ describe("createPanel", () => {
     expect(container.querySelector("iframe")).toBe(frame);
     expect(JSON.parse(post.mock.calls.at(-1)![0] as string).func).toBe("unMute");
     expect(screen.getByRole("heading", { name: "Tokyo Crossing" })).toBeTruthy();
-    expect(screen.getByText("City · JP")).toBeTruthy();
+    expect(screen.getByText("City · Japan")).toBeTruthy();
   });
 
   it("swaps the player only when the lead changes", () => {

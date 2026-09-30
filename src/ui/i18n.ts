@@ -201,3 +201,23 @@ export function categoryLabel(category: CamCategory, lang: Lang): string {
 export function camName(name: { ja: string; en: string }, lang: Lang): string {
   return name[lang];
 }
+
+const countryNames = new Map<string, string>();
+
+/**
+ * "日本" / "Japan" for the ISO code the master carries. The screen speaks the user's words, not the
+ * data's (SHIG 11, 28). When the runtime cannot name the code, the code itself is shown.
+ */
+export function countryName(code: string, lang: Lang): string {
+  const key = `${lang}:${code}`;
+  const cached = countryNames.get(key);
+  if (cached !== undefined) return cached;
+  let name = code;
+  try {
+    name = new Intl.DisplayNames([lang === "ja" ? "ja-JP" : "en-US"], { type: "region", fallback: "none" }).of(code) ?? code;
+  } catch {
+    name = code;
+  }
+  countryNames.set(key, name);
+  return name;
+}

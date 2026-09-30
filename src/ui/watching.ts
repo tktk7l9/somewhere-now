@@ -8,7 +8,7 @@
 import type { Cam, PublicCamState } from "../domain/cams";
 import { formatLocalTime } from "../domain/localTime";
 import type { Lang } from "../domain/weather";
-import { camName, categoryLabel, t, viewersText } from "./i18n";
+import { camName, categoryLabel, countryName, t, viewersText } from "./i18n";
 
 export type WatchingReady = "loading" | "unavailable" | "ready";
 
@@ -42,7 +42,7 @@ function viewersLabel(viewers: number | null | undefined, lang: Lang): string {
 }
 
 function metaLabel(cam: Cam, ctx: WatchingContext): string {
-  return `${categoryLabel(cam.category, ctx.lang)} · ${cam.country} · ${formatLocalTime(ctx.now, cam.timeZone)}`;
+  return `${categoryLabel(cam.category, ctx.lang)} · ${countryName(cam.country, ctx.lang)} · ${formatLocalTime(ctx.now, cam.timeZone)}`;
 }
 
 function rankedKey(ranked: readonly Cam[], lang: Lang): string {
