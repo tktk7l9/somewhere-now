@@ -357,6 +357,15 @@ describe("startApp", () => {
     await user.click(screen.getByRole("button", { name: "動物" }));
     expect(params().get("cat")).toBe("animal");
     expect(map.setVisible).toHaveBeenLastCalledWith([NAIROBI]);
+
+    // One press in the filter row turns everything off, even with results still showing (SHIG 60).
+    await user.type(screen.getByRole("searchbox"), "ナイロビ");
+    const controls = document.getElementById("controls")!;
+    await user.click(within(controls).getByRole("button", { name: "絞り込みを解除" }));
+    expect(location.search).toBe("");
+    expect((screen.getByRole("searchbox") as HTMLInputElement).value).toBe("");
+    expect(map.setVisible).toHaveBeenLastCalledWith(ALL_CAMS);
+    expect(within(controls).queryByRole("button", { name: "絞り込みを解除" })).toBeNull();
   });
 
   it("offers to clear the filters when they hide every camera", async () => {

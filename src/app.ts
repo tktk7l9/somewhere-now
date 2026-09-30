@@ -414,6 +414,7 @@ export function startApp(root: HTMLElement): void {
       filtersOpen = !filtersOpen;
       render();
     },
+    onClearFilters: clearFilters,
     onSetGlobe(globe) {
       const leavingWall = wallOpen;
       if (leavingWall) {

@@ -35,6 +35,8 @@ export interface ControlHandlers {
   onToggleWatching(): void;
   onToggleFilters(): void;
   onSetGlobe(globe: boolean): void;
+  /** Turns every filter off at once (SHIG 60, 22). */
+  onClearFilters(): void;
 }
 
 const FOCUSABLE = "button, input";
@@ -104,6 +106,14 @@ export function createControls(container: HTMLElement, handlers: ControlHandlers
   search.className = "search";
   search.addEventListener("input", () => handlers.onChange({ query: search.value }));
 
+  // The way out of any filter, at the end of the row so nothing else moves (SHIG 60, 73). Built
+  // once, like the search box: typing the first character makes it appear, and rebuilding the
+  // row at that moment would detach the box mid-composition.
+  const clear = document.createElement("button");
+  clear.type = "button";
+  clear.className = "chip chip--clear";
+  clear.addEventListener("click", handlers.onClearFilters);
+
   const primaryRow = row("masthead__primary");
   const filtersRow = row("masthead__filters");
   filtersRow.id = FILTERS_ID;
@@ -130,10 +140,13 @@ export function createControls(container: HTMLElement, handlers: ControlHandlers
       // Writing back the same value while typing makes the cursor jump to the end.
       if (search.value !== state.query) search.value = state.query;
 
+      const active = activeFilterCount(state);
+      clear.textContent = t("clearFilters", lang);
+      clear.hidden = active === 0;
+
       const mapOpen = !wallOpen && !state.watching && !state.globe;
       const globeOpen = !wallOpen && !state.watching && state.globe;
       const watchingOpen = !wallOpen && state.watching;
-      const active = activeFilterCount(state);
 
       const nextPrimaryKey = [
         lang,
@@ -239,7 +252,7 @@ export function createControls(container: HTMLElement, handlers: ControlHandlers
         replaceKeepingFocus(filtersRow, () => [
           group(search),
           group(...categories),
-          group(...flags),
+          group(...flags, clear),
         ]);
       }
     },

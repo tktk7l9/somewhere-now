@@ -21,6 +21,7 @@ function setup() {
     onToggleWatching: vi.fn(),
     onToggleFilters: vi.fn(),
     onSetGlobe: vi.fn(),
+    onClearFilters: vi.fn(),
   };
   const controls = createControls(container, handlers as unknown as ControlHandlers);
   const render = (
@@ -139,6 +140,31 @@ describe("createControls", () => {
     expect(toggle.getAttribute("aria-expanded")).toBe("true");
     const controlled = toggle.getAttribute("aria-controls")!;
     expect(container.querySelector(`#${controlled}`)?.contains(screen.getByRole("searchbox"))).toBe(true);
+  });
+
+  // The only way out of a filter used to be the empty state; with one result left, every chip
+  // had to be turned off by hand (SHIG 60, 22).
+  it("offers to clear every filter, only while one is on, without rebuilding the search box", async () => {
+    const user = userEvent.setup();
+    const { handlers, render } = setup();
+    render();
+    expect(screen.queryByRole("button", { name: "絞り込みを解除" })).toBeNull();
+
+    render(state({ categories: ["city"] }));
+    const clear = screen.getByRole("button", { name: "絞り込みを解除" });
+    await user.click(clear);
+    expect(handlers.onClearFilters).toHaveBeenCalledTimes(1);
+
+    // Typing alone counts as a filter, and the box the person types in stays the same element.
+    const search = screen.getByRole("searchbox");
+    render(state({ query: "tok" }));
+    expect(screen.getByRole("button", { name: "絞り込みを解除" })).toBe(clear);
+    expect(screen.getByRole("searchbox")).toBe(search);
+    render(state());
+    expect(screen.queryByRole("button", { name: "絞り込みを解除" })).toBeNull();
+
+    render(state({ liveOnly: true, lang: "en" }));
+    expect(screen.getByRole("button", { name: "Clear filters" })).toBeTruthy();
   });
 
   it("disables the locate chip and says it is searching while pending", () => {
