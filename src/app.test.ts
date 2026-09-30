@@ -213,9 +213,14 @@ describe("startApp", () => {
     expect(params().get("view")).toBe("reykjavik,tokyo");
     expect(within(panel()).getByRole("heading", { name: "開いているカメラ" })).toBeTruthy();
 
+    // Pressing an open pin closes it the same way the panel does: at once, with undo (SHIG 6, 54).
     map.onSelect("reykjavik");
     expect(params().get("cam")).toBe("tokyo");
     expect(map.focus).toHaveBeenCalledTimes(2);
+    expect(within(noticeBox()).getByRole("status").textContent).toBe("「レイキャビクの港」を閉じました");
+    await userEvent.setup().click(screen.getByRole("button", { name: "元に戻す" }));
+    expect(params().get("view")).toBe("reykjavik,tokyo");
+    map.onSelect("reykjavik");
 
     // Closing the last one lowers the bottom sheet and the grip invites a pick again.
     map.onSelect("tokyo");

@@ -153,15 +153,14 @@ export function startApp(root: HTMLElement): void {
 
   function selectCam(camId: string): void {
     // A marker toggles open/closed. The newly opened one comes first (the side that plays sound).
-    const isOpen = view.view.includes(camId);
-    const next = isOpen
-      ? view.view.filter((id) => id !== camId)
-      : [camId, ...view.view].slice(0, MAX_VIEW);
-    update({ view: next });
-    if (!isOpen) {
-      const cam = byId.get(camId);
-      if (cam) focusCam(cam);
+    // Closing goes the same way as the panel's "閉じる": at once, with undo (SHIG 6, 54).
+    if (view.view.includes(camId)) {
+      closeWithUndo(camId);
+      return;
     }
+    update({ view: [camId, ...view.view].slice(0, MAX_VIEW) });
+    const cam = byId.get(camId);
+    if (cam) focusCam(cam);
   }
 
   /** Pick from the list. If already open, raise it to the front; if closed, open it. Does not toggle. */
