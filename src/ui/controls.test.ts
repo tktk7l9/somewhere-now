@@ -167,6 +167,27 @@ describe("createControls", () => {
     expect(screen.getByRole("button", { name: "Clear filters" })).toBeTruthy();
   });
 
+  it("keeps keyboard focus in the row when the pressed clear chip disappears", () => {
+    const { render } = setup();
+    render(state({ categories: ["city"] }));
+    screen.getByRole("button", { name: "絞り込みを解除" }).focus();
+    render(state());
+    expect(document.activeElement).toBe(screen.getByRole("button", { name: "絞り込み" }));
+
+    // On wide screens the filters chip is display: none, so focus skips past it.
+    const wide = document.createElement("style");
+    wide.textContent = ".chip--filters { display: none; }";
+    document.head.append(wide);
+    try {
+      render(state({ categories: ["city"] }));
+      screen.getByRole("button", { name: "絞り込みを解除" }).focus();
+      render(state());
+      expect(document.activeElement).toBe(screen.getByRole("button", { name: "視聴が多い順" }));
+    } finally {
+      wide.remove();
+    }
+  });
+
   it("disables the locate chip and says it is searching while pending", () => {
     const { render } = setup();
     render(state(), false, "pending");

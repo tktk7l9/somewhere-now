@@ -281,6 +281,13 @@ html.resizing-panel iframe {
   display: none;
 }
 
+/* Chips with a label in two lengths ("絞り込みを解除" / "解除", "English" / "EN"). Narrow screens show
+   the short one so the primary row keeps its line count (SHIG 85); the full label stays as the
+   accessible name. */
+.chip--two-lengths .chip__short {
+  display: none;
+}
+
 .search {
   background: var(--ink);
   border: 1px solid var(--haze);
@@ -1065,6 +1072,14 @@ html.resizing-panel iframe {
      one could not be used while looking at the other. */
   .chip--filters {
     display: inline-block;
+  }
+
+  .chip--two-lengths .chip__long {
+    display: none;
+  }
+
+  .chip--two-lengths .chip__short {
+    display: inline;
   }
 
   .app[data-filters="closed"] .masthead__filters {

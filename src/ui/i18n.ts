@@ -86,6 +86,8 @@ const STRINGS = {
   soundOn: { ja: "音を出す", en: "Sound on" },
   /** The language chip names its destination, in that language (SHIG 49, 71). */
   switchLang: { ja: "English", en: "日本語" },
+  /** The same, as the code a narrow screen has room for. */
+  switchLangShort: { ja: "EN", en: "JA" },
   noLive: {
     ja: "いま配信しているカメラがありません。少し時間をおいてください。",
     en: "No cameras are live right now. Try again in a little while.",
@@ -119,6 +121,8 @@ const STRINGS = {
   },
   noMatchShort: { ja: "条件に合うカメラがありません", en: "No cameras match" },
   clearFilters: { ja: "絞り込みを解除", en: "Clear filters" },
+  /** Shown beside "絞り込み N" on narrow screens, where the full label would wrap the row. */
+  clearFiltersShort: { ja: "解除", en: "Clear" },
   sheetIdleWatching: { ja: "一覧から地点を選ぶ", en: "Pick a place from the list" },
   undo: { ja: "元に戻す", en: "Undo" },
   dismiss: { ja: "通知を閉じる", en: "Dismiss" },
