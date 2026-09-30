@@ -150,22 +150,53 @@ export interface FilterContext {
   favoriteIds: ReadonlySet<string>;
 }
 
+/**
+ * Folds what people type into the shape the names are compared in (SHIG 50): full-width letters
+ * and spaces (NFKC), case, diacritics ("Zürich" for "zurich") and hiragana against the katakana
+ * the names are written in. Runs of whitespace become one space.
+ */
+export function normalizeSearchText(text: string): string {
+  return text
+    .normalize("NFKC")
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    // NFD also pulls dakuten off kana; put the kana back together before comparing.
+    .normalize("NFC")
+    .replace(/[\u3041-\u3096]/g, (kana) => String.fromCharCode(kana.charCodeAt(0) + 0x60))
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+/** The folded names, kept per camera: the filter runs on every keystroke over 5,700 cameras. */
+const searchKeys = new WeakMap<Cam, string>();
+
+function searchKey(cam: Cam): string {
+  let key = searchKeys.get(cam);
+  if (key === undefined) {
+    key = normalizeSearchText(`${cam.name.ja} ${cam.name.en}`);
+    searchKeys.set(cam, key);
+  }
+  return key;
+}
+
 export function filterCams(
   cams: readonly Cam[],
   ctx: FilterContext,
   filter: CamFilter,
 ): Cam[] {
   const categories = filter.categories ?? [];
-  const query = (filter.query ?? "").trim().toLowerCase();
+  // Every word must appear, in any order ("crossing shibuya" finds Shibuya Crossing).
+  const words = normalizeSearchText(filter.query ?? "").split(" ").filter((word) => word !== "");
 
   return cams.filter((cam) => {
     if (categories.length > 0 && !categories.includes(cam.category)) return false;
     if (filter.liveOnly && ctx.states.get(cam.id)?.status !== "live") return false;
     if (filter.nightOnly && !ctx.nightIds.has(cam.id)) return false;
     if (filter.favoritesOnly && !ctx.favoriteIds.has(cam.id)) return false;
-    if (query !== "") {
-      const haystack = `${cam.name.ja} ${cam.name.en}`.toLowerCase();
-      if (!haystack.includes(query)) return false;
+    if (words.length > 0) {
+      const haystack = searchKey(cam);
+      if (!words.every((word) => haystack.includes(word))) return false;
     }
     return true;
   });
