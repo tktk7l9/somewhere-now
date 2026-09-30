@@ -11,6 +11,8 @@
 
 import type { Cam, PublicCamState } from "../domain/cams";
 import { resolveEmbedUrl } from "../domain/cams";
+import type { Lang } from "../domain/weather";
+import { camName } from "./i18n";
 
 /** Error codes YouTube returns for non-embeddable or deleted videos. */
 const FATAL_ERROR_CODES = new Set([100, 101, 150]);
@@ -18,6 +20,8 @@ const FATAL_ERROR_CODES = new Set([100, 101, 150]);
 export interface PlayerHandle {
   readonly iframe: HTMLIFrameElement;
   setMuted(muted: boolean): void;
+  /** Renames the frame (the language switched) without touching its src. */
+  setTitle(title: string): void;
   destroy(): void;
 }
 
@@ -28,6 +32,8 @@ interface MountOptions {
    * the user explicitly turns it on.
    */
   muted: boolean;
+  /** Language of the frame's accessible name (its title). Defaults to Japanese. */
+  lang?: Lang;
   /**
    * Called when the stream cannot be embedded (changes the marker without waiting for the
    * server-side check).
@@ -54,11 +60,12 @@ export function mountPlayer(
   container: HTMLElement,
   cam: Cam,
   state: PublicCamState | undefined,
-  { muted, onUnplayable }: MountOptions,
+  { muted, lang = "ja", onUnplayable }: MountOptions,
 ): PlayerHandle {
   const iframe = document.createElement("iframe");
   iframe.src = embedSrc(cam, state, muted);
-  iframe.title = cam.name.ja;
+  // The frame's name is what a screen reader announces for the video; keep it in the UI language.
+  iframe.title = camName(cam.name, lang);
   // Unless compute-pressure is granted, the player keeps retrying, and when several are
   // laid out the violation logs crash the tab.
   iframe.allow = "autoplay; encrypted-media; picture-in-picture; compute-pressure";
@@ -90,6 +97,9 @@ export function mountPlayer(
     iframe,
     setMuted(next) {
       post(iframe, { event: "command", func: next ? "mute" : "unMute", args: [] });
+    },
+    setTitle(title) {
+      iframe.title = title;
     },
     destroy() {
       window.removeEventListener("message", onMessage);

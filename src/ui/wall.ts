@@ -78,6 +78,7 @@ export function createWall(
         const existing = cells.get(cam.id);
         if (existing !== undefined) {
           existing.caption.textContent = camName(cam.name, lang);
+          existing.player?.setTitle(camName(cam.name, lang));
           existing.player?.setMuted(!(soundOn && index === 0));
           return;
         }
@@ -101,6 +102,7 @@ export function createWall(
           cell.player = mountPlayer(root, cam, states.get(cam.id), {
             // Only the first 1 player makes sound, and only when the user has allowed sound.
             muted: !(soundOn && index === 0),
+            lang,
             onUnplayable: () => onUnplayable(cam.id),
           });
         }, newcomers * STAGGER_MS);

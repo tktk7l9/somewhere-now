@@ -128,6 +128,7 @@ export function createPanel(container: HTMLElement, handlers: PanelHandlers) {
     if (playable) {
       player = mountPlayer(frame, cam, state, {
         muted: !(focused && ctx.soundOn),
+        lang: ctx.lang,
         onUnplayable: () => handlers.onUnplayable(cam.id),
       });
     } else {
@@ -310,6 +311,7 @@ export function createPanel(container: HTMLElement, handlers: PanelHandlers) {
       }
       // Does not touch the existing lead iframe; repaints only the display around it.
       current.card.player?.setMuted(!ctx.soundOn);
+      current.card.player?.setTitle(camName(focused.name, ctx.lang));
       current.card.title.textContent = camName(focused.name, ctx.lang);
       current.card.sub.textContent = `${categoryLabel(focused.category, ctx.lang)} · ${focused.country}`;
       paintReadout(current.card, focused, ctx);

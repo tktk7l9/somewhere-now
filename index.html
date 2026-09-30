@@ -50,7 +50,7 @@
       <header class="masthead">
         <a class="brand" href="/">
           <span class="brand__mark" aria-hidden="true"></span>
-          <span class="brand__name">Somewhere Now</span>
+          <h1 class="brand__name">Somewhere Now</h1>
         </a>
         <div class="masthead__controls" id="controls"></div>
       </header>
@@ -60,13 +60,13 @@
         <div class="globe" id="globe" aria-label="地球儀"></div>
         <section class="wall" id="wall" hidden aria-label="並べて見る"></section>
         <section class="watching" id="watching" hidden aria-label="視聴が多い順"></section>
-        <aside class="notes" id="notes">
+        <aside class="notes" id="notes" aria-label="配信数とピンの色">
           <div class="dial" id="dial" aria-live="polite"></div>
           <div class="legend" id="legend"></div>
         </aside>
       </main>
 
-      <aside class="panel" id="panel"></aside>
+      <aside class="panel" id="panel" aria-label="選んだカメラ"></aside>
     </div>
     <script type="module" src="/src/main.ts"></script>
   </body>

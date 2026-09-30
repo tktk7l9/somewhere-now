@@ -32,6 +32,13 @@ describe("mountPlayer", () => {
     expect(player.iframe.allow).toContain("compute-pressure");
   });
 
+  it("names the frame in the UI language", () => {
+    const player = mountPlayer(container, TOKYO, live(10, "abc123"), { muted: true, lang: "en" });
+    expect(player.iframe.title).toBe(TOKYO.name.en);
+    player.setTitle(TOKYO.name.ja);
+    expect(player.iframe.title).toBe(TOKYO.name.ja);
+  });
+
   it("falls back to the channel's live stream when no video id is known", () => {
     const cam = { ...KILAUEA, source: { ...KILAUEA.source, videoId: null } };
     const player = mountPlayer(container, cam, undefined, { muted: false });

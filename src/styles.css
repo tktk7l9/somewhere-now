@@ -128,7 +128,9 @@ input {
   background: linear-gradient(90deg, var(--lit) 0 50%, transparent 50% 100%);
 }
 
+/* The name is the page's only h1: the masthead is where the page says what it is (SHIG 59). */
 .brand__name {
+  margin: 0;
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 18px;
@@ -533,6 +535,12 @@ html.resizing-panel iframe {
   border: 1.5px solid var(--dim);
   background: var(--ink);
   transition: transform 0.15s var(--ease);
+}
+
+/* On the map the marker box is 24px (PIN_TARGET_PX in map.ts) and the dot sits in its middle, so the
+   keyboard/pointer target meets the 24px minimum without changing the look (SHIG 78). */
+.leaflet-marker-icon > .pin {
+  margin: calc((24px - 13px) / 2);
 }
 
 /* A 13px dot cannot be aimed at with a finger. Keep the look and extend only the hit area outward.
@@ -959,6 +967,12 @@ html.resizing-panel iframe {
   font-family: var(--font-mono);
   font-size: 12px;
   color: var(--dim);
+}
+
+/* On the amber-tinted current row, --dim falls to 3.99:1. Lift it toward --bone to clear 4.5:1
+   without adding a colour to the palette (SHIG 96). */
+.watching__row[aria-current="true"] .watching__meta {
+  color: color-mix(in srgb, var(--dim) 70%, var(--bone));
 }
 
 .watching__viewers {

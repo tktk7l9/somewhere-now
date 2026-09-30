@@ -700,6 +700,10 @@ describe("startApp", () => {
     expect(document.documentElement.lang).toBe("en");
     expect(within(panel()).getByRole("heading", { name: "Tokyo Crossing" })).toBeTruthy();
     expect(screen.getByRole("separator").getAttribute("aria-label")).toBe("Resize panel");
+    // The two asides are landmarks and must stay distinguishable by name in either language.
+    expect(screen.getByRole("complementary", { name: "Selected camera" })).toBe(panel());
+    expect(screen.getByRole("complementary", { name: "Live count and pin colors" })).toBeTruthy();
+    expect(within(panel()).getByTitle("Tokyo Crossing").tagName).toBe("IFRAME");
   });
 
   describe("polling", () => {

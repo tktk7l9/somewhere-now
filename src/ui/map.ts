@@ -20,6 +20,8 @@ import type { Lang } from "../domain/weather";
 /** The duration over which night flows in during the intro, and how far it rewinds. */
 const INTRO_MS = 1100;
 const INTRO_LOOKBACK_HOURS = 6;
+/** Hit box of a single pin. The visible dot is centered inside it (`.leaflet-marker-icon > .pin`). */
+const PIN_TARGET_PX = 24;
 
 export interface MapView {
   setStates(states: ReadonlyMap<string, PublicCamState>): void;
@@ -114,8 +116,10 @@ export function createMapView(
       html: pinHtml(status, selected.has(cam.id)),
       // To change the cluster look by whether it has live cameras, carry the state on the icon.
       className: status === "live" ? "is-live" : "",
-      iconSize: [13, 13],
-      iconAnchor: [6.5, 6.5],
+      // The dot stays 13px; the box around it is the 24px minimum target (WCAG 2.2 2.5.8, SHIG 78).
+      // Two single pins are never closer than the 44px cluster radius, so boxes do not overlap.
+      iconSize: [PIN_TARGET_PX, PIN_TARGET_PX],
+      iconAnchor: [PIN_TARGET_PX / 2, PIN_TARGET_PX / 2],
     });
   }
 
@@ -138,6 +142,15 @@ export function createMapView(
         keyboard: true,
       });
       marker.on("click", () => onSelect(cam.id));
+      // Leaflet gives the pin tabindex and role="button" but never turns Enter into a click
+      // (only clusters handle keypress). Without this, a keyboard user can reach every pin and
+      // open none of them (SHIG 94).
+      marker.on("keydown", (event) => {
+        const key = (event as L.LeafletKeyboardEvent).originalEvent.key;
+        if (key !== "Enter" && key !== " ") return;
+        (event as L.LeafletKeyboardEvent).originalEvent.preventDefault();
+        onSelect(cam.id);
+      });
       markers.set(cam.id, marker);
       batch.push(marker);
     }
