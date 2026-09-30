@@ -107,7 +107,7 @@ const APP_HTML = `
       <div class="globe" id="globe"></div>
       <section class="wall" id="wall" hidden></section>
       <section class="watching" id="watching" hidden></section>
-      <aside class="notes"><div class="dial" id="dial"></div><div class="legend" id="legend"></div></aside>
+      <aside class="notes" id="notes"><div class="dial" id="dial"></div><div class="legend" id="legend"></div></aside>
     </main>
     <aside class="panel" id="panel"></aside>
   </div>`;

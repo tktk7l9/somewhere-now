@@ -107,6 +107,17 @@ describe("createPanel", () => {
     expect(screen.getByText(/4,321 watching/)).toBeTruthy();
   });
 
+  it("names the lead frame in the UI language and renames it on switch without remounting", () => {
+    const { container, panel } = setup();
+    panel.update([TOKYO], ctx({ lang: "en" }));
+    const frame = container.querySelector("iframe")!;
+    expect(frame.title).toBe("Tokyo Crossing");
+
+    panel.update([TOKYO], ctx({ lang: "ja" }));
+    expect(container.querySelector("iframe")).toBe(frame);
+    expect(frame.title).toBe("東京の交差点");
+  });
+
   it("starts with sound when the user has turned sound on", () => {
     const { container, panel } = setup();
     panel.update([TOKYO], ctx({ soundOn: true }));

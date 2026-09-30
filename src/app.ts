@@ -114,7 +114,7 @@ export function startApp(root: HTMLElement): void {
   const wallEl = root.querySelector<HTMLElement>("#wall")!;
   const watchingEl = root.querySelector<HTMLElement>("#watching")!;
   const dialEl = root.querySelector<HTMLElement>("#dial")!;
-  const notesEl = root.querySelector<HTMLElement>(".notes")!;
+  const notesEl = root.querySelector<HTMLElement>("#notes")!;
   const legendEl = root.querySelector<HTMLElement>("#legend")!;
   const notice = createNotice(stageEl);
 
