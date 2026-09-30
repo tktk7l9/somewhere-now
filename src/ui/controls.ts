@@ -171,7 +171,6 @@ export function createControls(container: HTMLElement, handlers: ControlHandlers
 
       const active = activeFilterCount(state);
       setTwoLengthLabel(clear, t("clearFilters", lang), t("clearFiltersShort", lang));
-      clear.hidden = active === 0;
 
       const mapOpen = !wallOpen && !state.watching && !state.globe;
       const globeOpen = !wallOpen && !state.watching && state.globe;
@@ -272,10 +271,17 @@ export function createControls(container: HTMLElement, handlers: ControlHandlers
 
       if (nextPrimaryKey !== primaryKey) {
         primaryKey = nextPrimaryKey;
-        replaceKeepingFocus(primaryRow, () => [
-          group(random, locate, flatMap, globe, wall, watching),
-          group(filtersToggle, clear, langToggle),
-        ]);
+        replaceKeepingFocus(primaryRow, () => {
+          // Hidden only here, after the focus position was read: Chrome blurs a focused element
+          // the moment it gets hidden (measured), and read afterwards the row would find nothing
+          // to hand focus back from. The chip's state changes only with `active`, which is in the
+          // key, so this build runs every time it needs to change.
+          clear.hidden = active === 0;
+          return [
+            group(random, locate, flatMap, globe, wall, watching),
+            group(filtersToggle, clear, langToggle),
+          ];
+        });
       }
 
       if (nextFiltersKey !== filtersKey) {

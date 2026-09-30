@@ -167,9 +167,26 @@ describe("createControls", () => {
     expect(screen.getByRole("button", { name: "Clear filters" })).toBeTruthy();
   });
 
+  /**
+   * Chrome blurs a focused element synchronously the moment it is hidden (measured in headless
+   * Chrome: focusout fires from inside the `hidden` assignment). jsdom keeps it focused, which
+   * would hide a lost focus, so the chip gets Chrome's behaviour here.
+   */
+  function blurWhenHiddenLikeChrome(el: HTMLElement): void {
+    const proto = Object.getOwnPropertyDescriptor(HTMLElement.prototype, "hidden")!;
+    Object.defineProperty(el, "hidden", {
+      get: proto.get,
+      set(value: boolean) {
+        proto.set!.call(el, value);
+        if (value && document.activeElement === el) el.blur();
+      },
+    });
+  }
+
   it("keeps keyboard focus in the row when the pressed clear chip disappears", () => {
     const { render } = setup();
     render(state({ categories: ["city"] }));
+    blurWhenHiddenLikeChrome(screen.getByRole("button", { name: "絞り込みを解除" }));
     screen.getByRole("button", { name: "絞り込みを解除" }).focus();
     render(state());
     expect(document.activeElement).toBe(screen.getByRole("button", { name: "絞り込み" }));
