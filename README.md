@@ -107,8 +107,9 @@ rm .env
 
 人手で選ぶ分は `scripts/cam-places.ts`。件数を伸ばす一括取り込みは
 `scripts/cam-places-bulk.ts`（人手の表は上書きしない）。どちらも
-`npm run cams:build` で座標とタイムゾーンを解決し、`src/data/cams.ts` を生成する。
-生成物は手で編集しない。
+`npm run cams:build` で座標とタイムゾーンを解決し、`src/data/cams.ts` と
+Worker 用の抜粋 `src/data/camSources.ts`（id と配信元だけ）を生成する。
+生成物は手で編集しない。`cams.ts` だけを直したときは `npm run cams:sources` で抜粋を作り直す。
 
 **1 件ずつ（チャンネルが分かっている相手）**
 
