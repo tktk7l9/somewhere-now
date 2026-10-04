@@ -8,6 +8,12 @@ The palette is a nautical chart (deep teal), and the only accent is a single amb
 
 ## Layers and responsibilities
 
+The Worker's Cron path (`worker/youtube.ts`, `worker/refresh.ts`, `scheduled` in `worker/index.ts`) is written with
+**Effect 4** (`effect`). Client failures are typed (`YouTubeApiError` / `YouTubeNetworkError`); `rediscover` turns a failed
+channel into a note with `Effect.result`, and `update` wraps the refresh in `Effect.exit` so the ledger write-back runs on
+every outcome (the old `finally`). `scheduled` hands `ctx.waitUntil` an effect that never fails. The `/api/cams` fetch path
+stays plain Promise code on purpose (it is latency-sensitive and has nothing to retry).
+
 | Location | Responsibility | Tests |
 |---|---|---|
 | `src/astro/` | Solar position (Meeus). Ported from skydial | **100% required** |
@@ -15,7 +21,7 @@ The palette is a nautical chart (deep teal), and the only accent is a single amb
 | `worker/youtube.ts` `worker/refresh.ts` | API client and the refresh algorithm | **100% required** |
 | `src/ui/` `src/app.ts` `src/api/` | DOM, iframe, fetch, screen assembly | jsdom + Testing Library, per-glob threshold (reached − 2) in `vitest.config.ts` |
 | `src/ui/map.ts` `src/ui/globe.ts` | Leaflet / MapLibre (canvas, WebGL) | Out of scope (jsdom cannot render them; `app.test.ts` swaps in fakes) |
-| `worker/index.ts` `src/main.ts` | Entry points | Out of scope |
+| `worker/index.ts` `src/main.ts` | Entry points | Out of scope (the Cron path of `worker/index.ts` is pinned by `worker/index.test.ts` against an in-memory KV) |
 | `src/data/cams.ts` | Generated. **Do not edit by hand** | Has a validation test |
 
 `npm run coverage` fails if even one line of the 100% targets above is missing, or if the UI layer

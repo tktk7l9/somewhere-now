@@ -8,6 +8,11 @@
 // 50 items, so the liveness sweep sends them in bulk. search.list is expensive at 100 units,
 // so it is used only for rediscovery of cameras whose videoId died, while watching the
 // budget.
+//
+// The client is written with Effect: a failed call is a typed YouTubeError rather than a
+// thrown Error, so callers (refresh.ts) decide per call whether a failure ends the run.
+
+import { Data, Effect } from "effect";
 
 const API_BASE = "https://www.googleapis.com/youtube/v3";
 
@@ -174,6 +179,27 @@ export function parseVideosList(json: unknown): YouTubeVideo[] {
   return videos;
 }
 
+/** A non-2xx response. body is kept because quotaExceeded etc. is only told apart there. */
+export class YouTubeApiError extends Data.TaggedError("YouTubeApiError")<{
+  readonly status: number;
+  readonly body: string;
+}> {
+  override get message(): string {
+    return `YouTube API ${this.status}: ${this.body}`;
+  }
+}
+
+/** fetch itself or reading the body failed (connection reset, subrequest limit, ...). */
+export class YouTubeNetworkError extends Data.TaggedError("YouTubeNetworkError")<{
+  readonly cause: unknown;
+}> {
+  override get message(): string {
+    return this.cause instanceof Error ? this.cause.message : String(this.cause);
+  }
+}
+
+export type YouTubeError = YouTubeApiError | YouTubeNetworkError;
+
 export interface YouTubeClient {
   /** Quota consumed so far (in units). */
   readonly unitsUsed: number;
@@ -182,8 +208,8 @@ export interface YouTubeClient {
    * this, not units, so it is counted separately.
    */
   readonly callsMade: number;
-  /** ids holds up to MAX_VIDEO_IDS_PER_CALL items. */
-  listVideos(ids: readonly string[]): Promise<YouTubeVideo[]>;
+  /** ids holds up to MAX_VIDEO_IDS_PER_CALL items (more is a programming error = defect). */
+  listVideos(ids: readonly string[]): Effect.Effect<YouTubeVideo[], YouTubeError>;
   /**
    * Walks back the uploads playlist and returns those that are live now.
    * Stops paging as soon as shouldStop returns true (the target is normally on page 1, so
@@ -192,9 +218,9 @@ export interface YouTubeClient {
   listChannelLiveStreamsViaUploads(
     channelId: string,
     shouldStop?: (live: readonly YouTubeVideo[]) => boolean,
-  ): Promise<YouTubeVideo[]>;
+  ): Effect.Effect<YouTubeVideo[], YouTubeError>;
   /** Covers the channel's live streams exhaustively by search. Reliable but costly (101 units). */
-  listChannelLiveStreamsViaSearch(channelId: string): Promise<YouTubeVideo[]>;
+  listChannelLiveStreamsViaSearch(channelId: string): Effect.Effect<YouTubeVideo[], YouTubeError>;
 }
 
 export function createYouTubeClient(apiKey: string, fetchImpl: typeof fetch): YouTubeClient {
@@ -202,15 +228,38 @@ export function createYouTubeClient(apiKey: string, fetchImpl: typeof fetch): Yo
   let callsMade = 0;
 
   // Quota on Google's side is consumed even on failure, so add it up first and then send.
-  async function call(url: string, cost: number): Promise<unknown> {
-    unitsUsed += cost;
-    callsMade += 1;
-    const res = await fetchImpl(url);
-    if (!res.ok) {
-      throw new Error(`YouTube API ${res.status}: ${await res.text()}`);
-    }
-    return res.json();
-  }
+  const call = (url: string, cost: number): Effect.Effect<unknown, YouTubeError> =>
+    Effect.gen(function* () {
+      unitsUsed += cost;
+      callsMade += 1;
+      const res = yield* Effect.tryPromise({
+        try: () => fetchImpl(url),
+        catch: (cause) => new YouTubeNetworkError({ cause }),
+      });
+      if (!res.ok) {
+        const body = yield* Effect.tryPromise({
+          try: () => res.text(),
+          catch: (cause) => new YouTubeNetworkError({ cause }),
+        });
+        return yield* new YouTubeApiError({ status: res.status, body });
+      }
+      return yield* Effect.tryPromise({
+        try: () => res.json(),
+        catch: (cause) => new YouTubeNetworkError({ cause }),
+      });
+    });
+
+  /** From a set of video ids, returns only those live now. Queries 50 items at a time. */
+  const liveAmong = (ids: readonly string[]): Effect.Effect<YouTubeVideo[], YouTubeError> =>
+    Effect.gen(function* () {
+      const live: YouTubeVideo[] = [];
+      for (let i = 0; i < ids.length; i += MAX_VIDEO_IDS_PER_CALL) {
+        const chunk = ids.slice(i, i + MAX_VIDEO_IDS_PER_CALL);
+        const videos = parseVideosList(yield* call(videosListUrl(apiKey, chunk), UNIT_COST.videosList));
+        for (const video of videos) if (video.isLive) live.push(video);
+      }
+      return live;
+    });
 
   return {
     get unitsUsed() {
@@ -221,51 +270,44 @@ export function createYouTubeClient(apiKey: string, fetchImpl: typeof fetch): Yo
       return callsMade;
     },
 
-    async listVideos(ids) {
+    listVideos(ids) {
       if (ids.length > MAX_VIDEO_IDS_PER_CALL) {
-        throw new Error(
-          `videos.list takes at most ${MAX_VIDEO_IDS_PER_CALL} ids per call (${ids.length} were passed)`,
+        return Effect.die(
+          new Error(
+            `videos.list takes at most ${MAX_VIDEO_IDS_PER_CALL} ids per call (${ids.length} were passed)`,
+          ),
         );
       }
-      if (ids.length === 0) return [];
-      return parseVideosList(await call(videosListUrl(apiKey, ids), UNIT_COST.videosList));
+      if (ids.length === 0) return Effect.succeed([]);
+      return Effect.map(call(videosListUrl(apiKey, ids), UNIT_COST.videosList), parseVideosList);
     },
 
-    async listChannelLiveStreamsViaUploads(channelId, shouldStop) {
-      const playlistId = uploadsPlaylistId(channelId);
-      const live: YouTubeVideo[] = [];
-      let pageToken: string | undefined;
+    listChannelLiveStreamsViaUploads(channelId, shouldStop) {
+      return Effect.gen(function* () {
+        const playlistId = uploadsPlaylistId(channelId);
+        const live: YouTubeVideo[] = [];
+        let pageToken: string | undefined;
 
-      for (let page = 0; page < UPLOADS_MAX_PAGES; page += 1) {
-        const json = await call(
-          playlistItemsUrl(apiKey, playlistId, pageToken),
-          UNIT_COST.playlistItems,
-        );
-        live.push(...(await liveAmong(parsePlaylistItems(json))));
+        for (let page = 0; page < UPLOADS_MAX_PAGES; page += 1) {
+          const json = yield* call(
+            playlistItemsUrl(apiKey, playlistId, pageToken),
+            UNIT_COST.playlistItems,
+          );
+          live.push(...(yield* liveAmong(parsePlaylistItems(json))));
 
-        pageToken = nextPageToken(json);
-        if (pageToken === undefined) break;
-        if (shouldStop?.(live) === true) break;
-      }
-      return live;
+          pageToken = nextPageToken(json);
+          if (pageToken === undefined) break;
+          if (shouldStop?.(live) === true) break;
+        }
+        return live;
+      });
     },
 
-    async listChannelLiveStreamsViaSearch(channelId) {
-      const found = await call(searchLiveUrl(apiKey, channelId), UNIT_COST.searchLive);
-      return liveAmong(parseSearchIds(found));
+    listChannelLiveStreamsViaSearch(channelId) {
+      return Effect.gen(function* () {
+        const found = yield* call(searchLiveUrl(apiKey, channelId), UNIT_COST.searchLive);
+        return yield* liveAmong(parseSearchIds(found));
+      });
     },
   };
-
-  /** From a set of video ids, returns only those live now. Queries 50 items at a time. */
-  async function liveAmong(ids: readonly string[]): Promise<YouTubeVideo[]> {
-    const live: YouTubeVideo[] = [];
-    for (let i = 0; i < ids.length; i += MAX_VIDEO_IDS_PER_CALL) {
-      const chunk = ids.slice(i, i + MAX_VIDEO_IDS_PER_CALL);
-      const videos = parseVideosList(
-        await call(videosListUrl(apiKey, chunk), UNIT_COST.videosList),
-      );
-      for (const video of videos) if (video.isLive) live.push(video);
-    }
-    return live;
-  }
 }

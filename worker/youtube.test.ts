@@ -4,7 +4,7 @@ import {
   nextPageToken,
   MAX_VIDEO_IDS_PER_CALL,
   UNIT_COST,
-  createYouTubeClient,
+  createYouTubeClient as createEffectClient,
   parsePlaylistItems,
   parseSearchIds,
   parseVideosList,
@@ -13,8 +13,33 @@ import {
   uploadsPlaylistId,
   videosListUrl,
 } from "./youtube";
+import { Effect } from "effect";
 
 const KEY = "test-key";
+
+/**
+ * The client returns Effects. These tests are about URLs, paging and unit accounting, so
+ * they run each call to a Promise and keep the original assertions. The typed errors
+ * themselves are checked in "fails with a typed error" below.
+ */
+function createYouTubeClient(apiKey: string, fetchImpl: typeof fetch) {
+  const client = createEffectClient(apiKey, fetchImpl);
+  return {
+    get unitsUsed() {
+      return client.unitsUsed;
+    },
+    get callsMade() {
+      return client.callsMade;
+    },
+    listVideos: (ids: readonly string[]) => Effect.runPromise(client.listVideos(ids)),
+    listChannelLiveStreamsViaUploads: (
+      channelId: string,
+      shouldStop?: Parameters<typeof client.listChannelLiveStreamsViaUploads>[1],
+    ) => Effect.runPromise(client.listChannelLiveStreamsViaUploads(channelId, shouldStop)),
+    listChannelLiveStreamsViaSearch: (channelId: string) =>
+      Effect.runPromise(client.listChannelLiveStreamsViaSearch(channelId)),
+  };
+}
 
 describe("videosListUrl", () => {
   it("requests the needed parts and ids together", () => {
@@ -338,6 +363,46 @@ describe("createYouTubeClient", () => {
     const fetchImpl = async () => new Response("quotaExceeded", { status: 403 });
     const client = createYouTubeClient(KEY, fetchImpl as unknown as typeof fetch);
     await expect(client.listVideos(["a"])).rejects.toThrow(/403.*quotaExceeded/s);
+  });
+
+  it("fails with a typed error that keeps the status and body", async () => {
+    const fetchImpl = async () => new Response("quotaExceeded", { status: 403 });
+    const client = createEffectClient(KEY, fetchImpl as unknown as typeof fetch);
+    const error = await Effect.runPromise(Effect.flip(client.listVideos(["a"])));
+    expect(error).toMatchObject({ _tag: "YouTubeApiError", status: 403, body: "quotaExceeded" });
+  });
+
+  it("fails with a network error when fetch itself throws", async () => {
+    const fetchImpl = async () => {
+      throw new Error("Too many subrequests");
+    };
+    const client = createEffectClient(KEY, fetchImpl as unknown as typeof fetch);
+    const error = await Effect.runPromise(Effect.flip(client.listChannelLiveStreamsViaSearch("UC1")));
+    expect(error).toMatchObject({ _tag: "YouTubeNetworkError" });
+    expect(error.message).toBe("Too many subrequests");
+    expect(client.unitsUsed).toBe(UNIT_COST.searchLive);
+  });
+
+  it("describes a non-Error rejection from fetch as text", async () => {
+    const fetchImpl = () => Promise.reject("offline");
+    const client = createEffectClient(KEY, fetchImpl as unknown as typeof fetch);
+    const error = await Effect.runPromise(Effect.flip(client.listVideos(["a"])));
+    expect(error.message).toBe("offline");
+  });
+
+  it("fails with a network error when the body is not JSON", async () => {
+    const fetchImpl = async () => new Response("<html>", { status: 200 });
+    const client = createEffectClient(KEY, fetchImpl as unknown as typeof fetch);
+    const error = await Effect.runPromise(Effect.flip(client.listVideos(["a"])));
+    expect(error._tag).toBe("YouTubeNetworkError");
+  });
+
+  it("fails with a network error when the error body cannot be read", async () => {
+    const res = new Response("x", { status: 500 });
+    vi.spyOn(res, "text").mockRejectedValue(new Error("stream reset"));
+    const client = createEffectClient(KEY, (async () => res) as unknown as typeof fetch);
+    const error = await Effect.runPromise(Effect.flip(client.listVideos(["a"])));
+    expect(error.message).toBe("stream reset");
   });
 
   it("adds up units consumed even on error (quota is consumed even on failure)", async () => {

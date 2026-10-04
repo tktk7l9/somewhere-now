@@ -12,12 +12,14 @@
 
 import { resolvedVideoId, type Cam, type CamState, type CamStatus } from "../src/domain/cams";
 import { matchStream } from "../src/domain/streamMatch";
+import { Effect } from "effect";
 import {
   CHANNEL_LOOKUP_COST,
   MAX_CALLS_PER_CHANNEL,
   MAX_VIDEO_IDS_PER_CALL,
   UNIT_COST,
   type YouTubeClient,
+  type YouTubeError,
   type YouTubeVideo,
 } from "./youtube";
 
@@ -177,72 +179,73 @@ function byStaleness(states: ReadonlyMap<string, CamState>, cams: readonly Cam[]
  * Checks known videoIds in bulk and updates live / offline / blocked.
  * Cameras without a videoId are not touched (rediscover is in charge of them).
  */
-export async function sweepLiveness(
+export const sweepLiveness = (
   cams: readonly Cam[],
   states: ReadonlyMap<string, CamState>,
   client: YouTubeClient,
   now: Date,
   unitBudget = DAILY_UNIT_BUDGET,
-): Promise<RefreshResult> {
-  const notes: string[] = [];
-  const checkedAt = now.toISOString();
+): Effect.Effect<RefreshResult, YouTubeError> =>
+  Effect.gen(function* () {
+    const notes: string[] = [];
+    const checkedAt = now.toISOString();
 
-  // Camera -> videoId to check. The id held by the state takes priority over the master.
-  // 1 run cannot look at everything (subrequest limit), so they are packed in order from
-  // the oldest check. This way the targets rotate by themselves on every run, and the
-  // master gets a full round without separately remembering how far the check got.
-  const targets = new Map<string, string>();
-  for (const cam of byStaleness(states, cams)) {
-    const state = states.get(cam.id);
-    // Skip cameras whose per-status interval has not come yet. The freed capacity goes to
-    // the offline / blocked side, where changes happen.
-    if (!isDue(state, now)) continue;
-    const videoId = resolvedVideoId(cam, state);
-    if (videoId !== null) targets.set(cam.id, videoId);
-  }
-
-  // Several cameras can point at the same stream, so duplicates are removed before sending.
-  const uniqueIds = [...new Set(targets.values())];
-  const found = new Map<string, Awaited<ReturnType<YouTubeClient["listVideos"]>>[number]>();
-
-  // The ids actually queried. So that the part cut off is not misjudged as "the stream is
-  // gone", the decision branches on "was it checked", not on whether it was found.
-  const queried = new Set<string>();
-  let unitsUsed = 0;
-  let calls = 0;
-  for (const ids of chunk(uniqueIds, MAX_VIDEO_IDS_PER_CALL)) {
-    if (unitsUsed + UNIT_COST.videosList > unitBudget) {
-      notes.push("liveness sweep cut short because the budget ran out");
-      break;
+    // Camera -> videoId to check. The id held by the state takes priority over the master.
+    // 1 run cannot look at everything (subrequest limit), so they are packed in order from
+    // the oldest check. This way the targets rotate by themselves on every run, and the
+    // master gets a full round without separately remembering how far the check got.
+    const targets = new Map<string, string>();
+    for (const cam of byStaleness(states, cams)) {
+      const state = states.get(cam.id);
+      // Skip cameras whose per-status interval has not come yet. The freed capacity goes to
+      // the offline / blocked side, where changes happen.
+      if (!isDue(state, now)) continue;
+      const videoId = resolvedVideoId(cam, state);
+      if (videoId !== null) targets.set(cam.id, videoId);
     }
-    if (calls >= MAX_LIST_CALLS_PER_SWEEP) {
-      notes.push("liveness sweep cut short because the subrequest limit was reached (the rest waits for the next run)");
-      break;
+
+    // Several cameras can point at the same stream, so duplicates are removed before sending.
+    const uniqueIds = [...new Set(targets.values())];
+    const found = new Map<string, YouTubeVideo>();
+
+    // The ids actually queried. So that the part cut off is not misjudged as "the stream is
+    // gone", the decision branches on "was it checked", not on whether it was found.
+    const queried = new Set<string>();
+    let unitsUsed = 0;
+    let calls = 0;
+    for (const ids of chunk(uniqueIds, MAX_VIDEO_IDS_PER_CALL)) {
+      if (unitsUsed + UNIT_COST.videosList > unitBudget) {
+        notes.push("liveness sweep cut short because the budget ran out");
+        break;
+      }
+      if (calls >= MAX_LIST_CALLS_PER_SWEEP) {
+        notes.push("liveness sweep cut short because the subrequest limit was reached (the rest waits for the next run)");
+        break;
+      }
+      for (const video of yield* client.listVideos(ids)) found.set(video.id, video);
+      for (const id of ids) queried.add(id);
+      unitsUsed += UNIT_COST.videosList;
+      calls += 1;
     }
-    for (const video of await client.listVideos(ids)) found.set(video.id, video);
-    for (const id of ids) queried.add(id);
-    unitsUsed += UNIT_COST.videosList;
-    calls += 1;
-  }
 
-  const updated = new Map<string, CamState>();
-  for (const [camId, videoId] of targets) {
-    if (!queried.has(videoId)) continue;
-    const video = found.get(videoId);
-    const status: CamState["status"] =
-      video === undefined ? "offline" : !video.embeddable ? "blocked" : video.isLive ? "live" : "offline";
+    const updated = new Map<string, CamState>();
+    for (const [camId, videoId] of targets) {
+      if (!queried.has(videoId)) continue;
+      const video = found.get(videoId);
+      const status: CamState["status"] =
+        video === undefined ? "offline" : !video.embeddable ? "blocked" : video.isLive ? "live" : "offline";
 
-    updated.set(camId, {
-      videoId,
-      status,
-      viewers: video?.viewers ?? null,
-      title: video?.title ?? states.get(camId)?.title ?? null,
-      checkedAt,
-    });
-  }
+      updated.set(camId, {
+        videoId,
+        status,
+        viewers: video?.viewers ?? null,
+        title: video?.title ?? states.get(camId)?.title ?? null,
+        checkedAt,
+      });
+    }
 
-  return { states: updated, unitsUsed, notes };
-}
+    return { states: updated, unitsUsed, notes };
+  });
 
 export interface RediscoverOptions {
   /** Upper limit on the number of channels rediscovered in 1 run. */
@@ -295,7 +298,7 @@ function keepRecorded(
  * falls back to the search that can be exhaustive (101 units). A camera that could not be
  * told apart is left offline rather than assigned a wrong stream.
  */
-export async function rediscover(
+export const rediscover = (
   cams: readonly Cam[],
   states: ReadonlyMap<string, CamState>,
   client: YouTubeClient,
@@ -306,122 +309,131 @@ export async function rediscover(
     unitBudget = DAILY_UNIT_BUDGET,
     maxCalls = MAX_CALLS_PER_REDISCOVER,
   }: RediscoverOptions,
-): Promise<RefreshResult> {
-  const notes: string[] = [];
-  const checkedAt = now.toISOString();
-  const updated = new Map<string, CamState>();
-  // Consumption is always taken from the client's measured value (counting it ourselves
-  // drifts on failure).
-  const startUnits = client.unitsUsed;
-  const spent = (): number => client.unitsUsed - startUnits;
-  // What counts against the subrequest limit is the number of calls, not units. Count it
-  // separately.
-  const startCalls = client.callsMade;
-  const called = (): number => client.callsMade - startCalls;
+): Effect.Effect<RefreshResult> =>
+  Effect.gen(function* () {
+    const notes: string[] = [];
+    const checkedAt = now.toISOString();
+    const updated = new Map<string, CamState>();
+    // Consumption is always taken from the client's measured value (counting it ourselves
+    // drifts on failure).
+    const startUnits = client.unitsUsed;
+    const spent = (): number => client.unitsUsed - startUnits;
+    // What counts against the subrequest limit is the number of calls, not units. Count it
+    // separately.
+    const startCalls = client.callsMade;
+    const called = (): number => client.callsMade - startCalls;
 
-  const staleness = (cam: Cam): string => states.get(cam.id)?.checkedAt ?? NEVER_CHECKED;
-  let searchesUsed = 0;
+    const staleness = (cam: Cam): string => states.get(cam.id)?.checkedAt ?? NEVER_CHECKED;
+    let searchesUsed = 0;
 
-  const byChannel = new Map<string, Cam[]>();
-  for (const cam of cams) {
-    const state = states.get(cam.id);
-    if (state?.status === "live") continue;
-    // Do not touch cameras the liveness sweep has never touched yet. Rediscovery is for
-    // when "the recorded videoId died", and because it dredges a channel it always misses
-    // some (long-running streams sink deep into the upload history).
-    // Marking a living camera offline ahead of time defeats the purpose.
-    if (state === undefined && resolvedVideoId(cam, undefined) !== null) continue;
-    const list = byChannel.get(cam.source.channelId);
-    if (list === undefined) byChannel.set(cam.source.channelId, [cam]);
-    else list.push(cam);
-  }
-
-  // Start with the channels holding the camera that has been left alone the longest.
-  const oldest = (list: readonly Cam[]): string =>
-    list.map(staleness).reduce((a, b) => (a < b ? a : b));
-  const channels = [...byChannel.entries()]
-    .sort(([, a], [, b]) => {
-      const [x, y] = [oldest(a), oldest(b)];
-      return x < y ? -1 : x > y ? 1 : 0;
-    })
-    .slice(0, maxChannels);
-
-  for (const [channelId, channelCams] of channels) {
-    if (spent() + CHANNEL_LOOKUP_COST.viaUploads > unitBudget) {
-      notes.push("rediscovery cut short because the budget ran out");
-      break;
-    }
-    // Take this channel on only when it fits the allowance even if walked to the worst case.
-    if (called() + MAX_CALLS_PER_CHANNEL > maxCalls) {
-      notes.push("rediscovery cut short because the subrequest limit was reached (the rest waits for the next run)");
-      break;
+    const byChannel = new Map<string, Cam[]>();
+    for (const cam of cams) {
+      const state = states.get(cam.id);
+      if (state?.status === "live") continue;
+      // Do not touch cameras the liveness sweep has never touched yet. Rediscovery is for
+      // when "the recorded videoId died", and because it dredges a channel it always misses
+      // some (long-running streams sink deep into the upload history).
+      // Marking a living camera offline ahead of time defeats the purpose.
+      if (state === undefined && resolvedVideoId(cam, undefined) !== null) continue;
+      const list = byChannel.get(cam.source.channelId);
+      if (list === undefined) byChannel.set(cam.source.channelId, [cam]);
+      else list.push(cam);
     }
 
-    // Once every camera being looked for in this channel is found, nothing further is needed.
-    const foundAll = (live: readonly YouTubeVideo[]): boolean =>
-      channelCams.every((cam) => matchStream(cam.source.titleKey, live) !== null);
+    // Start with the channels holding the camera that has been left alone the longest.
+    const oldest = (list: readonly Cam[]): string =>
+      list.map(staleness).reduce((a, b) => (a < b ? a : b));
+    const channels = [...byChannel.entries()]
+      .sort(([, a], [, b]) => {
+        const [x, y] = [oldest(a), oldest(b)];
+        return x < y ? -1 : x > y ? 1 : 0;
+      })
+      .slice(0, maxChannels);
 
-    let streams: YouTubeVideo[];
-    try {
-      streams = await client.listChannelLiveStreamsViaUploads(channelId, foundAll);
-    } catch (error) {
-      notes.push(`[${channelId}] rediscovery failed: ${String(error)}`);
-      for (const cam of channelCams) {
-        updated.set(cam.id, keepRecorded(cam, states.get(cam.id), "unknown", checkedAt));
+    for (const [channelId, channelCams] of channels) {
+      if (spent() + CHANNEL_LOOKUP_COST.viaUploads > unitBudget) {
+        notes.push("rediscovery cut short because the budget ran out");
+        break;
       }
-      continue;
-    }
-
-    let matched = new Map<string, YouTubeVideo>();
-    const resolve = (): string[] => {
-      matched = new Map();
-      const missing: string[] = [];
-      for (const cam of channelCams) {
-        const id = matchStream(cam.source.titleKey, streams);
-        const video = id === null ? undefined : streams.find((s) => s.id === id);
-        if (video === undefined) missing.push(cam.id);
-        else matched.set(cam.id, video);
+      // Take this channel on only when it fits the allowance even if walked to the worst case.
+      if (called() + MAX_CALLS_PER_CHANNEL > maxCalls) {
+        notes.push("rediscovery cut short because the subrequest limit was reached (the rest waits for the next run)");
+        break;
       }
-      return missing;
-    };
 
-    let missing = resolve();
-    // It may just not have been in the latest 50, so if there is room fall back to the
-    // exhaustive search.
-    if (
-      missing.length > 0 &&
-      searchesUsed < maxSearches &&
-      spent() + CHANNEL_LOOKUP_COST.viaSearch <= unitBudget &&
-      called() + 2 <= maxCalls
-    ) {
-      searchesUsed += 1;
-      try {
-        streams = await client.listChannelLiveStreamsViaSearch(channelId);
-        missing = resolve();
-      } catch (error) {
-        notes.push(`[${channelId}] rediscovery via search failed: ${String(error)}`);
-      }
-    }
-    if (missing.length > 0) {
-      notes.push(`[${channelId}] could not tell the streams apart, left as is: ${missing.join(", ")}`);
-    }
+      // Once every camera being looked for in this channel is found, nothing further is needed.
+      const foundAll = (live: readonly YouTubeVideo[]): boolean =>
+        channelCams.every((cam) => matchStream(cam.source.titleKey, live) !== null);
 
-    for (const cam of channelCams) {
-      const video = matched.get(cam.id);
-      const prior = states.get(cam.id);
-      if (video === undefined) {
-        updated.set(cam.id, keepRecorded(cam, prior, "offline", checkedAt));
+      // A failed channel is recorded and skipped; it never ends the whole run.
+      const viaUploads = yield* Effect.result(
+        client.listChannelLiveStreamsViaUploads(channelId, foundAll),
+      );
+      if (viaUploads._tag === "Failure") {
+        notes.push(`[${channelId}] rediscovery failed: ${describe(viaUploads.failure)}`);
+        for (const cam of channelCams) {
+          updated.set(cam.id, keepRecorded(cam, states.get(cam.id), "unknown", checkedAt));
+        }
         continue;
       }
-      updated.set(cam.id, {
-        videoId: video.id,
-        status: statusOf(video),
-        viewers: video.viewers,
-        title: video.title,
-        checkedAt,
-      });
-    }
-  }
+      let streams = viaUploads.success;
 
-  return { states: updated, unitsUsed: spent(), notes };
+      let matched = new Map<string, YouTubeVideo>();
+      const resolve = (): string[] => {
+        matched = new Map();
+        const missing: string[] = [];
+        for (const cam of channelCams) {
+          const id = matchStream(cam.source.titleKey, streams);
+          const video = id === null ? undefined : streams.find((s) => s.id === id);
+          if (video === undefined) missing.push(cam.id);
+          else matched.set(cam.id, video);
+        }
+        return missing;
+      };
+
+      let missing = resolve();
+      // It may just not have been in the latest 50, so if there is room fall back to the
+      // exhaustive search.
+      if (
+        missing.length > 0 &&
+        searchesUsed < maxSearches &&
+        spent() + CHANNEL_LOOKUP_COST.viaSearch <= unitBudget &&
+        called() + 2 <= maxCalls
+      ) {
+        searchesUsed += 1;
+        const viaSearch = yield* Effect.result(client.listChannelLiveStreamsViaSearch(channelId));
+        if (viaSearch._tag === "Success") {
+          streams = viaSearch.success;
+          missing = resolve();
+        } else {
+          notes.push(`[${channelId}] rediscovery via search failed: ${describe(viaSearch.failure)}`);
+        }
+      }
+      if (missing.length > 0) {
+        notes.push(`[${channelId}] could not tell the streams apart, left as is: ${missing.join(", ")}`);
+      }
+
+      for (const cam of channelCams) {
+        const video = matched.get(cam.id);
+        const prior = states.get(cam.id);
+        if (video === undefined) {
+          updated.set(cam.id, keepRecorded(cam, prior, "offline", checkedAt));
+          continue;
+        }
+        updated.set(cam.id, {
+          videoId: video.id,
+          status: statusOf(video),
+          viewers: video.viewers,
+          title: video.title,
+          checkedAt,
+        });
+      }
+    }
+
+    return { states: updated, unitsUsed: spent(), notes };
+  });
+
+/** One-line form of a client failure for the notes (same shape as String(new Error(...))). */
+function describe(error: YouTubeError): string {
+  return `${error._tag}: ${error.message}`;
 }

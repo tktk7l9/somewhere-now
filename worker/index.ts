@@ -8,6 +8,7 @@
 // Quota used is accumulated per day in the quota ledger in KV, and calls stop once the
 // budget is exceeded.
 
+import { Cause, Data, Effect, Exit } from "effect";
 import { CAMS } from "../src/data/cams";
 import { publicStates } from "../src/domain/cams";
 import {
@@ -90,6 +91,16 @@ interface PublicMeta {
   updatedAt: string;
 }
 
+/** A KV read or write failed. Only the Cron path uses this; /api/cams stays plain Promise code. */
+class KvError extends Data.TaggedError("KvError")<{ readonly op: string; readonly cause: unknown }> {
+  override get message(): string {
+    return `KV ${this.op} failed: ${this.cause instanceof Error ? this.cause.message : String(this.cause)}`;
+  }
+}
+
+const kv = <A>(op: string, run: () => Promise<A>): Effect.Effect<A, KvError> =>
+  Effect.tryPromise({ try: run, catch: (cause) => new KvError({ op, cause }) });
+
 async function readState(env: Env): Promise<StatePayload> {
   const stored = await env.CAM_STATE.get<StatePayload>(STATE_KEY, "json");
   return stored ?? { updatedAt: new Date(0).toISOString(), cams: {} };
@@ -100,17 +111,18 @@ async function readState(env: Env): Promise<StatePayload> {
  * If the source of truth does not have one yet, takes it over from the legacy key
  * (just once per role).
  */
-async function ledgerFor(
+const ledgerFor = (
   payload: StatePayload,
   role: Role,
   env: Env,
   now: Date,
-): Promise<QuotaLedger> {
+): Effect.Effect<QuotaLedger, KvError> => {
   const carried = ledgerIn(payload, role, now);
-  if (carried !== null) return carried;
-  const legacy = await env.CAM_STATE.get<QuotaLedger>(LEGACY_LEDGER_KEY[role], "json");
-  return ledgerForDay(legacy, now);
-}
+  if (carried !== null) return Effect.succeed(carried);
+  return kv(`get ${LEGACY_LEDGER_KEY[role]}`, () =>
+    env.CAM_STATE.get<QuotaLedger>(LEGACY_LEDGER_KEY[role], "json"),
+  ).pipe(Effect.map((legacy) => ledgerForDay(legacy, now)));
+};
 
 /** Body served to the browser. Reduced to only the 3 fields used for display. */
 function publicBody(payload: StatePayload): string {
@@ -207,7 +219,7 @@ export default {
   },
 
   async scheduled(controller, env, ctx) {
-    ctx.waitUntil(refresh(controller.cron, env));
+    ctx.waitUntil(Effect.runPromise(refresh(controller.cron, env)));
   },
 } satisfies ExportedHandler<Env>;
 
@@ -216,98 +228,117 @@ export default {
  *
  * When updates stopped for 3.6 hours on 2026-08-28, neither the quota ledger nor the state
  * moved and the logs were empty, so there was no clue at all to tell apart "Cron did not
- * fire" from "it fired but crashed". `scheduled` passes this to `ctx.waitUntil`, so an
- * exception thrown here disappears without anyone receiving it.
+ * fire" from "it fired but crashed". `scheduled` passes this to `ctx.waitUntil`, so a
+ * failure that escapes here disappears without anyone receiving it. The returned effect
+ * therefore never fails: typed errors and defects alike end in console.error.
  */
-async function refresh(cron: string, env: Env): Promise<void> {
-  const role = roleForCron(cron);
-  if (role === null) {
-    // Falling back to a default role would make every run take one role when only
-    // wrangler.jsonc is edited, and the budget and the ledger would stay swapped unnoticed.
-    console.error(`[cron] an unknown Cron expression fired: ${cron}`);
-    return;
-  }
-  // Record the fact that it fired first. Without this the reason for silence cannot be traced.
-  console.log(`[cron ${role}] start`);
-
-  try {
-    await update(role, env);
-  } catch (error) {
-    // Execution gets here when it crashed before calling YouTube, such as on the KV read
-    // (beyond that, the try inside update catches it and still writes the ledger).
-    console.error(`[cron ${role}] crashed before the refresh started`, error);
-  }
-}
-
-async function update(role: Role, env: Env): Promise<void> {
-  const apiKey = env.YOUTUBE_API_KEY;
-  if (apiKey === undefined || apiKey === "") {
-    console.error(`[cron ${role}] refresh skipped because YOUTUBE_API_KEY is not set`);
-    return;
-  }
-
-  const now = new Date();
-  const payload = await readState(env);
-  const ledger = await ledgerFor(payload, role, env, now);
-  const budget = remainingUnits(ledger, ROLE_UNIT_BUDGET[role]);
-  if (budget === 0) {
-    console.warn(`[cron ${role}] today's budget (${ROLE_UNIT_BUDGET[role]}) is used up, doing nothing`);
-    return;
-  }
-
-  const states = new Map(Object.entries(payload.cams));
-  const client = createYouTubeClient(apiKey, fetch);
-  // The ledger must advance even if the update fails, so the source of truth to write back
-  // is kept outside the try. Whether it was replaced (= next !== payload) also decides
-  // whether the public copy is rebuilt.
-  let next = payload;
-
-  try {
-    const result =
-      role === "sweep"
-        ? await sweepLiveness(CAMS, states, client, now, budget)
-        : await rediscover(CAMS, states, client, now, {
-            maxChannels: REDISCOVER_CHANNELS_PER_RUN,
-            maxSearches: REDISCOVER_SEARCHES_PER_RUN,
-            unitBudget: Math.min(budget, REDISCOVER_UNITS_PER_RUN),
-          });
-
-    for (const [camId, state] of result.states) states.set(camId, state);
-    // Neither path touches the state of ids removed from the master, so sweep them out here.
-    const { kept, removed } = pruneOrphans(states, CAMS);
-    next = { ...payload, updatedAt: now.toISOString(), cams: Object.fromEntries(kept) };
-
-    const live = [...kept.values()].filter((s) => s.status === "live").length;
-    console.log(`[cron ${role}] refreshed ${result.states.size} / live ${live}`);
-    if (removed.length > 0) {
-      console.warn(`[cron ${role}] pruned states missing from the master: ${removed.join(", ")}`);
+const refresh = (cron: string, env: Env): Effect.Effect<void> =>
+  Effect.gen(function* () {
+    const role = roleForCron(cron);
+    if (role === null) {
+      // Falling back to a default role would make every run take one role when only
+      // wrangler.jsonc is edited, and the budget and the ledger would stay swapped unnoticed.
+      console.error(`[cron] an unknown Cron expression fired: ${cron}`);
+      return;
     }
-    for (const note of result.notes) console.warn(`[cron ${role}] ${note}`);
-  } catch (error) {
-    // Give up on updating the state. The next run can redo it.
-    console.error(`[cron ${role}] refresh failed`, error);
-  } finally {
+    // Record the fact that it fired first. Without this the reason for silence cannot be traced.
+    console.log(`[cron ${role}] start`);
+
+    yield* update(role, env).pipe(
+      // Execution gets here when it crashed before calling YouTube, such as on the KV read
+      // (beyond that, update catches the refresh failure itself and still writes the ledger).
+      Effect.catchCause((cause) =>
+        Effect.sync(() =>
+          console.error(`[cron ${role}] crashed before the refresh started`, Cause.squash(cause)),
+        ),
+      ),
+    );
+  });
+
+const update = (role: Role, env: Env): Effect.Effect<void, KvError> =>
+  Effect.gen(function* () {
+    const apiKey = env.YOUTUBE_API_KEY;
+    if (apiKey === undefined || apiKey === "") {
+      console.error(`[cron ${role}] refresh skipped because YOUTUBE_API_KEY is not set`);
+      return;
+    }
+
+    const now = new Date();
+    const payload = yield* kv(`get ${STATE_KEY}`, () => readState(env));
+    const ledger = yield* ledgerFor(payload, role, env, now);
+    const budget = remainingUnits(ledger, ROLE_UNIT_BUDGET[role]);
+    if (budget === 0) {
+      console.warn(`[cron ${role}] today's budget (${ROLE_UNIT_BUDGET[role]}) is used up, doing nothing`);
+      return;
+    }
+
+    const states = new Map(Object.entries(payload.cams));
+    const client = createYouTubeClient(apiKey, fetch);
+
+    // Effect.exit captures typed failures and defects (a throw inside pruneOrphans etc.)
+    // alike, so the write-back below always runs: the ledger must advance even if the update
+    // fails. Whether the source of truth was replaced (= next !== payload) also decides
+    // whether the public copy is rebuilt.
+    const outcome = yield* Effect.exit(
+      Effect.gen(function* () {
+        const result =
+          role === "sweep"
+            ? yield* sweepLiveness(CAMS, states, client, now, budget)
+            : yield* rediscover(CAMS, states, client, now, {
+                maxChannels: REDISCOVER_CHANNELS_PER_RUN,
+                maxSearches: REDISCOVER_SEARCHES_PER_RUN,
+                unitBudget: Math.min(budget, REDISCOVER_UNITS_PER_RUN),
+              });
+
+        for (const [camId, state] of result.states) states.set(camId, state);
+        // Neither path touches the state of ids removed from the master, so sweep them out here.
+        const { kept, removed } = pruneOrphans(states, CAMS);
+        const replaced: StatePayload = {
+          ...payload,
+          updatedAt: now.toISOString(),
+          cams: Object.fromEntries(kept),
+        };
+
+        const live = [...kept.values()].filter((s) => s.status === "live").length;
+        console.log(`[cron ${role}] refreshed ${result.states.size} / live ${live}`);
+        if (removed.length > 0) {
+          console.warn(`[cron ${role}] pruned states missing from the master: ${removed.join(", ")}`);
+        }
+        for (const note of result.notes) console.warn(`[cron ${role}] ${note}`);
+        return replaced;
+      }),
+    );
+
+    let next = payload;
+    if (Exit.isSuccess(outcome)) {
+      next = outcome.value;
+    } else {
+      // Give up on updating the state. The next run can redo it.
+      console.error(`[cron ${role}] refresh failed`, Cause.squash(outcome.cause));
+    }
+
     // Even on failure the quota on Google's side has been consumed, so always write the ledger.
-    // If this sat inside the try, then when Cron keeps running with an invalid key the cap
+    // If this were skipped on failure, then when Cron keeps running with an invalid key the cap
     // guard would not notice and a whole day's budget would be burned.
     const used = ledger.used + client.unitsUsed;
     // The source of truth is written **just once**, with the ledger riding along. Splitting
     // the ledger into a separate key makes it 3 writes per run and burns half of the KV
     // free tier.
-    await env.CAM_STATE.put(
-      STATE_KEY,
-      JSON.stringify(withLedger(next, role, { day: ledger.day, used })),
+    yield* kv(`put ${STATE_KEY}`, () =>
+      env.CAM_STATE.put(STATE_KEY, JSON.stringify(withLedger(next, role, { day: ledger.day, used }))),
     );
     // The public copy is written only when the content was replaced. On a run where the
     // update failed it is the same as the source of truth, so rewriting it would not change
     // the content (= it would only use up quota).
     if (next !== payload) {
-      await env.CAM_STATE.put(PUBLIC_KEY, publicBody(next), {
-        metadata: { updatedAt: next.updatedAt },
-      });
+      const replaced = next;
+      yield* kv(`put ${PUBLIC_KEY}`, () =>
+        env.CAM_STATE.put(PUBLIC_KEY, publicBody(replaced), {
+          metadata: { updatedAt: replaced.updatedAt },
+        }),
+      );
     }
     console.log(
       `[cron ${role}] used ${client.unitsUsed} unit (today's total ${used}/${ROLE_UNIT_BUDGET[role]})`,
     );
-  }
-}
+  });

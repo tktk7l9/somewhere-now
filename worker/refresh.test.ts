@@ -10,11 +10,19 @@ import {
   isDue,
   ledgerForDay,
   pruneOrphans,
-  rediscover,
+  rediscover as rediscoverEffect,
   remainingUnits,
-  sweepLiveness,
+  sweepLiveness as sweepLivenessEffect,
   utcDay,
 } from "./refresh";
+import { Effect } from "effect";
+import { YouTubeNetworkError } from "./youtube";
+
+// The algorithm returns Effects; these run them so the assertions stay plain Promise code.
+const sweepLiveness = (...args: Parameters<typeof sweepLivenessEffect>) =>
+  Effect.runPromise(sweepLivenessEffect(...args));
+const rediscover = (...args: Parameters<typeof rediscoverEffect>) =>
+  Effect.runPromise(rediscoverEffect(...args));
 
 const NOW = new Date("2026-08-18T12:00:00Z");
 
@@ -44,6 +52,8 @@ const video = (over: Partial<YouTubeVideo> & { id: string }): YouTubeVideo => ({
  *   uploads     ... live streams visible via the uploads playlist (per channel)
  *   search      ... live streams visible via search (same as uploads when omitted)
  */
+const boom = () => new YouTubeNetworkError({ cause: new Error("boom") });
+
 function fakeClient(opts: {
   videos?: YouTubeVideo[];
   uploads?: Record<string, YouTubeVideo[]>;
@@ -75,30 +85,33 @@ function fakeClient(opts: {
     get callsMade() {
       return callsMade;
     },
-    async listVideos(ids) {
-      listCalls.push([...ids]);
-      if (ids.length === 0) return [];
-      unitsUsed += 1;
-      callsMade += 1;
-      return ids.map((id) => byId.get(id)).filter((v): v is YouTubeVideo => v !== undefined);
-    },
-    async listChannelLiveStreamsViaUploads(channelId, shouldStop) {
-      uploadCalls.push(channelId);
-      unitsUsed += 2;
-      callsMade += 2;
-      if (opts.failUploads === true) throw new Error("boom");
-      const live = opts.uploads?.[channelId] ?? [];
-      // Lets the tests also confirm that the stop check gets called.
-      stopChecks.push(shouldStop?.(live) ?? null);
-      return live;
-    },
-    async listChannelLiveStreamsViaSearch(channelId) {
-      searchCalls.push(channelId);
-      unitsUsed += 101;
-      callsMade += 2;
-      if (opts.failSearch === true) throw new Error("boom");
-      return opts.search?.[channelId] ?? opts.uploads?.[channelId] ?? [];
-    },
+    listVideos: (ids) =>
+      Effect.sync(() => {
+        listCalls.push([...ids]);
+        if (ids.length === 0) return [];
+        unitsUsed += 1;
+        callsMade += 1;
+        return ids.map((id) => byId.get(id)).filter((v): v is YouTubeVideo => v !== undefined);
+      }),
+    listChannelLiveStreamsViaUploads: (channelId, shouldStop) =>
+      Effect.suspend(() => {
+        uploadCalls.push(channelId);
+        unitsUsed += 2;
+        callsMade += 2;
+        if (opts.failUploads === true) return Effect.fail(boom());
+        const live = opts.uploads?.[channelId] ?? [];
+        // Lets the tests also confirm that the stop check gets called.
+        stopChecks.push(shouldStop?.(live) ?? null);
+        return Effect.succeed(live);
+      }),
+    listChannelLiveStreamsViaSearch: (channelId) =>
+      Effect.suspend(() => {
+        searchCalls.push(channelId);
+        unitsUsed += 101;
+        callsMade += 2;
+        if (opts.failSearch === true) return Effect.fail(boom());
+        return Effect.succeed(opts.search?.[channelId] ?? opts.uploads?.[channelId] ?? []);
+      }),
   };
 }
 
