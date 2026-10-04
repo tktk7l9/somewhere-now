@@ -82,6 +82,37 @@ describe("scheduled", () => {
     expect(logs.at(-1)).toMatch(/^\[cron sweep\] used \d+ unit/);
   });
 
+  it("drops the stream title that states written before 2026-10-04 still carry", async () => {
+    vi.stubGlobal(
+      "fetch",
+      async () => new Response(JSON.stringify({ items: [] }), { status: 200 }),
+    );
+    const legacy = {
+      updatedAt: new Date(0).toISOString(),
+      cams: {
+        "shibuya-crossing": {
+          videoId: "8H3nRCFVR6Y",
+          status: "live",
+          viewers: 10,
+          title: "an old stream title",
+          // Checked just now, so the sweep leaves it alone and only the write-back touches it.
+          checkedAt: new Date().toISOString(),
+        },
+      },
+    };
+    const { kv, store } = memoryKv({ [STATE_KEY]: JSON.stringify(legacy) });
+
+    await runCron(CRON.sweep, { CAM_STATE: kv, YOUTUBE_API_KEY: "k" });
+
+    const saved = JSON.parse(store.get(STATE_KEY)!) as StatePayload;
+    expect(saved.cams["shibuya-crossing"]).toEqual({
+      videoId: "8H3nRCFVR6Y",
+      status: "live",
+      viewers: 10,
+      checkedAt: legacy.cams["shibuya-crossing"].checkedAt,
+    });
+  });
+
   it("logs and resolves when the KV read crashes before the refresh", async () => {
     const fetchSpy = vi.fn();
     vi.stubGlobal("fetch", fetchSpy);

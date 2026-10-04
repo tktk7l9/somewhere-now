@@ -159,7 +159,6 @@ describe("sweepLiveness", () => {
       videoId: "vid-a",
       status: "live",
       viewers: 42,
-      title: "Venice",
       checkedAt: NOW.toISOString(),
     });
     expect(unitsUsed).toBe(1);
@@ -186,7 +185,7 @@ describe("sweepLiveness", () => {
 
   it("prefers the videoId of the existing state over the master", async () => {
     const prior = new Map<string, CamState>([
-      ["a", { videoId: "vid-new", status: "live", viewers: null, title: null, checkedAt: "old" }],
+      ["a", { videoId: "vid-new", status: "live", viewers: null, checkedAt: "old" }],
     ]);
     const client = fakeClient({ videos: [video({ id: "vid-new" })] });
     const { states } = await sweepLiveness([cam("a")], prior, client, NOW);
@@ -242,7 +241,6 @@ describe("rediscover", () => {
     videoId: "vid-dead",
     status: "offline",
     viewers: null,
-    title: null,
     checkedAt,
   });
   const onChannel = (id: string, titleKey: string): Cam =>
@@ -266,7 +264,6 @@ describe("rediscover", () => {
       videoId: "vid-times",
       status: "live",
       viewers: 88,
-      title: "EarthCam Live: Times Square North 4K",
       checkedAt: NOW.toISOString(),
     });
     expect(unitsUsed).toBe(2);
@@ -302,7 +299,6 @@ describe("rediscover", () => {
           videoId: "vid-rotated",
           status: "offline" as const,
           viewers: null,
-          title: null,
           checkedAt: "2026-08-17T00:00:00Z",
         },
       ],
@@ -322,7 +318,6 @@ describe("rediscover", () => {
           videoId: null,
           status: "offline" as const,
           viewers: null,
-          title: null,
           checkedAt: "2026-08-17T00:00:00Z",
         },
       ],
@@ -443,7 +438,7 @@ describe("rediscover", () => {
 
   it("does not target cameras that are live", async () => {
     const live = new Map<string, CamState>([
-      ["a", { videoId: "v", status: "live", viewers: 1, title: "t", checkedAt: "x" }],
+      ["a", { videoId: "v", status: "live", viewers: 1, checkedAt: "x" }],
     ]);
     const client = fakeClient({});
     const { unitsUsed } = await rediscover([onChannel("a", "A")], live, client, NOW, {
@@ -541,7 +536,6 @@ describe("rediscover", () => {
           videoId: "vid-rotated",
           status: "offline" as const,
           viewers: null,
-          title: "was",
           checkedAt: "old",
         },
       ],
@@ -551,7 +545,6 @@ describe("rediscover", () => {
     expect(states.get("a")).toMatchObject({
       status: "unknown",
       videoId: "vid-rotated",
-      title: "was",
     });
   });
 
@@ -585,7 +578,7 @@ describe("sweepLiveness subrequest limit", () => {
     status: CamState["status"] = "live",
   ): [string, CamState] => [
     id,
-    { videoId: `vid-${id}`, status, viewers: null, title: null, checkedAt: at },
+    { videoId: `vid-${id}`, status, viewers: null, checkedAt: at },
   ];
 
   it("keeps the number of listVideos calls in 1 run within the limit", async () => {
@@ -656,7 +649,6 @@ describe("isDue", () => {
     videoId: "v",
     status,
     viewers: null,
-    title: null,
     checkedAt,
   });
 
@@ -696,7 +688,7 @@ describe("isDue", () => {
 describe("sweepLiveness narrowing by interval", () => {
   const at = (id: string, status: CamState["status"], checkedAt: string): [string, CamState] => [
     id,
-    { videoId: `vid-${id}`, status, viewers: null, title: null, checkedAt },
+    { videoId: `vid-${id}`, status, viewers: null, checkedAt },
   ];
 
   it("does not query a live one whose interval has not come yet", async () => {
@@ -745,7 +737,6 @@ describe("pruneOrphans", () => {
     videoId,
     status: "live",
     viewers: null,
-    title: null,
     checkedAt: NOW.toISOString(),
   });
 
@@ -813,7 +804,6 @@ describe("rediscover subrequest limit", () => {
           videoId: c.source.videoId,
           status: "offline" as const,
           viewers: null,
-          title: null,
           checkedAt: "2026-08-18T00:00:00Z",
         },
       ]),

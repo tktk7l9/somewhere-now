@@ -3,6 +3,7 @@ import {
   UPLOADS_MAX_PAGES,
   nextPageToken,
   MAX_VIDEO_IDS_PER_CALL,
+  RESPONSE_FIELDS,
   UNIT_COST,
   createYouTubeClient as createEffectClient,
   parsePlaylistItems,
@@ -49,6 +50,28 @@ describe("videosListUrl", () => {
     expect(url.searchParams.get("id")).toBe("a,b");
     expect(url.searchParams.get("key")).toBe(KEY);
   });
+
+  it("asks only for the fields parseVideosList reads", () => {
+    const url = new URL(videosListUrl(KEY, ["a"]));
+    expect(url.searchParams.get("fields")).toBe(RESPONSE_FIELDS.videosList);
+  });
+
+  it("parses a response cut down by the field filter without losing anything", () => {
+    // Exactly the shape the filter leaves: no description, thumbnails or channel info.
+    const filtered = {
+      items: [
+        {
+          id: "v1",
+          snippet: { title: "Live A", liveBroadcastContent: "live" },
+          liveStreamingDetails: { concurrentViewers: "12" },
+          status: { embeddable: false },
+        },
+      ],
+    };
+    expect(parseVideosList(filtered)).toEqual([
+      { id: "v1", title: "Live A", isLive: true, embeddable: false, viewers: 12 },
+    ]);
+  });
 });
 
 describe("searchLiveUrl", () => {
@@ -60,6 +83,7 @@ describe("searchLiveUrl", () => {
     expect(url.searchParams.get("type")).toBe("video");
     // Taking only 1 item grabs a different camera on the same channel.
     expect(url.searchParams.get("maxResults")).toBe("50");
+    expect(url.searchParams.get("fields")).toBe(RESPONSE_FIELDS.searchLive);
   });
 });
 
@@ -76,6 +100,9 @@ describe("playlistItemsUrl", () => {
     expect(url.searchParams.get("playlistId")).toBe("UU123");
     expect(url.searchParams.get("maxResults")).toBe("50");
     expect(url.searchParams.get("pageToken")).toBeNull();
+    // nextPageToken has to survive the filter, or paging stops after page 1.
+    expect(url.searchParams.get("fields")).toBe(RESPONSE_FIELDS.playlistItems);
+    expect(RESPONSE_FIELDS.playlistItems).toContain("nextPageToken");
   });
 
   it("can specify the next page", () => {

@@ -2,7 +2,7 @@
 // cam-places-bulk.ts (bulk import).
 //
 //   npm run cams:discover   # first fetch the list of channels and live streams
-//   npm run cams:build      # → src/data/cams.ts
+//   npm run cams:build      # → src/data/cams.ts and src/data/camSources.ts
 //
 // Coordinates and time zones are resolved with Open-Meteo geocoding (no key needed).
 // To avoid mixing up towns with the same name, results are narrowed by admin1; if nothing
@@ -13,6 +13,7 @@
 // (querying YouTube one by one at the scale of 3000 entries does not finish in a realistic time).
 
 import { writeFile } from "node:fs/promises";
+import { writeCamSources } from "./build-cam-sources.ts";
 import { CAM_PLACES_CURATED, type CamPlace } from "./cam-places.ts";
 import { CAM_PLACES_BULK } from "./cam-places-bulk.ts";
 
@@ -231,6 +232,9 @@ async function main(): Promise<void> {
   }
 
   await writeFile("src/data/cams.ts", serialize(resolved));
+  // First import of cams.ts in this process, so it reads the file just written.
+  const { CAMS } = await import("../src/data/cams.ts");
+  await writeCamSources(CAMS);
 
   console.log(`✓ wrote ${resolved.length} cameras to src/data/cams.ts`);
   if (warnings.length > 0) {

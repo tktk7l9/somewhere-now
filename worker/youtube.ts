@@ -73,9 +73,25 @@ export interface YouTubeVideo {
   viewers: number | null;
 }
 
+/**
+ * Response filters (the API's `fields` parameter). Quota is the same with or without them.
+ *
+ * The response is parsed with the Cron's CPU time, which the free plan caps at 10ms. A full
+ * snippet carries the description, thumbnails, tags and localized copies, so a 50-item
+ * videos.list response is mostly text nobody reads. Asking only for what the parsers below
+ * read keeps that parse small.
+ */
+export const RESPONSE_FIELDS = {
+  videosList:
+    "items(id,snippet(title,liveBroadcastContent),liveStreamingDetails(concurrentViewers),status(embeddable))",
+  searchLive: "items(id(videoId))",
+  playlistItems: "nextPageToken,items(contentDetails(videoId))",
+} as const;
+
 export function videosListUrl(apiKey: string, ids: readonly string[]): string {
   const params = new URLSearchParams({
     part: "snippet,liveStreamingDetails,status",
+    fields: RESPONSE_FIELDS.videosList,
     id: ids.join(","),
     key: apiKey,
   });
@@ -91,6 +107,7 @@ export function searchLiveUrl(apiKey: string, channelId: string): string {
     // 1 channel puts out dozens of live streams, so taking just 1 grabs a different
     // camera. Take them all and tell them apart by title.
     maxResults: String(MAX_VIDEO_IDS_PER_CALL),
+    fields: RESPONSE_FIELDS.searchLive,
     key: apiKey,
   });
   return `${API_BASE}/search?${params.toString()}`;
@@ -113,6 +130,7 @@ export function playlistItemsUrl(
     part: "contentDetails",
     playlistId,
     maxResults: String(MAX_VIDEO_IDS_PER_CALL),
+    fields: RESPONSE_FIELDS.playlistItems,
     key: apiKey,
   });
   if (pageToken !== undefined) params.set("pageToken", pageToken);

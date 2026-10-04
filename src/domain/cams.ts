@@ -42,11 +42,16 @@ export interface Cam {
 }
 
 /**
+ * The part of a camera the Worker's Cron reads: which stream, and where to look for the next
+ * one. The Worker loads only this (src/data/camSources.ts), not the whole master.
+ */
+export type CamRef = Pick<Cam, "id" | "source">;
+
+/**
  * Liveness state sent to the browser. Narrowed to only the 3 fields used for display.
  *
- * title and checkedAt are kept in KV (as a clue for rediscovery, and to sort by oldest
- * check first), but the screen reads neither. Serving 5,720 cameras' worth every time
- * makes the response exceed 1MB, and more than half of it is taken by these 2.
+ * checkedAt is kept in KV (to sort by oldest check first), but the screen does not read
+ * it. Serving it for 5,720 cameras every time doubles the response.
  */
 export type PublicCamState = Pick<CamState, "videoId" | "status" | "viewers">;
 
@@ -75,9 +80,25 @@ export interface CamState {
   videoId: string | null;
   status: CamStatus;
   viewers: number | null;
-  title: string | null;
   /** ISO 8601. */
   checkedAt: string;
+}
+
+/**
+ * Narrows a state read from KV to the stored shape.
+ *
+ * States written before 2026-10-04 also carry the stream title. Nothing read it, yet it was
+ * half of the 1.2MB source of truth, and the Cron parses and rewrites that whole value on
+ * every run under the free plan's 10ms CPU limit. Projecting on every write-back drops the
+ * leftovers from cameras no run has touched since.
+ */
+export function storedState(state: CamState): CamState {
+  return {
+    videoId: state.videoId,
+    status: state.status,
+    viewers: state.viewers,
+    checkedAt: state.checkedAt,
+  };
 }
 
 const ID_RE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
@@ -240,7 +261,7 @@ const EMBED_PARAMS = "rel=0&playsinline=1&modestbranding=1";
  * The videoId shared by playback, the liveness sweep and rediscovery. The id resolved by
  * the state has top priority; if absent, the master's id. If neither exists, null.
  */
-export function resolvedVideoId(cam: Cam, state: PublicCamState | undefined): string | null {
+export function resolvedVideoId(cam: Pick<Cam, "source">, state: PublicCamState | undefined): string | null {
   return state?.videoId ?? cam.source.videoId;
 }
 

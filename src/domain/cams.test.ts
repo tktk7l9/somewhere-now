@@ -10,6 +10,7 @@ import {
   type Cam,
   type CamState,
   publicStates,
+  storedState,
 } from "./cams";
 
 const cam = (over: Partial<Cam> = {}): Cam => ({
@@ -28,7 +29,6 @@ const state = (over: Partial<CamState> = {}): CamState => ({
   videoId: "abcdefghijk",
   status: "live",
   viewers: 120,
-  title: "Live",
   checkedAt: "2026-08-18T00:00:00.000Z",
   ...over,
 });
@@ -309,12 +309,28 @@ describe("resolveEmbedUrl", () => {
   });
 });
 
+describe("storedState", () => {
+  it("keeps the 4 fields the Cron reads", () => {
+    const s = state();
+    expect(storedState(s)).toEqual(s);
+  });
+
+  it("drops the stream title that states written before 2026-10-04 still carry", () => {
+    const legacy = { ...state(), title: "とても長い配信タイトル" } as CamState;
+    expect(Object.keys(storedState(legacy)).sort()).toEqual([
+      "checkedAt",
+      "status",
+      "videoId",
+      "viewers",
+    ]);
+  });
+});
+
 describe("publicStates", () => {
   const state = (over: Partial<CamState> = {}): CamState => ({
     videoId: "vid-a",
     status: "live",
     viewers: 42,
-    title: "とても長い配信タイトル",
     checkedAt: "2026-08-28T00:50:56.730Z",
     ...over,
   });
@@ -325,7 +341,7 @@ describe("publicStates", () => {
     });
   });
 
-  it("drops title and checkedAt (not used for display yet they take half the payload)", () => {
+  it("drops checkedAt (not used for display yet it doubles the payload)", () => {
     const [entry] = Object.values(publicStates({ a: state() }));
     expect(Object.keys(entry).sort()).toEqual(["status", "videoId", "viewers"]);
   });

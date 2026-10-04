@@ -9,8 +9,8 @@
 // budget is exceeded.
 
 import { Cause, Data, Effect, Exit } from "effect";
-import { CAMS } from "../src/data/cams";
-import { publicStates } from "../src/domain/cams";
+import { CAM_SOURCES } from "../src/data/camSources";
+import { publicStates, storedState } from "../src/domain/cams";
 import {
   ROLE_UNIT_BUDGET,
   ledgerForDay,
@@ -35,13 +35,13 @@ interface Env {
   YOUTUBE_API_KEY?: string;
 }
 
-/** Source of truth. Includes title and checkedAt; the side the update algorithm reads. */
+/** Source of truth. Includes checkedAt; the side the update algorithm reads. */
 const STATE_KEY = "cam-state:v1";
 /**
  * Public copy, reduced to the shape served to the browser. /api/cams returns this **as is**.
  *
- * The source of truth is 1.2MB, and doing parse -> projection -> stringify on every request
- * makes the response take 100-300ms (measured). If the string reduced to only the 3 fields
+ * The source of truth is ~750KB (1.2MB while it carried stream titles, when doing
+ * parse -> projection -> stringify on every request made the response take 100-300ms). If the string reduced to only the 3 fields
  * needed for display is built just once at update time, a read only has to fetch it from KV
  * and return it.
  */
@@ -172,7 +172,7 @@ async function buildCamsResponse(env: Env, ctx: ExecutionContext): Promise<Respo
  *      cache.enabled) means this whole function is no longer called on a hit.
  *   2. ETag ... the browser fetches every 2 minutes but the content changes every 10 minutes,
  *      so 4 out of 5 times it is a 304 and the body (about 144KB) is not sent.
- *   3. Just return the public copy ... stops the parse and projection of the 1.2MB source of
+ *   3. Just return the public copy ... stops the parse and projection of the ~750KB source of
  *      truth (this has the biggest effect).
  */
 async function camsResponse(
@@ -283,8 +283,8 @@ const update = (role: Role, env: Env): Effect.Effect<void, KvError> =>
       Effect.gen(function* () {
         const result =
           role === "sweep"
-            ? yield* sweepLiveness(CAMS, states, client, now, budget)
-            : yield* rediscover(CAMS, states, client, now, {
+            ? yield* sweepLiveness(CAM_SOURCES, states, client, now, budget)
+            : yield* rediscover(CAM_SOURCES, states, client, now, {
                 maxChannels: REDISCOVER_CHANNELS_PER_RUN,
                 maxSearches: REDISCOVER_SEARCHES_PER_RUN,
                 unitBudget: Math.min(budget, REDISCOVER_UNITS_PER_RUN),
@@ -292,11 +292,11 @@ const update = (role: Role, env: Env): Effect.Effect<void, KvError> =>
 
         for (const [camId, state] of result.states) states.set(camId, state);
         // Neither path touches the state of ids removed from the master, so sweep them out here.
-        const { kept, removed } = pruneOrphans(states, CAMS);
+        const { kept, removed } = pruneOrphans(states, CAM_SOURCES);
         const replaced: StatePayload = {
           ...payload,
           updatedAt: now.toISOString(),
-          cams: Object.fromEntries(kept),
+          cams: Object.fromEntries([...kept].map(([camId, state]) => [camId, storedState(state)])),
         };
 
         const live = [...kept.values()].filter((s) => s.status === "live").length;

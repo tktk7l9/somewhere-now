@@ -23,6 +23,7 @@ stays plain Promise code on purpose (it is latency-sensitive and has nothing to 
 | `src/ui/map.ts` `src/ui/globe.ts` | Leaflet / MapLibre (canvas, WebGL) | Out of scope (jsdom cannot render them; `app.test.ts` swaps in fakes) |
 | `worker/index.ts` `src/main.ts` | Entry points | Out of scope (the Cron path of `worker/index.ts` is pinned by `worker/index.test.ts` against an in-memory KV) |
 | `src/data/cams.ts` | Generated. **Do not edit by hand** | Has a validation test |
+| `src/data/camSources.ts` | Generated from `cams.ts` (the Worker's slice). **Do not edit by hand** | `camSources.test.ts` fails when it drifts from `cams.ts` |
 
 `npm run coverage` fails if even one line of the 100% targets above is missing, or if the UI layer
 drops under its threshold. UI tests opt into the DOM with `// @vitest-environment jsdom` at the top
@@ -111,7 +112,15 @@ the threshold is not actually biting, add unreachable code on purpose and confir
   rediscovery start from the master, so the state of a renumbered camera catches neither eye and keeps
   being served to browsers from `/api/cams` (measured: 6 entries were frozen as they were 2 days before).
   Sweep with `pruneOrphans` on every write-back.
-- **Do not rebuild the source of truth in `/api/cams`.** The source of truth is 1.2MB, and
+- 🔴 **The Cron runs under the free plan's 10ms CPU limit, and an isolate only tolerates going over it
+  now and then.** Before 2026-10-04 each run took 50–245ms, and runs were cut off as `exceededCpu`
+  for hours at a time (34% of a week; the refresh writes nothing on those runs). Keep the Cron light:
+  the Worker imports `src/data/camSources.ts` (id and source only, emitted as a JSON string), never the
+  full `src/data/cams.ts` (evaluating it took ~35ms); KV states carry no stream title (`storedState`);
+  YouTube calls ask only for the fields the parsers read (`RESPONSE_FIELDS`). Check `$workers.outcome`
+  and `$workers.cpuTimeMs` of scheduled events in Workers Observability after changing the Cron path.
+- **Do not rebuild the source of truth in `/api/cams`.** The source of truth is ~750KB (1.2MB while it
+  still carried stream titles), and
   parse → project → stringify on every request takes 100–300ms. **Build the public copy, in the shape
   that is served, at refresh time and put it in KV**, and have reads do nothing but return it. If the ETag is
   built from the updatedAt stored in the KV metadata, 304 can be returned without reading the body.
@@ -155,8 +164,8 @@ Keep `script-src 'self'`. Loading YouTube's IFrame Player API requires an extern
 
 ## Commits
 
-1 commit, 1 intent. When the generated file (`src/data/cams.ts`) is updated, put it in the same commit as
-the change to the script used to generate it.
+1 commit, 1 intent. When the generated files (`src/data/cams.ts`, `src/data/camSources.ts`) are updated,
+put them in the same commit as the change to the script used to generate them.
 
 ## Language
 

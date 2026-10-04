@@ -16,6 +16,7 @@
     "coverage": "vitest run --coverage",
     "cams:discover": "node --experimental-strip-types scripts/discover-cams.ts",
     "cams:build": "node --experimental-strip-types scripts/build-cams.ts",
+    "cams:sources": "node --experimental-strip-types scripts/build-cam-sources.ts",
     "cams:search": "node --experimental-strip-types scripts/search-cams.ts",
     "cams:import-bulk": "node --experimental-strip-types scripts/import-bulk-cams.ts",
     "cams:scrape-search": "node --experimental-strip-types scripts/scrape-search-cams.ts",

@@ -10,7 +10,7 @@
 // Unlimited polling took the hosting down in the past, so the caps are not "be careful in
 // operation" but built into the code.
 
-import { resolvedVideoId, type Cam, type CamState, type CamStatus } from "../src/domain/cams";
+import { resolvedVideoId, type CamRef, type CamState, type CamStatus } from "../src/domain/cams";
 import { matchStream } from "../src/domain/streamMatch";
 import { Effect } from "effect";
 import {
@@ -87,7 +87,7 @@ export function isDue(state: CamState | undefined, now: Date): boolean {
  */
 export function pruneOrphans(
   states: ReadonlyMap<string, CamState>,
-  cams: readonly Cam[],
+  cams: readonly CamRef[],
 ): { kept: Map<string, CamState>; removed: string[] } {
   const known = new Set(cams.map((cam) => cam.id));
   const kept = new Map<string, CamState>();
@@ -167,8 +167,8 @@ function chunk<T>(items: readonly T[], size: number): T[][] {
 const NEVER_CHECKED = "";
 
 /** Order with the oldest check first. Cameras that have no state yet get the top priority. */
-function byStaleness(states: ReadonlyMap<string, CamState>, cams: readonly Cam[]): Cam[] {
-  const at = (cam: Cam): string => states.get(cam.id)?.checkedAt ?? NEVER_CHECKED;
+function byStaleness(states: ReadonlyMap<string, CamState>, cams: readonly CamRef[]): CamRef[] {
+  const at = (cam: CamRef): string => states.get(cam.id)?.checkedAt ?? NEVER_CHECKED;
   return [...cams].sort((a, b) => {
     const [x, y] = [at(a), at(b)];
     return x < y ? -1 : x > y ? 1 : 0;
@@ -180,7 +180,7 @@ function byStaleness(states: ReadonlyMap<string, CamState>, cams: readonly Cam[]
  * Cameras without a videoId are not touched (rediscover is in charge of them).
  */
 export const sweepLiveness = (
-  cams: readonly Cam[],
+  cams: readonly CamRef[],
   states: ReadonlyMap<string, CamState>,
   client: YouTubeClient,
   now: Date,
@@ -239,7 +239,6 @@ export const sweepLiveness = (
         videoId,
         status,
         viewers: video?.viewers ?? null,
-        title: video?.title ?? states.get(camId)?.title ?? null,
         checkedAt,
       });
     }
@@ -271,7 +270,7 @@ function statusOf(video: YouTubeVideo): CamState["status"] {
  * liveness sweep, and the recorded videoId is not erased.
  */
 function keepRecorded(
-  cam: Cam,
+  cam: CamRef,
   prior: CamState | undefined,
   status: Extract<CamState["status"], "offline" | "unknown">,
   checkedAt: string,
@@ -280,7 +279,6 @@ function keepRecorded(
     videoId: resolvedVideoId(cam, prior),
     status,
     viewers: null,
-    title: prior?.title ?? null,
     checkedAt,
   };
 }
@@ -299,7 +297,7 @@ function keepRecorded(
  * told apart is left offline rather than assigned a wrong stream.
  */
 export const rediscover = (
-  cams: readonly Cam[],
+  cams: readonly CamRef[],
   states: ReadonlyMap<string, CamState>,
   client: YouTubeClient,
   now: Date,
@@ -323,10 +321,10 @@ export const rediscover = (
     const startCalls = client.callsMade;
     const called = (): number => client.callsMade - startCalls;
 
-    const staleness = (cam: Cam): string => states.get(cam.id)?.checkedAt ?? NEVER_CHECKED;
+    const staleness = (cam: CamRef): string => states.get(cam.id)?.checkedAt ?? NEVER_CHECKED;
     let searchesUsed = 0;
 
-    const byChannel = new Map<string, Cam[]>();
+    const byChannel = new Map<string, CamRef[]>();
     for (const cam of cams) {
       const state = states.get(cam.id);
       if (state?.status === "live") continue;
@@ -341,7 +339,7 @@ export const rediscover = (
     }
 
     // Start with the channels holding the camera that has been left alone the longest.
-    const oldest = (list: readonly Cam[]): string =>
+    const oldest = (list: readonly CamRef[]): string =>
       list.map(staleness).reduce((a, b) => (a < b ? a : b));
     const channels = [...byChannel.entries()]
       .sort(([, a], [, b]) => {
@@ -424,7 +422,6 @@ export const rediscover = (
           videoId: video.id,
           status: statusOf(video),
           viewers: video.viewers,
-          title: video.title,
           checkedAt,
         });
       }
