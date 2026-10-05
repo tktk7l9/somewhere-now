@@ -104,6 +104,8 @@ export function storedState(state: CamState): CamState {
 const ID_RE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 const CHANNEL_ID_RE = /^UC[A-Za-z0-9_-]{22}$/;
 const VIDEO_ID_RE = /^[A-Za-z0-9_-]{11}$/;
+/** Characters that cannot break out of a URL path segment. */
+const URL_SAFE_ID_RE = /^[A-Za-z0-9_-]+$/;
 const COUNTRY_RE = /^[A-Z]{2}$/;
 
 function isResolvableTimeZone(tz: string): boolean {
@@ -262,7 +264,11 @@ const EMBED_PARAMS = "rel=0&playsinline=1&modestbranding=1";
  * the state has top priority; if absent, the master's id. If neither exists, null.
  */
 export function resolvedVideoId(cam: Pick<Cam, "source">, state: PublicCamState | undefined): string | null {
-  return state?.videoId ?? cam.source.videoId;
+  // The state arrives over the network (/api/cams), so an id containing anything but
+  // URL-safe characters is ignored rather than spliced into the embed and watch URLs.
+  const live = state?.videoId;
+  if (typeof live === "string" && URL_SAFE_ID_RE.test(live)) return live;
+  return cam.source.videoId;
 }
 
 /**

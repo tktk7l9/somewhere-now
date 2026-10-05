@@ -4,6 +4,7 @@
 // camera id and cards that stay are not touched.
 
 import type { Cam, PublicCamState } from "../domain/cams";
+import { resolvedVideoId } from "../domain/cams";
 import { formatLocalTime, utcOffsetLabel } from "../domain/localTime";
 import { weatherIcon, weatherLabel, type Lang } from "../domain/weather";
 import { fetchPlaceOverview, fetchWeather } from "../api/client";
@@ -272,7 +273,7 @@ export function createPanel(container: HTMLElement, handlers: PanelHandlers) {
     const favorited = ctx.favoriteIds.has(cam.id);
     const link = document.createElement("a");
     link.className = "chip";
-    link.href = `https://www.youtube.com/watch?v=${ctx.states.get(cam.id)?.videoId ?? cam.source.videoId ?? ""}`;
+    link.href = `https://www.youtube.com/watch?v=${resolvedVideoId(cam, ctx.states.get(cam.id)) ?? ""}`;
     link.target = "_blank";
     link.rel = "noopener noreferrer";
     link.textContent = t("watchOnYouTube", ctx.lang);

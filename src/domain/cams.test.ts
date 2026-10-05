@@ -279,6 +279,10 @@ describe("resolvedVideoId", () => {
     expect(resolvedVideoId(cam(), state({ videoId: null }))).toBe("abcdefghijk");
   });
 
+  it("ignores a state videoId that is not shaped like a YouTube id", () => {
+    expect(resolvedVideoId(cam(), state({ videoId: "../../evil?x=" }))).toBe("abcdefghijk");
+  });
+
   it("null when neither exists", () => {
     const c = cam({ source: { videoId: null, channelId: "UC0000000000000000000000", titleKey: "t" } });
     expect(resolvedVideoId(c, undefined)).toBeNull();
