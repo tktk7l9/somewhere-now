@@ -141,6 +141,11 @@ interface PlacePage {
   jaUrl?: string;
 }
 
+/** Only https links are rendered as anchors; anything else (javascript:, data:) is dropped. */
+function isHttpsUrl(url: string): boolean {
+  return /^https:\/\//i.test(url.trim());
+}
+
 function readJaLink(value: unknown): { title: string; url: string } | null {
   if (!Array.isArray(value)) return null;
   for (const item of value) {
@@ -149,7 +154,7 @@ function readJaLink(value: unknown): { title: string; url: string } | null {
     const title = row["*"];
     const url = row.url;
     if (typeof title !== "string" || title.trim() === "") continue;
-    if (typeof url !== "string" || url.trim() === "") continue;
+    if (typeof url !== "string" || !isHttpsUrl(url)) continue;
     return { title: title.trim(), url };
   }
   return null;
@@ -160,7 +165,7 @@ function readPage(value: unknown): PlacePage | null {
   const rec = value as Record<string, unknown>;
   if (typeof rec.title !== "string" || rec.title.trim() === "") return null;
   if (typeof rec.extract !== "string") return null;
-  if (typeof rec.fullurl !== "string" || rec.fullurl.trim() === "") return null;
+  if (typeof rec.fullurl !== "string" || !isHttpsUrl(rec.fullurl)) return null;
   const index = typeof rec.index === "number" ? rec.index : Number.POSITIVE_INFINITY;
   const ja = readJaLink(rec.langlinks);
   const page: PlacePage = { title: rec.title, extract: rec.extract, url: rec.fullurl, index };

@@ -195,6 +195,11 @@ describe("parsePlaceOverview", () => {
     expect(parsePlaceOverview({ query: { pages: { a: { title: "T", extract: "x", fullurl: "   ", index: 1 } } } })).toBeNull();
   });
 
+  it("drops pages whose url is not https", () => {
+    expect(parsePlaceOverview({ query: { pages: { a: page({ fullurl: "javascript:alert(1)" }) } } })).toBeNull();
+    expect(parsePlaceOverview({ query: { pages: { a: page({ fullurl: "http://en.wikipedia.org/wiki/X" }) } } })).toBeNull();
+  });
+
   it("returns null when the candidates are incidents only", () => {
     expect(
       parsePlaceOverview({
@@ -219,6 +224,7 @@ describe("parsePlaceOverview", () => {
                 { "*": "", url: "https://ja.wikipedia.org/wiki/X" },
                 { "*": "タイムズスクエア", url: "   " },
                 { "*": "タイムズスクエア", url: 1 },
+                { "*": "タイムズスクエア", url: "javascript:alert(1)" },
                 { "*": "タイムズスクエア", url: "https://ja.wikipedia.org/wiki/タイムズスクエア" },
               ],
             }),
