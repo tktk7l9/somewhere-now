@@ -40,7 +40,7 @@ export function wikipediaSearchQuery(lat: number, lng: number, name?: string): s
   return `"${cleaned}" ${near}`;
 }
 
-export function wikipediaHost(lang: Lang): string {
+function wikipediaHost(lang: Lang): string {
   return lang === "ja" ? "ja.wikipedia.org" : "en.wikipedia.org";
 }
 
