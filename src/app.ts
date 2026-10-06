@@ -6,6 +6,7 @@
 //   favorites / panel-width … localStorage
 // Everything else (whether it is night now, local time) is derived from now every minute.
 
+import { broadcastIds } from "./domain/broadcast";
 import { filterCams, pickRandom, rankLiveByViewers, type Cam, type PublicCamState } from "./domain/cams";
 import { decodeFavorites, encodeFavorites, toggleFavorite } from "./domain/favorites";
 import { activeFilterCount, clearedFilters, emptyPickReason } from "./domain/filters";
@@ -24,7 +25,7 @@ import { createPanel } from "./ui/panel";
 import { attachPanelResize } from "./ui/panelResize";
 import { attachPanelSheet, type PanelSheetHandle } from "./ui/panelSheet";
 import { createWall } from "./ui/wall";
-import { createWatchingList } from "./ui/watching";
+import { createWatchingList, type JumpTarget } from "./ui/watching";
 
 const FAVORITES_KEY = "somewhere-now:favorites";
 const SOUND_KEY = "somewhere-now:sound";
@@ -131,6 +132,8 @@ export function startApp(root: HTMLElement): void {
   let wallOpen = false;
   let now = new Date();
   let nightIds = new Set<string>();
+  // ids of broadcasts (TV, radio, cartoons, etc.). Built once when the master list arrives.
+  let broadcasts = new Set<string>();
   // No sound by default. The app is opened between tasks at work, so sounding the moment
   // something is pressed is an accident.
   let soundOn = readStored(SOUND_KEY) === "on";
@@ -146,7 +149,11 @@ export function startApp(root: HTMLElement): void {
   recomputeNight();
 
   const visibleCams = (): Cam[] =>
-    filterCams(cams, { states, nightIds, favoriteIds: new Set(favorites) }, view);
+    filterCams(
+      cams,
+      { states, nightIds, favoriteIds: new Set(favorites), broadcastIds: broadcasts },
+      view,
+    );
 
   const openCams = (): Cam[] =>
     view.view.map((id) => byId.get(id)).filter((cam): cam is Cam => cam !== undefined);
@@ -167,6 +174,25 @@ export function startApp(root: HTMLElement): void {
   function pickFromList(camId: string): void {
     if (view.view[0] === camId) return;
     update({ view: [camId, ...view.view.filter((id) => id !== camId)].slice(0, MAX_VIEW) });
+  }
+
+  /**
+   * Jump from the list to the map. Brings the pressed place to the front, folds the list and
+   * moves the chosen face to the place.
+   *
+   * A single update (pushing view, watching and globe separately would redraw the map in the
+   * intermediate states and shake it for nothing). It also makes the face visible before
+   * focusCam runs: Leaflet's flyTo on a display:none map throws (see loadCams). focusCam reads
+   * view.globe to decide where to fly, so it comes after the update.
+   */
+  function jumpFromList(camId: string, target: JumpTarget): void {
+    update({
+      view: [camId, ...view.view.filter((id) => id !== camId)].slice(0, MAX_VIEW),
+      watching: false,
+      globe: target === "globe",
+    });
+    const cam = byId.get(camId);
+    if (cam) focusCam(cam);
   }
 
   function focusOpenCam(): void {
@@ -344,7 +370,11 @@ export function startApp(root: HTMLElement): void {
     onClose: closeWithUndo,
     onToggleSound: toggleSound,
   });
-  const watchingList = createWatchingList(watchingEl, pickFromList, clearFilters);
+  const watchingList = createWatchingList(watchingEl, {
+    onPick: pickFromList,
+    onJump: jumpFromList,
+    onClearFilters: clearFilters,
+  });
 
   /**
    * Closing happens at once (no confirm) and the notice offers to take it back: a mis-tap
@@ -444,11 +474,14 @@ export function startApp(root: HTMLElement): void {
     // Including liveOnly makes the denominator equal to the numerator, so it is always N / N.
     const scoped = filterCams(
       cams,
-      { states, nightIds, favoriteIds: new Set(favorites) },
+      { states, nightIds, favoriteIds: new Set(favorites), broadcastIds: broadcasts },
       { ...view, liveOnly: false },
     );
     const live = scoped.filter((cam) => states.get(cam.id)?.status === "live").length;
-    const caption = liveDialCaption(live, scoped.length, cams.length, view.lang);
+    // Broadcasts are taken out of the catalogue total too. Mixing the hidden ones into the
+    // denominator would always show "all N places" even though nothing is narrowed.
+    const catalog = view.broadcasts ? cams.length : cams.length - broadcasts.size;
+    const caption = liveDialCaption(live, scoped.length, catalog, view.lang);
     const count = document.createElement("span");
     count.className = "dial__count";
     count.textContent = caption.count;
@@ -596,6 +629,7 @@ export function startApp(root: HTMLElement): void {
     if (loaded.length === 0) return;
     cams = loaded;
     byId = new Map(loaded.map((cam) => [cam.id, cam]));
+    broadcasts = broadcastIds(loaded);
     recomputeNight();
     // Cameras selected in the URL from the start can only be opened here.
     render();

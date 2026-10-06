@@ -4,13 +4,42 @@
 // No iframe is placed here. So that a re-render does not reconnect streams even with several
 // hundred rows, rows are reused when the order is the same, and only the time, the viewer
 // count and the selection are rewritten.
+//
+// The row itself "opens that stream", so people can peek at one after another while staying on
+// the list. For "where is it?", each row carries a way out to the flat map and to the globe
+// (buttons cannot nest, so they sit next to the row rather than inside it).
 
 import type { Cam, PublicCamState } from "../domain/cams";
 import { formatLocalTime } from "../domain/localTime";
 import type { Lang } from "../domain/weather";
-import { camName, categoryLabel, countryName, t, viewersText } from "./i18n";
+import { camName, categoryLabel, countryName, t, viewersText, type StringKey } from "./i18n";
 
 export type WatchingReady = "loading" | "unavailable" | "ready";
+
+/** Where to jump: the flat map (Leaflet) or the globe (MapLibre). */
+export type JumpTarget = "flat" | "globe";
+
+interface JumpSpec {
+  target: JumpTarget;
+  /** Short name shown on the button. */
+  short: StringKey;
+  /** Name that says what happens, used for the title and the screen reader. */
+  full: StringKey;
+}
+
+const JUMP_TARGETS: readonly JumpSpec[] = [
+  { target: "flat", short: "flatMap", full: "showOnFlatMap" },
+  { target: "globe", short: "globe", full: "showOnGlobe" },
+];
+
+export interface WatchingHandlers {
+  /** A row was pressed: bring that stream to the front while staying on the list. */
+  onPick(camId: string): void;
+  /** A jump target was pressed: close the list and move that face to the place. */
+  onJump(camId: string, target: JumpTarget): void;
+  /** "Clear filters" under an empty result caused by filters. */
+  onClearFilters(): void;
+}
 
 export interface WatchingContext {
   lang: Lang;
@@ -28,6 +57,7 @@ interface Row {
   name: HTMLElement;
   meta: HTMLElement;
   viewers: HTMLElement;
+  jumps: readonly { spec: JumpSpec; button: HTMLButtonElement }[];
 }
 
 function emptyMessage(ctx: WatchingContext): string {
@@ -50,11 +80,7 @@ function rankedKey(ranked: readonly Cam[], lang: Lang): string {
   return `${lang}:${ranked.map((cam) => cam.id).join(",")}`;
 }
 
-export function createWatchingList(
-  container: HTMLElement,
-  onPick: (camId: string) => void,
-  onClearFilters: () => void,
-) {
+export function createWatchingList(container: HTMLElement, handlers: WatchingHandlers) {
   const header = document.createElement("header");
   header.className = "watching__header";
   const title = document.createElement("h2");
@@ -73,7 +99,7 @@ export function createWatchingList(
   const clear = document.createElement("button");
   clear.type = "button";
   clear.className = "chip watching__empty-action";
-  clear.addEventListener("click", onClearFilters);
+  clear.addEventListener("click", () => handlers.onClearFilters());
 
   const list = document.createElement("ol");
   list.className = "watching__list";
@@ -83,10 +109,18 @@ export function createWatchingList(
 
   function paintRow(row: Row, cam: Cam, rank: number, current: boolean, ctx: WatchingContext): void {
     const state = ctx.states.get(cam.id);
+    const label = camName(cam.name, ctx.lang);
     row.rank.textContent = String(rank);
-    row.name.textContent = camName(cam.name, ctx.lang);
+    row.name.textContent = label;
     row.meta.textContent = metaLabel(cam, ctx);
     row.viewers.textContent = viewersLabel(state?.viewers, ctx.lang);
+    for (const { spec, button } of row.jumps) {
+      const full = t(spec.full, ctx.lang);
+      button.textContent = t(spec.short, ctx.lang);
+      button.title = full;
+      // The same wording repeats once per row, so the screen-reader label carries the place name.
+      button.setAttribute("aria-label", `${full}: ${label}`);
+    }
     if (current) row.root.setAttribute("aria-current", "true");
     else row.root.removeAttribute("aria-current");
   }
@@ -95,7 +129,7 @@ export function createWatchingList(
     const root = document.createElement("button");
     root.type = "button";
     root.className = "watching__row";
-    root.addEventListener("click", () => onPick(cam.id));
+    root.addEventListener("click", () => handlers.onPick(cam.id));
 
     const rankEl = document.createElement("span");
     rankEl.className = "watching__rank";
@@ -110,7 +144,16 @@ export function createWatchingList(
     viewers.className = "watching__viewers";
 
     root.append(rankEl, body, viewers);
-    const row: Row = { camId: cam.id, root, rank: rankEl, name, meta, viewers };
+
+    const jumps = JUMP_TARGETS.map((spec) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "watching__go";
+      button.addEventListener("click", () => handlers.onJump(cam.id, spec.target));
+      return { spec, button };
+    });
+
+    const row: Row = { camId: cam.id, root, rank: rankEl, name, meta, viewers, jumps };
     paintRow(row, cam, rank, current, ctx);
     return row;
   }
@@ -155,7 +198,10 @@ export function createWatchingList(
         rows.push(row);
         const item = document.createElement("li");
         item.className = "watching__item";
-        item.append(row.root);
+        const jump = document.createElement("span");
+        jump.className = "watching__jump";
+        jump.append(...row.jumps.map((entry) => entry.button));
+        item.append(row.root, jump);
         list.append(item);
       });
       paintedKey = key;

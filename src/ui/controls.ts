@@ -93,12 +93,21 @@ function setTwoLengthLabel(button: HTMLButtonElement, long: string, short: strin
   button.setAttribute("aria-label", long);
 }
 
-function chip(label: string, pressed: boolean, onClick: () => void): HTMLButtonElement {
+function chip(
+  label: string,
+  pressed: boolean,
+  onClick: () => void,
+  title?: string,
+): HTMLButtonElement {
   const button = document.createElement("button");
   button.type = "button";
   button.className = "chip";
   button.textContent = label;
   button.setAttribute("aria-pressed", String(pressed));
+  if (title !== undefined) {
+    button.title = title;
+    button.setAttribute("aria-label", `${label}. ${title}`);
+  }
   button.addEventListener("click", onClick);
   return button;
 }
@@ -193,6 +202,7 @@ export function createControls(container: HTMLElement, handlers: ControlHandlers
         state.liveOnly,
         state.nightOnly,
         state.favoritesOnly,
+        state.broadcasts,
       ].join("\u0000");
 
       if (nextPrimaryKey === primaryKey && nextFiltersKey === filtersKey) return;
@@ -215,6 +225,13 @@ export function createControls(container: HTMLElement, handlers: ControlHandlers
         ),
         chip(t("favoritesOnly", lang), state.favoritesOnly, () =>
           handlers.onChange({ favoritesOnly: !state.favoritesOnly }),
+        ),
+        // Hidden by default, so the chip says what comes back when it is pressed.
+        chip(
+          t("showBroadcasts", lang),
+          state.broadcasts,
+          () => handlers.onChange({ broadcasts: !state.broadcasts }),
+          t("showBroadcastsHint", lang),
         ),
       ];
 

@@ -67,6 +67,15 @@ describe("wording of the most-watched order", () => {
     expect(t("watchingLead", "en")).toContain("how many people are watching");
     expect(t("watchingHint", "ja")).toContain("一覧");
   });
+
+  it("keeps each jump target in two lengths: a short name (button) and what happens (screen reader)", () => {
+    expect(t("flatMap", "ja")).toBe("平面図");
+    expect(t("globe", "ja")).toBe("地球儀");
+    expect(t("showOnFlatMap", "ja")).toBe("平面図で見る");
+    expect(t("showOnGlobe", "ja")).toBe("地球儀で見る");
+    expect(t("showOnFlatMap", "en")).toBe("Show on the map");
+    expect(t("showOnGlobe", "en")).toBe("Show on the globe");
+  });
 });
 
 describe("closedNotice", () => {

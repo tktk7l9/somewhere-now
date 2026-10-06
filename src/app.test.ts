@@ -525,10 +525,14 @@ describe("startApp", () => {
         .map((li) => li.querySelector(".watching__name")!.textContent);
       expect(names).toEqual(["東京の交差点", "ナイロビの水場", "レイキャビクの港"]);
 
-      await user.click(within(list).getByRole("button", { name: /ナイロビの水場/ }));
+      // The row itself (the jump buttons beside it carry the place name too).
+      const row = within(list).getByRole("button", {
+        name: (name, el) => el.classList.contains("watching__row") && name.includes("ナイロビの水場"),
+      });
+      await user.click(row);
       expect(params().get("view")).toBe("nairobi,kilauea");
       // Picking the lead again changes nothing.
-      await user.click(within(list).getByRole("button", { name: /ナイロビの水場/ }));
+      await user.click(row);
       expect(params().get("view")).toBe("nairobi,kilauea");
 
       await user.click(screen.getByRole("button", { name: "視聴が多い順" }));
@@ -557,6 +561,35 @@ describe("startApp", () => {
       expect(root.dataset["mode"]).toBe("globe");
       expect(params().get("watching")).toBeNull();
       await waitFor(() => expect(fakes.globe?.focus).toHaveBeenCalledWith(TOKYO));
+    });
+
+    it("jumps from a row to the flat map, bringing that place to the front", async () => {
+      const user = userEvent.setup();
+      const { root, map } = await start({ url: "/?watching=1&cam=kilauea" });
+      const list = document.getElementById("watching")!;
+
+      await user.click(within(list).getByRole("button", { name: "平面図で見る: ナイロビの水場" }));
+      expect(root.dataset["mode"]).toBe("map");
+      expect(list.hidden).toBe(true);
+      expect(params().get("watching")).toBeNull();
+      expect(params().get("globe")).toBeNull();
+      expect(params().get("view")).toBe("nairobi,kilauea");
+      expect(map.focus).toHaveBeenLastCalledWith(NAIROBI);
+      expect(fakes.globe).toBeNull();
+    });
+
+    it("jumps from a row to the globe", async () => {
+      const user = userEvent.setup();
+      const { root, map } = await start({ url: "/?watching=1" });
+      const list = document.getElementById("watching")!;
+
+      await user.click(within(list).getByRole("button", { name: "地球儀で見る: レイキャビクの港" }));
+      expect(root.dataset["mode"]).toBe("globe");
+      expect(params().get("watching")).toBeNull();
+      expect(params().get("globe")).toBe("1");
+      expect(params().get("cam")).toBe("reykjavik");
+      await waitFor(() => expect(fakes.globe?.focus).toHaveBeenCalledWith(REYKJAVIK));
+      expect(map.focus).not.toHaveBeenCalled();
     });
   });
 

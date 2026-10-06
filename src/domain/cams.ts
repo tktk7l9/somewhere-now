@@ -163,6 +163,8 @@ export interface CamFilter {
   liveOnly?: boolean;
   nightOnly?: boolean;
   favoritesOnly?: boolean;
+  /** Also show "broadcasts" (TV, radio, cartoons). Unspecified = hidden by default. */
+  broadcasts?: boolean;
   query?: string;
 }
 
@@ -171,6 +173,8 @@ export interface FilterContext {
   /** ids of cameras whose place is currently in night. */
   nightIds: ReadonlySet<string>;
   favoriteIds: ReadonlySet<string>;
+  /** ids of streams that are not cameras: TV, radio, cartoons, etc. (domain/broadcast.ts). */
+  broadcastIds: ReadonlySet<string>;
 }
 
 /**
@@ -217,6 +221,7 @@ export function filterCams(
     if (filter.liveOnly && ctx.states.get(cam.id)?.status !== "live") return false;
     if (filter.nightOnly && !ctx.nightIds.has(cam.id)) return false;
     if (filter.favoritesOnly && !ctx.favoriteIds.has(cam.id)) return false;
+    if (!filter.broadcasts && ctx.broadcastIds.has(cam.id)) return false;
     if (words.length > 0) {
       const haystack = searchKey(cam);
       if (!words.every((word) => haystack.includes(word))) return false;

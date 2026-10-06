@@ -11,7 +11,7 @@ import "leaflet.markercluster/dist/MarkerCluster.css";
 
 import type { Cam, PublicCamState } from "../domain/cams";
 import { coalesced } from "../domain/coalesce";
-import { INITIAL_VIEW, type MapViewport } from "../domain/mapView";
+import { coveringZoom, INITIAL_VIEW, type MapViewport } from "../domain/mapView";
 import { nightPolygon, terminatorLine } from "../domain/terminator";
 import { camName } from "./i18n";
 import { pinHtml } from "./pin";
@@ -46,11 +46,19 @@ export function createMapView(
    */
   obscuredBottom: () => number = () => 0,
 ): MapView {
+  // The lowest zoom at which one copy of the world covers the box. Without this floor, wide
+  // screens show a band of background colour left and right of the map (top and bottom when
+  // portrait). While the box is still display:none and has no size, it starts at
+  // INITIAL_VIEW.zoom and invalidate() corrects it.
+  const initialZoom = coveringZoom(container.clientWidth, container.clientHeight);
+
   const map = L.map(container, {
-    // index.html preloads the tiles of this initial view (domain/mapView.ts).
+    // index.html preloads the tiles of this initial view (domain/mapView.ts). Zooming to fit the
+    // box keeps the tile level at round(zoom), so a stage up to 1,448px stays at z2 = the preload
+    // still applies.
     center: INITIAL_VIEW.center,
-    zoom: INITIAL_VIEW.zoom,
-    minZoom: 2,
+    zoom: initialZoom,
+    minZoom: initialZoom,
     maxZoom: 16,
     // The top left is the place of the signature (share of night), so the controls move to the top
     // right.
@@ -248,6 +256,11 @@ export function createMapView(
     },
     invalidate() {
       map.invalidateSize();
+      // Recompute the floor when the box changes size. setMinZoom zooms in by itself when the
+      // current zoom is below it.
+      const size = map.getSize();
+      const min = coveringZoom(size.x, size.y);
+      if (min !== map.getMinZoom()) map.setMinZoom(min);
     },
   };
 }

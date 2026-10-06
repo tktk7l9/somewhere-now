@@ -71,6 +71,35 @@ input {
   outline-offset: 2px;
 }
 
+/* Scrollbars are as thin as the chart rules and the same colour. The default band is 15px and
+   actually eats the width of the panel and the list (not just a matter of looks).
+   The WebKit pseudo-elements are only for browsers that do not understand the standard
+   property; writing both sends Safari back to the always-visible legacy scrollbar. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--haze) transparent;
+}
+
+@supports not (scrollbar-width: thin) {
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--haze);
+    border-radius: 999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2a4c5b;
+  }
+}
+
 /* ── Skeleton ───────────────────────────────────────── */
 
 /* Columns are minmax(0, …). A plain 1fr cannot go below "the minimum width of its content", so just
@@ -308,9 +337,14 @@ html.resizing-panel iframe {
   border-right: 1px solid var(--haze);
 }
 
+/* Only the last group of each row is pushed to the right edge. Packing everything to the left
+   leaves the right half of the band empty on wide screens, as if the header stopped halfway.
+   What goes right is the language on row 1 and the state filters on row 2 = both are about
+   "how to show", not "where to look", so moving them apart does not break the order. */
 .controls__group:last-child {
   border-right: none;
   padding-right: 0;
+  margin-left: auto;
 }
 
 /* ── Signature: share of night and pin colors ────────── */
@@ -942,15 +976,20 @@ html.resizing-panel iframe {
 }
 
 .watching__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-right: 8px;
   border-bottom: 1px solid var(--haze);
 }
 
 .watching__row {
+  flex: 1;
+  min-width: 0;
   display: grid;
   grid-template-columns: 3.2em 1fr auto;
   gap: 12px;
   align-items: center;
-  width: 100%;
   padding: 11px 12px;
   text-align: left;
   border-radius: var(--radius);
@@ -1016,6 +1055,36 @@ html.resizing-panel iframe {
   color: var(--lit);
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
+}
+
+/* The way out to "where is it". The map is the lead, so this sits more quietly than pressing
+   the row ("open that stream") and lights up amber only when touched. */
+.watching__jump {
+  flex: none;
+  display: flex;
+  gap: 4px;
+}
+
+.watching__go {
+  padding: 5px 9px;
+  border: 1px solid var(--haze);
+  border-radius: var(--radius);
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--dim);
+  white-space: nowrap;
+  transition:
+    color 160ms var(--ease),
+    border-color 160ms var(--ease),
+    background-color 160ms var(--ease);
+}
+
+.watching__go:hover,
+.watching__go:focus-visible {
+  color: var(--lit);
+  border-color: var(--lit);
+  background-color: var(--lit-soft);
 }
 
 .app[data-mode="watching"] .map,
@@ -1175,6 +1244,24 @@ html.resizing-panel iframe {
   .watching__viewers {
     grid-column: 2;
     white-space: normal;
+  }
+}
+
+/* From the width where the name runs short, the jump targets move below the row. */
+@media (max-width: 560px) {
+  .watching__item {
+    flex-wrap: wrap;
+  }
+
+  /* Only the jump side keeps the bottom gap. With both, the band drifts apart and reads as another row. */
+  .watching__row {
+    padding-bottom: 4px;
+  }
+
+  .watching__jump {
+    flex: 1 0 100%;
+    justify-content: flex-end;
+    padding: 0 4px 10px;
   }
 }
 

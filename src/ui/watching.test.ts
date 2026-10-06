@@ -28,9 +28,18 @@ function setup() {
   const container = document.createElement("section");
   document.body.append(container);
   const onPick = vi.fn();
+  const onJump = vi.fn();
   const onClear = vi.fn();
-  const list = createWatchingList(container, onPick, onClear);
-  return { container, list, onPick, onClear };
+  const list = createWatchingList(container, { onPick, onJump, onClearFilters: onClear });
+  return { container, list, onPick, onJump, onClear };
+}
+
+/** The row button (not the jump buttons next to it, whose labels also carry the place name). */
+function rowButton(name: RegExp): HTMLElement {
+  return screen.getByRole("button", {
+    name: (accessibleName, element) =>
+      element.classList.contains("watching__row") && name.test(accessibleName),
+  });
 }
 
 function rowNames(): string[] {
@@ -49,14 +58,14 @@ describe("createWatchingList", () => {
     expect(screen.getByText("3 地点")).toBeTruthy();
     expect(rowNames()).toEqual(["東京の交差点", "レイキャビクの港", "ナイロビの水場"]);
 
-    const first = screen.getByRole("button", { name: /東京の交差点/ });
+    const first = rowButton(/東京の交差点/);
     expect(within(first).getByText("1")).toBeTruthy();
     expect(within(first).getByText("12,345 人が視聴中")).toBeTruthy();
     // 03:00 UTC is 12:00 in Tokyo.
     expect(within(first).getByText(/街 · 日本 · 12:00/)).toBeTruthy();
 
     // An unknown count leaves the slot empty rather than showing a placeholder dash (SHIG 1, 11).
-    const unknownViewers = screen.getByRole("button", { name: /ナイロビの水場/ });
+    const unknownViewers = rowButton(/ナイロビの水場/);
     expect(within(unknownViewers).queryByText("—")).toBeNull();
     expect(unknownViewers.querySelector(".watching__viewers")!.textContent).toBe("");
   });
@@ -71,22 +80,52 @@ describe("createWatchingList", () => {
   it("marks the lead camera as current", () => {
     const { list } = setup();
     list.update([TOKYO, REYKJAVIK], ["reykjavik", "tokyo"], ctx());
-    expect(screen.getByRole("button", { name: /レイキャビク/ }).getAttribute("aria-current")).toBe("true");
-    expect(screen.getByRole("button", { name: /東京/ }).hasAttribute("aria-current")).toBe(false);
+    expect(rowButton(/レイキャビク/).getAttribute("aria-current")).toBe("true");
+    expect(rowButton(/東京/).hasAttribute("aria-current")).toBe(false);
   });
 
   it("reports the picked camera", async () => {
     const user = userEvent.setup();
     const { list, onPick } = setup();
     list.update([TOKYO, REYKJAVIK], [], ctx());
-    await user.click(screen.getByRole("button", { name: /レイキャビク/ }));
+    await user.click(rowButton(/レイキャビク/));
     expect(onPick).toHaveBeenCalledWith("reykjavik");
+  });
+
+  it("offers a jump to the flat map and to the globe next to every row", async () => {
+    const user = userEvent.setup();
+    const { list, onJump, onPick } = setup();
+    list.update([TOKYO, REYKJAVIK], [], ctx());
+
+    const flat = screen.getByRole("button", { name: "平面図で見る: レイキャビクの港" });
+    const globe = screen.getByRole("button", { name: "地球儀で見る: レイキャビクの港" });
+    expect(flat.textContent).toBe("平面図");
+    expect(globe.textContent).toBe("地球儀");
+    expect(flat.title).toBe("平面図で見る");
+    // The jump sits next to the row, not inside it (buttons cannot nest).
+    expect(flat.closest(".watching__row")).toBeNull();
+    expect(flat.closest(".watching__item")).toBe(rowButton(/レイキャビク/).closest(".watching__item"));
+
+    await user.click(flat);
+    expect(onJump).toHaveBeenCalledWith("reykjavik", "flat");
+    await user.click(globe);
+    expect(onJump).toHaveBeenCalledWith("reykjavik", "globe");
+    expect(onPick).not.toHaveBeenCalled();
+  });
+
+  it("relabels the jump buttons with the language", () => {
+    const { list } = setup();
+    list.update([TOKYO], [], ctx());
+    list.update([TOKYO], [], ctx({ lang: "en" }));
+    const flat = screen.getByRole("button", { name: "Show on the map: Tokyo Crossing" });
+    expect(flat.textContent).toBe("Map");
+    expect(screen.getByRole("button", { name: "Show on the globe: Tokyo Crossing" })).toBeTruthy();
   });
 
   it("reuses the rows when the order is unchanged and only repaints them", () => {
     const { list } = setup();
     list.update([TOKYO, REYKJAVIK], [], ctx());
-    const before = screen.getByRole("button", { name: /東京/ });
+    const before = rowButton(/東京/);
 
     list.update(
       [TOKYO, REYKJAVIK],
@@ -94,7 +133,7 @@ describe("createWatchingList", () => {
       ctx({ states: new Map([["tokyo", live(99)], ["reykjavik", live(1)]]) }),
     );
 
-    const after = screen.getByRole("button", { name: /東京/ });
+    const after = rowButton(/東京/);
     expect(after).toBe(before);
     expect(within(after).getByText("99 人が視聴中")).toBeTruthy();
     expect(after.getAttribute("aria-current")).toBe("true");
@@ -103,9 +142,9 @@ describe("createWatchingList", () => {
   it("rebuilds the rows when the order changes", () => {
     const { list } = setup();
     list.update([TOKYO, REYKJAVIK], [], ctx());
-    const before = screen.getByRole("button", { name: /東京/ });
+    const before = rowButton(/東京/);
     list.update([REYKJAVIK, TOKYO], [], ctx());
-    expect(screen.getByRole("button", { name: /東京/ })).not.toBe(before);
+    expect(rowButton(/東京/)).not.toBe(before);
     expect(rowNames()).toEqual(["レイキャビクの港", "東京の交差点"]);
   });
 

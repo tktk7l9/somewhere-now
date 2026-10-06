@@ -18,6 +18,11 @@ export interface ViewState {
   globe: boolean;
   /** A list of live streams sorted by viewer count, highest first. The default is the map. */
   watching: boolean;
+  /**
+   * Also show "broadcasts" (TV, radio, cartoons, etc.). The default is false = hidden. The app is
+   * about fixed cameras, so the default leans toward hiding them (domain/broadcast.ts).
+   */
+  broadcasts: boolean;
   query: string;
   lang: Lang;
 }
@@ -48,6 +53,7 @@ export function parseUrlState(search: string): ViewState {
     favoritesOnly: params.get("fav") === "1",
     globe: params.get("globe") === "1",
     watching: params.get("watching") === "1",
+    broadcasts: params.get("bc") === "1",
     query: (params.get("q") ?? "").trim(),
     lang,
   };
@@ -67,6 +73,7 @@ export function toSearchString(state: ViewState): string {
   if (state.favoritesOnly) params.set("fav", "1");
   if (state.globe) params.set("globe", "1");
   if (state.watching) params.set("watching", "1");
+  if (state.broadcasts) params.set("bc", "1");
   if (state.query !== "") params.set("q", state.query);
   if (state.lang !== "ja") params.set("lang", state.lang);
 

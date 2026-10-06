@@ -25,6 +25,31 @@ export const INITIAL_VIEW: MapViewport = {
  */
 export const GLOBE_ZOOM = 2.8;
 
+/** Side of one tile (px). One copy of the world is 256 * 2^z px. */
+export const TILE_SIZE = 256;
+
+/**
+ * The lowest zoom at which one copy of the world covers a box of that size.
+ *
+ * The map is kept to one copy of the world (the night polygon exists only once; repeating the
+ * world would line up shadowless copies side by side). One copy is only 256 * 2^z px, so a box
+ * larger than that always shows the background colour at the edges: z2 (1,024px) on a 1,056px
+ * stage leaves 16px on each side, and 256px on a 1,536px stage. There is no way to fill it, so
+ * zoom in until the world covers the box.
+ *
+ * Returns the floor as is while the box cannot be measured (a face still at display:none).
+ * The extra 1px avoids a hairline gap that rounding leaves when the fit is exact.
+ */
+export function coveringZoom(
+  width: number,
+  height: number,
+  floor: number = INITIAL_VIEW.zoom,
+): number {
+  const span = Math.max(width, height);
+  if (!Number.isFinite(span) || span <= 0) return floor;
+  return Math.max(floor, Math.log2((span + 1) / TILE_SIZE));
+}
+
 /**
  * The short edge of the screen when GLOBE_ZOOM was chosen (the height the map takes in a 1440x900
  * browser).

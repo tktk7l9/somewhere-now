@@ -4,6 +4,8 @@ import {
   GLOBE_MIN_ZOOM,
   GLOBE_ZOOM,
   GLOBE_ZOOM_EDGE,
+  TILE_SIZE,
+  coveringZoom,
   globeZoomFor,
   tileAt,
   tileUrl,
@@ -46,6 +48,37 @@ describe("GLOBE_ZOOM", () => {
   it("is at a distance where continents and pins are readable and it still looks like a sphere", () => {
     expect(GLOBE_ZOOM).toBeGreaterThanOrEqual(INITIAL_VIEW.zoom);
     expect(GLOBE_ZOOM).toBeLessThan(5);
+  });
+});
+
+describe("coveringZoom", () => {
+  it("keeps the initial zoom when one world tile set already fills the box", () => {
+    expect(coveringZoom(1000, 640)).toBe(INITIAL_VIEW.zoom);
+    expect(coveringZoom(390, 388)).toBe(INITIAL_VIEW.zoom);
+  });
+
+  it("zooms in just enough to cover a box wider than the world", () => {
+    // The world at z2 is 1,024px; a 1,056px stage is 32px short.
+    expect(coveringZoom(1056, 810)).toBeGreaterThan(2);
+    expect(coveringZoom(1056, 810)).toBeLessThan(2.1);
+    expect(coveringZoom(1536, 960)).toBeGreaterThan(2.5);
+  });
+
+  it("covers a portrait box too (decided by the long edge)", () => {
+    expect(coveringZoom(600, 1400)).toBe(coveringZoom(1400, 600));
+    expect(coveringZoom(600, 1400)).toBeGreaterThan(2.4);
+  });
+
+  it("the chosen zoom covers that edge exactly", () => {
+    for (const span of [1056, 1536, 1920, 2560]) {
+      expect(TILE_SIZE * 2 ** coveringZoom(span, span)).toBeGreaterThanOrEqual(span);
+    }
+  });
+
+  it("returns the floor until it can be measured (a display:none face)", () => {
+    expect(coveringZoom(0, 0)).toBe(INITIAL_VIEW.zoom);
+    expect(coveringZoom(Number.NaN, Number.NaN)).toBe(INITIAL_VIEW.zoom);
+    expect(coveringZoom(0, 0, 3)).toBe(3);
   });
 });
 
