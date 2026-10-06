@@ -76,7 +76,7 @@ export function globeStyle(lang: Lang): GlobeStyleJson {
         tileSize: 256,
         maxzoom: 6,
         attribution:
-          '<a href="https://www.naturalearthdata.com/" target="_blank">Natural Earth</a> <a href="https://openfreemap.org" target="_blank">OpenFreeMap</a> Data from <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>',
+          '<a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener">Natural Earth</a> <a href="https://openfreemap.org" target="_blank" rel="noopener">OpenFreeMap</a> Data from <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>',
       },
       openmaptiles: {
         type: "vector",
