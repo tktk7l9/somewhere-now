@@ -759,6 +759,7 @@ describe("startApp", () => {
         new MessageEvent("message", {
           data: JSON.stringify({ event: "onError", info: 150 }),
           source: frame.contentWindow as Window,
+          origin: "https://www.youtube-nocookie.com",
         }),
       );
     const before = map.setStates.mock.calls.length;

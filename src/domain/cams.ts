@@ -260,7 +260,8 @@ export function rankLiveByViewers(
     });
 }
 
-const EMBED_ORIGIN = "https://www.youtube-nocookie.com";
+/** Origin of the playback iframe. Also the only origin whose postMessage the player trusts. */
+export const EMBED_ORIGIN = "https://www.youtube-nocookie.com";
 // rel=0 suppresses related videos, and playsinline prevents the fullscreen takeover on mobile.
 const EMBED_PARAMS = "rel=0&playsinline=1&modestbranding=1";
 
