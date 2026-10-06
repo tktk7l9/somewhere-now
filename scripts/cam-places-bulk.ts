@@ -16734,7 +16734,9 @@ export const CAM_PLACES_BULK = [
     channelId: "UCkibG4ONyUmGlnOR3F3qq6Q",
     videoId: "-T4G47n-QNc",
     titleKey: "Big Bog State Recreation Area Web Cam",
-    at: { lat: 64.1525, lng: -145.8422, timeZone: "America/Anchorage", country: "US" },
+    // Big Bog State Recreation Area (visitor center near Waskish, Minnesota); the geocoder had
+    // matched the word "Big" to Big Delta, Alaska.
+    at: { lat: 48.1749, lng: -94.5124, timeZone: "America/Chicago", country: "US" },
   },
   {
     id: "us-the-day-nyc-suffocated-a-surreal-walk",
@@ -28064,7 +28066,9 @@ export const CAM_PLACES_BULK = [
     channelId: "UCA_zxmsx0JaCDYGK3aUVyaQ",
     videoId: "Mp7NlcqtLj4",
     titleKey: "🔴LIVE CHASING BIG PLANES at CHICAGO O'HARE AIRPORT | SIGHTS & SOUNDS of PURE AVIATION |AVGEEK PLANES",
-    at: { lat: 64.1525, lng: -145.8422, timeZone: "America/Anchorage", country: "US" },
+    // Chicago O'Hare International Airport; the geocoder had matched the word "Big" to
+    // Big Delta, Alaska.
+    at: { lat: 41.98, lng: -87.9098, timeZone: "America/Chicago", country: "US" },
   },
   {
     id: "us-live-on-clayton-s-landing",

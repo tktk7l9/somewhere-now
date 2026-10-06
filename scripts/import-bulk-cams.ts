@@ -893,6 +893,48 @@ export function prioritizeGeocodeQueries(queries: PlaceQuery[]): PlaceQuery[] {
 }
 
 /**
+ * Lowercase, strip diacritics and the ʻokina / apostrophes, keep letters and digits only.
+ * "Hawaiʻi" and "Hawaii", "Kīlauea" and "Kilauea" compare equal.
+ */
+function normalizePlaceText(value: string): string {
+  return value
+    .normalize("NFD")
+    .replace(/[\p{M}\p{Lm}'’]/gu, "")
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}]+/gu, " ")
+    .trim();
+}
+
+/**
+ * Whether the place the geocoder returned is the place that was asked for.
+ *
+ * 🔴 Open-Meteo matches by **prefix**. Asked for `Big` it answers Big Delta, Alaska, and
+ * asked for `Web` it answers Webster. Five cameras ("Big Bog State Recreation Area",
+ * "Big Bear Bald Eagle Nest", "Big Planes at Chicago O'Hare", "Big Island Hawaiʻi",
+ * "Big Waves Tahiti and Hawaii") were all sitting in Big Delta because every specific
+ * query had missed and the generic last-resort word `Big` was taken at face value.
+ *
+ * Accepted only when the returned name **is** the query (the full name, not a prefix of
+ * it: city aliases such as "Tokyo" for a Japanese title pass this way), or when the
+ * returned name appears in the title or channel name as whole words
+ * ("Chicago" for "CHICAGO O'HARE AIRPORT"). CJK has no word boundaries, so plain inclusion.
+ */
+export function hitNamesTheQuery(
+  hitName: string,
+  queryName: string,
+  title: string,
+  channelTitle = "",
+): boolean {
+  const hit = normalizePlaceText(hitName);
+  if (hit.length === 0) return false;
+  if (hit === normalizePlaceText(queryName)) return true;
+  const haystack = normalizePlaceText(`${title} ${channelTitle}`);
+  if (!/^[\x20-\x7E]+$/.test(hit)) return haystack.includes(hit);
+  const escaped = hit.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return new RegExp(`(?:^| )${escaped}(?: |$)`).test(haystack);
+}
+
+/**
  * Resolution with evidence, for re-geocoding.
  *
  * `matchedName` is **the very place name the geocoder returned**. Whether the coordinates
@@ -923,6 +965,8 @@ export async function resolveWithEvidence(
   for (const q of ordered) {
     const hit = await geocode(q);
     if (hit !== null && typeof hit.timezone === "string" && hit.timezone.length > 0) {
+      // A prefix hit (Big → Big Delta) is not a resolution. Fall through to the next query.
+      if (!hitNamesTheQuery(hit.name, q.name, title, channelTitle)) continue;
       const timeZone = normalizeTimeZone(hit.timezone);
       if (timeZone === null) continue;
       const lat = Number(hit.latitude.toFixed(4));

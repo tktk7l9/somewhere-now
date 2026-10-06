@@ -34,7 +34,10 @@ describe("camera master data", () => {
     // 2026-10-06: +1 on purpose. The Big Bear nest cam moved from the "Big Delta, Alaska"
     // pile onto the coordinates of its sibling cam (same channel, same lake) and formed a
     // real pile of 2.
-    expect(piled).toBeLessThanOrEqual(3203);
+    // 2026-10-06 (later the same day): −2. Big Bog SRA (Minnesota) and Chicago O'Hare left
+    // the "Big Delta, Alaska" pile for their real coordinates. The pile still holds 2
+    // (Big Island Hawaiʻi tour, Tahiti/Hawaii waves) whose channels state no single place.
+    expect(piled).toBeLessThanOrEqual(3201);
     expect(Math.max(...counts)).toBeLessThanOrEqual(175);
   });
 });

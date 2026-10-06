@@ -68,6 +68,11 @@ the threshold is not actually biting, add unreachable code on purpose and confir
   `[4K]` `PTZ` had become queries, and **3,394 of 5,720 cameras (59%) were sitting on a pile at
   the same coordinates**. **The query with more words narrows the place** (`prioritizeGeocodeQueries`).
   Do not send strings that cannot be a place name (`looksLikePlaceName`).
+- 🔴 **Open-Meteo matches by prefix. "Something came back" for a 3-letter word is a prefix hit, not a place.**
+  `Big` returns Big Delta, Alaska, and 5 cameras (Big Bog SRA in Minnesota, Chicago O'Hare,
+  Big Bear, Big Island, Tahiti waves) were all sitting on that one pin because every specific
+  query had missed and the last-resort generic word was taken at face value. A hit counts only
+  when the returned name **is** the query or appears in the title as whole words (`hitNamesTheQuery`).
 - 🔴 **When re-geocoding, do not be satisfied with "the place name matched". Check the state too.**
   For `Marysville, Michigan USA` the geocoder returns **a town called Michigan in North Dakota**.
   The name matches and yet it is 1,900km off. `Redondo Beach` (California) flew to Redondo in
