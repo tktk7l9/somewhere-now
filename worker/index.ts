@@ -1,13 +1,16 @@
-// Cloudflare Worker のエントリ。
+// Cloudflare Worker entry.
 //
-//   fetch     … /api/cams で KV のライブ生存状態を返す。それ以外は静的アセット。
-//   scheduled … Cron Trigger から YouTube Data API を叩いて KV を更新する。
+//   fetch     ... returns the live liveness state in KV at /api/cams. Everything else is
+//                 static assets.
+//   scheduled ... calls the YouTube Data API from a Cron Trigger and updates KV.
 //
-// API キーはここ(Worker の secret)だけにあり、ブラウザには一切出ない。
-// 使ったクォータは KV の台帳に日毎で積み、予算を超えたら叩くのをやめる。
+// The API key exists only here (a Worker secret) and never reaches the browser.
+// Quota used is accumulated per day in the quota ledger in KV, and calls stop once the
+// budget is exceeded.
 
-import { CAMS } from "../src/data/cams";
-import { publicStates } from "../src/domain/cams";
+import { Cause, Data, Effect, Exit } from "effect";
+import { CAM_SOURCES } from "../src/data/camSources";
+import { publicStates, storedState } from "../src/domain/cams";
 import {
   ROLE_UNIT_BUDGET,
   ledgerForDay,
@@ -32,28 +35,30 @@ interface Env {
   YOUTUBE_API_KEY?: string;
 }
 
-/** 正本。title と checkedAt を含む、更新アルゴリズムが読む側。 */
+/** Source of truth. Includes checkedAt; the side the update algorithm reads. */
 const STATE_KEY = "cam-state:v1";
 /**
- * ブラウザへ配る形に絞った写し。/api/cams はこれを**そのまま**返す。
+ * Public copy, reduced to the shape served to the browser. /api/cams returns this **as is**.
  *
- * 正本は 1.2MB あり、毎リクエストで parse → 射影 → stringify すると
- * 応答に 100〜300ms かかる(実測)。表示に要る 3 つだけに絞った文字列を
- * 更新時に一度だけ作っておけば、読み出しは KV から取って返すだけで済む。
+ * The source of truth is ~750KB (1.2MB while it carried stream titles, when doing
+ * parse -> projection -> stringify on every request made the response take 100-300ms). If the string reduced to only the 3 fields
+ * needed for display is built just once at update time, a read only has to fetch it from KV
+ * and return it.
  */
 const PUBLIC_KEY = "cam-state-public:v1";
 
 /**
- * 2026-08-28〜08-31 に台帳を置いていたキー。**引き継ぎにしか使わない**。
+ * Keys where the quota ledger was kept from 2026-08-28 to 08-31. **Used only for the handover**.
  *
- * 台帳は正本(STATE_KEY)に同居させた。別キーに分けると 1 実行あたりの書き込みが
- * 1 本増え、Cron 7 回/時 × 24 時間 = 504 write/日 と無料枠(1,000/日)の半分を
- * 焼いていた(2026-08-31 に Cloudflare の 50% 警告で発覚)。
+ * The ledger now lives inside the source of truth (STATE_KEY). Splitting it into a separate
+ * key adds 1 write per run, and Cron 7 runs/hour x 24 hours = 504 writes/day was burning half
+ * of the free tier (1,000/day) (discovered on 2026-08-31 through Cloudflare's 50% warning).
  *
- * ここを読むのは「正本がまだ台帳を持っていない」ときだけ＝役割ごとに 1 度きり。
- * 移行の途中でゼロから数え直すと、**その日ぶんの上限ガードが丸ごと外れる**
- * (2026-08-27 に生存確認が 7,300 unit を焼いた種類の事故を止められなくなる)。
- * 両方の役割が新しい正本を書き終えたら、このキーごと消してよい。
+ * This is read only when "the source of truth does not have a ledger yet" = just once per
+ * role. Recounting from zero in the middle of the migration **removes the whole cap guard
+ * for that day** (the kind of incident where the liveness sweep burned 7,300 units on
+ * 2026-08-27 could no longer be stopped).
+ * Once both roles have finished writing the new source of truth, these keys can be deleted.
  */
 const LEGACY_LEDGER_KEY: Record<Role, string> = {
   sweep: "quota-ledger:sweep:v1",
@@ -61,29 +66,40 @@ const LEGACY_LEDGER_KEY: Record<Role, string> = {
 };
 
 /**
- * 1 時間あたりに探し直すチャンネル数の**上限**。
+ * **Upper limit** on the number of channels rediscovered per hour.
  *
- * 実際に何本回れるかを決めるのはこの数ではなく MAX_CALLS_PER_REDISCOVER の方。
- * チャンネル 1 本は uploads を最大 3 ページ辿って 6 回呼ぶので、件数だけで
- * 24 本を許すと 144 リクエストになり、サブリクエスト上限(50)で半分以上が落ちる
- * (2026-08-28 に実際に 24 本中 12 本を落とした)。
+ * What decides how many channels actually get covered is not this number but
+ * MAX_CALLS_PER_REDISCOVER. 1 channel walks up to 3 pages of uploads and makes 6 calls, so
+ * allowing 24 channels by count alone becomes 144 requests, and more than half fail at the
+ * subrequest limit (50) (on 2026-08-28, 12 of 24 channels were actually dropped).
  *
- * ここは「呼び出しの枠が余っていても、これ以上は手を広げない」という天井。
- * 目当てが 1 ページ目にいれば 2 回で済むので、空いているぶんだけ本数が伸びる。
+ * This is the ceiling meaning "even if call capacity is left over, do not reach any further".
+ * If the target is on page 1, 2 calls are enough, so the channel count grows by however much
+ * capacity is free.
  */
 const REDISCOVER_CHANNELS_PER_RUN = 24;
-/** そのうち、高い検索経路(101 unit)に落としてよい回数。 */
+/** Of those, how many times falling back to the expensive search path (101 units) is allowed. */
 const REDISCOVER_SEARCHES_PER_RUN = 1;
 /**
- * 1 回の再探索で使ってよい上限。日次の枠(4,000)を 24 回で割った値。
- * 1 回が枠を食い尽くすと、その日の残りの再探索が全部止まる。
+ * Upper limit a single rediscovery run may use. The daily budget (4,000) divided by 24 runs.
+ * If 1 run eats up the budget, all remaining rediscovery for that day stops.
  */
 const REDISCOVER_UNITS_PER_RUN = Math.floor(ROLE_UNIT_BUDGET.rediscover / 24);
 
-/** PUBLIC_KEY に添える目印。本文を parse せずに ETag を作るために使う。 */
+/** Marker attached to PUBLIC_KEY. Used to build the ETag without parsing the body. */
 interface PublicMeta {
   updatedAt: string;
 }
+
+/** A KV read or write failed. Only the Cron path uses this; /api/cams stays plain Promise code. */
+class KvError extends Data.TaggedError("KvError")<{ readonly op: string; readonly cause: unknown }> {
+  override get message(): string {
+    return `KV ${this.op} failed: ${this.cause instanceof Error ? this.cause.message : String(this.cause)}`;
+  }
+}
+
+const kv = <A>(op: string, run: () => Promise<A>): Effect.Effect<A, KvError> =>
+  Effect.tryPromise({ try: run, catch: (cause) => new KvError({ op, cause }) });
 
 async function readState(env: Env): Promise<StatePayload> {
   const stored = await env.CAM_STATE.get<StatePayload>(STATE_KEY, "json");
@@ -91,22 +107,24 @@ async function readState(env: Env): Promise<StatePayload> {
 }
 
 /**
- * その役割の台帳を、正本から取り出す。
- * 正本がまだ持っていなければ旧キーから引き継ぐ(役割ごとに 1 度きり)。
+ * Takes the quota ledger of that role out of the source of truth.
+ * If the source of truth does not have one yet, takes it over from the legacy key
+ * (just once per role).
  */
-async function ledgerFor(
+const ledgerFor = (
   payload: StatePayload,
   role: Role,
   env: Env,
   now: Date,
-): Promise<QuotaLedger> {
+): Effect.Effect<QuotaLedger, KvError> => {
   const carried = ledgerIn(payload, role, now);
-  if (carried !== null) return carried;
-  const legacy = await env.CAM_STATE.get<QuotaLedger>(LEGACY_LEDGER_KEY[role], "json");
-  return ledgerForDay(legacy, now);
-}
+  if (carried !== null) return Effect.succeed(carried);
+  return kv(`get ${LEGACY_LEDGER_KEY[role]}`, () =>
+    env.CAM_STATE.get<QuotaLedger>(LEGACY_LEDGER_KEY[role], "json"),
+  ).pipe(Effect.map((legacy) => ledgerForDay(legacy, now)));
+};
 
-/** ブラウザへ配る本文。表示に使う 3 つだけに絞る。 */
+/** Body served to the browser. Reduced to only the 3 fields used for display. */
 function publicBody(payload: StatePayload): string {
   return JSON.stringify({ updatedAt: payload.updatedAt, cams: publicStates(payload.cams) });
 }
@@ -114,19 +132,21 @@ function publicBody(payload: StatePayload): string {
 function camsHeaders(updatedAt: string): Headers {
   return new Headers({
     "content-type": "application/json; charset=utf-8",
-    // 状態の更新は 10 分毎なので、1 分のキャッシュで十分に追随する。
+    // The state is updated every 10 minutes, so a 1-minute cache follows it well enough.
     "cache-control": "public, max-age=60",
-    // 更新時刻がそのまま版番号になる。中身が変わらない限り 304 で返せる。
+    // The update time serves directly as the version number. As long as the content does not
+    // change, 304 can be returned.
     etag: `"${updatedAt}"`,
-    // 静的アセットの public/_headers はここには効かないので自前で付ける。
+    // public/_headers for static assets does not apply here, so set these ourselves.
     "x-content-type-options": "nosniff",
     "referrer-policy": "strict-origin-when-cross-origin",
   });
 }
 
 /**
- * 生存状態の本文を組み立てる。写しがまだ無ければ正本から作り、
- * 次からは写しで済むように書き戻す(デプロイ直後の 1 回だけ通る道)。
+ * Builds the body of the liveness state. If the public copy does not exist yet, builds it
+ * from the source of truth and writes it back so the copy is enough from the next time on
+ * (a path taken only 1 time right after a deploy).
  */
 async function buildCamsResponse(env: Env, ctx: ExecutionContext): Promise<Response> {
   const cached = await env.CAM_STATE.getWithMetadata<PublicMeta>(PUBLIC_KEY, "text");
@@ -143,16 +163,17 @@ async function buildCamsResponse(env: Env, ctx: ExecutionContext): Promise<Respo
 }
 
 /**
- * /api/cams。
+ * /api/cams.
  *
- * 効くのは 3 段で、下に行くほど確実:
- *   1. エッジのキャッシュ … Worker の応答は CDN に自動では載らないので自分で置く。
- *      workers.dev でも効いている(本番で cf-cache-status: HIT を実測)。
- *      独自ドメインを当てるときは Workers Caching(wrangler の cache.enabled)に
- *      移すと、ヒット時にこの関数ごと呼ばれなくなる。
- *   2. ETag … ブラウザは 2 分毎に取りに来るが中身が変わるのは 10 分毎なので、
- *      5 回中 4 回は 304 で本文(約 144KB)が飛ばない。
- *   3. 写しを返すだけ … 正本 1.2MB の parse と射影をやめる(ここが一番効く)。
+ * 3 layers take effect, and the lower ones are more certain:
+ *   1. Edge cache ... Worker responses are not put on the CDN automatically, so we place
+ *      them ourselves. It works on workers.dev too (measured cf-cache-status: HIT in
+ *      production). When a custom domain is attached, moving to Workers Caching (wrangler's
+ *      cache.enabled) means this whole function is no longer called on a hit.
+ *   2. ETag ... the browser fetches every 2 minutes but the content changes every 10 minutes,
+ *      so 4 out of 5 times it is a 304 and the body (about 144KB) is not sent.
+ *   3. Just return the public copy ... stops the parse and projection of the ~750KB source of
+ *      truth (this has the biggest effect).
  */
 async function camsResponse(
   request: Request,
@@ -160,7 +181,7 @@ async function camsResponse(
   ctx: ExecutionContext,
 ): Promise<Response> {
   const cache = caches.default;
-  // 鍵は URL だけ。条件付きリクエストのヘッダを混ぜると鍵が散る。
+  // The key is the URL only. Mixing in conditional request headers scatters the keys.
   const cacheKey = new Request(new URL("/api/cams", request.url).toString());
 
   let response = await cache.match(cacheKey);
@@ -171,7 +192,7 @@ async function camsResponse(
 
   const etag = response.headers.get("etag");
   if (etag !== null && request.headers.get("if-none-match") === etag) {
-    // 304 に本文は付けない。版の判定に要るヘッダだけ返す。
+    // A 304 carries no body. Return only the headers needed to judge the version.
     return new Response(null, {
       status: 304,
       headers: {
@@ -198,104 +219,126 @@ export default {
   },
 
   async scheduled(controller, env, ctx) {
-    ctx.waitUntil(refresh(controller.cron, env));
+    ctx.waitUntil(Effect.runPromise(refresh(controller.cron, env)));
   },
 } satisfies ExportedHandler<Env>;
 
 /**
- * Cron の入口。**何があってもログを 1 行は残す**ことだけを引き受ける。
+ * Cron entry point. Its only responsibility is to **leave at least 1 log line no matter what**.
  *
- * 2026-08-28 に 3.6 時間ぶん更新が止まったとき、台帳も状態も動かず
- * ログも空で、「Cron が発火していない」のか「発火したが落ちた」のかを
- * 切り分ける手がかりが何も無かった。`scheduled` は `ctx.waitUntil` に
- * 渡しているので、ここで投げた例外は誰も受け取らないまま消える。
+ * When updates stopped for 3.6 hours on 2026-08-28, neither the quota ledger nor the state
+ * moved and the logs were empty, so there was no clue at all to tell apart "Cron did not
+ * fire" from "it fired but crashed". `scheduled` passes this to `ctx.waitUntil`, so a
+ * failure that escapes here disappears without anyone receiving it. The returned effect
+ * therefore never fails: typed errors and defects alike end in console.error.
  */
-async function refresh(cron: string, env: Env): Promise<void> {
-  const role = roleForCron(cron);
-  if (role === null) {
-    // 既定の役割に倒すと、wrangler.jsonc だけを書き換えたときに全実行が
-    // 片方の役割になり、枠も台帳も入れ替わったまま気づけない。
-    console.error(`[cron] 知らない Cron 式が発火した: ${cron}`);
-    return;
-  }
-  // 発火した事実だけは先に残す。これが無いと沈黙の理由を追えない。
-  console.log(`[cron ${role}] 開始`);
-
-  try {
-    await update(role, env);
-  } catch (error) {
-    // ここに来るのは KV の読み込みなど、YouTube を叩く前で落ちたとき
-    // (その先は update の中の try が受けて台帳まで書く)。
-    console.error(`[cron ${role}] 更新を始める前に落ちた`, error);
-  }
-}
-
-async function update(role: Role, env: Env): Promise<void> {
-  const apiKey = env.YOUTUBE_API_KEY;
-  if (apiKey === undefined || apiKey === "") {
-    console.error(`[cron ${role}] YOUTUBE_API_KEY が未設定のため更新を見送った`);
-    return;
-  }
-
-  const now = new Date();
-  const payload = await readState(env);
-  const ledger = await ledgerFor(payload, role, env, now);
-  const budget = remainingUnits(ledger, ROLE_UNIT_BUDGET[role]);
-  if (budget === 0) {
-    console.warn(`[cron ${role}] 本日の枠(${ROLE_UNIT_BUDGET[role]})を使い切ったので何もしない`);
-    return;
-  }
-
-  const states = new Map(Object.entries(payload.cams));
-  const client = createYouTubeClient(apiKey, fetch);
-  // 更新に失敗しても台帳だけは進めたいので、書き戻す正本を try の外に置く。
-  // 差し替わったかどうか(= next !== payload)が、写しを作り直すかの判定にもなる。
-  let next = payload;
-
-  try {
-    const result =
-      role === "sweep"
-        ? await sweepLiveness(CAMS, states, client, now, budget)
-        : await rediscover(CAMS, states, client, now, {
-            maxChannels: REDISCOVER_CHANNELS_PER_RUN,
-            maxSearches: REDISCOVER_SEARCHES_PER_RUN,
-            unitBudget: Math.min(budget, REDISCOVER_UNITS_PER_RUN),
-          });
-
-    for (const [camId, state] of result.states) states.set(camId, state);
-    // マスタから消えた id の状態はどちらの経路も触らないので、ここで掃く。
-    const { kept, removed } = pruneOrphans(states, CAMS);
-    next = { ...payload, updatedAt: now.toISOString(), cams: Object.fromEntries(kept) };
-
-    const live = [...kept.values()].filter((s) => s.status === "live").length;
-    console.log(`[cron ${role}] 更新 ${result.states.size} 件 / ライブ ${live} 件`);
-    if (removed.length > 0) {
-      console.warn(`[cron ${role}] マスタに無い状態を掃除: ${removed.join(", ")}`);
+const refresh = (cron: string, env: Env): Effect.Effect<void> =>
+  Effect.gen(function* () {
+    const role = roleForCron(cron);
+    if (role === null) {
+      // Falling back to a default role would make every run take one role when only
+      // wrangler.jsonc is edited, and the budget and the ledger would stay swapped unnoticed.
+      console.error(`[cron] an unknown Cron expression fired: ${cron}`);
+      return;
     }
-    for (const note of result.notes) console.warn(`[cron ${role}] ${note}`);
-  } catch (error) {
-    // 状態の更新は諦める。次の実行でやり直せばよい。
-    console.error(`[cron ${role}] 更新に失敗`, error);
-  } finally {
-    // 失敗しても Google 側のクォータは減っているので、台帳は必ず書く。
-    // ここを try の中に置くと、キーが不正なまま Cron が回り続けたときに
-    // 上限ガードが気づかないまま 1 日ぶんの枠を焼くことになる。
-    const used = ledger.used + client.unitsUsed;
-    // 正本は台帳を相乗りさせて **1 度だけ** 書く。台帳を別キーに分けると
-    // 実行あたりの書き込みが 3 本になり、KV の無料枠の半分を焼く。
-    await env.CAM_STATE.put(
-      STATE_KEY,
-      JSON.stringify(withLedger(next, role, { day: ledger.day, used })),
+    // Record the fact that it fired first. Without this the reason for silence cannot be traced.
+    console.log(`[cron ${role}] start`);
+
+    yield* update(role, env).pipe(
+      // Execution gets here when it crashed before calling YouTube, such as on the KV read
+      // (beyond that, update catches the refresh failure itself and still writes the ledger).
+      Effect.catchCause((cause) =>
+        Effect.sync(() =>
+          console.error(`[cron ${role}] crashed before the refresh started`, Cause.squash(cause)),
+        ),
+      ),
     );
-    // 写しは中身が入れ替わったときだけ。更新に失敗した回は正本と同じなので、
-    // 書き直しても内容が変わらない(＝ただ枠を減らすだけ)。
+  });
+
+const update = (role: Role, env: Env): Effect.Effect<void, KvError> =>
+  Effect.gen(function* () {
+    const apiKey = env.YOUTUBE_API_KEY;
+    if (apiKey === undefined || apiKey === "") {
+      console.error(`[cron ${role}] refresh skipped because YOUTUBE_API_KEY is not set`);
+      return;
+    }
+
+    const now = new Date();
+    const payload = yield* kv(`get ${STATE_KEY}`, () => readState(env));
+    const ledger = yield* ledgerFor(payload, role, env, now);
+    const budget = remainingUnits(ledger, ROLE_UNIT_BUDGET[role]);
+    if (budget === 0) {
+      console.warn(`[cron ${role}] today's budget (${ROLE_UNIT_BUDGET[role]}) is used up, doing nothing`);
+      return;
+    }
+
+    const states = new Map(Object.entries(payload.cams));
+    const client = createYouTubeClient(apiKey, fetch);
+
+    // Effect.exit captures typed failures and defects (a throw inside pruneOrphans etc.)
+    // alike, so the write-back below always runs: the ledger must advance even if the update
+    // fails. Whether the source of truth was replaced (= next !== payload) also decides
+    // whether the public copy is rebuilt.
+    const outcome = yield* Effect.exit(
+      Effect.gen(function* () {
+        const result =
+          role === "sweep"
+            ? yield* sweepLiveness(CAM_SOURCES, states, client, now, budget)
+            : yield* rediscover(CAM_SOURCES, states, client, now, {
+                maxChannels: REDISCOVER_CHANNELS_PER_RUN,
+                maxSearches: REDISCOVER_SEARCHES_PER_RUN,
+                unitBudget: Math.min(budget, REDISCOVER_UNITS_PER_RUN),
+              });
+
+        for (const [camId, state] of result.states) states.set(camId, state);
+        // Neither path touches the state of ids removed from the master, so sweep them out here.
+        const { kept, removed } = pruneOrphans(states, CAM_SOURCES);
+        const replaced: StatePayload = {
+          ...payload,
+          updatedAt: now.toISOString(),
+          cams: Object.fromEntries([...kept].map(([camId, state]) => [camId, storedState(state)])),
+        };
+
+        const live = [...kept.values()].filter((s) => s.status === "live").length;
+        console.log(`[cron ${role}] refreshed ${result.states.size} / live ${live}`);
+        if (removed.length > 0) {
+          console.warn(`[cron ${role}] pruned states missing from the master: ${removed.join(", ")}`);
+        }
+        for (const note of result.notes) console.warn(`[cron ${role}] ${note}`);
+        return replaced;
+      }),
+    );
+
+    let next = payload;
+    if (Exit.isSuccess(outcome)) {
+      next = outcome.value;
+    } else {
+      // Give up on updating the state. The next run can redo it.
+      console.error(`[cron ${role}] refresh failed`, Cause.squash(outcome.cause));
+    }
+
+    // Even on failure the quota on Google's side has been consumed, so always write the ledger.
+    // If this were skipped on failure, then when Cron keeps running with an invalid key the cap
+    // guard would not notice and a whole day's budget would be burned.
+    const used = ledger.used + client.unitsUsed;
+    // The source of truth is written **just once**, with the ledger riding along. Splitting
+    // the ledger into a separate key makes it 3 writes per run and burns half of the KV
+    // free tier.
+    yield* kv(`put ${STATE_KEY}`, () =>
+      env.CAM_STATE.put(STATE_KEY, JSON.stringify(withLedger(next, role, { day: ledger.day, used }))),
+    );
+    // The public copy is written only when the content was replaced. On a run where the
+    // update failed it is the same as the source of truth, so rewriting it would not change
+    // the content (= it would only use up quota).
     if (next !== payload) {
-      await env.CAM_STATE.put(PUBLIC_KEY, publicBody(next), {
-        metadata: { updatedAt: next.updatedAt },
-      });
+      const replaced = next;
+      yield* kv(`put ${PUBLIC_KEY}`, () =>
+        env.CAM_STATE.put(PUBLIC_KEY, publicBody(replaced), {
+          metadata: { updatedAt: replaced.updatedAt },
+        }),
+      );
     }
     console.log(
-      `[cron ${role}] 消費 ${client.unitsUsed} unit (本日計 ${used}/${ROLE_UNIT_BUDGET[role]})`,
+      `[cron ${role}] used ${client.unitsUsed} unit (today's total ${used}/${ROLE_UNIT_BUDGET[role]})`,
     );
-  }
-}
+  });

@@ -1,22 +1,24 @@
-// discover-cams.ts が集めた候補のうち、地理が一意に定まるものだけを人手で選び、
-// 場所の情報を与えた表。これが src/data/cams.ts の元になる。
+// A table of candidates collected by discover-cams.ts, hand-picked to only those whose
+// geography is uniquely determined, with place information added. This is the source of
+// src/data/cams.ts.
 //
-// channelId と titleKey は discover が実際に取ってきた値を**ここに固定する**。
-// 毎回のスクレイプ結果を参照すると、たまたま配信が落ちていたカメラがビルドの
-// たびにマスタから消える(実際に起きた)。キュレーションの記録は、その時どきの
-// 配信状況から独立していなければならない。
+// channelId and titleKey **are pinned here** to the values discover actually fetched.
+// Referring to each scrape result makes a camera whose stream happened to be down
+// disappear from the master on every build (this actually happened). The curation record
+// must be independent of the stream status at any given moment.
 //
-// 座標の出どころは 2 通りで、どちらも「記憶で書いた数字」にしないのが方針:
-//   place … Open-Meteo のジオコーディングで解決する(小さな町はこちら。町の中心が
-//           実質そのままカメラの位置になる)。admin1 は同名地の取り違え防止。
-//   at    … 誰でも地図で確かめられる著名なランドマークだけ、明示的に置く。
+// Coordinates come from 2 sources, and the policy is that neither is "a number written
+// from memory":
+//   place … resolved with Open-Meteo geocoding (small towns use this. The town centre is
+//           effectively the camera position). admin1 prevents mixing up same-name places.
+//   at    … placed explicitly, only for famous landmarks anyone can confirm on a map.
 
 import type { CamCategory } from "../src/domain/cams";
 
 export interface PlaceQuery {
   name: string;
   countryCode: string;
-  /** 州・県名。同名の町を取り違えないための絞り込み。 */
+  /** State / prefecture name. Narrows results so same-name towns are not mixed up. */
   admin1?: string;
 }
 
@@ -25,14 +27,14 @@ export interface CamPlace {
   nameJa: string;
   nameEn: string;
   category: CamCategory;
-  /** 人が読むための出どころ。discover-cams.ts の出力にあるハンドル。 */
+  /** Origin for human readers. The handle found in the output of discover-cams.ts. */
   handle: string;
-  /** 機械が解決した値をここに固定する(毎回のスクレイプに依存させない)。 */
+  /** Machine-resolved values are pinned here (not dependent on each scrape). */
   channelId: string;
   videoId: string;
   /**
-   * 配信タイトル。1 チャンネルに何十台もぶら下がるので、再探索で
-   * 「どれがこのカメラか」を見分ける鍵になる。
+   * Stream title. Dozens of cameras hang off 1 channel, so in rediscovery this is
+   * the key for telling "which one is this camera".
    */
   titleKey: string;
   place?: PlaceQuery;
@@ -40,7 +42,7 @@ export interface CamPlace {
 }
 
 export const CAM_PLACES_CURATED: CamPlace[] = [
-  // ── 日本 ────────────────────────────────────────────────
+  // ── Japan ───────────────────────────────────────────────
   {
     id: "shibuya-crossing",
     nameJa: "渋谷スクランブル交差点",
@@ -86,7 +88,7 @@ export const CAM_PLACES_CURATED: CamPlace[] = [
     at: { lat: 35.5490, lng: 139.7855, timeZone: "Asia/Tokyo", country: "JP" },
   },
 
-  // ── ヨーロッパ ──────────────────────────────────────────
+  // ── Europe ──────────────────────────────────────────────
   {
     id: "abbey-road-crossing",
     nameJa: "アビイ・ロードの横断歩道",
@@ -110,7 +112,7 @@ export const CAM_PLACES_CURATED: CamPlace[] = [
     place: { name: "Palma", countryCode: "ES", admin1: "Balearic Islands" },
   },
 
-  // ── 北米 (都市・ランドマーク) ───────────────────────────
+  // ── North America (cities, landmarks) ───────────────────
   {
     id: "times-square",
     nameJa: "タイムズスクエア",
@@ -277,7 +279,7 @@ export const CAM_PLACES_CURATED: CamPlace[] = [
     place: { name: "Ruidoso", countryCode: "US", admin1: "New Mexico" },
   },
 
-  // ── 北米 (自然・海) ────────────────────────────────────
+  // ── North America (nature, sea) ────────────────────────
   {
     id: "sanibel-island",
     nameJa: "サニベル島",
@@ -334,7 +336,7 @@ export const CAM_PLACES_CURATED: CamPlace[] = [
     place: { name: "Spirit Lake", countryCode: "US", admin1: "Iowa" },
   },
 
-  // ── 北米 (動物) ────────────────────────────────────────
+  // ── North America (animals) ────────────────────────────
   {
     id: "monterey-sea-otter",
     nameJa: "モントレー湾水族館 ラッコ",
@@ -391,7 +393,7 @@ export const CAM_PLACES_CURATED: CamPlace[] = [
     place: { name: "Gaylord", countryCode: "US", admin1: "Michigan" },
   },
 
-  // ── アフリカ・南米 ──────────────────────────────────────
+  // ── Africa, South America ───────────────────────────────
   {
     id: "chobe-waterhole",
     nameJa: "チョベ(ボツワナ)の水場",
@@ -415,7 +417,7 @@ export const CAM_PLACES_CURATED: CamPlace[] = [
     place: { name: "Manaus", countryCode: "BR" },
   },
 
-  // ── メキシコ ───────────────────────────────────────────
+  // ── Mexico ─────────────────────────────────────────────
   {
     id: "popocatepetl",
     nameJa: "ポポカテペトル山",
@@ -461,7 +463,7 @@ export const CAM_PLACES_CURATED: CamPlace[] = [
     at: { lat: 19.4847, lng: -99.1177, timeZone: "America/Mexico_City", country: "MX" },
   },
 
-  // ── ジャクソンホール周辺(ワイオミング・モンタナ) ────────
+  // ── Around Jackson Hole (Wyoming, Montana) ──────────────
   {
     id: "jackson-town-square",
     nameJa: "ジャクソン タウンスクエア",
@@ -507,7 +509,7 @@ export const CAM_PLACES_CURATED: CamPlace[] = [
     place: { name: "Driggs", countryCode: "US", admin1: "Idaho" },
   },
 
-  // ── 鉄道 ───────────────────────────────────────────────
+  // ── Railways ───────────────────────────────────────────
   {
     id: "rail-plant-city",
     nameJa: "プラントシティ(フロリダ)の線路",
@@ -684,10 +686,11 @@ export const CAM_PLACES_CURATED: CamPlace[] = [
     titleKey: "Cordele, Georgia, USA | LIVE Train Camera (Fixed View – Diamond)",
     place: { name: "Cordele", countryCode: "US", admin1: "Georgia" },
   },
-  // ── 2 巡目に足したもの ─────────────────────────────────
-  // 8 チャンネルに集中し米国に偏っていたので、豪州・アフリカ・火山を足した。
-  // 候補 34 チャンネルを当たって、実際に「地理が定まるカメラ」を出していたのは
-  // ここに挙げた 4 件だけだった(大半は報道の 24 時間配信でカメラではない)。
+  // ── Added in round 2 ───────────────────────────────────
+  // Cameras were concentrated in 8 channels and skewed to the US, so Australia, Africa and
+  // volcanoes were added. Of the 34 candidate channels checked, only the 4 listed here
+  // actually offered "a camera whose geography is determined" (most are 24-hour news
+  // streams, not cameras).
   {
     id: "sydney-harbour",
     nameJa: "シドニー湾（ハーバーブリッジとオペラハウス）",
@@ -732,10 +735,10 @@ export const CAM_PLACES_CURATED: CamPlace[] = [
     titleKey: "WildEarth Channel - AD FREE",
     at: { lat: -24.79, lng: 31.45, timeZone: "Africa/Johannesburg", country: "ZA" },
   },
-  // ── 3 巡目: キーワード検索で見つけた個人・自治体・施設のカメラ ────────
-  // チャンネル起点だと、こちらが名前を知っている運営しか見つからない。
-  // search.list を 8 語で回して 191 本の未知チャンネルを拾い、その中から
-  // 「地理が一意に定まり、回転や巡回でない」ものを選んだ。
+  // ── Round 3: cameras of individuals, municipalities and facilities found by keyword search ──
+  // Starting from channels only finds operators whose names we already know.
+  // search.list was run with 8 terms and picked up 191 unknown channels, from which
+  // those "whose geography is uniquely determined and that do not rotate or tour" were chosen.
   {
     id: "osaka-dotonbori",
     nameJa: "大阪 道頓堀",
@@ -1075,8 +1078,8 @@ export const CAM_PLACES_CURATED: CamPlace[] = [
     channelId: "UCQqyZgPh9Lu0w_rmWWBvuNg",
     videoId: "B6eki-0-w0g",
     titleKey: "4K Live cam-Alishan【阿里山美景4K直播】-奮起湖 Fenqihu",
-    // ジオコーダは「阿里山」を嘉義市(約 25km 西)に解決してしまうので、
-    // 配信地点である奮起湖の座標を明示する。
+    // The geocoder resolves "Alishan" to Chiayi City (about 25km west), so the
+    // coordinates of Fenqihu, the actual stream location, are given explicitly.
     at: { lat: 23.5085, lng: 120.6975, timeZone: "Asia/Taipei", country: "TW" },
   },
   {
@@ -1266,10 +1269,10 @@ export const CAM_PLACES_CURATED: CamPlace[] = [
     titleKey: "🔴LIVE 24/7 LAX Airport Action Runways 24L &amp; 24R | LIVE Plane Spotting with ATC!",
     place: { name: "Los Angeles", countryCode: "US", admin1: "California" },
   },
-  // ── 4 巡目: 言語と regionCode を振った検索 ────────────────
-  // 3 巡目は英語と日本語の語だけだったので、結果が英語圏に寄っていた。
-  // ポルトガル語・スペイン語・韓国語・中国語・ポーランド語・トルコ語などで
-  // 掘り直し、アフリカ・韓国・台湾・南米・東欧を足した。
+  // ── Round 4: searches varying language and regionCode ─────
+  // Round 3 used only English and Japanese terms, so results leaned to the English-speaking
+  // world. Dug again in Portuguese, Spanish, Korean, Chinese, Polish, Turkish and others,
+  // and added Africa, Korea, Taiwan, South America and Eastern Europe.
   {
     id: "maasai-mara",
     nameJa: "マサイマラ国立保護区",
@@ -1301,8 +1304,8 @@ export const CAM_PLACES_CURATED: CamPlace[] = [
     channelId: "UCgWh6X0Yop6k7X6ShWIBVsg",
     videoId: "NiwrvhQIHIo",
     titleKey: "Watch African Penguins LIVE | Stony Point Colony | South Africa",
-    // ジオコーダに Betty's Bay の登録が無いので、ペンギンのコロニーがある
-    // ストーニーポイント自然保護区の座標を明示する。
+    // The geocoder has no entry for Betty's Bay, so the coordinates of Stony Point
+    // Nature Reserve, where the penguin colony is, are given explicitly.
     at: { lat: -34.3733, lng: 18.8925, timeZone: "Africa/Johannesburg", country: "ZA" },
   },
   {
@@ -1668,10 +1671,11 @@ export const CAM_PLACES_CURATED: CamPlace[] = [
     titleKey: "Main Street Livecam, Canmore, Alberta",
     place: { name: "Canmore", countryCode: "CA", admin1: "Alberta" },
   },
-  // ── 5 巡目: アラビア語・ヒンディー語・ベトナム語・インドネシア語・
-  //    ギリシャ語・ポルトガル語・スウェーデン語・チェコ語・ロシア語・タイ語 ──
-  //    中東と南アジアは収穫が薄かった(報道の 24 時間配信が大半)。
-  //    代わりに欧州の小さな自治体・観光局と、アフリカ・日本の名所が出た。
+  // ── Round 5: Arabic, Hindi, Vietnamese, Indonesian,
+  //    Greek, Portuguese, Swedish, Czech, Russian, Thai ──
+  //    The Middle East and South Asia yielded little (mostly 24-hour news streams).
+  //    Instead, small European municipalities and tourist offices, and sights in Africa
+  //    and Japan, came up.
   {
     id: "singapore-downtown",
     nameJa: "シンガポール ダウンタウン",
@@ -1936,10 +1940,10 @@ export const CAM_PLACES_CURATED: CamPlace[] = [
     titleKey: "Calgary Live Camera",
     place: { name: "Calgary", countryCode: "CA", admin1: "Alberta" },
   },
-  // ── 6 巡目: 地名を直接クエリにした ────────────────────────
-  // 中東・南アジア・アフリカにはほとんど効かなかった(Dubai で検索しても
-  // ニューヨークやケニアが返る。YouTube のライブ検索は地名より人気度を見る)。
-  // 一方でアイスランド・ギリシャ・ネパールは名指しでよく当たった。
+  // ── Round 6: place names used directly as queries ─────────
+  // Hardly worked for the Middle East, South Asia and Africa (searching for Dubai
+  // returns New York or Kenya. YouTube live search looks at popularity over place names).
+  // On the other hand, Iceland, Greece and Nepal hit well when named directly.
   {
     id: "reykjavik",
     nameJa: "レイキャヴィク",
@@ -2117,9 +2121,9 @@ export const CAM_PLACES_CURATED: CamPlace[] = [
     place: { name: "Victoria", countryCode: "CA", admin1: "British Columbia" },
   },
 
-  // ── 宇宙 ────────────────────────────────────────────────
-  // ISS は軌道上なので固定座標が無い。地上管制のヒューストンにピンを置く
-  // (地図アプリとしての置き場。Open-Meteo で Texas の Houston を解決)。
+  // ── Space ───────────────────────────────────────────────
+  // The ISS is in orbit and has no fixed coordinates. The pin is placed at Houston, the
+  // ground control (a placement for a map app. Houston in Texas is resolved with Open-Meteo).
   {
     id: "iss-earth-nasa",
     nameJa: "ISS 地球ライブ（NASA）",

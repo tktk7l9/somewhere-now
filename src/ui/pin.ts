@@ -2,7 +2,7 @@ import type { PublicCamState } from "../domain/cams";
 import type { Lang } from "../domain/weather";
 import { t } from "./i18n";
 
-/** 平面図と地球儀で同じピンを出す。 */
+/** Renders the same pin on the flat map and the globe. */
 export function pinHtml(status: PublicCamState["status"] | undefined, selected: boolean): string {
   const classes = ["pin"];
   if (status === "live") classes.push("pin--live");
@@ -19,7 +19,7 @@ const LEGEND: readonly {
   { status: undefined, label: "pinOff" },
 ];
 
-/** 地図上のピンと同じ見た目で、色の意味を並べる。 */
+/** Lists what the colors mean, with the same look as the pins on the map. */
 export function mountPinLegend(container: HTMLElement, lang: Lang): void {
   container.replaceChildren();
   container.setAttribute("role", "note");

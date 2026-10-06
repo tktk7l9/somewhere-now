@@ -1,8 +1,8 @@
-// 既知チャンネルの /streams からライブ配信を浚い、search-scrape.json にマージする。
-// API キー不要。探索用の手回し道具。
+// Sweeps live streams from /streams of known channels and merges them into search-scrape.json.
+// No API key needed. A hand-run tool for exploration.
 //
 //   npm run cams:scrape-channels
-//   → scripts/out/search-scrape.json に追記
+//   → appended to scripts/out/search-scrape.json
 
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { CAM_PLACES_CURATED } from "./cam-places.ts";
@@ -100,12 +100,12 @@ async function main(): Promise<void> {
   try {
     const existing = JSON.parse(await readFile(OUT, "utf8")) as ScrapeHit[];
     for (const hit of existing) byVideo.set(hit.videoId, hit);
-    console.log(`既存 scrape ${byVideo.size} 件`);
+    console.log(`existing scrape ${byVideo.size}`);
   } catch {
     // first run
   }
 
-  // 既知 bulk の多配信チャンネル + seed ハンドル
+  // Multi-stream channels from the known bulk set + seed handles
   const channelCounts = new Map<string, { handle: string; n: number }>();
   for (const place of [...CAM_PLACES_CURATED, ...CAM_PLACES_BULK]) {
     const prev = channelCounts.get(place.channelId) ?? { handle: place.handle, n: 0 };
@@ -138,7 +138,7 @@ async function main(): Promise<void> {
       const result = await scrapeChannelUrl(target.url);
       const channelId = result.channelId ?? target.channelIdHint;
       if (channelId === undefined || channelId.length === 0) {
-        console.log(`✗ ${target.label} — channelId なし`);
+        console.log(`✗ ${target.label} — no channelId`);
       } else {
         const countryCode = majorityCountry(channelId);
         const channelTitle = result.channelTitle || target.label;
@@ -157,7 +157,7 @@ async function main(): Promise<void> {
           added++;
         }
         console.log(
-          `✓ ${target.label} — live ${result.lives.length} / 新規 ${newForChannel} (${channelId})`,
+          `✓ ${target.label} — live ${result.lives.length} / new ${newForChannel} (${channelId})`,
         );
       }
     } catch (error) {
@@ -170,7 +170,7 @@ async function main(): Promise<void> {
   }
 
   await writeFile(OUT, JSON.stringify([...byVideo.values()], null, 2) + "\n");
-  console.log(`\n合計 ${byVideo.size} 件 (+${added}) → ${OUT}`);
+  console.log(`\ntotal ${byVideo.size} (+${added}) → ${OUT}`);
 }
 
 await main();

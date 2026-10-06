@@ -1,8 +1,8 @@
-// 地図。主役であり、同時に唯一の案内でもある。
+// The map. It is the lead, and at the same time the only guide.
 //
-// 素の OSM は明るすぎて夜の影が乗らないので、タイルは CSS で海図の色に寄せて
-// いる(styles.css の .leaflet-tile-pane)。その上に太陽高度 0° の線で切った
-// 夜側のポリゴンを重ねる ＝ このアプリの署名。
+// Plain OSM is too bright for the shadow of night to show, so the tiles are moved toward chart
+// colors with CSS (.leaflet-tile-pane in styles.css). On top of that goes the night-side polygon
+// cut along the line of solar altitude 0° = the signature of this app.
 
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
@@ -17,9 +17,11 @@ import { camName } from "./i18n";
 import { pinHtml } from "./pin";
 import type { Lang } from "../domain/weather";
 
-/** 導入で夜が流れ込んでくる長さと、その巻き戻し幅。 */
+/** The duration over which night flows in during the intro, and how far it rewinds. */
 const INTRO_MS = 1100;
 const INTRO_LOOKBACK_HOURS = 6;
+/** Hit box of a single pin. The visible dot is centered inside it (`.leaflet-marker-icon > .pin`). */
+const PIN_TARGET_PX = 24;
 
 export interface MapView {
   setStates(states: ReadonlyMap<string, PublicCamState>): void;
@@ -38,24 +40,31 @@ export function createMapView(
   cams: readonly Cam[],
   lang: Lang,
   onSelect: (camId: string) => void,
+  /**
+   * The height (px) by which the panel rising from the bottom covers the lower edge of the map. 0
+   * on screens laid out side by side.
+   */
+  obscuredBottom: () => number = () => 0,
 ): MapView {
-  // 世界 1 枚が器を覆う最小のズーム。ここを下限にしないと、広い画面では
-  // 地図の左右(縦長なら上下)に地の色の帯が出る。器がまだ display:none で
-  // 寸法を持たないときは INITIAL_VIEW.zoom のまま始まり、invalidate() で直る。
+  // The lowest zoom at which one copy of the world covers the box. Without this floor, wide
+  // screens show a band of background colour left and right of the map (top and bottom when
+  // portrait). While the box is still display:none and has no size, it starts at
+  // INITIAL_VIEW.zoom and invalidate() corrects it.
   const initialZoom = coveringZoom(container.clientWidth, container.clientHeight);
 
   const map = L.map(container, {
-    // index.html がこの初期表示のタイルを preload している(domain/mapView.ts)。
-    // 器に合わせて寄せてもタイルの階は round(zoom) なので、ステージが
-    // 1,448px までは z2 のまま = preload はそのまま効く。
+    // index.html preloads the tiles of this initial view (domain/mapView.ts). Zooming to fit the
+    // box keeps the tile level at round(zoom), so a stage up to 1,448px stays at z2 = the preload
+    // still applies.
     center: INITIAL_VIEW.center,
     zoom: initialZoom,
     minZoom: initialZoom,
     maxZoom: 16,
-    // 左上は署名(夜の割合)の場所なので、操作は右上へ逃がす。
+    // The top left is the place of the signature (share of night), so the controls move to the top
+    // right.
     zoomControl: false,
     worldCopyJump: false,
-    // 夜のポリゴンは世界 1 枚ぶんしか無いので、地図も 1 枚に留める。
+    // The night polygon covers only a single world, so the map stays at a single world too.
     maxBounds: L.latLngBounds([-85, -180], [85, 180]),
     maxBoundsViscosity: 1,
   });
@@ -65,8 +74,8 @@ export function createMapView(
   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
     maxZoom: 19,
-    // 世界 1 枚に留める。bounds を切らないと端で存在しないタイルを取りにいって
-    // 400 が並ぶ。
+    // Stay at a single world. Without cutting bounds it fetches nonexistent tiles at the edges and
+    // 400s line up.
     noWrap: true,
     bounds: L.latLngBounds([-85.06, -180], [85.06, 180]),
   }).addTo(map);
@@ -79,7 +88,7 @@ export function createMapView(
     interactive: false,
   }).addTo(map);
 
-  // 影だけだと境界がぼやけるので、日の出・日の入りの線そのものを細く引く。
+  // The shadow alone blurs the boundary, so the sunrise/sunset line itself is drawn thin.
   const line = L.polyline([], {
     className: "terminator",
     color: "#ffb94a",
@@ -113,22 +122,25 @@ export function createMapView(
     const status = states.get(cam.id)?.status;
     return L.divIcon({
       html: pinHtml(status, selected.has(cam.id)),
-      // クラスタの見た目をライブ有無で変えるため、状態をアイコンに載せておく。
+      // To change the cluster look by whether it has live cameras, carry the state on the icon.
       className: status === "live" ? "is-live" : "",
-      iconSize: [13, 13],
-      iconAnchor: [6.5, 6.5],
+      // The dot stays 13px; the box around it is the 24px minimum target (WCAG 2.2 2.5.8, SHIG 78).
+      // Two single pins are never closer than the 44px cluster radius, so boxes do not overlap.
+      iconSize: [PIN_TARGET_PX, PIN_TARGET_PX],
+      iconAnchor: [PIN_TARGET_PX / 2, PIN_TARGET_PX / 2],
     });
   }
 
-  // 4 つの setter が続けて呼ばれても描き直しは 1 回。5,720 台ぶんのマーカーを
-  // 毎回作り直すと、1 度の更新で 2 万個以上を捨てて作ることになる。
+  // Even when the 4 setters are called in a row, there is 1 redraw. Rebuilding the markers for
+  // 5,720 cameras every time means discarding and creating over 20,000 in a single update.
   const requestRender = coalesced(() => render());
 
   function render(): void {
     cluster.clearLayers();
     markers.clear();
-    // 1 台ずつ addLayer するとその都度クラスタを組み直すので、5,720 台では
-    // 数百 ms の固まりになる。まとめて渡すと内部で一括に組める。
+    // Calling addLayer one camera at a time rebuilds the clusters each time, which at 5,720 cameras
+    // becomes a freeze of several hundred ms. Passing them together lets it build in one batch
+    // internally.
     const batch: L.Marker[] = [];
     for (const cam of visible) {
       const marker = L.marker([cam.lat, cam.lng], {
@@ -138,6 +150,15 @@ export function createMapView(
         keyboard: true,
       });
       marker.on("click", () => onSelect(cam.id));
+      // Leaflet gives the pin tabindex and role="button" but never turns Enter into a click
+      // (only clusters handle keypress). Without this, a keyboard user can reach every pin and
+      // open none of them (SHIG 94).
+      marker.on("keydown", (event) => {
+        const key = (event as L.LeafletKeyboardEvent).originalEvent.key;
+        if (key !== "Enter" && key !== " ") return;
+        (event as L.LeafletKeyboardEvent).originalEvent.preventDefault();
+        onSelect(cam.id);
+      });
       markers.set(cam.id, marker);
       batch.push(marker);
     }
@@ -166,10 +187,23 @@ export function createMapView(
     }).addTo(map);
   }
 
+  /**
+   * Shift the map center south by only half the covered height = the aim comes to the middle of the
+   * visible side. Adding in latitude drifts at high latitudes, so convert to pixels first and add
+   * there.
+   */
+  function aimAt(lat: number, lng: number, zoom: number): L.LatLng {
+    const hidden = obscuredBottom();
+    if (hidden < 8) return L.latLng(lat, lng);
+    const point = map.project([lat, lng], zoom).add(new L.Point(0, hidden / 2));
+    return map.unproject(point, zoom);
+  }
+
   function fly(lat: number, lng: number, zoom: number): void {
     const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduced) map.setView([lat, lng], zoom);
-    else map.flyTo([lat, lng], zoom, { duration: 0.8 });
+    const target = aimAt(lat, lng, zoom);
+    if (reduced) map.setView(target, zoom);
+    else map.flyTo(target, zoom, { duration: 0.8 });
   }
 
   return {
@@ -190,7 +224,8 @@ export function createMapView(
       requestRender();
     },
     focus(cam) {
-      map.flyTo([cam.lat, cam.lng], Math.max(map.getZoom(), 6), { duration: 0.8 });
+      const zoom = Math.max(map.getZoom(), 6);
+      map.flyTo(aimAt(cam.lat, cam.lng, zoom), zoom, { duration: 0.8 });
     },
     goTo(view) {
       const [lat, lng] = view.center;
@@ -207,12 +242,12 @@ export function createMapView(
         this.drawTerminator(now);
         return;
       }
-      // 夜が east から流れ込んでくるところを見せてから、いまの位置に落ち着く。
+      // Show night flowing in from the east, then settle at the current position.
       const from = now.getTime() - INTRO_LOOKBACK_HOURS * 3_600_000;
       const start = performance.now();
       const step = (frame: number): void => {
         const progress = Math.min(1, (frame - start) / INTRO_MS);
-        // 終盤ほど減速させて、現在時刻にすっと収める。
+        // Decelerate more toward the end so it eases into the current time.
         const eased = 1 - (1 - progress) ** 3;
         this.drawTerminator(new Date(from + (now.getTime() - from) * eased));
         if (progress < 1) requestAnimationFrame(step);
@@ -221,8 +256,8 @@ export function createMapView(
     },
     invalidate() {
       map.invalidateSize();
-      // 器の大きさが変わったら下限も引き直す。setMinZoom は今のズームが
-      // 下回っていれば、そのぶん寄せてくれる。
+      // Recompute the floor when the box changes size. setMinZoom zooms in by itself when the
+      // current zoom is below it.
       const size = map.getSize();
       const min = coveringZoom(size.x, size.y);
       if (min !== map.getMinZoom()) map.setMinZoom(min);

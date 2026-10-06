@@ -1,4 +1,4 @@
-/** 平面図 `.leaflet-tile-pane` と同じ CSS フィルタ。地球儀のラスタにも使う。 */
+/** The same CSS filter as `.leaflet-tile-pane` of the flat map. Also used for the globe raster. */
 export const NAUTICAL_FILTER =
   "invert(1) hue-rotate(180deg) brightness(0.78) contrast(1.05) saturate(0.75)";
 
@@ -145,7 +145,7 @@ function applyContrast(r: number, g: number, b: number, amount: number): [number
   return [r * amount + intercept, g * amount + intercept, b * amount + intercept];
 }
 
-/** 平面図と同じ invert → hue-rotate → brightness → contrast → saturate。 */
+/** Same as the flat map: invert → hue-rotate → brightness → contrast → saturate. */
 export function nauticalizeRgb(r: number, g: number, b: number): [number, number, number] {
   let nr = 255 - r;
   let ng = 255 - g;
@@ -160,8 +160,9 @@ export function nauticalizeRgb(r: number, g: number, b: number): [number, number
 }
 
 /**
- * Natural Earth の連続階調は平面図と同じ明るさ下げだと起伏が潰れる。
- * invert のあとにコントラストを戻して、山脈と砂漠が球の距離でも残るようにする。
+ * With the same brightness reduction as the flat map, the continuous tones of Natural Earth lose
+ * their relief. Contrast is restored after invert so mountain ranges and deserts remain even at the
+ * distance of the sphere.
  */
 export function nauticalizeReliefRgb(r: number, g: number, b: number): [number, number, number] {
   let nr = 255 - r;

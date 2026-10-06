@@ -1,26 +1,26 @@
-// チャンネルを共有する複数カメラの中から、そのカメラの配信を見分ける。
+// Tells apart the stream of a given camera among several cameras that share a channel.
 //
-// 1 つのチャンネルが何十本もライブを出しているのが普通で(EarthCam は 42 本)、
-// しかもタイトルは括弧の中だけが違う("... (Fixed View)" と "... (Fixed View —
-// Looking East)")。チャンネルから適当に 1 本取ってくる実装だと、タイムズ
-// スクエアのピンにニュージャージーの映像を出す。
+// One channel running dozens of live streams is normal (EarthCam has 42), and the titles
+// differ only inside the parentheses ("... (Fixed View)" and "... (Fixed View —
+// Looking East)"). An implementation that grabs any 1 stream from the channel shows
+// New Jersey footage on the Times Square pin.
 //
-// **間違った映像を出すくらいなら、映さない方がよい**。だから確信が持てない
-// ときは null を返し、呼び出し側は offline として扱う。
+// **Showing nothing is better than showing the wrong footage**. So when it cannot be
+// sure it returns null, and the caller treats it as offline.
 
 export interface StreamCandidate {
   id: string;
   title: string;
 }
 
-/** タイトルの揺れ(全角・空白・ダッシュの種類・装飾記号)を吸収する。 */
+/** Absorbs title variation (full-width, whitespace, kinds of dashes, decorative symbols). */
 export function normalizeTitle(title: string): string {
   return title
     .normalize("NFKC")
     .toLowerCase()
-    // 配信であることを示す装飾。付いたり消えたりする。
+    // Decoration that indicates a live stream. It comes and goes.
     .replace(/[🔴🟢⚫️🎥📹▶️●]/gu, " ")
-    // em/en ダッシュ・全角ハイフンを素のハイフンに揃える。
+    // Normalize em/en dashes and full-width hyphens to a plain hyphen.
     .replace(/[—–―ー−]/gu, "-")
     .replace(/\s+/gu, " ")
     .trim();
@@ -31,9 +31,9 @@ function tokens(title: string): Set<string> {
 }
 
 /**
- * Sørensen–Dice 係数。0..1。
- * どちらかが空なら 0 にする(0/0 を NaN にしないためでもあるが、
- * 「中身の無いもの同士が完全に一致した」と扱う方が危ういので)。
+ * Sørensen–Dice coefficient. 0..1.
+ * 0 when either is empty (partly to keep 0/0 from becoming NaN, but also because
+ * treating "two things with no content matched perfectly" is the more dangerous choice).
  */
 function similarity(a: Set<string>, b: Set<string>): number {
   if (a.size === 0 || b.size === 0) return 0;
@@ -43,23 +43,24 @@ function similarity(a: Set<string>, b: Set<string>): number {
 }
 
 /**
- * 言い換えを拾う下限。これを下回るものには飛びつかない。
- * Folkston の "(Fixed View)" と "(Fixed View - Looking East)" は 0.89 なので、
- * この線なら取り違えない(実データで確認済み)。
+ * Lower bound for picking up a rewording. Do not jump at anything below it.
+ * "(Fixed View)" and "(Fixed View - Looking East)" of Folkston score 0.89, so
+ * this line does not mix them up (confirmed on real data).
  */
 const MIN_SIMILARITY = 0.9;
-/** 2 位との差。僅差なら「どちらとも決められない」として諦める。 */
+/** Margin over 2nd place. When close, give up as "cannot decide between them". */
 const MIN_MARGIN = 0.15;
 
 /**
- * titleKey に対応する配信の id。見分けがつかなければ null。
- * 完全一致が最優先で、無い場合だけ、他と紛れないほど似ているものを拾う。
+ * The id of the stream that corresponds to titleKey. null when it cannot be told apart.
+ * An exact match comes first; only when there is none, pick one similar enough not to be
+ * confused with others.
  */
 export function matchStream(titleKey: string, candidates: readonly StreamCandidate[]): string | null {
   const target = normalizeTitle(titleKey);
 
   const exact = candidates.filter((c) => normalizeTitle(c.title) === target);
-  // 同じタイトルが 2 本あるなら、どちらが目当てか決められない。
+  // If 2 streams have the same title, it cannot decide which is the target.
   if (exact.length === 1) return exact[0]!.id;
   if (exact.length > 1) return null;
 

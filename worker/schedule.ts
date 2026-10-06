@@ -1,10 +1,10 @@
-// Cron の実行まわりの取り決め。
+// Conventions around Cron execution.
 //
-//   - どの Cron 式がどちらの役割か
-//   - その役割のクォータ台帳を正本のどこに置くか
+//   - which Cron expression is which role
+//   - where in the source of truth the quota ledger of that role is kept
 //
-// KV に atomic な更新は無いので、**同じキーの書き手を 1 つに保つ**ことだけが
-// 競合を避ける手段になる。ここはその前提を型と関数に落とした置き場所。
+// KV has no atomic update, so **keeping a single writer per key** is the only way to avoid
+// races. This file is where that premise is put into types and functions.
 
 import { ledgerForDay, type QuotaLedger } from "./refresh";
 import type { CamState } from "../src/domain/cams";
@@ -12,13 +12,15 @@ import type { CamState } from "../src/domain/cams";
 export type Role = "sweep" | "rediscover";
 
 /**
- * wrangler.jsonc の `triggers.crons` と対で持つ。**両者は必ず一致させること**
- * (`worker/schedule.test.ts` が wrangler.jsonc を読んで突き合わせる)。
+ * Kept as a pair with `triggers.crons` in wrangler.jsonc. **The two must always match**
+ * (`worker/schedule.test.ts` reads wrangler.jsonc and cross-checks them).
  *
- * 再探索を毎正時ちょうどに置かないのは、10 分ごとの生存確認と同じ分に起きると
- * 両者が同じ正本を読んで別々に書き戻し、**後勝ちで一方の消費と状態が丸ごと
- * 消える**ため。台帳を正本に同居させた分、取りこぼしの被害が上限ガードにも
- * 及ぶので、そもそも重ならない分にずらしてある。
+ * Rediscovery is not placed exactly on the hour because, if it fires in the same minute as
+ * the 10-minute liveness sweep, both read the same source of truth and write it back
+ * separately, and **with last write wins the consumption and state of one of them are lost
+ * entirely**. Because the ledger lives inside the source of truth, the damage of a lost write
+ * also reaches the cap guard, so it is shifted to a minute that never overlaps in the first
+ * place.
  */
 export const CRON: Record<Role, string> = {
   sweep: "*/10 * * * *",
@@ -28,9 +30,9 @@ export const CRON: Record<Role, string> = {
 const ROLES = Object.keys(CRON) as Role[];
 
 /**
- * その Cron 式が何分に起きるかを並べる。
- * 扱うのはこのリポジトリが使う 2 つの形だけで、それ以外は解釈しない
- * (黙って既定に倒すと、重なりの検査をすり抜けてしまう)。
+ * Lists the minutes at which that Cron expression fires.
+ * Only the 2 forms this repository uses are handled; anything else is not interpreted
+ * (silently falling back to a default would slip past the overlap check).
  */
 export function firingMinutes(cron: string): number[] {
   const every = /^\*\/(\d+) \* \* \* \*$/.exec(cron);
@@ -40,42 +42,46 @@ export function firingMinutes(cron: string): number[] {
   }
   const fixed = /^(\d+) \* \* \* \*$/.exec(cron);
   if (fixed !== null) return [Number(fixed[1])];
-  throw new Error(`分を解釈できない Cron 式: ${cron}`);
+  throw new Error(`Cron expression whose minute field cannot be parsed: ${cron}`);
 }
 
 /**
- * 発火した Cron 式から役割を引く。
- * 知らない式に既定の役割を与えないのは、wrangler.jsonc だけを書き換えたときに
- * **全実行が片方の役割になって**枠も台帳も入れ替わるのを避けるため。
+ * Looks up the role from the Cron expression that fired.
+ * An unknown expression gets no default role, to avoid **every run taking one role** and the
+ * budget and the ledger being swapped when only wrangler.jsonc is edited.
  */
 export function roleForCron(cron: string): Role | null {
   return ROLES.find((role) => CRON[role] === cron) ?? null;
 }
 
 /**
- * 正本。title と checkedAt を含む、更新アルゴリズムが読む側。
+ * Source of truth. Includes title and checkedAt; the side the update algorithm reads.
  *
- * クォータ台帳を**同居させている**。別キーに分けると 1 実行あたりの KV 書き込みが
- * 1 本増え、Cron 7 回/時 × 24 時間で無料枠(1,000 write/日)の半分を焼く。
- * 正本はどのみち毎回書くので、台帳を相乗りさせても書き込みは増えない。
+ * The quota ledger **lives inside it**. Splitting it into a separate key adds 1 KV write per
+ * run, and at Cron 7 runs/hour x 24 hours burns half of the free tier (1,000 writes/day).
+ * The source of truth is written every time anyway, so letting the ledger ride along does
+ * not add writes.
  */
 export interface StatePayload {
   updatedAt: string;
   cams: Record<string, CamState>;
-  /** 役割ごとの台帳。旧い正本には無いので省略可。 */
+  /** Ledger per role. Optional because an old source of truth does not have it. */
   ledgers?: Partial<Record<Role, QuotaLedger>>;
 }
 
 /**
- * 正本が持っている台帳を、その日のぶんとして読む。
- * まだ持っていなければ `null`(呼び出し側が旧キーから引き継ぐ)。
+ * Reads the ledger held by the source of truth as that day's ledger.
+ * `null` if it does not have one yet (the caller takes it over from the legacy key).
  */
 export function ledgerIn(payload: StatePayload, role: Role, now: Date): QuotaLedger | null {
   const stored = payload.ledgers?.[role];
   return stored === undefined ? null : ledgerForDay(stored, now);
 }
 
-/** 台帳を差し替えた正本を返す。他方の役割のぶんはそのまま持ち越す。 */
+/**
+ * Returns the source of truth with the ledger replaced. The other role's ledger is carried
+ * over as is.
+ */
 export function withLedger(
   payload: StatePayload,
   role: Role,

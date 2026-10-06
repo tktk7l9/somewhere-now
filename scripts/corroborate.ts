@@ -1,21 +1,23 @@
-// 座標を引き直してよいかの判定。ネットワークには触らない純粋な関数。
+// Decides whether coordinates may be re-geocoded. Pure functions that do not touch the network.
 //
-// ジオコーダは「見つからない」とは滅多に言わない。何かしら返るので、「引けた」を
-// 採用条件にすると、当てずっぽうを別の当てずっぽうに替えるだけになる。実測した
-// 失敗の型は 4 つ:
+// A geocoder rarely says "not found". Something always comes back, so making "it resolved"
+// the acceptance condition only swaps one guess for another guess. There are 4 measured
+// failure types:
 //
-//   1. 短い一般語が当たる     "New York City" → ケンタッキー州の New
-//   2. 一般語が地名として実在  "Beach Camera" → ノースダコタ州の Beach
-//   3. 同名の別の土地が当たる  "Alma, WI" → ジョージア州の Alma
-//                             "Seoul Namsan" → 全羅北道の Namsan
-//   4. 州・道そのものが返る    "札幌…Hokkaido" → 北海道の代表点(札幌から 130km)
+//   1. A short generic word hits             "New York City" → New in Kentucky
+//   2. A generic word exists as a place name "Beach Camera" → Beach in North Dakota
+//   3. Another place of the same name hits   "Alma, WI" → Alma in Georgia
+//                                            "Seoul Namsan" → Namsan in Jeollabuk-do
+//   4. The state / prefecture itself returns "札幌…Hokkaido" (Sapporo) → the representative
+//                                            point of Hokkaido (130km from Sapporo)
 //
-// 最初は「州名もタイトルに出ていること」を求めたが、それでは
-// "福岡空港"(admin1 = 福岡県) や "Cala Fornells"(admin1 = Balearic Islands) の
-// ように**正しいのに州を書いていない**タイトルを軒並み落としてしまった。
-// なので確認ではなく**矛盾**を見る — タイトルが別の州を名指ししていたら弾く。
+// At first "the state name must also appear in the title" was required, but that dropped
+// title after title that was **correct but did not write the state**, such as
+// "福岡空港" (Fukuoka Airport, admin1 = 福岡県) or "Cala Fornells" (admin1 = Balearic Islands).
+// So it looks at **contradiction** rather than confirmation — reject when the title names
+// a different state.
 
-/** 米国州。略称も見るのは "…, MI USA" のような書き方があるため。 */
+/** US states. Abbreviations are checked too because of notations like "…, MI USA". */
 const US_STATES: Record<string, string> = {
   alabama: "al", alaska: "ak", arizona: "az", arkansas: "ar", california: "ca",
   colorado: "co", connecticut: "ct", delaware: "de", florida: "fl", georgia: "ga",
@@ -31,7 +33,7 @@ const US_STATES: Record<string, string> = {
   wyoming: "wy",
 };
 
-/** 韓国の広域自治体。ソウルのカメラが全羅北道へ飛ぶのを止める。 */
+/** Korean first-level regions. Stops a Seoul camera from jumping to Jeollabuk-do. */
 const KR_REGIONS = [
   "seoul", "busan", "incheon", "daegu", "daejeon", "gwangju", "ulsan", "sejong",
   "gyeonggi", "gangwon", "chungcheongbuk", "chungcheongnam", "jeollabuk",
@@ -39,9 +41,9 @@ const KR_REGIONS = [
 ] as const;
 
 /**
- * 地名として返ってきても場所を絞らない語(英語以外)。
- * "Kabupaten"(県)や "Kota"(市)は行政区分の一般名詞で、ジオコーダは
- * これに対して無関係な土地を返す。
+ * Words that do not narrow the place even when returned as a place name (non-English).
+ * "Kabupaten" (regency) and "Kota" (city) are generic nouns for administrative divisions,
+ * and the geocoder returns unrelated places for them.
  */
 const FOREIGN_ADMIN_WORDS = new Set([
   "kabupaten", "kota", "provinsi", "kecamatan", "desa", "distrito", "ciudad",
@@ -49,7 +51,7 @@ const FOREIGN_ADMIN_WORDS = new Set([
   "district", "region", "county", "borough", "township", "village", "commune",
 ]);
 
-/** 日本の都道府県。漢字とローマ字の両方で書かれる。 */
+/** Japanese prefectures. Written in both kanji and romaji. */
 const JP_PREFECTURES = [
   ["北海道", "hokkaido"], ["青森", "aomori"], ["岩手", "iwate"], ["宮城", "miyagi"],
   ["秋田", "akita"], ["山形", "yamagata"], ["福島", "fukushima"], ["茨城", "ibaraki"],
@@ -66,11 +68,12 @@ const JP_PREFECTURES = [
 ] as const;
 
 /**
- * 根拠として認める地名の最小の長さ。
+ * Minimum length of a place name accepted as evidence.
  *
- * ラテン文字は 4 文字以下だと断片が当たってしまう("York" が "New York" に)。
- * 漢字は 1 文字あたりの情報量が違い、3 文字で充分に絞る(御岳山・銀閣寺・
- * 心斎橋)。同じ 5 文字を課すと、日本語のタイトルだけ軒並み落ちる。
+ * With Latin letters, 4 letters or fewer lets fragments hit ("York" against "New York").
+ * Kanji carry a different amount of information per character, and 3 characters narrow
+ * enough ("御岳山", "銀閣寺", "心斎橋"). Imposing the same 5 letters drops Japanese titles
+ * across the board.
  */
 const MIN_LATIN_LETTERS = 5;
 const MIN_CJK_LETTERS = 2;
@@ -89,7 +92,7 @@ export function normalize(value: string): string {
     .trim();
 }
 
-/** その州・都道府県を指す書き方をすべて挙げる。 */
+/** Lists every notation that refers to that state / prefecture. */
 function aliasesOf(region: string): string[] {
   const r = normalize(region);
   const stripped = r.replace(/\s*(state|prefecture|district|province)$/, "");
@@ -99,7 +102,7 @@ function aliasesOf(region: string): string[] {
   if (abbr !== undefined) out.add(abbr);
 
   for (const [kanji, romaji] of JP_PREFECTURES) {
-    // admin1 は "東京都" "京都府" "福岡県" のように接尾辞つきで来る
+    // admin1 arrives with a suffix, like "東京都" "京都府" "福岡県"
     if (stripped.startsWith(kanji) || stripped === romaji) {
       out.add(kanji);
       out.add(romaji);
@@ -108,7 +111,7 @@ function aliasesOf(region: string): string[] {
   return [...out].filter((x) => x.length > 0);
 }
 
-/** タイトルがその語を「単語として」含むか。CJK は語境界が無いので素の包含。 */
+/** Whether the title contains the term "as a word". CJK has no word boundaries, so plain inclusion. */
 function mentions(haystack: string, term: string): boolean {
   if (/^[\x20-\x7E]+$/.test(term)) {
     return new RegExp(`\\b${term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`).test(haystack);
@@ -117,12 +120,12 @@ function mentions(haystack: string, term: string): boolean {
 }
 
 /**
- * タイトルが、返ってきた州とは**別の**州を名指ししているか。
+ * Whether the title names a state **different** from the returned one.
  *
- * "Alma, WI" に対してジョージア州の Alma が返ったら矛盾。
- * "New York City" に対してペンシルベニア州の Nebo が返ったら矛盾。
- * "福岡・博多駅前" に対して埼玉県の福岡が返ったら矛盾。
- * 州を何も書いていないタイトルは矛盾なし — そこは弾かない。
+ * Alma in Georgia returned for "Alma, WI" is a contradiction.
+ * Nebo in Pennsylvania returned for "New York City" is a contradiction.
+ * Fukuoka in Saitama Prefecture returned for "福岡・博多駅前" is a contradiction.
+ * A title that writes no state has no contradiction — it is not rejected.
  */
 export function contradictsRegion(admin1: string, title: string, channel = ""): boolean {
   const raw = `${title} ${channel}`;
@@ -142,9 +145,9 @@ export function contradictsRegion(admin1: string, title: string, channel = ""): 
     if (mentions(haystack, region)) return true;
   }
 
-  // 州の略称は「原文で大文字 2 文字の独立した語」のときだけ見る。
-  // 小文字まで拾うと in / or / me / la が全部州になってしまう
-  // ("Live Camera" の me で Maine が矛盾扱いされる)。
+  // State abbreviations are checked only when they are "a standalone word of 2 uppercase
+  // letters in the original text". Picking up lowercase too turns in / or / me / la all
+  // into states (the me in "Live Camera" makes Maine count as a contradiction).
   const codes = new Set(Object.values(US_STATES));
   for (const token of raw.match(/\b[A-Z]{2}\b/g) ?? []) {
     const code = token.toLowerCase();
@@ -154,15 +157,15 @@ export function contradictsRegion(admin1: string, title: string, channel = ""): 
 }
 
 /**
- * 引き直しを採用してよいか。**すべて満たすときだけ true。**
+ * Whether the re-geocoding may be adopted. **true only when all are satisfied.**
  *
- * 1. 返ってきた地名が 5 文字以上（断片で当てない）
- * 2. その地名がタイトルに出てくる（先頭の語だけでもよい: "Shibuya City" の Shibuya）
- * 3. その地名が一般語でない（Beach / City / Bay …）
- * 4. 返ってきたのが州・地域そのものではない
- * 5. タイトルが別の州を名指ししていない
+ * 1. The returned place name has 5 or more letters (do not match on fragments)
+ * 2. That place name appears in the title (the first word alone is fine: Shibuya of "Shibuya City")
+ * 3. That place name is not a generic word (Beach / City / Bay …)
+ * 4. What was returned is not the state / region itself
+ * 5. The title does not name a different state
  *
- * 判定できないものは false。粗いままの方が、誤った場所よりよい。
+ * Anything that cannot be judged is false. Staying coarse is better than a wrong place.
  */
 export function isCorroborated(
   matchedName: string,
@@ -175,8 +178,9 @@ export function isCorroborated(
   const place = normalize(matchedName);
   const region = normalize(admin1);
 
-  // 州が分からない結果は採用しない。国の代表点("Philippines" → 国の重心)や
-  // 粗すぎる結果がここに来るうえ、州が無いと矛盾の確認そのものができない。
+  // Results with an unknown state are not adopted. Country representative points
+  // ("Philippines" → the country's centroid) and overly coarse results arrive here, and
+  // without a state the contradiction check itself is impossible.
   if (region === "") return false;
 
   const head = place.split(" ")[0] ?? "";
@@ -187,18 +191,18 @@ export function isCorroborated(
   if (candidate === region) return false;
   if (aliasesOf(region).includes(candidate)) return false;
 
-  // 🔴 州は「矛盾しないこと」では足りない。**タイトルに出ていること**を求める。
+  // 🔴 For the state, "not contradicting" is not enough. **Appearing in the title** is required.
   //
-  // 一度これを「矛盾が無ければ採用」に緩めたことがある。日本語の
-  // "福岡空港"(admin1 = 福岡県)のように、正しいのに州を書いていないタイトルを
-  // 拾えるようにするためだった。大きい束では狙いどおり効いたが、**無作為に
-  // 30 件抜いて数えたら 17 件が誤り**だった。英語のタイトルは Thermal・Wedge・
-  // Trail・Port のような普通の名詞でできていて、そのどれもが同名の町として
-  // 実在する。"NYC Live Cam" がオーストラリアへ、"Port Miami" がケンタッキー
-  // 州へ、"Jacksonville Beach Pier" がユタ州へ飛んだ。
+  // This was once relaxed to "adopt if there is no contradiction". The aim was to pick up
+  // titles that are correct but do not write the state, like the Japanese
+  // "福岡空港" (admin1 = 福岡県). It worked as intended on the large piles, but **when
+  // 30 were drawn at random and counted, 17 were wrong**. English titles are made of
+  // ordinary nouns like Thermal, Wedge, Trail and Port, and every one of them exists as a
+  // town of the same name. "NYC Live Cam" jumped to Australia, "Port Miami" to Kentucky,
+  // and "Jacksonville Beach Pier" to Utah.
   //
-  // 州が書いてあるタイトルだけを相手にすると採用数は落ちるが、そこでの精度は
-  // 実測で 48/48 だった。取りこぼしは粗いまま残るだけで、害は増えない。
+  // Dealing only with titles that write the state lowers the number adopted, but the
+  // measured accuracy there was 48/48. What is missed just stays coarse; harm does not grow.
   if (!aliasesOf(admin1).some((alias) => mentions(haystack, alias))) return false;
 
   return !contradictsRegion(admin1, title, channel);

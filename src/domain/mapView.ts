@@ -1,6 +1,6 @@
-// 地図の初期表示。index.html がこの値に依存している(最初に見えるタイルを
-// preload していて、それが LCP 要素になる)ので、ここを唯一の出どころにする。
-// 食い違いは mapView.test.ts が index.html を読んで落とす。
+// The initial view of the map. index.html depends on these values (it preloads the first
+// visible tiles, which become the LCP element), so this is the single source.
+// mapView.test.ts reads index.html and fails on a mismatch.
 
 export interface MapViewport {
   center: [lat: number, lng: number];
@@ -8,33 +8,37 @@ export interface MapViewport {
 }
 
 export const INITIAL_VIEW: MapViewport = {
-  // 大西洋の少し北。北米・ヨーロッパ・アフリカが一度に入り、
-  // 昼夜の境界が画面のどこかを必ず横切る位置。
+  // Slightly north in the Atlantic. North America, Europe and Africa fit at once,
+  // and the day/night boundary always crosses somewhere on the screen.
   center: [24, 8],
   zoom: 2,
 };
 
 /**
- * 地球儀の初期ズーム。球だと分かる距離を保ちつつ、大陸とカメラのピンが
- * 読めるところまで寄る。中心は INITIAL_VIEW と同じ(大西洋)で、UI 側で
- * [lng, lat] に組み替える。
+ * Initial zoom of the globe. Keeps a distance where it reads as a sphere, while moving in
+ * until continents and camera pins are readable. The center is the same as INITIAL_VIEW
+ * (the Atlantic); the UI side rearranges it to [lng, lat].
+ *
+ * This value was chosen for the short edge below. Zoom does not look at the screen size, so
+ * passing it as is to a narrow screen makes the sphere overflow the screen and it does not
+ * look like a globe (measured: on a 390px wide screen only Africa spreads out flat).
  */
 export const GLOBE_ZOOM = 2.8;
 
-/** タイル 1 枚の辺(px)。世界 1 枚は 256 * 2^z px になる。 */
+/** Side of one tile (px). One copy of the world is 256 * 2^z px. */
 export const TILE_SIZE = 256;
 
 /**
- * その大きさの器を世界 1 枚が覆いきる、最小のズーム。
+ * The lowest zoom at which one copy of the world covers a box of that size.
  *
- * 地図は世界 1 枚に留めてある(夜のポリゴンが 1 枚ぶんしか無いので、繰り返すと
- * 影の無い世界が横に並ぶ)。1 枚は 256 * 2^z px しか無いから、器の方が大きいと
- * 必ず端に地の色が出る — 1,056px のステージに z2(1,024px)を置けば左右に
- * 16px ずつ余り、1,536px なら 256px も余る。埋める術は無いので、覆えるところ
- * まで寄せる。
+ * The map is kept to one copy of the world (the night polygon exists only once; repeating the
+ * world would line up shadowless copies side by side). One copy is only 256 * 2^z px, so a box
+ * larger than that always shows the background colour at the edges: z2 (1,024px) on a 1,056px
+ * stage leaves 16px on each side, and 256px on a 1,536px stage. There is no way to fill it, so
+ * zoom in until the world covers the box.
  *
- * 器の寸法が取れないとき(まだ display:none の面)は floor をそのまま返す。
- * 1px 足しているのは、ぴったりに合わせると丸めで髪の毛ほどの隙間が残るため。
+ * Returns the floor as is while the box cannot be measured (a face still at display:none).
+ * The extra 1px avoids a hairline gap that rounding leaves when the fit is exact.
  */
 export function coveringZoom(
   width: number,
@@ -46,7 +50,29 @@ export function coveringZoom(
   return Math.max(floor, Math.log2((span + 1) / TILE_SIZE));
 }
 
-/** その緯度経度を含むタイルの座標(Web メルカトル・XYZ 方式)。 */
+/**
+ * The short edge of the screen when GLOBE_ZOOM was chosen (the height the map takes in a 1440x900
+ * browser).
+ */
+export const GLOBE_ZOOM_EDGE = 809;
+
+/**
+ * Pulling back further than this turns the sphere into a dot. Same value as minZoom on the globe
+ * side.
+ */
+export const GLOBE_MIN_ZOOM = 0.6;
+
+/**
+ * Initial zoom of the globe on that screen. When the short edge halves, the zoom goes down
+ * 1 step = the size of the sphere relative to the short edge is the same on every screen.
+ */
+export function globeZoomFor(width: number, height: number): number {
+  const edge = Math.min(width, height);
+  if (!(edge > 0)) return GLOBE_ZOOM;
+  return Math.max(GLOBE_MIN_ZOOM, GLOBE_ZOOM + Math.log2(edge / GLOBE_ZOOM_EDGE));
+}
+
+/** Coordinates of the tile that contains that latitude/longitude (Web Mercator, XYZ scheme). */
 export function tileAt(lat: number, lng: number, zoom: number): { x: number; y: number } {
   const n = 2 ** zoom;
   const latRad = (lat * Math.PI) / 180;
@@ -54,11 +80,11 @@ export function tileAt(lat: number, lng: number, zoom: number): { x: number; y: 
   const y = Math.floor(
     ((1 - Math.log(Math.tan(latRad) + 1 / Math.cos(latRad)) / Math.PI) / 2) * n,
   );
-  // 端(経度 180 ちょうど等)で n に届かないよう丸める。
+  // Clamp so it does not reach n at the edge (exactly longitude 180, etc.).
   return { x: Math.min(n - 1, Math.max(0, x)), y: Math.min(n - 1, Math.max(0, y)) };
 }
 
-/** OpenStreetMap のタイル URL。 */
+/** OpenStreetMap tile URL. */
 export function tileUrl(zoom: number, x: number, y: number): string {
   return `https://tile.openstreetmap.org/${zoom}/${x}/${y}.png`;
 }

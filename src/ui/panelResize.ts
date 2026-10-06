@@ -1,4 +1,5 @@
-// 右パネルの幅ハンドル。iframe は触らない(付け外しすると配信が繋ぎ直される)。
+// Width handle of the right panel. Never touches the iframe (detaching and re-attaching it
+// makes the stream reconnect).
 
 import {
   PANEL_WIDTH_DEFAULT,
@@ -115,7 +116,7 @@ export function attachPanelResize({
 
   handle.addEventListener("pointermove", (event) => {
     if (dragging === null || event.pointerId !== dragging.pointerId) return;
-    // 左へ動かすとパネルが広がる(右サイドバーなので)。
+    // Moving left widens the panel (it is a right sidebar).
     setPreferred(dragging.startWidth + (dragging.startX - event.clientX));
   });
 

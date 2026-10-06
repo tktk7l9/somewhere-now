@@ -1,26 +1,26 @@
-// 画面の状態は全てクエリパラメータに載せる。リロードでも共有でも同じ絵が出る。
-// 既定値は書き出さないので、素の状態では URL が汚れない。
+// All screen state goes into query parameters. Reload or share, the same picture comes up.
+// Defaults are not written out, so the URL stays clean in the plain state.
 
 import { CAM_CATEGORIES, type CamCategory } from "./cams";
 import type { Lang } from "./weather";
 
-/** 同時に開けるプレイヤーの上限(2×2)。 */
+/** Upper limit of players open at the same time (2x2). */
 export const MAX_VIEW = 4;
 
 export interface ViewState {
-  /** 表示中のカメラ id。先頭が主役(音声が出る側)。 */
+  /** The camera ids on display. The first is the lead (the side that plays audio). */
   view: string[];
   categories: CamCategory[];
   liveOnly: boolean;
   nightOnly: boolean;
   favoritesOnly: boolean;
-  /** 地球儀ビュー。既定は平面図。 */
+  /** Globe view. The default is the flat map. */
   globe: boolean;
-  /** 配信中を視聴者数の多い順に並べた一覧。既定は地図。 */
+  /** A list of live streams sorted by viewer count, highest first. The default is the map. */
   watching: boolean;
   /**
-   * テレビ・ラジオ・アニメ等の「番組」も出す。既定は false ＝ 出さない。
-   * 見せたいのは定点カメラなので、既定は伏せる側に倒す(domain/broadcast.ts)。
+   * Also show "broadcasts" (TV, radio, cartoons, etc.). The default is false = hidden. The app is
+   * about fixed cameras, so the default leans toward hiding them (domain/broadcast.ts).
    */
   broadcasts: boolean;
   query: string;
@@ -38,7 +38,7 @@ function isCategory(value: string): value is CamCategory {
 export function parseUrlState(search: string): ViewState {
   const params = new URLSearchParams(search);
 
-  // ?view= が主。?cam= は 1 枚だけの共有 URL 用の別名。
+  // ?view= is primary. ?cam= is an alias for single-view share URLs.
   const rawView = params.get("view") ?? params.get("cam") ?? "";
   const view = uniqueNonEmpty(rawView.split(",")).slice(0, MAX_VIEW);
 

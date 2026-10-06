@@ -1,11 +1,11 @@
-// キーワード検索で、まだ知らないライブカメラのチャンネルを探す。
+// Finds live camera channels not yet known, by keyword search.
 //
-// チャンネル起点(discover-cams.ts)だと、こちらが名前を知っている運営しか
-// 見つからない。実際には「町のホテル」「港の事務所」のような小さなチャンネルが
-// 1 台ずつ出しているものが多いので、検索で拾う。
+// Starting from channels (discover-cams.ts) only finds operators whose names we already
+// know. In reality many cameras are put out one at a time by small channels such as
+// "a hotel in town" or "a harbour office", so they are picked up by search.
 //
-// search.list は 100 unit と高いので、問い合わせ数を必ず上限で抑える。
-// これはデータを作るときに手で回す道具で、本番の Worker からは呼ばない。
+// search.list is expensive at 100 unit, so the number of queries is always capped.
+// This is a tool run by hand when building data, and is not called from the production Worker.
 //
 //   keyway run -e development -- npm run cams:search
 
@@ -13,33 +13,33 @@ import { mkdir, writeFile } from "node:fs/promises";
 import { CAM_PLACES_CURATED } from "./cam-places.ts";
 
 /**
- * 探す語。地域が偏るので、言語と regionCode を振って別々の井戸を掘る。
- * 1 語 100 unit なので、増やすときは MAX_QUERIES と相談すること。
+ * Search terms. Regions get skewed, so language and regionCode are varied to dig separate wells.
+ * 1 term costs 100 unit, so check against MAX_QUERIES when adding more.
  */
 interface Query {
   q: string;
-  /** 検索結果をこの国向けに寄せる。 */
+  /** Biases search results toward this country. */
   regionCode?: string;
   note: string;
 }
 
 const QUERIES: Query[] = [
-  // 言語で掘ると、その言語圏に「たまたま人気の配信」が返るだけになる。
-  // 地名を直接指定すると、その土地のカメラを名指しで探せる。
-  { q: "Istanbul live cam", note: "トルコ" },
+  // Digging by language only returns "streams that happen to be popular" in that language area.
+  // Specifying a place name directly lets us search for that place's cameras by name.
+  { q: "Istanbul live cam", note: "Turkey" },
   { q: "Dubai live cam", note: "UAE" },
-  { q: "Cairo live cam", note: "エジプト" },
-  { q: "Mumbai live cam", note: "インド" },
-  { q: "Colombo Sri Lanka live cam", note: "スリランカ" },
-  { q: "Kathmandu live cam", note: "ネパール" },
-  { q: "Lagos Nigeria live cam", note: "ナイジェリア" },
-  { q: "Marrakech Morocco live cam", note: "モロッコ" },
-  { q: "Reykjavik Iceland live cam", note: "アイスランド" },
-  { q: "Vienna live cam", note: "オーストリア" },
-  { q: "Athens Greece live cam", note: "ギリシャ" },
-  { q: "Jakarta live cam", note: "インドネシア" },
+  { q: "Cairo live cam", note: "Egypt" },
+  { q: "Mumbai live cam", note: "India" },
+  { q: "Colombo Sri Lanka live cam", note: "Sri Lanka" },
+  { q: "Kathmandu live cam", note: "Nepal" },
+  { q: "Lagos Nigeria live cam", note: "Nigeria" },
+  { q: "Marrakech Morocco live cam", note: "Morocco" },
+  { q: "Reykjavik Iceland live cam", note: "Iceland" },
+  { q: "Vienna live cam", note: "Austria" },
+  { q: "Athens Greece live cam", note: "Greece" },
+  { q: "Jakarta live cam", note: "Indonesia" },
 ];
-/** 使い切ってよいクォータの上限。search.list は 1 回 100 unit。 */
+/** Upper limit of quota that may be used up. search.list costs 100 unit per call. */
 const MAX_QUERIES = 12;
 
 interface Hit {
@@ -62,7 +62,7 @@ async function search(apiKey: string, query: Query): Promise<Hit[]> {
   });
   if (query.regionCode !== undefined) params.set("regionCode", query.regionCode);
   const res = await fetch(`https://www.googleapis.com/youtube/v3/search?${params.toString()}`);
-  if (!res.ok) throw new Error(`検索に失敗 HTTP ${res.status}: ${await res.text()}`);
+  if (!res.ok) throw new Error(`search failed HTTP ${res.status}: ${await res.text()}`);
   const json = (await res.json()) as {
     items?: { id?: { videoId?: string }; snippet?: Record<string, string> }[];
   };
@@ -79,7 +79,7 @@ async function search(apiKey: string, query: Query): Promise<Hit[]> {
 
 async function main(): Promise<void> {
   const apiKey = process.env["YOUTUBE_API_KEY"];
-  if (apiKey === undefined || apiKey === "") throw new Error("YOUTUBE_API_KEY が無い");
+  if (apiKey === undefined || apiKey === "") throw new Error("YOUTUBE_API_KEY is missing");
 
   const known = new Set(CAM_PLACES_CURATED.map((p) => p.channelId));
   const hits: Hit[] = [];
@@ -89,10 +89,10 @@ async function main(): Promise<void> {
     const found = await search(apiKey, query);
     units += 100;
     hits.push(...found);
-    console.log(`  [${query.note}] "${query.q}" → ${found.length} 件`);
+    console.log(`  [${query.note}] "${query.q}" → ${found.length} hits`);
   }
 
-  // 既に持っているチャンネルは除く。
+  // Exclude channels we already have.
   const fresh = hits.filter((h) => !known.has(h.channelId));
   const byChannel = new Map<string, Hit[]>();
   for (const h of fresh) {
@@ -107,7 +107,7 @@ async function main(): Promise<void> {
     JSON.stringify([...byChannel.entries()].map(([channelId, items]) => ({ channelId, items })), null, 2) + "\n",
   );
   console.log(
-    `\n消費 ${units} unit / ヒット ${hits.length} 件 / 未知のチャンネル ${byChannel.size} 本` +
+    `\nused ${units} unit / ${hits.length} hits / ${byChannel.size} unknown channels` +
       ` → scripts/out/search-hits.json`,
   );
 }

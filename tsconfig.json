@@ -6,8 +6,8 @@
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "skipLibCheck": true,
     "moduleResolution": "bundler",
-    // scripts/ は node の型剥がし実行(--experimental-strip-types)なので、
-    // 拡張子付きの import が必要になる。src/ 側は従来どおり省略で書く。
+    // scripts/ runs under node's type stripping (--experimental-strip-types), so
+    // imports there need file extensions. src/ keeps omitting them as before.
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,

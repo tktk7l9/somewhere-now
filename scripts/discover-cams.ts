@@ -1,21 +1,21 @@
-// YouTube のチャンネルページから「いまライブ配信中のもの」を集めてくる。
+// Collects "what is live right now" from YouTube channel pages.
 //
-// API キーは使わない(キーは Worker の実行時専用にして、探索でクォータを
-// 減らさない)。ページ構造に依存するので本番では絶対に使わず、私が
-// マスタデータを作るときに手で走らせるだけの道具として扱う。
+// No API key is used (the key is reserved for the Worker at runtime, so exploration does
+// not reduce the quota). It depends on the page structure, so it is never used in
+// production and is treated as a tool that I only run by hand when building the master data.
 //
 //   npm run cams:discover
 //   → scripts/out/candidates.json
 //
-// 出力を人が読んで緯度経度・タイムゾーン・表示名を付け、src/data/cams.ts に
-// 落とすところまでが一連の作業。
+// The whole task runs up to a person reading the output, adding latitude/longitude,
+// time zone and display name, and putting it into src/data/cams.ts.
 
 import { mkdir, writeFile } from "node:fs/promises";
 import { SEED_HANDLES } from "./seed-handles.ts";
 
-/** 1 回の実行で叩くページ数の上限。無制限のループを作らないための保険。 */
+/** Upper limit of pages hit in 1 run. Insurance against creating an unbounded loop. */
 const MAX_HANDLES = 90;
-/** 連続アクセスの間隔(ms)。 */
+/** Interval between consecutive accesses (ms). */
 const DELAY_MS = 900;
 
 const UA =
@@ -58,7 +58,7 @@ function collect(node: unknown, key: string, out: unknown[]): void {
   }
 }
 
-/** サムネイルの LIVE バッジが付いている lockup だけを拾う。 */
+/** Picks up only lockups whose thumbnail has the LIVE badge. */
 function extractLive(data: unknown): LiveCandidate[] {
   const lockups: unknown[] = [];
   collect(data, "lockupViewModel", lockups);
@@ -90,7 +90,7 @@ async function fetchChannel(handle: string, note: string): Promise<ChannelResult
   const channelId = /"externalId":"(UC[A-Za-z0-9_-]{22})"/.exec(html)?.[1] ?? null;
   const data = extractInitialData(html);
   if (data === null) {
-    return { handle, note, channelId, live: [], error: "ytInitialData を読めなかった" };
+    return { handle, note, channelId, live: [], error: "could not read ytInitialData" };
   }
   return { handle, note, channelId, live: extractLive(data) };
 }
@@ -104,7 +104,7 @@ async function main(): Promise<void> {
       const result = await fetchChannel(handle, note);
       results.push(result);
       const mark = result.channelId === null ? "✗" : "✓";
-      console.log(`${mark} @${handle} — ${result.live.length} live (${result.channelId ?? "未解決"})`);
+      console.log(`${mark} @${handle} — ${result.live.length} live (${result.channelId ?? "unresolved"})`);
     } catch (error) {
       results.push({ handle, note, channelId: null, live: [], error: String(error) });
       console.log(`✗ @${handle} — ${String(error)}`);
@@ -118,7 +118,7 @@ async function main(): Promise<void> {
   await writeFile("scripts/out/candidates.json", JSON.stringify(results, null, 2) + "\n");
 
   const totalLive = results.reduce((sum, r) => sum + r.live.length, 0);
-  console.log(`\n${results.length} チャンネル / ライブ配信 ${totalLive} 本 → scripts/out/candidates.json`);
+  console.log(`\n${results.length} channels / ${totalLive} live streams → scripts/out/candidates.json`);
 }
 
 await main();

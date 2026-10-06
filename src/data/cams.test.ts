@@ -1,27 +1,27 @@
 import { collectCamProblems } from "../domain/cams";
 import { CAMS } from "./cams";
 
-describe("カメラのマスタデータ", () => {
-  it("検証を通る(id 重複・座標・タイムゾーン・ID 書式)", () => {
+describe("camera master data", () => {
+  it("passes validation (duplicate id, coordinates, time zone, ID format)", () => {
     expect(collectCamProblems(CAMS)).toEqual([]);
   });
 
-  it("5700 件以上ある", () => {
+  it("has 5700 or more entries", () => {
     expect(CAMS.length).toBeGreaterThanOrEqual(5700);
   });
 
   /**
-   * 同じ座標に何台も載っているのは、多くがジオコーダの当てずっぽうの跡。
-   * ただし**束そのものが悪いわけではない** — 歌舞伎町の 17 台のように、
-   * 本当に同じ場所にあるカメラは同じ座標になる。だからこれは精度の指標では
-   * なく、**悪化していないことの見張り**。
+   * Many cameras on the same coordinates are mostly traces of geocoder guesses.
+   * But **a pile itself is not bad** — like the 17 cameras in Kabukicho, cameras
+   * really in the same place get the same coordinates. So this is not a measure of
+   * accuracy, but **a watch that things have not got worse**.
    *
-   * 数字は現時点の実測(高水位)であって目標ではない。減らすのはよいこと。
-   * 増えたら、取り込みの問い合わせがまた壊れたということ
-   * (`scripts/import-bulk-cams.ts` の `prioritizeGeocodeQueries`)。
-   * 意図して増やしたときだけ、この数を上げ直す。
+   * The numbers are the current measurement (high-water mark), not a target. Reducing
+   * them is good. If they increase, the import queries have broken again
+   * (`prioritizeGeocodeQueries` in `scripts/import-bulk-cams.ts`).
+   * Raise these numbers only when the increase is intentional.
    */
-  it("同じ座標に積み上がったカメラが増えていない", () => {
+  it("cameras piled up on the same coordinates have not increased", () => {
     const byCoord = new Map<string, number>();
     for (const cam of CAMS) {
       const key = `${cam.lat},${cam.lng}`;
@@ -30,7 +30,7 @@ describe("カメラのマスタデータ", () => {
     const counts = [...byCoord.values()];
     const piled = counts.filter((n) => n > 1).reduce((sum, n) => sum + n, 0);
 
-    // 2026-08-29 時点: 3,202 台 / 最大の束 175 台。
+    // As of 2026-08-29: 3,202 cameras / largest pile 175 cameras.
     expect(piled).toBeLessThanOrEqual(3202);
     expect(Math.max(...counts)).toBeLessThanOrEqual(175);
   });

@@ -1,5 +1,5 @@
-// カメラのマスタデータ(リポジトリ同梱)と生存状態(KV 由来)の型、および
-// 両者を突き合わせる純粋な操作。Worker とフロントの両方から参照される。
+// Types for the camera master data (bundled in the repository) and the liveness state
+// (from KV), and pure operations that match the two. Referenced from both the Worker and the front end.
 
 export const CAM_CATEGORIES = [
   "city",
@@ -15,42 +15,47 @@ export const CAM_CATEGORIES = [
 export type CamCategory = (typeof CAM_CATEGORIES)[number];
 
 export interface CamSource {
-  /** 既知の配信 videoId。チャンネルしか分かっていない場合は null。 */
+  /** Known stream videoId. null when only the channel is known. */
   videoId: string | null;
-  /** 配信元チャンネル。videoId が死んだときの再探索に使う。 */
+  /** Source channel. Used for rediscovery when the videoId dies. */
   channelId: string;
   /**
-   * 配信タイトル。1 つのチャンネルが何十本もライブを出しているので、
-   * 再探索のときに「どれがこのカメラか」を見分ける鍵になる
-   * (これが無いと、チャンネルの別のカメラの映像を割り当ててしまう)。
+   * Stream title. A single channel puts out dozens of live streams, so in
+   * rediscovery this is the key for telling "which one is this camera"
+   * (without it, the video of another camera on the channel gets assigned).
    */
   titleKey: string;
 }
 
-/** リポジトリにコミットされる不変のカメラ定義。 */
+/** Immutable camera definition committed to the repository. */
 export interface Cam {
   id: string;
   name: { ja: string; en: string };
   lat: number;
   lng: number;
-  /** IANA タイムゾーン。現地時刻の表示に使う。 */
+  /** IANA time zone. Used to display local time. */
   timeZone: string;
   category: CamCategory;
-  /** ISO 3166-1 alpha-2。 */
+  /** ISO 3166-1 alpha-2. */
   country: string;
   source: CamSource;
 }
 
 /**
- * ブラウザへ送る生存状態。表示に使う 3 つだけに絞る。
+ * The part of a camera the Worker's Cron reads: which stream, and where to look for the next
+ * one. The Worker loads only this (src/data/camSources.ts), not the whole master.
+ */
+export type CamRef = Pick<Cam, "id" | "source">;
+
+/**
+ * Liveness state sent to the browser. Narrowed to only the 3 fields used for display.
  *
- * title と checkedAt は KV には残す(再探索の手がかりと、確認の古い順に
- * 並べるため)が、画面はどちらも読まない。5,720 台ぶんを毎回配ると
- * 応答が 1MB を超え、その半分以上がこの 2 つで占められる。
+ * checkedAt is kept in KV (to sort by oldest check first), but the screen does not read
+ * it. Serving it for 5,720 cameras every time doubles the response.
  */
 export type PublicCamState = Pick<CamState, "videoId" | "status" | "viewers">;
 
-/** KV の生存状態を、ブラウザへ送る形に絞る。 */
+/** Narrows the liveness state in KV to the shape sent to the browser. */
 export function publicStates(cams: Record<string, CamState>): Record<string, PublicCamState> {
   return Object.fromEntries(
     Object.entries(cams).map(([id, s]) => [
@@ -61,28 +66,46 @@ export function publicStates(cams: Record<string, CamState>): Record<string, Pub
 }
 
 export type CamStatus =
-  /** 現在ライブ中かつ埋め込み可能。 */
+  /** Currently live and embeddable. */
   | "live"
-  /** 配信が見つからない、または終了している。 */
+  /** The stream is not found, or has ended. */
   | "offline"
-  /** 存在するが埋め込みが禁止されている。 */
+  /** Exists but embedding is prohibited. */
   | "blocked"
-  /** まだ確認できていない(状態 API が落ちている等)。 */
+  /** Not confirmed yet (e.g. the state API is down). */
   | "unknown";
 
-/** Cron が更新し KV に載る可変の状態。 */
+/** Mutable state updated by Cron and stored in KV. */
 export interface CamState {
   videoId: string | null;
   status: CamStatus;
   viewers: number | null;
-  title: string | null;
-  /** ISO 8601。 */
+  /** ISO 8601. */
   checkedAt: string;
+}
+
+/**
+ * Narrows a state read from KV to the stored shape.
+ *
+ * States written before 2026-10-04 also carry the stream title. Nothing read it, yet it was
+ * half of the 1.2MB source of truth, and the Cron parses and rewrites that whole value on
+ * every run under the free plan's 10ms CPU limit. Projecting on every write-back drops the
+ * leftovers from cameras no run has touched since.
+ */
+export function storedState(state: CamState): CamState {
+  return {
+    videoId: state.videoId,
+    status: state.status,
+    viewers: state.viewers,
+    checkedAt: state.checkedAt,
+  };
 }
 
 const ID_RE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 const CHANNEL_ID_RE = /^UC[A-Za-z0-9_-]{22}$/;
 const VIDEO_ID_RE = /^[A-Za-z0-9_-]{11}$/;
+/** Characters that cannot break out of a URL path segment. */
+const URL_SAFE_ID_RE = /^[A-Za-z0-9_-]+$/;
 const COUNTRY_RE = /^[A-Z]{2}$/;
 
 function isResolvableTimeZone(tz: string): boolean {
@@ -99,8 +122,8 @@ function isFiniteInRange(value: number, limit: number): boolean {
 }
 
 /**
- * マスタデータの不整合を人間が読める日本語で列挙する。空配列なら健全。
- * 生成スクリプトの出力を CI のテストで検証するために使う。
+ * Lists inconsistencies in the master data in human-readable English. An empty array means healthy.
+ * Used to validate the output of the generation script in CI tests.
  */
 export function collectCamProblems(cams: readonly Cam[]): string[] {
   const problems: string[] = [];
@@ -108,50 +131,80 @@ export function collectCamProblems(cams: readonly Cam[]): string[] {
 
   for (const cam of cams) {
     const at = `[${cam.id}]`;
-    if (seen.has(cam.id)) problems.push(`${at} id が重複しています`);
+    if (seen.has(cam.id)) problems.push(`${at} duplicate id`);
     seen.add(cam.id);
 
-    if (!ID_RE.test(cam.id)) problems.push(`${at} id の書式が不正です(kebab-case のみ)`);
-    if (!isFiniteInRange(cam.lat, 90)) problems.push(`${at} 緯度が範囲外です: ${cam.lat}`);
-    if (!isFiniteInRange(cam.lng, 180)) problems.push(`${at} 経度が範囲外です: ${cam.lng}`);
+    if (!ID_RE.test(cam.id)) problems.push(`${at} invalid id format (kebab-case only)`);
+    if (!isFiniteInRange(cam.lat, 90)) problems.push(`${at} latitude out of range: ${cam.lat}`);
+    if (!isFiniteInRange(cam.lng, 180)) problems.push(`${at} longitude out of range: ${cam.lng}`);
     if (!isResolvableTimeZone(cam.timeZone)) {
-      problems.push(`${at} タイムゾーンを解決できません: ${cam.timeZone}`);
+      problems.push(`${at} cannot resolve time zone: ${cam.timeZone}`);
     }
     if (cam.name.ja.trim() === "" || cam.name.en.trim() === "") {
-      problems.push(`${at} 表示名が空です`);
+      problems.push(`${at} empty display name`);
     }
-    if (!COUNTRY_RE.test(cam.country)) problems.push(`${at} 国コードが不正です: ${cam.country}`);
+    if (!COUNTRY_RE.test(cam.country)) problems.push(`${at} invalid country code: ${cam.country}`);
     if (!CHANNEL_ID_RE.test(cam.source.channelId)) {
-      problems.push(`${at} channelId が不正です: ${cam.source.channelId}`);
+      problems.push(`${at} invalid channelId: ${cam.source.channelId}`);
     }
     if (cam.source.videoId !== null && !VIDEO_ID_RE.test(cam.source.videoId)) {
-      problems.push(`${at} videoId が不正です: ${cam.source.videoId}`);
+      problems.push(`${at} invalid videoId: ${cam.source.videoId}`);
     }
     if (cam.source.titleKey.trim() === "") {
-      problems.push(`${at} titleKey が空です(再探索でカメラを見分けられません)`);
+      problems.push(`${at} empty titleKey (the camera cannot be told apart on rediscovery)`);
     }
   }
   return problems;
 }
 
 export interface CamFilter {
-  /** 空または未指定なら絞らない。 */
+  /** Does not filter when empty or unspecified. */
   categories?: readonly CamCategory[];
   liveOnly?: boolean;
   nightOnly?: boolean;
   favoritesOnly?: boolean;
-  /** 「番組」も出すか。未指定 ＝ 出さない(既定で伏せる)。 */
+  /** Also show "broadcasts" (TV, radio, cartoons). Unspecified = hidden by default. */
   broadcasts?: boolean;
   query?: string;
 }
 
 export interface FilterContext {
   states: ReadonlyMap<string, PublicCamState>;
-  /** 現在その土地が夜であるカメラの id。 */
+  /** ids of cameras whose place is currently in night. */
   nightIds: ReadonlySet<string>;
   favoriteIds: ReadonlySet<string>;
-  /** テレビ・ラジオ・アニメ等、カメラでないものの id(domain/broadcast.ts)。 */
+  /** ids of streams that are not cameras: TV, radio, cartoons, etc. (domain/broadcast.ts). */
   broadcastIds: ReadonlySet<string>;
+}
+
+/**
+ * Folds what people type into the shape the names are compared in (SHIG 50): full-width letters
+ * and spaces (NFKC), case, diacritics ("Zürich" for "zurich") and hiragana against the katakana
+ * the names are written in. Runs of whitespace become one space.
+ */
+export function normalizeSearchText(text: string): string {
+  return text
+    .normalize("NFKC")
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    // NFD also pulls dakuten off kana; put the kana back together before comparing.
+    .normalize("NFC")
+    .replace(/[\u3041-\u3096]/g, (kana) => String.fromCharCode(kana.charCodeAt(0) + 0x60))
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+/** The folded names, kept per camera: the filter runs on every keystroke over 5,700 cameras. */
+const searchKeys = new WeakMap<Cam, string>();
+
+function searchKey(cam: Cam): string {
+  let key = searchKeys.get(cam);
+  if (key === undefined) {
+    key = normalizeSearchText(`${cam.name.ja} ${cam.name.en}`);
+    searchKeys.set(cam, key);
+  }
+  return key;
 }
 
 export function filterCams(
@@ -160,7 +213,8 @@ export function filterCams(
   filter: CamFilter,
 ): Cam[] {
   const categories = filter.categories ?? [];
-  const query = (filter.query ?? "").trim().toLowerCase();
+  // Every word must appear, in any order ("crossing shibuya" finds Shibuya Crossing).
+  const words = normalizeSearchText(filter.query ?? "").split(" ").filter((word) => word !== "");
 
   return cams.filter((cam) => {
     if (categories.length > 0 && !categories.includes(cam.category)) return false;
@@ -168,15 +222,15 @@ export function filterCams(
     if (filter.nightOnly && !ctx.nightIds.has(cam.id)) return false;
     if (filter.favoritesOnly && !ctx.favoriteIds.has(cam.id)) return false;
     if (!filter.broadcasts && ctx.broadcastIds.has(cam.id)) return false;
-    if (query !== "") {
-      const haystack = `${cam.name.ja} ${cam.name.en}`.toLowerCase();
-      if (!haystack.includes(query)) return false;
+    if (words.length > 0) {
+      const haystack = searchKey(cam);
+      if (!words.every((word) => haystack.includes(word))) return false;
     }
     return true;
   });
 }
 
-/** rng は [0,1) を返すこと。テスト可能にするため注入する。 */
+/** rng must return [0,1). Injected to make it testable. */
 export function pickRandom<T>(items: readonly T[], rng: () => number): T | null {
   if (items.length === 0) return null;
   return items[Math.min(items.length - 1, Math.floor(rng() * items.length))]!;
@@ -187,9 +241,9 @@ function viewerCount(states: ReadonlyMap<string, PublicCamState>, id: string): n
 }
 
 /**
- * 配信中のカメラを、いま見ている人数の多い順に並べる。
- * 視聴者数が分からない配信は末尾に置く（誤った順位を付けない）。
- * 同数のときは id の昇順で安定させる。
+ * Orders live cameras by the number of people watching now, highest first.
+ * Streams with unknown viewer count are put at the end (no wrong rank is given).
+ * On a tie, stabilizes by ascending id.
  */
 export function rankLiveByViewers(
   cams: readonly Cam[],
@@ -207,20 +261,24 @@ export function rankLiveByViewers(
 }
 
 const EMBED_ORIGIN = "https://www.youtube-nocookie.com";
-// rel=0 で関連動画を抑え、playsinline でモバイルの全画面奪取を防ぐ。
+// rel=0 suppresses related videos, and playsinline prevents the fullscreen takeover on mobile.
 const EMBED_PARAMS = "rel=0&playsinline=1&modestbranding=1";
 
 /**
- * 再生・生存確認・再探索が共有する videoId。状態が解決した id を最優先し、
- * 無ければマスタの id。どちらも無ければ null。
+ * The videoId shared by playback, the liveness sweep and rediscovery. The id resolved by
+ * the state has top priority; if absent, the master's id. If neither exists, null.
  */
-export function resolvedVideoId(cam: Cam, state: PublicCamState | undefined): string | null {
-  return state?.videoId ?? cam.source.videoId;
+export function resolvedVideoId(cam: Pick<Cam, "source">, state: PublicCamState | undefined): string | null {
+  // The state arrives over the network (/api/cams), so an id containing anything but
+  // URL-safe characters is ignored rather than spliced into the embed and watch URLs.
+  const live = state?.videoId;
+  if (typeof live === "string" && URL_SAFE_ID_RE.test(live)) return live;
+  return cam.source.videoId;
 }
 
 /**
- * 再生に使う iframe の URL。状態が解決した videoId を最優先し、無ければ
- * マスタの videoId、それも無ければチャンネルの現在のライブにフォールバックする。
+ * URL of the iframe used for playback. The videoId resolved by the state has top priority;
+ * if absent, the master's videoId; if that is absent too, falls back to the channel's current live stream.
  */
 export function resolveEmbedUrl(cam: Cam, state: PublicCamState | undefined): string {
   const videoId = resolvedVideoId(cam, state);

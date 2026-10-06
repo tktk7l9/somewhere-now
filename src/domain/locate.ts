@@ -1,16 +1,17 @@
-// 現在地へ地図を寄せる。ブラウザの Geolocation は UI から渡してもらい、
-// ここでは「取れた座標を地図の箱に収めて、付近が見えるズームを決める」だけをする。
-// 自動では取らない。押したときだけ。位置は URL にも残さない。
+// Moves the map to the current location. The UI passes in the browser's Geolocation;
+// this only "clamps the obtained coordinates into the map box and decides a zoom that
+// shows the vicinity". Never fetched automatically. Only when pressed. The location is
+// not kept in the URL either.
 
 import type { Cam, PublicCamState } from "./cams";
 import type { MapViewport } from "./mapView";
 
-/** 平面図の maxBounds と同じ。極はメルカトルが壊れるので 85° で切る。 */
+/** Same as maxBounds of the flat map. Mercator breaks at the poles, so cut at 85°. */
 export const MAP_LAT_LIMIT = 85;
 
 /**
- * 高精度 GPS は待たない。付近の地図には IP+Wi‑Fi 程度で足りて、
- * ボタンを押してから固まる時間の方が高い。
+ * Do not wait for high-accuracy GPS. IP + Wi-Fi level is enough for a map of the
+ * vicinity, and the time spent frozen after pressing the button costs more.
  */
 export const LOCATE_OPTIONS = {
   enableHighAccuracy: false,
@@ -30,7 +31,7 @@ export type LocateOutcome =
   | { ok: true; position: GeoPosition }
   | { ok: false; reason: LocateFailure };
 
-/** navigator.geolocation と同じ形。テストではこれを渡す。 */
+/** Same shape as navigator.geolocation. Tests pass this in. */
 export interface Locator {
   getCurrentPosition(
     success: (position: { coords: { latitude: number; longitude: number; accuracy: number } }) => void,
@@ -43,7 +44,7 @@ export interface Locator {
   ): void;
 }
 
-/** GeolocationPositionError の code。DOM 型に依存せず数字で見る。 */
+/** The code of GeolocationPositionError. Checked as numbers, without depending on DOM types. */
 const PERMISSION_DENIED = 1;
 const TIMEOUT = 3;
 
@@ -57,15 +58,18 @@ export function clampLat(lat: number): number {
   return Math.min(MAP_LAT_LIMIT, Math.max(-MAP_LAT_LIMIT, lat));
 }
 
-/** 経度を (-180, 180] に畳む。地図は世界 1 枚なので、はみ出しは反対側へ。 */
+/**
+ * Wraps the longitude into (-180, 180]. The map is a single world, so overflow goes to the other
+ * side.
+ */
 export function wrapLng(lng: number): number {
   const wrapped = ((((lng + 180) % 360) + 360) % 360) - 180;
   return wrapped === -180 ? 180 : wrapped;
 }
 
 /**
- * 精度が粗いほど引く。街路〜都市圏が見える距離。
- * 初期表示(ズーム 2)よりは必ず寄り、平面図の上限(16)までは使わない。
+ * Pulls back more as the accuracy gets coarser. A distance showing streets to a metro area.
+ * Always closer than the initial view (zoom 2), and does not go up to the flat map limit (16).
  */
 const ACCURACY_ZOOM: ReadonlyArray<readonly [limit: number, zoom: number]> = [
   [50, 15],
@@ -86,7 +90,7 @@ export function zoomForAccuracy(accuracyMeters: number): number {
   return COARSE_ZOOM;
 }
 
-/** 座標が壊れているときは null。誤った場所へ飛ばさない。 */
+/** null when the coordinates are broken. Do not fly to a wrong place. */
 export function viewportForLocation(
   lat: number,
   lng: number,
@@ -99,16 +103,16 @@ export function viewportForLocation(
   };
 }
 
-/** 大円距離に使う地球の半径(km)。 */
+/** Earth radius used for the great-circle distance (km). */
 const EARTH_RADIUS_KM = 6371;
 
 const toRadians = (degrees: number): number => (degrees * Math.PI) / 180;
 
 /**
- * 2 点の大円距離(km)。
+ * Great-circle distance between 2 points (km).
  *
- * 日付変更線をまたいでも効く。経度差は三角関数を通るので周期的で、
- * 東経 179° と西経 179° は 358° ではなく 2° 離れていると出る。
+ * Works across the date line too. The longitude difference goes through trigonometric
+ * functions, so it is periodic: 179° E and 179° W come out 2° apart, not 358°.
  */
 export function distanceKm(
   from: { lat: number; lng: number },
@@ -119,7 +123,7 @@ export function distanceKm(
   const h =
     Math.sin(halfLat) ** 2 +
     Math.cos(toRadians(from.lat)) * Math.cos(toRadians(to.lat)) * Math.sin(halfLng) ** 2;
-  // 丸め誤差で h が 1 をわずかに超えると asin が NaN を返す。
+  // When rounding error pushes h slightly over 1, asin returns NaN.
   return 2 * EARTH_RADIUS_KM * Math.asin(Math.min(1, Math.sqrt(h)));
 }
 
@@ -128,18 +132,18 @@ function viewerCount(states: ReadonlyMap<string, PublicCamState>, cam: Cam): num
 }
 
 /**
- * 現在地にいちばん近いカメラ。
+ * The camera nearest to the current location.
  *
- * **配信中を優先する。** すぐ隣のカメラが止まっていることは普通にあり、
- * 「近いが何も映らない」より「少し遠いが映っている」方が用を足す。
- * 1 台も配信していないときだけ、状態を問わず近い順で選ぶ。
+ * **Live ones come first.** A camera right next door being stopped is common, and
+ * "slightly farther but showing" serves better than "near but showing nothing".
+ * Only when none is live, pick by nearness regardless of state.
  *
- * **距離が同じなら視聴の多い方。** マスタの 3,394 台(6 割)は同じ座標を
- * 共有する束に入っていて、いちばん大きい束は都心の 1 点に 203 台ある。
- * そこでは近さで差が付かないので、並び順という無意味な基準ではなく、
- * いま実際に見られている方を採る。
+ * **At the same distance, the one with more viewers.** 3,394 cameras (60%) of the master
+ * data sit in bundles that share the same coordinates, and the largest bundle has 203
+ * cameras on 1 point in the city center. Nearness makes no difference there, so instead of
+ * the meaningless criterion of order, take the one actually being watched now.
  *
- * 座標が壊れているカメラは候補から外す。誤った場所へ連れて行かない。
+ * Cameras with broken coordinates are excluded. Do not take the user to a wrong place.
  */
 export function nearestCam(
   cams: readonly Cam[],

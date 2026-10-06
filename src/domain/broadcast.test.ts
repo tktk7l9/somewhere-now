@@ -28,13 +28,13 @@ function cam(overrides: Omit<Partial<Cam>, "source"> & { source?: Partial<Cam["s
 }
 
 describe("isBroadcast", () => {
-  it("素の定点カメラは番組ではない", () => {
+  it("a plain fixed camera is not a broadcast", () => {
     expect(isBroadcast(cam())).toBe(false);
   });
 
-  it("番組しか出していないチャンネルのものは番組", () => {
-    // Al Jazeera English。タイトルには手掛かりが「Live」しか無いので、
-    // チャンネルで見分けるしかない。
+  it("anything from a channel that only airs programmes is a broadcast", () => {
+    // Al Jazeera English. The title offers no clue besides "Live", so the channel is the only
+    // way to tell.
     expect(
       isBroadcast(
         cam({ source: { channelId: "UCNye-wNBqNL5ZzHSJj3l8Bg", titleKey: "🔴 Al Jazeera English | Live" } }),
@@ -42,7 +42,7 @@ describe("isBroadcast", () => {
     ).toBe(true);
   });
 
-  it("タイトルの言い回しでも見分ける", () => {
+  it("also tells by the wording of the title", () => {
     const titles = [
       "🔴 LIVE! Phineas and Ferb Full Episodes! | @disneychannelanimation",
       "🔴EN VIVO: Episodios completos de Bluey en HD",
@@ -67,8 +67,8 @@ describe("isBroadcast", () => {
     }
   });
 
-  it("🔴 生中継や音楽を名乗る本物のカメラは巻き込まない", () => {
-    // どれも実データから採った、緩い語で判定したときに誤って隠れた実例。
+  it("does not catch real cameras that say live or music in their title", () => {
+    // All taken from the real data: cameras that a loose word match wrongly hid.
     const titles = [
       "PRAIA DE CANDEIAS PE - CÂMERA 2 AO VIVO - LIVE CAM",
       "BUENOS AIRES, Argentina en Vivo 🇦🇷 24/7 (Live Camera Argentina)",
@@ -90,7 +90,7 @@ describe("isBroadcast", () => {
 });
 
 describe("broadcastIds", () => {
-  it("番組の id だけを集める", () => {
+  it("collects only the ids of broadcasts", () => {
     const ids = broadcastIds([
       cam({ id: "real" }),
       cam({ id: "tv", source: { titleKey: "FOO | Breaking News 24/7" } }),
@@ -98,23 +98,23 @@ describe("broadcastIds", () => {
     expect([...ids]).toEqual(["tv"]);
   });
 
-  it("空の一覧では空", () => {
+  it("is empty for an empty list", () => {
     expect(broadcastIds([]).size).toBe(0);
   });
 });
 
-describe("マスタに当てたときの効き", () => {
-  // 隠すのは「見えなくする」ことなので、母集団に対して広く当たりすぎていないか
-  // を数で押さえる。緩い語で判定したときは 547 件に当たり、その大半が誤りだった。
+describe("effect on the master list", () => {
+  // Hiding means making things invisible, so pin down by numbers that the match is not too
+  // wide against the population. A loose word match hit 547 entries, most of them wrong.
   const hidden = CAMS.filter(isBroadcast);
 
-  it("収録の 5% 未満にしか当たらない", () => {
+  it("matches less than 5% of the catalogue", () => {
     expect(hidden.length).toBeGreaterThan(0);
     expect(hidden.length / CAMS.length).toBeLessThan(0.05);
   });
 
-  it("局のチャンネルは丸ごとは消さない(本物の定点カメラが同居している)", () => {
-    // テレ朝(ANN)と TBS のチャンネルは、渋谷・羽田・新宿の定点カメラも出している。
+  it("does not hide a broadcaster channel wholesale (real fixed cameras live there too)", () => {
+    // The TV Asahi (ANN) and TBS channels also air fixed cameras in Shibuya, Haneda and Shinjuku.
     for (const channelId of ["UCGCZAYq5Xxojl_tSXcVJhiQ", "UC6AG81pAkf6Lbi_1VC5NmPA"]) {
       const own = CAMS.filter((c) => c.source.channelId === channelId);
       expect(own.length).toBeGreaterThan(0);
@@ -123,13 +123,13 @@ describe("マスタに当てたときの効き", () => {
     }
   });
 
-  it("並べた語はどれも実際に何かを拾っている(腐った語を残さない)", () => {
+  it("every listed pattern actually matches something (no stale patterns)", () => {
     for (const re of BROADCAST_TITLE_PATTERNS) {
       expect(CAMS.some((c) => re.test(c.source.titleKey)), String(re)).toBe(true);
     }
   });
 
-  it("並べたチャンネルはどれもマスタに残っている", () => {
+  it("every listed channel is still in the master list", () => {
     const known = new Set(CAMS.map((c) => c.source.channelId));
     for (const channelId of BROADCAST_CHANNELS) {
       expect(known.has(channelId), channelId).toBe(true);

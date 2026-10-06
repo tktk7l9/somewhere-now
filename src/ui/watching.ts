@@ -1,27 +1,29 @@
-// 配信中を視聴者数の多い順に並べた一覧。地図の代わりに地点を拾うための面。
+// List of live streams sorted by viewer count, highest first. A surface for picking a place
+// instead of using the map.
 //
-// iframe は置かない。数百件を並べても再描画で配信が繋ぎ直されないように、
-// 並びが同じなら行を使い回し、時刻と視聴者数と選択だけを書き換える。
+// No iframe is placed here. So that a re-render does not reconnect streams even with several
+// hundred rows, rows are reused when the order is the same, and only the time, the viewer
+// count and the selection are rewritten.
 //
-// 行そのものは「その配信を開く」。一覧に留まったまま次々に覗けるようにするため。
-// 「どこなのか」を知りたいときのために、平面図と地球儀へ飛ぶ口を各行に置く
-// (ボタンは入れ子にできないので、行の外に並べる)。
+// The row itself "opens that stream", so people can peek at one after another while staying on
+// the list. For "where is it?", each row carries a way out to the flat map and to the globe
+// (buttons cannot nest, so they sit next to the row rather than inside it).
 
 import type { Cam, PublicCamState } from "../domain/cams";
 import { formatLocalTime } from "../domain/localTime";
 import type { Lang } from "../domain/weather";
-import { camName, categoryLabel, t, type StringKey } from "./i18n";
+import { camName, categoryLabel, countryName, t, viewersText, type StringKey } from "./i18n";
 
 export type WatchingReady = "loading" | "unavailable" | "ready";
 
-/** 飛び先。平面図(Leaflet)か地球儀(MapLibre)か。 */
+/** Where to jump: the flat map (Leaflet) or the globe (MapLibre). */
 export type JumpTarget = "flat" | "globe";
 
 interface JumpSpec {
   target: JumpTarget;
-  /** ボタンに出す短い名。 */
+  /** Short name shown on the button. */
   short: StringKey;
-  /** title と読み上げに使う、何が起きるかを書いた名。 */
+  /** Name that says what happens, used for the title and the screen reader. */
   full: StringKey;
 }
 
@@ -31,10 +33,12 @@ const JUMP_TARGETS: readonly JumpSpec[] = [
 ];
 
 export interface WatchingHandlers {
-  /** 行を押した。一覧に留まったまま、その配信を先頭に上げる。 */
+  /** A row was pressed: bring that stream to the front while staying on the list. */
   onPick(camId: string): void;
-  /** 飛び先を押した。一覧を閉じ、その面でその地点に寄せる。 */
+  /** A jump target was pressed: close the list and move that face to the place. */
   onJump(camId: string, target: JumpTarget): void;
+  /** "Clear filters" under an empty result caused by filters. */
+  onClearFilters(): void;
 }
 
 export interface WatchingContext {
@@ -42,7 +46,7 @@ export interface WatchingContext {
   now: Date;
   states: ReadonlyMap<string, PublicCamState>;
   ready: WatchingReady;
-  /** カテゴリ・夜・お気に入り・検索のいずれかが掛かっているか。 */
+  /** Whether any of category, night, favorites or search is applied. */
   filtered: boolean;
 }
 
@@ -62,14 +66,14 @@ function emptyMessage(ctx: WatchingContext): string {
   return ctx.filtered ? t("noMatch", ctx.lang) : t("noLive", ctx.lang);
 }
 
+/** An unknown count leaves the slot empty: a dash is noise that says nothing (SHIG 1, 11). */
 function viewersLabel(viewers: number | null | undefined, lang: Lang): string {
-  if (viewers === null || viewers === undefined) return "—";
-  const locale = lang === "ja" ? "ja-JP" : "en-US";
-  return `${viewers.toLocaleString(locale)} ${t("viewers", lang)}`;
+  if (viewers === null || viewers === undefined) return "";
+  return viewersText(viewers, lang);
 }
 
 function metaLabel(cam: Cam, ctx: WatchingContext): string {
-  return `${categoryLabel(cam.category, ctx.lang)} · ${cam.country} · ${formatLocalTime(ctx.now, cam.timeZone)}`;
+  return `${categoryLabel(cam.category, ctx.lang)} · ${countryName(cam.country, ctx.lang)} · ${formatLocalTime(ctx.now, cam.timeZone)}`;
 }
 
 function rankedKey(ranked: readonly Cam[], lang: Lang): string {
@@ -87,8 +91,15 @@ export function createWatchingList(container: HTMLElement, handlers: WatchingHan
   count.className = "watching__count";
   header.append(title, lead, count);
 
-  const empty = document.createElement("p");
+  const empty = document.createElement("div");
   empty.className = "watching__empty";
+  const emptyText = document.createElement("p");
+  emptyText.className = "watching__empty-text";
+  // An empty result caused by filters gets the way out right under the message (SHIG 55, 60).
+  const clear = document.createElement("button");
+  clear.type = "button";
+  clear.className = "chip watching__empty-action";
+  clear.addEventListener("click", () => handlers.onClearFilters());
 
   const list = document.createElement("ol");
   list.className = "watching__list";
@@ -107,7 +118,7 @@ export function createWatchingList(container: HTMLElement, handlers: WatchingHan
       const full = t(spec.full, ctx.lang);
       button.textContent = t(spec.short, ctx.lang);
       button.title = full;
-      // 同じ文言のボタンが件数ぶん並ぶので、読み上げには地点名まで載せる。
+      // The same wording repeats once per row, so the screen-reader label carries the place name.
       button.setAttribute("aria-label", `${full}: ${label}`);
     }
     if (current) row.root.setAttribute("aria-current", "true");
@@ -156,7 +167,10 @@ export function createWatchingList(container: HTMLElement, handlers: WatchingHan
       count.textContent = `${ranked.length} ${t("places", ctx.lang)}`;
 
       if (ranked.length === 0) {
-        empty.textContent = emptyMessage(ctx);
+        emptyText.textContent = emptyMessage(ctx);
+        clear.textContent = t("clearFilters", ctx.lang);
+        if (ctx.ready === "ready" && ctx.filtered) empty.replaceChildren(emptyText, clear);
+        else empty.replaceChildren(emptyText);
         container.replaceChildren(header, empty);
         rows.length = 0;
         paintedKey = "";

@@ -1,5 +1,5 @@
-// YouTube の検索結果ページからライブ配信を集め、API キー無しで候補を増やす。
-// 429 対策で間隔を空け、途中結果を都度保存して再開できる。
+// Collects live streams from YouTube search result pages to add candidates without an API key.
+// Requests are spaced out against 429, and partial results are saved each time so it can resume.
 //
 //   npm run cams:scrape-search
 //   → scripts/out/search-scrape.json
@@ -142,7 +142,7 @@ const CITY_QUERIES: Query[] = [
   { q: "live cam Poland city square", countryCode: "PL", note: "ポーランド" },
   { q: "live cam Texas downtown", countryCode: "US", note: "テキサス" },
   { q: "live cam Japan street crossing", countryCode: "JP", note: "日本街" },
-  // ── wave 2: 追加都市 ──────────────────────────────────
+  // ── wave 2: additional cities ─────────────────────────
   { q: "Nagoya live camera Japan", countryCode: "JP", note: "名古屋EN" },
   { q: "Shibuya live camera", countryCode: "JP", note: "渋谷" },
   { q: "Shinjuku live camera", countryCode: "JP", note: "新宿" },
@@ -339,7 +339,7 @@ const CITY_QUERIES: Query[] = [
   { q: "webcam Ostsee", countryCode: "DE", note: "バルト海DE" },
   { q: "live cam Arctic", countryCode: "NO", note: "北極圏" },
   { q: "live cam aurora", countryCode: "NO", note: "オーロラ" },
-  // wave 4 — 件数稼ぎ
+  // wave 4 — boosting the count
   { q: "live webcam beach florida 24/7", countryCode: "US", note: "FLビーチ2" },
   { q: "live webcam beach california 24/7", countryCode: "US", note: "CAビーチ2" },
   { q: "live webcam beach hawaii 24/7", countryCode: "US", note: "HIビーチ2" },
@@ -396,7 +396,7 @@ const CITY_QUERIES: Query[] = [
   { q: "live cam harbour Vancouver", countryCode: "CA", note: "バンクーバー港2" },
   { q: "live cam harbour Hong Kong", countryCode: "HK", note: "香港港" },
   { q: "live cam harbour Singapore", countryCode: "SG", note: "SG港" },
-  // wave 5 — さらに都市・国を広げる
+  // wave 5 — widen to more cities and countries
   { q: "live webcam Alaska", countryCode: "US", note: "アラスカ" },
   { q: "live webcam Montana", countryCode: "US", note: "モンタナ" },
   { q: "live webcam Colorado ski", countryCode: "US", note: "コロラド" },
@@ -528,7 +528,7 @@ async function search(query: Query): Promise<ScrapeHit[]> {
       headers: { "user-agent": UA, "accept-language": "en-US,en" },
     });
     if (res.status === 429) {
-      console.log(`  429 → ${RETRY_WAIT_MS / 1000}s 待機 (attempt ${attempt + 1})`);
+      console.log(`  429 → ${RETRY_WAIT_MS / 1000}s wait (attempt ${attempt + 1})`);
       await new Promise((r) => setTimeout(r, RETRY_WAIT_MS * (attempt + 1)));
       continue;
     }
@@ -556,7 +556,7 @@ async function main(): Promise<void> {
       byVideo.set(hit.videoId, hit);
       doneQueries.add(hit.query);
     }
-    console.log(`再開: 既存 ${byVideo.size} 件 / 済クエリ ${doneQueries.size}`);
+    console.log(`resuming: existing ${byVideo.size} / queries done ${doneQueries.size}`);
   } catch {
     // first run
   }
@@ -569,7 +569,7 @@ async function main(): Promise<void> {
   for (const query of CITY_QUERIES) {
     index++;
     if (doneQueries.has(query.q)) {
-      console.log(`[${index}/${CITY_QUERIES.length}] ${query.note}: skip (済)`);
+      console.log(`[${index}/${CITY_QUERIES.length}] ${query.note}: skip (done)`);
       continue;
     }
     try {
@@ -596,7 +596,7 @@ async function main(): Promise<void> {
   }
 
   await flush();
-  console.log(`\n✓ ${byVideo.size} 件 → ${OUT}`);
+  console.log(`\n✓ ${byVideo.size} streams → ${OUT}`);
 }
 
 await main();

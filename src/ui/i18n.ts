@@ -1,5 +1,5 @@
-// 表示文言。世界のカメラを見せるアプリなので英語も最初から入れる。
-// 文言は「その操作で何が起きるか」をそのまま書く(Submit ではなく Save changes)。
+// Display strings. The app shows cameras of the world, so English is in from the start.
+// Strings say plainly "what that action does" (Save changes, not Submit).
 
 import type { CamCategory } from "../domain/cams";
 import type { Lang } from "../domain/weather";
@@ -17,6 +17,7 @@ const STRINGS = {
     en: "places are live",
   },
   search: { ja: "地名で絞り込む", en: "Filter by name" },
+  filters: { ja: "絞り込み", en: "Filters" },
   liveOnly: { ja: "配信中だけ", en: "Live only" },
   nightOnly: { ja: "夜の場所だけ", en: "Night only" },
   favoritesOnly: { ja: "お気に入りだけ", en: "Favorites" },
@@ -68,8 +69,9 @@ const STRINGS = {
   focusThis: { ja: "これを見る", en: "Watch this" },
   alsoOpen: { ja: "開いているカメラ", en: "Also open" },
   removeFromView: { ja: "閉じる", en: "Close" },
-  favorite: { ja: "お気に入りに入れる", en: "Add to favorites" },
-  unfavorite: { ja: "お気に入りから外す", en: "Remove from favorites" },
+  // Toggles keep one label and show their state through aria-pressed, so the lit chip is never
+  // read as "the action to take next" (SHIG 49).
+  favorite: { ja: "お気に入り", en: "Favorite" },
   watchOnYouTube: { ja: "YouTube で見る", en: "Watch on YouTube" },
   emptyTitle: { ja: "まだ何も選んでいません", en: "Nothing selected yet" },
   emptyBody: {
@@ -82,8 +84,17 @@ const STRINGS = {
     en: "Pin colors. Amber is live, black is off air.",
   },
   resizePanel: { ja: "パネルの幅を変える", en: "Resize panel" },
+  // Landmark names. The two asides (dial + legend, selected camera) must be told apart by name.
+  notesAria: { ja: "配信数とピンの色", en: "Live count and pin colors" },
+  panelAria: { ja: "選んだカメラ", en: "Selected camera" },
+  sheetExpand: { ja: "パネルを広げる", en: "Open the panel" },
+  sheetCollapse: { ja: "パネルを畳む", en: "Close the panel" },
+  sheetIdle: { ja: "地図から地点を選ぶ", en: "Pick a place on the map" },
   soundOn: { ja: "音を出す", en: "Sound on" },
-  soundOff: { ja: "音を消す", en: "Sound off" },
+  /** The language chip names its destination, in that language (SHIG 49, 71). */
+  switchLang: { ja: "English", en: "日本語" },
+  /** The same, as the code a narrow screen has room for. */
+  switchLangShort: { ja: "EN", en: "JA" },
   noLive: {
     ja: "いま配信しているカメラがありません。少し時間をおいてください。",
     en: "No cameras are live right now. Try again in a little while.",
@@ -111,6 +122,22 @@ const STRINGS = {
     ja: "生存状態を取得できませんでした。地図と再生は使えます。",
     en: "Could not load live state. The map and player still work.",
   },
+  camsNotLoaded: {
+    ja: "カメラの一覧をまだ読み込めていません。少し待ってからもう一度押してください。",
+    en: "The camera list has not loaded yet. Wait a moment and try again.",
+  },
+  noMatchShort: { ja: "条件に合うカメラがありません", en: "No cameras match" },
+  clearFilters: { ja: "絞り込みを解除", en: "Clear filters" },
+  /** Shown beside "絞り込み N" on narrow screens, where the full label would wrap the row. */
+  clearFiltersShort: { ja: "解除", en: "Clear" },
+  sheetIdleWatching: { ja: "一覧から地点を選ぶ", en: "Pick a place from the list" },
+  undo: { ja: "元に戻す", en: "Undo" },
+  dismiss: { ja: "通知を閉じる", en: "Dismiss" },
+  wallEmptyTitle: { ja: "並べるカメラがまだありません", en: "Nothing to show side by side yet" },
+  wallEmptyBody: {
+    ja: "地図でマーカーを選ぶと、最大4か所までここに並びます。",
+    en: "Pick markers on the map, and up to 4 places line up here.",
+  },
   night: { ja: "夜", en: "Night" },
   day: { ja: "昼", en: "Day" },
 } satisfies Record<string, Dict>;
@@ -121,7 +148,10 @@ export function t(key: StringKey, lang: Lang): string {
   return STRINGS[key][lang];
 }
 
-/** ダイヤルに出す配信中数 / 表示地点数。絞っているときは収録全件も添える。 */
+/**
+ * The live count / shown place count for the dial. When filtered, the full catalog count is added
+ * too.
+ */
 export function liveDialCaption(
   live: number,
   scoped: number,
@@ -151,6 +181,21 @@ export function liveDialCaption(
   };
 }
 
+/**
+ * "N watching", grouped in the UI language rather than the browser's. The panel and the list show
+ * the same number, so they must not disagree (a German browser used to give "4.321" in one and
+ * "4,321" in the other).
+ */
+export function viewersText(viewers: number, lang: Lang): string {
+  const locale = lang === "ja" ? "ja-JP" : "en-US";
+  return `${viewers.toLocaleString(locale)} ${t("viewers", lang)}`;
+}
+
+/** The notice after a camera is closed. Paired with an undo button. */
+export function closedNotice(name: string, lang: Lang): string {
+  return lang === "ja" ? `「${name}」を閉じました` : `Closed ${name}`;
+}
+
 const CATEGORY_LABELS: Record<CamCategory, Dict> = {
   city: { ja: "街", en: "City" },
   nature: { ja: "自然", en: "Nature" },
@@ -168,4 +213,24 @@ export function categoryLabel(category: CamCategory, lang: Lang): string {
 
 export function camName(name: { ja: string; en: string }, lang: Lang): string {
   return name[lang];
+}
+
+const countryNames = new Map<string, string>();
+
+/**
+ * "日本" / "Japan" for the ISO code the master carries. The screen speaks the user's words, not the
+ * data's (SHIG 11, 28). When the runtime cannot name the code, the code itself is shown.
+ */
+export function countryName(code: string, lang: Lang): string {
+  const key = `${lang}:${code}`;
+  const cached = countryNames.get(key);
+  if (cached !== undefined) return cached;
+  let name = code;
+  try {
+    name = new Intl.DisplayNames([lang === "ja" ? "ja-JP" : "en-US"], { type: "region", fallback: "none" }).of(code) ?? code;
+  } catch {
+    name = code;
+  }
+  countryNames.set(key, name);
+  return name;
 }

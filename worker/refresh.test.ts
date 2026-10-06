@@ -10,11 +10,19 @@ import {
   isDue,
   ledgerForDay,
   pruneOrphans,
-  rediscover,
+  rediscover as rediscoverEffect,
   remainingUnits,
-  sweepLiveness,
+  sweepLiveness as sweepLivenessEffect,
   utcDay,
 } from "./refresh";
+import { Effect } from "effect";
+import { YouTubeNetworkError } from "./youtube";
+
+// The algorithm returns Effects; these run them so the assertions stay plain Promise code.
+const sweepLiveness = (...args: Parameters<typeof sweepLivenessEffect>) =>
+  Effect.runPromise(sweepLivenessEffect(...args));
+const rediscover = (...args: Parameters<typeof rediscoverEffect>) =>
+  Effect.runPromise(rediscoverEffect(...args));
 
 const NOW = new Date("2026-08-18T12:00:00Z");
 
@@ -39,11 +47,13 @@ const video = (over: Partial<YouTubeVideo> & { id: string }): YouTubeVideo => ({
 });
 
 /**
- * 偽クライアント。
- *   videos      … listVideos が返す動画
- *   uploads     … uploads プレイリスト経由で見えるライブ(チャンネル別)
- *   search      … 検索経由で見えるライブ(省略時は uploads と同じ)
+ * Fake client.
+ *   videos      ... videos that listVideos returns
+ *   uploads     ... live streams visible via the uploads playlist (per channel)
+ *   search      ... live streams visible via search (same as uploads when omitted)
  */
+const boom = () => new YouTubeNetworkError({ cause: new Error("boom") });
+
 function fakeClient(opts: {
   videos?: YouTubeVideo[];
   uploads?: Record<string, YouTubeVideo[]>;
@@ -75,51 +85,54 @@ function fakeClient(opts: {
     get callsMade() {
       return callsMade;
     },
-    async listVideos(ids) {
-      listCalls.push([...ids]);
-      if (ids.length === 0) return [];
-      unitsUsed += 1;
-      callsMade += 1;
-      return ids.map((id) => byId.get(id)).filter((v): v is YouTubeVideo => v !== undefined);
-    },
-    async listChannelLiveStreamsViaUploads(channelId, shouldStop) {
-      uploadCalls.push(channelId);
-      unitsUsed += 2;
-      callsMade += 2;
-      if (opts.failUploads === true) throw new Error("boom");
-      const live = opts.uploads?.[channelId] ?? [];
-      // 打ち切り判定が呼ばれることを、テスト側でも確かめられるようにする。
-      stopChecks.push(shouldStop?.(live) ?? null);
-      return live;
-    },
-    async listChannelLiveStreamsViaSearch(channelId) {
-      searchCalls.push(channelId);
-      unitsUsed += 101;
-      callsMade += 2;
-      if (opts.failSearch === true) throw new Error("boom");
-      return opts.search?.[channelId] ?? opts.uploads?.[channelId] ?? [];
-    },
+    listVideos: (ids) =>
+      Effect.sync(() => {
+        listCalls.push([...ids]);
+        if (ids.length === 0) return [];
+        unitsUsed += 1;
+        callsMade += 1;
+        return ids.map((id) => byId.get(id)).filter((v): v is YouTubeVideo => v !== undefined);
+      }),
+    listChannelLiveStreamsViaUploads: (channelId, shouldStop) =>
+      Effect.suspend(() => {
+        uploadCalls.push(channelId);
+        unitsUsed += 2;
+        callsMade += 2;
+        if (opts.failUploads === true) return Effect.fail(boom());
+        const live = opts.uploads?.[channelId] ?? [];
+        // Lets the tests also confirm that the stop check gets called.
+        stopChecks.push(shouldStop?.(live) ?? null);
+        return Effect.succeed(live);
+      }),
+    listChannelLiveStreamsViaSearch: (channelId) =>
+      Effect.suspend(() => {
+        searchCalls.push(channelId);
+        unitsUsed += 101;
+        callsMade += 2;
+        if (opts.failSearch === true) return Effect.fail(boom());
+        return Effect.succeed(opts.search?.[channelId] ?? opts.uploads?.[channelId] ?? []);
+      }),
   };
 }
 
 describe("utcDay", () => {
-  it("UTC の日付を返す", () => {
+  it("returns the date in UTC", () => {
     expect(utcDay(new Date("2026-08-18T23:30:00Z"))).toBe("2026-08-18");
     expect(utcDay(new Date("2026-08-19T00:30:00Z"))).toBe("2026-08-19");
   });
 });
 
 describe("ledgerForDay", () => {
-  it("記録が無ければ当日ゼロから始める", () => {
+  it("starts from zero for the day when there is no record", () => {
     expect(ledgerForDay(null, NOW)).toEqual({ day: "2026-08-18", used: 0 });
   });
 
-  it("同じ日の記録はそのまま使う", () => {
+  it("uses a record from the same day as is", () => {
     const stored = { day: "2026-08-18", used: 500 };
     expect(ledgerForDay(stored, NOW)).toEqual(stored);
   });
 
-  it("日が変わったらリセットする", () => {
+  it("resets when the day has changed", () => {
     expect(ledgerForDay({ day: "2026-08-17", used: 9999 }, NOW)).toEqual({
       day: "2026-08-18",
       used: 0,
@@ -128,17 +141,17 @@ describe("ledgerForDay", () => {
 });
 
 describe("remainingUnits", () => {
-  it("予算から使用済みを引く", () => {
+  it("subtracts the used amount from the budget", () => {
     expect(remainingUnits({ day: "d", used: 1000 })).toBe(DAILY_UNIT_BUDGET - 1000);
   });
 
-  it("使い切ったら負にせず 0 を返す", () => {
+  it("returns 0 instead of a negative when used up", () => {
     expect(remainingUnits({ day: "d", used: DAILY_UNIT_BUDGET + 500 })).toBe(0);
   });
 });
 
 describe("sweepLiveness", () => {
-  it("ライブ中の配信を live として記録する", async () => {
+  it("records a stream that is live as live", async () => {
     const client = fakeClient({ videos: [video({ id: "vid-a", viewers: 42, title: "Venice" })] });
     const { states, unitsUsed } = await sweepLiveness([cam("a")], new Map(), client, NOW);
 
@@ -146,34 +159,33 @@ describe("sweepLiveness", () => {
       videoId: "vid-a",
       status: "live",
       viewers: 42,
-      title: "Venice",
       checkedAt: NOW.toISOString(),
     });
     expect(unitsUsed).toBe(1);
   });
 
-  it("配信が終わっていれば offline", async () => {
+  it("is offline when the stream has ended", async () => {
     const client = fakeClient({ videos: [video({ id: "vid-a", isLive: false })] });
     const { states } = await sweepLiveness([cam("a")], new Map(), client, NOW);
     expect(states.get("a")!.status).toBe("offline");
   });
 
-  it("動画ごと消えていれば offline", async () => {
+  it("is offline when the video itself is gone", async () => {
     const client = fakeClient({ videos: [] });
     const { states } = await sweepLiveness([cam("a")], new Map(), client, NOW);
     expect(states.get("a")!.status).toBe("offline");
     expect(states.get("a")!.viewers).toBeNull();
   });
 
-  it("埋め込み禁止は blocked として区別する", async () => {
+  it("distinguishes an embedding ban as blocked", async () => {
     const client = fakeClient({ videos: [video({ id: "vid-a", embeddable: false })] });
     const { states } = await sweepLiveness([cam("a")], new Map(), client, NOW);
     expect(states.get("a")!.status).toBe("blocked");
   });
 
-  it("既存状態の videoId をマスタより優先する", async () => {
+  it("prefers the videoId of the existing state over the master", async () => {
     const prior = new Map<string, CamState>([
-      ["a", { videoId: "vid-new", status: "live", viewers: null, title: null, checkedAt: "old" }],
+      ["a", { videoId: "vid-new", status: "live", viewers: null, checkedAt: "old" }],
     ]);
     const client = fakeClient({ videos: [video({ id: "vid-new" })] });
     const { states } = await sweepLiveness([cam("a")], prior, client, NOW);
@@ -181,7 +193,7 @@ describe("sweepLiveness", () => {
     expect(client.listCalls[0]).toEqual(["vid-new"]);
   });
 
-  it("videoId を持たないカメラには触れない(再探索の仕事)", async () => {
+  it("does not touch cameras without a videoId (the job of rediscovery)", async () => {
     const noVideo = cam("a", { source: { videoId: null, channelId: "UC1", titleKey: "t" } });
     const client = fakeClient({ videos: [] });
     const { states, unitsUsed } = await sweepLiveness([noVideo], new Map(), client, NOW);
@@ -189,7 +201,7 @@ describe("sweepLiveness", () => {
     expect(unitsUsed).toBe(0);
   });
 
-  it("50 件ごとに分割して投げる", async () => {
+  it("splits into groups of 50 items to send", async () => {
     const cams = Array.from({ length: 51 }, (_, i) => cam(`c${i}`));
     const client = fakeClient({ videos: [] });
     const { unitsUsed } = await sweepLiveness(cams, new Map(), client, NOW);
@@ -197,7 +209,7 @@ describe("sweepLiveness", () => {
     expect(unitsUsed).toBe(2);
   });
 
-  it("同じ videoId を共有するカメラをまとめて 1 件として問い合わせる", async () => {
+  it("queries cameras sharing the same videoId together as 1 item", async () => {
     const shared = { videoId: "vid-same", channelId: "UC1", titleKey: "shared" };
     const cams = [cam("a", { source: shared }), cam("b", { source: shared })];
     const client = fakeClient({ videos: [video({ id: "vid-same" })] });
@@ -207,15 +219,15 @@ describe("sweepLiveness", () => {
     expect(states.get("b")!.status).toBe("live");
   });
 
-  it("予算が足りなければ途中で止め、理由を残す", async () => {
+  it("stops midway and leaves the reason when the budget is short", async () => {
     const cams = Array.from({ length: 51 }, (_, i) => cam(`c${i}`));
     const client = fakeClient({ videos: [] });
     const { unitsUsed, notes } = await sweepLiveness(cams, new Map(), client, NOW, 1);
     expect(unitsUsed).toBe(1);
-    expect(notes.join(" ")).toContain("予算");
+    expect(notes.join(" ")).toContain("budget");
   });
 
-  it("予算が 0 なら 1 度も叩かない", async () => {
+  it("never calls even once when the budget is 0", async () => {
     const client = fakeClient({ videos: [] });
     const { unitsUsed } = await sweepLiveness([cam("a")], new Map(), client, NOW, 0);
     expect(unitsUsed).toBe(0);
@@ -229,13 +241,12 @@ describe("rediscover", () => {
     videoId: "vid-dead",
     status: "offline",
     viewers: null,
-    title: null,
     checkedAt,
   });
   const onChannel = (id: string, titleKey: string): Cam =>
     cam(id, { source: { videoId: null, channelId: CH, titleKey } });
 
-  it("配信タイトルで、そのカメラの配信を選び直す", async () => {
+  it("reselects the stream of that camera by the stream title", async () => {
     const times = onChannel("times-square", "EarthCam Live: Times Square North 4K");
     const client = fakeClient({
       uploads: {
@@ -253,15 +264,14 @@ describe("rediscover", () => {
       videoId: "vid-times",
       status: "live",
       viewers: 88,
-      title: "EarthCam Live: Times Square North 4K",
       checkedAt: NOW.toISOString(),
     });
     expect(unitsUsed).toBe(2);
   });
 
-  it("生存確認がまだ触っていないカメラには手を出さない", async () => {
-    // 状態が無い = 一度も生存確認していない。記録した videoId が生きている
-    // 可能性が高いので、当てにならない再探索で offline にしてはいけない。
+  it("does not touch cameras the liveness sweep has not touched yet", async () => {
+    // No state = never checked by the liveness sweep. The recorded videoId is likely
+    // still alive, so the unreliable rediscovery must not mark it offline.
     const fresh = cam("fresh", { source: { videoId: "vid-fresh", channelId: CH, titleKey: "F" } });
     const client = fakeClient({});
     const { states, unitsUsed } = await rediscover([fresh], new Map(), client, NOW, {
@@ -271,16 +281,16 @@ describe("rediscover", () => {
     expect(states.size).toBe(0);
   });
 
-  it("videoId を持たないカメラは、状態が無くても探しにいく", async () => {
-    // 生存確認は videoId が無いカメラを飛ばすので、こちらが動かないと永久に
-    // 解決しない。
+  it("goes looking for cameras without a videoId even when there is no state", async () => {
+    // The liveness sweep skips cameras without a videoId, so unless this side acts it
+    // is never resolved.
     const c = onChannel("a", "EarthCam Live: A");
     const client = fakeClient({ uploads: { [CH]: [video({ id: "va", title: "EarthCam Live: A" })] } });
     const { states } = await rediscover([c], new Map(), client, NOW, { maxChannels: 1 });
     expect(states.get("a")!.videoId).toBe("va");
   });
 
-  it("見分けがつかなくても、記録済みの videoId は消さない", async () => {
+  it("does not erase the recorded videoId even when it cannot be told apart", async () => {
     const c = cam("a", { source: { videoId: "vid-source", channelId: CH, titleKey: "A" } });
     const prior = new Map([
       [
@@ -289,18 +299,17 @@ describe("rediscover", () => {
           videoId: "vid-rotated",
           status: "offline" as const,
           viewers: null,
-          title: null,
           checkedAt: "2026-08-17T00:00:00Z",
         },
       ],
     ]);
     const client = fakeClient({ uploads: { [CH]: [video({ id: "vz", title: "Z" })] } });
     const { states } = await rediscover([c], prior, client, NOW, { maxChannels: 1 });
-    // KV に残っている回転後の id を、マスタより優先して次の生存確認に渡す。
+    // The rotated id left in KV is handed to the next liveness sweep in preference to the master.
     expect(states.get("a")).toMatchObject({ status: "offline", videoId: "vid-rotated" });
   });
 
-  it("状態の videoId が空なら、マスタの videoId を残す", async () => {
+  it("keeps the master videoId when the state videoId is empty", async () => {
     const c = cam("a", { source: { videoId: "vid-source", channelId: CH, titleKey: "A" } });
     const prior = new Map([
       [
@@ -309,7 +318,6 @@ describe("rediscover", () => {
           videoId: null,
           status: "offline" as const,
           viewers: null,
-          title: null,
           checkedAt: "2026-08-17T00:00:00Z",
         },
       ],
@@ -319,8 +327,8 @@ describe("rediscover", () => {
     expect(states.get("a")).toMatchObject({ status: "offline", videoId: "vid-source" });
   });
 
-  it("見分けがつかないときに、同じチャンネルの別の配信を掴まない", async () => {
-    // これが最悪の失敗。タイムズスクエアのピンに別の街を映してはいけない。
+  it("does not grab another stream on the same channel when it cannot be told apart", async () => {
+    // This is the worst failure. The Times Square pin must not show another city.
     const times = onChannel("times-square", "EarthCam Live: Times Square North 4K");
     const client = fakeClient({
       uploads: { [CH]: [video({ id: "vid-seaside", title: "EarthCam Live: Seaside Heights, NJ" })] },
@@ -328,10 +336,10 @@ describe("rediscover", () => {
     const { states, notes } = await rediscover([times], new Map(), client, NOW, { maxChannels: 1 });
 
     expect(states.get("times-square")).toMatchObject({ status: "offline", videoId: null });
-    expect(notes.join(" ")).toContain("見分けがつかず");
+    expect(notes.join(" ")).toContain("could not tell the streams apart");
   });
 
-  it("同じチャンネルのカメラを 1 回の問い合わせでまとめて片付ける", async () => {
+  it("handles cameras on the same channel together in 1 query", async () => {
     const cams = [
       onChannel("a", "EarthCam Live: A"),
       onChannel("b", "EarthCam Live: B"),
@@ -350,11 +358,11 @@ describe("rediscover", () => {
 
     expect(client.uploadCalls).toEqual([CH]);
     expect([...states.values()].map((s) => s.videoId)).toEqual(["va", "vb", "vc"]);
-    // 3 台でも 1 チャンネルぶんの 2 unit で済む。
+    // Even with 3 cameras, the 2 units for 1 channel are enough.
     expect(unitsUsed).toBe(2);
   });
 
-  it("uploads で取りこぼしたら、網羅できる検索に落とす", async () => {
+  it("falls back to the search that can be exhaustive when uploads misses", async () => {
     const cam1 = onChannel("a", "EarthCam Live: A");
     const client = fakeClient({
       uploads: { [CH]: [video({ id: "vz", title: "EarthCam Live: Z" })] },
@@ -369,23 +377,23 @@ describe("rediscover", () => {
     expect(unitsUsed).toBe(2 + 101);
   });
 
-  it("uploads で全部見つかれば、高い検索は使わない", async () => {
+  it("does not use the expensive search when uploads finds everything", async () => {
     const cam1 = onChannel("a", "EarthCam Live: A");
     const client = fakeClient({ uploads: { [CH]: [video({ id: "va", title: "EarthCam Live: A" })] } });
     await rediscover([cam1], new Map(), client, NOW, { maxChannels: 1 });
     expect(client.searchCalls).toEqual([]);
-    // 目当てが揃っているので、その先のページは要らないと伝わる。
+    // The targets are all found, so it signals that further pages are not needed.
     expect(client.stopChecks).toEqual([true]);
   });
 
-  it("目当てが揃っていなければ、ページ送りを続けるよう伝える", async () => {
+  it("signals to keep paging when the targets are not all found", async () => {
     const cams = [onChannel("a", "EarthCam Live: A"), onChannel("b", "EarthCam Live: B")];
     const client = fakeClient({ uploads: { [CH]: [video({ id: "va", title: "EarthCam Live: A" })] } });
     await rediscover(cams, new Map(), client, NOW, { maxChannels: 1 });
     expect(client.stopChecks).toEqual([false]);
   });
 
-  it("検索に落とす余裕が無ければ uploads の結果で確定する", async () => {
+  it("settles on the uploads result when there is no room to fall back to search", async () => {
     const cam1 = onChannel("a", "EarthCam Live: A");
     const client = fakeClient({
       uploads: { [CH]: [video({ id: "vz", title: "EarthCam Live: Z" })] },
@@ -401,14 +409,14 @@ describe("rediscover", () => {
     expect(unitsUsed).toBe(2);
   });
 
-  it("高い検索経路は 1 回の実行で配給される回数までしか使わない", async () => {
+  it("uses the expensive search path only up to the count rationed for 1 run", async () => {
     const chA = "UCaaaa00000000000000000";
     const chB = "UCbbbb00000000000000000";
     const cams = [
       cam("a", { source: { videoId: null, channelId: chA, titleKey: "A" } }),
       cam("b", { source: { videoId: null, channelId: chB, titleKey: "B" } }),
     ];
-    // どちらのチャンネルも uploads では取りこぼす。
+    // Both channels miss with uploads.
     const client = fakeClient({
       uploads: { [chA]: [video({ id: "vz", title: "Z" })], [chB]: [video({ id: "vy", title: "Y" })] },
       search: { [chA]: [video({ id: "va", title: "A" })], [chB]: [video({ id: "vb", title: "B" })] },
@@ -419,7 +427,7 @@ describe("rediscover", () => {
     expect(client.searchCalls).toHaveLength(1);
   });
 
-  it("埋め込み禁止の配信は blocked にする", async () => {
+  it("marks a stream with an embedding ban as blocked", async () => {
     const cam1 = onChannel("a", "EarthCam Live: A");
     const client = fakeClient({
       uploads: { [CH]: [video({ id: "va", title: "EarthCam Live: A", embeddable: false })] },
@@ -428,9 +436,9 @@ describe("rediscover", () => {
     expect(states.get("a")!.status).toBe("blocked");
   });
 
-  it("ライブ中のカメラは対象にしない", async () => {
+  it("does not target cameras that are live", async () => {
     const live = new Map<string, CamState>([
-      ["a", { videoId: "v", status: "live", viewers: 1, title: "t", checkedAt: "x" }],
+      ["a", { videoId: "v", status: "live", viewers: 1, checkedAt: "x" }],
     ]);
     const client = fakeClient({});
     const { unitsUsed } = await rediscover([onChannel("a", "A")], live, client, NOW, {
@@ -440,7 +448,7 @@ describe("rediscover", () => {
     expect(client.uploadCalls).toEqual([]);
   });
 
-  it("最も長く放っておかれたカメラを抱えるチャンネルから片付ける", async () => {
+  it("starts with the channel holding the camera left alone the longest", async () => {
     const fresh = cam("fresh", { source: { videoId: null, channelId: "UCfresh0000000000000000", titleKey: "F" } });
     const stale = cam("stale", { source: { videoId: null, channelId: "UCstale0000000000000000", titleKey: "S" } });
     const prior = new Map([
@@ -452,7 +460,7 @@ describe("rediscover", () => {
     expect(client.uploadCalls).toEqual([stale.source.channelId]);
   });
 
-  it("状態が無いチャンネルを最優先で拾う", async () => {
+  it("picks up a channel without a state with top priority", async () => {
     const known = cam("known", { source: { videoId: null, channelId: "UCknown0000000000000000", titleKey: "K" } });
     const never = cam("never", { source: { videoId: null, channelId: "UCnever0000000000000000", titleKey: "N" } });
     const prior = new Map([["known", offline("2026-08-17T00:00:00Z")]]);
@@ -461,7 +469,7 @@ describe("rediscover", () => {
     expect(client.uploadCalls).toEqual([never.source.channelId]);
   });
 
-  it("同じ古さのチャンネルが並んでも壊れない", async () => {
+  it("does not break when channels of the same staleness line up", async () => {
     const a = cam("a", { source: { videoId: null, channelId: "UCaaaa00000000000000000", titleKey: "A" } });
     const b = cam("b", { source: { videoId: null, channelId: "UCbbbb00000000000000000", titleKey: "B" } });
     const same = "2026-08-17T00:00:00Z";
@@ -471,7 +479,7 @@ describe("rediscover", () => {
     expect(client.uploadCalls).toHaveLength(2);
   });
 
-  it("同じチャンネル内で最も古いカメラを、そのチャンネルの古さとして扱う", async () => {
+  it("treats the oldest camera within a channel as the staleness of that channel", async () => {
     const old = onChannel("old", "O");
     const recent = onChannel("recent", "R");
     const other = cam("other", {
@@ -482,16 +490,16 @@ describe("rediscover", () => {
       ["old", offline("2026-08-01T00:00:00Z")],
       ["other", offline("2026-08-10T00:00:00Z")],
     ]);
-    // 並び順に依らず、そのチャンネルで最も古いカメラが基準になる。
+    // Regardless of order, the oldest camera on that channel is the reference.
     for (const order of [[recent, old, other], [old, recent, other]]) {
       const client = fakeClient({});
       await rediscover(order, prior, client, NOW, { maxChannels: 1 });
-      // recent(08-18) ではなく old(08-01) を抱える CH が先に選ばれる。
+      // CH is chosen first as the channel holding old (08-01), not recent (08-18).
       expect(client.uploadCalls).toEqual([CH]);
     }
   });
 
-  it("maxChannels で件数を抑える", async () => {
+  it("holds the count down with maxChannels", async () => {
     const cams = ["x", "y", "z"].map((k) =>
       cam(k, { source: { videoId: null, channelId: `UC${k.repeat(22)}`, titleKey: k } }),
     );
@@ -500,26 +508,26 @@ describe("rediscover", () => {
     expect(client.uploadCalls).toHaveLength(2);
   });
 
-  it("予算が足りなければ 1 件も探さず、理由を残す", async () => {
+  it("searches for none and leaves the reason when the budget is short", async () => {
     const client = fakeClient({});
     const { unitsUsed, notes } = await rediscover([onChannel("a", "A")], new Map(), client, NOW, {
       maxChannels: 3,
       unitBudget: 1,
     });
     expect(unitsUsed).toBe(0);
-    expect(notes.join(" ")).toContain("予算");
+    expect(notes.join(" ")).toContain("budget");
   });
 
-  it("1 チャンネルの失敗で全体を落とさず、そのカメラを unknown にする", async () => {
+  it("does not fail everything on 1 channel's failure, and marks that camera unknown", async () => {
     const client = fakeClient({ failUploads: true });
     const { states, notes } = await rediscover([onChannel("a", "A")], new Map(), client, NOW, {
       maxChannels: 1,
     });
     expect(states.get("a")!.status).toBe("unknown");
-    expect(notes.join(" ")).toContain("失敗");
+    expect(notes.join(" ")).toContain("rediscovery failed");
   });
 
-  it("再探索が失敗しても、記録済みの videoId は消さない", async () => {
+  it("does not erase the recorded videoId even when rediscovery fails", async () => {
     const c = cam("a", { source: { videoId: "vid-source", channelId: CH, titleKey: "A" } });
     const prior = new Map([
       [
@@ -528,7 +536,6 @@ describe("rediscover", () => {
           videoId: "vid-rotated",
           status: "offline" as const,
           viewers: null,
-          title: "was",
           checkedAt: "old",
         },
       ],
@@ -538,11 +545,10 @@ describe("rediscover", () => {
     expect(states.get("a")).toMatchObject({
       status: "unknown",
       videoId: "vid-rotated",
-      title: "was",
     });
   });
 
-  it("検索での再探索が失敗しても、uploads の結果で確定する", async () => {
+  it("settles on the uploads result even when rediscovery by search fails", async () => {
     const client = fakeClient({
       uploads: { [CH]: [video({ id: "vz", title: "EarthCam Live: Z" })] },
       failSearch: true,
@@ -551,10 +557,10 @@ describe("rediscover", () => {
       maxChannels: 1,
     });
     expect(states.get("a")!.status).toBe("offline");
-    expect(notes.join(" ")).toContain("検索での再探索に失敗");
+    expect(notes.join(" ")).toContain("rediscovery via search failed");
   });
 
-  it("対象が無ければ何も問い合わせない", async () => {
+  it("queries nothing when there are no targets", async () => {
     const client = fakeClient({});
     const { unitsUsed } = await rediscover([], new Map(), client, NOW, { maxChannels: 3 });
     expect(unitsUsed).toBe(0);
@@ -562,7 +568,7 @@ describe("rediscover", () => {
   });
 });
 
-describe("sweepLiveness のサブリクエスト上限", () => {
+describe("sweepLiveness subrequest limit", () => {
   const many = (n: number): Cam[] => Array.from({ length: n }, (_, i) => cam(`c${i}`));
   const perSweep = MAX_LIST_CALLS_PER_SWEEP * MAX_VIDEO_IDS_PER_CALL;
 
@@ -572,28 +578,28 @@ describe("sweepLiveness のサブリクエスト上限", () => {
     status: CamState["status"] = "live",
   ): [string, CamState] => [
     id,
-    { videoId: `vid-${id}`, status, viewers: null, title: null, checkedAt: at },
+    { videoId: `vid-${id}`, status, viewers: null, checkedAt: at },
   ];
 
-  it("1 回の実行で listVideos を呼ぶ回数が上限を超えない", async () => {
-    // Workers は 1 呼び出しあたりのサブリクエストが 50 で頭打ちになる。
-    // 5,720 台を 50 件ずつ割ると 115 回になり、途中で必ず落ちる。
+  it("keeps the number of listVideos calls in 1 run within the limit", async () => {
+    // Workers caps subrequests per invocation at 50.
+    // Splitting 5,720 cameras into groups of 50 makes 115 calls, which always fails midway.
     const client = fakeClient({ videos: [] });
     await sweepLiveness(many(5720), new Map(), client, NOW);
 
     expect(client.listCalls.length).toBeLessThanOrEqual(MAX_LIST_CALLS_PER_SWEEP);
   });
 
-  it("上限で見送ったカメラは結果に含めない(offline と誤判定しない)", async () => {
+  it("leaves cameras skipped at the limit out of the result (no misjudging as offline)", async () => {
     const client = fakeClient({ videos: [] });
     const { states } = await sweepLiveness(many(5720), new Map(), client, NOW);
 
     expect(states.size).toBe(perSweep);
   });
 
-  it("確認がいちばん古いカメラから先に見る", async () => {
-    // 先頭 perSweep 台はさっき確認したばかり、末尾 50 台は一度も見ていない。
-    // 素直に先頭から舐めると末尾は永遠に確認されない。
+  it("looks at the cameras with the oldest check first", async () => {
+    // The first perSweep cameras were checked just now, the last 50 were never looked at.
+    // Going naively from the head, the tail is never checked.
     const cams = many(perSweep + 50);
     const stale = new Map<string, CamState>(
       cams.slice(0, perSweep).map((c) => checkedAt(c.id, "2026-08-18T11:59:00Z")),
@@ -603,18 +609,18 @@ describe("sweepLiveness のサブリクエスト上限", () => {
     const { states } = await sweepLiveness(cams, stale, client, NOW);
 
     for (const c of cams.slice(-50)) {
-      expect(states.has(c.id), `${c.id} が確認されていない`).toBe(true);
+      expect(states.has(c.id), `${c.id} was not checked`).toBe(true);
     }
   });
 
-  it("確認が古い順に投げ、同着なら台帳の順序を崩さない", async () => {
-    // 並び順そのものを見たいので、全台とも再確認の間隔は過ぎている状態にする。
+  it("sends in order of oldest check, and keeps the ledger order on a tie", async () => {
+    // The order itself is under test, so every camera is past its recheck interval.
     const cams = [cam("a"), cam("b"), cam("c"), cam("d")];
     const states = new Map<string, CamState>([
       checkedAt("a", "2026-08-18T11:00:00Z", "offline"),
       checkedAt("b", "2026-08-18T09:00:00Z", "offline"),
-      // c は一度も確認していない → 最優先
-      checkedAt("d", "2026-08-18T11:00:00Z", "offline"), // a と同着
+      // c has never been checked -> top priority
+      checkedAt("d", "2026-08-18T11:00:00Z", "offline"), // ties with a
     ]);
     const client = fakeClient({ videos: [] });
 
@@ -623,18 +629,18 @@ describe("sweepLiveness のサブリクエスト上限", () => {
     expect(client.listCalls[0]).toEqual(["vid-c", "vid-b", "vid-a", "vid-d"]);
   });
 
-  it("全部を見終わったら打ち切りのメモは残さない", async () => {
+  it("leaves no cutoff note when everything has been looked at", async () => {
     const client = fakeClient({ videos: [] });
     const { notes } = await sweepLiveness(many(10), new Map(), client, NOW);
 
     expect(notes).toEqual([]);
   });
 
-  it("上限で打ち切ったことをメモに残す", async () => {
+  it("leaves a note that it was cut off at the limit", async () => {
     const client = fakeClient({ videos: [] });
     const { notes } = await sweepLiveness(many(5720), new Map(), client, NOW);
 
-    expect(notes.join()).toContain("サブリクエスト");
+    expect(notes.join()).toContain("subrequest");
   });
 });
 
@@ -643,50 +649,49 @@ describe("isDue", () => {
     videoId: "v",
     status,
     viewers: null,
-    title: null,
     checkedAt,
   });
 
-  it("状態がまだ無いカメラは必ず確かめる", () => {
+  it("always checks a camera that has no state yet", () => {
     expect(isDue(undefined, NOW)).toBe(true);
   });
 
-  it("ライブは 2 時間経つまで見送る", () => {
+  it("skips a live one until 2 hours have passed", () => {
     expect(isDue(at("live", "2026-08-18T11:30:00Z"), NOW)).toBe(false);
   });
 
-  it("ライブでも間隔を過ぎたら確かめ直す", () => {
+  it("rechecks even a live one once the interval has passed", () => {
     expect(isDue(at("live", "2026-08-18T09:00:00Z"), NOW)).toBe(true);
   });
 
-  it("offline は 20 分で確かめ直す", () => {
+  it("rechecks offline after 20 minutes", () => {
     expect(isDue(at("offline", "2026-08-18T11:30:00Z"), NOW)).toBe(true);
   });
 
-  it("blocked も offline と同じ間隔で回す", () => {
+  it("runs blocked at the same interval as offline", () => {
     expect(isDue(at("blocked", "2026-08-18T11:30:00Z"), NOW)).toBe(true);
   });
 
-  it("直前に見た offline は見送る", () => {
+  it("skips an offline one looked at just before", () => {
     expect(isDue(at("offline", "2026-08-18T11:55:00Z"), NOW)).toBe(false);
   });
 
-  it("checkedAt が読めない状態は確かめる側に倒す", () => {
+  it("falls to the checking side for a state with an unreadable checkedAt", () => {
     expect(isDue(at("live", "not-a-date"), NOW)).toBe(true);
   });
 
-  it("ライブの間隔は offline より長い", () => {
+  it("has a longer interval for live than for offline", () => {
     expect(RECHECK_INTERVAL_MS.live).toBeGreaterThan(RECHECK_INTERVAL_MS.offline);
   });
 });
 
-describe("sweepLiveness の間隔しぼり", () => {
+describe("sweepLiveness narrowing by interval", () => {
   const at = (id: string, status: CamState["status"], checkedAt: string): [string, CamState] => [
     id,
-    { videoId: `vid-${id}`, status, viewers: null, title: null, checkedAt },
+    { videoId: `vid-${id}`, status, viewers: null, checkedAt },
   ];
 
-  it("まだ間隔の来ていないライブは問い合わせない", async () => {
+  it("does not query a live one whose interval has not come yet", async () => {
     const client = fakeClient({ videos: [] });
     const states = new Map([at("a", "live", "2026-08-18T11:30:00Z")]);
 
@@ -697,9 +702,9 @@ describe("sweepLiveness の間隔しぼり", () => {
     expect(unitsUsed).toBe(0);
   });
 
-  it("見送ったライブのぶんの枠を offline に回す", async () => {
-    // ライブ 60 台(直前に確認済み)と offline 10 台。素直に全件詰めると
-    // 1 回の呼び出し(50 件)がライブで埋まり、offline が次回送りになる。
+  it("gives the capacity of the skipped live ones to offline", async () => {
+    // 60 live cameras (checked just before) and 10 offline. Packing everything naively
+    // fills 1 call (50 items) with live ones, and offline is pushed to the next run.
     const cams = [
       ...Array.from({ length: 60 }, (_, i) => cam(`live${i}`)),
       ...Array.from({ length: 10 }, (_, i) => cam(`off${i}`)),
@@ -716,7 +721,7 @@ describe("sweepLiveness の間隔しぼり", () => {
     expect(updated.size).toBe(10);
   });
 
-  it("誰も間隔が来ていなければ 1 度も叩かない", async () => {
+  it("never calls even once when no one's interval has come", async () => {
     const client = fakeClient({ videos: [] });
     const states = new Map([at("a", "live", "2026-08-18T11:59:00Z")]);
 
@@ -732,11 +737,10 @@ describe("pruneOrphans", () => {
     videoId,
     status: "live",
     viewers: null,
-    title: null,
     checkedAt: NOW.toISOString(),
   });
 
-  it("マスタに無い id の状態を落とす", () => {
+  it("drops the state of ids not in the master", () => {
     const states = new Map([
       ["a", state("vid-a")],
       ["gone", state("vid-gone")],
@@ -747,7 +751,7 @@ describe("pruneOrphans", () => {
     expect([...kept.keys()]).toEqual(["a"]);
   });
 
-  it("落とした id を報告する", () => {
+  it("reports the ids it dropped", () => {
     const states = new Map([["gone", state("vid-gone")]]);
 
     const { removed } = pruneOrphans(states, [cam("a")]);
@@ -755,7 +759,7 @@ describe("pruneOrphans", () => {
     expect(removed).toEqual(["gone"]);
   });
 
-  it("孤児が無ければ何も報告しない", () => {
+  it("reports nothing when there are no orphans", () => {
     const states = new Map([["a", state("vid-a")]]);
 
     const { kept, removed } = pruneOrphans(states, [cam("a")]);
@@ -766,20 +770,20 @@ describe("pruneOrphans", () => {
 });
 
 describe("ROLE_UNIT_BUDGET", () => {
-  it("役割ごとの予算の合計が日次上限に収まる", () => {
+  it("keeps the sum of the per-role budgets within the daily limit", () => {
     expect(ROLE_UNIT_BUDGET.sweep + ROLE_UNIT_BUDGET.rediscover).toBe(DAILY_UNIT_BUDGET);
   });
 
-  it("再探索にも生存確認と同等の枠を残す", () => {
+  it("leaves rediscovery a budget equal to the liveness sweep", () => {
     expect(ROLE_UNIT_BUDGET.rediscover).toBeGreaterThanOrEqual(ROLE_UNIT_BUDGET.sweep);
   });
 });
 
-describe("rediscover のサブリクエスト上限", () => {
-  // Workers は 1 回の呼び出しで出せるサブリクエストが 50 で頭打ちになる。
-  // チャンネル 1 本の再探索は uploads を最大 3 ページ辿り、1 ページにつき
-  // playlistItems + videosList の 2 回を出すので、最悪 6 回かかる。
-  // 件数だけで上限を切ると 24 本 × 6 = 144 回になって半分が落ちる(実際に落ちた)。
+describe("rediscover subrequest limit", () => {
+  // Workers caps the subrequests that 1 invocation can make at 50.
+  // Rediscovery of 1 channel walks up to 3 pages of uploads and makes 2 calls per page,
+  // playlistItems + videosList, so it takes 6 calls at worst.
+  // Capping by count alone gives 24 channels x 6 = 144 calls and half fail (it actually failed).
   const manyChannels = (n: number): Cam[] =>
     Array.from({ length: n }, (_, i) =>
       cam(`c${i}`, {
@@ -791,7 +795,7 @@ describe("rediscover のサブリクエスト上限", () => {
       }),
     );
 
-  /** 全カメラが offline = 全チャンネルが再探索の対象。 */
+  /** Every camera is offline = every channel is a rediscovery target. */
   const allOffline = (cams: readonly Cam[]): Map<string, CamState> =>
     new Map(
       cams.map((c) => [
@@ -800,13 +804,12 @@ describe("rediscover のサブリクエスト上限", () => {
           videoId: c.source.videoId,
           status: "offline" as const,
           viewers: null,
-          title: null,
           checkedAt: "2026-08-18T00:00:00Z",
         },
       ]),
     );
 
-  it("1 回の実行で出す呼び出しがサブリクエストの枠を超えない", async () => {
+  it("keeps the calls made in 1 run within the subrequest allowance", async () => {
     const cams = manyChannels(60);
     const client = fakeClient({});
 
@@ -818,7 +821,7 @@ describe("rediscover のサブリクエスト上限", () => {
     expect(client.callsMade).toBeLessThanOrEqual(MAX_CALLS_PER_REDISCOVER);
   });
 
-  it("最後の 1 本が最悪の回数を使っても超えないところで止める", async () => {
+  it("stops where the last channel cannot exceed it even using the worst-case calls", async () => {
     const cams = manyChannels(60);
     const client = fakeClient({});
 
@@ -827,13 +830,14 @@ describe("rediscover のサブリクエスト上限", () => {
       maxSearches: 0,
     });
 
-    // 次の 1 本が最悪 MAX_CALLS_PER_CHANNEL 回使っても枠に収まる時点で止まる。
+    // Stops at the point where the next channel still fits the allowance even if it uses
+    // the worst case of MAX_CALLS_PER_CHANNEL calls.
     expect(client.callsMade + MAX_CALLS_PER_CHANNEL).toBeGreaterThan(
       MAX_CALLS_PER_REDISCOVER,
     );
   });
 
-  it("打ち切ったことをメモに残す", async () => {
+  it("leaves a note that it was cut off", async () => {
     const cams = manyChannels(60);
     const client = fakeClient({});
 
@@ -842,10 +846,10 @@ describe("rediscover のサブリクエスト上限", () => {
       maxSearches: 0,
     });
 
-    expect(notes.join()).toContain("サブリクエスト");
+    expect(notes.join()).toContain("subrequest");
   });
 
-  it("枠に収まる本数なら打ち切らない", async () => {
+  it("does not cut off when the channel count fits the allowance", async () => {
     const cams = manyChannels(3);
     const client = fakeClient({});
 
@@ -855,6 +859,6 @@ describe("rediscover のサブリクエスト上限", () => {
     });
 
     expect(client.uploadCalls.length).toBe(3);
-    expect(notes.join()).not.toContain("サブリクエスト");
+    expect(notes.join()).not.toContain("subrequest");
   });
 });

@@ -11,29 +11,29 @@ import {
 } from "./placeOverview";
 
 describe("sanitizeSearchName", () => {
-  it("引用符と余分な空白を落とす", () => {
+  it("drops quotes and extra whitespace", () => {
     expect(sanitizeSearchName('  Times  "Square"  ')).toBe("Times Square");
     expect(sanitizeSearchName("Foo\\Bar'Baz")).toBe("Foo Bar Baz");
   });
 
-  it("記号だけなら空文字にする", () => {
+  it("becomes an empty string when it is symbols only", () => {
     expect(sanitizeSearchName('  "\'\\  ')).toBe("");
   });
 });
 
 describe("wikipediaSearchQuery", () => {
-  it("名前があるときは引用して座標と並べる", () => {
+  it("quotes the name and puts it next to the coordinates when there is a name", () => {
     expect(wikipediaSearchQuery(40.758, -73.9855, "Times Square")).toBe(
       '"Times Square" nearcoord:10km,40.758,-73.9855',
     );
   });
 
-  it("名前が空なら座標だけの検索にする", () => {
+  it("searches by coordinates only when the name is empty", () => {
     expect(wikipediaSearchQuery(35.6595, 139.7005)).toBe("nearcoord:10km,35.6595,139.7005");
     expect(wikipediaSearchQuery(35.6595, 139.7005, "   ")).toBe("nearcoord:10km,35.6595,139.7005");
   });
 
-  it("座標を小数第 4 位で丸める", () => {
+  it("rounds coordinates to 4 decimal places", () => {
     expect(wikipediaSearchQuery(35.123456789, -0.000004, "X")).toBe(
       '"X" nearcoord:10km,35.1235,0',
     );
@@ -41,7 +41,7 @@ describe("wikipediaSearchQuery", () => {
 });
 
 describe("wikipediaSearchUrl", () => {
-  it("日本語は ja.wikipedia.org を叩く", () => {
+  it("hits ja.wikipedia.org for Japanese", () => {
     const url = new URL(wikipediaSearchUrl(35.6595, 139.7005, "ja", "渋谷スクランブル交差点"));
     expect(url.origin).toBe("https://ja.wikipedia.org");
     expect(url.pathname).toBe("/w/api.php");
@@ -62,7 +62,7 @@ describe("wikipediaSearchUrl", () => {
     expect(url.searchParams.get("lllang")).toBeNull();
   });
 
-  it("英語は en.wikipedia.org を叩き、日本語版への langlinks も取る", () => {
+  it("hits en.wikipedia.org for English and also fetches langlinks to the Japanese edition", () => {
     const url = new URL(wikipediaSearchUrl(40.758, -73.9855, "en", "Times Square"));
     expect(url.origin).toBe("https://en.wikipedia.org");
     expect(url.searchParams.get("gsrsearch")).toContain("Times Square");
@@ -71,7 +71,7 @@ describe("wikipediaSearchUrl", () => {
     expect(url.searchParams.get("llprop")).toBe("url");
   });
 
-  it("名前を省略すると nearcoord だけになる", () => {
+  it("becomes nearcoord only when the name is omitted", () => {
     const url = new URL(wikipediaSearchUrl(7.0731, 125.6128, "en"));
     expect(url.searchParams.get("gsrsearch")).toBe("nearcoord:10km,7.0731,125.6128");
   });
@@ -86,7 +86,7 @@ describe("parsePlaceOverview", () => {
     ...over,
   });
 
-  it("検索順の先頭で、最初の段落だけを取る", () => {
+  it("takes only the first paragraph of the top search result", () => {
     expect(
       parsePlaceOverview({
         query: {
@@ -103,7 +103,7 @@ describe("parsePlaceOverview", () => {
     });
   });
 
-  it("事件記事は飛ばして次の場所を取る", () => {
+  it("skips an incident article and takes the next place", () => {
     expect(
       parsePlaceOverview({
         query: {
@@ -129,7 +129,7 @@ describe("parsePlaceOverview", () => {
     });
   });
 
-  it("曖昧さ回避と空の本文は飛ばす", () => {
+  it("skips disambiguation pages and empty bodies", () => {
     expect(
       parsePlaceOverview({
         query: {
@@ -153,7 +153,7 @@ describe("parsePlaceOverview", () => {
     });
   });
 
-  it("index が無いページは後ろに回す", () => {
+  it("puts pages without an index at the back", () => {
     expect(
       parsePlaceOverview({
         query: {
@@ -179,7 +179,7 @@ describe("parsePlaceOverview", () => {
     });
   });
 
-  it("形の違う応答では null を返す", () => {
+  it("returns null for a response of a different shape", () => {
     expect(parsePlaceOverview(null)).toBeNull();
     expect(parsePlaceOverview({})).toBeNull();
     expect(parsePlaceOverview({ query: null })).toBeNull();
@@ -195,7 +195,12 @@ describe("parsePlaceOverview", () => {
     expect(parsePlaceOverview({ query: { pages: { a: { title: "T", extract: "x", fullurl: "   ", index: 1 } } } })).toBeNull();
   });
 
-  it("候補が事件だけなら null を返す", () => {
+  it("drops pages whose url is not https", () => {
+    expect(parsePlaceOverview({ query: { pages: { a: page({ fullurl: "javascript:alert(1)" }) } } })).toBeNull();
+    expect(parsePlaceOverview({ query: { pages: { a: page({ fullurl: "http://en.wikipedia.org/wiki/X" }) } } })).toBeNull();
+  });
+
+  it("returns null when the candidates are incidents only", () => {
     expect(
       parsePlaceOverview({
         query: {
@@ -207,7 +212,7 @@ describe("parsePlaceOverview", () => {
     ).toBeNull();
   });
 
-  it("日本語版への langlinks を拾う", () => {
+  it("picks up langlinks to the Japanese edition", () => {
     expect(
       parsePlaceOverview({
         query: {
@@ -219,6 +224,7 @@ describe("parsePlaceOverview", () => {
                 { "*": "", url: "https://ja.wikipedia.org/wiki/X" },
                 { "*": "タイムズスクエア", url: "   " },
                 { "*": "タイムズスクエア", url: 1 },
+                { "*": "タイムズスクエア", url: "javascript:alert(1)" },
                 { "*": "タイムズスクエア", url: "https://ja.wikipedia.org/wiki/タイムズスクエア" },
               ],
             }),
@@ -234,7 +240,7 @@ describe("parsePlaceOverview", () => {
     });
   });
 
-  it("langlinks が空なら日本語版は付けない", () => {
+  it("does not attach the Japanese edition when langlinks is empty", () => {
     expect(
       parsePlaceOverview({
         query: { pages: { a: page({ langlinks: [] }) } },
@@ -248,7 +254,7 @@ describe("parsePlaceOverview", () => {
 });
 
 describe("wikipediaExtractUrl", () => {
-  it("題名指定で日本語 Wikipedia の本文を取る", () => {
+  it("fetches the body of Japanese Wikipedia by title", () => {
     const url = new URL(wikipediaExtractUrl("イルリサット", "ja"));
     expect(url.origin).toBe("https://ja.wikipedia.org");
     expect(url.searchParams.get("titles")).toBe("イルリサット");
@@ -257,7 +263,7 @@ describe("wikipediaExtractUrl", () => {
     expect(url.searchParams.get("inprop")).toBe("url");
   });
 
-  it("英語ホストにも出せる", () => {
+  it("can target the English host too", () => {
     const url = new URL(wikipediaExtractUrl("Ilulissat", "en"));
     expect(url.origin).toBe("https://en.wikipedia.org");
     expect(url.searchParams.get("titles")).toBe("Ilulissat");
@@ -265,20 +271,20 @@ describe("wikipediaExtractUrl", () => {
 });
 
 describe("looksJapanese", () => {
-  it("ひらがな・カタカナ・漢字を日本語とみなす", () => {
+  it("treats hiragana, katakana and kanji as Japanese", () => {
     expect(looksJapanese("渋谷は交差点です")).toBe(true);
     expect(looksJapanese("イルリサット")).toBe(true);
     expect(looksJapanese("東京")).toBe(true);
   });
 
-  it("ラテン文字だけなら日本語ではない", () => {
+  it("is not Japanese when it is Latin letters only", () => {
     expect(looksJapanese("Times Square is a plaza.")).toBe(false);
     expect(looksJapanese("")).toBe(false);
   });
 });
 
 describe("myMemoryUrl", () => {
-  it("英日の対訳を要求する", () => {
+  it("requests an English-to-Japanese translation", () => {
     const url = new URL(myMemoryUrl("Ilulissat is a town."));
     expect(url.origin).toBe("https://api.mymemory.translated.net");
     expect(url.pathname).toBe("/get");
@@ -286,7 +292,7 @@ describe("myMemoryUrl", () => {
     expect(url.searchParams.get("langpair")).toBe("en|ja");
   });
 
-  it("長文は 450 字で切る", () => {
+  it("cuts long text at 450 characters", () => {
     const long = "a".repeat(TRANSLATE_MAX_CHARS + 20);
     const url = new URL(myMemoryUrl(long));
     expect(url.searchParams.get("q")).toBe("a".repeat(TRANSLATE_MAX_CHARS));
@@ -294,7 +300,7 @@ describe("myMemoryUrl", () => {
 });
 
 describe("parseTranslation", () => {
-  it("正常な応答を読み取る", () => {
+  it("reads a normal response", () => {
     expect(
       parseTranslation({
         responseStatus: 200,
@@ -303,7 +309,7 @@ describe("parseTranslation", () => {
     ).toBe("イルリサットは町です。");
   });
 
-  it("status が文字列の 200 でも読む", () => {
+  it("reads it even when status is the string 200", () => {
     expect(
       parseTranslation({
         responseStatus: "200",
@@ -312,7 +318,7 @@ describe("parseTranslation", () => {
     ).toBe("交差点");
   });
 
-  it("形の違う応答や警告は null を返す", () => {
+  it("returns null for a response of a different shape or a warning", () => {
     expect(parseTranslation(null)).toBeNull();
     expect(parseTranslation({})).toBeNull();
     expect(parseTranslation({ responseStatus: 429, responseData: { translatedText: "x" } })).toBeNull();

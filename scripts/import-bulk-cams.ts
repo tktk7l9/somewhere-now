@@ -1,6 +1,6 @@
-// camlisted と Live-Environment-Streams の YouTube エントリから、
-// cam-places-bulk.ts を生成する。人手キュレーション(cam-places.ts)とは別ファイルに
-// 出して、座標は Open-Meteo で解決する(記憶で書かない)。
+// Generates cam-places-bulk.ts from the YouTube entries of camlisted and
+// Live-Environment-Streams. It is written to a file separate from the manual curation
+// (cam-places.ts), and coordinates are resolved with Open-Meteo (not written from memory).
 //
 //   curl -sL -o scripts/out/camlisted-streams.json \
 //     https://raw.githubusercontent.com/zenith605-2/camlisted/main/data/streams.json
@@ -8,7 +8,7 @@
 //     https://raw.githubusercontent.com/willytop8/Live-Environment-Streams/main/streams.geojson
 //   npm run cams:import-bulk
 //
-// 生成物: scripts/cam-places-bulk.ts
+// Output: scripts/cam-places-bulk.ts
 
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { argv } from "node:process";
@@ -25,7 +25,7 @@ const SCRAPE_PATH = "scripts/out/search-scrape.json";
 const OUTPUT_PATH = "scripts/cam-places-bulk.ts";
 const NOMINATIM_UA = "somewhere-now-cam-import/1.0 (local data curation)";
 
-/** camlisted の category → このアプリの CamCategory */
+/** camlisted category → this app's CamCategory */
 const CATEGORY_MAP: Record<string, CamPlace["category"]> = {
   traffic: "city",
   downtown: "city",
@@ -52,7 +52,7 @@ const CATEGORY_MAP: Record<string, CamPlace["category"]> = {
   wildlife: "animal",
 };
 
-/** 米国の州略称 → Open-Meteo admin1 */
+/** US state abbreviation → Open-Meteo admin1 */
 const US_STATE: Record<string, string> = {
   AL: "Alabama", AK: "Alaska", AZ: "Arizona", AR: "Arkansas", CA: "California",
   CO: "Colorado", CT: "Connecticut", DE: "Delaware", FL: "Florida", GA: "Georgia",
@@ -148,19 +148,20 @@ async function geocode(query: PlaceQuery): Promise<GeocodeHit | null> {
       hit = results[0]!;
     } else {
       const matched = results.find((r) => r.admin1 === query.admin1);
-      // admin1 が一致しなければ国コード一致の先頭を使う(州名の揺れで落とさない)
+      // If admin1 does not match, use the first hit whose country code matches
+      // (do not drop on state-name variations)
       hit = matched ?? results.find((r) => r.country_code === query.countryCode) ?? results[0]!;
     }
 
     geocodeCache.set(key, hit);
     return hit;
   } catch {
-    // 一時的なネット障害はキャッシュしない
+    // Do not cache transient network failures
     return null;
   }
 }
 
-/** Open-Meteo が空振りしたときの Nominatim フォールバック。 */
+/** Nominatim fallback for when Open-Meteo comes up empty. */
 async function geocodeNominatim(query: PlaceQuery): Promise<GeocodeHit | null> {
   const key = `nom:${JSON.stringify(query)}`;
   if (geocodeCache.has(key)) return geocodeCache.get(key)!;
@@ -254,7 +255,7 @@ function isResolvableTimeZone(tz: string): boolean {
   }
 }
 
-/** Node/ICU がまだ知らない・別名のタイムゾーンを寄せる。 */
+/** Maps time zones that Node/ICU does not know yet, or that are aliases, to known ones. */
 const TZ_ALIASES: Record<string, string> = {
   "America/Coyhaique": "America/Santiago",
 };
@@ -273,7 +274,7 @@ function slugify(value: string): string {
     .replace(/-+/g, "-")
     .replace(/^-+|-+$/g, "")
     .slice(0, 40)
-    .replace(/^-+|-+$/g, ""); // slice で末尾が "-" になるのを防ぐ
+    .replace(/^-+|-+$/g, ""); // prevents slice from leaving a trailing "-"
 }
 
 function uniqueId(base: string, used: Set<string>): string {
@@ -290,17 +291,17 @@ function uniqueId(base: string, used: Set<string>): string {
       return candidate;
     }
   }
-  throw new Error(`id を確保できない: ${base}`);
+  throw new Error(`could not allocate an id: ${base}`);
 }
 
 /**
- * 「その語だけでは場所を特定しない」語。**落とさず、最後尾へ回す。**
+ * Words that "do not identify a place on their own". **Not dropped; moved to the very end.**
  *
- * ジオコーダは「見つからない」とは滅多に言わない。`New` にはケンタッキー州の
- * New が、`Beach` にはノースダコタ州の Beach が実在する。タイトルの断片を
- * そのまま投げると、同名の寒村にピンが積み上がる(実測で New に 45 台・
- * Beach に 32 台)。挙げてあるのは実データで先頭クエリになっていた語
- * (`prioritizeGeocodeQueries` の単語別集計から拾った)。
+ * A geocoder rarely says "not found". For `New` there really is a New in Kentucky, and
+ * for `Beach` a Beach in North Dakota. Sending title fragments as they are piles pins up
+ * on remote villages of the same name (measured: 45 cameras on New,
+ * 32 cameras on Beach). Listed are the words that were the first query in real data
+ * (picked from the per-word tally of `prioritizeGeocodeQueries`).
  */
 const GENERIC_PLACE_WORDS = new Set(
   (
@@ -320,26 +321,30 @@ const GENERIC_PLACE_WORDS = new Set(
   ).split(" "),
 );
 
-/** その語だけでは場所を特定しないか。引き直しの門番(corroborate.ts)も使う。 */
+/**
+ * Whether the word does not identify a place on its own. Also used by the re-geocoding
+ * gatekeeper (corroborate.ts).
+ */
 export function isGenericPlaceWord(word: string): boolean {
   return GENERIC_PLACE_WORDS.has(word.trim().toLowerCase());
 }
 
 /**
- * 地名として問い合わせてよい形か。
+ * Whether the shape is acceptable to query as a place name.
  *
- * 解像度・型番・日付・地震速報・括弧の残骸は、投げても意味のある場所は返らない
- * のに「何か」は返ってくる。実データで先頭クエリになっていた例:
- * `2026`(54 台)`M7.5`(33 台)`[4K]`(25 台)`PTZ`(25 台)`8/26`。
+ * Resolutions, model numbers, dates, earthquake alerts and bracket leftovers return no
+ * meaningful place when sent, yet "something" does come back. Examples that were the
+ * first query in real data:
+ * `2026` (54 cameras) `M7.5` (33 cameras) `[4K]` (25 cameras) `PTZ` (25 cameras) `8/26`.
  */
 function looksLikePlaceName(name: string): boolean {
-  // 文字を 1 つも含まない(数字・記号だけ)
+  // Contains no letter at all (digits and symbols only)
   if (!/[A-Za-z\u3040-\u30ff\u4e00-\u9fff\u00c0-\u024f\u0400-\u04ff]/.test(name)) return false;
-  // 数字で始まる: 2026 / 2160p / 24H / 8/26 / 360
+  // Starts with a digit: 2026 / 2160p / 24H / 8/26 / 360
   if (/^\d/.test(name)) return false;
-  // 端に括弧・記号が残っている: [4K] / (SP) / Now: / .NL / RE- / Park,
+  // Brackets or symbols remain at an end: [4K] / (SP) / Now: / .NL / RE- / Park,
   if (/^[^\p{L}]|[:,;.\-/\\[\]()]$/u.test(name)) return false;
-  // 解像度・型番のたぐい: M7.5 / 4K / 2MP / I-35
+  // Resolutions, model numbers and the like: M7.5 / 4K / 2MP / I-35
   if (/^[A-Z]{1,2}[-.]?\d/.test(name)) return false;
   return true;
 }
@@ -361,7 +366,8 @@ export function guessPlaceQueries(
     queries.push({ name: n, countryCode: country, admin1 });
   };
 
-  // 都市別名を最優先(漢字断片で枠を使い切らない)。Open-Meteo は英語名の方が当たる。
+  // City aliases come first (do not use up the slots on kanji fragments). Open-Meteo hits
+  // better with English names.
   const aliases: [RegExp, string, string?][] = [
     [/札幌|sapporo/i, "Sapporo", "JP"],
     [/函館|hakodate/i, "Hakodate", "JP"],
@@ -451,9 +457,9 @@ export function guessPlaceQueries(
     tryPush(city, "US", admin1.length > 2 ? admin1 : undefined);
   }
 
-  // 区切りは | だけではない。日本語・韓国語のタイトルは ・／｜ で場所を書く
-  // ("大阪・心斎橋" "京都 銀閣寺ライブ中継カメラ／Ginkaku-ji Temple")。
-  // ここを見ていなかったので、心斎橋も銀閣寺も候補にすら挙がっていなかった。
+  // The separator is not only |. Japanese and Korean titles write the place with ・／｜
+  // ("大阪・心斎橋" "京都 銀閣寺ライブ中継カメラ／Ginkaku-ji Temple").
+  // This was not looked at, so neither Shinsaibashi nor Ginkaku-ji was even listed as a candidate.
   for (const part of cleaned.split(/[|｜/／・–—]/)) {
     const segment = part.trim();
     if (segment.length >= 2 && segment.length <= 40) tryPush(segment, cc);
@@ -487,7 +493,7 @@ export function guessPlaceQueries(
     tryPush(m[1]!.trim(), cc);
   }
 
-  // 日本語: 県・市などで分割して短い地名を試す
+  // Japanese: split on prefecture, city and similar suffixes and try short place names
   if (cc === "JP" || cc.length === 0 || /[\u3040-\u30ff\u4e00-\u9fff]/.test(title)) {
     const jpText = title
       .replace(/【[^】]*】/g, " ")
@@ -499,7 +505,7 @@ export function guessPlaceQueries(
     }
   }
 
-  // 日本語: 県・市などで分割して短い地名を試す
+  // Japanese: split on prefecture, city and similar suffixes and try short place names
   if (countryCode === "JP" || /[\u3040-\u30ff\u4e00-\u9fff]/.test(title)) {
     const jpText = title
       .replace(/【[^】]*】/g, " ")
@@ -534,7 +540,7 @@ function sceneCategory(scene: string | undefined): CamPlace["category"] {
   return CATEGORY_MAP[scene] ?? "city";
 }
 
-/** タイトルやチャンネル名に含まれる国名から ISO コードを推す。 */
+/** Infers the ISO code from a country name contained in the title or channel name. */
 function inferCountry(title: string, channelTitle: string): string | null {
   const text = `${title} ${channelTitle}`.toLowerCase();
   const rules: [RegExp, string][] = [
@@ -702,7 +708,7 @@ async function fetchYoutubeMeta(
 ): Promise<{ channelId: string; title: string; channelTitle: string } | null> {
   if (ytMetaCache.has(videoId)) return ytMetaCache.get(videoId)!;
 
-  // 1) oembed (watch ページより bot 判定されにくい) → author_url から channelId
+  // 1) oembed (less likely to be judged a bot than the watch page) → channelId from author_url
   try {
     const oembedUrl =
       "https://www.youtube.com/oembed?format=json&url=" +
@@ -742,7 +748,7 @@ async function fetchYoutubeMeta(
     // fall through
   }
 
-  // 2) watch ページ (失敗しがちだが最後の手段)
+  // 2) watch page (tends to fail, but the last resort)
   await new Promise((r) => setTimeout(r, 700));
   try {
     const html = await fetchWithRetry(`https://www.youtube.com/watch?v=${videoId}`, {
@@ -804,7 +810,10 @@ async function resolveFromCoords(
   };
 }
 
-/** placeHint / 検索クエリを英語の都市名に寄せる(Open-Meteo は非ASCIIが空振りしやすい)。 */
+/**
+ * Maps placeHint / search queries to English city names (Open-Meteo tends to come up
+ * empty on non-ASCII).
+ */
 function englishPlaceHint(hint: string, countryCode: string): PlaceQuery | null {
   const text = hint.trim();
   if (text.length < 2) return null;
@@ -838,7 +847,7 @@ function englishPlaceHint(hint: string, countryCode: string): PlaceQuery | null 
   for (const [re, name, cc] of mapped) {
     if (re.test(text)) return { name, countryCode: cc };
   }
-  // すでに ASCII ならそのまま(国コード付き)
+  // If already ASCII, use as is (with the country code)
   if (/^[\x20-\x7E]+$/.test(text) && text.length <= 40) {
     return { name: text.replace(/\s+/g, " ").trim(), countryCode };
   }
@@ -846,29 +855,29 @@ function englishPlaceHint(hint: string, countryCode: string): PlaceQuery | null 
 }
 
 export function prioritizeGeocodeQueries(queries: PlaceQuery[]): PlaceQuery[] {
-  // 🔴 かつては「短い ASCII を先」にしていたが、それは地名でなく**一般語**を選ぶ規則
-  // だった。ジオコーダは "New" にも "Beach" にも実在の寒村を返すので、
-  // "New York City LIVE Manhattan" は Manhattan(9 文字)ではなく New(3 文字)で
-  // 引かれ、29 台がケンタッキー州の New に積み上がっていた。
+  // 🔴 It used to be "short ASCII first", but that was a rule that chose **generic words**
+  // instead of place names. The geocoder returns a real remote village for both "New" and
+  // "Beach", so "New York City LIVE Manhattan" was looked up with New (3 letters) instead
+  // of Manhattan (9 letters), and 29 cameras piled up on New in Kentucky.
   //
-  // 語数の多い方が場所を絞る。単語 1 つしか無いなら、長い方が絞る。
-  // 一般語は「他に何も無いとき」だけ使う。
+  // More words narrow the place. With only 1 word, the longer one narrows.
+  // Generic words are used only "when there is nothing else".
   const score = (q: PlaceQuery): number => {
     const ascii = /^[\x20-\x7E]+$/.test(q.name);
     const words = q.name.split(/\s+/);
     const generic = words.length === 1 && GENERIC_PLACE_WORDS.has(q.name.toLowerCase());
 
     if (generic) return 3000 + q.name.length;
-    // 複数語(固有の地名らしい)を先に。同じ語数なら短い方から。
+    // Multiple words (likely a proper place name) first. With the same word count, shorter first.
     if (ascii && words.length >= 2 && q.name.length <= 40) {
       return words.length * 100 + q.name.length;
     }
-    // 🔴 CJK の地名は ASCII の単語 1 つより先に試す。単語 1 つはたいてい
-    // 都市別名("Osaka" "Kyoto")で、それは市の代表点しか返さない。
-    // "心斎橋" や "銀閣寺" の方が場所を絞る。空振りしても次の候補へ落ちる
-    // だけなので、先に試して損はない。
+    // 🔴 CJK place names are tried before a single ASCII word. A single word is usually
+    // a city alias ("Osaka" "Kyoto"), which only returns the city's representative point.
+    // "心斎橋" or "銀閣寺" narrows the place more. A miss just falls through to the next
+    // candidate, so nothing is lost by trying them first.
     if (!ascii) return 500 + q.name.length;
-    // ASCII の単語 1 つ。長いほど場所を絞るので、長い順。
+    // A single ASCII word. Longer narrows the place more, so longest first.
     return 1000 - q.name.length;
   };
   const seen = new Set<string>();
@@ -884,14 +893,14 @@ export function prioritizeGeocodeQueries(queries: PlaceQuery[]): PlaceQuery[] {
 }
 
 /**
- * 引き直しの根拠つき解決。
+ * Resolution with evidence, for re-geocoding.
  *
- * `matchedName` は**ジオコーダが返した地名そのもの**。座標を書き換えてよいか
- * どうかは、これが元のタイトルに出てくるかで判定する — 「タイトルが
- * Manhattan と言っていて、Manhattan という名の場所が返った」なら信じてよい。
- * そうでない引き直しは、当てずっぽうを別の当てずっぽうに替えるだけになる
- * (実測: "New York City 4K Drone Video | Manhattan" はウェストバージニア州へ
- * 飛んだ)。
+ * `matchedName` is **the very place name the geocoder returned**. Whether the coordinates
+ * may be rewritten is judged by whether it appears in the original title — if "the title
+ * says Manhattan, and a place named Manhattan was returned", it can be trusted.
+ * Any other re-geocoding only swaps one guess for another guess
+ * (measured: "New York City 4K Drone Video | Manhattan" jumped to
+ * West Virginia).
  */
 export async function resolveWithEvidence(
   title: string,
@@ -918,7 +927,7 @@ export async function resolveWithEvidence(
       if (timeZone === null) continue;
       const lat = Number(hit.latitude.toFixed(4));
       const lng = Number(hit.longitude.toFixed(4));
-      // 国の重心っぽい粗い座標は近似なので落とす
+      // Coarse coordinates that look like a country centroid are approximations, so drop them
       if (Number.isInteger(lat) && Number.isInteger(lng)) continue;
       return {
         lat,
@@ -947,9 +956,9 @@ export async function resolveFromGeocode(
 
 function exportHeader(entries: CamPlace[]): string {
   const body = entries.map(serializeEntry).join("\n");
-  return `// このファイルは scripts/import-bulk-cams.ts が生成する。手で編集しない。
-// 元データ: camlisted (zenith605-2/camlisted) + Live-Environment-Streams (YouTube 部分)
-// 生成: npm run cams:import-bulk
+  return `// This file is generated by scripts/import-bulk-cams.ts. Do not edit by hand.
+// Source data: camlisted (zenith605-2/camlisted) + Live-Environment-Streams (YouTube part)
+// Generate: npm run cams:import-bulk
 
 export const CAM_PLACES_BULK = [
 ${body}
@@ -1000,7 +1009,7 @@ async function main(): Promise<void> {
 
   const camlistedByVideo = new Map(camlistedJson.streams.map((s) => [s.video_id, s]));
 
-  // 既存 bulk の id 末尾ハイフン・未対応 TZ を直してから積み増す
+  // Fix trailing hyphens in ids and unsupported TZs of the existing bulk before adding more
   const repaired: CamPlace[] = [];
   const repairedIds = new Set<string>(CAM_PLACES_CURATED.map((p) => p.id));
   let droppedTz = 0;
@@ -1022,7 +1031,7 @@ async function main(): Promise<void> {
     });
   }
   if (droppedTz > 0) {
-    console.log(`既存 bulk から未対応 TZ を ${droppedTz} 件除外`);
+    console.log(`dropped ${droppedTz} entries with an unsupported TZ from the existing bulk`);
   }
 
   const existingTitleKeys = new Set(
@@ -1046,14 +1055,14 @@ async function main(): Promise<void> {
   }
 
   if (need <= 0) {
-    console.log(`既に ${CAM_PLACES_CURATED.length + bulk.length} 件あるので追加不要(id/TZ 修復のみ)`);
+    console.log(`already ${CAM_PLACES_CURATED.length + bulk.length} cameras, nothing to add (id/TZ repair only)`);
     await flush();
     return;
   }
 
-  console.log(`既存 bulk ${repaired.length} 件 / あと ${need} 件追加`);
+  console.log(`existing bulk ${repaired.length} / ${need} more to add`);
 
-  // スクレイプ結果を追加候補として読む(無くても続行)
+  // Read the scrape results as additional candidates (continue even if absent)
   let scrapeHits: {
     videoId: string;
     title: string;
@@ -1064,13 +1073,13 @@ async function main(): Promise<void> {
   }[] = [];
   try {
     scrapeHits = JSON.parse(await readFile(SCRAPE_PATH, "utf8")) as typeof scrapeHits;
-    console.log(`scrape 候補 ${scrapeHits.length} 件`);
+    console.log(`scrape candidates ${scrapeHits.length}`);
   } catch {
-    console.log("scrape 結果なし(scripts/out/search-scrape.json)");
+    console.log("no scrape result (scripts/out/search-scrape.json)");
   }
 
-  // Phase 1: geojson YouTube(座標あり)。
-  // camlisted にあればそれを使い、無ければ watch ページから channelId を取る。
+  // Phase 1: geojson YouTube (with coordinates).
+  // If it is in camlisted use that; otherwise take channelId from the watch page.
   for (const feature of geojson.features) {
     if (bulk.length >= targetBulk) break;
     if (feature.properties?.url === undefined) continue;
@@ -1084,7 +1093,7 @@ async function main(): Promise<void> {
     if (coords === undefined || countryCode === undefined) continue;
 
     const [lng, lat] = coords;
-    // 国重心っぽい整数座標は近似なので落とす
+    // Integer coordinates that look like a country centroid are approximations, so drop them
     if (Number.isInteger(lat) && Number.isInteger(lng)) continue;
 
     const listed = camlistedByVideo.get(videoId);
@@ -1131,7 +1140,7 @@ async function main(): Promise<void> {
       seenVideos.add(videoId);
       if (bulk.length % 25 === 0) {
         await flush();
-        console.log(`  … ${bulk.length} 件 (phase 1)`);
+        console.log(`  … ${bulk.length} cameras (phase 1)`);
       }
     }
   }
@@ -1186,7 +1195,7 @@ async function main(): Promise<void> {
     });
   }
 
-  console.log(`phase 2 候補 ${candidates.length} 件`);
+  console.log(`phase 2 candidates ${candidates.length}`);
 
   const PHASE2_CONCURRENCY = 8;
   let candidateIndex = 0;
@@ -1210,7 +1219,7 @@ async function main(): Promise<void> {
       );
       if (at == null) {
         unresolved.push({ ...stream, country: countryCode });
-        failures.push(`[${stream.videoId}] 座標未解決: ${stream.title}`);
+        failures.push(`[${stream.videoId}] coordinates unresolved: ${stream.title}`);
         continue;
       }
 
@@ -1228,29 +1237,29 @@ async function main(): Promise<void> {
       });
       if (added && bulk.length % 50 === 0) {
         await flush();
-        console.log(`  … ${bulk.length} 件 (phase 2)`);
+        console.log(`  … ${bulk.length} cameras (phase 2)`);
       }
     }
   }
 
   await Promise.all(Array.from({ length: PHASE2_CONCURRENCY }, () => phase2Worker()));
 
-  // Phase 3: Nominatim フォールバック(残りは全部試す。上限は API 礼儀)
+  // Phase 3: Nominatim fallback (try all the rest. The cap is API etiquette)
   const stillNeed = targetBulk - bulk.length;
   const skipNominatim = process.env["SKIP_NOMINATIM"] === "1";
   if (stillNeed <= 0 || unresolved.length === 0 || skipNominatim) {
     await flush();
-    console.log(`✓ ${bulk.length} 件を ${OUTPUT_PATH} に書き出した (目標追加 ${need} 件)`);
+    console.log(`✓ wrote ${bulk.length} cameras to ${OUTPUT_PATH} (target: ${need} to add)`);
     if (skipNominatim && stillNeed > 0) {
-      console.log(`(Nominatim スキップ: 残り ${stillNeed} / 未解決 ${unresolved.length})`);
+      console.log(`(Nominatim skipped: remaining ${stillNeed} / unresolved ${unresolved.length})`);
     }
     if (failures.length > 0) {
-      console.log(`\n△ Open-Meteo 未解決 ${failures.length} 件`);
+      console.log(`\n△ unresolved by Open-Meteo: ${failures.length}`);
     }
     return;
   }
   const nominatimBudget = Math.min(unresolved.length, stillNeed + 50, 1500);
-  console.log(`phase 3 Nominatim 候補 ${nominatimBudget}/${unresolved.length} 件 / あと ${stillNeed}`);
+  console.log(`phase 3 Nominatim candidates ${nominatimBudget}/${unresolved.length} / ${stillNeed} more to add`);
   for (const stream of unresolved.slice(0, nominatimBudget)) {
     if (bulk.length >= targetBulk) break;
     const countryCode = stream.country;
@@ -1284,20 +1293,20 @@ async function main(): Promise<void> {
     });
     if (added && bulk.length % 25 === 0) {
       await flush();
-      console.log(`  … ${bulk.length} 件 (phase 3)`);
+      console.log(`  … ${bulk.length} cameras (phase 3)`);
     }
   }
 
   await flush();
-  console.log(`✓ ${bulk.length} 件を ${OUTPUT_PATH} に書き出した (目標追加 ${need} 件)`);
+  console.log(`✓ wrote ${bulk.length} cameras to ${OUTPUT_PATH} (target: ${need} to add)`);
   if (failures.length > 0) {
-    console.log(`\n△ スキップ ${failures.length} 件 (先頭 5 件):`);
+    console.log(`\n△ skipped ${failures.length} (first 5):`);
     for (const f of failures.slice(0, 5)) console.log(`  ${f}`);
   }
 }
 
-// テストから純粋な部分だけを読めるように、生成は直接実行のときだけ走らせる。
-// (import.meta.main は Node 24 以降なので argv で見る — CI は 24、手元は 22)
+// So that tests can load only the pure parts, generation runs only on direct execution.
+// (import.meta.main is Node 24 or later, so check argv — CI is 24, local is 22)
 if (argv[1] !== undefined && fileURLToPath(import.meta.url) === argv[1]) {
   await main();
 }

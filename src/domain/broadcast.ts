@@ -1,41 +1,41 @@
-// 「番組」の見分け。カメラでないものを既定の表示から外すため。
+// Telling "broadcasts" apart, so that what is not a camera is left out of the default view.
 //
-// このアプリが見せたいのは定点カメラだが、YouTube のライブ検索で集めた以上、
-// テレビの 24 時間配信・ラジオ・アニメ・環境音・撮り溜めた空撮も一緒に入って
-// くる。しかも視聴者数はテレビが桁違いに多い(実測の中央値は 5 人、上位は
-// 1 万人超)ので、「視聴が多い順」の先頭はニュースとアニメで埋まる。
+// This app is about fixed cameras, but since the catalogue was gathered from YouTube live
+// search, 24-hour TV feeds, radio, cartoons, ambience and pre-recorded aerials come along with
+// it. Worse, TV has viewer counts in a different league (measured median is 5 people, the top
+// over 10,000), so the head of "most watching" fills up with news and cartoons.
 //
-// 🔴 タイトルの語で当てにいくと外す。緩い語で 5,711 件を判定してみたところ、
-// 無作為に抜いた 40 件のうち 28 件が誤りだった:
-//   - `ao vivo` / `en vivo` / `canlı yayın` は各言語の「生中継」であって、
-//     ブラジルやトルコの本物のカメラが普通に使う
-//   - `music` / `lofi` / `jazz` は、映像に音楽を乗せている本物のカメラが使う
-//     (お台場・横浜みなとみらい・漢江・ケープタウン)
-//   - `新聞` は新聞社の社屋に付いたカメラ(梅田・羽田)を巻き込む
-//   - `news` は放送局が出している本物の街カメラ(石垣島・那覇空港・渋谷)を巻き込む
-//   - `house` は Fish House や Beach House を巻き込む
-// 隠すのは「見えなくする」ことなので、粗く当てるより取りこぼす方がよい。
+// 🔴 Matching on words in the title misses. Classifying 5,711 entries with loose words and
+// drawing 40 at random, 28 were wrong:
+//   - `ao vivo` / `en vivo` / `canlı yayın` are "live" in each language and real cameras in
+//     Brazil and Turkey use them as a matter of course
+//   - `music` / `lofi` / `jazz` are used by real cameras that lay music over the picture
+//     (Odaiba, Yokohama Minato Mirai, the Han river, Cape Town)
+//   - `新聞` catches cameras mounted on newspaper buildings (Umeda, Haneda)
+//   - `news` catches real street cameras run by broadcasters (Ishigaki, Naha airport, Shibuya)
+//   - `house` catches Fish House and Beach House
+// Hiding means making things invisible, so missing some is better than a loose match.
 //
-// そこで判定は 2 本立てにする。どちらも一件ずつ目で確かめられる形にしてある。
+// Hence the decision is made in two ways. Both are in a form that can be checked one by one.
 //
-//   1. チャンネル … そのチャンネルが持つ全タイトルを読み、番組しか出していない
-//      ことを確かめたものだけを載せる。局のチャンネルでも、テレ朝や TBS のように
-//      本物の定点カメラ(渋谷・羽田・新宿)を同居させているものは**載せない**。
-//   2. タイトル … 1 で拾えない同居分のための、ほぼ番組にしか出ない言い回し。
-//      上の失敗を踏まえ、単語 1 つでは当てず、隣り合う 2 語や固有の番組名で見る。
+//   1. Channel … only channels whose every title was read and confirmed to air nothing but
+//      programmes. Broadcaster channels that also host real fixed cameras (TV Asahi, TBS with
+//      Shibuya, Haneda, Shinjuku) are NOT listed.
+//   2. Title … for what 1 cannot catch, phrases that appear almost only in programmes. Given the
+//      failure above, never a single word: two adjacent words or a proper programme name.
 //
-// 増やすときは、必ず「そのチャンネルの全タイトル」か「その語で引っかかる全件」を
-// 出してから決めること。上位だけを見て決めると、母集団の性質を読み違える。
+// When adding to either list, always print "every title of that channel" or "every entry that
+// phrase matches" before deciding. Deciding from the top entries misreads the population.
 
 import type { Cam } from "./cams";
 
 /**
- * 番組しか出していないと確かめたチャンネル。
- * 2026-08-31 に、視聴者 150 人以上の配信を持つ全チャンネルについて、
- * そのチャンネルがマスタに持つ全タイトルを読んで選んだ。
+ * Channels confirmed to air nothing but programmes.
+ * Chosen on 2026-08-31 by reading every title the channel has in the master list, for every
+ * channel with a stream of 150 viewers or more.
  */
 export const BROADCAST_CHANNELS: ReadonlySet<string> = new Set([
-  // ニュース・テレビ局
+  // News and TV stations
   "UCc282c_TN8xIba_Z6GaDnQw", // Telewizja Republika
   "UCR9120YBAqMfntqgRTKmkjQ", // A24 (AR)
   "UCNye-wNBqNL5ZzHSJj3l8Bg", // Al Jazeera English
@@ -83,7 +83,7 @@ export const BROADCAST_CHANNELS: ReadonlySet<string> = new Set([
   "UC5dYmq91e5_g54krpO06NJw", // AWANI
   "UCWw6scNyopJ0yjMu1SyOEyw", // talkSPORT
 
-  // ドラマ・アニメ
+  // Drama and cartoons
   "UCi-nK74pBX9Ou66z1j7KYPQ", // Yaprak Dökümü
   "UCIdiuKAg5xVZsvXDQbOG4cg", // Aşk-ı Memnu
   "UCw7SNYrYei7F5ttQO3o-rpA", // Disney Channel Animation
@@ -93,7 +93,7 @@ export const BROADCAST_CHANNELS: ReadonlySet<string> = new Set([
   "UCN2Q-lSzQa7RjrCxQZ8DzbA", // Yalan Dünya
   "UCpMth28h0W_ycDlZ5KxABDw", // Altı Üstü İstanbul
 
-  // ラジオ・音楽
+  // Radio and music
   "UCJozD5RVug7EZdTjqkGISYQ", // RADIO 10
   "UCEAW_kmPVjxTC50vuLyKOQA", // Kral Akustik Radyo
   "UCJhjE7wbdYAae1G25m0tHAA", // Relaxing Jazz Piano Radio
@@ -111,7 +111,7 @@ export const BROADCAST_CHANNELS: ReadonlySet<string> = new Set([
   "UCd4TU-zpYIT3HQqjU4BCjyw", // Calming Music for Dogs
   "UCb_QGe9EWyCXBbKkY85nBfg", // Morning Coffee & Italian Music
 
-  // 環境音・撮り溜めた映像
+  // Ambience and pre-recorded footage
   "UCkK0LVEYbscEptzBKFrgcrQ", // Waterfall / White Noise
   "UCDmvEp5Rtjw817rMw_Z-S1A", // Mountain River / White Noise
   "UC9X_obpHELF92vvFNtcdXFA", // Calm Woodland Stream (ASMR)
@@ -127,7 +127,7 @@ export const BROADCAST_CHANNELS: ReadonlySet<string> = new Set([
   "UCdTff6CR1MXSZE_fd_qWREA", // 24/7 LIVE Tropical Paradise
   "UCj-Xm8j6WBgKY8OG7s9r2vQ", // Norway's Railway Cab Views
 
-  // 時計・警報・監視盤(場所ではなく数字を映しているもの)
+  // Clocks, alerts and monitoring boards (showing numbers, not a place)
   "UC7pYTpHuYsmaSiNnr-HfTfw", // Hora Certa
   "UC3ACLDxuy75577-GDItIgNA", // HORA CERTA
   "UCL2omxZpaK-k1j7UfuLQpVw", // Relógio / Hora Atual
@@ -136,57 +136,57 @@ export const BROADCAST_CHANNELS: ReadonlySet<string> = new Set([
   "UCUVWoy_rGPdZeUp7jjRHOaQ", // 緊急地震速報ライブ
   "UCZmcd4cQ2H_ELWAuUdOMgRQ", // GlobalQuake
 
-  // その他の番組
+  // Other programmes
   "UCpcv404DxfhGYhXgyB9Aoeg", // Triton Poker Series
 ]);
 
 /**
- * 番組にしか出ない言い回し。
+ * Phrases that appear only in programmes.
  *
- * 本物のカメラと同居しているチャンネル(テレ朝・TBS・日テレなど、局の
- * チャンネルは渋谷や羽田の定点カメラも出している)を、チャンネルごと消さずに
- * 番組だけ落とすためのもの。単語 1 つでは当てず、隣り合う 2 語か固有名で見る。
+ * For channels that mix in real cameras (TV Asahi, TBS, NTV and other broadcaster channels
+ * also air fixed cameras in Shibuya and Haneda): drops the programmes without hiding the whole
+ * channel. Never a single word; two adjacent words or a proper name.
  */
 export const BROADCAST_TITLE_PATTERNS: readonly RegExp[] = [
-  // 映像作品。回数や「全話」が付くのは番組だけ。
+  // Film and series. Only programmes carry episode counts or "all episodes".
   /\bfull\s+episodes?\b/i,
   /\bepisodios?\s+completos?\b/i,
   /\bt[üu]m\s+b[öo]l[üu]mler\b/i,
-  // (`season \d` は入れない。当たるのは 1 件だけで、それが「Vancouver LIVE Cam …
-  //  Alaska Season 2026」= 本物のクルーズ船カメラだった。アニメ側は full episodes で拾える)
+  // (`season \d` is left out: it matched one entry only, and that was "Vancouver LIVE Cam …
+  //  Alaska Season 2026" = a real cruise ship camera. Cartoons are caught by full episodes.)
   //
-  // テレビを「見る」もの。canlı yayın(生中継)は本物のカメラも使うので採らない。
+  // "Watch TV". canlı yayın (live) is also used by real cameras, so it is not taken.
   /\bcanl[ıi]\s*tv\b/i,
   /\btv\s*izle\b/i,
   /\bcanl[ıi]\s*[iİ]zle\b/i,
   /\btelewizja\b/i,
-  // 報道番組。news 単独は放送局の街カメラを巻き込むので、2 語でだけ見る。
+  // News programmes. news alone catches broadcasters' street cameras, so two words only.
   /\bbreaking\s+news\b/i,
   /報道ステーション|ニュースまとめ/,
   /ニュースを(?:24時間)?ライブ配信/,
   /最新ニュースをライブ配信/,
   /緊急地震速報/,
-  // ラジオ。radio 単独はビーチカメラの BGM を巻き込むので 2 語でだけ見る。
+  // Radio. radio alone catches the background music of beach cameras, so two words only.
   /\bradyo\s+dinle\b/i,
   /\blive\s+radio\b/i,
-  // 音だけのもの。
+  // Sound only.
   /\bwhite\s+noise\b/i,
   /\basmr\b/i,
   /\bmusic\s+for\s+(?:sleep|study|work|dogs|stressed)/i,
-  // 撮り溜めた空撮。生きた景色ではないので場所として出さない。
+  // Pre-recorded aerials. Not a live view, so not shown as a place.
   /\b\d+\s*K\s+(?:aerial|virtual\s+tour)\b/i,
 ];
 
-/** そのカメラが「番組」か。判断の材料は再探索用に持っている配信タイトル。 */
+/** Whether that camera is a "broadcast". Judged from the stream title kept for rediscovery. */
 export function isBroadcast(cam: Cam): boolean {
   if (BROADCAST_CHANNELS.has(cam.source.channelId)) return true;
   return BROADCAST_TITLE_PATTERNS.some((re) => re.test(cam.source.titleKey));
 }
 
 /**
- * 番組の id をまとめて拾う。
- * 描画のたびに 5,711 件へ正規表現を当てずに済むよう、マスタが届いた時点で
- * 1 度だけ作って持ち回る(nightIds と同じ扱い)。
+ * Collects the ids of broadcasts in one go.
+ * Built once when the master list arrives and carried around (like nightIds), so the regular
+ * expressions do not run over 5,711 entries on every render.
  */
 export function broadcastIds(cams: readonly Cam[]): Set<string> {
   return new Set(cams.filter(isBroadcast).map((cam) => cam.id));

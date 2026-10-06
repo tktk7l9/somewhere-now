@@ -1,57 +1,57 @@
 import { decodeFavorites, encodeFavorites, toggleFavorite } from "./favorites";
 
 describe("decodeFavorites", () => {
-  it("保存が無ければ空", () => {
+  it("is empty when nothing is saved", () => {
     expect(decodeFavorites(null)).toEqual([]);
   });
 
-  it("現行スキーマを読む", () => {
+  it("reads the current schema", () => {
     expect(decodeFavorites('{"v":1,"ids":["a","b"]}')).toEqual(["a", "b"]);
   });
 
-  it("壊れた JSON を空として扱う", () => {
+  it("treats broken JSON as empty", () => {
     expect(decodeFavorites("{{{")).toEqual([]);
   });
 
-  it("知らないスキーマ版を空として扱う(古い形を誤読しない)", () => {
+  it("treats an unknown schema version as empty (does not misread an old shape)", () => {
     expect(decodeFavorites('{"v":99,"ids":["a"]}')).toEqual([]);
   });
 
-  it("配列でない ids を空として扱う", () => {
+  it("treats non-array ids as empty", () => {
     expect(decodeFavorites('{"v":1,"ids":"a"}')).toEqual([]);
     expect(decodeFavorites('{"v":1}')).toEqual([]);
   });
 
-  it("文字列でない要素を落とす", () => {
+  it("drops non-string elements", () => {
     expect(decodeFavorites('{"v":1,"ids":["a",1,null,"b"]}')).toEqual(["a", "b"]);
   });
 
-  it("JSON がオブジェクトでない場合も空", () => {
+  it("is also empty when the JSON is not an object", () => {
     expect(decodeFavorites("[1,2]")).toEqual([]);
     expect(decodeFavorites("null")).toEqual([]);
   });
 });
 
 describe("encodeFavorites", () => {
-  it("スキーマ版を付けて書く", () => {
+  it("writes with the schema version", () => {
     expect(encodeFavorites(["a"])).toBe('{"v":1,"ids":["a"]}');
   });
 
-  it("往復する", () => {
+  it("round-trips", () => {
     expect(decodeFavorites(encodeFavorites(["x", "y"]))).toEqual(["x", "y"]);
   });
 });
 
 describe("toggleFavorite", () => {
-  it("無ければ足す", () => {
+  it("adds it when absent", () => {
     expect(toggleFavorite(["a"], "b")).toEqual(["a", "b"]);
   });
 
-  it("あれば外す", () => {
+  it("removes it when present", () => {
     expect(toggleFavorite(["a", "b"], "a")).toEqual(["b"]);
   });
 
-  it("元の配列を書き換えない", () => {
+  it("does not mutate the original array", () => {
     const original = ["a"];
     toggleFavorite(original, "b");
     expect(original).toEqual(["a"]);

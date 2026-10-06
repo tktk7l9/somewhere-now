@@ -1,18 +1,19 @@
-/* somewhere-now — 海図と観測所の語彙。
+/* somewhere-now — the vocabulary of nautical charts and observatories.
  *
- * 主役は地図そのものと、その上に横たわる夜の影。色は深い海図の藍緑を地とし、
- * 明かりの点いた窓としての琥珀だけを差し色にする。書体は海図の注記(縦長の
- * グロテスク・大文字・広いトラッキング)と、計器の読みとしての等幅の二層。
+ * The lead is the map itself and the shadow of night lying over it. The ground color is the deep
+ * indigo-green of a chart, and the only accent is amber, as a window with its light on. Type comes
+ * in two layers: chart annotations (a tall grotesque, capitals, wide tracking) and monospace as
+ * instrument readouts.
  */
 
 :root {
-  --ink: #0b1620; /* 地。深い海図の藍黒 */
-  --ink-2: #132532; /* パネルの地 */
-  --ink-3: #0e1d28; /* 沈んだ面 */
-  --haze: #1e3a45; /* 罫・境界 */
-  --bone: #e8e2d4; /* 本文。純白でなく温かみのある骨色 */
-  --dim: #7e9099; /* 副次テキスト */
-  --lit: #ffb94a; /* 配信中。夜に点いた窓 */
+  --ink: #0b1620; /* Ground. The deep indigo-black of a chart */
+  --ink-2: #132532; /* Panel ground */
+  --ink-3: #0e1d28; /* Sunken surface */
+  --haze: #1e3a45; /* Rules and borders */
+  --bone: #e8e2d4; /* Body text. Not pure white but a warm bone color */
+  --dim: #7e9099; /* Secondary text */
+  --lit: #ffb94a; /* Live. A window lit at night */
   --lit-soft: rgba(255, 185, 74, 0.16);
 
   --font-display: "Barlow Condensed", "Hiragino Sans", "Noto Sans JP", sans-serif;
@@ -26,6 +27,14 @@
 
 * {
   box-sizing: border-box;
+}
+
+/* The hidden attribute must always win. The UA rule is only `display: none` at the lowest
+   specificity, so any component rule that sets display (.wall is a grid) silently overrides it.
+   The "hidden" side-by-side wall then stayed laid out over the stage and moved with the masthead
+   when the web font arrived: CLS 0.128 on mobile (Lighthouse, 2026-09-29). */
+[hidden] {
+  display: none !important;
 }
 
 html,
@@ -62,10 +71,10 @@ input {
   outline-offset: 2px;
 }
 
-/* スクロールバーは海図の罫と同じ細さ・同じ色にする。既定の帯は 15px あって、
-   パネルと一覧の幅を実際に食う(見た目だけの話ではない)。
-   標準プロパティを解さないブラウザにだけ WebKit の擬似要素を出す — 両方書くと
-   Safari が常時表示の旧式スクロールバーに戻る。 */
+/* Scrollbars are as thin as the chart rules and the same colour. The default band is 15px and
+   actually eats the width of the panel and the list (not just a matter of looks).
+   The WebKit pseudo-elements are only for browsers that do not understand the standard
+   property; writing both sends Safari back to the always-visible legacy scrollbar. */
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--haze) transparent;
@@ -91,16 +100,34 @@ input {
   }
 }
 
-/* ── 骨格 ───────────────────────────────────────────── */
+/* ── Skeleton ───────────────────────────────────────── */
 
+/* Columns are minmax(0, …). A plain 1fr cannot go below "the minimum width of its content", so just
+   holding a bundle of non-wrapping chips (8 categories) makes the whole column wider than the
+   screen and the entire page stretches sideways (measured on a narrow screen: a 677px skeleton sat
+   on a 390px screen). */
 .app {
   display: grid;
-  grid-template-columns: 1fr var(--panel-w);
+  grid-template-columns: minmax(0, 1fr) var(--panel-w);
   grid-template-rows: auto 1fr;
   height: 100dvh;
 }
 
+/* Until the first render, keep everything below the masthead invisible (it is still laid out).
+   The chips of the masthead are built by JS, so the masthead grows from 1 row (the brand) to
+   several rows the moment the app starts, pushing down whatever was painted under it (measured on
+   a phone: 39px -> 149px, CLS 0.128). Before JS the stage and the panel are empty boxes, so
+   nothing is lost by not painting them; app.ts sets data-ready in the same task as that first
+   render, so there is no frame in between. */
+.app:not([data-ready]) > :not(.masthead) {
+  visibility: hidden;
+}
+
 .masthead {
+  position: relative;
+  /* The opened filter row hangs over the map, so put it above the Leaflet controls (z-index 1000).
+     Otherwise the zoom buttons poke through the search field. */
+  z-index: 1100;
   grid-column: 1 / -1;
   display: flex;
   align-items: flex-start;
@@ -117,11 +144,11 @@ input {
   text-decoration: none;
   color: inherit;
   flex-shrink: 0;
-  /* 1 段目のチップと光学的に揃える */
+  /* Align optically with the chips of row 1 */
   padding-top: 5px;
 }
 
-/* 半分が影になった円 = このアプリが見せているもの */
+/* A circle with half in shadow = what this app shows */
 .brand__mark {
   width: 15px;
   height: 15px;
@@ -130,7 +157,9 @@ input {
   background: linear-gradient(90deg, var(--lit) 0 50%, transparent 50% 100%);
 }
 
+/* The name is the page's only h1: the masthead is where the page says what it is (SHIG 59). */
 .brand__name {
+  margin: 0;
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 18px;
@@ -162,6 +191,8 @@ input {
 
 .panel {
   position: relative;
+  display: flex;
+  flex-direction: column;
   border-left: 1px solid var(--haze);
   background: var(--ink-2);
   overflow: hidden;
@@ -169,8 +200,21 @@ input {
 }
 
 .panel__scroll {
-  height: 100%;
+  flex: 1;
+  min-height: 0;
   overflow-y: auto;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* ── Panel rising from the bottom (narrow portrait screens only) ── */
+
+/* CSS decides whether it behaves as a sheet, and JS reads this value (panelSheet.ts). */
+.app {
+  --sheet: 0;
+}
+
+.panel-grip {
+  display: none;
 }
 
 .panel-resize {
@@ -198,10 +242,15 @@ input {
   transition: background 0.15s var(--ease);
 }
 
-.panel-resize:hover::before,
 .panel-resize:focus-visible::before,
 html.resizing-panel .panel-resize::before {
   background: var(--lit);
+}
+
+@media (hover: hover) {
+  .panel-resize:hover::before {
+    background: var(--lit);
+  }
 }
 
 html.resizing-panel {
@@ -213,7 +262,7 @@ html.resizing-panel iframe {
   pointer-events: none;
 }
 
-/* ── 操作 ───────────────────────────────────────────── */
+/* ── Controls ───────────────────────────────────────── */
 
 .chip {
   font-family: var(--font-display);
@@ -231,7 +280,16 @@ html.resizing-panel iframe {
   display: inline-block;
 }
 
-.chip:hover {
+/* On screens used with a finger, hover stays on as a "press mark" (sticky hover). Wrap it in a
+   query and hand it only to screens that have a pointing tool. */
+@media (hover: hover) {
+  .chip:hover {
+    color: var(--bone);
+    border-color: var(--dim);
+  }
+}
+
+.chip:active {
   color: var(--bone);
   border-color: var(--dim);
 }
@@ -245,6 +303,18 @@ html.resizing-panel iframe {
 .chip:disabled {
   opacity: 0.55;
   cursor: wait;
+}
+
+/* Opens and closes the filter row. Not shown on wide screens, where the row is visible as is. */
+.chip--filters {
+  display: none;
+}
+
+/* Chips with a label in two lengths ("絞り込みを解除" / "解除", "English" / "EN"). Narrow screens show
+   the short one so the primary row keeps its line count (SHIG 85); the full label stays as the
+   accessible name. */
+.chip--two-lengths .chip__short {
+  display: none;
 }
 
 .search {
@@ -267,17 +337,17 @@ html.resizing-panel iframe {
   border-right: 1px solid var(--haze);
 }
 
-/* 各段の最後の群だけは右端へ寄せる。すべて左に詰めると、広い画面では帯の
-   右半分が丸ごと空いて、ヘッダーが途中で終わったように見える。右へ出すのは
-   1 段目が言語、2 段目が状態の絞り込み ＝ どちらも「どこを見るか」ではなく
-   「どう見せるか」の側なので、離しても並びの意味が壊れない。 */
+/* Only the last group of each row is pushed to the right edge. Packing everything to the left
+   leaves the right half of the band empty on wide screens, as if the header stopped halfway.
+   What goes right is the language on row 1 and the state filters on row 2 = both are about
+   "how to show", not "where to look", so moving them apart does not break the order. */
 .controls__group:last-child {
   border-right: none;
   padding-right: 0;
   margin-left: auto;
 }
 
-/* ── 署名: 夜の割合とピンの色 ─────────────────────────── */
+/* ── Signature: share of night and pin colors ────────── */
 
 .notes {
   position: absolute;
@@ -294,8 +364,8 @@ html.resizing-panel iframe {
 
 .dial {
   padding: 13px 17px 10px;
-  /* 中身は JS が入れるので、空のままだと見出しが 52px、数字が入ると 91px に
-     なって地図ごと下へ飛ぶ(CLS)。埋まったときの高さを最初から取っておく。 */
+  /* JS fills the content, so left empty the heading is 52px and with the numbers in it becomes
+     91px, and the whole map jumps down (CLS). Reserve the filled height from the start. */
   min-height: 89px;
 }
 
@@ -346,7 +416,7 @@ html.resizing-panel iframe {
   flex-shrink: 0;
 }
 
-/* ── 地図 ───────────────────────────────────────────── */
+/* ── Map ────────────────────────────────────────────── */
 
 .map {
   position: absolute;
@@ -359,8 +429,8 @@ html.resizing-panel iframe {
   font-family: var(--font-body);
 }
 
-/* 素の OSM は明るすぎるので、海図の色に寄せる。帰属表示には掛からない。
-   同じ式を地球儀のラスタにも使う(src/ui/nauticalColor.ts の NAUTICAL_FILTER)。 */
+/* Plain OSM is too bright, so move it toward chart colors. It does not apply to the attribution.
+   The same formula is used for the globe raster (NAUTICAL_FILTER in src/ui/nauticalColor.ts). */
 .map .leaflet-tile-pane {
   filter: invert(1) hue-rotate(180deg) brightness(0.78) contrast(1.05) saturate(0.75);
 }
@@ -382,8 +452,10 @@ html.resizing-panel iframe {
   border-bottom-color: var(--haze);
 }
 
-.map .leaflet-bar a:hover {
-  background: var(--haze);
+@media (hover: hover) {
+  .map .leaflet-bar a:hover {
+    background: var(--haze);
+  }
 }
 
 .night-shade,
@@ -391,14 +463,15 @@ html.resizing-panel iframe {
   pointer-events: none;
 }
 
-/* ── 地球儀 ───────────────────────────────────────── */
+/* ── Globe ──────────────────────────────────────── */
 
 .globe {
   display: none;
   position: absolute;
   inset: 0;
   z-index: 1;
-  /* 宇宙側。球の海より一段暗い。同じ --ink だと地球儀が背景に溶ける。 */
+  /* The space side. One step darker than the sea of the sphere. With the same --ink the globe melts
+     into the background. */
   background: #02080c;
 }
 
@@ -406,7 +479,7 @@ html.resizing-panel iframe {
   display: block;
 }
 
-/* MapLibre は #globe 自身に .maplibregl-map を付ける。子孫セレクタだと当たらない。 */
+/* MapLibre puts .maplibregl-map on #globe itself. A descendant selector does not match. */
 .globe.maplibregl-map,
 .globe .maplibregl-canvas-container,
 .globe .maplibregl-canvas {
@@ -422,15 +495,29 @@ html.resizing-panel iframe {
   outline: none;
 }
 
-.globe .maplibregl-ctrl-attrib {
+/* The MapLibre CSS is a dynamic import, so it loads after this sheet. Its attribution is written
+   with the 2 classes `.maplibregl-ctrl.maplibregl-ctrl-attrib` and
+   `.maplibregl-ctrl-attrib.maplibregl-compact`, the same strength as `.globe
+   .maplibregl-ctrl-attrib` = theirs, arriving later, wins. On narrow screens the attribution is
+   lifted above the panel, so losing leaves a white pill floating in the middle of the map.
+   `.globe.maplibregl-map` makes it 1 step stronger. */
+.globe.maplibregl-map .maplibregl-ctrl-attrib {
   background: rgba(11, 22, 32, 0.86);
   color: var(--dim);
   font-family: var(--font-mono);
   font-size: 10px;
 }
 
-.globe .maplibregl-ctrl-attrib a {
+.globe.maplibregl-map .maplibregl-ctrl-attrib a {
   color: var(--dim);
+}
+
+/* The ⓘ that collapses and expands. A dark mark on a dark ground is invisible, so invert it like
+   the other controls. */
+.globe.maplibregl-map .maplibregl-ctrl-attrib.maplibregl-compact::after,
+.globe.maplibregl-map .maplibregl-ctrl-attrib-button {
+  background-color: transparent;
+  filter: invert(0.88) sepia(0.15);
 }
 
 .globe .maplibregl-ctrl-group {
@@ -450,8 +537,10 @@ html.resizing-panel iframe {
   border-top-color: var(--haze);
 }
 
-.globe .maplibregl-ctrl-group button:hover {
-  background: var(--haze);
+@media (hover: hover) {
+  .globe .maplibregl-ctrl-group button:hover {
+    background: var(--haze);
+  }
 }
 
 .globe .maplibregl-ctrl-icon {
@@ -476,9 +565,10 @@ html.resizing-panel iframe {
   line-height: 1.6;
 }
 
-/* ── マーカー ───────────────────────────────────────── */
+/* ── Markers ────────────────────────────────────────── */
 
 .pin {
+  position: relative;
   display: block;
   width: 13px;
   height: 13px;
@@ -486,6 +576,28 @@ html.resizing-panel iframe {
   border: 1.5px solid var(--dim);
   background: var(--ink);
   transition: transform 0.15s var(--ease);
+}
+
+/* On the map the marker box is 24px (PIN_TARGET_PX in map.ts) and the dot sits in its middle, so the
+   keyboard/pointer target meets the 24px minimum without changing the look (SHIG 78). */
+.leaflet-marker-icon > .pin {
+  margin: calc((24px - 13px) / 2);
+}
+
+/* A 13px dot cannot be aimed at with a finger. Keep the look and extend only the hit area outward.
+   In px, not a ratio, so it does not follow the enlargement (the scale of --selected). */
+@media (pointer: coarse) {
+  .pin::after,
+  .cluster::after {
+    content: "";
+    position: absolute;
+    inset: -11px;
+    border-radius: 50%;
+  }
+
+  .cluster::after {
+    inset: -7px;
+  }
 }
 
 .pin--live {
@@ -502,12 +614,14 @@ html.resizing-panel iframe {
   transform: scale(1.55);
 }
 
-.pin:hover {
-  transform: scale(1.3);
+@media (hover: hover) {
+  .pin:hover {
+    transform: scale(1.3);
+  }
 }
 
-/* いまいる場所。カメラのピンと並べても見間違えないよう、塗り潰しの琥珀にする。
-   span は inline なので幅高さが効かない(マーカーが線に潰れる)。 */
+/* Where the user is now. A filled amber so it is not mistaken for a camera pin next to it. span is
+   inline, so width and height do not apply (the marker collapses into a line). */
 .here-wrap {
   background: none;
   border: none;
@@ -528,6 +642,7 @@ html.resizing-panel iframe {
 }
 
 .cluster {
+  position: relative;
   display: grid;
   place-items: center;
   width: 30px;
@@ -545,7 +660,7 @@ html.resizing-panel iframe {
   color: var(--lit);
 }
 
-/* ── パネル ─────────────────────────────────────────── */
+/* ── Panel ──────────────────────────────────────────── */
 
 .panel__empty {
   padding: 26px 20px;
@@ -616,7 +731,7 @@ html.resizing-panel iframe {
   margin: 1px 0 0;
 }
 
-/* 計器の読み。時刻・気温・視聴者数は等幅で揃える。 */
+/* Instrument readouts. Time, temperature and viewer count align in monospace. */
 .readout {
   display: flex;
   flex-wrap: wrap;
@@ -682,8 +797,10 @@ html.resizing-panel iframe {
   text-decoration: none;
 }
 
-.card__overview-source:hover {
-  color: var(--bone);
+@media (hover: hover) {
+  .card__overview-source:hover {
+    color: var(--bone);
+  }
 }
 
 @keyframes breathe {
@@ -703,7 +820,12 @@ html.resizing-panel iframe {
   font-size: 12px;
 }
 
-/* ── ウォール ───────────────────────────────────────── */
+/* Pushed to the far end of its line, away from the toggles (SHIG 16). */
+.card__actions .chip--close {
+  margin-left: auto;
+}
+
+/* ── Wall ───────────────────────────────────────────── */
 
 .wall {
   position: absolute;
@@ -715,7 +837,7 @@ html.resizing-panel iframe {
   background: var(--haze);
 }
 
-/* 枚数に合わせて格子を変え、映像の上下に無駄な黒帯を作らない。 */
+/* Change the grid to match the count, and make no wasted black bars above and below the video. */
 .wall[data-count="1"] {
   grid-template-columns: 1fr;
 }
@@ -738,13 +860,36 @@ html.resizing-panel iframe {
   border: 0;
 }
 
-.wall__caption {
+/* The bar under the video: the name and the cell's own controls (close, and sound on the lead cell),
+   so one camera can be handled where it is shown instead of back in the panel (SHIG 8, 23). It hugs
+   the left edge and lets pointer events through outside its children, so the player's own controls
+   on the right stay reachable. */
+.wall__bar {
   position: absolute;
   left: 0;
   bottom: 0;
   z-index: 2;
-  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 100%;
+  padding: 4px 6px 4px 10px;
   background: rgba(11, 22, 32, 0.82);
+  pointer-events: none;
+}
+
+.wall__bar > * {
+  pointer-events: auto;
+}
+
+.wall__caption {
+  /* Keep a long title on 1 line. On a narrow screen it wraps to 2 lines and blocks the video with a
+     horizontal band. */
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 2px 4px 2px 0;
   font-family: var(--font-display);
   font-size: 13px;
   font-weight: 600;
@@ -752,7 +897,14 @@ html.resizing-panel iframe {
   text-transform: uppercase;
 }
 
-/* 並べて見るときは、地図もパネルも畳んで映像に幅を全部渡す。 */
+.wall__tool {
+  flex: 0 0 auto;
+  font-size: 11px;
+  padding: 3px 8px;
+}
+
+/* When viewing side by side, collapse both the map and the panel and give the video all the
+   width. */
 .app[data-mode="wall"] .map,
 .app[data-mode="wall"] .globe,
 .app[data-mode="wall"] .notes,
@@ -764,7 +916,7 @@ html.resizing-panel iframe {
   grid-template-columns: 1fr;
 }
 
-/* ── 視聴が多い順 ─────────────────────────────────────── */
+/* ── Most watched ───────────────────────────────────── */
 
 .watching {
   position: absolute;
@@ -813,6 +965,10 @@ html.resizing-panel iframe {
   color: var(--dim);
 }
 
+.watching__empty-text {
+  margin: 0;
+}
+
 .watching__list {
   list-style: none;
   margin: 0;
@@ -839,8 +995,14 @@ html.resizing-panel iframe {
   border-radius: var(--radius);
 }
 
-.watching__row:hover {
-  background: rgba(232, 226, 212, 0.04);
+@media (hover: hover) {
+  .watching__row:hover {
+    background: rgba(232, 226, 212, 0.04);
+  }
+}
+
+.watching__row:active {
+  background: rgba(232, 226, 212, 0.07);
 }
 
 .watching__row[aria-current="true"] {
@@ -881,6 +1043,12 @@ html.resizing-panel iframe {
   color: var(--dim);
 }
 
+/* On the amber-tinted current row, --dim falls to 3.99:1. Lift it toward --bone to clear 4.5:1
+   without adding a colour to the palette (SHIG 96). */
+.watching__row[aria-current="true"] .watching__meta {
+  color: color-mix(in srgb, var(--dim) 70%, var(--bone));
+}
+
 .watching__viewers {
   font-family: var(--font-mono);
   font-size: 13px;
@@ -889,8 +1057,8 @@ html.resizing-panel iframe {
   white-space: nowrap;
 }
 
-/* 「どこなのか」を見にいく口。地図が主役なので、行を押したときの
-   「その配信を開く」よりは控えめに置き、触れたときだけ琥珀に点く。 */
+/* The way out to "where is it". The map is the lead, so this sits more quietly than pressing
+   the row ("open that stream") and lights up amber only when touched. */
 .watching__jump {
   flex: none;
   display: flex;
@@ -926,32 +1094,129 @@ html.resizing-panel iframe {
   display: none;
 }
 
-/* ── 応答 ───────────────────────────────────────────── */
+/* ── Screens used with a finger ─────────────────────── */
+
+@media (pointer: coarse) {
+  /* A plain chip is 26px high. A finger target wants 44px, so thicken the inside and then extend
+     outward a little with a pseudo-element (within the range that does not overlap the
+     neighbor). */
+  .chip {
+    position: relative;
+    padding: 8px 12px;
+  }
+
+  .chip::after {
+    content: "";
+    position: absolute;
+    inset: -3px -2px;
+  }
+
+  .card__actions .chip,
+  .openrow .chip {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+
+  /* iOS zooms the whole screen when an input below 16px gets focus, and does not zoom back. Make it
+     16px from the start. */
+  .search {
+    font-size: 16px;
+    padding: 8px 10px;
+  }
+}
+
+/* ── Responsive ─────────────────────────────────────── */
 
 @media (max-width: 900px) {
-  .app {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 46dvh 1fr;
-  }
-
-  .panel {
-    border-left: none;
-    border-top: 1px solid var(--haze);
-  }
-
+  /* An 8px vertical bar cannot be grabbed with a finger. On narrow screens CSS decides the width
+     allocation. */
   .panel-resize {
     display: none;
   }
 
-  /* 狭い画面では各段を折り返さず、ヘッダーごと横にスクロールさせる
-     (3 段に折り返すと地図の取り分がなくなる)。 */
-  .masthead {
-    overflow-x: auto;
+  /* On narrow screens collapse it, and when opened wrap and show everything. Before, the whole
+     header scrolled sideways, but the initial view showed only "どこかへ連れてって" (Take me somewhere) and
+     the search field, and the 8 categories, 3 flags, globe, side by side and most watched could not
+     even be known to exist without swiping sideways. On top of that the 2 rows moved together, so
+     one could not be used while looking at the other. */
+  .chip--filters {
+    display: inline-block;
   }
 
-  .masthead__primary,
-  .masthead__filters {
-    flex-wrap: nowrap;
+  .chip--two-lengths .chip__long {
+    display: none;
+  }
+
+  .chip--two-lengths .chip__short {
+    display: inline;
+  }
+
+  .app[data-filters="closed"] .masthead__filters {
+    display: none;
+  }
+
+  /* The opened row hangs over the map instead of stretching the heading vertically. Pushing its
+     place wider would keep the map thin for as long as filtering goes on. */
+  .app[data-filters="open"] .masthead__filters {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 700;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 12px;
+    background: var(--ink-3);
+    border-bottom: 1px solid var(--haze);
+    box-shadow: 0 14px 26px rgba(2, 8, 12, 0.5);
+  }
+
+  .masthead__filters .controls__group {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .masthead__filters .controls__group:not(:last-child) {
+    padding-bottom: 10px;
+    padding-right: 0;
+    border-right: none;
+    border-bottom: 1px solid var(--haze);
+  }
+
+  .masthead__filters .search {
+    width: 100%;
+  }
+
+  /* The brand name eats 150px. Keep only the mark and hand the name to screen readers only. */
+  .brand__name {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .masthead {
+    gap: 12px;
+    padding: 8px 12px 10px;
+  }
+
+  /* Wrap inside the bundle too. A bundle does not wrap by default, so the bundle of 8 categories
+     overflows the screen and is silently cut off (globe, side by side and most watched had become
+     invisible). The vertical divider loses its meaning when wrapped, so drop it. */
+  .controls__group {
+    flex-wrap: wrap;
+    padding-right: 0;
+    border-right: none;
+  }
+
+  /* Row 1 collapses the bundles and lines up the chips directly. While a bundle stays a box, the
+     line always breaks at the bundle boundary, and the next chip drops down even when the right
+     edge is free (measured: 4 lines). */
+  .masthead__primary .controls__group {
+    display: contents;
   }
 
   .notes {
@@ -971,10 +1236,6 @@ html.resizing-panel iframe {
     font-size: 34px;
   }
 
-  .app[data-mode="watching"] {
-    grid-template-rows: auto 1fr 42dvh;
-  }
-
   .watching__row {
     grid-template-columns: 2.6em 1fr;
     grid-template-rows: auto auto;
@@ -986,13 +1247,13 @@ html.resizing-panel iframe {
   }
 }
 
-/* 名前の幅が惜しくなる幅から、飛び先は行の下へ回す。 */
+/* From the width where the name runs short, the jump targets move below the row. */
 @media (max-width: 560px) {
   .watching__item {
     flex-wrap: wrap;
   }
 
-  /* 下の余白は飛び先の側だけが持つ。両方が持つと帯が離れて別の行に見える。 */
+  /* Only the jump side keeps the bottom gap. With both, the band drifts apart and reads as another row. */
   .watching__row {
     padding-bottom: 4px;
   }
@@ -1001,6 +1262,162 @@ html.resizing-panel iframe {
     flex: 1 0 100%;
     justify-content: flex-end;
     padding: 0 4px 10px;
+  }
+}
+
+/* A narrow and tall screen = a handheld device. Give the map the whole stage and layer the panel
+   from the bottom. panelSheet.ts switches up and down with data-sheet. Before, this split
+   vertically into 46dvh / 1fr, but even with nothing selected "まだ何も選んでいません" (Nothing selected yet)
+   took half the screen, and the stream count card also sat on the remaining map, so the map
+   actually visible was only one third of the screen. */
+@media (max-width: 900px) and (orientation: portrait) {
+  .app {
+    --sheet: 1;
+    --sheet-peek: calc(56px + env(safe-area-inset-bottom));
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+
+  .stage,
+  .panel {
+    grid-area: 2 / 1;
+  }
+
+  .panel {
+    align-self: end;
+    /* The Leaflet controls and attribution are z-index 1000. Since this is layered over the map,
+       unless it sits above that, the scale display pokes through the panel text. */
+    z-index: 1050;
+    width: 100%;
+    max-height: 100%;
+    padding-bottom: env(safe-area-inset-bottom);
+    border-left: none;
+    border-top: 1px solid var(--haze);
+    border-radius: 14px 14px 0 0;
+    box-shadow: 0 -14px 30px rgba(2, 8, 12, 0.5);
+    transition: height 0.26s var(--ease);
+  }
+
+  .panel__scroll {
+    padding-bottom: 0;
+  }
+
+  /* panelSheet.ts writes the height in px. Putting the resting stops on the CSS side means JS
+     cannot verify the fully raised height (it can only read values in the middle of the
+     interpolation). */
+  .panel {
+    height: var(--sheet-h, var(--sheet-peek));
+  }
+
+  /* While grabbed, attach it directly to the finger. With interpolation in between it follows
+     late. */
+  html.dragging-sheet .panel {
+    transition: none;
+  }
+
+  .panel-grip {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    width: 100%;
+    min-height: 56px;
+    padding: 9px 16px 0;
+    /* This is a grab-and-swing-vertically gesture, so do not hand it to browser scrolling. */
+    touch-action: none;
+  }
+
+  .panel-grip__bar {
+    width: 42px;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--haze);
+  }
+
+  .panel-grip__label {
+    max-width: 100%;
+    overflow: hidden;
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    line-height: 1.3;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--bone);
+  }
+
+  .app[data-sheet="peek"] .panel-grip__label {
+    color: var(--dim);
+  }
+
+  /* Once raised, the card shows the same name, so the grip goes back to the bar only. */
+  .app[data-sheet="half"] .panel-grip,
+  .app[data-sheet="full"] .panel-grip {
+    min-height: 0;
+    padding-bottom: 9px;
+  }
+
+  .app[data-sheet="half"] .panel-grip__label,
+  .app[data-sheet="full"] .panel-grip__label {
+    display: none;
+  }
+
+  html.dragging-sheet {
+    user-select: none;
+  }
+
+  html.dragging-sheet iframe {
+    pointer-events: none;
+  }
+
+  /* Leave room for the current height so the last row of the list is not buried behind the panel.
+     Pinning it to the collapsed height makes the end unreachable while raised. */
+  .watching__list {
+    padding-bottom: calc(var(--sheet-h, var(--sheet-peek)) + 16px);
+  }
+
+  /* Viewing side by side collapses the whole panel, so the grid is a single column. Split into 2
+     columns on a narrow screen, 1 tile becomes 195px and what it shows cannot be made out. */
+  .wall {
+    grid-template-columns: 1fr;
+  }
+
+  /* The bottom edge of the map became the place the panel overlaps. The attribution cannot be
+     removed, so put it on the top edge of the panel so it is always visible. */
+  .map .leaflet-bottom,
+  .globe .maplibregl-ctrl-bottom-right,
+  .globe .maplibregl-ctrl-bottom-left {
+    bottom: var(--sheet-h, var(--sheet-peek));
+  }
+
+  /* While the panel is raised, the stream count card covers half of the visible map. What is being
+     watched now is the camera, so retract it for that time. */
+  .app[data-sheet="half"] .notes,
+  .app[data-sheet="full"] .notes {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s var(--ease), visibility 0.2s;
+  }
+}
+
+/* A narrow and wide screen = the device turned on its side. Stacking vertically (on a screen 390px
+   high) makes the map 179px and nothing fits in the panel either. Keep the left-right split and fit
+   only the width to the screen. */
+@media (max-width: 900px) and (orientation: landscape) {
+  .app {
+    grid-template-columns: minmax(0, 1fr) minmax(232px, 42vw);
+  }
+
+  /* Turned on its side, what runs short is the height. Pack the chips and fit the heading into 1
+     row (with 2 rows the heading takes one quarter of a screen 390px high). */
+  .chip {
+    padding: 6px 10px;
+  }
+
+  .masthead {
+    padding: 7px 12px 8px;
   }
 }
 
@@ -1014,7 +1431,7 @@ html.resizing-panel iframe {
   }
 }
 
-/* ── 開いているが主役でないカメラ ─────────────────────── */
+/* ── Cameras that are open but not the lead ─────────── */
 
 .openlist {
   padding: 14px 16px 18px;
@@ -1071,8 +1488,122 @@ html.resizing-panel iframe {
   padding: 3px 8px;
 }
 
-/* パネルが空のときだけ、ピンの読み方を本文の下に添える。 */
+/* Only when the panel is empty, add how to read the pins below the body text. */
 .legend--panel {
   margin-top: 18px;
   padding: 14px 0 0;
+}
+
+/* ── Notice (one line of feedback over the stage) ───── */
+
+.notice {
+  position: absolute;
+  top: 12px;
+  /* Centered without a transform: with left: 50% the box shrinks to half the stage and a long
+     place name wraps one character per line on a phone. */
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  width: max-content;
+  /* Above the Leaflet controls (1000) and the opened filter row (1100). */
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: min(520px, calc(100% - 24px));
+  padding: 8px 8px 8px 14px;
+  background: var(--ink-2);
+  border: 1px solid var(--haze);
+  border-radius: var(--radius);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
+  font-size: 14px;
+  animation: notice-in 0.18s var(--ease);
+}
+
+.notice__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.notice__actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.notice__action {
+  color: var(--lit);
+  border-color: var(--lit);
+}
+
+.notice__dismiss {
+  width: 32px;
+  height: 32px;
+  font-size: 18px;
+  line-height: 1;
+  color: var(--dim);
+  border-radius: var(--radius);
+}
+
+@media (pointer: coarse) {
+  .notice__dismiss {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@keyframes notice-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+/* ── Empty wall ─────────────────────────────────────── */
+
+.wall__empty {
+  grid-column: 1 / -1;
+  align-self: center;
+  justify-self: center;
+  max-width: 420px;
+  padding: 24px;
+  text-align: center;
+  color: var(--dim);
+}
+
+.wall[data-count="0"] {
+  background: var(--ink);
+}
+
+.wall__empty h2 {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  color: var(--bone);
+  margin: 0 0 8px;
+}
+
+.wall__empty p {
+  margin: 0 0 16px;
+  font-size: 14px;
+}
+
+.panel__empty .chip,
+.watching__empty-action {
+  margin-top: 14px;
+}
+
+/* Text only for screen readers. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
 }

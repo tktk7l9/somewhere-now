@@ -1,29 +1,78 @@
-// 並べて見るモード。地図とパネルを畳んで、最大 4 枚を格子に敷き詰める。
+// Side-by-side viewing mode. Collapses the map and the panel and tiles up to 4 players in a grid.
 //
-// 気をつけている点が 2 つある:
-//   1. iframe は DOM から外して入れ直すとリロードされるので、既にあるセルには
-//      触れない(再描画のたびに全部が繋ぎ直しになる)。
-//   2. プレイヤーは 1 枚ずつ間を空けて立ち上げる。同じフレームで 4 枚を初期化
-//      すると重い。待っている間もセルは登録済みにしておかないと、その間の
-//      再描画で同じカメラの枠が二重にできる。
+// There are 2 points of care:
+//   1. An iframe reloads when removed from the DOM and re-inserted, so existing cells are
+//      not touched (otherwise every re-render reconnects all of them).
+//   2. Players are started one at a time with a gap. Initialising 4 in the same frame is
+//      heavy. Cells must stay registered while waiting, otherwise a re-render during that
+//      time creates a duplicate frame for the same camera.
 
 import type { Cam, PublicCamState } from "../domain/cams";
-import { camName } from "./i18n";
+import { camName, t } from "./i18n";
 import { mountPlayer, type PlayerHandle } from "./player";
 import type { Lang } from "../domain/weather";
 
 const STAGGER_MS = 1500;
 
+export interface WallHandlers {
+  onUnplayable(camId: string): void;
+  onBackToMap(): void;
+  /** Takes one camera off the wall (the caller pairs it with undo, SHIG 54). */
+  onClose(camId: string): void;
+  onToggleSound(): void;
+}
+
 interface Cell {
   root: HTMLElement;
   caption: HTMLElement;
-  /** 立ち上げ待ちの間は null。 */
+  /** Shown on the lead cell only: it is the one that can make sound (SHIG 25, 30). */
+  sound: HTMLButtonElement;
+  close: HTMLButtonElement;
+  /** null while waiting to start. */
   player: PlayerHandle | null;
   timer: number | null;
 }
 
-export function createWall(container: HTMLElement, onUnplayable: (camId: string) => void) {
+function tool(className: string): HTMLButtonElement {
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = `chip wall__tool ${className}`;
+  return button;
+}
+
+export function createWall(
+  container: HTMLElement,
+  { onUnplayable, onBackToMap, onClose, onToggleSound }: WallHandlers,
+) {
   const cells = new Map<string, Cell>();
+
+  /** The bar under the video: name, and the cell's own controls (SHIG 8, 23). */
+  function paintBar(cell: Cell, cam: Cam, index: number, lang: Lang, soundOn: boolean): void {
+    cell.caption.textContent = camName(cam.name, lang);
+    cell.sound.textContent = t("soundOn", lang);
+    cell.sound.setAttribute("aria-pressed", String(soundOn));
+    cell.sound.hidden = index !== 0;
+    cell.close.textContent = t("removeFromView", lang);
+  }
+
+  // With nothing open, the wall used to be a blank dark stage. Say what fills it and give the
+  // way back (SHIG 32, 55, 60).
+  const empty = document.createElement("div");
+  empty.className = "wall__empty";
+  const emptyTitle = document.createElement("h2");
+  const emptyBody = document.createElement("p");
+  const back = document.createElement("button");
+  back.type = "button";
+  back.className = "chip";
+  back.addEventListener("click", onBackToMap);
+  empty.append(emptyTitle, emptyBody, back);
+
+  function paintEmpty(lang: Lang): void {
+    emptyTitle.textContent = t("wallEmptyTitle", lang);
+    emptyBody.textContent = t("wallEmptyBody", lang);
+    back.textContent = t("backToMap", lang);
+    if (!empty.isConnected) container.append(empty);
+  }
 
   function drop(camId: string): void {
     const cell = cells.get(camId);
@@ -46,35 +95,47 @@ export function createWall(container: HTMLElement, onUnplayable: (camId: string)
         if (!keep.has(camId)) drop(camId);
       }
       container.dataset["count"] = String(selected.length);
+      container.setAttribute("aria-label", t("wall", lang));
+      if (selected.length === 0) paintEmpty(lang);
+      else empty.remove();
 
       let newcomers = 0;
       selected.forEach((cam, index) => {
         const existing = cells.get(cam.id);
         if (existing !== undefined) {
-          existing.caption.textContent = camName(cam.name, lang);
+          paintBar(existing, cam, index, lang, soundOn);
+          existing.player?.setTitle(camName(cam.name, lang));
           existing.player?.setMuted(!(soundOn && index === 0));
           return;
         }
 
-        // 枠と見出しは即座に置き、映像だけを順番に立ち上げる。
+        // Place the frame and caption immediately, and start only the videos one after another.
         const root = document.createElement("div");
         root.className = "wall__cell";
+        const bar = document.createElement("div");
+        bar.className = "wall__bar";
         const caption = document.createElement("span");
         caption.className = "wall__caption";
-        caption.textContent = camName(cam.name, lang);
-        root.append(caption);
+        const sound = tool("wall__tool--sound");
+        sound.addEventListener("click", onToggleSound);
+        const close = tool("wall__tool--close");
+        close.addEventListener("click", () => onClose(cam.id));
+        bar.append(caption, sound, close);
+        root.append(bar);
         container.append(root);
 
-        const cell: Cell = { root, caption, player: null, timer: null };
-        // 待っている間の再描画で二重に作らないよう、先に登録しておく。
+        const cell: Cell = { root, caption, sound, close, player: null, timer: null };
+        paintBar(cell, cam, index, lang, soundOn);
+        // Register first, so a re-render during the wait does not create a duplicate.
         cells.set(cam.id, cell);
 
         cell.timer = window.setTimeout(() => {
           cell.timer = null;
           if (!root.isConnected) return;
           cell.player = mountPlayer(root, cam, states.get(cam.id), {
-            // 音が出るのは先頭の 1 枚だけ。しかも本人が音を許したときだけ。
+            // Only the first 1 player makes sound, and only when the user has allowed sound.
             muted: !(soundOn && index === 0),
+            lang,
             onUnplayable: () => onUnplayable(cam.id),
           });
         }, newcomers * STAGGER_MS);

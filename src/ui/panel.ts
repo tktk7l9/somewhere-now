@@ -1,13 +1,14 @@
-// 右のパネル。選んだカメラの映像と、その土地の「いま」を並べる。
+// The right panel. It puts the video of the selected camera next to the "now" of that place.
 //
-// 再描画のたびに iframe を作り直すと配信が止まって繋ぎ直しになるので、
-// カメラ id で差分を取り、残るカードには触らない。
+// Rebuilding the iframe on every redraw stops the stream and reconnects it, so the diff is taken by
+// camera id and cards that stay are not touched.
 
 import type { Cam, PublicCamState } from "../domain/cams";
+import { resolvedVideoId } from "../domain/cams";
 import { formatLocalTime, utcOffsetLabel } from "../domain/localTime";
 import { weatherIcon, weatherLabel, type Lang } from "../domain/weather";
 import { fetchPlaceOverview, fetchWeather } from "../api/client";
-import { camName, categoryLabel, t } from "./i18n";
+import { camName, categoryLabel, countryName, t, viewersText } from "./i18n";
 import { mountPinLegend } from "./pin";
 import { mountPlayer, type PlayerHandle } from "./player";
 
@@ -17,6 +18,8 @@ export interface PanelHandlers {
   onClose(camId: string): void;
   onFocus(camId: string): void;
   onUnplayable(camId: string): void;
+  /** The way out of an empty result: turns every filter off (SHIG 55, 60). */
+  onClearFilters(): void;
 }
 
 export interface PanelContext {
@@ -24,11 +27,14 @@ export interface PanelContext {
   now: Date;
   states: ReadonlyMap<string, PublicCamState>;
   favoriteIds: ReadonlySet<string>;
-  /** 音を出してよいか。既定は false(仕事の合間に開くので事故を避ける)。 */
+  /**
+   * Whether sound may play. Default is false (it is opened between tasks at work, so avoid
+   * accidents).
+   */
   soundOn: boolean;
 }
 
-/** 何も出せないときに、その理由を伝え分けるための区別。 */
+/** A distinction for telling the reason apart when nothing can be shown. */
 export type EmptyReason = "none" | "noMatch" | "watching";
 
 interface Card {
@@ -42,15 +48,15 @@ interface Card {
   overviewKey: string;
 }
 
-/** 何も選んでいないときの面。次に何をすればよいかと、ピンの読み方だけ置く。 */
-function emptyState(reason: EmptyReason, lang: Lang): HTMLElement {
+/** The surface when nothing is selected. Holds only what to do next and how to read the pins. */
+function emptyState(reason: EmptyReason, lang: Lang, onClearFilters: () => void): HTMLElement {
   const el = document.createElement("div");
   el.className = "panel__empty";
 
   if (reason === "noMatch") {
     const p = document.createElement("p");
     p.textContent = t("noMatch", lang);
-    el.append(p);
+    el.append(p, chip(t("clearFilters", lang), onClearFilters));
     return el;
   }
 
@@ -92,15 +98,15 @@ function statusLabel(status: PublicCamState["status"] | undefined, lang: Lang): 
 }
 
 export function createPanel(container: HTMLElement, handlers: PanelHandlers) {
-  // 再生するのは主役の 1 本だけ。多画面は「並べて見る」に一本化してある。
+  // Only the 1 lead stream plays. Multi-screen is unified into "並べて見る" (Video wall).
   //
-  // 重要: iframe は DOM から一度外して入れ直すとリロードされる。再描画のたびに
-  // append し直すと配信が繋ぎ直しになり、エラー→再描画→リロード→エラーの
-  // 無限ループにもなる(実測でタブが落ちた)。なので置き場所を固定し、主役が
-  // 入れ替わったときだけ差し替える。
+  // Important: an iframe reloads when it is removed from the DOM once and put back. Re-appending on
+  // every redraw reconnects the stream, and also becomes an infinite loop of error -> redraw ->
+  // reload -> error (measured: the tab crashed). So the position is fixed and it is swapped only
+  // when the lead changes.
   const cardHost = document.createElement("div");
   const listHost = document.createElement("div");
-  // 幅ハンドルは panel 本体に固定したいので、中身だけをスクロールさせる。
+  // The width handle should stay fixed to the panel itself, so only the content scrolls.
   const scroll = document.createElement("div");
   scroll.className = "panel__scroll";
   scroll.append(cardHost, listHost);
@@ -123,6 +129,7 @@ export function createPanel(container: HTMLElement, handlers: PanelHandlers) {
     if (playable) {
       player = mountPlayer(frame, cam, state, {
         muted: !(focused && ctx.soundOn),
+        lang: ctx.lang,
         onUnplayable: () => handlers.onUnplayable(cam.id),
       });
     } else {
@@ -145,7 +152,7 @@ export function createPanel(container: HTMLElement, handlers: PanelHandlers) {
 
     const sub = document.createElement("p");
     sub.className = "card__sub";
-    sub.textContent = `${categoryLabel(cam.category, ctx.lang)} · ${cam.country}`;
+    sub.textContent = `${categoryLabel(cam.category, ctx.lang)} · ${countryName(cam.country, ctx.lang)}`;
 
     const readout = document.createElement("div");
     readout.className = "readout";
@@ -177,7 +184,7 @@ export function createPanel(container: HTMLElement, handlers: PanelHandlers) {
       const viewers = document.createElement("span");
       viewers.className = "readout__live";
       viewers.innerHTML = '<span class="readout__dot"></span>';
-      viewers.append(`${state.viewers.toLocaleString()} ${t("viewers", ctx.lang)}`);
+      viewers.append(viewersText(state.viewers, ctx.lang));
       card.readout.append(viewers);
     }
 
@@ -195,7 +202,10 @@ export function createPanel(container: HTMLElement, handlers: PanelHandlers) {
     return a.replace(/\s+/g, "").toLowerCase() === b.replace(/\s+/g, "").toLowerCase();
   }
 
-  /** 時刻・天気の下。iframe には触れない。同じカメラと言語なら取り直さない。 */
+  /**
+   * Below the time and weather. Does not touch the iframe. Not refetched for the same camera and
+   * language.
+   */
   function paintOverview(card: Card, cam: Cam, ctx: PanelContext): void {
     const key = `${cam.id}:${ctx.lang}`;
     if (card.overviewKey === key) return;
@@ -227,7 +237,9 @@ export function createPanel(container: HTMLElement, handlers: PanelHandlers) {
     });
   }
 
-  /** 主役でない開いているカメラ。再生はせず、選び直せる行として置く。 */
+  /**
+   * An open camera that is not the lead. It does not play; it sits as a row that can be reselected.
+   */
   function buildRow(cam: Cam, ctx: PanelContext): HTMLElement {
     const row = document.createElement("div");
     row.className = "openrow";
@@ -235,6 +247,11 @@ export function createPanel(container: HTMLElement, handlers: PanelHandlers) {
     const status = ctx.states.get(cam.id)?.status;
     const dot = document.createElement("span");
     dot.className = `openrow__dot${status === "live" ? " openrow__dot--live" : ""}`;
+    dot.setAttribute("aria-hidden", "true");
+    // The dot tells live from not live by fill alone; screen readers get it in words (SHIG 94).
+    const statusText = document.createElement("span");
+    statusText.className = "visually-hidden";
+    statusText.textContent = statusLabel(status, ctx.lang);
 
     const name = document.createElement("span");
     name.className = "openrow__name";
@@ -244,7 +261,7 @@ export function createPanel(container: HTMLElement, handlers: PanelHandlers) {
     clock.className = "openrow__time";
     clock.textContent = formatLocalTime(ctx.now, cam.timeZone);
 
-    row.append(dot, name, clock);
+    row.append(dot, name, statusText, clock);
     row.append(
       chip(t("focusThis", ctx.lang), () => handlers.onFocus(cam.id)),
       chip(t("removeFromView", ctx.lang), () => handlers.onClose(cam.id)),
@@ -256,20 +273,26 @@ export function createPanel(container: HTMLElement, handlers: PanelHandlers) {
     const favorited = ctx.favoriteIds.has(cam.id);
     const link = document.createElement("a");
     link.className = "chip";
-    link.href = `https://www.youtube.com/watch?v=${ctx.states.get(cam.id)?.videoId ?? cam.source.videoId ?? ""}`;
+    link.href = `https://www.youtube.com/watch?v=${resolvedVideoId(cam, ctx.states.get(cam.id)) ?? ""}`;
     link.target = "_blank";
     link.rel = "noopener noreferrer";
     link.textContent = t("watchOnYouTube", ctx.lang);
 
+    // "閉じる" goes last and apart from the two toggles, so a finger aiming at sound or favorite
+    // does not close the camera instead (SHIG 16, 13).
+    const close = chip(t("removeFromView", ctx.lang), () => handlers.onClose(cam.id));
+    close.classList.add("chip--close");
     card.actions.replaceChildren(
-      chip(t(ctx.soundOn ? "soundOff" : "soundOn", ctx.lang), handlers.onToggleSound, ctx.soundOn),
-      chip(t(favorited ? "unfavorite" : "favorite", ctx.lang), () => handlers.onToggleFavorite(cam.id), favorited),
-      chip(t("removeFromView", ctx.lang), () => handlers.onClose(cam.id)),
+      chip(t("soundOn", ctx.lang), handlers.onToggleSound, ctx.soundOn),
+      chip(t("favorite", ctx.lang), () => handlers.onToggleFavorite(cam.id), favorited),
       link,
+      close,
     );
   }
 
   return {
+    /** What the sheet rising from the bottom (panelSheet.ts) makes untouchable when collapsing. */
+    scroll,
     update(selected: readonly Cam[], ctx: PanelContext, emptyReason: EmptyReason = "none"): void {
       const focused = selected[0];
 
@@ -278,7 +301,7 @@ export function createPanel(container: HTMLElement, handlers: PanelHandlers) {
           current.card.player?.destroy();
           current = null;
         }
-        cardHost.replaceChildren(emptyState(emptyReason, ctx.lang));
+        cardHost.replaceChildren(emptyState(emptyReason, ctx.lang, handlers.onClearFilters));
         listHost.replaceChildren();
         return;
       }
@@ -291,10 +314,11 @@ export function createPanel(container: HTMLElement, handlers: PanelHandlers) {
         current = { camId: focused.id, card: buildCard(focused, ctx, true) };
         cardHost.replaceChildren(current.card.root);
       }
-      // 既にある主役の iframe には触れず、周りの表示だけ描き替える。
+      // Does not touch the existing lead iframe; repaints only the display around it.
       current.card.player?.setMuted(!ctx.soundOn);
+      current.card.player?.setTitle(camName(focused.name, ctx.lang));
       current.card.title.textContent = camName(focused.name, ctx.lang);
-      current.card.sub.textContent = `${categoryLabel(focused.category, ctx.lang)} · ${focused.country}`;
+      current.card.sub.textContent = `${categoryLabel(focused.category, ctx.lang)} · ${countryName(focused.country, ctx.lang)}`;
       paintReadout(current.card, focused, ctx);
       paintOverview(current.card, focused, ctx);
       paintActions(current.card, focused, ctx);
