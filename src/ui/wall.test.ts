@@ -148,6 +148,7 @@ describe("createWall", () => {
       new MessageEvent("message", {
         data: JSON.stringify({ event: "onError", info: 101 }),
         source: frame.contentWindow as Window,
+        origin: "https://www.youtube-nocookie.com",
       }),
     );
     expect(onUnplayable).toHaveBeenCalledWith("kilauea");

@@ -16501,7 +16501,9 @@ export const CAM_PLACES_BULK = [
     channelId: "UCsFgbVuhRrPV5FqyN7kOD8g",
     videoId: "B4-L2nfGcuE",
     titleKey: "Big Bear Bald Eagle Live Nest - Cam 1",
-    at: { lat: 64.1525, lng: -145.8422, timeZone: "America/Anchorage", country: "US" },
+    // Big Bear Lake, California (same FOBBV channel as big-bear-eagle); the geocoder had
+    // matched the word "Big" to Big Delta, Alaska.
+    at: { lat: 34.2439, lng: -116.9114, timeZone: "America/Los_Angeles", country: "US" },
   },
   {
     id: "us-trinidad-harbor-webcam-live-stream",

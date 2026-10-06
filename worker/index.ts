@@ -140,6 +140,7 @@ function camsHeaders(updatedAt: string): Headers {
     // public/_headers for static assets does not apply here, so set these ourselves.
     "x-content-type-options": "nosniff",
     "referrer-policy": "strict-origin-when-cross-origin",
+    "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
   });
 }
 

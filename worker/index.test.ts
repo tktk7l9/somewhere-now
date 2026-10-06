@@ -27,6 +27,25 @@ function memoryKv(initial: Record<string, string> = {}, opts: { failGet?: boolea
   return { kv: kv as unknown as KVNamespace, store, puts };
 }
 
+/** The in-memory KV also needs getWithMetadata for the /api/cams path. */
+function memoryKvWithMeta(initial: Record<string, string> = {}) {
+  const base = memoryKv(initial);
+  const kv = base.kv as unknown as Record<string, unknown>;
+  kv.getWithMetadata = async (key: string) => ({
+    value: base.store.get(key) ?? null,
+    metadata: base.store.has(key) ? { updatedAt: "2026-10-06T00:00:00.000Z" } : null,
+  });
+  return base;
+}
+
+async function runFetch(request: Request, env: Record<string, unknown>): Promise<Response> {
+  const pending: Promise<unknown>[] = [];
+  const ctx = { waitUntil: (p: Promise<unknown>) => pending.push(p) } as unknown as ExecutionContext;
+  const response = await worker.fetch!(request as never, env as never, ctx);
+  await Promise.all(pending);
+  return response;
+}
+
 async function runCron(cron: string, env: Record<string, unknown>): Promise<void> {
   const pending: Promise<unknown>[] = [];
   const ctx = { waitUntil: (p: Promise<unknown>) => pending.push(p) } as unknown as ExecutionContext;
@@ -155,6 +174,58 @@ describe("scheduled", () => {
     const { kv, puts } = memoryKv();
     await runCron("0 0 * * *", { CAM_STATE: kv, YOUTUBE_API_KEY: "k" });
     expect(logs).toEqual(["[cron] an unknown Cron expression fired: 0 0 * * *"]);
+    expect(puts).toEqual([]);
+  });
+});
+
+describe("fetch", () => {
+  beforeEach(() => {
+    // Workers' edge cache; miss on every lookup so the handler builds the response itself.
+    vi.stubGlobal("caches", { default: { match: async () => undefined, put: async () => undefined } });
+  });
+
+  it("serves /api/cams as JSON with the browser-hardening headers the static _headers cannot add", async () => {
+    const { kv } = memoryKvWithMeta({ [PUBLIC_KEY]: '{"updatedAt":"2026-10-06T00:00:00.000Z","cams":{}}' });
+    const res = await runFetch(new Request("https://example.test/api/cams"), { CAM_STATE: kv });
+
+    expect(res.status).toBe(200);
+    expect(res.headers.get("content-type")).toBe("application/json; charset=utf-8");
+    expect(res.headers.get("x-content-type-options")).toBe("nosniff");
+    expect(res.headers.get("referrer-policy")).toBe("strict-origin-when-cross-origin");
+    expect(res.headers.get("strict-transport-security")).toBe("max-age=63072000; includeSubDomains; preload");
+    expect(res.headers.get("etag")).toBe('"2026-10-06T00:00:00.000Z"');
+  });
+
+  it("answers 304 to a matching If-None-Match without a body", async () => {
+    const { kv } = memoryKvWithMeta({ [PUBLIC_KEY]: '{"updatedAt":"2026-10-06T00:00:00.000Z","cams":{}}' });
+    const req = new Request("https://example.test/api/cams", {
+      headers: { "if-none-match": '"2026-10-06T00:00:00.000Z"' },
+    });
+    const res = await runFetch(req, { CAM_STATE: kv });
+    expect(res.status).toBe(304);
+    expect(await res.text()).toBe("");
+  });
+
+  it("rejects every method but GET on /api/cams without touching KV", async () => {
+    const { kv, puts } = memoryKvWithMeta();
+    for (const method of ["POST", "PUT", "DELETE", "PATCH"]) {
+      const res = await runFetch(new Request("https://example.test/api/cams", { method }), { CAM_STATE: kv });
+      expect(res.status).toBe(405);
+      expect(res.headers.get("allow")).toBe("GET");
+    }
+    expect(puts).toEqual([]);
+  });
+
+  it("has no HTTP route that triggers the refresh; everything else goes to the static assets", async () => {
+    const assets = { fetch: vi.fn(async () => new Response("asset")) };
+    const fetchSpy = vi.fn();
+    vi.stubGlobal("fetch", fetchSpy);
+    const { kv, puts } = memoryKvWithMeta();
+    for (const path of ["/__scheduled", "/api/refresh", "/cdn-cgi/handler/scheduled", "/api/cams/../refresh"]) {
+      const res = await runFetch(new Request(`https://example.test${path}`), { CAM_STATE: kv, ASSETS: assets });
+      expect(await res.text()).toBe("asset");
+    }
+    expect(fetchSpy).not.toHaveBeenCalled();
     expect(puts).toEqual([]);
   });
 });

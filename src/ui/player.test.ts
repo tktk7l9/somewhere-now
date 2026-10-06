@@ -1,10 +1,11 @@
 // @vitest-environment jsdom
+import { EMBED_ORIGIN } from "../domain/cams";
 import { KILAUEA, TOKYO, live } from "./__fixtures__/cams";
 import { mountPlayer } from "./player";
 
-function frameMessage(iframe: HTMLIFrameElement, data: unknown): void {
+function frameMessage(iframe: HTMLIFrameElement, data: unknown, origin = EMBED_ORIGIN): void {
   window.dispatchEvent(
-    new MessageEvent("message", { data, source: iframe.contentWindow as Window }),
+    new MessageEvent("message", { data, source: iframe.contentWindow as Window, origin }),
   );
 }
 
@@ -89,6 +90,15 @@ describe("mountPlayer", () => {
     frameMessage(player.iframe, JSON.stringify({ event: "onReady" }));
     frameMessage(player.iframe, "{not json");
     frameMessage(player.iframe, { event: "onError", info: 150 });
+    expect(onUnplayable).not.toHaveBeenCalled();
+  });
+
+  it("ignores messages from its own frame once it has navigated to another origin", () => {
+    const onUnplayable = vi.fn();
+    const player = mountPlayer(container, TOKYO, undefined, { muted: true, onUnplayable });
+
+    frameMessage(player.iframe, JSON.stringify({ event: "onError", info: 150 }), "https://evil.example");
+    frameMessage(player.iframe, JSON.stringify({ event: "onError", info: 150 }), "");
     expect(onUnplayable).not.toHaveBeenCalled();
   });
 

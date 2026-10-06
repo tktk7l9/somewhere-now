@@ -10,7 +10,7 @@
 // it only becomes one step less smart.
 
 import type { Cam, PublicCamState } from "../domain/cams";
-import { resolveEmbedUrl } from "../domain/cams";
+import { EMBED_ORIGIN, resolveEmbedUrl } from "../domain/cams";
 import type { Lang } from "../domain/weather";
 import { camName } from "./i18n";
 
@@ -53,7 +53,7 @@ function embedSrc(cam: Cam, state: PublicCamState | undefined, muted: boolean): 
 }
 
 function post(iframe: HTMLIFrameElement, message: Record<string, unknown>): void {
-  iframe.contentWindow?.postMessage(JSON.stringify(message), "https://www.youtube-nocookie.com");
+  iframe.contentWindow?.postMessage(JSON.stringify(message), EMBED_ORIGIN);
 }
 
 export function mountPlayer(
@@ -79,6 +79,8 @@ export function mountPlayer(
 
   const onMessage = (event: MessageEvent): void => {
     if (event.source !== iframe.contentWindow) return;
+    // The frame may navigate itself; only the playback origin may report errors.
+    if (event.origin !== EMBED_ORIGIN) return;
     if (typeof event.data !== "string") return;
 
     let payload: { event?: unknown; info?: unknown };
