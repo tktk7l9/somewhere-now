@@ -31,7 +31,10 @@ describe("camera master data", () => {
     const piled = counts.filter((n) => n > 1).reduce((sum, n) => sum + n, 0);
 
     // As of 2026-08-29: 3,202 cameras / largest pile 175 cameras.
-    expect(piled).toBeLessThanOrEqual(3202);
+    // 2026-10-06: +1 on purpose. The Big Bear nest cam moved from the "Big Delta, Alaska"
+    // pile onto the coordinates of its sibling cam (same channel, same lake) and formed a
+    // real pile of 2.
+    expect(piled).toBeLessThanOrEqual(3203);
     expect(Math.max(...counts)).toBeLessThanOrEqual(175);
   });
 });

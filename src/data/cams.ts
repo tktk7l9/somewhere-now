@@ -25201,9 +25201,9 @@ export const CAMS: Cam[] = [
     // coords: set explicitly as a well-known landmark
     id: "us-big-bear-bald-eagle-live-nest-cam-1",
     name: { ja: "Big Bear Bald Eagle Live Nest - Cam 1", en: "Big Bear Bald Eagle Live Nest - Cam 1" },
-    lat: 64.1525,
-    lng: -145.8422,
-    timeZone: "America/Anchorage",
+    lat: 34.2439,
+    lng: -116.9114,
+    timeZone: "America/Los_Angeles",
     category: "animal",
     country: "US",
     source: {
