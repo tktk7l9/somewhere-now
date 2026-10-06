@@ -25501,9 +25501,9 @@ export const CAMS: Cam[] = [
     // coords: set explicitly as a well-known landmark
     id: "us-big-bog-state-recreation-area-web-cam",
     name: { ja: "Big Bog State Recreation Area Web Cam", en: "Big Bog State Recreation Area Web Cam" },
-    lat: 64.1525,
-    lng: -145.8422,
-    timeZone: "America/Anchorage",
+    lat: 48.1749,
+    lng: -94.5124,
+    timeZone: "America/Chicago",
     category: "nature",
     country: "US",
     source: {
@@ -40921,9 +40921,9 @@ export const CAMS: Cam[] = [
     // coords: set explicitly as a well-known landmark
     id: "us-live-chasing-big-planes-at-chicago-o",
     name: { ja: "LIVE CHASING BIG PLANES at CHICAGO O'HARE AIRPORT | SIGHTS & SOUNDS of PURE AVIATION |AVGEEK PLANES", en: "LIVE CHASING BIG PLANES at CHICAGO O'HARE AIRPORT | SIGHTS & SOUNDS of PURE AVIATION |AVGEEK PLANES" },
-    lat: 64.1525,
-    lng: -145.8422,
-    timeZone: "America/Anchorage",
+    lat: 41.98,
+    lng: -87.9098,
+    timeZone: "America/Chicago",
     category: "airport",
     country: "US",
     source: {
