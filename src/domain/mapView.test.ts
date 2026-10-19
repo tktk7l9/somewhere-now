@@ -139,4 +139,14 @@ describe("consistency between the index.html preload and the initial view", () =
       expect(Math.abs(tile.y - center.y)).toBeLessThanOrEqual(1);
     }
   });
+
+  it("preloads and preconnects in the CORS mode Leaflet loads the tiles in (no crossorigin)", () => {
+    // Leaflet's tile layer has no crossOrigin option, so the tiles are plain no-cors <img>
+    // requests. A crossorigin preload does not match them (every tile was downloaded twice), and
+    // a crossorigin preconnect opens a connection those requests do not use.
+    const tags = [...html.matchAll(/<link[^>]*tile\.openstreetmap\.org[^>]*>/g)].map(([tag]) => tag);
+    expect(tags.filter((tag) => /rel="preload"/.test(tag))).toHaveLength(preloaded.length);
+    expect(tags.filter((tag) => /rel="preconnect"/.test(tag))).toHaveLength(1);
+    for (const tag of tags) expect(tag).not.toMatch(/\bcrossorigin\b/);
+  });
 });
