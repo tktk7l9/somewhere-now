@@ -279,11 +279,13 @@ function mountGlobe(
     },
     focus(cam) {
       whenReady(() => {
+        // Same rule as goTo: no flight under prefers-reduced-motion.
+        const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
         map.flyTo({
           center: [cam.lng, cam.lat],
           zoom: Math.max(map.getZoom(), 4),
           offset: aimOffset(),
-          duration: 800,
+          duration: reduced ? 0 : 800,
         });
       });
     },

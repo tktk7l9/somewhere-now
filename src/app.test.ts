@@ -190,7 +190,11 @@ describe("startApp", () => {
     expect(screen.getByRole("heading", { name: "まだ何も選んでいません" })).toBeTruthy();
     await waitFor(() => expect(within(dial()).getByText("3")).toBeTruthy());
     expect(within(dial()).getByText("/ 5")).toBeTruthy();
-    expect(dial().getAttribute("aria-label")).toBe("5 地点中 3 地点が配信中");
+    // Screen readers get one sentence; the figures are hidden from them, and the div carries no
+    // aria-label (not allowed on a generic element, and a live region reads content, not labels).
+    expect(within(dial()).getByText("5 地点中 3 地点が配信中").className).toBe("visually-hidden");
+    expect(within(dial()).getByText("3").getAttribute("aria-hidden")).toBe("true");
+    expect(dial().hasAttribute("aria-label")).toBe(false);
     expect(within(document.getElementById("legend")!).getByText("止まっている")).toBeTruthy();
     expect(document.getElementById("legend")!.getAttribute("role")).toBe("note");
     expect(map.playIntro).toHaveBeenCalled();
@@ -276,7 +280,7 @@ describe("startApp", () => {
     map.onSelect("reykjavik");
     expect(document.title).toBe("レイキャビクの港 — Somewhere Now");
 
-    await user.click(screen.getByRole("button", { name: "English" }));
+    await user.click(screen.getByRole("button", { name: "English EN" }));
     expect(document.title).toBe("Reykjavik Harbor — Somewhere Now");
 
     map.onSelect("reykjavik");
@@ -362,7 +366,7 @@ describe("startApp", () => {
     await user.type(screen.getByRole("searchbox"), "火山");
     expect(params().get("q")).toBe("火山");
     expect(map.setVisible).toHaveBeenLastCalledWith([KILAUEA]);
-    expect(dial().getAttribute("aria-label")).toBe("全 5 地点のうち 1 地点を表示、うち 0 地点が配信中");
+    expect(within(dial()).getByText("全 5 地点のうち 1 地点を表示、うち 0 地点が配信中")).toBeTruthy();
     expect(screen.getByRole("button", { name: "絞り込み 1" })).toBeTruthy();
 
     await user.clear(screen.getByRole("searchbox"));
@@ -815,7 +819,7 @@ describe("startApp", () => {
   it("switches the whole screen to English", async () => {
     const user = userEvent.setup();
     await start({ url: "/?cam=tokyo" });
-    await user.click(screen.getByRole("button", { name: "English" }));
+    await user.click(screen.getByRole("button", { name: "English EN" }));
     expect(params().get("lang")).toBe("en");
     expect(document.documentElement.lang).toBe("en");
     expect(within(panel()).getByRole("heading", { name: "Tokyo Crossing" })).toBeTruthy();
