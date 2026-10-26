@@ -263,6 +263,21 @@ describe("createYouTubeClient", () => {
     expect(client.unitsUsed).toBe(101);
   });
 
+  it("gives every call an abort signal so a silent Google never holds the run open", async () => {
+    // The ledger is written only after the last call returns; a call that never answers
+    // would hold that write past the next run, which then overwrites this run's usage.
+    const fetchImpl = vi.fn(async () => jsonResponse({ items: [] }));
+    const client = createYouTubeClient(KEY, fetchImpl as unknown as typeof fetch);
+
+    await client.listVideos(["a"]);
+    await client.listChannelLiveStreamsViaSearch("UC1");
+
+    expect(fetchImpl).toHaveBeenCalledTimes(2);
+    for (const call of fetchImpl.mock.calls as unknown as [string, RequestInit][]) {
+      expect(call[1].signal).toBeInstanceOf(AbortSignal);
+    }
+  });
+
   it("returns only those that are live via uploads", async () => {
     const fetchImpl = async (url: string) => {
       if (url.includes("/playlistItems")) {
