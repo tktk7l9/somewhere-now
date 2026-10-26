@@ -491,8 +491,13 @@ export function startApp(root: HTMLElement): void {
     const label = document.createElement("span");
     label.className = "dial__label";
     label.textContent = caption.label;
-    dialEl.replaceChildren(count, total, label);
-    dialEl.setAttribute("aria-label", caption.aria);
+    // aria-label is not allowed on a plain <div> and a live region announces its content, not
+    // its label. So the sentence is the content for screen readers and the figures are hidden.
+    const spoken = document.createElement("span");
+    spoken.className = "visually-hidden";
+    spoken.textContent = caption.aria;
+    for (const part of [count, total, label]) part.setAttribute("aria-hidden", "true");
+    dialEl.replaceChildren(spoken, count, total, label);
   }
 
   // The grip of the panel that rises from the bottom. Even when collapsed, which camera is
