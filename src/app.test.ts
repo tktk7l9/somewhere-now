@@ -170,6 +170,11 @@ describe("startApp", () => {
     fakes.createUnsupportedView.mockReset();
     fakes.prefetchGlobeRuntime.mockReset();
     fakes.globe = null;
+    // jsdom has no requestIdleCallback, so startApp() would fall back to a real 3 s setTimeout
+    // that imports ./ui/globe; when the file finishes first, that import runs after the
+    // environment is torn down (EnvironmentTeardownError, flaky on CI). Park the warm-up behind
+    // an idle stub that never fires; "warms the globe runtime" replaces it with one that does.
+    vi.stubGlobal("requestIdleCallback", vi.fn());
   });
   afterEach(() => {
     releaseListeners();
