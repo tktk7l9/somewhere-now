@@ -32,7 +32,7 @@
     "maplibre-gl": "^6.15.0"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^5.20261019.1",
+    "@cloudflare/workers-types": "^5.20261026.1",
     "@testing-library/dom": "^10.4.2",
     "@testing-library/user-event": "^14.6.8",
     "@types/leaflet": "^1.9.22",
