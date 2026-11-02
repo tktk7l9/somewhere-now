@@ -335,6 +335,19 @@ export function startApp(root: HTMLElement): void {
       if (cam) focusCam(cam);
     },
     onUnplayable: markUnplayable,
+    onWatchNearest(camId) {
+      const from = byId.get(camId);
+      const nearest = from === undefined ? undefined : nearestLiveCam(from);
+      if (nearest === undefined) return;
+      update({
+        view: [nearest.id, ...view.view.filter((id) => id !== camId && id !== nearest.id)].slice(
+          0,
+          MAX_VIEW,
+        ),
+      });
+      // The list may be covering the map, and Leaflet's flyTo throws on a hidden map (see loadCams).
+      if (!view.watching) focusCam(nearest);
+    },
     onClearFilters: clearFilters,
   });
 
@@ -410,7 +423,9 @@ export function startApp(root: HTMLElement): void {
     },
     onRandom() {
       const live = visibleCams().filter((cam) => states.get(cam.id)?.status === "live");
-      const pool = live.length > 0 ? live : visibleCams();
+      // Once the state is known, a camera that is off air is not a place to be taken to (SHIG 55).
+      // Before that, or when the state failed, every camera is still worth a try.
+      const pool = statesReady === "ready" ? live : visibleCams();
       const cam = pickRandom(pool, Math.random);
       if (cam === null) {
         // Pressing it and seeing nothing happen reads as broken (SHIG 55, 58).
@@ -522,12 +537,22 @@ export function startApp(root: HTMLElement): void {
     filtersOpen = false;
   }
 
+  /** A live camera within the current filters, or undefined. */
+  const nearestLiveCam = (from: Cam): Cam | undefined => {
+    const nearest = nearestCam(visibleCams(), states, from);
+    return nearest !== null && states.get(nearest.id)?.status === "live" ? nearest : undefined;
+  };
+
   const panelCtx = () => ({
     lang: view.lang,
     now,
     states,
     favoriteIds: new Set(favorites),
     soundOn,
+    hasLiveNearby(camId: string) {
+      const from = byId.get(camId);
+      return from !== undefined && nearestLiveCam(from) !== undefined;
+    },
   });
 
   function render(): void {
@@ -636,6 +661,13 @@ export function startApp(root: HTMLElement): void {
     byId = new Map(loaded.map((cam) => [cam.id, cam]));
     broadcasts = broadcastIds(loaded);
     recomputeNight();
+    // A shared link can outlive its camera. Say so instead of opening an empty panel (SHIG 55, 59).
+    const listed = view.view.filter((id) => byId.has(id));
+    if (listed.length < view.view.length) {
+      const key = listed.length === 0 ? "camRemoved" : "camsRemoved";
+      update({ view: listed });
+      notice.show(t(key, view.lang), view.lang);
+    }
     // Cameras selected in the URL from the start can only be opened here.
     render();
     // A shared link lands on the camera it names. Before, the panel opened while the map stayed

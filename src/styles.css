@@ -1607,3 +1607,13 @@ html.resizing-panel iframe {
   white-space: nowrap;
   border: 0;
 }
+
+/* The stand-in for a player that has nothing to show. The wall's bar lies over the bottom edge of
+   the cell, so the text keeps clear of it. */
+.wall__cell .card__fallback {
+  padding-bottom: 48px;
+}
+
+.card__fallback .chip {
+  justify-self: center;
+}

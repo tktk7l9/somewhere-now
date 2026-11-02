@@ -25,6 +25,7 @@ function ctx(overrides: Partial<PanelContext> = {}): PanelContext {
     states: new Map<string, PublicCamState>(),
     favoriteIds: new Set(),
     soundOn: false,
+    hasLiveNearby: () => true,
     ...overrides,
   };
 }
@@ -39,6 +40,7 @@ function setup() {
     onClose: vi.fn(),
     onFocus: vi.fn(),
     onUnplayable: vi.fn(),
+    onWatchNearest: vi.fn(),
     onClearFilters: vi.fn(),
   };
   const panel = createPanel(container, handlers as unknown as PanelHandlers);
@@ -137,10 +139,93 @@ describe("createPanel", () => {
     const { container, panel } = setup();
     panel.update([TOKYO], ctx({ states: new Map([["tokyo", blocked()]]) }));
     expect(container.querySelector("iframe")).toBeNull();
-    expect(screen.getByText("埋め込み不可")).toBeTruthy();
-    expect(screen.getByText(/外部サイトでの再生が許可されていません/)).toBeTruthy();
+    expect(screen.getByText("ここでは再生できません")).toBeTruthy();
+    expect(screen.getByText(/外部サイトでの再生を許可していない/)).toBeTruthy();
     // The YouTube link still goes to the recorded video.
     expect((screen.getByRole("link") as HTMLAnchorElement).href).toContain("v=blocked-vid");
+  });
+
+  it("offers the nearest live camera and the channel, not sound, for a stopped stream", async () => {
+    const user = userEvent.setup();
+    const { panel, handlers } = setup();
+    panel.update([TOKYO], ctx({ states: new Map([["tokyo", offline()]]) }));
+
+    await user.click(screen.getByRole("button", { name: "近くの配信中のカメラへ" }));
+    expect(handlers.onWatchNearest).toHaveBeenCalledWith("tokyo");
+    expect(screen.queryByRole("button", { name: "音を出す" })).toBeNull();
+    const link = screen.getByRole("link", { name: "YouTube のチャンネルを開く" }) as HTMLAnchorElement;
+    expect(link.href).toBe("https://www.youtube.com/channel/ch-tokyo");
+  });
+
+  it("does not offer a nearby camera when none is live", () => {
+    const { panel } = setup();
+    panel.update(
+      [TOKYO],
+      ctx({ states: new Map([["tokyo", offline()]]), hasLiveNearby: () => false }),
+    );
+    expect(screen.queryByRole("button", { name: "近くの配信中のカメラへ" })).toBeNull();
+  });
+
+  it("keeps the same fallback across redraws, so its button keeps focus", () => {
+    const { container, panel } = setup();
+    const context = ctx({ states: new Map([["tokyo", offline()]]) });
+    panel.update([TOKYO], context);
+    const first = container.querySelector(".card__fallback");
+    panel.update([TOKYO], context);
+    expect(container.querySelector(".card__fallback")).toBe(first);
+  });
+
+  it("replaces a player opened on a guess once the state says the stream is gone", () => {
+    const { container, panel } = setup();
+    panel.update([TOKYO], ctx());
+    expect(container.querySelector("iframe")).not.toBeNull();
+
+    panel.update([TOKYO], ctx({ states: new Map([["tokyo", offline()]]) }));
+    expect(container.querySelector("iframe")).toBeNull();
+    expect(screen.getByText("配信していません")).toBeTruthy();
+  });
+
+  it("does not cut a verified stream when the sweep reports it off air", () => {
+    const { container, panel } = setup();
+    panel.update([TOKYO], ctx());
+    panel.update([TOKYO], ctx({ states: new Map([["tokyo", live(1)]]) }));
+    const iframe = container.querySelector("iframe");
+
+    panel.update([TOKYO], ctx({ states: new Map([["tokyo", offline()]]) }));
+    expect(container.querySelector("iframe")).toBe(iframe);
+  });
+
+  it("brings a stopped camera back when it goes live", () => {
+    const { container, panel } = setup();
+    panel.update([TOKYO], ctx({ states: new Map([["tokyo", offline()]]) }));
+    panel.update([TOKYO], ctx({ states: new Map([["tokyo", live(1, "newstream00")]]) }));
+
+    expect(container.querySelector(".card__fallback")).toBeNull();
+    expect(container.querySelector("iframe")?.src).toContain("newstream00");
+    expect(screen.getByRole("button", { name: "音を出す" })).toBeTruthy();
+  });
+
+  it("does not reopen a stream the player reported as unplayable", () => {
+    const { container, panel, handlers } = setup();
+    const states = new Map([["tokyo", live(1, "deadstream0")]]);
+    panel.update([TOKYO], ctx({ states }));
+    const iframe = container.querySelector("iframe")!;
+    window.dispatchEvent(
+      new MessageEvent("message", {
+        data: JSON.stringify({ event: "onError", info: 150 }),
+        origin: "https://www.youtube-nocookie.com",
+        source: iframe.contentWindow,
+      }),
+    );
+    expect(handlers.onUnplayable).toHaveBeenCalledWith("tokyo");
+
+    panel.update([TOKYO], ctx({ states: new Map([["tokyo", { ...blocked(), videoId: "deadstream0" }]]) }));
+    expect(container.querySelector("iframe")).toBeNull();
+
+    // The next poll still calls it live; the same stream must not start the reload cycle again.
+    panel.update([TOKYO], ctx({ states }));
+    expect(container.querySelector("iframe")).toBeNull();
+    expect(screen.getByText("ここでは再生できません")).toBeTruthy();
   });
 
   it("wires sound, favorite and close to the lead camera", async () => {

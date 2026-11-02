@@ -8,8 +8,9 @@
 //      time creates a duplicate frame for the same camera.
 
 import type { Cam, PublicCamState } from "../domain/cams";
+import { canPlay, resolvedVideoId } from "../domain/cams";
 import { camName, t } from "./i18n";
-import { mountPlayer, type PlayerHandle } from "./player";
+import { createFallback, mountPlayer, type PlayerHandle } from "./player";
 import type { Lang } from "../domain/weather";
 
 const STAGGER_MS = 1500;
@@ -28,8 +29,12 @@ interface Cell {
   /** Shown on the lead cell only: it is the one that can make sound (SHIG 25, 30). */
   sound: HTMLButtonElement;
   close: HTMLButtonElement;
-  /** null while waiting to start. */
+  /** null while waiting to start, and while there is nothing to play. */
   player: PlayerHandle | null;
+  fallback: HTMLElement | null;
+  fallbackKey: string;
+  /** The stream the player reported as unplayable. It is not opened again. */
+  failedVideoId: string | null;
   timer: number | null;
 }
 
@@ -46,12 +51,58 @@ export function createWall(
 ) {
   const cells = new Map<string, Cell>();
 
+  /**
+   * Puts in the cell what the state calls for. A dead stream gets the same words as in the panel
+   * rather than YouTube's error frame (SHIG 55). A running player is replaced only when it cannot
+   * be showing anything, so the sweep running a step behind does not cut a stream.
+   */
+  function syncCell(
+    cell: Cell,
+    cam: Cam,
+    state: PublicCamState | undefined,
+    index: number,
+    lang: Lang,
+    soundOn: boolean,
+  ): void {
+    if (cell.player !== null) {
+      if (state?.status !== "blocked") return;
+      cell.player.destroy();
+      cell.player = null;
+    }
+    const videoId = resolvedVideoId(cam, state);
+    if (canPlay(state) && videoId !== cell.failedVideoId) {
+      cell.fallback?.remove();
+      cell.fallback = null;
+      cell.fallbackKey = "";
+      cell.sound.hidden = index !== 0;
+      cell.player = mountPlayer(cell.root, cam, state, {
+        // Only the first 1 player makes sound, and only when the user has allowed sound.
+        muted: !(soundOn && index === 0),
+        lang,
+        onUnplayable: () => {
+          cell.failedVideoId = videoId;
+          onUnplayable(cam.id);
+        },
+      });
+      return;
+    }
+    const status = state?.status === "offline" ? "offline" : "blocked";
+    const key = `${status}:${lang}`;
+    if (cell.fallbackKey === key) return;
+    cell.fallbackKey = key;
+    cell.fallback?.remove();
+    cell.fallback = createFallback(status, lang);
+    cell.root.prepend(cell.fallback);
+    cell.sound.hidden = true;
+  }
+
   /** The bar under the video: name, and the cell's own controls (SHIG 8, 23). */
   function paintBar(cell: Cell, cam: Cam, index: number, lang: Lang, soundOn: boolean): void {
     cell.caption.textContent = camName(cam.name, lang);
     cell.sound.textContent = t("soundOn", lang);
     cell.sound.setAttribute("aria-pressed", String(soundOn));
-    cell.sound.hidden = index !== 0;
+    // With no player there is nothing for it to act on.
+    cell.sound.hidden = index !== 0 || cell.fallback !== null;
     cell.close.textContent = t("removeFromView", lang);
   }
 
@@ -83,6 +134,8 @@ export function createWall(
     cells.delete(camId);
   }
 
+  let latest: ReadonlyMap<string, PublicCamState> = new Map();
+
   return {
     update(
       selected: readonly Cam[],
@@ -90,6 +143,7 @@ export function createWall(
       lang: Lang,
       soundOn: boolean,
     ): void {
+      latest = states;
       const keep = new Set(selected.map((cam) => cam.id));
       for (const camId of [...cells.keys()]) {
         if (!keep.has(camId)) drop(camId);
@@ -106,6 +160,9 @@ export function createWall(
           paintBar(existing, cam, index, lang, soundOn);
           existing.player?.setTitle(camName(cam.name, lang));
           existing.player?.setMuted(!(soundOn && index === 0));
+          if (existing.timer === null) {
+            syncCell(existing, cam, states.get(cam.id), index, lang, soundOn);
+          }
           return;
         }
 
@@ -124,7 +181,17 @@ export function createWall(
         root.append(bar);
         container.append(root);
 
-        const cell: Cell = { root, caption, sound, close, player: null, timer: null };
+        const cell: Cell = {
+          root,
+          caption,
+          sound,
+          close,
+          player: null,
+          fallback: null,
+          fallbackKey: "",
+          failedVideoId: null,
+          timer: null,
+        };
         paintBar(cell, cam, index, lang, soundOn);
         // Register first, so a re-render during the wait does not create a duplicate.
         cells.set(cam.id, cell);
@@ -132,12 +199,7 @@ export function createWall(
         cell.timer = window.setTimeout(() => {
           cell.timer = null;
           if (!root.isConnected) return;
-          cell.player = mountPlayer(root, cam, states.get(cam.id), {
-            // Only the first 1 player makes sound, and only when the user has allowed sound.
-            muted: !(soundOn && index === 0),
-            lang,
-            onUnplayable: () => onUnplayable(cam.id),
-          });
+          syncCell(cell, cam, latest.get(cam.id), index, lang, soundOn);
         }, newcomers * STAGGER_MS);
         newcomers += 1;
       });
