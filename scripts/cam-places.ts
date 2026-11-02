@@ -39,6 +39,8 @@ export interface CamPlace {
   titleKey: string;
   place?: PlaceQuery;
   at?: { lat: number; lng: number; timeZone: string; country: string };
+  /** Where `at` came from, when it is not a landmark anyone can confirm. Kept in cams.ts. */
+  from?: string;
 }
 
 export const CAM_PLACES_CURATED: CamPlace[] = [
@@ -2479,7 +2481,7 @@ export const CAM_PLACES_CURATED: CamPlace[] = [
     channelId: "UC4nkl9OncDSVGZS9qdcRLxA",
     videoId: "DATTZ-F82Zk",
     titleKey: "Live Webcam - SBH Anse de Flamands",
-    place: { name: "Gustavia", countryCode: "BL" },
+    place: { name: "Anse des Flamands", countryCode: "BL" },
   },
   {
     id: "bl-baie-de-lorient",
@@ -2490,7 +2492,8 @@ export const CAM_PLACES_CURATED: CamPlace[] = [
     channelId: "UC4nkl9OncDSVGZS9qdcRLxA",
     videoId: "IeeDy5VfSsg",
     titleKey: "Live Webcam - SBH Baie de Lorient",
-    place: { name: "Gustavia", countryCode: "BL" },
+    at: { lat: 17.9076, lng: -62.8218, timeZone: "America/St_Barthelemy", country: "BL" },
+    from: "Photon: Plage de Lorient",
   },
   {
     id: "bl-baie-de-saint-jean",
@@ -2754,7 +2757,7 @@ export const CAM_PLACES_CURATED: CamPlace[] = [
     channelId: "UCBVNLnTUkBWfcQuUXvaSEUw",
     videoId: "LbvV4avTI5Q",
     titleKey: "🔴 Hanoi Live Camera 24/7 | Trực tiếp Cầu Vĩnh Tuy & Sông Hồng | Chill BGM 2K",
-    place: { name: "Hanoi", countryCode: "VN" },
+    at: { lat: 21.0245, lng: 105.8412, timeZone: "Asia/Ho_Chi_Minh", country: "VN" },
   },
   {
     id: "by-minsk-grushevsky-square",
@@ -2853,7 +2856,10 @@ export const CAM_PLACES_CURATED: CamPlace[] = [
     channelId: "UCuoNAKa3P0QR1Lw9QdpmoVg",
     videoId: "EbdnE0I_Aoo",
     titleKey: "Live Wildlife Camera at Nimali Tarangire | Private Conservancy, Tanzania",
-    place: { name: "Tarangire", countryCode: "TZ" },
+    // nimaliafrica.com: "on the eastern edge of neighbouring Tarangire National Park". No geocoder
+    // knows the camp, so the pin is the park's, not the old round -4, 36.
+    at: { lat: -4.1248, lng: 36.0857, timeZone: "Africa/Dar_es_Salaam", country: "TZ" },
+    from: "Photon: Tarangire National Park",
   },
   {
     id: "bw-senyati-waterhole",
@@ -2864,7 +2870,8 @@ export const CAM_PLACES_CURATED: CamPlace[] = [
     channelId: "UCuoNAKa3P0QR1Lw9QdpmoVg",
     videoId: "EdDdTrahHjI",
     titleKey: "Senyati LIVE 24/7 Waterhole Cam | Chobe, Botswana - Elephants & Wildlife",
-    place: { name: "Kasane", countryCode: "BW" },
+    at: { lat: -17.8723, lng: 25.2358, timeZone: "Africa/Gaborone", country: "BW" },
+    from: "Photon: Senyati Safari Camp",
   },
   {
     id: "ke-angama-amboseli",
