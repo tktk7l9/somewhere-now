@@ -3403,11 +3403,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Melbourne", Victoria (title; Photon hit within 25 km: Bourke Street Mall, Victoria)
     id: "au-victoria-australia",
     name: { ja: "Victoria, Australia", en: "Victoria, Australia" },
-    lat: -37.1467,
-    lng: 146.445,
+    lat: -37.814,
+    lng: 144.9633,
     timeZone: "Australia/Melbourne",
     category: "city",
     country: "AU",
@@ -3793,12 +3793,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Vancouver", British Columbia (title; Photon hit within 25 km: Vancouver, British Columbia)
     id: "ca-live-vancouver-cruise-ships-skyline-h",
     name: { ja: "LIVE: Vancouver | Cruise Ships | Skyline | Harbour | 24/7", en: "LIVE: Vancouver | Cruise Ships | Skyline | Harbour | 24/7" },
-    lat: 60.1087,
-    lng: -113.6426,
-    timeZone: "America/Edmonton",
+    lat: 49.2497,
+    lng: -123.1193,
+    timeZone: "America/Vancouver",
     category: "harbor",
     country: "CA",
     source: {
@@ -6178,12 +6178,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Los Angeles", California (title; Photon hit within 25 km: Los Angeles International Airport, CA)
     id: "us-surveillancemap-live-los-angeles-lax",
     name: { ja: "SurveillanceMap LIVE · Los Angeles LAX · California, USA", en: "SurveillanceMap LIVE · Los Angeles LAX · California, USA" },
-    lat: 40.7484,
-    lng: -73.9856,
-    timeZone: "America/New_York",
+    lat: 34.0522,
+    lng: -118.2437,
+    timeZone: "America/Los_Angeles",
     category: "airport",
     country: "US",
     source: {
@@ -6478,12 +6478,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Cabo Frio", Rio de Janeiro (title; Photon hit within 25 km: Praia do Forte, Rio de Janeiro)
     id: "br-praia-do-forte-cabo-frio-ao-vivo-24h",
     name: { ja: "Praia do Forte – Cabo Frio AO VIVO 24h", en: "Praia do Forte – Cabo Frio AO VIVO 24h" },
-    lat: -12.5774,
-    lng: -38.0072,
-    timeZone: "America/Bahia",
+    lat: -22.8872,
+    lng: -42.0262,
+    timeZone: "America/Sao_Paulo",
     category: "nature",
     country: "BR",
     source: {
@@ -6583,11 +6583,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Vancouver", British Columbia (title; Photon hit within 25 km: Vancouver, British Columbia)
     id: "ca-sea-otter-cam-vancouver-aquarium",
     name: { ja: "Sea Otter Cam | Vancouver Aquarium", en: "Sea Otter Cam | Vancouver Aquarium" },
-    lat: 51.3329,
-    lng: -128.1366,
+    lat: 49.2497,
+    lng: -123.1193,
     timeZone: "America/Vancouver",
     category: "animal",
     country: "CA",
@@ -6598,12 +6598,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Brockville", Ontario (title; Photon hit within 25 km: Brockville City Hall, Ontario)
     id: "ca-river-view-city-hall-brockville",
     name: { ja: "River View (City Hall, Brockville)", en: "River View (City Hall, Brockville)" },
-    lat: 45.7557,
-    lng: -65.0837,
-    timeZone: "America/Moncton",
+    lat: 44.5913,
+    lng: -75.687,
+    timeZone: "America/Toronto",
     category: "city",
     country: "CA",
     source: {
@@ -6703,11 +6703,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Le Bouveret, Valais/Wallis; watch page: "Une vue du port du Bouveret, Valais, Suisse"
     id: "ch-port-valais-webcam-live",
     name: { ja: "Port-Valais Webcam Live", en: "Port-Valais Webcam Live" },
-    lat: 47.1145,
-    lng: 7.2602,
+    lat: 46.3829,
+    lng: 6.854,
     timeZone: "Europe/Zurich",
     category: "harbor",
     country: "CH",
@@ -7453,11 +7453,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Southampton", England (title; Photon hit within 25 km: Southampton, England)
     id: "gb-junction-cam-traffic-jams-and-queues",
     name: { ja: "Junction Cam - Traffic Jams and Queues at Town Quay Southampton (Travel News 4K)", en: "Junction Cam - Traffic Jams and Queues at Town Quay Southampton (Travel News 4K)" },
-    lat: 51.5631,
-    lng: -0.135,
+    lat: 50.904,
+    lng: -1.4043,
     timeZone: "Europe/London",
     category: "city",
     country: "GB",
@@ -7663,11 +7663,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Ryde", England (title; Photon hit within 25 km: Ryde, England)
     id: "gb-solent-view-4k-camera-ryde-portsmouth",
     name: { ja: "Solent View 4K Camera | Ryde, Portsmouth & Southsea | Isle of Wight Webcams UK LIVE | All Saints", en: "Solent View 4K Camera | Ryde, Portsmouth & Southsea | Isle of Wight Webcams UK LIVE | All Saints" },
-    lat: 50.8082,
-    lng: -2.9822,
+    lat: 50.73,
+    lng: -1.1621,
     timeZone: "Europe/London",
     category: "nature",
     country: "GB",
@@ -7768,11 +7768,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Southampton", England (title; Photon hit within 25 km: Southampton, England)
     id: "gb-fawley-cam-live-views-of-the-exxonmob",
     name: { ja: "Fawley Cam - Live Views of the ExxonMobil Refinery (Flares, Steam & Southampton Water)", en: "Fawley Cam - Live Views of the ExxonMobil Refinery (Flares, Steam & Southampton Water)" },
-    lat: 51.5764,
-    lng: -0.9104,
+    lat: 50.904,
+    lng: -1.4043,
     timeZone: "Europe/London",
     category: "harbor",
     country: "GB",
@@ -7828,11 +7828,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Southampton", England (title; Photon hit within 25 km: Southampton, England)
     id: "gb-box-cam-port-of-southampton-internati",
     name: { ja: "Box Cam - Port of Southampton International Boat Show (Container Ships and Cruise Ships) 4K", en: "Box Cam - Port of Southampton International Boat Show (Container Ships and Cruise Ships) 4K" },
-    lat: 51.4147,
-    lng: -2.2456,
+    lat: 50.904,
+    lng: -1.4043,
     timeZone: "Europe/London",
     category: "harbor",
     country: "GB",
@@ -7843,11 +7843,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Southampton", England (title; Photon hit within 25 km: Southampton, England)
     id: "gb-ferry-cam-southampton-to-cowes-isle-o",
     name: { ja: "Ferry Cam - Southampton to Cowes Isle of Wight Red Funnel (Live Camera 24/7) IOW Festival 2026", en: "Ferry Cam - Southampton to Cowes Isle of Wight Red Funnel (Live Camera 24/7) IOW Festival 2026" },
-    lat: 54.6833,
-    lng: -1.55,
+    lat: 50.904,
+    lng: -1.4043,
     timeZone: "Europe/London",
     category: "harbor",
     country: "GB",
@@ -8113,11 +8113,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Genoa", Liguria (title; Photon hit within 25 km: Nervi, Liguria)
     id: "it-genova-live-cam-nervi-sant-ilario",
     name: { ja: "Genova Live Cam - Nervi, Sant'Ilario", en: "Genova Live Cam - Nervi, Sant'Ilario" },
-    lat: 45.216,
-    lng: 11.8721,
+    lat: 44.4048,
+    lng: 8.9444,
     timeZone: "Europe/Rome",
     category: "nature",
     country: "IT",
@@ -8338,11 +8338,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Rome", Lazio (title; Photon hit within 25 km: Roma, Lazio)
     id: "it-roma-webcam-live-monte-mario",
     name: { ja: "Roma Webcam Live - Monte Mario", en: "Roma Webcam Live - Monte Mario" },
-    lat: 44.9936,
-    lng: 11.1064,
+    lat: 41.8919,
+    lng: 12.5113,
     timeZone: "Europe/Rome",
     category: "city",
     country: "IT",
@@ -8443,11 +8443,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Rome", Lazio (title; Photon hit within 25 km: Roma, Lazio)
     id: "it-roma-live-cam-rione-prati-cupola-di-s",
     name: { ja: "Roma Live Cam - Rione Prati, Cupola di San Pietro", en: "Roma Live Cam - Rione Prati, Cupola di San Pietro" },
-    lat: 44.9936,
-    lng: 11.1064,
+    lat: 41.8919,
+    lng: 12.5113,
     timeZone: "Europe/Rome",
     category: "city",
     country: "IT",
@@ -9358,11 +9358,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Altoona", Pennsylvania (title; Photon hit within 25 km: Altoona, Pennsylvania)
     id: "us-horseshoe-curve-altoona-pennsylvania",
     name: { ja: "Horseshoe Curve – Altoona, Pennsylvania, USA | LIVE Train Camera (PTZ)", en: "Horseshoe Curve – Altoona, Pennsylvania, USA | LIVE Train Camera (PTZ)" },
-    lat: 39.6379,
-    lng: -78.8917,
+    lat: 40.5187,
+    lng: -78.3947,
     timeZone: "America/New_York",
     category: "railway",
     country: "US",
@@ -9433,12 +9433,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Thermopolis", Wyoming (title; Photon hit within 25 km: Thermopolis, Wyoming)
     id: "us-range-hot-springs-state-park-lower-te",
     name: { ja: "Range Hot Springs State Park Lower Terrace Thermopolis, WY", en: "Range Hot Springs State Park Lower Terrace Thermopolis, WY" },
-    lat: 31.3127,
-    lng: -87.2355,
-    timeZone: "America/Chicago",
+    lat: 43.6461,
+    lng: -108.212,
+    timeZone: "America/Denver",
     category: "nature",
     country: "US",
     source: {
@@ -9448,12 +9448,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Broadus", Montana (title; Photon hit within 25 km: Broadus, Montana)
     id: "us-range-broadus-mt",
     name: { ja: "Range Broadus, MT", en: "Range Broadus, MT" },
-    lat: 31.3127,
-    lng: -87.2355,
-    timeZone: "America/Chicago",
+    lat: 45.4439,
+    lng: -105.4113,
+    timeZone: "America/Denver",
     category: "city",
     country: "US",
     source: {
@@ -9508,12 +9508,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Lava Mountain", Wyoming (title; Photon hit within 25 km: Lava Mountain, Wyoming)
     id: "us-range-lava-mountain-wy",
     name: { ja: "Range Lava Mountain, WY", en: "Range Lava Mountain, WY" },
-    lat: 31.3127,
-    lng: -87.2355,
-    timeZone: "America/Chicago",
+    lat: 43.6769,
+    lng: -110.0291,
+    timeZone: "America/Denver",
     category: "city",
     country: "US",
     source: {
@@ -9523,12 +9523,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Thermopolis", Wyoming (title; Photon hit within 25 km: Thermopolis, Wyoming)
     id: "us-range-hot-springs-state-park-cooling",
     name: { ja: "Range Hot Springs State Park Cooling Ponds Thermopolis, WY", en: "Range Hot Springs State Park Cooling Ponds Thermopolis, WY" },
-    lat: 31.3127,
-    lng: -87.2355,
-    timeZone: "America/Chicago",
+    lat: 43.6461,
+    lng: -108.212,
+    timeZone: "America/Denver",
     category: "city",
     country: "US",
     source: {
@@ -9568,12 +9568,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Dubois", Wyoming (title; Photon hit within 25 km: Union Pass, Wyoming)
     id: "us-range-snokater-union-pass-wy",
     name: { ja: "Range SnoKater Union Pass, WY", en: "Range SnoKater Union Pass, WY" },
-    lat: 31.3127,
-    lng: -87.2355,
-    timeZone: "America/Chicago",
+    lat: 43.5336,
+    lng: -109.6304,
+    timeZone: "America/Denver",
     category: "city",
     country: "US",
     source: {
@@ -9808,12 +9808,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Las Vegas", Nevada (title; Photon hit within 25 km: Harry Reid International Airport, NV)
     id: "us-official-las-vegas-airport-live-24-7",
     name: { ja: "Official - LAS Vegas Airport LIVE 24/7", en: "Official - LAS Vegas Airport LIVE 24/7" },
-    lat: 41.8492,
-    lng: -87.9334,
-    timeZone: "America/Chicago",
+    lat: 36.175,
+    lng: -115.1372,
+    timeZone: "America/Los_Angeles",
     category: "airport",
     country: "US",
     source: {
@@ -10483,11 +10483,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Glendale, Ohio; watch page: "Virtual Railfan’s cameras in Glendale, Ohio"
     id: "us-glendale-ohio-usa-live-train-camera-f",
     name: { ja: "Glendale, Ohio, USA | LIVE Train Camera (Fixed View – North)", en: "Glendale, Ohio, USA | LIVE Train Camera (Fixed View – North)" },
-    lat: 41.397,
-    lng: -81.5423,
+    lat: 39.2722,
+    lng: -84.4584,
     timeZone: "America/New_York",
     category: "railway",
     country: "US",
@@ -11083,12 +11083,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Pittsburgh", Pennsylvania (title; Photon hit within 25 km: Pittsburgh Zoo & Aquarium, PA)
     id: "us-penguin-cam-live-pittsburgh-zoo-ppg-a",
     name: { ja: "Penguin Cam Live | Pittsburgh Zoo & PPG Aquarium Webcam", en: "Penguin Cam Live | Pittsburgh Zoo & PPG Aquarium Webcam" },
-    lat: 48.7293,
-    lng: -123.0146,
-    timeZone: "America/Los_Angeles",
+    lat: 40.4406,
+    lng: -79.9959,
+    timeZone: "America/New_York",
     category: "animal",
     country: "US",
     source: {
@@ -11098,11 +11098,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Lorain", Ohio (title; Photon hit within 25 km: Lorain, Ohio)
     id: "us-port-lorain-lake-erie-live-cam-ohio-4",
     name: { ja: "PORT LORAIN | LAKE ERIE LIVE CAM | OHIO | 4K WITH AUDIO", en: "PORT LORAIN | LAKE ERIE LIVE CAM | OHIO | 4K WITH AUDIO" },
-    lat: 42.6242,
-    lng: -79.067,
+    lat: 41.4528,
+    lng: -82.1824,
     timeZone: "America/New_York",
     category: "harbor",
     country: "US",
@@ -11218,12 +11218,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Houston", Texas (title; Photon hit within 25 km: Houston Zoo, TX)
     id: "us-houston-zoo-giraffe-platform-cam-feed",
     name: { ja: "Houston Zoo Giraffe Platform Cam | Feeding Live Cam | Ozolio Webcam Services", en: "Houston Zoo Giraffe Platform Cam | Feeding Live Cam | Ozolio Webcam Services" },
-    lat: 42.0682,
-    lng: -72.6787,
-    timeZone: "America/New_York",
+    lat: 29.7633,
+    lng: -95.3633,
+    timeZone: "America/Chicago",
     category: "animal",
     country: "US",
     source: {
@@ -11233,12 +11233,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Fort Lauderdale", Florida (title; Photon hit within 25 km: Elbo Room, FL)
     id: "us-bar-cam-live-elbo-room-beach-bar-fort",
     name: { ja: "BAR CAM LIVE | Elbo Room Beach Bar • Fort Lauderdale", en: "BAR CAM LIVE | Elbo Room Beach Bar • Fort Lauderdale" },
-    lat: 32.7892,
-    lng: -114.5561,
-    timeZone: "America/Los_Angeles",
+    lat: 26.1223,
+    lng: -80.1434,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -11323,12 +11323,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Melbourne", Victoria (title; Photon hit within 25 km: Melbourne Airport, Victoria)
     id: "au-live-kiwi-does-stuff-plane-spotting-m",
     name: { ja: "LIVE Kiwi Does Stuff | Plane spotting @ Melbourne Airport", en: "LIVE Kiwi Does Stuff | Plane spotting @ Melbourne Airport" },
-    lat: -22.8167,
-    lng: 127.765,
-    timeZone: "Australia/Perth",
+    lat: -37.814,
+    lng: 144.9633,
+    timeZone: "Australia/Melbourne",
     category: "airport",
     country: "AU",
     source: {
@@ -11428,12 +11428,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Natal", Rio Grande do Norte (title; Photon hit within 25 km: Fortaleza dos Reis Magos, Rio Grande do Norte)
     id: "br-vista-panoramica-de-tirol-centro-rio",
     name: { ja: "Vista Panorâmica de Tirol, Centro, Rio Potengi e Ponte Velha | Trânsito e Clima de Natal AO VIVO", en: "Vista Panorâmica de Tirol, Centro, Rio Potengi e Ponte Velha | Trânsito e Clima de Natal AO VIVO" },
-    lat: -7.6333,
-    lng: -48.1667,
-    timeZone: "America/Araguaina",
+    lat: -5.795,
+    lng: -35.2094,
+    timeZone: "America/Fortaleza",
     category: "city",
     country: "BR",
     source: {
@@ -11458,12 +11458,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Fernandópolis", São Paulo (title; Photon hit within 25 km: Fernandópolis, São Paulo)
     id: "br-museu-de-paleontologia-estacao-ferrov",
     name: { ja: "Museu de Paleontologia (Estação Ferroviária) em Fernandópolis - SP", en: "Museu de Paleontologia (Estação Ferroviária) em Fernandópolis - SP" },
-    lat: -8.05,
-    lng: -41.55,
-    timeZone: "America/Fortaleza",
+    lat: -20.2839,
+    lng: -50.2464,
+    timeZone: "America/Sao_Paulo",
     category: "railway",
     country: "BR",
     source: {
@@ -11518,12 +11518,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Natal", Rio Grande do Norte (title; Photon hit within 25 km: Fortaleza dos Reis Magos, Rio Grande do Norte)
     id: "br-vista-panoramica-da-praia-dos-artista",
     name: { ja: "Vista Panorâmica da Praia dos Artistas, Forte dos Reis Magos e Ponte Newton Navarro | Natal AO VIVO", en: "Vista Panorâmica da Praia dos Artistas, Forte dos Reis Magos e Ponte Newton Navarro | Natal AO VIVO" },
-    lat: -7.6333,
-    lng: -48.1667,
-    timeZone: "America/Araguaina",
+    lat: -5.795,
+    lng: -35.2094,
+    timeZone: "America/Fortaleza",
     category: "nature",
     country: "BR",
     source: {
@@ -11548,12 +11548,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Nova Petrópolis", Rio Grande do Sul (title; Photon hit within 25 km: Nova Petrópolis, Rio Grande do Sul)
     id: "br-ninho-das-aguias-nova-petropolis-rs-a",
     name: { ja: "NINHO DAS ÁGUIAS - NOVA PETRÓPOLIS/RS - AO VIVO - CÂMERAS DA SERRA", en: "NINHO DAS ÁGUIAS - NOVA PETRÓPOLIS/RS - AO VIVO - CÂMERAS DA SERRA" },
-    lat: -7.1541,
-    lng: -34.9063,
-    timeZone: "America/Fortaleza",
+    lat: -29.3764,
+    lng: -51.1144,
+    timeZone: "America/Sao_Paulo",
     category: "nature",
     country: "BR",
     source: {
@@ -11698,12 +11698,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Vancouver", British Columbia (title; Photon hit within 25 km: Vancouver, British Columbia)
     id: "ca-sea-otter-cam-2-vancouver-aquarium",
     name: { ja: "Sea Otter Cam 2 | Vancouver Aquarium", en: "Sea Otter Cam 2 | Vancouver Aquarium" },
-    lat: 45.7834,
-    lng: -62.9781,
-    timeZone: "America/Halifax",
+    lat: 49.2497,
+    lng: -123.1193,
+    timeZone: "America/Vancouver",
     category: "animal",
     country: "CA",
     source: {
@@ -11743,12 +11743,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Toronto", Ontario (title; Photon hit within 25 km: Toronto, Ontario)
     id: "ca-live-plane-spotting-at-toronto-pearso",
     name: { ja: "LIVE Plane Spotting at Toronto Pearson (YYZ) | Holiday Inn Express Exclusive View | July 28", en: "LIVE Plane Spotting at Toronto Pearson (YYZ) | Holiday Inn Express Exclusive View | July 28" },
-    lat: 51.7448,
-    lng: -128.0673,
-    timeZone: "America/Vancouver",
+    lat: 43.7064,
+    lng: -79.3986,
+    timeZone: "America/Toronto",
     category: "airport",
     country: "CA",
     source: {
@@ -11863,12 +11863,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Calgary", Alberta (title; Photon hit within 25 km: Central Memorial Park, Alberta)
     id: "ca-live-cam-central-memorial-park-calgar",
     name: { ja: "Live Cam, Central Memorial Park, Calgary, Alberta", en: "Live Cam, Central Memorial Park, Calgary, Alberta" },
-    lat: 43.2644,
-    lng: -79.8753,
-    timeZone: "America/Toronto",
+    lat: 51.0501,
+    lng: -114.0853,
+    timeZone: "America/Edmonton",
     category: "nature",
     country: "CA",
     source: {
@@ -11923,11 +11923,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: East West Hotel, Basel-Stadt; Open-Meteo: Basel, Canton of Basel-City; title
     id: "ch-hotel-east-west-basel",
     name: { ja: "Hotel East West Basel", en: "Hotel East West Basel" },
-    lat: 46.5985,
-    lng: 9.949,
+    lat: 47.5604,
+    lng: 7.5915,
     timeZone: "Europe/Zurich",
     category: "nature",
     country: "CH",
@@ -12028,11 +12028,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Berlin", State of Berlin (title; Photon hit within 25 km: Berlin)
     id: "de-flughafen-live-berlin-freitag-nachmit",
     name: { ja: "Flughafen LIVE Berlin: Freitag Nachmittag 7.8. 2026 - An- und Abflüge mit Thomas", en: "Flughafen LIVE Berlin: Freitag Nachmittag 7.8. 2026 - An- und Abflüge mit Thomas" },
-    lat: 50.9818,
-    lng: 12.5064,
+    lat: 52.5244,
+    lng: 13.4105,
     timeZone: "Europe/Berlin",
     category: "airport",
     country: "DE",
@@ -12043,11 +12043,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Berlin", State of Berlin (title; Photon hit within 25 km: Berlin)
     id: "de-live-blick-vom-corbusierhaus-berlin-a",
     name: { ja: "Live - Blick vom Corbusierhaus Berlin auf das Olympiastadion", en: "Live - Blick vom Corbusierhaus Berlin auf das Olympiastadion" },
-    lat: 54.6895,
-    lng: 9.7911,
+    lat: 52.5244,
+    lng: 13.4105,
     timeZone: "Europe/Berlin",
     category: "city",
     country: "DE",
@@ -12253,11 +12253,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Tarragona", Catalonia (title; Photon hit within 25 km: Tarragona, Catalunya)
     id: "es-gran-via-tarragona",
     name: { ja: "Gran vía - Tarragona", en: "Gran vía - Tarragona" },
-    lat: 37.1882,
-    lng: -3.6067,
+    lat: 41.1191,
+    lng: 1.2454,
     timeZone: "Europe/Madrid",
     category: "city",
     country: "ES",
@@ -12343,11 +12343,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Muro", Balearic Islands (title; Photon hit within 25 km: Platja de Muro, Illes Balears)
     id: "es-live-webcam-playa-de-muro-resort-play",
     name: { ja: "Live Webcam Playa de Muro ️ Resort Playa Esperanza ️ Muro ️ Mallorca ️ Baleares 🅻🅸🆅🅴", en: "Live Webcam Playa de Muro ️ Resort Playa Esperanza ️ Muro ️ Mallorca ️ Baleares 🅻🅸🆅🅴" },
-    lat: 38.9167,
-    lng: -0.0833,
+    lat: 39.7366,
+    lng: 3.0556,
     timeZone: "Europe/Madrid",
     category: "nature",
     country: "ES",
@@ -12463,11 +12463,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Barcelona", Catalonia (title; Photon hit within 25 km: Spotify Camp Nou, Catalunya)
     id: "es-camp-nou-en-directo-24-7-obras-del-nu",
     name: { ja: "Camp Nou EN DIRECTO 24/7 | Obras del Nuevo Estadio del FC Barcelona", en: "Camp Nou EN DIRECTO 24/7 | Obras del Nuevo Estadio del FC Barcelona" },
-    lat: 42.4096,
-    lng: 0.3962,
+    lat: 41.3888,
+    lng: 2.159,
     timeZone: "Europe/Madrid",
     category: "nature",
     country: "ES",
@@ -12538,11 +12538,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Donostia / San Sebastian", Basque Country (title; Photon hit within 25 km: Kontxako badia - Bahía de la Concha, Euskadi)
     id: "es-live-webcam-playa-la-concha-villa-fav",
     name: { ja: "Live Webcam Playa La Concha ️ Villa Favorita ️ San Sebastián ️ Guipúzcoa ️ País Vasco 🅻🅸🆅🅴", en: "Live Webcam Playa La Concha ️ Villa Favorita ️ San Sebastián ️ Guipúzcoa ️ País Vasco 🅻🅸🆅🅴" },
-    lat: 38.9167,
-    lng: -0.0833,
+    lat: 43.3128,
+    lng: -1.975,
     timeZone: "Europe/Madrid",
     category: "nature",
     country: "ES",
@@ -12583,12 +12583,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Can Pastilla", Balearic Islands (title; Photon hit within 25 km: Can Pastilla, Illes Balears)
     id: "es-live-webcam-can-pastilla-mallorca-bon",
     name: { ja: "Live Webcam Can Pastilla Mallorca ️ BonaOna Webcam ️ #canpastilla #mallorca #baleares 🅻🅸🆅🅴", en: "Live Webcam Can Pastilla Mallorca ️ BonaOna Webcam ️ #canpastilla #mallorca #baleares 🅻🅸🆅🅴" },
-    lat: 28,
-    lng: -15.5,
-    timeZone: "Atlantic/Canary",
+    lat: 39.5361,
+    lng: 2.7177,
+    timeZone: "Europe/Madrid",
     category: "nature",
     country: "ES",
     source: {
@@ -12643,11 +12643,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Capdepera", Balearic Islands (title; Photon hit within 25 km: Capdepera, Illes Balears)
     id: "es-live-webcam-cala-agulla-capdepera-mal",
     name: { ja: "Live Webcam Cala Agulla ️ Capdepera ️ Mallorca Baleares 🅻🅸🆅🅴", en: "Live Webcam Cala Agulla ️ Capdepera ️ Mallorca Baleares 🅻🅸🆅🅴" },
-    lat: 37.9667,
-    lng: -6.3167,
+    lat: 39.7024,
+    lng: 3.4353,
     timeZone: "Europe/Madrid",
     category: "nature",
     country: "ES",
@@ -12703,11 +12703,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Capdepera", Balearic Islands (title; Photon hit within 25 km: Capdepera, Illes Balears)
     id: "es-live-webcam-playa-de-canyamel-capdepe",
     name: { ja: "Live Webcam Playa de Canyamel ️ Capdepera ️ Mallorca Baleares 🅻🅸🆅🅴", en: "Live Webcam Playa de Canyamel ️ Capdepera ️ Mallorca Baleares 🅻🅸🆅🅴" },
-    lat: 38.9167,
-    lng: -0.0833,
+    lat: 39.7024,
+    lng: 3.4353,
     timeZone: "Europe/Madrid",
     category: "nature",
     country: "ES",
@@ -12763,11 +12763,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Paris", Île-de-France Region (title; Photon hit within 25 km: Paris, Île-de-France)
     id: "fr-carte-de-surveillance-en-direct-la-vi",
     name: { ja: "Carte de Surveillance EN DIRECT · La Ville de l'Amour · Paris en France", en: "Carte de Surveillance EN DIRECT · La Ville de l'Amour · Paris en France" },
-    lat: 43.6853,
-    lng: 3.3637,
+    lat: 48.8534,
+    lng: 2.3488,
     timeZone: "Europe/Paris",
     category: "nature",
     country: "FR",
@@ -12793,11 +12793,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Southampton", England (title; Photon hit within 25 km: Southampton, England)
     id: "gb-ships-tv-iona-insignia-celebrity-apex",
     name: { ja: "SHIPS TV - Iona, Insignia & Celebrity Apex Cruise Ships Departing Port of Southampton (LIVE)", en: "SHIPS TV - Iona, Insignia & Celebrity Apex Cruise Ships Departing Port of Southampton (LIVE)" },
-    lat: 52.0606,
-    lng: -1.6278,
+    lat: 50.904,
+    lng: -1.4043,
     timeZone: "Europe/London",
     category: "harbor",
     country: "GB",
@@ -13078,11 +13078,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Seaton Tramway, England; watch page: "LIVE from Seaton Station at the Seaton Tramway"
     id: "gb-seaton-station-camera-seaton-tramway",
     name: { ja: "Seaton Station Camera, Seaton Tramway, Devon UK | Railcam Live1 & Seaton Tramway", en: "Seaton Station Camera, Seaton Tramway, Devon UK | Railcam Live1 & Seaton Tramway" },
-    lat: 52.5749,
-    lng: -0.6676,
+    lat: 50.7198,
+    lng: -3.0592,
     timeZone: "Europe/London",
     category: "railway",
     country: "GB",
@@ -13618,11 +13618,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Venice", Veneto (title; Photon hit within 25 km: Venezia, Veneto)
     id: "it-hotel-monaco-venezia-italy-live-cam",
     name: { ja: "Hotel Monaco - Venezia, Italy - Live Cam", en: "Hotel Monaco - Venezia, Italy - Live Cam" },
-    lat: 42.1778,
-    lng: 13.2753,
+    lat: 45.4371,
+    lng: 12.3326,
     timeZone: "Europe/Rome",
     category: "harbor",
     country: "IT",
@@ -13888,11 +13888,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Naples", Campania (title; Photon hit within 25 km: Napoli, Campania)
     id: "it-webcam-live-golfo-di-napoli-na",
     name: { ja: "Webcam Live Golfo di Napoli (NA)", en: "Webcam Live Golfo di Napoli (NA)" },
-    lat: 41.0065,
-    lng: 9.6145,
+    lat: 40.8522,
+    lng: 14.2681,
     timeZone: "Europe/Rome",
     category: "nature",
     country: "IT",
@@ -13918,11 +13918,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Kingston", Kingston (title; Photon hit within 25 km: Kingston)
     id: "jm-devon-house-kingston-live-24-7-jamaic",
     name: { ja: "Devon House Kingston LIVE 24/7 – Jamaica Stoplight Cam 🇯🇲", en: "Devon House Kingston LIVE 24/7 – Jamaica Stoplight Cam 🇯🇲" },
-    lat: 18.351,
-    lng: -77.3751,
+    lat: 17.997,
+    lng: -76.7936,
     timeZone: "America/Jamaica",
     category: "city",
     country: "JM",
@@ -13978,11 +13978,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Otofuke", Hokkaido (title; Photon hit within 25 km: 十勝川温泉, 北海道)
     id: "jp-live-camera-in-the-hakutyo-bridge-of",
     name: { ja: "十勝川白鳥大橋ライブカメラ（十勝川温泉第一ホテル屋上より） Live Camera in The Hakutyo Bridge of Tokachi River, Hokkaido in Japan", en: "十勝川白鳥大橋ライブカメラ（十勝川温泉第一ホテル屋上より） Live Camera in The Hakutyo Bridge of Tokachi River, Hokkaido in Japan" },
-    lat: 35.6854,
-    lng: 139.7531,
+    lat: 42.9917,
+    lng: 143.2003,
     timeZone: "Asia/Tokyo",
     category: "nature",
     country: "JP",
@@ -13993,11 +13993,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Tokyo", Tokyo (title; Photon hit within 25 km: 築地)
     id: "jp-live-at-tsukiji-view-of-tokyo-waterfr",
     name: { ja: "【LIVE】東京・築地ライブカメラ 湾岸やレインボーブリッジのある風景 at Tsukiji, view of Tokyo waterfront and Rainbow bridge", en: "【LIVE】東京・築地ライブカメラ 湾岸やレインボーブリッジのある風景 at Tsukiji, view of Tokyo waterfront and Rainbow bridge" },
-    lat: 32.8667,
-    lng: 129.05,
+    lat: 35.6895,
+    lng: 139.6917,
     timeZone: "Asia/Tokyo",
     category: "city",
     country: "JP",
@@ -14038,11 +14038,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Sagamihara", Kanagawa (title; Photon hit within 25 km: 相模湖, 神奈川県)
     id: "jp-live-live-camera-in-the-lake-sagami-k",
     name: { ja: "【LIVE】相模湖のいま・ライブカメラ・お天気確認・相模原市・スワン丸・釣り状況 Live Camera in The Lake Sagami ,Kanagawa in Japan", en: "【LIVE】相模湖のいま・ライブカメラ・お天気確認・相模原市・スワン丸・釣り状況 Live Camera in The Lake Sagami ,Kanagawa in Japan" },
-    lat: 35.6854,
-    lng: 139.7531,
+    lat: 35.5671,
+    lng: 139.2417,
     timeZone: "Asia/Tokyo",
     category: "harbor",
     country: "JP",
@@ -14128,11 +14128,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Obihiro", Hokkaido (title; Photon hit within 25 km: 帯広駅西口, 北海道)
     id: "jp-jr-live-camera-in-the-jr-obihiro-stat",
     name: { ja: "JR帯広駅ライブカメラ Live Camera in The JR Obihiro Station, Hokkaido in Japan", en: "JR帯広駅ライブカメラ Live Camera in The JR Obihiro Station, Hokkaido in Japan" },
-    lat: 35.6854,
-    lng: 139.7531,
+    lat: 42.9172,
+    lng: 143.2044,
     timeZone: "Asia/Tokyo",
     category: "railway",
     country: "JP",
@@ -14158,11 +14158,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Sapporo", Hokkaido (title; Photon hit within 25 km: 札幌市, 北海道)
     id: "jp-live-sapporo-odori-park-in-hokkaido-l",
     name: { ja: "【LIVE】札幌ライブカメラ＠さっぽろ創世スクエア Sapporo Odori Park in Hokkaido 삿포로 라이브 札幌LIVE", en: "【LIVE】札幌ライブカメラ＠さっぽろ創世スクエア Sapporo Odori Park in Hokkaido 삿포로 라이브 札幌LIVE" },
-    lat: 43.432,
-    lng: 142.9347,
+    lat: 43.0667,
+    lng: 141.35,
     timeZone: "Asia/Tokyo",
     category: "nature",
     country: "JP",
@@ -14398,12 +14398,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Cancún", Quintana Roo (title; Photon hit within 25 km: Cancún, Quintana Roo)
     id: "mx-grand-residences-riviera-cancun-live",
     name: { ja: "Grand Residences Riviera Cancun Live Webcam", en: "Grand Residences Riviera Cancun Live Webcam" },
-    lat: 29.95,
-    lng: -107.55,
-    timeZone: "America/Chihuahua",
+    lat: 21.1743,
+    lng: -86.8466,
+    timeZone: "America/Cancun",
     category: "city",
     country: "MX",
     source: {
@@ -14428,12 +14428,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Guadalajara", Jalisco (title; Photon hit within 25 km: La Minerva, Jalisco)
     id: "mx-vista-panoramica-de-la-minerva-en-gua",
     name: { ja: "Vista Panorámica de la Minerva en Guadalajara", en: "Vista Panorámica de la Minerva en Guadalajara" },
-    lat: 20.4106,
-    lng: -89.2839,
-    timeZone: "America/Merida",
+    lat: 20.6774,
+    lng: -103.3475,
+    timeZone: "America/Mexico_City",
     category: "city",
     country: "MX",
     source: {
@@ -14488,12 +14488,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Montitlán, Colima; watch page: "visto desde Montitlán, Colima"
     id: "mx-el-volcan-de-fuego-de-colima-en-vivo",
     name: { ja: "El Volcán de Fuego de Colima en vivo visto desde Montitlán, Colima gracias a Cenapred", en: "El Volcán de Fuego de Colima en vivo visto desde Montitlán, Colima gracias a Cenapred" },
-    lat: 28.3504,
-    lng: -103.618,
-    timeZone: "America/Monterrey",
+    lat: 19.4016,
+    lng: -103.62,
+    timeZone: "America/Mexico_City",
     category: "nature",
     country: "MX",
     source: {
@@ -14503,12 +14503,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Bacalar", Quintana Roo (title; Photon hit within 25 km: Laguna de Bacalar, Quintana Roo)
     id: "mx-laguna-de-bacalar-en-quintana-roo-des",
     name: { ja: "Laguna de Bacalar, en Quintana Roo, desde Presidencia Mpal.", en: "Laguna de Bacalar, en Quintana Roo, desde Presidencia Mpal." },
-    lat: 19.7345,
-    lng: -98.4999,
-    timeZone: "America/Mexico_City",
+    lat: 18.6811,
+    lng: -88.3933,
+    timeZone: "America/Cancun",
     category: "nature",
     country: "MX",
     source: {
@@ -14533,12 +14533,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Tulum", Quintana Roo (title; Photon hit within 25 km: Xel-Há, Quintana Roo)
     id: "mx-el-parque-de-xel-ha-quintana-roo-en-v",
     name: { ja: "El Parque de Xel Ha, Quintana Roo, en vivo", en: "El Parque de Xel Ha, Quintana Roo, en vivo" },
-    lat: 19.6672,
-    lng: -99.214,
-    timeZone: "America/Mexico_City",
+    lat: 20.2117,
+    lng: -87.4633,
+    timeZone: "America/Cancun",
     category: "nature",
     country: "MX",
     source: {
@@ -14578,11 +14578,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Zihuatanejo", Guerrero (title; Photon hit within 25 km: Ixtapa Zihuatanejo, Guerrero)
     id: "mx-ixtapa-zihuatanejo-guerrero-en-vi-2",
     name: { ja: "Ixtapa Zihuatanejo, Guerrero En Vivo | Vista Oriente", en: "Ixtapa Zihuatanejo, Guerrero En Vivo | Vista Oriente" },
-    lat: 16.8031,
-    lng: -92.9053,
+    lat: 17.6434,
+    lng: -101.5521,
     timeZone: "America/Mexico_City",
     category: "city",
     country: "MX",
@@ -14713,11 +14713,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Davao City", Davao Region (title; Photon hit within 25 km: Agdao, Davao Region)
     id: "ph-philippines-live-camera-majah-carolin",
     name: { ja: "PHILIPPINES Live camera Majah & Carolina street food sellers, Agdao, Davao City #philippines", en: "PHILIPPINES Live camera Majah & Carolina street food sellers, Agdao, Davao City #philippines" },
-    lat: 13.4088,
-    lng: 122.5615,
+    lat: 7.0731,
+    lng: 125.6128,
     timeZone: "Asia/Manila",
     category: "city",
     country: "PH",
@@ -14728,11 +14728,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Davao City", Davao Region (title; Photon hit within 25 km: Agdao, Davao Region)
     id: "ph-philippines-live-camera-restaurant-se",
     name: { ja: "PHILIPPINES Live camera Restaurant Servery, Lyn's Sisig Beef BBQ, Davao City #philippines", en: "PHILIPPINES Live camera Restaurant Servery, Lyn's Sisig Beef BBQ, Davao City #philippines" },
-    lat: 13.4088,
-    lng: 122.5615,
+    lat: 7.0731,
+    lng: 125.6128,
     timeZone: "Asia/Manila",
     category: "city",
     country: "PH",
@@ -14743,11 +14743,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Davao City", Davao Region (title; Photon hit within 25 km: Agdao, Davao Region)
     id: "ph-philippines-live-camera-inside-lodi-s",
     name: { ja: "PHILIPPINES Live camera Inside Lodi's Eatery, Agdao, Davao City #philippines", en: "PHILIPPINES Live camera Inside Lodi's Eatery, Agdao, Davao City #philippines" },
-    lat: 13.4088,
-    lng: 122.5615,
+    lat: 7.0731,
+    lng: 125.6128,
     timeZone: "Asia/Manila",
     category: "city",
     country: "PH",
@@ -14758,11 +14758,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Davao City", Davao Region (title; Photon hit within 25 km: Agdao, Davao Region)
     id: "ph-philippines-live-camera-outside-lyn-s",
     name: { ja: "PHILIPPINES Live camera outside Lyn's Sisig Beef BBQ, Davao City #philippines", en: "PHILIPPINES Live camera outside Lyn's Sisig Beef BBQ, Davao City #philippines" },
-    lat: 13.4088,
-    lng: 122.5615,
+    lat: 7.0731,
+    lng: 125.6128,
     timeZone: "Asia/Manila",
     category: "city",
     country: "PH",
@@ -14773,11 +14773,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Davao City", Davao Region (title; Photon hit within 25 km: Agdao, Davao Region)
     id: "ph-philippines-live-camera-inside-lyn-s",
     name: { ja: "PHILIPPINES Live camera inside Lyn's Sisig Beef BBQ Restaurant, Davao City #philippines", en: "PHILIPPINES Live camera inside Lyn's Sisig Beef BBQ Restaurant, Davao City #philippines" },
-    lat: 13.4088,
-    lng: 122.5615,
+    lat: 7.0731,
+    lng: 125.6128,
     timeZone: "Asia/Manila",
     category: "city",
     country: "PH",
@@ -14788,11 +14788,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Davao City", Davao Region (title; Photon hit within 25 km: Agdao, Davao Region)
     id: "ph-philippines-live-camera-outside-cynth",
     name: { ja: "PHILIPPINES Live camera Outside Cynthia Store Cam, Agdao, Davao City #philippines", en: "PHILIPPINES Live camera Outside Cynthia Store Cam, Agdao, Davao City #philippines" },
-    lat: 13.4088,
-    lng: 122.5615,
+    lat: 7.0731,
+    lng: 125.6128,
     timeZone: "Asia/Manila",
     category: "city",
     country: "PH",
@@ -14803,11 +14803,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Davao City", Davao Region (title; Photon hit within 25 km: Agdao, Davao Region)
     id: "ph-philippines-live-cam-inside-new-agdao",
     name: { ja: "PHILIPPINES Live cam Inside New Agdao Farmers Market cam 1, Davao City #philippines #livestream", en: "PHILIPPINES Live cam Inside New Agdao Farmers Market cam 1, Davao City #philippines #livestream" },
-    lat: 13.4088,
-    lng: 122.5615,
+    lat: 7.0731,
+    lng: 125.6128,
     timeZone: "Asia/Manila",
     category: "city",
     country: "PH",
@@ -14818,11 +14818,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Davao City", Davao Region (title; Photon hit within 25 km: Agdao, Davao Region)
     id: "ph-philippines-live-camera-majah-mjmb-st",
     name: { ja: "PHILIPPINES Live camera Majah \"MJMB store\", Soliman Street, Agdao, Davao City #philippines", en: "PHILIPPINES Live camera Majah \"MJMB store\", Soliman Street, Agdao, Davao City #philippines" },
-    lat: 13.4088,
-    lng: 122.5615,
+    lat: 7.0731,
+    lng: 125.6128,
     timeZone: "Asia/Manila",
     category: "city",
     country: "PH",
@@ -14833,11 +14833,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Davao City", Davao Region (title; Photon hit within 25 km: Agdao, Davao Region)
     id: "ph-philippines-live-camera-vulcanizing-t",
     name: { ja: "Philippines Live camera Vulcanizing Tyre Repair Shop, Agdao, Davao City #philippines", en: "Philippines Live camera Vulcanizing Tyre Repair Shop, Agdao, Davao City #philippines" },
-    lat: 13.4088,
-    lng: 122.5615,
+    lat: 7.0731,
+    lng: 125.6128,
     timeZone: "Asia/Manila",
     category: "city",
     country: "PH",
@@ -14848,11 +14848,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Davao City", Davao Region (title; Photon hit within 25 km: Agdao, Davao Region)
     id: "ph-philippines-live-camera-van-storage-a",
     name: { ja: "PHILIPPINES Live camera Van Storage and party area, Agdao, Davao City #philippines", en: "PHILIPPINES Live camera Van Storage and party area, Agdao, Davao City #philippines" },
-    lat: 13.4088,
-    lng: 122.5615,
+    lat: 7.0731,
+    lng: 125.6128,
     timeZone: "Asia/Manila",
     category: "city",
     country: "PH",
@@ -14863,11 +14863,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Davao City", Davao Region (title; Photon hit within 25 km: Agdao, Davao Region)
     id: "ph-philippines-live-camera-outside-motor",
     name: { ja: "Philippines Live camera outside motorbike Jet Wash, Soliman Street, Agdao, Davao City #philippines", en: "Philippines Live camera outside motorbike Jet Wash, Soliman Street, Agdao, Davao City #philippines" },
-    lat: 13.4088,
-    lng: 122.5615,
+    lat: 7.0731,
+    lng: 125.6128,
     timeZone: "Asia/Manila",
     category: "city",
     country: "PH",
@@ -14878,11 +14878,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Davao City", Davao Region (title; Photon hit within 25 km: Agdao, Davao Region)
     id: "ph-philippines-live-camera-billiards-hal",
     name: { ja: "PHILIPPINES Live camera, Billiards Hall, Bankerohan , Davao City #philippines", en: "PHILIPPINES Live camera, Billiards Hall, Bankerohan , Davao City #philippines" },
-    lat: 13.4088,
-    lng: 122.5615,
+    lat: 7.0731,
+    lng: 125.6128,
     timeZone: "Asia/Manila",
     category: "city",
     country: "PH",
@@ -14893,11 +14893,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Davao City", Davao Region (title; Photon hit within 25 km: Agdao, Davao Region)
     id: "ph-philippines-live-camera-house-view-ag",
     name: { ja: "Philippines Live camera House View, Agdao, Davao City #philippines", en: "Philippines Live camera House View, Agdao, Davao City #philippines" },
-    lat: 13.4088,
-    lng: 122.5615,
+    lat: 7.0731,
+    lng: 125.6128,
     timeZone: "Asia/Manila",
     category: "city",
     country: "PH",
@@ -14908,11 +14908,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Davao City", Davao Region (title; Photon hit within 25 km: Agdao, Davao Region)
     id: "ph-philippines-live-camera-w-aquino-stre",
     name: { ja: "PHILIPPINES Live camera W Aquino Street Market Area , Agdao, Davao City #philippines", en: "PHILIPPINES Live camera W Aquino Street Market Area , Agdao, Davao City #philippines" },
-    lat: 13.4088,
-    lng: 122.5615,
+    lat: 7.0731,
+    lng: 125.6128,
     timeZone: "Asia/Manila",
     category: "city",
     country: "PH",
@@ -14923,11 +14923,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Davao City", Davao Region (title; Photon hit within 25 km: Agdao, Davao Region)
     id: "ph-philippines-live-camera-inside-cynthi",
     name: { ja: "PHILIPPINES Live camera Inside Cynthia Store, Agdao, Davao City #philippines", en: "PHILIPPINES Live camera Inside Cynthia Store, Agdao, Davao City #philippines" },
-    lat: 13.4088,
-    lng: 122.5615,
+    lat: 7.0731,
+    lng: 125.6128,
     timeZone: "Asia/Manila",
     category: "city",
     country: "PH",
@@ -14938,11 +14938,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Davao City", Davao Region (title; Photon hit within 25 km: Agdao, Davao Region)
     id: "ph-philippines-live-camera-outside-suing",
     name: { ja: "PHILIPPINES Live camera outside Suing Store San Roque Barangay, Agdao, Davao City #philippines", en: "PHILIPPINES Live camera outside Suing Store San Roque Barangay, Agdao, Davao City #philippines" },
-    lat: 13.4088,
-    lng: 122.5615,
+    lat: 7.0731,
+    lng: 125.6128,
     timeZone: "Asia/Manila",
     category: "city",
     country: "PH",
@@ -14953,11 +14953,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Davao City", Davao Region (title; Photon hit within 25 km: Agdao, Davao Region)
     id: "ph-philippines-street-view-live-camera-o",
     name: { ja: "PHILIPPINES Street View Live camera outside Dodong Barber Shop, Agdao, Davao City #philippines", en: "PHILIPPINES Street View Live camera outside Dodong Barber Shop, Agdao, Davao City #philippines" },
-    lat: 13.4088,
-    lng: 122.5615,
+    lat: 7.0731,
+    lng: 125.6128,
     timeZone: "Asia/Manila",
     category: "city",
     country: "PH",
@@ -14983,11 +14983,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Davao City", Davao Region (title; Photon hit within 25 km: Agdao, Davao Region)
     id: "ph-philippines-live-camera-inside-dodong",
     name: { ja: "PHILIPPINES Live camera Inside Dodong Barber Shop, Agdao, Davao City #philippines", en: "PHILIPPINES Live camera Inside Dodong Barber Shop, Agdao, Davao City #philippines" },
-    lat: 13.4088,
-    lng: 122.5615,
+    lat: 7.0731,
+    lng: 125.6128,
     timeZone: "Asia/Manila",
     category: "city",
     country: "PH",
@@ -14998,11 +14998,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Davao City", Davao Region (title; Photon hit within 25 km: Agdao, Davao Region)
     id: "ph-philippines-live-camera-bankerohan-fi",
     name: { ja: "PHILIPPINES Live camera Bankerohan Fish sellers Servery, Davao City #philippines", en: "PHILIPPINES Live camera Bankerohan Fish sellers Servery, Davao City #philippines" },
-    lat: 13.4088,
-    lng: 122.5615,
+    lat: 7.0731,
+    lng: 125.6128,
     timeZone: "Asia/Manila",
     category: "city",
     country: "PH",
@@ -15013,11 +15013,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Davao City", Davao Region (title; Photon hit within 25 km: Agdao, Davao Region)
     id: "ph-philippines-live-camera-tyre-repair-s",
     name: { ja: "Philippines Live camera Tyre Repair Shop & Sari-Sari store Agdao, Davao City #philippines", en: "Philippines Live camera Tyre Repair Shop & Sari-Sari store Agdao, Davao City #philippines" },
-    lat: 13.4088,
-    lng: 122.5615,
+    lat: 7.0731,
+    lng: 125.6128,
     timeZone: "Asia/Manila",
     category: "city",
     country: "PH",
@@ -15028,11 +15028,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Davao City", Davao Region (title; Photon hit within 25 km: Agdao, Davao Region)
     id: "ph-boy-sayong-cam-3a-inside-agdao-public",
     name: { ja: "BOY SAYONG ( CAM 3A ) INSIDE AGDAO PUBLIC MARKET DAVAO CITY PHILIPPINES ( SAYONG STORE )", en: "BOY SAYONG ( CAM 3A ) INSIDE AGDAO PUBLIC MARKET DAVAO CITY PHILIPPINES ( SAYONG STORE )" },
-    lat: 10.6414,
-    lng: 124.025,
+    lat: 7.0731,
+    lng: 125.6128,
     timeZone: "Asia/Manila",
     category: "city",
     country: "PH",
@@ -15283,12 +15283,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Calheta", Madeira (title; Photon hit within 25 km: Calheta, Madeira)
     id: "pt-live-calheta-beach-webcam-mudas-museu",
     name: { ja: "LIVE: Calheta Beach Webcam @ Mudas Museum | Madeira-Web", en: "LIVE: Calheta Beach Webcam @ Mudas Museum | Madeira-Web" },
-    lat: 38.6019,
-    lng: -28.0179,
-    timeZone: "Atlantic/Azores",
+    lat: 32.7275,
+    lng: -17.1789,
+    timeZone: "Atlantic/Madeira",
     category: "nature",
     country: "PT",
     source: {
@@ -15343,11 +15343,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "St Petersburg", St. Petersburg (title; Photon hit within 25 km: Санкт-Петербург)
     id: "ru-live-cam-nevskiy-avenue-st-petersburg",
     name: { ja: "LIVE CAM Nevskiy avenue St. Petersburg Russia. Невский пр. Санкт-Петербург, Гостиный двор", en: "LIVE CAM Nevskiy avenue St. Petersburg Russia. Невский пр. Санкт-Петербург, Гостиный двор" },
-    lat: 48.9667,
-    lng: 40.4833,
+    lat: 59.9386,
+    lng: 30.3141,
     timeZone: "Europe/Moscow",
     category: "city",
     country: "RU",
@@ -15358,11 +15358,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "St Petersburg", St. Petersburg (title; Photon hit within 25 km: Санкт-Петербург)
     id: "ru-live-st-petersburg-nevskiy-ave-sadova",
     name: { ja: "LIVE St. Petersburg Nevskiy ave. Sadovaya str. Невский проспект Садовая улица Санкт-Петербург онлайн", en: "LIVE St. Petersburg Nevskiy ave. Sadovaya str. Невский проспект Садовая улица Санкт-Петербург онлайн" },
-    lat: 60.5942,
-    lng: 29.038,
+    lat: 59.9386,
+    lng: 30.3141,
     timeZone: "Europe/Moscow",
     category: "city",
     country: "RU",
@@ -15388,12 +15388,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "St Petersburg", St. Petersburg (title; Photon hit within 25 km: Санкт-Петербург)
     id: "ru-bronze-horseman-senate-square-st-pete",
     name: { ja: "Медный Всадник, Сенатская площадь, Санкт-Петербург, Bronze Horseman, Senate Square, St.Petersburg", en: "Медный Всадник, Сенатская площадь, Санкт-Петербург, Bronze Horseman, Senate Square, St.Petersburg" },
-    lat: 56.7699,
-    lng: 60.3779,
-    timeZone: "Asia/Yekaterinburg",
+    lat: 59.9386,
+    lng: 30.3141,
+    timeZone: "Europe/Moscow",
     category: "city",
     country: "RU",
     source: {
@@ -15433,11 +15433,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Patong", Phuket (title; Photon hit within 25 km: 7Days Premium Hotel Patong Phuket, จังหวัดภูเก็ต)
     id: "th-nanai-road-patong-phuket-thailand-lan",
     name: { ja: "Nanai Road, Patong, Phuket, Thailand | Landmark Bar | Live Camera Stream", en: "Nanai Road, Patong, Phuket, Thailand | Landmark Bar | Live Camera Stream" },
-    lat: 17.5044,
-    lng: 104.5427,
+    lat: 7.8961,
+    lng: 98.2966,
     timeZone: "Asia/Bangkok",
     category: "city",
     country: "TH",
@@ -15613,11 +15613,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Milwaukee", Wisconsin (title; Photon hit within 25 km: Milwaukee, Wisconsin)
     id: "us-live-wisconsin-web-cams-fox6-news-mil",
     name: { ja: "Live Wisconsin web cams | FOX6 News Milwaukee", en: "Live Wisconsin web cams | FOX6 News Milwaukee" },
-    lat: 44.3836,
-    lng: -89.8174,
+    lat: 43.0389,
+    lng: -87.9065,
     timeZone: "America/Chicago",
     category: "city",
     country: "US",
@@ -15823,12 +15823,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Fort Lauderdale", Florida (title; Photon hit within 25 km: Elbo Room, FL)
     id: "us-elbo-room-beach-radio-live-4k-florida",
     name: { ja: "Elbo Room Beach Radio LIVE | 4K Florida Beach Cam", en: "Elbo Room Beach Radio LIVE | 4K Florida Beach Cam" },
-    lat: 38.6423,
-    lng: -88.1217,
-    timeZone: "America/Chicago",
+    lat: 26.1223,
+    lng: -80.1434,
+    timeZone: "America/New_York",
     category: "nature",
     country: "US",
     source: {
@@ -15898,12 +15898,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "SeaTac", Washington (title; Photon hit within 25 km: Seattle-Tacoma International Airport, WA)
     id: "us-live-plane-spotting-seattle-airport-s",
     name: { ja: "LIVE Plane Spotting Seattle Airport (SEA) | 4K Broadcast with | Original ATC Audio | Rainer Sunrise", en: "LIVE Plane Spotting Seattle Airport (SEA) | 4K Broadcast with | Original ATC Audio | Rainer Sunrise" },
-    lat: 34.2475,
-    lng: -113.9649,
-    timeZone: "America/Phoenix",
+    lat: 47.4485,
+    lng: -122.2922,
+    timeZone: "America/Los_Angeles",
     category: "airport",
     country: "US",
     source: {
@@ -15913,12 +15913,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Anchorage", Alaska (title; Photon hit within 25 km: Ted Stevens Anchorage International Airport, AK)
     id: "us-live-boeing-dream-lifter-b747-in-anch",
     name: { ja: "LIVE BOEING DREAM LIFTER B747 IN ANCHORAGE!| JULY 23, 2026 | ANC PLANE SPOTTING", en: "LIVE BOEING DREAM LIFTER B747 IN ANCHORAGE!| JULY 23, 2026 | ANC PLANE SPOTTING" },
-    lat: 47.4187,
-    lng: -122.261,
-    timeZone: "America/Los_Angeles",
+    lat: 61.2181,
+    lng: -149.9003,
+    timeZone: "America/Anchorage",
     category: "airport",
     country: "US",
     source: {
@@ -15943,12 +15943,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Rosemont", Illinois (title; Photon hit within 25 km: O'Hare International Airport, IL)
     id: "us-live-from-chicago-o-hare-plane-spotti",
     name: { ja: "LIVE FROM CHICAGO O'HARE ️ Plane Spotting Sunday", en: "LIVE FROM CHICAGO O'HARE ️ Plane Spotting Sunday" },
-    lat: 45.3922,
-    lng: -108.9065,
-    timeZone: "America/Denver",
+    lat: 41.9953,
+    lng: -87.8845,
+    timeZone: "America/Chicago",
     category: "airport",
     country: "US",
     source: {
@@ -16078,12 +16078,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Dillon", Colorado (title; Photon hit within 25 km: Dillon, Colorado)
     id: "us-dillon-colorado-webcam",
     name: { ja: "Dillon Colorado Webcam", en: "Dillon Colorado Webcam" },
-    lat: 34.4166,
-    lng: -79.3712,
-    timeZone: "America/New_York",
+    lat: 39.6303,
+    lng: -106.0434,
+    timeZone: "America/Denver",
     category: "nature",
     country: "US",
     source: {
@@ -16093,12 +16093,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Monterey", California (title; Photon hit within 25 km: Monterey Bay Aquarium, CA)
     id: "us-live-kelp-forest-cam-monterey-bay-aqu",
     name: { ja: "Live Kelp Forest Cam | Monterey Bay Aquarium", en: "Live Kelp Forest Cam | Monterey Bay Aquarium" },
-    lat: 31.8068,
-    lng: -106.3783,
-    timeZone: "America/Denver",
+    lat: 36.6002,
+    lng: -121.8947,
+    timeZone: "America/Los_Angeles",
     category: "animal",
     country: "US",
     source: {
@@ -16243,12 +16243,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Hampton Beach", New Hampshire (title; Photon hit within 25 km: Hampton Beach State Park, New Hampshire)
     id: "us-pelham-resort-view-at-hampton-beach",
     name: { ja: "Pelham Resort View at Hampton Beach", en: "Pelham Resort View at Hampton Beach" },
-    lat: 33.2857,
-    lng: -86.81,
-    timeZone: "America/Chicago",
+    lat: 42.9073,
+    lng: -70.812,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -16258,12 +16258,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Saint Augustine", Florida (title; Photon hit within 25 km: Saint Augustine, Florida)
     id: "us-st-augustine-beach-surf-cam-surf-stat",
     name: { ja: "St. Augustine Beach Surf Cam - Surf Station", en: "St. Augustine Beach Surf Cam - Surf Station" },
-    lat: 38.6273,
-    lng: -90.1979,
-    timeZone: "America/Chicago",
+    lat: 29.8947,
+    lng: -81.3145,
+    timeZone: "America/New_York",
     category: "nature",
     country: "US",
     source: {
@@ -16288,12 +16288,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "St. George", Utah (title; Photon hit within 25 km: St. George, Utah)
     id: "us-st-george-utah-red-hills-webcam-see-c",
     name: { ja: "St. George Utah Red Hills Webcam - See.Cam", en: "St. George Utah Red Hills Webcam - See.Cam" },
-    lat: 38.6273,
-    lng: -90.1979,
-    timeZone: "America/Chicago",
+    lat: 37.1041,
+    lng: -113.5841,
+    timeZone: "America/Denver",
     category: "nature",
     country: "US",
     source: {
@@ -16378,12 +16378,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Key West", Florida (title; Photon hit within 25 km: Key West, Florida)
     id: "us-key-west-southernmost-point-live-cam",
     name: { ja: "Key West Southernmost Point Live Cam", en: "Key West Southernmost Point Live Cam" },
-    lat: 46.8218,
-    lng: -123.0962,
-    timeZone: "America/Los_Angeles",
+    lat: 24.5552,
+    lng: -81.7816,
+    timeZone: "America/New_York",
     category: "nature",
     country: "US",
     source: {
@@ -16408,12 +16408,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "North Platte", Nebraska (title; Photon hit within 25 km: North Platte, Nebraska)
     id: "us-north-platte-golden-spike-tower-east",
     name: { ja: "North Platte Golden Spike Tower (East) Live Railcam - North Platte, NE #steelhighway", en: "North Platte Golden Spike Tower (East) Live Railcam - North Platte, NE #steelhighway" },
-    lat: 40.8486,
-    lng: -111.9069,
-    timeZone: "America/Denver",
+    lat: 41.1239,
+    lng: -100.7654,
+    timeZone: "America/Chicago",
     category: "railway",
     country: "US",
     source: {
@@ -16498,12 +16498,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Saint Clair", Michigan (title; Photon hit within 25 km: St. Clair Township, Michigan)
     id: "us-st-clair-river-from-the-voyageur-rest",
     name: { ja: "St. Clair River from the Voyageur Restaurant, St. Clair Michigan USA", en: "St. Clair River from the Voyageur Restaurant, St. Clair Michigan USA" },
-    lat: 38.6273,
-    lng: -90.1979,
-    timeZone: "America/Chicago",
+    lat: 42.8209,
+    lng: -82.486,
+    timeZone: "America/Detroit",
     category: "nature",
     country: "US",
     source: {
@@ -16513,12 +16513,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Saint Augustine", Florida (title; Photon hit within 25 km: Saint Augustine, Florida)
     id: "us-matanzas-river-lighthouse-bridge-of-l",
     name: { ja: "Matanzas River, Lighthouse, Bridge of Lions | St. Augustine LIVE 24/7", en: "Matanzas River, Lighthouse, Bridge of Lions | St. Augustine LIVE 24/7" },
-    lat: 37.4506,
-    lng: -87.0586,
-    timeZone: "America/Chicago",
+    lat: 29.8947,
+    lng: -81.3145,
+    timeZone: "America/New_York",
     category: "nature",
     country: "US",
     source: {
@@ -16663,12 +16663,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Sault Ste. Marie", Michigan (title; Photon hit within 25 km: Soo Locks, Michigan)
     id: "us-soo-locks-sault-ste-marie-michigan-us",
     name: { ja: "Soo Locks, Sault Ste Marie, Michigan USA | Streamtime LIVE", en: "Soo Locks, Sault Ste Marie, Michigan USA | Streamtime LIVE" },
-    lat: 35.7942,
-    lng: -90.9365,
-    timeZone: "America/Chicago",
+    lat: 46.4953,
+    lng: -84.3453,
+    timeZone: "America/Detroit",
     category: "harbor",
     country: "US",
     source: {
@@ -16723,12 +16723,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Rosemont", Illinois (title; Photon hit within 25 km: O'Hare International Airport, IL)
     id: "us-live-busy-airport-action-w-big-firewo",
     name: { ja: "LIVE BUSY AIRPORT ACTION w/BIG FIREWORKS SHOW at CHICAGO O'HARE | AVGEEK ORD PLANE SPOTTING", en: "LIVE BUSY AIRPORT ACTION w/BIG FIREWORKS SHOW at CHICAGO O'HARE | AVGEEK ORD PLANE SPOTTING" },
-    lat: 37.2784,
-    lng: -83.2905,
-    timeZone: "America/New_York",
+    lat: 41.9953,
+    lng: -87.8845,
+    timeZone: "America/Chicago",
     category: "airport",
     country: "US",
     source: {
@@ -16783,12 +16783,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Watertown", Massachusetts (title; Photon hit within 25 km: Watertown Square Busway, Massachusetts)
     id: "us-nbc-watertown-square-cam",
     name: { ja: "NBC Watertown Square Cam", en: "NBC Watertown Square Cam" },
-    lat: 40.1851,
-    lng: -98.1868,
-    timeZone: "America/Chicago",
+    lat: 42.3709,
+    lng: -71.1828,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -16933,12 +16933,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Jeffersonville", Indiana (title; Photon hit within 25 km: Jeffersonville, Indiana)
     id: "us-ohio-river-jeffersonville-in-streamti",
     name: { ja: "Ohio River, Jeffersonville, IN | StreamTime LIVE", en: "Ohio River, Jeffersonville, IN | StreamTime LIVE" },
-    lat: 41.5575,
-    lng: -89.4609,
-    timeZone: "America/Chicago",
+    lat: 38.2776,
+    lng: -85.7372,
+    timeZone: "America/Kentucky/Louisville",
     category: "nature",
     country: "US",
     source: {
@@ -17008,12 +17008,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Fort Myers", Florida (title; Photon hit within 25 km: Fort Myers, Florida)
     id: "us-pink-shell-resort-fort-myers-florida",
     name: { ja: "Pink Shell Resort - Fort Myers, Florida - Live Cam", en: "Pink Shell Resort - Fort Myers, Florida - Live Cam" },
-    lat: 35.2606,
-    lng: -97.1197,
-    timeZone: "America/Chicago",
+    lat: 26.6217,
+    lng: -81.8406,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -17068,12 +17068,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Myrtle Beach", South Carolina (title; Photon hit within 25 km: Myrtle Beach Boardwalk, South Carolina)
     id: "us-myrtle-beach-boardwalk-cam",
     name: { ja: "Myrtle Beach Boardwalk Cam", en: "Myrtle Beach Boardwalk Cam" },
-    lat: 34.5584,
-    lng: -89.1192,
-    timeZone: "America/Chicago",
+    lat: 33.6891,
+    lng: -78.8867,
+    timeZone: "America/New_York",
     category: "nature",
     country: "US",
     source: {
@@ -17098,11 +17098,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Alma", Wisconsin (title; Photon hit within 25 km: Alma, Wisconsin)
     id: "us-city-of-alma-live-railcam-alma-wi",
     name: { ja: "City of Alma Live Railcam - Alma, WI", en: "City of Alma Live Railcam - Alma, WI" },
-    lat: 44.98,
-    lng: -93.2638,
+    lat: 44.32,
+    lng: -91.9149,
     timeZone: "America/Chicago",
     category: "railway",
     country: "US",
@@ -17203,11 +17203,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "York Harbor", Maine (title; Photon hit within 25 km: York Harbor, Maine)
     id: "us-york-harbor-beach-maine-usa",
     name: { ja: "York Harbor Beach, Maine USA", en: "York Harbor Beach, Maine USA" },
-    lat: 39.9626,
-    lng: -76.7277,
+    lat: 43.1368,
+    lng: -70.6456,
     timeZone: "America/New_York",
     category: "nature",
     country: "US",
@@ -17248,12 +17248,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Miami", Florida (title; Photon hit within 25 km: Port Miami Tunnel, Florida)
     id: "us-live-port-miami-cruise-ship-departure",
     name: { ja: "LIVE Port Miami Cruise Ship Departures and Arrivals | ICON of the Seas", en: "LIVE Port Miami Cruise Ship Departures and Arrivals | ICON of the Seas" },
-    lat: 35.2045,
-    lng: -99.3073,
-    timeZone: "America/Chicago",
+    lat: 25.7743,
+    lng: -80.1937,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -17308,12 +17308,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "St Louis", Missouri (title; Photon hit within 25 km: Saint Louis, Missouri)
     id: "us-live-trains-railcam-st-louis-missouri",
     name: { ja: "LIVE Trains Railcam | St Louis, Missouri (West Cam)", en: "LIVE Trains Railcam | St Louis, Missouri (West Cam)" },
-    lat: 42.2882,
-    lng: -71.3267,
-    timeZone: "America/New_York",
+    lat: 38.6273,
+    lng: -90.1979,
+    timeZone: "America/Chicago",
     category: "railway",
     country: "US",
     source: {
@@ -17488,12 +17488,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Key West", Florida (title; Photon hit within 25 km: Key West, Florida)
     id: "us-key-west-southernmost-point-live-2",
     name: { ja: "Key West Southernmost Point Live Cam 2", en: "Key West Southernmost Point Live Cam 2" },
-    lat: 46.8218,
-    lng: -123.0962,
-    timeZone: "America/Los_Angeles",
+    lat: 24.5552,
+    lng: -81.7816,
+    timeZone: "America/New_York",
     category: "nature",
     country: "US",
     source: {
@@ -17578,12 +17578,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Santa Rosa", California (title; Photon hit within 25 km: Old Courthouse Square, California)
     id: "us-old-courthouse-square-santa-rosa",
     name: { ja: "Old Courthouse Square - Santa Rosa", en: "Old Courthouse Square - Santa Rosa" },
-    lat: 44.9342,
-    lng: -68.6453,
-    timeZone: "America/New_York",
+    lat: 38.4405,
+    lng: -122.7144,
+    timeZone: "America/Los_Angeles",
     category: "city",
     country: "US",
     source: {
@@ -17878,12 +17878,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Santa Catalina Island, California; watch page: "From the west end of Catalina Island"
     id: "us-west-end-bald-eagle-nest-low-cam-powe",
     name: { ja: "West End Bald Eagle Nest Low Cam powered by EXPLORE.org", en: "West End Bald Eagle Nest Low Cam powered by EXPLORE.org" },
-    lat: 31.8024,
-    lng: -97.0917,
-    timeZone: "America/Chicago",
+    lat: 33.3889,
+    lng: -118.4239,
+    timeZone: "America/Los_Angeles",
     category: "animal",
     country: "US",
     source: {
@@ -17893,12 +17893,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Miramar Beach", Florida (title; Photon hit within 25 km: Miramar Beach, Florida)
     id: "us-leeward-key-webcam-miramar-beach-fl",
     name: { ja: "Leeward Key Webcam Miramar Beach, FL", en: "Leeward Key Webcam Miramar Beach, FL" },
-    lat: 33.757,
-    lng: -84.6535,
-    timeZone: "America/New_York",
+    lat: 30.3744,
+    lng: -86.3586,
+    timeZone: "America/Chicago",
     category: "nature",
     country: "US",
     source: {
@@ -17923,11 +17923,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "New York", New York (title; Photon hit within 25 km: Manhattan, New York)
     id: "us-new-york-city-live-brooklyn-to-manhat",
     name: { ja: "New York City LIVE Brooklyn to Manhattan Walk from Williamsburg & Greenpoint", en: "New York City LIVE Brooklyn to Manhattan Walk from Williamsburg & Greenpoint" },
-    lat: 38.4278,
-    lng: -84.8105,
+    lat: 40.7143,
+    lng: -74.006,
     timeZone: "America/New_York",
     category: "city",
     country: "US",
@@ -17983,12 +17983,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "New York", New York (title; Photon hit within 25 km: Manhattan, New York)
     id: "us-walking-in-new-york-at-night-explore",
     name: { ja: "Walking in New York at Night Explore Midtown Manhattan / NYC Walking Tour 4K", en: "Walking in New York at Night Explore Midtown Manhattan / NYC Walking Tour 4K" },
-    lat: 38.4722,
-    lng: -101.9727,
-    timeZone: "America/Denver",
+    lat: 40.7143,
+    lng: -74.006,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -18103,12 +18103,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Rosemont", Illinois (title; Photon hit within 25 km: O'Hare International Airport, IL)
     id: "us-live-tornado-warning-at-chicago-o-har",
     name: { ja: "LIVE TORNADO WARNING at CHICAGO O'HARE AIRPORT | AVGEEK ORD PLANE SPOTTING", en: "LIVE TORNADO WARNING at CHICAGO O'HARE AIRPORT | AVGEEK ORD PLANE SPOTTING" },
-    lat: 38.3429,
-    lng: -81.8443,
-    timeZone: "America/New_York",
+    lat: 41.9953,
+    lng: -87.8845,
+    timeZone: "America/Chicago",
     category: "airport",
     country: "US",
     source: {
@@ -18163,12 +18163,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Westfield", Massachusetts (title; Photon hit within 25 km: Westfield, Massachusetts)
     id: "us-westfield-massachusetts-usa-live-rail",
     name: { ja: "Westfield, Massachusetts USA - LIVE Railfan Cam", en: "Westfield, Massachusetts USA - LIVE Railfan Cam" },
-    lat: 39.8183,
-    lng: -100.5282,
-    timeZone: "America/Chicago",
+    lat: 42.1251,
+    lng: -72.7495,
+    timeZone: "America/New_York",
     category: "railway",
     country: "US",
     source: {
@@ -18193,11 +18193,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Union", Illinois (title; Photon hit within 25 km: Illinois Railway Museum, IL)
     id: "us-illinois-railway-museum-diesel-shop-w",
     name: { ja: "Illinois Railway Museum Diesel Shop West Webcam Live Stream", en: "Illinois Railway Museum Diesel Shop West Webcam Live Stream" },
-    lat: 38.2867,
-    lng: -90.3801,
+    lat: 42.2331,
+    lng: -88.5423,
     timeZone: "America/Chicago",
     category: "railway",
     country: "US",
@@ -18253,12 +18253,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Wisconsin Dells", Wisconsin (title; Photon hit within 25 km: Wisconsin Dells, Wisconsin)
     id: "us-riverside-great-northern-live-railcam",
     name: { ja: "Riverside & Great Northern Live Railcam Narrow Gauge - Wisconsin Dells, WI #steelhighway", en: "Riverside & Great Northern Live Railcam Narrow Gauge - Wisconsin Dells, WI #steelhighway" },
-    lat: 33.9534,
-    lng: -117.3962,
-    timeZone: "America/Los_Angeles",
+    lat: 43.6275,
+    lng: -89.771,
+    timeZone: "America/Chicago",
     category: "railway",
     country: "US",
     source: {
@@ -18388,11 +18388,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Brooklyn", New York (title; Photon hit within 25 km: Brooklyn, New York)
     id: "us-live-camera-new-york-city-harbor-broo",
     name: { ja: "LIVE CAMERA: New York City Harbor, Brooklyn, New York | StreamTime LIVE", en: "LIVE CAMERA: New York City Harbor, Brooklyn, New York | StreamTime LIVE" },
-    lat: 38.4278,
-    lng: -84.8105,
+    lat: 40.6501,
+    lng: -73.9496,
     timeZone: "America/New_York",
     category: "harbor",
     country: "US",
@@ -18418,11 +18418,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Las Vegas", Nevada (title; Photon hit within 25 km: Fremont Street Experience, Nevada)
     id: "us-24-7-live-cam-on-fremont-street-fremo",
     name: { ja: "24/7 LIVE CAM on FREMONT STREET ◆ Fremont Music ◆ Fremont Street Experience In DOWNTOWN LAS VEGAS!", en: "24/7 LIVE CAM on FREMONT STREET ◆ Fremont Music ◆ Fremont Street Experience In DOWNTOWN LAS VEGAS!" },
-    lat: 37.5483,
-    lng: -121.9886,
+    lat: 36.175,
+    lng: -115.1372,
     timeZone: "America/Los_Angeles",
     category: "city",
     country: "US",
@@ -18493,12 +18493,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Katmai National Park", Alaska (title; Photon hit within 25 km: Katmai National Park, Alaska)
     id: "us-live-river-watch-katmai-national-park",
     name: { ja: "LIVE River Watch - Katmai National Park, Alaska | explore.org", en: "LIVE River Watch - Katmai National Park, Alaska | explore.org" },
-    lat: 30.4513,
-    lng: -94.8433,
-    timeZone: "America/Chicago",
+    lat: 58.5626,
+    lng: -154.9788,
+    timeZone: "America/Anchorage",
     category: "animal",
     country: "US",
     source: {
@@ -18508,11 +18508,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "New York", New York (title; Photon hit within 25 km: Manhattan, New York)
     id: "us-new-york-walk-4k-busy-streets-of-manh",
     name: { ja: "NEW YORK Walk 4K - Busy Streets of MANHATTAN, Walking tour NYC Summer 2023", en: "NEW YORK Walk 4K - Busy Streets of MANHATTAN, Walking tour NYC Summer 2023" },
-    lat: 38.4278,
-    lng: -84.8105,
+    lat: 40.7143,
+    lng: -74.006,
     timeZone: "America/New_York",
     category: "city",
     country: "US",
@@ -18628,12 +18628,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Myrtle Beach", South Carolina (title; Photon hit within 25 km: Myrtle Beach Boardwalk, South Carolina)
     id: "us-live-myrtle-beach-view-captain-s-quar",
     name: { ja: "Live Myrtle Beach View - Captain's Quarters Resort", en: "Live Myrtle Beach View - Captain's Quarters Resort" },
-    lat: 34.5584,
-    lng: -89.1192,
-    timeZone: "America/Chicago",
+    lat: 33.6891,
+    lng: -78.8867,
+    timeZone: "America/New_York",
     category: "nature",
     country: "US",
     source: {
@@ -18673,12 +18673,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Auburn", Alabama (title; Photon hit within 25 km: Auburn University Regional Airport, AL)
     id: "us-auburn-university-regional-airport-ai",
     name: { ja: "Auburn University Regional Airport Air Traffic Control Tower", en: "Auburn University Regional Airport Air Traffic Control Tower" },
-    lat: 42.9317,
-    lng: -76.5661,
-    timeZone: "America/New_York",
+    lat: 32.6099,
+    lng: -85.4808,
+    timeZone: "America/Chicago",
     category: "airport",
     country: "US",
     source: {
@@ -18793,12 +18793,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Las Vegas", New Mexico (title; Photon hit within 25 km: Bridge Street, New Mexico)
     id: "us-bridge-street-looking-west-las-vegas",
     name: { ja: "Bridge Street looking West, Las Vegas NM", en: "Bridge Street looking West, Las Vegas NM" },
-    lat: 42.1294,
-    lng: -113.3425,
-    timeZone: "America/Boise",
+    lat: 35.5939,
+    lng: -105.2239,
+    timeZone: "America/Denver",
     category: "city",
     country: "US",
     source: {
@@ -18868,11 +18868,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Las Vegas", Nevada (title; Photon hit within 25 km: Fremont Street Experience, Nevada)
     id: "us-fremont-street-downtown-las-vegas-wal",
     name: { ja: "FREMONT STREET / Downtown Las Vegas - Walking The Fremont Street Experience (Replay)", en: "FREMONT STREET / Downtown Las Vegas - Walking The Fremont Street Experience (Replay)" },
-    lat: 37.5483,
-    lng: -121.9886,
+    lat: 36.175,
+    lng: -115.1372,
     timeZone: "America/Los_Angeles",
     category: "city",
     country: "US",
@@ -18898,12 +18898,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Los Angeles", California (title; Photon hit within 25 km: Downtown, California)
     id: "us-downtown-los-angeles-live-cam-mon-jul",
     name: { ja: "Downtown Los Angeles Live Cam - Mon Jul 20, 2026 AM", en: "Downtown Los Angeles Live Cam - Mon Jul 20, 2026 AM" },
-    lat: 41.0724,
-    lng: -81.525,
-    timeZone: "America/New_York",
+    lat: 34.0522,
+    lng: -118.2437,
+    timeZone: "America/Los_Angeles",
     category: "city",
     country: "US",
     source: {
@@ -18943,12 +18943,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Los Angeles", California (title; Photon hit within 25 km: Downtown, California)
     id: "us-downtown-los-angeles-live-cam-sun-jul",
     name: { ja: "Downtown Los Angeles Live Cam - Sun Jul 12, 2026 PM", en: "Downtown Los Angeles Live Cam - Sun Jul 12, 2026 PM" },
-    lat: 41.0724,
-    lng: -81.525,
-    timeZone: "America/New_York",
+    lat: 34.0522,
+    lng: -118.2437,
+    timeZone: "America/Los_Angeles",
     category: "city",
     country: "US",
     source: {
@@ -19048,12 +19048,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Houston", Texas (title; Photon hit within 25 km: Houston, Texas)
     id: "us-live-trains-railcam-houston-texas-sam",
     name: { ja: "LIVE Trains Railcam | Houston, Texas (Sampson Street East Cam)", en: "LIVE Trains Railcam | Houston, Texas (Sampson Street East Cam)" },
-    lat: 42.2882,
-    lng: -71.3267,
-    timeZone: "America/New_York",
+    lat: 29.7633,
+    lng: -95.3633,
+    timeZone: "America/Chicago",
     category: "railway",
     country: "US",
     source: {
@@ -19063,12 +19063,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Houston", Texas (title; Photon hit within 25 km: Houston, Texas)
     id: "us-live-trains-railcam-houston-texas-2",
     name: { ja: "LIVE Trains Railcam | Houston, Texas (Sampson Street South)", en: "LIVE Trains Railcam | Houston, Texas (Sampson Street South)" },
-    lat: 42.2882,
-    lng: -71.3267,
-    timeZone: "America/New_York",
+    lat: 29.7633,
+    lng: -95.3633,
+    timeZone: "America/Chicago",
     category: "railway",
     country: "US",
     source: {
@@ -19078,12 +19078,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Houston", Texas (title; Photon hit within 25 km: Houston, Texas)
     id: "us-live-trains-railcam-houston-texas-3",
     name: { ja: "LIVE Trains Railcam | Houston, Texas (Sampson Street North)", en: "LIVE Trains Railcam | Houston, Texas (Sampson Street North)" },
-    lat: 42.2882,
-    lng: -71.3267,
-    timeZone: "America/New_York",
+    lat: 29.7633,
+    lng: -95.3633,
+    timeZone: "America/Chicago",
     category: "railway",
     country: "US",
     source: {
@@ -19093,12 +19093,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Blue Island", Illinois (title; Photon hit within 25 km: Blue Island, Illinois)
     id: "us-live-trains-railcam-blue-island-illin",
     name: { ja: "LIVE Trains Railcam | Blue Island, Illinois (South Cam)", en: "LIVE Trains Railcam | Blue Island, Illinois (South Cam)" },
-    lat: 42.2882,
-    lng: -71.3267,
-    timeZone: "America/New_York",
+    lat: 41.6573,
+    lng: -87.68,
+    timeZone: "America/Chicago",
     category: "railway",
     country: "US",
     source: {
@@ -19108,12 +19108,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Birmingham", Alabama (title; Photon hit within 25 km: Birmingham, Alabama)
     id: "us-live-trains-railcam-birmingham-alabam",
     name: { ja: "LIVE Trains Railcam | Birmingham, Alabama (CSX/NS Diamond)", en: "LIVE Trains Railcam | Birmingham, Alabama (CSX/NS Diamond)" },
-    lat: 42.2882,
-    lng: -71.3267,
-    timeZone: "America/New_York",
+    lat: 33.5207,
+    lng: -86.8025,
+    timeZone: "America/Chicago",
     category: "railway",
     country: "US",
     source: {
@@ -19123,12 +19123,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Houston", Texas (title; Photon hit within 25 km: Houston, Texas)
     id: "us-live-trains-railcam-houston-texas-ptz",
     name: { ja: "LIVE Trains Railcam | Houston, Texas PTZ (Baer Jct)", en: "LIVE Trains Railcam | Houston, Texas PTZ (Baer Jct)" },
-    lat: 42.2882,
-    lng: -71.3267,
-    timeZone: "America/New_York",
+    lat: 29.7633,
+    lng: -95.3633,
+    timeZone: "America/Chicago",
     category: "railway",
     country: "US",
     source: {
@@ -19138,12 +19138,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Caliente", Nevada (title; Photon hit within 25 km: Caliente, Nevada)
     id: "us-live-trains-railcam-caliente-nevada-p",
     name: { ja: "LIVE Trains Railcam | Caliente, Nevada (PTZ)", en: "LIVE Trains Railcam | Caliente, Nevada (PTZ)" },
-    lat: 42.2882,
-    lng: -71.3267,
-    timeZone: "America/New_York",
+    lat: 37.615,
+    lng: -114.5119,
+    timeZone: "America/Los_Angeles",
     category: "railway",
     country: "US",
     source: {
@@ -19153,12 +19153,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Caliente", Nevada (title; Photon hit within 25 km: Caliente, Nevada)
     id: "us-live-trains-railcam-caliente-nevada-d",
     name: { ja: "LIVE Trains Railcam | Caliente, Nevada (Depot Cam)", en: "LIVE Trains Railcam | Caliente, Nevada (Depot Cam)" },
-    lat: 42.2882,
-    lng: -71.3267,
-    timeZone: "America/New_York",
+    lat: 37.615,
+    lng: -114.5119,
+    timeZone: "America/Los_Angeles",
     category: "railway",
     country: "US",
     source: {
@@ -19168,12 +19168,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Birmingham", Alabama (title; Photon hit within 25 km: Birmingham, Alabama)
     id: "us-live-trains-railcam-birmingham-al-2",
     name: { ja: "LIVE Trains Railcam | Birmingham, Alabama (PTZ)", en: "LIVE Trains Railcam | Birmingham, Alabama (PTZ)" },
-    lat: 42.2882,
-    lng: -71.3267,
-    timeZone: "America/New_York",
+    lat: 33.5207,
+    lng: -86.8025,
+    timeZone: "America/Chicago",
     category: "railway",
     country: "US",
     source: {
@@ -19198,12 +19198,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Houston", Texas (title; Photon hit within 25 km: Houston, Texas)
     id: "us-live-trains-railcam-houston-texas-tow",
     name: { ja: "LIVE Trains Railcam | Houston, Texas (Tower 26) East Cam", en: "LIVE Trains Railcam | Houston, Texas (Tower 26) East Cam" },
-    lat: 42.2882,
-    lng: -71.3267,
-    timeZone: "America/New_York",
+    lat: 29.7633,
+    lng: -95.3633,
+    timeZone: "America/Chicago",
     category: "railway",
     country: "US",
     source: {
@@ -19228,12 +19228,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "North Platte", Nebraska (title; Photon hit within 25 km: North Platte, Nebraska)
     id: "us-north-platte-golden-spike-tower-west",
     name: { ja: "North Platte Golden Spike Tower (West) Live Railcam - North Platte, NE #steelhighway", en: "North Platte Golden Spike Tower (West) Live Railcam - North Platte, NE #steelhighway" },
-    lat: 40.8486,
-    lng: -111.9069,
-    timeZone: "America/Denver",
+    lat: 41.1239,
+    lng: -100.7654,
+    timeZone: "America/Chicago",
     category: "railway",
     country: "US",
     source: {
@@ -19303,11 +19303,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Key West", Florida (title; Photon hit within 25 km: Key West, Florida)
     id: "us-live-cruise-port-key-west",
     name: { ja: "LIVE Cruise Port Key West", en: "LIVE Cruise Port Key West" },
-    lat: 37.3184,
-    lng: -84.123,
+    lat: 24.5552,
+    lng: -81.7816,
     timeZone: "America/New_York",
     category: "harbor",
     country: "US",
@@ -19363,12 +19363,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Lahaina", Hawaii (title; Photon hit within 25 km: Kaanapali Beach Club, HI)
     id: "us-live-from-sheraton-maui-resort-spa-ma",
     name: { ja: "Live From Sheraton Maui Resort & Spa | Maui Beach Webcam | Kaanapali Beach Hawaii", en: "Live From Sheraton Maui Resort & Spa | Maui Beach Webcam | Kaanapali Beach Hawaii" },
-    lat: 45.3922,
-    lng: -108.9065,
-    timeZone: "America/Denver",
+    lat: 20.8753,
+    lng: -156.6798,
+    timeZone: "Pacific/Honolulu",
     category: "nature",
     country: "US",
     source: {
@@ -19393,11 +19393,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: West Mifflin, Pennsylvania; watch page: "Mon Valley Works–Irvin Plant in West Mifflin, PA"
     id: "us-uss-bald-eagle-cam-3",
     name: { ja: "USS Bald Eagle Cam 3", en: "USS Bald Eagle Cam 3" },
-    lat: 32.3054,
-    lng: -84.7727,
+    lat: 40.3634,
+    lng: -79.8664,
     timeZone: "America/New_York",
     category: "animal",
     country: "US",
@@ -19408,11 +19408,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: West Mifflin, Pennsylvania; watch page: "Mon Valley Works–Irvin Plant in West Mifflin, PA"
     id: "us-uss-bald-eagle-cam-4-river-view",
     name: { ja: "USS Bald Eagle Cam 4 - River view", en: "USS Bald Eagle Cam 4 - River view" },
-    lat: 32.3054,
-    lng: -84.7727,
+    lat: 40.3634,
+    lng: -79.8664,
     timeZone: "America/New_York",
     category: "animal",
     country: "US",
@@ -19423,12 +19423,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Key West", Florida (title; Photon hit within 25 km: Key West, Florida)
     id: "us-live-key-west-harbor-webcam-from-ptzt",
     name: { ja: "LIVE - Key West Harbor Webcam from PTZtv.", en: "LIVE - Key West Harbor Webcam from PTZtv." },
-    lat: 46.8218,
-    lng: -123.0962,
-    timeZone: "America/Los_Angeles",
+    lat: 24.5552,
+    lng: -81.7816,
+    timeZone: "America/New_York",
     category: "harbor",
     country: "US",
     source: {
@@ -19438,11 +19438,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: West Mifflin, Pennsylvania; watch page: "Mon Valley Works–Irvin Plant in West Mifflin, PA"
     id: "us-u-s-steel-bald-eagle-camera-live-view",
     name: { ja: "U. S. Steel Bald Eagle Camera Live view cam 1 - Great view of the nest with Chat", en: "U. S. Steel Bald Eagle Camera Live view cam 1 - Great view of the nest with Chat" },
-    lat: 40.0204,
-    lng: -80.804,
+    lat: 40.3634,
+    lng: -79.8664,
     timeZone: "America/New_York",
     category: "animal",
     country: "US",
@@ -19453,12 +19453,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Warsaw, New York; watch page: "Ott Family Bald Eagle Nest Camera located in Warsaw, NY"
     id: "us-ott-family-bald-eagle-nest-camera-eag",
     name: { ja: "Ott Family Bald Eagle Nest Camera: Eaglet Goody! - Hatched 3/18", en: "Ott Family Bald Eagle Nest Camera: Eaglet Goody! - Hatched 3/18" },
-    lat: 36.4983,
-    lng: -92.0786,
-    timeZone: "America/Chicago",
+    lat: 42.7402,
+    lng: -78.1326,
+    timeZone: "America/New_York",
     category: "animal",
     country: "US",
     source: {
@@ -19468,11 +19468,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Fresno", California (title; Photon hit within 25 km: Fresno, California)
     id: "us-live-traffic-camera-feed-car-spotting",
     name: { ja: "⭕Live Traffic Camera Feed, Car Spotting, and Police Scanner - Fresno, California", en: "⭕Live Traffic Camera Feed, Car Spotting, and Police Scanner - Fresno, California" },
-    lat: 35.495,
-    lng: -120.6674,
+    lat: 36.7477,
+    lng: -119.7724,
     timeZone: "America/Los_Angeles",
     category: "city",
     country: "US",
@@ -19483,11 +19483,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: West Mifflin, Pennsylvania; watch page: "Mon Valley Works–Irvin Plant in West Mifflin, PA"
     id: "us-u-s-steel-bald-eagle-camera-live-stre",
     name: { ja: "U. S. Steel Bald Eagle Camera Live Stream - Cam 2 - USS nest with Monongahela River in background", en: "U. S. Steel Bald Eagle Camera Live Stream - Cam 2 - USS nest with Monongahela River in background" },
-    lat: 40.0204,
-    lng: -80.804,
+    lat: 40.3634,
+    lng: -79.8664,
     timeZone: "America/New_York",
     category: "animal",
     country: "US",
@@ -19648,12 +19648,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Mobile", Alabama (title; Photon hit within 25 km: Mobile, Alabama)
     id: "us-live-cam-downtown-mobile-al-from-daup",
     name: { ja: "LIVE CAM: Downtown Mobile, AL from Dauphin's Resturant", en: "LIVE CAM: Downtown Mobile, AL from Dauphin's Resturant" },
-    lat: 41.0724,
-    lng: -81.525,
-    timeZone: "America/New_York",
+    lat: 30.6944,
+    lng: -88.043,
+    timeZone: "America/Chicago",
     category: "city",
     country: "US",
     source: {
@@ -19663,12 +19663,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Bangor", Michigan (title; Photon hit within 25 km: Bangor, Michigan)
     id: "us-city-of-bangor-mi-downtown-live-strea",
     name: { ja: "City of Bangor MI - Downtown Live Stream", en: "City of Bangor MI - Downtown Live Stream" },
-    lat: 44.98,
-    lng: -93.2638,
-    timeZone: "America/Chicago",
+    lat: 42.3125,
+    lng: -86.1131,
+    timeZone: "America/Detroit",
     category: "city",
     country: "US",
     source: {
@@ -19693,12 +19693,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Leavenworth", Washington (title; Photon hit within 25 km: Leavenworth, Washington)
     id: "us-leavenworth-washington-live-webca-2",
     name: { ja: "Leavenworth Washington Live Webcam from Downtown", en: "Leavenworth Washington Live Webcam from Downtown" },
-    lat: 39.3111,
-    lng: -94.9225,
-    timeZone: "America/Chicago",
+    lat: 47.5962,
+    lng: -120.6615,
+    timeZone: "America/Los_Angeles",
     category: "city",
     country: "US",
     source: {
@@ -19738,12 +19738,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Santa Cruz Island, California; watch page: "on The Nature Conservancy’s property on Santa Cruz Island, CA"
     id: "us-fraser-point-bald-eagle-nest-2-powere",
     name: { ja: "Fraser Point Bald Eagle Nest 2 powered by EXPLORE.org", en: "Fraser Point Bald Eagle Nest 2 powered by EXPLORE.org" },
-    lat: 42.5392,
-    lng: -82.9494,
-    timeZone: "America/Detroit",
+    lat: 34.0185,
+    lng: -119.7751,
+    timeZone: "America/Los_Angeles",
     category: "animal",
     country: "US",
     source: {
@@ -19783,12 +19783,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Avalon", California (title; Photon hit within 25 km: Santa Catalina Island, California)
     id: "us-live-west-end-bald-eagle-nest-cam-cat",
     name: { ja: "LIVE West End Bald Eagle Nest Cam: Catalina Island - IWS | explore.org", en: "LIVE West End Bald Eagle Nest Cam: Catalina Island - IWS | explore.org" },
-    lat: 31.8024,
-    lng: -97.0917,
-    timeZone: "America/Chicago",
+    lat: 33.3428,
+    lng: -118.3278,
+    timeZone: "America/Los_Angeles",
     category: "animal",
     country: "US",
     source: {
@@ -19798,12 +19798,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Two Harbors, California; watch page: "This cozy bald eagle nest overlooks the small village of Two Harbors"
     id: "us-two-harbors-bald-eagle-cam-powered-by",
     name: { ja: "Two Harbors Bald Eagle Cam powered by EXPLORE.org", en: "Two Harbors Bald Eagle Cam powered by EXPLORE.org" },
-    lat: 47.0227,
-    lng: -91.6707,
-    timeZone: "America/Chicago",
+    lat: 33.44,
+    lng: -118.4992,
+    timeZone: "America/Los_Angeles",
     category: "animal",
     country: "US",
     source: {
@@ -19873,12 +19873,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Clarence", Iowa (title; Photon hit within 25 km: Clarence, Iowa)
     id: "us-clarence-sundstop-live-railcam-claren",
     name: { ja: "Clarence Sundstop Live Railcam - Clarence, Iowa #SteelHighway", en: "Clarence Sundstop Live Railcam - Clarence, Iowa #SteelHighway" },
-    lat: 42.9767,
-    lng: -78.592,
-    timeZone: "America/New_York",
+    lat: 41.8889,
+    lng: -91.0565,
+    timeZone: "America/Chicago",
     category: "railway",
     country: "US",
     source: {
@@ -19948,12 +19948,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Winter Garden", Florida (title; Photon hit within 25 km: Winter Garden, Florida)
     id: "us-live-winter-garden-florida-webcam",
     name: { ja: "LIVE: Winter Garden, Florida Webcam", en: "LIVE: Winter Garden, Florida Webcam" },
-    lat: 45.8197,
-    lng: -91.0118,
-    timeZone: "America/Chicago",
+    lat: 28.5653,
+    lng: -81.5862,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -19993,11 +19993,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Roanoke", Virginia (title; Photon hit within 25 km: Hotel, Virginia)
     id: "us-hotel-roanoke-railcam-east",
     name: { ja: "Hotel Roanoke RailCam - East", en: "Hotel Roanoke RailCam - East" },
-    lat: 36.116,
-    lng: -77.1844,
+    lat: 37.271,
+    lng: -79.9414,
     timeZone: "America/New_York",
     category: "railway",
     country: "US",
@@ -20008,12 +20008,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Houston", Texas (title; Photon hit within 25 km: Houston, Texas)
     id: "us-live-trains-railcam-houston-texas-4",
     name: { ja: "LIVE Trains Railcam | Houston, Texas (Tower 26) PTZ", en: "LIVE Trains Railcam | Houston, Texas (Tower 26) PTZ" },
-    lat: 42.2882,
-    lng: -71.3267,
-    timeZone: "America/New_York",
+    lat: 29.7633,
+    lng: -95.3633,
+    timeZone: "America/Chicago",
     category: "railway",
     country: "US",
     source: {
@@ -20098,12 +20098,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "New York", New York (title; Photon hit within 25 km: Manhattan, New York)
     id: "us-irl-new-york-city-monday-evening-walk",
     name: { ja: "IRL New York City Monday Evening Walk In Manhattan (13th July 2026)", en: "IRL New York City Monday Evening Walk In Manhattan (13th July 2026)" },
-    lat: 45.0955,
-    lng: -92.6709,
-    timeZone: "America/Chicago",
+    lat: 40.7143,
+    lng: -74.006,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -20173,12 +20173,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Blue Island", Illinois (title; Photon hit within 25 km: Blue Island, Illinois)
     id: "us-live-trains-railcam-blue-island-i-2",
     name: { ja: "LIVE Trains Railcam | Blue Island, Illinois PTZ", en: "LIVE Trains Railcam | Blue Island, Illinois PTZ" },
-    lat: 42.2882,
-    lng: -71.3267,
-    timeZone: "America/New_York",
+    lat: 41.6573,
+    lng: -87.68,
+    timeZone: "America/Chicago",
     category: "railway",
     country: "US",
     source: {
@@ -20218,11 +20218,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Galveston", Texas (title; Photon hit within 25 km: Galveston Island Historic Pleasure Pier, TX)
     id: "us-strand-cam-live-webcam-from-the-histo",
     name: { ja: "STRAND CAM: Live Webcam from the Historic Downtown Galveston", en: "STRAND CAM: Live Webcam from the Historic Downtown Galveston" },
-    lat: 41.0722,
-    lng: -94.9019,
+    lat: 29.3013,
+    lng: -94.7977,
     timeZone: "America/Chicago",
     category: "city",
     country: "US",
@@ -20308,12 +20308,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Key West", Florida (title; Photon hit within 25 km: Key West, Florida)
     id: "us-key-west-bight-marina-live-webcam-key",
     name: { ja: "Key West Bight Marina Live WebCam - Key West, Florida Keys", en: "Key West Bight Marina Live WebCam - Key West, Florida Keys" },
-    lat: 46.8218,
-    lng: -123.0962,
-    timeZone: "America/Los_Angeles",
+    lat: 24.5552,
+    lng: -81.7816,
+    timeZone: "America/New_York",
     category: "harbor",
     country: "US",
     source: {
@@ -20458,11 +20458,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Rosemont", Illinois (title; Photon hit within 25 km: O'Hare International Airport, IL)
     id: "us-live-late-night-sights-sounds-of-pure",
     name: { ja: "LIVE LATE NIGHT SIGHTS & SOUNDS of PURE AVIATION HIGH ABOVE CHICAGO O'HARE AIRPORT | AVGEEK PLANES", en: "LIVE LATE NIGHT SIGHTS & SOUNDS of PURE AVIATION HIGH ABOVE CHICAGO O'HARE AIRPORT | AVGEEK PLANES" },
-    lat: 31.3952,
-    lng: -95.4741,
+    lat: 41.9953,
+    lng: -87.8845,
     timeZone: "America/Chicago",
     category: "airport",
     country: "US",
@@ -20488,12 +20488,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Deerfield Beach", Florida (title; Photon hit within 25 km: Deerfield Beach, Florida)
     id: "us-live-sport-camera-deerfield-beach-flo",
     name: { ja: "Live - Sport Camera - Deerfield Beach, Florida USA", en: "Live - Sport Camera - Deerfield Beach, Florida USA" },
-    lat: 30.0549,
-    lng: -90.6673,
-    timeZone: "America/Chicago",
+    lat: 26.3184,
+    lng: -80.0998,
+    timeZone: "America/New_York",
     category: "nature",
     country: "US",
     source: {
@@ -20503,12 +20503,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Myrtle Beach", South Carolina (title; Photon hit within 25 km: Myrtle Beach Boardwalk, South Carolina)
     id: "us-live-beach-views-sea-watch-resort-myr",
     name: { ja: "Live Beach Views | Sea Watch Resort, Myrtle Beach", en: "Live Beach Views | Sea Watch Resort, Myrtle Beach" },
-    lat: 46.9181,
-    lng: -104.0044,
-    timeZone: "America/Denver",
+    lat: 33.6891,
+    lng: -78.8867,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -20608,12 +20608,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Fort Lauderdale", Florida (title; Photon hit within 25 km: Elbo Room, FL)
     id: "us-live-fort-lauderdale-beach",
     name: { ja: "LIVE - Fort Lauderdale Beach", en: "LIVE - Fort Lauderdale Beach" },
-    lat: 32.7254,
-    lng: -97.3208,
-    timeZone: "America/Chicago",
+    lat: 26.1223,
+    lng: -80.1434,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -20683,11 +20683,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Millinocket Lake, Maine; watch page: "From Millinocket Lake, Maine US"
     id: "us-stars-aurora-meteors-live-cam-from-mt",
     name: { ja: "Stars, Aurora, Meteors LIVE Cam from Mt Katahdin from MAINE US - CAM 2", en: "Stars, Aurora, Meteors LIVE Cam from Mt Katahdin from MAINE US - CAM 2" },
-    lat: 41.0245,
-    lng: -80.7115,
+    lat: 46.3022,
+    lng: -68.8511,
     timeZone: "America/New_York",
     category: "nature",
     country: "US",
@@ -20743,12 +20743,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Port Huron", Michigan (title; Photon hit within 25 km: Port Huron, Michigan)
     id: "us-port-huron-michigan-usa-streamtime-li",
     name: { ja: "Port Huron, Michigan USA | StreamTime LIVE", en: "Port Huron, Michigan USA | StreamTime LIVE" },
-    lat: 35.2045,
-    lng: -99.3073,
-    timeZone: "America/Chicago",
+    lat: 42.9709,
+    lng: -82.4249,
+    timeZone: "America/Detroit",
     category: "harbor",
     country: "US",
     source: {
@@ -20773,12 +20773,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Fort Lauderdale", Florida (title; Photon hit within 25 km: Elbo Room, FL)
     id: "us-las-olas-live-fort-lauderdale-patio-c",
     name: { ja: "LAS OLAS LIVE Fort Lauderdale Patio Cam | Elbo Room A1A", en: "LAS OLAS LIVE Fort Lauderdale Patio Cam | Elbo Room A1A" },
-    lat: 36.175,
-    lng: -115.1372,
-    timeZone: "America/Los_Angeles",
+    lat: 26.1223,
+    lng: -80.1434,
+    timeZone: "America/New_York",
     category: "nature",
     country: "US",
     source: {
@@ -20833,12 +20833,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Mobile", Alabama (title; Photon hit within 25 km: Mobile, Alabama)
     id: "us-live-cam-uss-alabama-battleship-in-mo",
     name: { ja: "LIVE CAM: USS Alabama Battleship in Mobile, AL", en: "LIVE CAM: USS Alabama Battleship in Mobile, AL" },
-    lat: 32.3054,
-    lng: -84.7727,
-    timeZone: "America/New_York",
+    lat: 30.6944,
+    lng: -88.043,
+    timeZone: "America/Chicago",
     category: "harbor",
     country: "US",
     source: {
@@ -20863,12 +20863,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Mobile", Alabama (title; Photon hit within 25 km: Mobile, Alabama)
     id: "us-live-cam-downtown-mobile-al-from-the",
     name: { ja: "LIVE CAM: Downtown Mobile, AL from The Admiral Hotel", en: "LIVE CAM: Downtown Mobile, AL from The Admiral Hotel" },
-    lat: 41.0724,
-    lng: -81.525,
-    timeZone: "America/New_York",
+    lat: 30.6944,
+    lng: -88.043,
+    timeZone: "America/Chicago",
     category: "city",
     country: "US",
     source: {
@@ -20893,11 +20893,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Mobile", Alabama (title; Photon hit within 25 km: Mobile, Alabama)
     id: "us-live-cam-bankhead-tunnel-in-downtown",
     name: { ja: "LIVE CAM: Bankhead Tunnel in Downtown Mobile, AL", en: "LIVE CAM: Bankhead Tunnel in Downtown Mobile, AL" },
-    lat: 33.7768,
-    lng: -87.3011,
+    lat: 30.6944,
+    lng: -88.043,
     timeZone: "America/Chicago",
     category: "city",
     country: "US",
@@ -20908,12 +20908,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Orange Beach", Alabama (title; Photon hit within 25 km: Orange Beach, Alabama)
     id: "us-live-cam-orange-beach-alabama-and-the",
     name: { ja: "LIVE CAM: Orange Beach, Alabama and the Gulf", en: "LIVE CAM: Orange Beach, Alabama and the Gulf" },
-    lat: 33.7878,
-    lng: -117.8531,
-    timeZone: "America/Los_Angeles",
+    lat: 30.2944,
+    lng: -87.5736,
+    timeZone: "America/Chicago",
     category: "nature",
     country: "US",
     source: {
@@ -21013,12 +21013,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Leavenworth", Washington (title; Photon hit within 25 km: Leavenworth, Washington)
     id: "us-leavenworth-washington-live-webca-3",
     name: { ja: "Leavenworth Washington Live Webcam from The Rhein Haus", en: "Leavenworth Washington Live Webcam from The Rhein Haus" },
-    lat: 39.3111,
-    lng: -94.9225,
-    timeZone: "America/Chicago",
+    lat: 47.5962,
+    lng: -120.6615,
+    timeZone: "America/Los_Angeles",
     category: "city",
     country: "US",
     source: {
@@ -21028,12 +21028,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Leavenworth", Washington (title; Photon hit within 25 km: Leavenworth, Washington)
     id: "us-leavenworth-washington-live-webca-4",
     name: { ja: "Leavenworth Washington Live Webcam from the Leavenworth Adventure Park", en: "Leavenworth Washington Live Webcam from the Leavenworth Adventure Park" },
-    lat: 39.3111,
-    lng: -94.9225,
-    timeZone: "America/Chicago",
+    lat: 47.5962,
+    lng: -120.6615,
+    timeZone: "America/Los_Angeles",
     category: "nature",
     country: "US",
     source: {
@@ -21178,12 +21178,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Leavenworth", Washington (title; Photon hit within 25 km: Leavenworth, Washington)
     id: "us-leavenworth-washington-live-webca-5",
     name: { ja: "Leavenworth Washington Live Webcam from Mountain Modern", en: "Leavenworth Washington Live Webcam from Mountain Modern" },
-    lat: 39.3111,
-    lng: -94.9225,
-    timeZone: "America/Chicago",
+    lat: 47.5962,
+    lng: -120.6615,
+    timeZone: "America/Los_Angeles",
     category: "city",
     country: "US",
     source: {
@@ -21193,12 +21193,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Manhattan Beach", California (title; Photon hit within 25 km: Manhattan Beach Pier, California)
     id: "us-manhattan-beach-cam-and-surf-report",
     name: { ja: "Manhattan Beach Cam and Surf Report", en: "Manhattan Beach Cam and Surf Report" },
-    lat: 40.7834,
-    lng: -73.9663,
-    timeZone: "America/New_York",
+    lat: 33.8847,
+    lng: -118.4109,
+    timeZone: "America/Los_Angeles",
     category: "nature",
     country: "US",
     source: {
@@ -21238,12 +21238,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Galveston", Texas (title; Photon hit within 25 km: Galveston Island Historic Pleasure Pier, TX)
     id: "us-cruise-cam-live-from-the-galveston-cr",
     name: { ja: "CRUISE CAM: Live from the Galveston Cruise Terminals", en: "CRUISE CAM: Live from the Galveston Cruise Terminals" },
-    lat: 37.3184,
-    lng: -84.123,
-    timeZone: "America/New_York",
+    lat: 29.3013,
+    lng: -94.7977,
+    timeZone: "America/Chicago",
     category: "harbor",
     country: "US",
     source: {
@@ -21253,12 +21253,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Galveston", Texas (title; Photon hit within 25 km: Galveston Island Historic Pleasure Pier, TX)
     id: "us-surf-cam-live-from-the-galveston-seaw",
     name: { ja: "SURF CAM: Live from the Galveston Seawall", en: "SURF CAM: Live from the Galveston Seawall" },
-    lat: 29.9849,
-    lng: -84.421,
-    timeZone: "America/New_York",
+    lat: 29.3013,
+    lng: -94.7977,
+    timeZone: "America/Chicago",
     category: "nature",
     country: "US",
     source: {
@@ -21268,12 +21268,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Galveston", Texas (title; Photon hit within 25 km: Galveston Island Historic Pleasure Pier, TX)
     id: "us-marina-cam-live-from-the-galveston-ya",
     name: { ja: "MARINA CAM: Live from the Galveston Yacht Basin and Cruise Terminal 10", en: "MARINA CAM: Live from the Galveston Yacht Basin and Cruise Terminal 10" },
-    lat: 36.6844,
-    lng: -121.8022,
-    timeZone: "America/Los_Angeles",
+    lat: 29.3013,
+    lng: -94.7977,
+    timeZone: "America/Chicago",
     category: "harbor",
     country: "US",
     source: {
@@ -21298,12 +21298,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Key West", Florida (title; Photon hit within 25 km: Key West, Florida)
     id: "us-live-nine-one-five-key-west-cam",
     name: { ja: "[LIVE] Nine One Five Key West Cam", en: "[LIVE] Nine One Five Key West Cam" },
-    lat: 43.6583,
-    lng: -88.007,
-    timeZone: "America/Chicago",
+    lat: 24.5552,
+    lng: -81.7816,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -21568,11 +21568,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Santa Fé do Sul", São Paulo (title; Photon hit within 25 km: Santa Fé do Sul, São Paulo)
     id: "br-comedouro-araras-caninde-em-santa-fe",
     name: { ja: "Comedouro Araras Canindé em Santa Fé do Sul - SP , Bird Feeder, Praça das Águas Dançantes", en: "Comedouro Araras Canindé em Santa Fé do Sul - SP , Bird Feeder, Praça das Águas Dançantes" },
-    lat: -22.3569,
-    lng: -47.3842,
+    lat: -20.2111,
+    lng: -50.9258,
     timeZone: "America/Sao_Paulo",
     category: "city",
     country: "BR",
@@ -21583,11 +21583,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Santa Fé do Sul", São Paulo (title; Photon hit within 25 km: Santa Fé do Sul, São Paulo)
     id: "br-palco-hebe-camargo-praca-salles-filho",
     name: { ja: "Palco Hebe Camargo, Praça Salles Filho, Rio Paraná em Santa Fé do Sul - SP", en: "Palco Hebe Camargo, Praça Salles Filho, Rio Paraná em Santa Fé do Sul - SP" },
-    lat: -28.5872,
-    lng: -52.2019,
+    lat: -20.2111,
+    lng: -50.9258,
     timeZone: "America/Sao_Paulo",
     category: "city",
     country: "BR",
@@ -21643,12 +21643,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Laguna", Santa Catarina (title; Photon hit within 25 km: Laguna, Santa Catarina)
     id: "br-ao-vivo-centro-de-laguna-sc-parceria",
     name: { ja: "AO VIVO | CENTRO DE LAGUNA SC | Parceria Laguna Business Center IMAGENS AO VIVO 24H | SE-CONNECT", en: "AO VIVO | CENTRO DE LAGUNA SC | Parceria Laguna Business Center IMAGENS AO VIVO 24H | SE-CONNECT" },
-    lat: -4.4833,
-    lng: -41.5,
-    timeZone: "America/Fortaleza",
+    lat: -28.4825,
+    lng: -48.7808,
+    timeZone: "America/Sao_Paulo",
     category: "city",
     country: "BR",
     source: {
@@ -21823,12 +21823,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Toronto", Ontario (title; Photon hit within 25 km: Toronto, Ontario)
     id: "ca-live-monday-sunset-at-toronto-airport",
     name: { ja: "LIVE Monday Sunset at Toronto Airport! (YYZ)! 747, 777s and more!", en: "LIVE Monday Sunset at Toronto Airport! (YYZ)! 747, 777s and more!" },
-    lat: 49.221,
-    lng: -123.0955,
-    timeZone: "America/Vancouver",
+    lat: 43.7064,
+    lng: -79.3986,
+    timeZone: "America/Toronto",
     category: "airport",
     country: "CA",
     source: {
@@ -21883,11 +21883,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Ñuñoa", Santiago Metropolitan (title; Photon hit within 25 km: Ñuñoa, Región Metropolitana de Santiago)
     id: "cl-camara-en-vivo-y-en-directo-live-and",
     name: { ja: "Cámara en vivo y en directo - Live and direct camera desde Ñuñoa Santiago Chile + música chill", en: "Cámara en vivo y en directo - Live and direct camera desde Ñuñoa Santiago Chile + música chill" },
-    lat: -32.8337,
-    lng: -70.5983,
+    lat: -33.4474,
+    lng: -70.5828,
     timeZone: "America/Santiago",
     category: "city",
     country: "CL",
@@ -22018,11 +22018,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Berlin", State of Berlin (title; Photon hit within 25 km: Berlin)
     id: "de-live-panoramarundblick-vom-dach-des-c",
     name: { ja: "Live - Panoramarundblick vom Dach des Corbusierhauses in Berlin - aus ca. 100 m ü NN", en: "Live - Panoramarundblick vom Dach des Corbusierhauses in Berlin - aus ca. 100 m ü NN" },
-    lat: 48.26,
-    lng: 11.434,
+    lat: 52.5244,
+    lng: 13.4105,
     timeZone: "Europe/Berlin",
     category: "city",
     country: "DE",
@@ -22318,11 +22318,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Laredo", Cantabria (title; Photon hit within 25 km: Laredo, Cantabria)
     id: "es-webcam-en-directo-desde-laredo-cantab",
     name: { ja: "Webcam en directo desde #Laredo #Cantabria FULL HD 1080p", en: "Webcam en directo desde #Laredo #Cantabria FULL HD 1080p" },
-    lat: 41.4633,
-    lng: 1.0239,
+    lat: 43.4098,
+    lng: -3.4161,
     timeZone: "Europe/Madrid",
     category: "nature",
     country: "ES",
@@ -22513,11 +22513,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Vitoria-Gasteiz", Basque Country (title; Photon hit within 25 km: Vitoria-Gasteiz, Euskadi)
     id: "es-en-directo-gasteiz-vitoria-wolkam-web",
     name: { ja: "En directo #Gasteiz #Vitoria #Wolkam – ¡Webcam en vivo desde los Apartamentos Divan!", en: "En directo #Gasteiz #Vitoria #Wolkam – ¡Webcam en vivo desde los Apartamentos Divan!" },
-    lat: 41.0811,
-    lng: -1.0443,
+    lat: 42.85,
+    lng: -2.6727,
     timeZone: "Europe/Madrid",
     category: "city",
     country: "ES",
@@ -22633,11 +22633,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Le Havre", Normandy (title; Photon hit within 25 km: Jardins de l'Hôtel de Ville, Normandie)
     id: "fr-le-havre-en-direct-webcam-live-hotel",
     name: { ja: "LE HAVRE EN DIRECT – Webcam LIVE Hôtel de Ville, centre-ville & météo en Normandie", en: "LE HAVRE EN DIRECT – Webcam LIVE Hôtel de Ville, centre-ville & météo en Normandie" },
-    lat: 44.0604,
-    lng: 6.2102,
+    lat: 49.4935,
+    lng: 0.1079,
     timeZone: "Europe/Paris",
     category: "city",
     country: "FR",
@@ -22738,11 +22738,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Blue Anchor", England (title; Photon hit within 25 km: Gauge Museum Blue Anchor, England)
     id: "gb-wsr-blue-anchor-stn-cam-2-west-somers",
     name: { ja: "WSR - Blue Anchor Stn - Cam 2, West Somerset Railway, Somerset UK | Railcam LIVE", en: "WSR - Blue Anchor Stn - Cam 2, West Somerset Railway, Somerset UK | Railcam LIVE" },
-    lat: 51.2899,
-    lng: 0.7466,
+    lat: 51.1811,
+    lng: -3.4014,
     timeZone: "Europe/London",
     category: "railway",
     country: "GB",
@@ -22753,11 +22753,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Blue Anchor", England (title; Photon hit within 25 km: Gauge Museum Blue Anchor, England)
     id: "gb-wsr-blue-anchor-station-camera-1-west",
     name: { ja: "WSR - Blue Anchor Station - Camera 1, West Somerset Railway, Somerset UK | Railcam Live1", en: "WSR - Blue Anchor Station - Camera 1, West Somerset Railway, Somerset UK | Railcam Live1" },
-    lat: 51.2899,
-    lng: 0.7466,
+    lat: 51.1811,
+    lng: -3.4014,
     timeZone: "Europe/London",
     category: "railway",
     country: "GB",
@@ -22828,11 +22828,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Plymouth", England (title; Photon hit within 25 km: Smeaton's Tower, England)
     id: "gb-surveillancemap-live-smeaton-s-tower",
     name: { ja: "SurveillanceMap LIVE · Smeaton's Tower · Plymouth, England", en: "SurveillanceMap LIVE · Smeaton's Tower · Plymouth, England" },
-    lat: 51.511,
-    lng: -0.0773,
+    lat: 50.3715,
+    lng: -4.143,
     timeZone: "Europe/London",
     category: "nature",
     country: "GB",
@@ -23608,11 +23608,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Carlow", Leinster (title; Photon hit within 25 km: Carlow)
     id: "ie-st-clare-s-church-carlow-back-camera",
     name: { ja: "St Clare's Church, Carlow Back Camera", en: "St Clare's Church, Carlow Back Camera" },
-    lat: 51.7958,
-    lng: -8.2821,
+    lat: 52.8408,
+    lng: -6.9261,
     timeZone: "Europe/Dublin",
     category: "city",
     country: "IE",
@@ -23743,11 +23743,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Venice", Veneto (title; Photon hit within 25 km: Venezia, Veneto)
     id: "it-4k-view-of-the-ponte-delle-guglie-and",
     name: { ja: "4K View of the Ponte delle Guglie and Strada Nova - Live Stream from Hotel Marte Venice", en: "4K View of the Ponte delle Guglie and Strada Nova - Live Stream from Hotel Marte Venice" },
-    lat: 44.6667,
-    lng: 10.8833,
+    lat: 45.4371,
+    lng: 12.3326,
     timeZone: "Europe/Rome",
     category: "nature",
     country: "IT",
@@ -23908,11 +23908,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Kumamoto", Kumamoto (title; Photon hit within 25 km: 熊本市, Kumamoto Prefecture)
     id: "jp-kumamoto-live-cam-sakuramachi-kumamot",
     name: { ja: "【Kumamoto Live Cam】熊本市即時影像 ￨ SAKURAMACHI KUMAMOTO BUS TERMINAL ￨ 熊本巴士總站 ￨ 熊本市中心 ￨ 巨大的熊本熊", en: "【Kumamoto Live Cam】熊本市即時影像 ￨ SAKURAMACHI KUMAMOTO BUS TERMINAL ￨ 熊本巴士總站 ￨ 熊本市中心 ￨ 巨大的熊本熊" },
-    lat: 31.8333,
-    lng: 131.3,
+    lat: 32.8059,
+    lng: 130.6918,
     timeZone: "Asia/Tokyo",
     category: "city",
     country: "JP",
@@ -23983,11 +23983,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Kyoto", Kyoto (title; Photon hit within 25 km: 伏見稲荷大社, 京都府)
     id: "jp-live-fushimi-inari-taisha-kyoto-live",
     name: { ja: "【LIVE】京都 伏見稲荷大社 表参道ライブ中継カメラ／Fushimi Inari Taisha, Kyoto Live camera", en: "【LIVE】京都 伏見稲荷大社 表参道ライブ中継カメラ／Fushimi Inari Taisha, Kyoto Live camera" },
-    lat: 39.7401,
-    lng: 140.2238,
+    lat: 35.0211,
+    lng: 135.7538,
     timeZone: "Asia/Tokyo",
     category: "city",
     country: "JP",
@@ -24118,11 +24118,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Kyoto", Kyoto (title; Photon hit within 25 km: 平安神宮, 京都府)
     id: "jp-live-heian-jingu-shrine-kyoto-live-ca",
     name: { ja: "【LIVE】京都 平安神宮ライブ中継カメラ／Heian Jingu Shrine, Kyoto Live camera", en: "【LIVE】京都 平安神宮ライブ中継カメラ／Heian Jingu Shrine, Kyoto Live camera" },
-    lat: 35.1272,
-    lng: 136.911,
+    lat: 35.0211,
+    lng: 135.7538,
     timeZone: "Asia/Tokyo",
     category: "city",
     country: "JP",
@@ -24193,11 +24193,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Zushi", Kanagawa (title; Photon hit within 25 km: 逗子海岸, 神奈川県)
     id: "jp-kanagawa-zushi-zushibeach-live-camera",
     name: { ja: "神奈川県逗子市逗子東海岸海況ライブカメラ Kanagawa Zushi Zushibeach Live camera.world.cam", en: "神奈川県逗子市逗子東海岸海況ライブカメラ Kanagawa Zushi Zushibeach Live camera.world.cam" },
-    lat: 37.5833,
-    lng: 139.9167,
+    lat: 35.2948,
+    lng: 139.5781,
     timeZone: "Asia/Tokyo",
     category: "nature",
     country: "JP",
@@ -24403,11 +24403,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Fujikawaguchiko", Yamanashi (title; Photon hit within 25 km: 河口湖, 山梨県)
     id: "jp-live-mount-fuji-live-camera-from-2",
     name: { ja: "【LIVE】河口湖からの「富士山ライブカメラ」\"mount fuji live camera\" from Lake Kawaguchiko (Yamanashi Japan)", en: "【LIVE】河口湖からの「富士山ライブカメラ」\"mount fuji live camera\" from Lake Kawaguchiko (Yamanashi Japan)" },
-    lat: 35.1667,
-    lng: 138.6833,
+    lat: 35.4893,
+    lng: 138.6883,
     timeZone: "Asia/Tokyo",
     category: "nature",
     country: "JP",
@@ -24448,11 +24448,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: 山中湖, 山梨県; watch page: "山中湖から絶景の富士山をライブ配信しています"
     id: "jp-live-mount-fuji-live-camera-from-3",
     name: { ja: "【LIVE】山中湖からの「富士山ライブカメラ」 \"mount fuji live camera\" from Lake Yamanakako FUJISAN (Japan Yamanashi)", en: "【LIVE】山中湖からの「富士山ライブカメラ」 \"mount fuji live camera\" from Lake Yamanakako FUJISAN (Japan Yamanashi)" },
-    lat: 35.1667,
-    lng: 138.6833,
+    lat: 35.4187,
+    lng: 138.8768,
     timeZone: "Asia/Tokyo",
     category: "nature",
     country: "JP",
@@ -25273,11 +25273,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Kyoto", Kyoto (title; Photon hit within 25 km: 東本願寺, 京都府)
     id: "jp-live-kyoto-japan-live-camera-livecam",
     name: { ja: "【LIVE】京都ライブカメラ 東本願寺 (KYOTO JAPAN LIVE CAMERA) 森信三郎商舗から生中継 即時影像 livecam #nhk紅白歌合戦 #Ado #聖地", en: "【LIVE】京都ライブカメラ 東本願寺 (KYOTO JAPAN LIVE CAMERA) 森信三郎商舗から生中継 即時影像 livecam #nhk紅白歌合戦 #Ado #聖地" },
-    lat: 35.6854,
-    lng: 139.7531,
+    lat: 35.0211,
+    lng: 135.7538,
     timeZone: "Asia/Tokyo",
     category: "city",
     country: "JP",
@@ -25318,11 +25318,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Tottori-shi", Tottori (title; Photon hit within 25 km: 鳥取砂丘, 鳥取県)
     id: "jp-live-tottori-sand-dunes",
     name: { ja: "【LIVE】鳥取砂丘ライブ「ワイド」カメラ Tottori Sand Dunes", en: "【LIVE】鳥取砂丘ライブ「ワイド」カメラ Tottori Sand Dunes" },
-    lat: 43.4081,
-    lng: 143.8114,
+    lat: 35.5,
+    lng: 134.2333,
     timeZone: "Asia/Tokyo",
     category: "nature",
     country: "JP",
@@ -25363,11 +25363,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Hakodate", Hokkaido (title; Photon hit within 25 km: 函館山, 北海道)
     id: "jp-live-mt-hakodate-ropeway-live-camera",
     name: { ja: "【LIVE】函館山ライブカメラ ／ Mt. Hakodate Ropeway Live Camera", en: "【LIVE】函館山ライブカメラ ／ Mt. Hakodate Ropeway Live Camera" },
-    lat: 33.512,
-    lng: 130.3645,
+    lat: 41.7758,
+    lng: 140.7367,
     timeZone: "Asia/Tokyo",
     category: "nature",
     country: "JP",
@@ -25468,11 +25468,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Tottori-shi", Tottori (title; Photon hit within 25 km: 鳥取砂丘, 鳥取県)
     id: "jp-live-tottori-sand-dunes-2",
     name: { ja: "【LIVE】鳥取砂丘ライブカメラ Tottori Sand Dunes", en: "【LIVE】鳥取砂丘ライブカメラ Tottori Sand Dunes" },
-    lat: 43.4081,
-    lng: 143.8114,
+    lat: 35.5,
+    lng: 134.2333,
     timeZone: "Asia/Tokyo",
     category: "nature",
     country: "JP",
@@ -25933,11 +25933,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Sapporo", Hokkaido (title; Photon hit within 25 km: 札幌市, 北海道)
     id: "jp-stv-live-camera-okurayama-ski-jump-st",
     name: { ja: "ライブカメラ 大倉山ジャンプ競技場 山頂展望台(STV札幌テレビ放送)北海道札幌市中央区宮の森 /Live Camera Okurayama Ski Jump Stadium, Hokkaido", en: "ライブカメラ 大倉山ジャンプ競技場 山頂展望台(STV札幌テレビ放送)北海道札幌市中央区宮の森 /Live Camera Okurayama Ski Jump Stadium, Hokkaido" },
-    lat: 35.9353,
-    lng: 139.1722,
+    lat: 43.0667,
+    lng: 141.35,
     timeZone: "Asia/Tokyo",
     category: "nature",
     country: "JP",
@@ -25948,11 +25948,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Ojika", Nagasaki (title; Photon hit within 25 km: 小値賀島, 長崎県)
     id: "jp-24-live-ojika-island-nagasaki-japan-i",
     name: { ja: "【24時間LIVE】長崎・五島列島 小値賀島｜海と船の音に癒される島時間ライブカメラOjika Island, Nagasaki Japan. Island Life Camera", en: "【24時間LIVE】長崎・五島列島 小値賀島｜海と船の音に癒される島時間ライブカメラOjika Island, Nagasaki Japan. Island Life Camera" },
-    lat: 33.6636,
-    lng: 130.421,
+    lat: 33.1833,
+    lng: 129.0667,
     timeZone: "Asia/Tokyo",
     category: "nature",
     country: "JP",
@@ -26098,11 +26098,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Cabo San Lucas", Baja California Sur (title; Photon hit within 25 km: Cabo San Lucas, Baja California Sur)
     id: "mx-live-mio-beach-hilton-los-cabos-mexic",
     name: { ja: "LIVE Mio Beach | Hilton Los Cabos | Mexico Beach & Ocean View Live Cam", en: "LIVE Mio Beach | Hilton Los Cabos | Mexico Beach & Ocean View Live Cam" },
-    lat: 25.791,
-    lng: -108.9982,
+    lat: 22.8909,
+    lng: -109.9124,
     timeZone: "America/Mazatlan",
     category: "nature",
     country: "MX",
@@ -26383,11 +26383,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Davao City", Davao Region (title; Photon hit within 25 km: Agdao, Davao Region)
     id: "ph-maria-s-cam-1-store-agdao-public-mark",
     name: { ja: "Maria's Cam 1 STORE AGDAO PUBLIC MARKET DAVAO CITY PHILIPPINES #philippines #davaocity", en: "Maria's Cam 1 STORE AGDAO PUBLIC MARKET DAVAO CITY PHILIPPINES #philippines #davaocity" },
-    lat: 15.9167,
-    lng: 120.4564,
+    lat: 7.0731,
+    lng: 125.6128,
     timeZone: "Asia/Manila",
     category: "city",
     country: "PH",
@@ -26398,11 +26398,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Davao City", Davao Region (title; Photon hit within 25 km: Agdao, Davao Region)
     id: "ph-maria-s-cam-2-outside-store-agdao-pub",
     name: { ja: "Maria's Cam 2 OUTSIDE STORE AGDAO PUBLIC MARKET DAVAO CITY PHILIPPINES #philippines #davaocity", en: "Maria's Cam 2 OUTSIDE STORE AGDAO PUBLIC MARKET DAVAO CITY PHILIPPINES #philippines #davaocity" },
-    lat: 15.9167,
-    lng: 120.4564,
+    lat: 7.0731,
+    lng: 125.6128,
     timeZone: "Asia/Manila",
     category: "city",
     country: "PH",
@@ -26413,11 +26413,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Davao City", Davao Region (title; Photon hit within 25 km: Agdao, Davao Region)
     id: "ph-live-benjie-grill-area-agdao-davao-ci",
     name: { ja: "LIVE: Benjie Grill Area, Agdao | Davao City CCTV", en: "LIVE: Benjie Grill Area, Agdao | Davao City CCTV" },
-    lat: 15.9167,
-    lng: 120.4564,
+    lat: 7.0731,
+    lng: 125.6128,
     timeZone: "Asia/Manila",
     category: "city",
     country: "PH",
@@ -26428,11 +26428,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Davao City", Davao Region (title; Photon hit within 25 km: Agdao, Davao Region)
     id: "ph-maria-s-store-cam-6-a-other-angle-agd",
     name: { ja: "Maria's Store CAM 6-A, OTHER ANGLE, AGDAO DAVAO CITY PHILLIPINES #philippines #davaocity", en: "Maria's Store CAM 6-A, OTHER ANGLE, AGDAO DAVAO CITY PHILLIPINES #philippines #davaocity" },
-    lat: 15.9167,
-    lng: 120.4564,
+    lat: 7.0731,
+    lng: 125.6128,
     timeZone: "Asia/Manila",
     category: "city",
     country: "PH",
@@ -26533,12 +26533,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Funchal", Madeira (title; Photon hit within 25 km: Funchal, Madeira)
     id: "pt-madeiraweb-live-events-cam-avenida-ar",
     name: { ja: "MadeiraWeb Live Events Cam, Avenida Arriaga, Funchal", en: "MadeiraWeb Live Events Cam, Avenida Arriaga, Funchal" },
-    lat: 38.8,
-    lng: -7.55,
-    timeZone: "Europe/Lisbon",
+    lat: 32.6657,
+    lng: -16.9255,
+    timeZone: "Atlantic/Madeira",
     category: "city",
     country: "PT",
     source: {
@@ -26608,12 +26608,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Funchal", Madeira (title; Photon hit within 25 km: Funchal, Madeira)
     id: "pt-live-cam-lido-pool-complex-piscinas-d",
     name: { ja: "LIVE Cam: Lido Pool Complex - Piscinas do Lido by Frente MarFunchal | Madeira-Web", en: "LIVE Cam: Lido Pool Complex - Piscinas do Lido by Frente MarFunchal | Madeira-Web" },
-    lat: 41.7015,
-    lng: -7.502,
-    timeZone: "Europe/Lisbon",
+    lat: 32.6657,
+    lng: -16.9255,
+    timeZone: "Atlantic/Madeira",
     category: "city",
     country: "PT",
     source: {
@@ -26668,11 +26668,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "St Petersburg", St. Petersburg (title; Photon hit within 25 km: Санкт-Петербург)
     id: "ru-live-ptz-st-petersburg-hotel-indigo",
     name: { ja: "LIVE PTZ St. Petersburg Hotel Indigo. Смотровая площадка отеля Индиго Санкт-Петербург онлайн", en: "LIVE PTZ St. Petersburg Hotel Indigo. Смотровая площадка отеля Индиго Санкт-Петербург онлайн" },
-    lat: 60.5942,
-    lng: 29.038,
+    lat: 59.9386,
+    lng: 30.3141,
     timeZone: "Europe/Moscow",
     category: "city",
     country: "RU",
@@ -26713,11 +26713,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "St Petersburg", St. Petersburg (title; Photon hit within 25 km: Санкт-Петербург)
     id: "ru-live-camera-ptz-amazing-st-petersburg",
     name: { ja: "LIVE CAMERA PTZ Amazing St. Petersburg Russia Live Chat. Невский пейзаж Санкт-Петербург живой чат", en: "LIVE CAMERA PTZ Amazing St. Petersburg Russia Live Chat. Невский пейзаж Санкт-Петербург живой чат" },
-    lat: 60.5942,
-    lng: 29.038,
+    lat: 59.9386,
+    lng: 30.3141,
     timeZone: "Europe/Moscow",
     category: "city",
     country: "RU",
@@ -26788,11 +26788,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "St Petersburg", St. Petersburg (title; Photon hit within 25 km: Санкт-Петербург)
     id: "ru-petrogradka-st-petersburg-centre",
     name: { ja: "Петроградка, Центр Санкт-Петербург. Petrogradka, St.Petersburg , Centre", en: "Петроградка, Центр Санкт-Петербург. Petrogradka, St.Petersburg , Centre" },
-    lat: 46.1987,
-    lng: 40.8496,
+    lat: 59.9386,
+    lng: 30.3141,
     timeZone: "Europe/Moscow",
     category: "city",
     country: "RU",
@@ -26818,11 +26818,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "St Petersburg", St. Petersburg (title; Photon hit within 25 km: Санкт-Петербург)
     id: "ru-live-camera-griboedov-canal-st-peters",
     name: { ja: "LIVE CAMERA Griboedov Canal St. Petersburg Russia. Канал Грибоедова Санкт-Петербург", en: "LIVE CAMERA Griboedov Canal St. Petersburg Russia. Канал Грибоедова Санкт-Петербург" },
-    lat: 60.5942,
-    lng: 29.038,
+    lat: 59.9386,
+    lng: 30.3141,
     timeZone: "Europe/Moscow",
     category: "nature",
     country: "RU",
@@ -27328,11 +27328,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: 烈嶼鄉; watch page: "地理位置：金門縣烈嶼鄉麒麟山森林公園"
     id: "tw-kinmen-live-kinmen-qilin-mountain-for",
     name: { ja: "【Kinmen Live】金門麒麟山森林公園即時影像｜Kinmen Qilin Mountain Forest Park 4K Live Camera", en: "【Kinmen Live】金門麒麟山森林公園即時影像｜Kinmen Qilin Mountain Forest Park 4K Live Camera" },
-    lat: 24.7415,
-    lng: 120.9606,
+    lat: 24.4294,
+    lng: 118.2446,
     timeZone: "Asia/Taipei",
     category: "nature",
     country: "TW",
@@ -27358,11 +27358,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Taipei", Taiwan (title; Photon hit within 25 km: 台北市身心障礙福利會館)
     id: "tw-taipei-live-cam-4k-jiantanshan-weifen",
     name: { ja: "【Taipei Live Cam】劍潭山微風平台 - 4K即時影像 | Jiantanshan Weifeng Observatory | 剣潭山微風デッキ", en: "【Taipei Live Cam】劍潭山微風平台 - 4K即時影像 | Jiantanshan Weifeng Observatory | 剣潭山微風デッキ" },
-    lat: 23.554,
-    lng: 119.566,
+    lat: 25.0531,
+    lng: 121.5264,
     timeZone: "Asia/Taipei",
     category: "city",
     country: "TW",
@@ -27403,11 +27403,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Taipei", Taiwan (title; Photon hit within 25 km: 台北市身心障礙福利會館)
     id: "tw-taipei-live-cam-4k-bishan-temple-taip",
     name: { ja: "【Taipei Live Cam】碧山巖 - 4K即時影像 | Bishan Temple | 碧山巌開漳聖王廟 | TAIPEI 101", en: "【Taipei Live Cam】碧山巖 - 4K即時影像 | Bishan Temple | 碧山巌開漳聖王廟 | TAIPEI 101" },
-    lat: 24.485,
-    lng: 118.4441,
+    lat: 25.0531,
+    lng: 121.5264,
     timeZone: "Asia/Taipei",
     category: "city",
     country: "TW",
@@ -27538,11 +27538,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Panama City Beach", Florida (title; Photon hit within 25 km: Panama City Beach, Florida)
     id: "us-sharky-s-beachfront-restaurant-panama",
     name: { ja: "Sharky's Beachfront Restaurant - Panama City Beach, Florida - Cam 2", en: "Sharky's Beachfront Restaurant - Panama City Beach, Florida - Cam 2" },
-    lat: 35.1673,
-    lng: -94.6724,
+    lat: 30.1766,
+    lng: -85.8055,
     timeZone: "America/Chicago",
     category: "nature",
     country: "US",
@@ -27553,11 +27553,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Panama City Beach", Florida (title; Photon hit within 25 km: Panama City Beach, Florida)
     id: "us-sharky-s-beachfront-restaurant-pa-2",
     name: { ja: "Sharky's Beachfront Restaurant - Panama City Beach, Florida - Live Cam", en: "Sharky's Beachfront Restaurant - Panama City Beach, Florida - Live Cam" },
-    lat: 35.1673,
-    lng: -94.6724,
+    lat: 30.1766,
+    lng: -85.8055,
     timeZone: "America/Chicago",
     category: "nature",
     country: "US",
@@ -27703,11 +27703,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "New York", New York (title; Photon hit within 25 km: Manhattan, New York)
     id: "us-earthcam-live-times-square-crossroads",
     name: { ja: "EarthCam Live: Times Square Crossroads (New York City, NY)", en: "EarthCam Live: Times Square Crossroads (New York City, NY)" },
-    lat: 35.1551,
-    lng: -85.3311,
+    lat: 40.7143,
+    lng: -74.006,
     timeZone: "America/New_York",
     category: "city",
     country: "US",
@@ -27778,12 +27778,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "New Orleans", Louisiana (title; Photon hit within 25 km: New Orleans, Louisiana)
     id: "us-earthcam-live-new-orleans-street-view",
     name: { ja: "EarthCam Live: New Orleans Street View", en: "EarthCam Live: New Orleans Street View" },
-    lat: 38.4278,
-    lng: -84.8105,
-    timeZone: "America/New_York",
+    lat: 29.9547,
+    lng: -90.0751,
+    timeZone: "America/Chicago",
     category: "city",
     country: "US",
     source: {
@@ -27808,12 +27808,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Cleveland", Ohio (title; Photon hit within 25 km: Cleveland, Ohio)
     id: "us-earthcam-live-terminal-tower-cam-clev",
     name: { ja: "EarthCam Live: Terminal Tower Cam (Cleveland, OH)", en: "EarthCam Live: Terminal Tower Cam (Cleveland, OH)" },
-    lat: 40.7558,
-    lng: -112.0094,
-    timeZone: "America/Denver",
+    lat: 41.4995,
+    lng: -81.6954,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -27823,11 +27823,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Columbus, Wisconsin; watch page: "Julie's Java House located at 409 N Ludington St, Columbus, WI"
     id: "us-julie-s-java-house-live-railcam-colum",
     name: { ja: "Julie's Java House Live Railcam - Columbus, WI #steelhighway", en: "Julie's Java House Live Railcam - Columbus, WI #steelhighway" },
-    lat: 45.5033,
-    lng: -99.8865,
+    lat: 43.3393,
+    lng: -89.0158,
     timeZone: "America/Chicago",
     category: "railway",
     country: "US",
@@ -27838,12 +27838,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Pittsburg", New Hampshire (title; Photon hit within 25 km: First Connecticut Lake, New Hampshire)
     id: "us-lopstick-first-connecticut-lake-live",
     name: { ja: "Lopstick - First Connecticut Lake LIVE", en: "Lopstick - First Connecticut Lake LIVE" },
-    lat: 37.8383,
-    lng: -120.2327,
-    timeZone: "America/Los_Angeles",
+    lat: 45.0512,
+    lng: -71.3915,
+    timeZone: "America/New_York",
     category: "nature",
     country: "US",
     source: {
@@ -27943,12 +27943,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Katmai National Park", Alaska (title; Photon hit within 25 km: Katmai National Park, Alaska)
     id: "us-live-underwater-salmon-cam-katmai-nat",
     name: { ja: "LIVE Underwater Salmon Cam - Katmai National Park, Alaska | explore.org", en: "LIVE Underwater Salmon Cam - Katmai National Park, Alaska | explore.org" },
-    lat: 45.1758,
-    lng: -113.8959,
-    timeZone: "America/Boise",
+    lat: 58.5626,
+    lng: -154.9788,
+    timeZone: "America/Anchorage",
     category: "animal",
     country: "US",
     source: {
@@ -27973,12 +27973,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Hartford, Tennessee; watch page: "the scenic mountain view from Hartford, Tennessee"
     id: "us-earthcam-live-pigeon-river-cam-hartfo",
     name: { ja: "EarthCam Live: Pigeon River Cam (Hartford, TN)", en: "EarthCam Live: Pigeon River Cam (Hartford, TN)" },
-    lat: 44.6205,
-    lng: -88.7623,
-    timeZone: "America/Chicago",
+    lat: 35.8168,
+    lng: -83.1432,
+    timeZone: "America/New_York",
     category: "nature",
     country: "US",
     source: {
@@ -28078,12 +28078,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Katmai National Park", Alaska (title; Photon hit within 25 km: Katmai National Park, Alaska)
     id: "us-live-kat-s-river-view-katmai-national",
     name: { ja: "LIVE Kat's River View - Katmai National Park, Alaska | explore.org", en: "LIVE Kat's River View - Katmai National Park, Alaska | explore.org" },
-    lat: 30.4513,
-    lng: -94.8433,
-    timeZone: "America/Chicago",
+    lat: 58.5626,
+    lng: -154.9788,
+    timeZone: "America/Anchorage",
     category: "nature",
     country: "US",
     source: {
@@ -28153,12 +28153,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Santa Cruz Island, California; watch page: "the stunning landscapes of Santa Cruz in Channel Islands National Park"
     id: "us-sauces-bald-eagle-channel-islands-nat",
     name: { ja: "Sauces Bald Eagle - Channel Islands National Park Cams powered by EXPLORE.org", en: "Sauces Bald Eagle - Channel Islands National Park Cams powered by EXPLORE.org" },
-    lat: 33.854,
-    lng: -87.1828,
-    timeZone: "America/Chicago",
+    lat: 34.0185,
+    lng: -119.7751,
+    timeZone: "America/Los_Angeles",
     category: "animal",
     country: "US",
     source: {
@@ -28213,12 +28213,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "San Francisco", California (title; Photon hit within 25 km: San Francisco, California)
     id: "us-mersea-restaurant-live-bay-view-san-f",
     name: { ja: "Mersea Restaurant LIVE Bay View · San Francisco Skyline, Golden Gate & Luxury Waterfront", en: "Mersea Restaurant LIVE Bay View · San Francisco Skyline, Golden Gate & Luxury Waterfront" },
-    lat: 35.7423,
-    lng: -90.5623,
-    timeZone: "America/Chicago",
+    lat: 37.7749,
+    lng: -122.4194,
+    timeZone: "America/Los_Angeles",
     category: "city",
     country: "US",
     source: {
@@ -28288,11 +28288,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Sag Harbor", New York (title; Photon hit within 25 km: Sag Harbor, New York)
     id: "us-hamptons-com-live-foster-memorial-bea",
     name: { ja: "Hamptons.com - LIVE! Foster Memorial Beach, Sag Harbor, New York - Wind Surfers", en: "Hamptons.com - LIVE! Foster Memorial Beach, Sag Harbor, New York - Wind Surfers" },
-    lat: 41.8537,
-    lng: -71.7581,
+    lat: 40.9979,
+    lng: -72.2926,
     timeZone: "America/New_York",
     category: "nature",
     country: "US",
@@ -28303,11 +28303,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "New York", New York (title; Photon hit within 25 km: Manhattan, New York)
     id: "us-earthcam-live-summit-one-vanderbilt-n",
     name: { ja: "EarthCam Live: SUMMIT One Vanderbilt (New York City, NY)", en: "EarthCam Live: SUMMIT One Vanderbilt (New York City, NY)" },
-    lat: 40.7156,
-    lng: -74.3647,
+    lat: 40.7143,
+    lng: -74.006,
     timeZone: "America/New_York",
     category: "city",
     country: "US",
@@ -28363,11 +28363,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Las Vegas", Nevada (title; Photon hit within 25 km: Las Vegas, Nevada)
     id: "us-earthcam-live-allegiant-stadium-las-v",
     name: { ja: "EarthCam Live: Allegiant Stadium (Las Vegas, NV)", en: "EarthCam Live: Allegiant Stadium (Las Vegas, NV)" },
-    lat: 47.3134,
-    lng: -122.8549,
+    lat: 36.175,
+    lng: -115.1372,
     timeZone: "America/Los_Angeles",
     category: "city",
     country: "US",
@@ -28378,11 +28378,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Chicago", Illinois (title; Photon hit within 25 km: Chicago, Illinois)
     id: "us-earthcam-live-midway-airport-chicago",
     name: { ja: "EarthCam Live: Midway Airport (Chicago, IL)", en: "EarthCam Live: Midway Airport (Chicago, IL)" },
-    lat: 31.9974,
-    lng: -102.0779,
+    lat: 41.85,
+    lng: -87.65,
     timeZone: "America/Chicago",
     category: "airport",
     country: "US",
@@ -28423,11 +28423,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "New York", New York (title; Photon hit within 25 km: Manhattan, New York)
     id: "us-earthcam-live-coney-island-new-york-c",
     name: { ja: "EarthCam Live: Coney Island (New York City)", en: "EarthCam Live: Coney Island (New York City)" },
-    lat: 39.5659,
-    lng: -78.9803,
+    lat: 40.7143,
+    lng: -74.006,
     timeZone: "America/New_York",
     category: "nature",
     country: "US",
@@ -28453,12 +28453,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Bridgehampton", New York (title; Photon hit within 25 km: Bridgehampton, New York)
     id: "us-hamptons-com-live-4k-west-scott-camer",
     name: { ja: "Hamptons.com - LIVE! 4K West Scott Cameron Beach, Bridgehampton, New York", en: "Hamptons.com - LIVE! 4K West Scott Cameron Beach, Bridgehampton, New York" },
-    lat: 31.8024,
-    lng: -97.0917,
-    timeZone: "America/Chicago",
+    lat: 40.9379,
+    lng: -72.3009,
+    timeZone: "America/New_York",
     category: "nature",
     country: "US",
     source: {
@@ -28483,12 +28483,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Galveston", Texas (title; Photon hit within 25 km: Galveston Island Historic Pleasure Pier, TX)
     id: "us-murdochs-cam-live-from-the-galveston",
     name: { ja: "MURDOCHS CAM: Live from the Galveston Seawall", en: "MURDOCHS CAM: Live from the Galveston Seawall" },
-    lat: 45.3922,
-    lng: -108.9065,
-    timeZone: "America/Denver",
+    lat: 29.3013,
+    lng: -94.7977,
+    timeZone: "America/Chicago",
     category: "nature",
     country: "US",
     source: {
@@ -28558,12 +28558,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Key West", Florida (title; Photon hit within 25 km: Key West, Florida)
     id: "us-live-bagatelle-key-west-duval-street",
     name: { ja: "[LIVE] Bagatelle Key West Duval Street Cam", en: "[LIVE] Bagatelle Key West Duval Street Cam" },
-    lat: 46.8218,
-    lng: -123.0962,
-    timeZone: "America/Los_Angeles",
+    lat: 24.5552,
+    lng: -81.7816,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -28573,11 +28573,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Marathon", Florida (title; Photon hit within 25 km: Marathon, Florida)
     id: "us-live-sparky-s-landing-live-webcam-mar",
     name: { ja: "[LIVE] Sparky's Landing Live Webcam - Marathon, Florida Keys", en: "[LIVE] Sparky's Landing Live Webcam - Marathon, Florida Keys" },
-    lat: 40.9051,
-    lng: -74.6652,
+    lat: 24.7138,
+    lng: -81.0904,
     timeZone: "America/New_York",
     category: "city",
     country: "US",
@@ -28603,11 +28603,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Da Nang", Da Nang City (title; Photon hit within 25 km: Đà Nẵng)
     id: "vn-camera-cong-sau-benh-vien-c-a-nang",
     name: { ja: "Camera cổng Sau bệnh viện C Đà Nẵng", en: "Camera cổng Sau bệnh viện C Đà Nẵng" },
-    lat: 21.8333,
-    lng: 105.4,
+    lat: 16.0678,
+    lng: 108.2208,
     timeZone: "Asia/Ho_Chi_Minh",
     category: "city",
     country: "VN",
@@ -28618,11 +28618,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Da Nang", Da Nang City (title; Photon hit within 25 km: Đà Nẵng)
     id: "vn-camera-ptz-trang-phuc-bieu-dien-phuon",
     name: { ja: "Camera PTZ Trang Phục biểu diễn Phương Trần Đà Nẵng", en: "Camera PTZ Trang Phục biểu diễn Phương Trần Đà Nẵng" },
-    lat: 11.0299,
-    lng: 106.3575,
+    lat: 16.0678,
+    lng: 108.2208,
     timeZone: "Asia/Ho_Chi_Minh",
     category: "city",
     country: "VN",
@@ -28648,11 +28648,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Da Nang", Da Nang City (title; Photon hit within 25 km: Đà Nẵng)
     id: "vn-camera-view-cong-trinh-benh-vien-a-na",
     name: { ja: "Camera View Công Trình bệnh viện Đà Nẵng", en: "Camera View Công Trình bệnh viện Đà Nẵng" },
-    lat: 21.8333,
-    lng: 105.4,
+    lat: 16.0678,
+    lng: 108.2208,
     timeZone: "Asia/Ho_Chi_Minh",
     category: "city",
     country: "VN",
@@ -30448,11 +30448,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "New York", New York (title; Photon hit within 25 km: Manhattan, New York)
     id: "us-new-york-night-walking-live-4k",
     name: { ja: "New York Night Walking LIVE 4K", en: "New York Night Walking LIVE 4K" },
-    lat: 38.4278,
-    lng: -84.8105,
+    lat: 40.7143,
+    lng: -74.006,
     timeZone: "America/New_York",
     category: "city",
     country: "US",
@@ -30598,11 +30598,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "St Petersburg", St. Petersburg (title; Photon hit within 25 km: Санкт-Петербург)
     id: "ru-live-camera-russian-cruiser-aurora-st",
     name: { ja: "LIVE CAMERA Russian Cruiser Aurora St.Petersburg Russia Россия онлайн Санкт-Петербург крейсер Аврора", en: "LIVE CAMERA Russian Cruiser Aurora St.Petersburg Russia Россия онлайн Санкт-Петербург крейсер Аврора" },
-    lat: 68.8738,
-    lng: 34.1107,
+    lat: 59.9386,
+    lng: 30.3141,
     timeZone: "Europe/Moscow",
     category: "nature",
     country: "RU",
@@ -31978,11 +31978,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Mihara", Hiroshima (title; Photon hit within 25 km: 広島空港, 広島県)
     id: "jp-live-live-camera-hiroshima-airport-hi",
     name: { ja: "【LIVE】広島空港ライブカメラ Live Camera @Hiroshima Airport HIJ/RJOA【RCC NEWS DIG】", en: "【LIVE】広島空港ライブカメラ Live Camera @Hiroshima Airport HIJ/RJOA【RCC NEWS DIG】" },
-    lat: 36.1634,
-    lng: 137.929,
+    lat: 34.4,
+    lng: 133.0833,
     timeZone: "Asia/Tokyo",
     category: "airport",
     country: "JP",
@@ -32818,11 +32818,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Nagano", Nagano (title; Photon hit within 25 km: 長野駅, 長野県)
     id: "jp-jr-live-nagano-station-live-cam-inc",
     name: { ja: "JR長野駅LIVEカメラ（Nagano Station Live Cam）INC長野ケーブルテレビ", en: "JR長野駅LIVEカメラ（Nagano Station Live Cam）INC長野ケーブルテレビ" },
-    lat: 35.6597,
-    lng: 140.0582,
+    lat: 36.65,
+    lng: 138.1833,
     timeZone: "Asia/Tokyo",
     category: "railway",
     country: "JP",
@@ -32863,11 +32863,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Ōmachi", Nagano (title; Photon hit within 25 km: 大町市, 長野県)
     id: "jp-japanese-alps-live-view-from-omachi-c",
     name: { ja: "北アルプスライブ映像！（長野県山岳総合センターより）Japanese Alps' Live View! (from Omachi-City,Nagano-pref,Japan)", en: "北アルプスライブ映像！（長野県山岳総合センターより）Japanese Alps' Live View! (from Omachi-City,Nagano-pref,Japan)" },
-    lat: 37.8058,
-    lng: 140.9261,
+    lat: 36.5,
+    lng: 137.8667,
     timeZone: "Asia/Tokyo",
     category: "nature",
     country: "JP",
@@ -33718,11 +33718,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Sapporo", Hokkaido (title; Photon hit within 25 km: 札幌市, 北海道)
     id: "jp-sapporo-hokkaido-japan-live-24-7-tanu",
     name: { ja: "Sapporo Hokkaido Japan Live 24/7 | Tanukikoji 8-chome 交差点の雪道・道路状況 | lofi, beats to chill", en: "Sapporo Hokkaido Japan Live 24/7 | Tanukikoji 8-chome 交差点の雪道・道路状況 | lofi, beats to chill" },
-    lat: 35.6854,
-    lng: 139.7531,
+    lat: 43.0667,
+    lng: 141.35,
     timeZone: "Asia/Tokyo",
     category: "city",
     country: "JP",
@@ -34003,11 +34003,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Yokohama", Kanagawa (title; Photon hit within 25 km: 横浜市, 神奈川県)
     id: "jp-live-yokohama-port-real-time-stream-h",
     name: { ja: "【Live】横浜ベイブリッジ・鶴見つばさ橋・横浜ノースドッグ・大黒ふ頭 リアルタイムライブ配信 Yokohama Port Real-Time Stream H.View", en: "【Live】横浜ベイブリッジ・鶴見つばさ橋・横浜ノースドッグ・大黒ふ頭 リアルタイムライブ配信 Yokohama Port Real-Time Stream H.View" },
-    lat: 33.6006,
-    lng: 130.3653,
+    lat: 35.4333,
+    lng: 139.65,
     timeZone: "Asia/Tokyo",
     category: "city",
     country: "JP",
@@ -34093,11 +34093,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Nagoya", Aichi (title; Photon hit within 25 km: 名古屋駅, 愛知県)
     id: "jp-nagoya-station-west-gate",
     name: { ja: "【ライブカメラ】名古屋駅西口(太閤通口)/Nagoya Station West Gate", en: "【ライブカメラ】名古屋駅西口(太閤通口)/Nagoya Station West Gate" },
-    lat: 26.1833,
-    lng: 127.3667,
+    lat: 35.1815,
+    lng: 136.9064,
     timeZone: "Asia/Tokyo",
     category: "city",
     country: "JP",
@@ -34273,11 +34273,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Nikaho", Akita (title; Photon hit within 25 km: 道の駅象潟, 秋田県)
     id: "jp-akita-japan-live",
     name: { ja: "秋田県にかほ市 道の駅象潟「ねむの丘」ライブカメラ-Akita Japan LIVE", en: "秋田県にかほ市 道の駅象潟「ねむの丘」ライブカメラ-Akita Japan LIVE" },
-    lat: 35.6854,
-    lng: 139.7531,
+    lat: 39.2708,
+    lng: 139.9395,
     timeZone: "Asia/Tokyo",
     category: "city",
     country: "JP",
@@ -34333,11 +34333,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Sendai", Miyagi (title; Photon hit within 25 km: 仙台市, 宮城県)
     id: "jp-miyagi-sendai-livecamera-world-cam",
     name: { ja: "宮城県仙台市青葉区小松島ライブカメラ Miyagi Sendai Livecamera.world.cam", en: "宮城県仙台市青葉区小松島ライブカメラ Miyagi Sendai Livecamera.world.cam" },
-    lat: 26.6257,
-    lng: 128.1824,
+    lat: 38.2667,
+    lng: 140.8667,
     timeZone: "Asia/Tokyo",
     category: "city",
     country: "JP",
@@ -34378,11 +34378,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Kanazawa", Ishikawa (title; Photon hit within 25 km: 石川県庁, 石川県)
     id: "jp-ishikawa-prefectural-office-live-came",
     name: { ja: "ライブカメラ 石川県庁 Ishikawa Prefectural Office LIVE camera", en: "ライブカメラ 石川県庁 Ishikawa Prefectural Office LIVE camera" },
-    lat: 26.4233,
-    lng: 127.8214,
+    lat: 36.6,
+    lng: 136.6167,
     timeZone: "Asia/Tokyo",
     category: "city",
     country: "JP",
@@ -34408,11 +34408,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Hiroshima", Hiroshima (title; Photon hit within 25 km: 広島市, 広島県)
     id: "jp-live-live-streaming-from-hiroshima-ue",
     name: { ja: "【Live】上野学園ホール情報カメラ【本川 北大橋側】Live streaming from Hiroshima Ueno Gakuen Hall", en: "【Live】上野学園ホール情報カメラ【本川 北大橋側】Live streaming from Hiroshima Ueno Gakuen Hall" },
-    lat: 33.85,
-    lng: 135.9833,
+    lat: 34.4,
+    lng: 132.45,
     timeZone: "Asia/Tokyo",
     category: "city",
     country: "JP",
@@ -34483,11 +34483,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Kumamoto", Kumamoto (title; Photon hit within 25 km: 熊本市, Kumamoto Prefecture)
     id: "jp-yushima-cat-island-in-kumamoto-live-c",
     name: { ja: "【熊本】湯島「猫島」定点ライブカメラ / Yushima \"Cat Island\" in Kumamoto Live Camera【湯島猫島ありのまま】", en: "【熊本】湯島「猫島」定点ライブカメラ / Yushima \"Cat Island\" in Kumamoto Live Camera【湯島猫島ありのまま】" },
-    lat: 35.706,
-    lng: 139.767,
+    lat: 32.8059,
+    lng: 130.6918,
     timeZone: "Asia/Tokyo",
     category: "city",
     country: "JP",
@@ -34528,11 +34528,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Hakodate", Hokkaido (title; Photon hit within 25 km: 函館山, 北海道)
     id: "jp-mt-hakodate-and-tram-live",
     name: { ja: "【ライブ】北海道 函館山と十字街 / Mt. Hakodate and Tram [LIVE]", en: "【ライブ】北海道 函館山と十字街 / Mt. Hakodate and Tram [LIVE]" },
-    lat: 33.512,
-    lng: 130.3645,
+    lat: 41.7758,
+    lng: 140.7367,
     timeZone: "Asia/Tokyo",
     category: "city",
     country: "JP",
@@ -34618,11 +34618,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Shizuoka", Shizuoka (title; Photon hit within 25 km: 薩埵峠, 静岡県)
     id: "jp-live-mt-fuji-world-heritage-site-live",
     name: { ja: "【LIVE】静岡市さった峠 広重の富士山 / Mt. Fuji (World Heritage Site): Live Streaming in Shizuoka City", en: "【LIVE】静岡市さった峠 広重の富士山 / Mt. Fuji (World Heritage Site): Live Streaming in Shizuoka City" },
-    lat: 33.512,
-    lng: 130.3645,
+    lat: 34.9833,
+    lng: 138.3833,
     timeZone: "Asia/Tokyo",
     category: "city",
     country: "JP",
@@ -34828,11 +34828,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: 壽山情人觀景台; watch page: "壽山Love情人觀景台"
     id: "tw-4k-live-camera-shoushan-lovers-viewin",
     name: { ja: "【4K Live Camera】Shoushan Lovers' Viewing Platform 4K Live Camera in Kaohsiung, Taiwan", en: "【4K Live Camera】Shoushan Lovers' Viewing Platform 4K Live Camera in Kaohsiung, Taiwan" },
-    lat: 24.0165,
-    lng: 120.9247,
+    lat: 22.6255,
+    lng: 120.274,
     timeZone: "Asia/Taipei",
     category: "city",
     country: "TW",
@@ -35038,12 +35038,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Kuala Lumpur", Kuala Lumpur (title; Photon hit within 25 km: Kuala Lumpur)
     id: "my-live-cam-kl-skyline-lofi-chillhop-mus",
     name: { ja: "LIVE Cam KL Skyline Lofi Chillhop Music - Kuala Lumpur 24/7", en: "LIVE Cam KL Skyline Lofi Chillhop Music - Kuala Lumpur 24/7" },
-    lat: 5.6333,
-    lng: 115.95,
-    timeZone: "Asia/Kuching",
+    lat: 3.1412,
+    lng: 101.6865,
+    timeZone: "Asia/Kuala_Lumpur",
     category: "city",
     country: "MY",
     source: {
@@ -35068,11 +35068,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Davao City", Davao Region (title; Photon hit within 25 km: Agdao, Davao Region)
     id: "ph-philippines-live-camera-outside-l-2",
     name: { ja: "PHILIPPINES Live camera outside Lyn's Restaurant looking Roxas Avenue, Davao City #philippines", en: "PHILIPPINES Live camera outside Lyn's Restaurant looking Roxas Avenue, Davao City #philippines" },
-    lat: 17.1189,
-    lng: 121.6201,
+    lat: 7.0731,
+    lng: 125.6128,
     timeZone: "Asia/Manila",
     category: "city",
     country: "PH",
@@ -35083,11 +35083,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Davao City", Davao Region (title; Photon hit within 25 km: Agdao, Davao Region)
     id: "ph-live-ptz-camera-agdao-public-market-d",
     name: { ja: "Live PTZ camera, Agdao Public Market, Davao City #philippines", en: "Live PTZ camera, Agdao Public Market, Davao City #philippines" },
-    lat: 15.9167,
-    lng: 120.4564,
+    lat: 7.0731,
+    lng: 125.6128,
     timeZone: "Asia/Manila",
     category: "city",
     country: "PH",
@@ -35113,11 +35113,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Davao City", Davao Region (title; Photon hit within 25 km: Agdao, Davao Region)
     id: "ph-philippines-live-camera-bankeroha-2",
     name: { ja: "PHILIPPINES Live Camera Bankerohan Lyn's Food Haus outside, Davao City #philippines", en: "PHILIPPINES Live Camera Bankerohan Lyn's Food Haus outside, Davao City #philippines" },
-    lat: 14.3288,
-    lng: 120.9485,
+    lat: 7.0731,
+    lng: 125.6128,
     timeZone: "Asia/Manila",
     category: "city",
     country: "PH",
@@ -35338,11 +35338,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Colyford, England; watch page: "the village of Colyford"
     id: "gb-colyford-station-camera-seaton-tramwa",
     name: { ja: "Colyford Station Camera, Seaton Tramway, Devon UK | Railcam LIVE & Seaton Tramway", en: "Colyford Station Camera, Seaton Tramway, Devon UK | Railcam LIVE & Seaton Tramway" },
-    lat: 50.3781,
-    lng: -4.1753,
+    lat: 50.7263,
+    lng: -3.0648,
     timeZone: "Europe/London",
     category: "city",
     country: "GB",
@@ -35368,11 +35368,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Fort William", Scotland (title; Photon hit within 25 km: Fort William, Alba / Scotland)
     id: "gb-live-fort-william-live-wide-webcam-sc",
     name: { ja: "LIVE - Fort William Live Wide Webcam - Scotland - Loch Linnhe & West End Car Park", en: "LIVE - Fort William Live Wide Webcam - Scotland - Loch Linnhe & West End Car Park" },
-    lat: 55.765,
-    lng: -3.6887,
+    lat: 56.8165,
+    lng: -5.1121,
     timeZone: "Europe/London",
     category: "city",
     country: "GB",
@@ -35398,11 +35398,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Rillieux-la-Pape", Auvergne-Rhône-Alpes (title; Photon hit within 25 km: Porte de la Pape, Auvergne-Rhône-Alpes)
     id: "fr-peripherique-nord-porte-de-la-pape",
     name: { ja: "Périphérique Nord - Porte de la Pape", en: "Périphérique Nord - Porte de la Pape" },
-    lat: 50.7353,
-    lng: 2.0855,
+    lat: 45.8167,
+    lng: 4.9,
     timeZone: "Europe/Paris",
     category: "city",
     country: "FR",
@@ -35518,11 +35518,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Hamburg", Free and Hanseatic City of Hamburg (title; Photon hit within 25 km: Hamburger Hafen und Logistik AG)
     id: "de-mpc-group-hamburg-hafen",
     name: { ja: "MPC Group: Hamburg Hafen", en: "MPC Group: Hamburg Hafen" },
-    lat: 51.2166,
-    lng: 6.7371,
+    lat: 53.5507,
+    lng: 9.993,
     timeZone: "Europe/Berlin",
     category: "city",
     country: "DE",
@@ -35683,11 +35683,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Venice", Veneto (title; Photon hit within 25 km: Venezia, Veneto)
     id: "it-bacino-di-san-marco-from-via-garibald",
     name: { ja: "Bacino di San Marco from Via Garibaldi - Live View from Hotel Ca' Formenta Venezia", en: "Bacino di San Marco from Via Garibaldi - Live View from Hotel Ca' Formenta Venezia" },
-    lat: 45.8465,
-    lng: 10.9523,
+    lat: 45.4371,
+    lng: 12.3326,
     timeZone: "Europe/Rome",
     category: "city",
     country: "IT",
@@ -35698,11 +35698,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Venice", Veneto (title; Photon hit within 25 km: Venezia, Veneto)
     id: "it-4k-venice-italy-live-live-streaming-o",
     name: { ja: "4K Venice Italy Live - Live Streaming of Grand Canal from Ca' Angeli", en: "4K Venice Italy Live - Live Streaming of Grand Canal from Ca' Angeli" },
-    lat: 42.8333,
-    lng: 12.8333,
+    lat: 45.4371,
+    lng: 12.3326,
     timeZone: "Europe/Rome",
     category: "city",
     country: "IT",
@@ -35713,11 +35713,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Venice", Veneto (title; Photon hit within 25 km: Venezia, Veneto)
     id: "it-venice-italy-live-cam-laguna-nord-ven",
     name: { ja: "Venice Italy Live Cam - Laguna Nord Venice - Stream from Cantieri Biasin - Instant Weather", en: "Venice Italy Live Cam - Laguna Nord Venice - Stream from Cantieri Biasin - Instant Weather" },
-    lat: 45.6309,
-    lng: 11.4947,
+    lat: 45.4371,
+    lng: 12.3326,
     timeZone: "Europe/Rome",
     category: "city",
     country: "IT",
@@ -35728,11 +35728,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Venice", Veneto (title; Photon hit within 25 km: Venezia, Veneto)
     id: "it-venice-italy-live-webcam-the-view-on",
     name: { ja: "Venice Italy Live WebCam - The View on Canal from Hotel Pausania", en: "Venice Italy Live WebCam - The View on Canal from Hotel Pausania" },
-    lat: 42.8333,
-    lng: 12.8333,
+    lat: 45.4371,
+    lng: 12.3326,
     timeZone: "Europe/Rome",
     category: "city",
     country: "IT",
@@ -35803,11 +35803,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Lausanne", Canton of Vaud (title; Photon hit within 25 km: Pont Charles-Bessières, Vaud)
     id: "ch-lausanne-pont-bessieres",
     name: { ja: "Lausanne, pont Bessières", en: "Lausanne, pont Bessières" },
-    lat: 46.0634,
-    lng: 9.0062,
+    lat: 46.516,
+    lng: 6.6328,
     timeZone: "Europe/Zurich",
     category: "city",
     country: "CH",
@@ -35848,11 +35848,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Budapest", Budapest (title; Photon hit within 25 km: Fővárosi Állat- és Növénykert)
     id: "hu-allatkert-budapest-sziveben-capasuli",
     name: { ja: "Állatkert Budapest szívében - Cápasuli ÉLŐ", en: "Állatkert Budapest szívében - Cápasuli ÉLŐ" },
-    lat: 47.8023,
-    lng: 18.7669,
+    lat: 47.4984,
+    lng: 19.0404,
     timeZone: "Europe/Budapest",
     category: "city",
     country: "HU",
@@ -35863,11 +35863,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Budapest", Budapest (title; Photon hit within 25 km: Fővárosi Állat- és Növénykert)
     id: "hu-allatkert-budapest-sziveben-elefant-k",
     name: { ja: "Állatkert Budapest szívében - Elefánt kifutó ÉLŐ", en: "Állatkert Budapest szívében - Elefánt kifutó ÉLŐ" },
-    lat: 47.8023,
-    lng: 18.7669,
+    lat: 47.4984,
+    lng: 19.0404,
     timeZone: "Europe/Budapest",
     category: "city",
     country: "HU",
@@ -36238,11 +36238,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Dublin", Leinster (title; Photon hit within 25 km: Dublin Tunnel)
     id: "ie-dublin-port-city-view-live-ship-movem",
     name: { ja: "Dublin Port City View: Live Ship Movements on the River Liffey", en: "Dublin Port City View: Live Ship Movements on the River Liffey" },
-    lat: 53.8442,
-    lng: -6.2611,
+    lat: 53.3331,
+    lng: -6.2489,
     timeZone: "Europe/Dublin",
     category: "city",
     country: "IE",
@@ -36253,11 +36253,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Dublin", Leinster (title; Photon hit within 25 km: Dublin Tunnel)
     id: "ie-dublin-port-poolbeg-lighthouse-view-l",
     name: { ja: "Dublin Port Poolbeg Lighthouse View: Live Ship Movements on the River Liffey", en: "Dublin Port Poolbeg Lighthouse View: Live Ship Movements on the River Liffey" },
-    lat: 53.8442,
-    lng: -6.2611,
+    lat: 53.3331,
+    lng: -6.2489,
     timeZone: "Europe/Dublin",
     category: "city",
     country: "IE",
@@ -36268,11 +36268,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "New York", New York (title; Photon hit within 25 km: Manhattan, New York)
     id: "us-new-york-city-live-cams-24-7-times-sq",
     name: { ja: "New York City Live Cams 24/7 — Times Square, Brooklyn Bridge, World Trade Center, People & More", en: "New York City Live Cams 24/7 — Times Square, Brooklyn Bridge, World Trade Center, People & More" },
-    lat: 38.4278,
-    lng: -84.8105,
+    lat: 40.7143,
+    lng: -74.006,
     timeZone: "America/New_York",
     category: "city",
     country: "US",
@@ -36298,12 +36298,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Santa Monica", California (title; Photon hit within 25 km: Santa Monica Pier, California)
     id: "us-live-santa-monica-beach-pier-cam-cali",
     name: { ja: "LIVE Santa Monica Beach & Pier Cam: California | explore.org", en: "LIVE Santa Monica Beach & Pier Cam: California | explore.org" },
-    lat: 45.9816,
-    lng: -94.1047,
-    timeZone: "America/Chicago",
+    lat: 34.0195,
+    lng: -118.4914,
+    timeZone: "America/Los_Angeles",
     category: "city",
     country: "US",
     source: {
@@ -36343,12 +36343,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Los Angeles", California (title; Photon hit within 25 km: Downtown, California)
     id: "us-live-news-fox-local-los-angeles-24-7",
     name: { ja: "LIVE NEWS: FOX LOCAL Los Angeles 24/7 Live Stream", en: "LIVE NEWS: FOX LOCAL Los Angeles 24/7 Live Stream" },
-    lat: 43.6027,
-    lng: -111.1113,
-    timeZone: "America/Boise",
+    lat: 34.0522,
+    lng: -118.2437,
+    timeZone: "America/Los_Angeles",
     category: "city",
     country: "US",
     source: {
@@ -36358,12 +36358,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "San Francisco", California (title; Photon hit within 25 km: San Francisco, California)
     id: "us-live-news-fox-local-san-francisco-24",
     name: { ja: "LIVE NEWS: FOX LOCAL San Francisco 24/7 Live Stream", en: "LIVE NEWS: FOX LOCAL San Francisco 24/7 Live Stream" },
-    lat: 43.6027,
-    lng: -111.1113,
-    timeZone: "America/Boise",
+    lat: 37.7749,
+    lng: -122.4194,
+    timeZone: "America/Los_Angeles",
     category: "city",
     country: "US",
     source: {
@@ -36373,11 +36373,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "San Francisco", California (title; Photon hit within 25 km: San Francisco, California)
     id: "us-pier-23-cafe-san-francisco-bay-san-fr",
     name: { ja: "Pier 23 Cafe, San Francisco Bay | San Francisco, CA USA | StreamTime LIVE", en: "Pier 23 Cafe, San Francisco Bay | San Francisco, CA USA | StreamTime LIVE" },
-    lat: 32.7157,
-    lng: -117.1647,
+    lat: 37.7749,
+    lng: -122.4194,
     timeZone: "America/Los_Angeles",
     category: "city",
     country: "US",
@@ -36433,11 +36433,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Chicago", Illinois (title; Photon hit within 25 km: University of Chicago Gleacher Center, IL)
     id: "us-university-of-chicago-botany-pond-liv",
     name: { ja: "University of Chicago Botany Pond Live Camera", en: "University of Chicago Botany Pond Live Camera" },
-    lat: 32.8387,
-    lng: -86.6294,
+    lat: 41.85,
+    lng: -87.65,
     timeZone: "America/Chicago",
     category: "city",
     country: "US",
@@ -36478,12 +36478,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Seattle", Washington (title; Photon hit within 25 km: Seattle, Washington)
     id: "us-live-news-fox-local-seattle-24-7-live",
     name: { ja: "LIVE NEWS: FOX LOCAL Seattle 24/7 Live Stream", en: "LIVE NEWS: FOX LOCAL Seattle 24/7 Live Stream" },
-    lat: 43.6027,
-    lng: -111.1113,
-    timeZone: "America/Boise",
+    lat: 47.6062,
+    lng: -122.3321,
+    timeZone: "America/Los_Angeles",
     category: "city",
     country: "US",
     source: {
@@ -36538,12 +36538,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Fort Lauderdale", Florida (title; Photon hit within 25 km: Elbo Room, FL)
     id: "us-sunrise-cam-live-24-7-fort-lauderdale",
     name: { ja: "SUNRISE CAM LIVE 24/7 | Fort Lauderdale Beach Weather • Elbo Room", en: "SUNRISE CAM LIVE 24/7 | Fort Lauderdale Beach Weather • Elbo Room" },
-    lat: 32.7254,
-    lng: -97.3208,
-    timeZone: "America/Chicago",
+    lat: 26.1223,
+    lng: -80.1434,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -36598,12 +36598,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Pupukea", Hawaii (title; Photon hit within 25 km: Banzai Pipeline, Hawaii)
     id: "us-live-banzai-pipeline-surf-cam-north-s",
     name: { ja: "LIVE Banzai Pipeline Surf Cam: North Shore, Oahu - Hawaii | explore.org", en: "LIVE Banzai Pipeline Surf Cam: North Shore, Oahu - Hawaii | explore.org" },
-    lat: 29.9849,
-    lng: -84.421,
-    timeZone: "America/New_York",
+    lat: 21.6546,
+    lng: -158.0607,
+    timeZone: "Pacific/Honolulu",
     category: "city",
     country: "US",
     source: {
@@ -36703,12 +36703,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Las Vegas", Nevada (title; Photon hit within 25 km: Las Vegas, Nevada)
     id: "us-earthcam-live-bellagio-conservatory-b",
     name: { ja: "EarthCam Live: Bellagio Conservatory & Botanical Gardens (Las Vegas, NV)", en: "EarthCam Live: Bellagio Conservatory & Botanical Gardens (Las Vegas, NV)" },
-    lat: 38.0384,
-    lng: -84.5422,
-    timeZone: "America/New_York",
+    lat: 36.175,
+    lng: -115.1372,
+    timeZone: "America/Los_Angeles",
     category: "city",
     country: "US",
     source: {
@@ -36763,11 +36763,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Toronto", Ontario (title; Photon hit within 25 km: Toronto, Ontario)
     id: "ca-toronto-4k-live-cam-cn-tower-lake-ont",
     name: { ja: "Toronto 4K LIVE Cam 🇨🇦 CN Tower & Lake Ontario | Chill Lofi 24/7", en: "Toronto 4K LIVE Cam 🇨🇦 CN Tower & Lake Ontario | Chill Lofi 24/7" },
-    lat: 44.7698,
-    lng: -77.8832,
+    lat: 43.7064,
+    lng: -79.3986,
     timeZone: "America/Toronto",
     category: "city",
     country: "CA",
@@ -36823,12 +36823,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Vancouver", British Columbia (title; Photon hit within 25 km: Vancouver, British Columbia)
     id: "ca-vancouver-live-cam-panoramic-view-cru",
     name: { ja: "Vancouver LIVE Cam | Panoramic View | Cruise Ships | Weather | 24/7 Livestream", en: "Vancouver LIVE Cam | Panoramic View | Cruise Ships | Weather | 24/7 Livestream" },
-    lat: 44.2176,
-    lng: -78.7661,
-    timeZone: "America/Toronto",
+    lat: 49.2497,
+    lng: -123.1193,
+    timeZone: "America/Vancouver",
     category: "city",
     country: "CA",
     source: {
@@ -36853,12 +36853,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Vancouver", British Columbia (title; Photon hit within 25 km: Vancouver, British Columbia)
     id: "ca-live-vancouver-180-urban-street-view",
     name: { ja: "【LIVE】Vancouver 180 Urban Street View Live Camera #vancouver #urban #weather #live", en: "【LIVE】Vancouver 180 Urban Street View Live Camera #vancouver #urban #weather #live" },
-    lat: 44.2176,
-    lng: -78.7661,
-    timeZone: "America/Toronto",
+    lat: 49.2497,
+    lng: -123.1193,
+    timeZone: "America/Vancouver",
     category: "city",
     country: "CA",
     source: {
@@ -36868,12 +36868,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Cancún", Quintana Roo (title; Photon hit within 25 km: Cancún, Quintana Roo)
     id: "mx-cancun-quintana-roo-en-vivo-vista-3",
     name: { ja: "Cancún, Quintana Roo En Vivo | Vista Panorámica hacía el Poniente de Cancún", en: "Cancún, Quintana Roo En Vivo | Vista Panorámica hacía el Poniente de Cancún" },
-    lat: 29.967,
-    lng: -109.0664,
-    timeZone: "America/Hermosillo",
+    lat: 21.1743,
+    lng: -86.8466,
+    timeZone: "America/Cancun",
     category: "city",
     country: "MX",
     source: {
@@ -36883,12 +36883,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Isla Mujeres", Quintana Roo (title; Photon hit within 25 km: Isla Mujeres, Quintana Roo)
     id: "mx-isla-mujeres-quintana-roo-pueblo-magi",
     name: { ja: "Isla Mujeres, Quintana Roo Pueblo Mágico En Vivo | Vista Panorámica de Playa Norte", en: "Isla Mujeres, Quintana Roo Pueblo Mágico En Vivo | Vista Panorámica de Playa Norte" },
-    lat: 29.967,
-    lng: -109.0664,
-    timeZone: "America/Hermosillo",
+    lat: 21.2311,
+    lng: -86.731,
+    timeZone: "America/Cancun",
     category: "city",
     country: "MX",
     source: {
@@ -37003,12 +37003,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Werribee South", Victoria (title; Photon hit within 25 km: Wyndham Harbour, Victoria)
     id: "au-wyndham-harbour-web-camera-live-view",
     name: { ja: "Wyndham Harbour Web Camera - Live View", en: "Wyndham Harbour Web Camera - Live View" },
-    lat: -17.5301,
-    lng: 146.0442,
-    timeZone: "Australia/Brisbane",
+    lat: -37.9475,
+    lng: 144.7167,
+    timeZone: "Australia/Melbourne",
     category: "city",
     country: "AU",
     source: {
@@ -37018,11 +37018,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Cape Town", Western Cape (title; Photon hit within 25 km: Signal Hill, Western Cape)
     id: "za-vanilla-live-stream-signal-hill-and-c",
     name: { ja: "Vanilla live stream Signal Hill and Cape Town CBD", en: "Vanilla live stream Signal Hill and Cape Town CBD" },
-    lat: -31.1843,
-    lng: 26.0013,
+    lat: -33.9258,
+    lng: 18.4232,
     timeZone: "Africa/Johannesburg",
     category: "city",
     country: "ZA",
@@ -37063,12 +37063,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Melbourne", Victoria (title; Photon hit within 25 km: Melbourne Airport, Victoria)
     id: "au-west-gate-bridge-live-real-time-traff",
     name: { ja: "West Gate Bridge LIVE — Real-Time Traffic & Conditions Melbourne Australia", en: "West Gate Bridge LIVE — Real-Time Traffic & Conditions Melbourne Australia" },
-    lat: -35.4878,
-    lng: 147.4137,
-    timeZone: "Australia/Sydney",
+    lat: -37.814,
+    lng: 144.9633,
+    timeZone: "Australia/Melbourne",
     category: "city",
     country: "AU",
     source: {
@@ -37183,11 +37183,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Fort Madison", Iowa (title; Photon hit within 25 km: Fort Madison, Iowa)
     id: "us-fort-madison-spring-creek-model-train",
     name: { ja: "Fort Madison Spring Creek Model Trains Live Railcam - Fort Madison, IA #SteelHighway", en: "Fort Madison Spring Creek Model Trains Live Railcam - Fort Madison, IA #SteelHighway" },
-    lat: 32.7254,
-    lng: -97.3208,
+    lat: 40.6298,
+    lng: -91.3152,
     timeZone: "America/Chicago",
     category: "city",
     country: "US",
@@ -37513,12 +37513,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Donostia / San Sebastian", Basque Country (title; Photon hit within 25 km: Kontxako badia - Bahía de la Concha, Euskadi)
     id: "es-concha-beach-san-sebastian-spain-live",
     name: { ja: "Concha Beach - San Sebastian, Spain - Live Cam", en: "Concha Beach - San Sebastian, Spain - Live Cam" },
-    lat: 28.4682,
-    lng: -16.2546,
-    timeZone: "Atlantic/Canary",
+    lat: 43.3128,
+    lng: -1.975,
+    timeZone: "Europe/Madrid",
     category: "city",
     country: "ES",
     source: {
@@ -38008,11 +38008,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Sendai", Miyagi (title; Photon hit within 25 km: シティフロント北仙台, 宮城県)
     id: "jp-live-live-streaming-from-sendai-c-3",
     name: { ja: "[LIVE]仙台・愛宕上杉通ライブカメラ/Live streaming from Sendai-city,Japan", en: "[LIVE]仙台・愛宕上杉通ライブカメラ/Live streaming from Sendai-city,Japan" },
-    lat: 34.6609,
-    lng: 135.5393,
+    lat: 38.2667,
+    lng: 140.8667,
     timeZone: "Asia/Tokyo",
     category: "city",
     country: "JP",
@@ -38773,11 +38773,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Brighton", England (title; Photon hit within 25 km: Royal Sussex County Hospital, England)
     id: "gb-brighton-beach-webcam",
     name: { ja: "Brighton Beach Webcam", en: "Brighton Beach Webcam" },
-    lat: 56.3333,
-    lng: -6.1167,
+    lat: 50.8284,
+    lng: -0.1395,
     timeZone: "Europe/London",
     category: "city",
     country: "GB",
@@ -38803,11 +38803,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Landéda", Brittany Region (title; Photon hit within 25 km: L'Aber Wrac'h, Bretagne)
     id: "fr-webcam-live-port-de-l-aber-wrac-h-fin",
     name: { ja: "Webcam Live – Port de l’Aber Wrac’h (Finistère, Bretagne)", en: "Webcam Live – Port de l’Aber Wrac’h (Finistère, Bretagne)" },
-    lat: 46.1642,
-    lng: 5.5683,
+    lat: 48.5872,
+    lng: -4.5722,
     timeZone: "Europe/Paris",
     category: "city",
     country: "FR",
@@ -39223,12 +39223,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Funchal", Madeira (title; Photon hit within 25 km: Funchal, Madeira)
     id: "pt-webcam-live-funchal-pontinha-madeira",
     name: { ja: "Webcam Live @ Funchal Pontinha - Madeira / Portal Netmadeira", en: "Webcam Live @ Funchal Pontinha - Madeira / Portal Netmadeira" },
-    lat: 42,
-    lng: -8.45,
-    timeZone: "Europe/Lisbon",
+    lat: 32.6657,
+    lng: -16.9255,
+    timeZone: "Atlantic/Madeira",
     category: "city",
     country: "PT",
     source: {
@@ -39238,12 +39238,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Funchal", Madeira (title; Photon hit within 25 km: Funchal, Madeira)
     id: "pt-webcam-live-palheiro-golf-funchal-mad",
     name: { ja: "Webcam Live @ Palheiro Golf - Funchal - Madeira / Portal Netmadeira", en: "Webcam Live @ Palheiro Golf - Funchal - Madeira / Portal Netmadeira" },
-    lat: 40.8146,
-    lng: -7.334,
-    timeZone: "Europe/Lisbon",
+    lat: 32.6657,
+    lng: -16.9255,
+    timeZone: "Atlantic/Madeira",
     category: "city",
     country: "PT",
     source: {
@@ -39268,12 +39268,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Funchal", Madeira (title; Photon hit within 25 km: Funchal, Madeira)
     id: "pt-live-cam-praia-formosa-beach-by-frent",
     name: { ja: "LIVE Cam: Praia Formosa Beach by Frente MarFunchal | Madeira-Web", en: "LIVE Cam: Praia Formosa Beach by Frente MarFunchal | Madeira-Web" },
-    lat: 39.0515,
-    lng: -27.9711,
-    timeZone: "Atlantic/Azores",
+    lat: 32.6657,
+    lng: -16.9255,
+    timeZone: "Atlantic/Madeira",
     category: "city",
     country: "PT",
     source: {
@@ -39283,12 +39283,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Funchal", Madeira (title; Photon hit within 25 km: Funchal, Madeira)
     id: "pt-live-funchal-city-webcam-from-sao-roq",
     name: { ja: "LIVE: Funchal City Webcam from São Roque, Madeira Island | @WebcamTaxi", en: "LIVE: Funchal City Webcam from São Roque, Madeira Island | @WebcamTaxi" },
-    lat: 37.7761,
-    lng: -25.4951,
-    timeZone: "Atlantic/Azores",
+    lat: 32.6657,
+    lng: -16.9255,
+    timeZone: "Atlantic/Madeira",
     category: "city",
     country: "PT",
     source: {
@@ -39493,11 +39493,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Bruges", Flanders (title; Photon hit within 25 km: Brugge, West-Vlaanderen)
     id: "be-live-webcam-domein-aan-de-plas-brugge",
     name: { ja: "Live Webcam @ Domein Aan De Plas - Brugge, Belgium", en: "Live Webcam @ Domein Aan De Plas - Brugge, Belgium" },
-    lat: 51.15,
-    lng: 5.4667,
+    lat: 51.2089,
+    lng: 3.2242,
     timeZone: "Europe/Brussels",
     category: "city",
     country: "BE",
@@ -39733,12 +39733,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Monterey", California (title; Photon hit within 25 km: Monterey Bay Aquarium, CA)
     id: "us-live-shark-cam-monterey-bay-aquarium",
     name: { ja: "Live Shark Cam | Monterey Bay Aquarium", en: "Live Shark Cam | Monterey Bay Aquarium" },
-    lat: 35.7423,
-    lng: -90.5623,
-    timeZone: "America/Chicago",
+    lat: 36.6002,
+    lng: -121.8947,
+    timeZone: "America/Los_Angeles",
     category: "city",
     country: "US",
     source: {
@@ -39763,12 +39763,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Phoenix", Arizona (title; Photon hit within 25 km: Phoenix, Arizona)
     id: "us-live-news-fox-local-phoenix-24-7-live",
     name: { ja: "LIVE NEWS: FOX LOCAL Phoenix 24/7 Live Stream", en: "LIVE NEWS: FOX LOCAL Phoenix 24/7 Live Stream" },
-    lat: 43.6027,
-    lng: -111.1113,
-    timeZone: "America/Boise",
+    lat: 33.4484,
+    lng: -112.074,
+    timeZone: "America/Phoenix",
     category: "city",
     country: "US",
     source: {
@@ -39808,12 +39808,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Goodyear", Arizona (title; Photon hit within 25 km: Bullard Wash, Arizona)
     id: "us-live-24-7-goodyear-bullard-wash-cam",
     name: { ja: "LIVE 24/7 Goodyear Bullard Wash Cam", en: "LIVE 24/7 Goodyear Bullard Wash Cam" },
-    lat: 39.7432,
-    lng: -120.5802,
-    timeZone: "America/Los_Angeles",
+    lat: 33.4353,
+    lng: -112.3582,
+    timeZone: "America/Phoenix",
     category: "city",
     country: "US",
     source: {
@@ -39823,12 +39823,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Phoenixville", Pennsylvania (title; Photon hit within 25 km: Phoenixville, Pennsylvania)
     id: "us-phoenixville-pa-ns-harrisburg-line",
     name: { ja: "Phoenixville, PA NS Harrisburg Line", en: "Phoenixville, PA NS Harrisburg Line" },
-    lat: 36.3823,
-    lng: -87.5711,
-    timeZone: "America/Chicago",
+    lat: 40.1304,
+    lng: -75.5149,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -39928,12 +39928,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Atlanta", Georgia (title; Photon hit within 25 km: Atlanta, Georgia)
     id: "us-live-news-fox-local-atlanta-24-7-live",
     name: { ja: "LIVE NEWS: FOX LOCAL Atlanta 24/7 Live Stream", en: "LIVE NEWS: FOX LOCAL Atlanta 24/7 Live Stream" },
-    lat: 43.6027,
-    lng: -111.1113,
-    timeZone: "America/Boise",
+    lat: 33.749,
+    lng: -84.388,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -39973,12 +39973,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Key West", Florida (title; Photon hit within 25 km: Key West, Florida)
     id: "us-sloppy-joe-s-bar-at-the-corner-of-duv",
     name: { ja: "Sloppy Joe's Bar, at the Corner of Duval and Greene St since 1937 - Key West, FL", en: "Sloppy Joe's Bar, at the Corner of Duval and Greene St since 1937 - Key West, FL" },
-    lat: 32.7892,
-    lng: -114.5561,
-    timeZone: "America/Los_Angeles",
+    lat: 24.5552,
+    lng: -81.7816,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -40018,12 +40018,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Key West", Florida (title; Photon hit within 25 km: Key West, Florida)
     id: "us-live-key-west-harbor-at-the-marker-ho",
     name: { ja: "LIVE Key West Harbor at the Marker Hotel", en: "LIVE Key West Harbor at the Marker Hotel" },
-    lat: 46.8218,
-    lng: -123.0962,
-    timeZone: "America/Los_Angeles",
+    lat: 24.5552,
+    lng: -81.7816,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -40063,12 +40063,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Myrtle Beach", South Carolina (title; Photon hit within 25 km: Myrtle Beach Boardwalk, South Carolina)
     id: "us-myrtle-beach-sunrise-08-26-2026",
     name: { ja: "Myrtle Beach Sunrise 08/26/2026", en: "Myrtle Beach Sunrise 08/26/2026" },
-    lat: 46.9181,
-    lng: -104.0044,
-    timeZone: "America/Denver",
+    lat: 33.6891,
+    lng: -78.8867,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -40258,11 +40258,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Mexico City", Mexico City (title; Photon hit within 25 km: Plaza de la Constitución, Ciudad de México)
     id: "mx-en-vivo-reloj-hora-actual-en-ciudad-d",
     name: { ja: "EN VIVO | Reloj / Hora actual en Ciudad de México / LIVE Mexico City Clock / What time is it now", en: "EN VIVO | Reloj / Hora actual en Ciudad de México / LIVE Mexico City Clock / What time is it now" },
-    lat: 16.8286,
-    lng: -93.4266,
+    lat: 19.4285,
+    lng: -99.1277,
     timeZone: "America/Mexico_City",
     category: "city",
     country: "MX",
@@ -41023,12 +41023,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Cape Elizabeth", Maine (title; Photon hit within 25 km: Portland Head Light, Maine)
     id: "us-portland-head-light-view-of-casco-bay",
     name: { ja: "Portland Head Light - View of Casco Bay Live", en: "Portland Head Light - View of Casco Bay Live" },
-    lat: 35.7423,
-    lng: -90.5623,
-    timeZone: "America/Chicago",
+    lat: 43.5637,
+    lng: -70.2001,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -41068,12 +41068,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Katmai National Park", Alaska (title; Photon hit within 25 km: Katmai National Park, Alaska)
     id: "us-live-riffles-katmai-national-park-ala",
     name: { ja: "LIVE Riffles - Katmai National Park, Alaska | explore.org", en: "LIVE Riffles - Katmai National Park, Alaska | explore.org" },
-    lat: 39.7625,
-    lng: -87.2292,
-    timeZone: "America/Indiana/Indianapolis",
+    lat: 58.5626,
+    lng: -154.9788,
+    timeZone: "America/Anchorage",
     category: "city",
     country: "US",
     source: {
@@ -41143,12 +41143,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Saint Augustine", Florida (title; Photon hit within 25 km: Saint Augustine, Florida)
     id: "us-st-augustine-lighthouse-live-24-7",
     name: { ja: "St. Augustine Lighthouse - LIVE 24/7", en: "St. Augustine Lighthouse - LIVE 24/7" },
-    lat: 38.6273,
-    lng: -90.1979,
-    timeZone: "America/Chicago",
+    lat: 29.8947,
+    lng: -81.3145,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -41188,12 +41188,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Monterey", California (title; Photon hit within 25 km: Monterey Bay Aquarium, CA)
     id: "us-live-jelly-cam-monterey-bay-aquarium",
     name: { ja: "Live Jelly Cam | Monterey Bay Aquarium", en: "Live Jelly Cam | Monterey Bay Aquarium" },
-    lat: 35.7423,
-    lng: -90.5623,
-    timeZone: "America/Chicago",
+    lat: 36.6002,
+    lng: -121.8947,
+    timeZone: "America/Los_Angeles",
     category: "city",
     country: "US",
     source: {
@@ -41203,12 +41203,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Saint Augustine", Florida (title; Photon hit within 25 km: Saint Augustine, Florida)
     id: "us-st-augustine-alligator-farm-live-24-7",
     name: { ja: "St. Augustine Alligator Farm LIVE 24/7", en: "St. Augustine Alligator Farm LIVE 24/7" },
-    lat: 38.6273,
-    lng: -90.1979,
-    timeZone: "America/Chicago",
+    lat: 29.8947,
+    lng: -81.3145,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -42223,11 +42223,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Monterey", California (title; Photon hit within 25 km: Monterey Bay Aquarium, CA)
     id: "us-live-open-sea-cam-monterey-bay-aquari",
     name: { ja: "Live Open Sea Cam | Monterey Bay Aquarium", en: "Live Open Sea Cam | Monterey Bay Aquarium" },
-    lat: 47.6062,
-    lng: -122.3321,
+    lat: 36.6002,
+    lng: -121.8947,
     timeZone: "America/Los_Angeles",
     category: "city",
     country: "US",
@@ -42463,12 +42463,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Mexico City", Mexico City (title; Photon hit within 25 km: Plaza de la Constitución, Ciudad de México)
     id: "mx-en-vivo-panoramica-del-zocalo-de-la-c",
     name: { ja: "En vivo Panorámica del Zócalo de la Ciudad de México", en: "En vivo Panorámica del Zócalo de la Ciudad de México" },
-    lat: 28.1901,
-    lng: -105.4701,
-    timeZone: "America/Chihuahua",
+    lat: 19.4285,
+    lng: -99.1277,
+    timeZone: "America/Mexico_City",
     category: "city",
     country: "MX",
     source: {
@@ -42643,12 +42643,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "St Petersburg", St. Petersburg (title; Photon hit within 25 km: Санкт-Петербург)
     id: "ru-live-camera-russia-saint-petersbu-2",
     name: { ja: "LIVE CAMERA Russia Saint Petersburg in real time online Санкт-Петербург онлайн управляемая камера", en: "LIVE CAMERA Russia Saint Petersburg in real time online Санкт-Петербург онлайн управляемая камера" },
-    lat: 58.25,
-    lng: 53.6167,
-    timeZone: "Europe/Samara",
+    lat: 59.9386,
+    lng: 30.3141,
+    timeZone: "Europe/Moscow",
     category: "city",
     country: "RU",
     source: {
@@ -42658,11 +42658,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Brasov", Brașov County (title; Photon hit within 25 km: Brașov)
     id: "ro-brasov-city-ceasu-rau-see-transylvani",
     name: { ja: "Brasov City | Ceasu Rau - See Transylvania - Live Webcam", en: "Brasov City | Ceasu Rau - See Transylvania - Live Webcam" },
-    lat: 45.4,
-    lng: 26.5,
+    lat: 45.6486,
+    lng: 25.6061,
     timeZone: "Europe/Bucharest",
     category: "city",
     country: "RO",
@@ -42703,11 +42703,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Poiana Brasov", Brașov County (title; Photon hit within 25 km: Poiana Brașov)
     id: "ro-julius-romer-hutte-cabana-postavarul",
     name: { ja: "Julius Römer Hütte - Cabana Postavarul - Poiana Brasov Live Webcam Partia Lupului", en: "Julius Römer Hütte - Cabana Postavarul - Poiana Brasov Live Webcam Partia Lupului" },
-    lat: 45.5872,
-    lng: 23.837,
+    lat: 45.597,
+    lng: 25.5525,
     timeZone: "Europe/Bucharest",
     category: "city",
     country: "RO",
@@ -42778,11 +42778,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Bucharest", Bucharest (title; Photon hit within 25 km: București)
     id: "ro-live-meteo-romania-bucuresti-webcam-2",
     name: { ja: "Live 🇷🇴 Meteo Romania București Webcam 26.08.2026 26 AUGUST 2026 Romania Time 🇵🇸 #Freepalestine", en: "Live 🇷🇴 Meteo Romania București Webcam 26.08.2026 26 AUGUST 2026 Romania Time 🇵🇸 #Freepalestine" },
-    lat: 46.0461,
-    lng: 25.5533,
+    lat: 44.4323,
+    lng: 26.1063,
     timeZone: "Europe/Bucharest",
     category: "city",
     country: "RO",
@@ -42793,11 +42793,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Bucharest", Bucharest (title; Photon hit within 25 km: București)
     id: "ro-live-obor-square-bucharest-romania",
     name: { ja: "LIVE OBOR SQUARE, BUCHAREST, ROMANIA", en: "LIVE OBOR SQUARE, BUCHAREST, ROMANIA" },
-    lat: 47.1768,
-    lng: 26.8776,
+    lat: 44.4323,
+    lng: 26.1063,
     timeZone: "Europe/Bucharest",
     category: "city",
     country: "RO",
@@ -42808,11 +42808,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Bucharest", Bucharest (title; Photon hit within 25 km: București)
     id: "ro-live-24-7-bucharest-calea-victoriei-c",
     name: { ja: "LIVE 24/7 Bucharest: CALEA VICTORIEI City Cam | Traffic & Cityscape", en: "LIVE 24/7 Bucharest: CALEA VICTORIEI City Cam | Traffic & Cityscape" },
-    lat: 45.3021,
-    lng: 22.5562,
+    lat: 44.4323,
+    lng: 26.1063,
     timeZone: "Europe/Bucharest",
     category: "city",
     country: "RO",
@@ -43048,11 +43048,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Newport", Rhode Island (title; Photon hit within 25 km: Newport, Rhode Island)
     id: "us-sightsailing-newport-rhode-island-usa",
     name: { ja: "Sightsailing - Newport, Rhode Island USA", en: "Sightsailing - Newport, Rhode Island USA" },
-    lat: 35.4089,
-    lng: -80.5816,
+    lat: 41.4901,
+    lng: -71.3128,
     timeZone: "America/New_York",
     category: "city",
     country: "US",
@@ -43093,11 +43093,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Block Island", Rhode Island (title; Photon hit within 25 km: Block Island, Rhode Island)
     id: "us-live-seals-from-north-lighthouse-bloc",
     name: { ja: "Live - SEALS from North Lighthouse, Block Island, RI USA", en: "Live - SEALS from North Lighthouse, Block Island, RI USA" },
-    lat: 35.4089,
-    lng: -80.5816,
+    lat: 41.1737,
+    lng: -71.5802,
     timeZone: "America/New_York",
     category: "city",
     country: "US",
@@ -43168,12 +43168,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Jackson, Wyoming; watch page: "the charm of Jackson Wyoming Town Square"
     id: "us-live-from-jackson-s-famous-town-squar",
     name: { ja: "Live from Jackson’s Famous Town Square – Don’t Miss This View - SeeJH.ai", en: "Live from Jackson’s Famous Town Square – Don’t Miss This View - SeeJH.ai" },
-    lat: 48.3458,
-    lng: -100.4054,
-    timeZone: "America/Chicago",
+    lat: 43.48,
+    lng: -110.7618,
+    timeZone: "America/Denver",
     category: "city",
     country: "US",
     source: {
@@ -43288,12 +43288,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Newport", Vermont (title; Photon hit within 25 km: Newport, Vermont)
     id: "us-wcax-skywatch-3-goodrich-memorial-lib",
     name: { ja: "WCAX Skywatch 3: Goodrich Memorial Library, Newport, VT", en: "WCAX Skywatch 3: Goodrich Memorial Library, Newport, VT" },
-    lat: 42.917,
-    lng: -83.5063,
-    timeZone: "America/Detroit",
+    lat: 44.9364,
+    lng: -72.2051,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -43363,12 +43363,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Monterey", California (title; Photon hit within 25 km: Monterey Bay Aquarium, CA)
     id: "us-live-moon-jelly-cam-monterey-bay-aqua",
     name: { ja: "Live Moon Jelly Cam | Monterey Bay Aquarium", en: "Live Moon Jelly Cam | Monterey Bay Aquarium" },
-    lat: 35.7423,
-    lng: -90.5623,
-    timeZone: "America/Chicago",
+    lat: 36.6002,
+    lng: -121.8947,
+    timeZone: "America/Los_Angeles",
     category: "city",
     country: "US",
     source: {
@@ -43378,12 +43378,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Monterey", California (title; Photon hit within 25 km: Monterey Bay Aquarium, CA)
     id: "us-live-spider-crab-cam-monterey-bay-aqu",
     name: { ja: "Live Spider Crab Cam | Monterey Bay Aquarium", en: "Live Spider Crab Cam | Monterey Bay Aquarium" },
-    lat: 35.7423,
-    lng: -90.5623,
-    timeZone: "America/Chicago",
+    lat: 36.6002,
+    lng: -121.8947,
+    timeZone: "America/Los_Angeles",
     category: "city",
     country: "US",
     source: {
@@ -43453,11 +43453,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Westhampton", New York (title; Photon hit within 25 km: Westhampton, New York)
     id: "us-hamptons-com-live-rogers-beach-westha",
     name: { ja: "Hamptons.com - LIVE! Rogers Beach, Westhampton, New York", en: "Hamptons.com - LIVE! Rogers Beach, Westhampton, New York" },
-    lat: 38.4278,
-    lng: -84.8105,
+    lat: 40.8245,
+    lng: -72.6662,
     timeZone: "America/New_York",
     category: "city",
     country: "US",
@@ -43588,12 +43588,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Newport Beach", California (title; Photon hit within 25 km: The Crab Cooker, California)
     id: "us-the-wedge-newport-beach",
     name: { ja: "THE WEDGE, NEWPORT BEACH", en: "THE WEDGE, NEWPORT BEACH" },
-    lat: 46.9181,
-    lng: -104.0044,
-    timeZone: "America/Denver",
+    lat: 33.6189,
+    lng: -117.929,
+    timeZone: "America/Los_Angeles",
     category: "city",
     country: "US",
     source: {
@@ -43618,11 +43618,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Panama City Beach", Florida (title; Photon hit within 25 km: Panama City Beach, Florida)
     id: "us-shores-of-panama-panama-city-beach-fl",
     name: { ja: "Shores of Panama Panama City Beach, FL", en: "Shores of Panama Panama City Beach, FL" },
-    lat: 44.98,
-    lng: -93.2638,
+    lat: 30.1766,
+    lng: -85.8055,
     timeZone: "America/Chicago",
     category: "city",
     country: "US",
@@ -43783,12 +43783,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Panama City Beach", Florida (title; Photon hit within 25 km: Panama City Beach, Florida)
     id: "us-sterling-reef-panama-city-beach-fl",
     name: { ja: "Sterling Reef Panama City Beach, FL", en: "Sterling Reef Panama City Beach, FL" },
-    lat: 41.4601,
-    lng: -71.3023,
-    timeZone: "America/New_York",
+    lat: 30.1766,
+    lng: -85.8055,
+    timeZone: "America/Chicago",
     category: "city",
     country: "US",
     source: {
@@ -43918,12 +43918,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Oak Bluffs", Massachusetts (title; Photon hit within 25 km: Circuit Avenue, Massachusetts)
     id: "us-gomv-com-oak-bluffs-circuit-ave-massa",
     name: { ja: "GOMV.COM Oak Bluffs Circuit Ave Massachusetts Webcam", en: "GOMV.COM Oak Bluffs Circuit Ave Massachusetts Webcam" },
-    lat: 37.8044,
-    lng: -122.2708,
-    timeZone: "America/Los_Angeles",
+    lat: 41.4555,
+    lng: -70.5678,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -43993,11 +43993,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Wisconsin Point Lighthouse, Wisconsin; Open-Meteo: Wisconsin Point, Wisconsin; title
     id: "us-wisconsin-point",
     name: { ja: "Wisconsin Point", en: "Wisconsin Point" },
-    lat: 32.9315,
-    lng: -95.8714,
+    lat: 46.7101,
+    lng: -92.0064,
     timeZone: "America/Chicago",
     category: "city",
     country: "US",
@@ -44128,12 +44128,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Anan Creek, Alaska; watch page: "Bears begin arriving at Anan in June"
     id: "us-live-anan-bear-cam-lower-falls-caves",
     name: { ja: "LIVE Anan Bear Cam: Lower Falls & Caves – Alaska | explore.org", en: "LIVE Anan Bear Cam: Lower Falls & Caves – Alaska | explore.org" },
-    lat: 40.4667,
-    lng: -98.1842,
-    timeZone: "America/Chicago",
+    lat: 56.0922,
+    lng: -131.8278,
+    timeZone: "America/Sitka",
     category: "city",
     country: "US",
     source: {
@@ -44143,12 +44143,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Katmai National Park", Alaska (title; Photon hit within 25 km: Katmai National Park, Alaska)
     id: "us-live-dumpling-mountain-katmai-nationa",
     name: { ja: "LIVE Dumpling Mountain - Katmai National Park, Alaska Camera | explore.org", en: "LIVE Dumpling Mountain - Katmai National Park, Alaska Camera | explore.org" },
-    lat: 39.7625,
-    lng: -87.2292,
-    timeZone: "America/Indiana/Indianapolis",
+    lat: 58.5626,
+    lng: -154.9788,
+    timeZone: "America/Anchorage",
     category: "city",
     country: "US",
     source: {
@@ -44158,11 +44158,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "York Beach", Maine (title; Photon hit within 25 km: York Beach, Maine)
     id: "us-york-beach-maine-us-anchorage-inn-liv",
     name: { ja: "York Beach, Maine US - Anchorage Inn, Live Cam 1 - Ocean, Surf - Relax", en: "York Beach, Maine US - Anchorage Inn, Live Cam 1 - Ocean, Surf - Relax" },
-    lat: 39.9626,
-    lng: -76.7277,
+    lat: 43.1715,
+    lng: -70.6089,
     timeZone: "America/New_York",
     category: "city",
     country: "US",
@@ -44173,12 +44173,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Anan Creek, Alaska; watch page: "Bears begin arriving at Anan in June"
     id: "us-live-anan-bear-cam-fishing-hole-3-ala",
     name: { ja: "LIVE Anan Bear Cam: Fishing Hole 3 – Alaska | explore.org", en: "LIVE Anan Bear Cam: Fishing Hole 3 – Alaska | explore.org" },
-    lat: 40.4667,
-    lng: -98.1842,
-    timeZone: "America/Chicago",
+    lat: 56.0922,
+    lng: -131.8278,
+    timeZone: "America/Sitka",
     category: "city",
     country: "US",
     source: {
@@ -44188,11 +44188,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "York Beach", Maine (title; Photon hit within 25 km: York Beach, Maine)
     id: "us-york-beach-maine-us-anchorage-inn-2",
     name: { ja: "York Beach, Maine US - Anchorage Inn, Live Cam 2 - Ocean, Surf - Relax", en: "York Beach, Maine US - Anchorage Inn, Live Cam 2 - Ocean, Surf - Relax" },
-    lat: 39.9626,
-    lng: -76.7277,
+    lat: 43.1715,
+    lng: -70.6089,
     timeZone: "America/New_York",
     category: "city",
     country: "US",
@@ -44203,12 +44203,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Mead", Washington (title; Photon hit within 25 km: Mount Spokane State Park, Washington)
     id: "us-mt-spokane-web-cam-northwood-chair-6",
     name: { ja: "Mt. Spokane Web Cam, Northwood, Chair 6", en: "Mt. Spokane Web Cam, Northwood, Chair 6" },
-    lat: 38.3173,
-    lng: -88.9031,
-    timeZone: "America/Chicago",
+    lat: 47.7674,
+    lng: -117.3549,
+    timeZone: "America/Los_Angeles",
     category: "city",
     country: "US",
     source: {
@@ -44218,12 +44218,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Vancouver", British Columbia (title; Photon hit within 25 km: Vancouver, British Columbia)
     id: "ca-mystery-peak-webcam-mt-seymour-ski-ar",
     name: { ja: "Mystery Peak Webcam | Mt Seymour Ski Area, Vancouver, BC", en: "Mystery Peak Webcam | Mt Seymour Ski Area, Vancouver, BC" },
-    lat: 46.309,
-    lng: -83.1615,
-    timeZone: "America/Toronto",
+    lat: 49.2497,
+    lng: -123.1193,
+    timeZone: "America/Vancouver",
     category: "city",
     country: "CA",
     source: {
@@ -44233,12 +44233,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Long Beach Lodge Resort, British Columbia; Open-Meteo: Tofino, British Columbia; title
     id: "ca-live-from-long-beach-lodge-tofino",
     name: { ja: "Live From Long Beach Lodge Tofino", en: "Live From Long Beach Lodge Tofino" },
-    lat: 45.5152,
-    lng: -73.4682,
-    timeZone: "America/Toronto",
+    lat: 49.1048,
+    lng: -125.8718,
+    timeZone: "America/Vancouver",
     category: "city",
     country: "CA",
     source: {
@@ -44278,12 +44278,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Fairbanks", Alaska (title; Photon hit within 25 km: Large Animal Research Station, Alaska)
     id: "us-live-muskox-cam-uaf-large-animal-rese",
     name: { ja: "LIVE Muskox Cam: UAF Large Animal Research Station – Alaska | explore.org", en: "LIVE Muskox Cam: UAF Large Animal Research Station – Alaska | explore.org" },
-    lat: 39.4779,
-    lng: -78.3822,
-    timeZone: "America/New_York",
+    lat: 64.8378,
+    lng: -147.7164,
+    timeZone: "America/Anchorage",
     category: "city",
     country: "US",
     source: {
@@ -44308,12 +44308,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Tofino", British Columbia (title; Photon hit within 25 km: Tofino, British Columbia)
     id: "ca-beachview-cam-crystal-cove-beach-reso",
     name: { ja: "Beachview Cam - Crystal Cove Beach Resort, Tofino, B.C.", en: "Beachview Cam - Crystal Cove Beach Resort, Tofino, B.C." },
-    lat: 43.9043,
-    lng: -79.7307,
-    timeZone: "America/Toronto",
+    lat: 49.1531,
+    lng: -125.9074,
+    timeZone: "America/Vancouver",
     category: "city",
     country: "CA",
     source: {
@@ -44488,12 +44488,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Acapulco de Juárez", Guerrero (title; Photon hit within 25 km: Acapulco, Guerrero)
     id: "mx-acapulco-guerrero-en-vivo-vista-p-3",
     name: { ja: "Acapulco, Guerrero En Vivo | Vista panorámica de la Marina", en: "Acapulco, Guerrero En Vivo | Vista panorámica de la Marina" },
-    lat: 20.4106,
-    lng: -89.2839,
-    timeZone: "America/Merida",
+    lat: 16.8494,
+    lng: -99.9089,
+    timeZone: "America/Mexico_City",
     category: "city",
     country: "MX",
     source: {
@@ -44608,12 +44608,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Tulum", Quintana Roo (title; Photon hit within 25 km: Felipe Carrillo Puerto Intl. Airport - Tulum, Quintana Roo)
     id: "mx-casa-malca-tulum-mexico",
     name: { ja: "Casa Malca - Tulum, Mexico", en: "Casa Malca - Tulum, Mexico" },
-    lat: 20.4588,
-    lng: -100.3925,
-    timeZone: "America/Mexico_City",
+    lat: 20.2117,
+    lng: -87.4633,
+    timeZone: "America/Cancun",
     category: "city",
     country: "MX",
     source: {
@@ -44803,12 +44803,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: El Calafate, Santa Cruz; watch page: "imágenes en tiempo real desde El Calafate, Santa Cruz"
     id: "ar-camaras-en-vivo-argentina-patagonia-e",
     name: { ja: "CÁMARAS EN VIVO ARGENTINA PATAGONIA | EL CALAFATE - GLACIAR PERITO MORENO - EL CHALTEN ️", en: "CÁMARAS EN VIVO ARGENTINA PATAGONIA | EL CALAFATE - GLACIAR PERITO MORENO - EL CHALTEN ️" },
-    lat: -54.7932,
-    lng: -68.3858,
-    timeZone: "America/Argentina/Ushuaia",
+    lat: -50.3387,
+    lng: -72.2737,
+    timeZone: "America/Argentina/Rio_Gallegos",
     category: "city",
     country: "AR",
     source: {
@@ -45253,12 +45253,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Matsumoto", Nagano (title; Photon hit within 25 km: 松本城, 長野県)
     id: "jp-matsumoto-castle-northern-alps-live-c",
     name: { ja: "【松本城と北アルプス】ライブカメラ/ Matsumoto Castle & Northern Alps Live Cam", en: "【松本城と北アルプス】ライブカメラ/ Matsumoto Castle & Northern Alps Live Cam" },
-    lat: 44.5,
-    lng: 147,
-    timeZone: "Asia/Magadan",
+    lat: 36.2333,
+    lng: 137.9667,
+    timeZone: "Asia/Tokyo",
     category: "city",
     country: "JP",
     source: {
@@ -45433,11 +45433,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Shoufeng", Taiwan (title; Photon hit within 25 km: 鯉魚潭)
     id: "tw-4k-live-hualien-liyu-lake-4k-live-cam",
     name: { ja: "【4K Live】Hualien Liyu Lake｜4K Live Camera｜Lofi Music/Study/Relax", en: "【4K Live】Hualien Liyu Lake｜4K Live Camera｜Lofi Music/Study/Relax" },
-    lat: 23.9601,
-    lng: 121.0002,
+    lat: 23.8693,
+    lng: 121.5097,
     timeZone: "Asia/Taipei",
     category: "city",
     country: "TW",
@@ -45478,11 +45478,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Yuli", Taiwan (title; Photon hit within 25 km: 赤科山)
     id: "tw-live-hualien-chike-mountain-live-came",
     name: { ja: "【Live】赤科山-花東縱谷即時影像｜Hualien Chike Mountain｜Live Camera", en: "【Live】赤科山-花東縱谷即時影像｜Hualien Chike Mountain｜Live Camera" },
-    lat: 24.6949,
-    lng: 121.0026,
+    lat: 23.3349,
+    lng: 121.3167,
     timeZone: "Asia/Taipei",
     category: "city",
     country: "TW",
@@ -45643,11 +45643,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Varanasi", Uttar Pradesh (title; Photon hit within 25 km: Kashi Vishwanath Temple, Uttar Pradesh)
     id: "in-live-darshan-from-shree-kashi-vishwan",
     name: { ja: "Live Darshan From Shree Kashi Vishwanath Temple Varanasi श्री काशी विश्वनाथ धाम | LIVE DARSHAN", en: "Live Darshan From Shree Kashi Vishwanath Temple Varanasi श्री काशी विश्वनाथ धाम | LIVE DARSHAN" },
-    lat: 20.8666,
-    lng: 81.1782,
+    lat: 25.3167,
+    lng: 83.0104,
     timeZone: "Asia/Kolkata",
     category: "city",
     country: "IN",
@@ -46618,12 +46618,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Saint Augustine", Florida (title; Photon hit within 25 km: Saint Augustine, Florida)
     id: "us-vilano-pier-live-24-7-from-beaches-at",
     name: { ja: "Vilano Pier | Live 24/7 from Beaches at Vilano | St. Augustine", en: "Vilano Pier | Live 24/7 from Beaches at Vilano | St. Augustine" },
-    lat: 38.6273,
-    lng: -90.1979,
-    timeZone: "America/Chicago",
+    lat: 29.8947,
+    lng: -81.3145,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -46663,11 +46663,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Bettendorf", Iowa (title; Photon hit within 25 km: I-74 Bridge Bike and Pedestrian Path, Iowa)
     id: "us-bettendorf-view-of-the-i-74-mississip",
     name: { ja: "Bettendorf View of the I-74 Mississippi River Bridge", en: "Bettendorf View of the I-74 Mississippi River Bridge" },
-    lat: 37.2634,
-    lng: -88.1386,
+    lat: 41.5245,
+    lng: -90.5157,
     timeZone: "America/Chicago",
     category: "city",
     country: "US",
@@ -46723,12 +46723,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Big Eddy Covered Bridge, Vermont; watch page: "Vermont's Mad River and the historic Great Eddy Covered Bridge"
     id: "us-vermont-covered-bridge-webcam-in-hd-f",
     name: { ja: "Vermont Covered Bridge Webcam in HD from the Mad River Valley *Sponsor This Webcam! More Info ⬇️*", en: "Vermont Covered Bridge Webcam in HD from the Mad River Valley *Sponsor This Webcam! More Info ⬇️*" },
-    lat: 43.0731,
-    lng: -89.4012,
-    timeZone: "America/Chicago",
+    lat: 44.1894,
+    lng: -72.8235,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -46738,11 +46738,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Bridgeport", Alabama (title; Photon hit within 25 km: Bridgeport, Alabama)
     id: "us-tn-river-bridge-bridgeport-al",
     name: { ja: "TN River Bridge - Bridgeport, AL", en: "TN River Bridge - Bridgeport, AL" },
-    lat: 30.4513,
-    lng: -94.8433,
+    lat: 34.9476,
+    lng: -85.7144,
     timeZone: "America/Chicago",
     category: "city",
     country: "US",
@@ -46753,12 +46753,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Boston", Massachusetts (title; Photon hit within 25 km: Boston Harbor, MA)
     id: "us-boston-harbor-live-view-2026-08-26-da",
     name: { ja: "Boston Harbor Live View - 2026-08-26 (Daytime)", en: "Boston Harbor Live View - 2026-08-26 (Daytime)" },
-    lat: 37.2634,
-    lng: -88.1386,
-    timeZone: "America/Chicago",
+    lat: 42.3584,
+    lng: -71.0598,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -46783,11 +46783,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Sebec Lake", Maine (title; Photon hit within 25 km: Sebec Lake, Maine)
     id: "us-sebec-lake-maine-live-granny-s-wine-c",
     name: { ja: "Sebec Lake, Maine - Live - Granny's Wine Cellar at Merrill's Marina", en: "Sebec Lake, Maine - Live - Granny's Wine Cellar at Merrill's Marina" },
-    lat: 40.6165,
-    lng: -81.6951,
+    lat: 45.2998,
+    lng: -69.3384,
     timeZone: "America/New_York",
     category: "city",
     country: "US",
@@ -46978,12 +46978,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Playa del Carmen", Quintana Roo (title; Photon hit within 25 km: Avenida Luis Donaldo Colosio, Quintana Roo)
     id: "mx-vista-en-vivo-de-la-quinta-avenida-en",
     name: { ja: "Vista en vivo de la Quinta Avenida en Playa del Carmen, Quintana Roo", en: "Vista en vivo de la Quinta Avenida en Playa del Carmen, Quintana Roo" },
-    lat: 28.1901,
-    lng: -105.4701,
-    timeZone: "America/Chihuahua",
+    lat: 20.6274,
+    lng: -87.0799,
+    timeZone: "America/Cancun",
     category: "city",
     country: "MX",
     source: {
@@ -47053,11 +47053,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Venice", Veneto (title; Photon hit within 25 km: Venezia, Veneto)
     id: "it-venezia-italia-live-webcam-campo-sant",
     name: { ja: "Venezia Italia Live Webcam - Campo Santa Maria Formosa Venice - Stream from Ruzzini Palace Hotel", en: "Venezia Italia Live Webcam - Campo Santa Maria Formosa Venice - Stream from Ruzzini Palace Hotel" },
-    lat: 42.7426,
-    lng: 10.2343,
+    lat: 45.4371,
+    lng: 12.3326,
     timeZone: "Europe/Rome",
     category: "city",
     country: "IT",
@@ -47848,12 +47848,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Greenville", South Carolina (title; Photon hit within 25 km: Greenville, South Carolina)
     id: "us-earthcam-live-giraffe-cam-barn-greenv",
     name: { ja: "EarthCam Live: Giraffe Cam Barn - Greenville, SC", en: "EarthCam Live: Giraffe Cam Barn - Greenville, SC" },
-    lat: 46.503,
-    lng: -92.6885,
-    timeZone: "America/Chicago",
+    lat: 34.8526,
+    lng: -82.394,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -47923,12 +47923,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Seattle", Washington (title; Photon hit within 25 km: Seattle, Washington)
     id: "us-seattle-washington-usa-live-train-cam",
     name: { ja: "Seattle, Washington. USA | LIVE Train Camera (Fixed - South)", en: "Seattle, Washington. USA | LIVE Train Camera (Fixed - South)" },
-    lat: 35.4089,
-    lng: -80.5816,
-    timeZone: "America/New_York",
+    lat: 47.6062,
+    lng: -122.3321,
+    timeZone: "America/Los_Angeles",
     category: "city",
     country: "US",
     source: {
@@ -47953,11 +47953,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Fairport", New York (title; Photon hit within 25 km: Faust's USA Karate, NY)
     id: "us-fairport-new-york-usa-live-train-2",
     name: { ja: "Fairport, New York, USA | LIVE Train Camera (Fixed View – East)", en: "Fairport, New York, USA | LIVE Train Camera (Fixed View – East)" },
-    lat: 38.4278,
-    lng: -84.8105,
+    lat: 43.0987,
+    lng: -77.4419,
     timeZone: "America/New_York",
     category: "city",
     country: "US",
@@ -48013,12 +48013,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Alpine", Wyoming (title; Photon hit within 25 km: Alpine, Wyoming)
     id: "us-alpine-valley-rv-park-alpine-wy-seejh",
     name: { ja: "Alpine Valley RV Park - Alpine, WY - SeeJH.ai", en: "Alpine Valley RV Park - Alpine, WY - SeeJH.ai" },
-    lat: 39.7625,
-    lng: -87.2292,
-    timeZone: "America/Indiana/Indianapolis",
+    lat: 43.1635,
+    lng: -111.018,
+    timeZone: "America/Denver",
     category: "city",
     country: "US",
     source: {
@@ -48028,12 +48028,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Swan Valley", Idaho (title; Photon hit within 25 km: Swan Valley, Idaho)
     id: "us-swan-valley-idaho-river-retreat-lodge",
     name: { ja: "Swan Valley Idaho @ River Retreat Lodge - SeeJH.ai", en: "Swan Valley Idaho @ River Retreat Lodge - SeeJH.ai" },
-    lat: 31.7149,
-    lng: -83.2527,
-    timeZone: "America/New_York",
+    lat: 43.456,
+    lng: -111.3416,
+    timeZone: "America/Boise",
     category: "city",
     country: "US",
     source: {
@@ -48058,12 +48058,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Driggs", Idaho (title; Photon hit within 25 km: Teton Valley Provisions, Idaho)
     id: "us-thistle-dew-cabin-teton-valley-idaho",
     name: { ja: "Thistle Dew Cabin Teton Valley, Idaho - SeeJH.ai", en: "Thistle Dew Cabin Teton Valley, Idaho - SeeJH.ai" },
-    lat: 31.5952,
-    lng: -96.14,
-    timeZone: "America/Chicago",
+    lat: 43.7233,
+    lng: -111.1113,
+    timeZone: "America/Boise",
     category: "city",
     country: "US",
     source: {
@@ -48163,12 +48163,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Fort Lauderdale", Florida (title; Photon hit within 25 km: Elbo Room, FL)
     id: "us-living-in-fort-lauderdale-a1a-ocean-v",
     name: { ja: "️ LIVING IN FORT LAUDERDALE A1A Ocean View | Elbo Room Beach", en: "️ LIVING IN FORT LAUDERDALE A1A Ocean View | Elbo Room Beach" },
-    lat: 32.7254,
-    lng: -97.3208,
-    timeZone: "America/Chicago",
+    lat: 26.1223,
+    lng: -80.1434,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -49948,12 +49948,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Sanford", Michigan (title; Photon hit within 25 km: Sanford Dam, Michigan)
     id: "us-dam-michigan",
     name: { ja: "Dam, Michigan", en: "Dam, Michigan" },
-    lat: 48.025,
-    lng: -98.1171,
-    timeZone: "America/Chicago",
+    lat: 43.6728,
+    lng: -84.3805,
+    timeZone: "America/Detroit",
     category: "nature",
     country: "US",
     source: {
@@ -50698,11 +50698,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Stuart", Iowa (title; Photon hit within 25 km: Stuart, Iowa)
     id: "us-city-of-stuart-iowa-live-railcam-stua",
     name: { ja: "City of Stuart, Iowa Live Railcam - Stuart, IA #steelhighway", en: "City of Stuart, Iowa Live Railcam - Stuart, IA #steelhighway" },
-    lat: 44.98,
-    lng: -93.2638,
+    lat: 41.5033,
+    lng: -94.3186,
     timeZone: "America/Chicago",
     category: "city",
     country: "US",
@@ -50713,11 +50713,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Davao City", Davao Region (title; Photon hit within 25 km: Agdao, Davao Region)
     id: "ph-philippines-live-camera-bankerohan-ma",
     name: { ja: "PHILIPPINES Live camera, Bankerohan Market area, Davao City #philippines", en: "PHILIPPINES Live camera, Bankerohan Market area, Davao City #philippines" },
-    lat: 14.5243,
-    lng: 121.0792,
+    lat: 7.0731,
+    lng: 125.6128,
     timeZone: "Asia/Manila",
     category: "city",
     country: "PH",
@@ -50728,11 +50728,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Davao City", Davao Region (title; Photon hit within 25 km: Agdao, Davao Region)
     id: "ph-philippines-live-cam-inside-new-a-2",
     name: { ja: "PHILIPPINES Live cam Inside New Agdao Farmers Market cam 2, Davao City #philippines #livestream", en: "PHILIPPINES Live cam Inside New Agdao Farmers Market cam 2, Davao City #philippines #livestream" },
-    lat: 12.3081,
-    lng: 124.6289,
+    lat: 7.0731,
+    lng: 125.6128,
     timeZone: "Asia/Manila",
     category: "city",
     country: "PH",
@@ -50743,11 +50743,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Davao City", Davao Region (title; Photon hit within 25 km: Agdao, Davao Region)
     id: "ph-philippines-live-camera-lyn-s-samgyup",
     name: { ja: "PHILIPPINES Live camera Lyn's Samgyup Staff, Davao City #philippines", en: "PHILIPPINES Live camera Lyn's Samgyup Staff, Davao City #philippines" },
-    lat: 14.5243,
-    lng: 121.0792,
+    lat: 7.0731,
+    lng: 125.6128,
     timeZone: "Asia/Manila",
     category: "city",
     country: "PH",
@@ -50803,12 +50803,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Whiting", Indiana (title; Photon hit within 25 km: Whiting, Indiana)
     id: "us-whiting-indiana-live-railcam-whiting",
     name: { ja: "Whiting, Indiana Live Railcam - Whiting, IN #steelhighway", en: "Whiting, Indiana Live Railcam - Whiting, IN #steelhighway" },
-    lat: 40.6215,
-    lng: -79.1525,
-    timeZone: "America/New_York",
+    lat: 41.6798,
+    lng: -87.4945,
+    timeZone: "America/Chicago",
     category: "city",
     country: "US",
     source: {
@@ -50848,12 +50848,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Burlington", Wisconsin (title; Photon hit within 25 km: Burlington, Wisconsin)
     id: "us-burlington-wi-doug-s-auto-service-liv",
     name: { ja: "Burlington, WI Doug's Auto Service Live Railcam #steelhighway", en: "Burlington, WI Doug's Auto Service Live Railcam #steelhighway" },
-    lat: 37.9654,
-    lng: -80.3192,
-    timeZone: "America/New_York",
+    lat: 42.6781,
+    lng: -88.2762,
+    timeZone: "America/Chicago",
     category: "city",
     country: "US",
     source: {
@@ -51613,12 +51613,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Trenton, Maine; watch page: "At Trenton, Maine gateway to Acadia National Park"
     id: "us-trenton-bridge-lobster-maine-acadia-n",
     name: { ja: "Trenton Bridge Lobster, Maine - Acadia National Park LIVE CAM", en: "Trenton Bridge Lobster, Maine - Acadia National Park LIVE CAM" },
-    lat: 39.7625,
-    lng: -87.2292,
-    timeZone: "America/Indiana/Indianapolis",
+    lat: 44.4392,
+    lng: -68.3707,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -51688,11 +51688,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Hancock", New Hampshire (title; Photon hit within 25 km: Nubanusit Lake, New Hampshire)
     id: "us-lake-nubanusit-new-hampshire-live-cam",
     name: { ja: "Lake Nubanusit, New Hampshire - Live Cam", en: "Lake Nubanusit, New Hampshire - Live Cam" },
-    lat: 38.4278,
-    lng: -84.8105,
+    lat: 42.9729,
+    lng: -71.9798,
     timeZone: "America/New_York",
     category: "city",
     country: "US",
@@ -51733,12 +51733,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Westfield", Massachusetts (title; Photon hit within 25 km: Westfield, Massachusetts)
     id: "us-westfield-massachusetts-us-park-squar",
     name: { ja: "Westfield, Massachusetts US - Park Square Live", en: "Westfield, Massachusetts US - Park Square Live" },
-    lat: 39.7625,
-    lng: -87.2292,
-    timeZone: "America/Indiana/Indianapolis",
+    lat: 42.1251,
+    lng: -72.7495,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -51838,11 +51838,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Portsmouth", New Hampshire (title; Photon hit within 25 km: Portsmouth, New Hampshire)
     id: "us-brewster-s-bait-tackle-back-channel-p",
     name: { ja: "Brewster's Bait & Tackle - Back Channel - Portsmouth, New Hampshire", en: "Brewster's Bait & Tackle - Back Channel - Portsmouth, New Hampshire" },
-    lat: 31.1574,
-    lng: -84.5994,
+    lat: 43.077,
+    lng: -70.7577,
     timeZone: "America/New_York",
     category: "city",
     country: "US",
@@ -51868,12 +51868,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Jackman", Maine (title; Photon hit within 25 km: Jackman, Maine)
     id: "us-jackman-maine-newton-field-airport-ca",
     name: { ja: "Jackman, Maine - Newton Field Airport - Cam Left", en: "Jackman, Maine - Newton Field Airport - Cam Left" },
-    lat: 35.5731,
-    lng: -86.8667,
-    timeZone: "America/Chicago",
+    lat: 45.6239,
+    lng: -70.2545,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -51958,11 +51958,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Venice", Veneto (title; Photon hit within 25 km: Venezia, Veneto)
     id: "it-venice-italy-live-live-streaming-of-t",
     name: { ja: "Venice Italy Live - Live Streaming of Teatro La Fenice area", en: "Venice Italy Live - Live Streaming of Teatro La Fenice area" },
-    lat: 44.8314,
-    lng: 9.4172,
+    lat: 45.4371,
+    lng: 12.3326,
     timeZone: "Europe/Rome",
     category: "city",
     country: "IT",
@@ -51988,11 +51988,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Venice", Veneto (title; Photon hit within 25 km: Venezia, Veneto)
     id: "it-live-walking-tour-the-real-venice",
     name: { ja: "LIVE WALKING TOUR — THE REAL VENICE", en: "LIVE WALKING TOUR — THE REAL VENICE" },
-    lat: 45.75,
-    lng: 7.25,
+    lat: 45.4371,
+    lng: 12.3326,
     timeZone: "Europe/Rome",
     category: "city",
     country: "IT",
@@ -52003,12 +52003,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Duluth Cargo Connect, Minnesota; Open-Meteo: Duluth, Minnesota; title
     id: "us-duluth-cargo-connect",
     name: { ja: "Duluth Cargo Connect", en: "Duluth Cargo Connect" },
-    lat: 32.8681,
-    lng: -114.7802,
-    timeZone: "America/Los_Angeles",
+    lat: 46.7605,
+    lng: -92.102,
+    timeZone: "America/Chicago",
     category: "city",
     country: "US",
     source: {
@@ -52048,12 +52048,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Santa Monica", California (title; Photon hit within 25 km: Santa Monica Pier, California)
     id: "us-live-santa-monica-pier-pacific-park-c",
     name: { ja: "LIVE Santa Monica Pier Pacific Park | California Coast Views 24/7", en: "LIVE Santa Monica Pier Pacific Park | California Coast Views 24/7" },
-    lat: 45.9816,
-    lng: -94.1047,
-    timeZone: "America/Chicago",
+    lat: 34.0195,
+    lng: -118.4914,
+    timeZone: "America/Los_Angeles",
     category: "city",
     country: "US",
     source: {
@@ -52063,12 +52063,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Napili Kai Beach Resort, HI; Open-Meteo: Napili, Hawaii; title
     id: "us-live-maui-beach-cam-napili-kai-be-2",
     name: { ja: "LIVE Maui Beach Cam | Napili Kai Beach Resort | Stunning Hawaii Views 24/7", en: "LIVE Maui Beach Cam | Napili Kai Beach Resort | Stunning Hawaii Views 24/7" },
-    lat: 33.109,
-    lng: -88.1903,
-    timeZone: "America/Chicago",
+    lat: 20.9969,
+    lng: -156.6655,
+    timeZone: "Pacific/Honolulu",
     category: "city",
     country: "US",
     source: {
@@ -52078,12 +52078,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Honolulu", Hawaii (title; Photon hit within 25 km: Anaha Condominium at Ward Village, HI)
     id: "us-live-tsunami-hits-hawaii-ocean-cam-fr",
     name: { ja: "LIVE: Tsunami Hits Hawaii — Ocean Cam from Ward Village", en: "LIVE: Tsunami Hits Hawaii — Ocean Cam from Ward Village" },
-    lat: 32.8946,
-    lng: -100.2118,
-    timeZone: "America/Chicago",
+    lat: 21.3069,
+    lng: -157.8583,
+    timeZone: "Pacific/Honolulu",
     category: "city",
     country: "US",
     source: {
@@ -52168,12 +52168,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Caliente", Nevada (title; Photon hit within 25 km: Caliente, Nevada)
     id: "us-live-trains-ad-free-caliente-nevada-d",
     name: { ja: "LIVE Trains AD Free | Caliente, Nevada (Depot Cam)", en: "LIVE Trains AD Free | Caliente, Nevada (Depot Cam)" },
-    lat: 33.8826,
-    lng: -83.6632,
-    timeZone: "America/New_York",
+    lat: 37.615,
+    lng: -114.5119,
+    timeZone: "America/Los_Angeles",
     category: "city",
     country: "US",
     source: {
@@ -52183,12 +52183,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Caliente", Nevada (title; Photon hit within 25 km: Caliente, Nevada)
     id: "us-live-trains-ad-free-caliente-nevada-p",
     name: { ja: "LIVE Trains AD Free | Caliente, Nevada (PTZ)", en: "LIVE Trains AD Free | Caliente, Nevada (PTZ)" },
-    lat: 33.8826,
-    lng: -83.6632,
-    timeZone: "America/New_York",
+    lat: 37.615,
+    lng: -114.5119,
+    timeZone: "America/Los_Angeles",
     category: "city",
     country: "US",
     source: {
@@ -52198,11 +52198,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Des Plaines", Illinois (title; Photon hit within 25 km: Des Plaines, Illinois)
     id: "us-live-trains-railcam-des-plaines-illin",
     name: { ja: "LIVE Trains Railcam | Des Plaines, Illinois (PTZ)", en: "LIVE Trains Railcam | Des Plaines, Illinois (PTZ)" },
-    lat: 41.6005,
-    lng: -93.6091,
+    lat: 42.0334,
+    lng: -87.8834,
     timeZone: "America/Chicago",
     category: "city",
     country: "US",
@@ -52213,12 +52213,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Houston", Texas (title; Photon hit within 25 km: Houston, Texas)
     id: "us-live-trains-archived-houston-texas-4k",
     name: { ja: "LIVE Trains (ARCHIVED) | Houston, Texas 4K (Sampson Street North Cam)", en: "LIVE Trains (ARCHIVED) | Houston, Texas 4K (Sampson Street North Cam)" },
-    lat: 39.4348,
-    lng: -80.1317,
-    timeZone: "America/New_York",
+    lat: 29.7633,
+    lng: -95.3633,
+    timeZone: "America/Chicago",
     category: "city",
     country: "US",
     source: {
@@ -52243,12 +52243,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Houston", Texas (title; Photon hit within 25 km: Houston, Texas)
     id: "us-live-trains-archived-houston-texas-sa",
     name: { ja: "LIVE Trains (ARCHIVED) | Houston, Texas (Sampson Street East Cam)", en: "LIVE Trains (ARCHIVED) | Houston, Texas (Sampson Street East Cam)" },
-    lat: 42.0612,
-    lng: -71.864,
-    timeZone: "America/New_York",
+    lat: 29.7633,
+    lng: -95.3633,
+    timeZone: "America/Chicago",
     category: "city",
     country: "US",
     source: {
@@ -52273,12 +52273,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Marysville", Michigan (title; Photon hit within 25 km: Marysville, Michigan)
     id: "us-marysville-michigan-usa-streamtime-li",
     name: { ja: "Marysville, Michigan USA | StreamTime LIVE", en: "Marysville, Michigan USA | StreamTime LIVE" },
-    lat: 35.4089,
-    lng: -80.5816,
-    timeZone: "America/New_York",
+    lat: 42.9125,
+    lng: -82.4869,
+    timeZone: "America/Detroit",
     category: "city",
     country: "US",
     source: {
@@ -52288,11 +52288,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Baltimore", Maryland (title; Photon hit within 25 km: Baltimore, Maryland)
     id: "us-baltimore-maryland-usa-streamtime-liv",
     name: { ja: "Baltimore, Maryland USA | StreamTime LIVE", en: "Baltimore, Maryland USA | StreamTime LIVE" },
-    lat: 35.4089,
-    lng: -80.5816,
+    lat: 39.2904,
+    lng: -76.6122,
     timeZone: "America/New_York",
     category: "city",
     country: "US",
@@ -52318,12 +52318,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Jeffersonville", Indiana (title; Photon hit within 25 km: Jeffersonville, Indiana)
     id: "us-live-cam-ohio-river-jeffersonville-in",
     name: { ja: "LIVE CAM: Ohio River, Jeffersonville, IN | StreamTime LIVE", en: "LIVE CAM: Ohio River, Jeffersonville, IN | StreamTime LIVE" },
-    lat: 41.5575,
-    lng: -89.4609,
-    timeZone: "America/Chicago",
+    lat: 38.2776,
+    lng: -85.7372,
+    timeZone: "America/Kentucky/Louisville",
     category: "city",
     country: "US",
     source: {
@@ -52498,12 +52498,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Houston", Texas (title; Photon hit within 25 km: Houston, Texas)
     id: "us-live-trains-ad-free-houston-texas-tow",
     name: { ja: "LIVE Trains AD Free | Houston, Texas (Tower 26) PTZ", en: "LIVE Trains AD Free | Houston, Texas (Tower 26) PTZ" },
-    lat: 33.8826,
-    lng: -83.6632,
-    timeZone: "America/New_York",
+    lat: 29.7633,
+    lng: -95.3633,
+    timeZone: "America/Chicago",
     category: "city",
     country: "US",
     source: {
@@ -52588,12 +52588,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Chicago", Illinois (title; Photon hit within 25 km: Chicago Midway International Airport, IL)
     id: "us-live-debrief-of-near-miss-incident-fr",
     name: { ja: "LIVE Debrief of Near Miss Incident from Chicago Midway! StreamTime LIVE", en: "LIVE Debrief of Near Miss Incident from Chicago Midway! StreamTime LIVE" },
-    lat: 38.1154,
-    lng: -75.7558,
-    timeZone: "America/New_York",
+    lat: 41.85,
+    lng: -87.65,
+    timeZone: "America/Chicago",
     category: "city",
     country: "US",
     source: {
@@ -52618,11 +52618,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Chicago", Illinois (title; Photon hit within 25 km: Chicago, Illinois)
     id: "us-midway-international-airport-chicago",
     name: { ja: "Midway International Airport, Chicago, IL | StreamTime LIVE", en: "Midway International Airport, Chicago, IL | StreamTime LIVE" },
-    lat: 31.9974,
-    lng: -102.0779,
+    lat: 41.85,
+    lng: -87.65,
     timeZone: "America/Chicago",
     category: "city",
     country: "US",
@@ -52723,12 +52723,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Los Angeles", California (title; Photon hit within 25 km: Los Angeles International Airport, CA)
     id: "us-surveillancemap-live-new-year-s-eve-a",
     name: { ja: "SurveillanceMap LIVE · New Year's Eve at Los Angeles Int. Airport and Fireworks over LA 2025-2026", en: "SurveillanceMap LIVE · New Year's Eve at Los Angeles Int. Airport and Fireworks over LA 2025-2026" },
-    lat: 38.4278,
-    lng: -84.8105,
-    timeZone: "America/New_York",
+    lat: 34.0522,
+    lng: -118.2437,
+    timeZone: "America/Los_Angeles",
     category: "city",
     country: "US",
     source: {
@@ -52768,11 +52768,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "New York", New York (title; Photon hit within 25 km: Manhattan, New York)
     id: "us-surveillancemap-live-from-above-the-s",
     name: { ja: "SurveillanceMap LIVE · From Above the Sky · New Year's Eve Fireworks over Lower Manhattan 2025-2026", en: "SurveillanceMap LIVE · From Above the Sky · New Year's Eve Fireworks over Lower Manhattan 2025-2026" },
-    lat: 41.4489,
-    lng: -82.708,
+    lat: 40.7143,
+    lng: -74.006,
     timeZone: "America/New_York",
     category: "city",
     country: "US",
@@ -53083,12 +53083,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Fort Lauderdale", Florida (title; Photon hit within 25 km: Elbo Room, FL)
     id: "us-elbo-room-beach-radio-live-4k-flo-2",
     name: { ja: "Elbo Room Beach Radio LIVE | 4K Florida Beach Cam (2 Hour)", en: "Elbo Room Beach Radio LIVE | 4K Florida Beach Cam (2 Hour)" },
-    lat: 38.6423,
-    lng: -88.1217,
-    timeZone: "America/Chicago",
+    lat: 26.1223,
+    lng: -80.1434,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -53113,11 +53113,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Davao City", Davao Region (title; Photon hit within 25 km: Agdao, Davao Region)
     id: "ph-boy-sayong-cam-3-inside-agdao-public",
     name: { ja: "BOY SAYONG ( CAM 3 ) INSIDE AGDAO PUBLIC MARKET DAVAO CITY ( ROSE STORE )", en: "BOY SAYONG ( CAM 3 ) INSIDE AGDAO PUBLIC MARKET DAVAO CITY ( ROSE STORE )" },
-    lat: 10.6414,
-    lng: 124.025,
+    lat: 7.0731,
+    lng: 125.6128,
     timeZone: "Asia/Manila",
     category: "city",
     country: "PH",
@@ -53128,11 +53128,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Davao City", Davao Region (title; Photon hit within 25 km: Agdao, Davao Region)
     id: "ph-maria-s-cam-13-grilled-area-in-felve",
     name: { ja: "Maria's Cam 13 Grilled Area in Felve's Tuna Panga Eatery in Ubalde Agdao, Davao City", en: "Maria's Cam 13 Grilled Area in Felve's Tuna Panga Eatery in Ubalde Agdao, Davao City" },
-    lat: 14.3305,
-    lng: 121.2419,
+    lat: 7.0731,
+    lng: 125.6128,
     timeZone: "Asia/Manila",
     category: "city",
     country: "PH",
@@ -53143,11 +53143,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Davao City", Davao Region (title; Photon hit within 25 km: Agdao, Davao Region)
     id: "ph-maria-s-cam-5a-street-view-agdao-publ",
     name: { ja: "Maria's Cam 5A Street View Agdao Public Market, Davao City Philippines #philippines #davaocity", en: "Maria's Cam 5A Street View Agdao Public Market, Davao City Philippines #philippines #davaocity" },
-    lat: 15.9167,
-    lng: 120.4564,
+    lat: 7.0731,
+    lng: 125.6128,
     timeZone: "Asia/Manila",
     category: "city",
     country: "PH",
@@ -53908,12 +53908,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Anan Creek, Alaska; watch page: "Bears begin arriving at Anan in June"
     id: "us-live-anan-bear-cam-fishing-hole-4-ala",
     name: { ja: "LIVE Anan Bear Cam: Fishing Hole 4 – Alaska | explore.org", en: "LIVE Anan Bear Cam: Fishing Hole 4 – Alaska | explore.org" },
-    lat: 40.4667,
-    lng: -98.1842,
-    timeZone: "America/Chicago",
+    lat: 56.0922,
+    lng: -131.8278,
+    timeZone: "America/Sitka",
     category: "city",
     country: "US",
     source: {
@@ -53923,12 +53923,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Charlo", Montana (title; Photon hit within 25 km: Charlo, Montana)
     id: "us-live-osprey-nest-charlo-montana-explo",
     name: { ja: "LIVE Osprey Nest - Charlo, Montana | explore.org", en: "LIVE Osprey Nest - Charlo, Montana | explore.org" },
-    lat: 37.3668,
-    lng: -76.5705,
-    timeZone: "America/New_York",
+    lat: 47.4385,
+    lng: -114.1723,
+    timeZone: "America/Denver",
     category: "city",
     country: "US",
     source: {
@@ -53953,12 +53953,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Big Sky", Montana (title; Photon hit within 25 km: Gallatin River, Montana)
     id: "us-montana-whitewater-gallatin-river-kar",
     name: { ja: "Montana Whitewater - Gallatin River • Karst Camp Live Webcam", en: "Montana Whitewater - Gallatin River • Karst Camp Live Webcam" },
-    lat: 36.4142,
-    lng: -91.7349,
-    timeZone: "America/Chicago",
+    lat: 45.2846,
+    lng: -111.3683,
+    timeZone: "America/Denver",
     category: "city",
     country: "US",
     source: {
@@ -53968,12 +53968,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Wenatchee", Washington (title; Photon hit within 25 km: Wenatchee, Washington)
     id: "us-live-from-the-residence-inn-by-marrio",
     name: { ja: "Live from The Residence Inn by Marriott Wenatchee, WA", en: "Live from The Residence Inn by Marriott Wenatchee, WA" },
-    lat: 30.878,
-    lng: -91.6807,
-    timeZone: "America/Chicago",
+    lat: 47.4235,
+    lng: -120.3103,
+    timeZone: "America/Los_Angeles",
     category: "city",
     country: "US",
     source: {
@@ -53983,12 +53983,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Mead", Washington (title; Photon hit within 25 km: Mount Spokane State Park, Washington)
     id: "us-mt-spokane-web-cam-vista-cruiser-chai",
     name: { ja: "Mt. Spokane Web Cam, Vista Cruiser, Chair 1", en: "Mt. Spokane Web Cam, Vista Cruiser, Chair 1" },
-    lat: 38.3173,
-    lng: -88.9031,
-    timeZone: "America/Chicago",
+    lat: 47.7674,
+    lng: -117.3549,
+    timeZone: "America/Los_Angeles",
     category: "city",
     country: "US",
     source: {
@@ -54058,12 +54058,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Ellsworth", Maine (title; Photon hit within 25 km: Ellsworth, Maine)
     id: "us-city-of-ellsworth-maine-harbor-park-l",
     name: { ja: "City of Ellsworth, Maine - Harbor Park Live Cam", en: "City of Ellsworth, Maine - Harbor Park Live Cam" },
-    lat: 44.98,
-    lng: -93.2638,
-    timeZone: "America/Chicago",
+    lat: 44.5434,
+    lng: -68.4195,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -54073,12 +54073,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Castine", Maine (title; Photon hit within 25 km: Maine Maritime Academy, ME)
     id: "us-maine-maritime-academy-waterfront-web",
     name: { ja: "Maine Maritime Academy Waterfront Webcam", en: "Maine Maritime Academy Waterfront Webcam" },
-    lat: 42.0334,
-    lng: -87.8834,
-    timeZone: "America/Chicago",
+    lat: 44.3879,
+    lng: -68.7998,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -54118,12 +54118,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Portsmouth", New Hampshire (title; Photon hit within 25 km: Portsmouth, New Hampshire)
     id: "us-tugboats-and-shipping-on-the-piscataq",
     name: { ja: "Tugboats and Shipping on the Piscataqua River, Portsmouth, New Hampshire LIVE", en: "Tugboats and Shipping on the Piscataqua River, Portsmouth, New Hampshire LIVE" },
-    lat: 30.4513,
-    lng: -94.8433,
-    timeZone: "America/Chicago",
+    lat: 43.077,
+    lng: -70.7577,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -54133,12 +54133,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Stratton", Maine (title; Photon hit within 25 km: Stratton, Maine)
     id: "us-live-cam-at-flagstaff-general-store-s",
     name: { ja: "LIVE Cam at Flagstaff General Store, Stratton Maine", en: "LIVE Cam at Flagstaff General Store, Stratton Maine" },
-    lat: 42.0334,
-    lng: -87.8834,
-    timeZone: "America/Chicago",
+    lat: 45.1412,
+    lng: -70.4406,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -54148,12 +54148,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Acadia National Park", Maine (title; Photon hit within 25 km: Acadia National Park, Maine)
     id: "us-northeast-harbor-acadia-national-park",
     name: { ja: "Northeast Harbor, Acadia National Park, Maine US LIVE", en: "Northeast Harbor, Acadia National Park, Maine US LIVE" },
-    lat: 39.7625,
-    lng: -87.2292,
-    timeZone: "America/Indiana/Indianapolis",
+    lat: 44.3507,
+    lng: -68.2441,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -54253,11 +54253,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Matlacha", Florida (title; Photon hit within 25 km: Matlacha, Florida)
     id: "us-live-florida-webcam-d-and-d-bait-and",
     name: { ja: "Live Florida Webcam - D and D Bait and Tackle Marina - Matlacha #florida #webcam", en: "Live Florida Webcam - D and D Bait and Tackle Marina - Matlacha #florida #webcam" },
-    lat: 31.1574,
-    lng: -84.5994,
+    lat: 26.6298,
+    lng: -82.0709,
     timeZone: "America/New_York",
     category: "city",
     country: "US",
@@ -54283,12 +54283,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Bokeelia", Florida (title; Photon hit within 25 km: Bokeelia, Florida)
     id: "us-live-florida-webcam-four-winds-marina",
     name: { ja: "Live Florida Webcam - Four Winds Marina - Pine Island - Bokeelia #florida #webcam", en: "Live Florida Webcam - Four Winds Marina - Pine Island - Bokeelia #florida #webcam" },
-    lat: 47.8124,
-    lng: -112.1836,
-    timeZone: "America/Denver",
+    lat: 26.7056,
+    lng: -82.159,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -54298,12 +54298,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Lyndon", Vermont (title; Photon hit within 25 km: Lyndon, Vermont)
     id: "us-wcax-skywatch-3-lyndon-institute-in-l",
     name: { ja: "WCAX Skywatch 3: Lyndon Institute in Lyndon, VT", en: "WCAX Skywatch 3: Lyndon Institute in Lyndon, VT" },
-    lat: 38.61,
-    lng: -95.6844,
-    timeZone: "America/Chicago",
+    lat: 44.5142,
+    lng: -72.0109,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -54763,11 +54763,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Saundersfoot", Wales (title; Photon hit within 25 km: Saundersfoot, Cymru / Wales)
     id: "gb-live-camera-from-the-royal-oak-saunde",
     name: { ja: "Live Camera from the Royal Oak Saundersfoot, Pembrokeshire", en: "Live Camera from the Royal Oak Saundersfoot, Pembrokeshire" },
-    lat: 51.0234,
-    lng: -3.2074,
+    lat: 51.7094,
+    lng: -4.7021,
     timeZone: "Europe/London",
     category: "city",
     country: "GB",
@@ -54913,11 +54913,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Posio", Lapland (title; Photon hit within 25 km: Posio, Lappi)
     id: "fi-live-24-7-northern-lights-sky-cam-lap",
     name: { ja: "LIVE 24/7 Northern Lights & Sky Cam | Lapland Finland Webcam | Aurora Borealis from Posio", en: "LIVE 24/7 Northern Lights & Sky Cam | Lapland Finland Webcam | Aurora Borealis from Posio" },
-    lat: 63.4198,
-    lng: 22.3088,
+    lat: 66.1086,
+    lng: 28.1719,
     timeZone: "Europe/Helsinki",
     category: "city",
     country: "FI",
@@ -55768,11 +55768,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Yilan", Taiwan (title; Photon hit within 25 km: 宜蘭市)
     id: "tw-a-07-live-yilan-county-taiwan-24h-24",
     name: { ja: "Ⓐ-07-Live-宜蘭縣 重要路口 即時影像-Yilan County, Taiwan 24H》 24/7, 365 天氣、車流人流狀況 Love Song 🅣ⓁⓈ204", en: "Ⓐ-07-Live-宜蘭縣 重要路口 即時影像-Yilan County, Taiwan 24H》 24/7, 365 天氣、車流人流狀況 Love Song 🅣ⓁⓈ204" },
-    lat: 23.9739,
-    lng: 120.982,
+    lat: 24.757,
+    lng: 121.753,
     timeZone: "Asia/Taipei",
     category: "city",
     country: "TW",
@@ -56128,11 +56128,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Wakkanai", Hokkaido (title; Photon hit within 25 km: 稚内市, 北海道)
     id: "jp-live-hokkaido-japan",
     name: { ja: "【北海道LIVE】サフィールホテル稚内からの絶景オーシャンビューをライブでお届け #サフィールホテル #稚内ライブ #絶景配信 #北海道 #海 #hokkaido #japan", en: "【北海道LIVE】サフィールホテル稚内からの絶景オーシャンビューをライブでお届け #サフィールホテル #稚内ライブ #絶景配信 #北海道 #海 #hokkaido #japan" },
-    lat: 36.5748,
-    lng: 139.2394,
+    lat: 45.4094,
+    lng: 141.6739,
     timeZone: "Asia/Tokyo",
     category: "city",
     country: "JP",
