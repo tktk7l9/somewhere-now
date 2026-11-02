@@ -33,32 +33,27 @@ describe("isBroadcast", () => {
   });
 
   it("anything from a channel that only airs programmes is a broadcast", () => {
-    // Al Jazeera English. The title offers no clue besides "Live", so the channel is the only
-    // way to tell.
+    // Ocean Ambience. The title offers no clue the patterns know, so the channel is the only way
+    // to tell. (News channels such as Al Jazeera are no longer hidden here: they were excluded
+    // from the catalogue on 2026-11-03.)
     expect(
       isBroadcast(
-        cam({ source: { channelId: "UCNye-wNBqNL5ZzHSJj3l8Bg", titleKey: "🔴 Al Jazeera English | Live" } }),
+        cam({
+          source: {
+            channelId: "UCeDnpWZapyw4rwORykzLbFg",
+            titleKey: "Ocean Ambience 4K (LIVE 24/7). Tropical Beach & Ocean Waves Sounds.",
+          },
+        }),
       ),
     ).toBe(true);
   });
 
   it("also tells by the wording of the title", () => {
     const titles = [
-      "🔴 LIVE! Phineas and Ferb Full Episodes! | @disneychannelanimation",
-      "Bizimkiler - Tüm Bölümler Canlı Yayın",
-      "CNN TÜRK - 🔴 Canlı Yayın ᴴᴰ - Canlı TV izle | HABER",
-      "Aşk-ı Memnu Canlı İzle",
-      "RELACJA NA ŻYWO - OGLĄDAJ Telewizja Republika",
-      "FRANCE 24 English – LIVE – International Breaking News & Top stories",
-      "【ライブ】日本の最新ニュースを24時間ライブ配信｜テレ朝NEWS24",
-      "【地震ライブ】緊急地震速報 24時間リアルタイム配信中 ウェザーニュース",
-      "Kral Akustik Radyo - Canlı Radyo Dinle",
       "Chillout 2026 24/7 Live Radio • Summer Tropical House",
+      "Ibiza .fm | Live Radio & Webcams from Ibiza",
       "Waterfall Gentle Stream Sound in forest 24/7. White Noise",
       "Calm Woodland Stream with Beautiful Birdsong | Relax, ASMR",
-      "12 Hours of Calming Music for Dogs🐶",
-      "MALDIVES 4K Aerial 🇲🇻 Overwater Villas",
-      "MIAMI 8K Virtual Tour 🇺🇸 Brickell Skyline",
     ];
     for (const titleKey of titles) {
       expect(isBroadcast(cam({ source: { titleKey } })), titleKey).toBe(true);
@@ -91,7 +86,7 @@ describe("broadcastIds", () => {
   it("collects only the ids of broadcasts", () => {
     const ids = broadcastIds([
       cam({ id: "real" }),
-      cam({ id: "tv", source: { titleKey: "FOO | Breaking News 24/7" } }),
+      cam({ id: "tv", source: { titleKey: "FOO | White Noise 24/7" } }),
     ]);
     expect([...ids]).toEqual(["tv"]);
   });

@@ -33,134 +33,39 @@ import type { Cam } from "./cams";
  * Channels confirmed to air nothing but programmes.
  * Chosen on 2026-08-31 by reading every title the channel has in the master list, for every
  * channel with a stream of 150 viewers or more.
+ *
+ * 2026-11-03: the news, TV, radio, music, clock and pre-recorded channels were taken out of the
+ * catalogue altogether (`scripts/cam-exclusions.ts`, owner's decision), so their entries here went
+ * stale and were removed. What is left is nature-sound ambience: it may be footage of a real place,
+ * so it stays in the catalogue, hidden by default.
  */
 export const BROADCAST_CHANNELS: ReadonlySet<string> = new Set([
-  // News and TV stations
-  "UCc282c_TN8xIba_Z6GaDnQw", // Telewizja Republika
-  "UCR9120YBAqMfntqgRTKmkjQ", // A24 (AR)
-  "UCNye-wNBqNL5ZzHSJj3l8Bg", // Al Jazeera English
-  "UCV6zcRug6Hqp1UX_FdyUeBg", // CNN TÜRK
-  "UCfYrK5JU5EznsnK3wQE7iIg", // TV Aparecida
-  "UC9TDTjbOjFB9jADmPhSAPsw", // NTV (TR)
-  "UCPXTXMecYqnRKNdqdVOGSFg", // TV9 Telugu News
-  "UC2TuODJhC03pLgd6MpWP0iw", // 三立新聞 SET News
-  "UC2dULJJ_G6TTNjsunSxP7ag", // SupremeMasterTV
-  "UC5BMIWZe9isJXLZZWPWvBlg", // KOMPAS TV
-  "UCXoJ8kY9zpLBEz-8saaT3ew", // ТСН / 1+1
-  "UCVgO39Bk5sMo66-6o6Spn6Q", // ABC NEWS Australia
-  "UCTHCOPwqNfZ0uiKOvFyhGwg", // 연합뉴스TV
-  "UCtc-a9ZUIg0_5HpsPxEO7Qg", // Haber Global
-  "UCOutOIcn_oho8pyVN3Ng-Pg", // TV9 Bharatvarsh
-  "UCumtYpCY26F6Jr3satUgMvA", // NTV Telugu News
-  "UCzQZbOb86WvhOPoR7jgAfsA", // TVP INFO
-  "UCp2f7tGJGN6R9Muxipem8Nw", // 寰宇新聞 GlobalNewsTV
-  "UCDCMjD1XIAsCZsYHNMGVcog", // V6 Telugu News
-  "UCQfwfsi5VrQ8yKZ-UWmAEFg", // FRANCE 24 English
-  "UCnMBV5Iw4WqKILKue1nP6Hg", // Dunya News
-  "UCAR3h_9fLV82N2FH4cE4RKw", // TV5 News Telugu
-  "UC-crZTQNRzZgzyighTKF0nQ", // News18 Punjab
-  "UCbf0XHULBkTfv2hBjaaDw9Q", // News18 Bangla
-  "UCrcpw88HvKJ0skdsHniCJtQ", // News18 Marathi
-  "UCef1-8eOpJgud7szVPlZQAQ", // CNN-News18
-  "UCgp4A6I8LCWrhUzn-5SbKvA", // TVC News Nigeria
-  "UC_OaSsAydgSIjUtjYn9qLog", // TV Novo Tempo
-  "UC64ZNqX0FQHabP8iIkmnR3A", // Canal Siete
-  "UCjElJyiXmQXnWmceQ1JyKrA", // Asianet Suvarna News
-  "UC_2irx_BQR7RsBKmUV9fePQ", // ABN Telugu News
-  "UCEXGDNclvmg6RW0vipJYsTQ", // Channels Television
-  "UCZ9m4KOh8Ei60428xeGYDCQ", // Sakshi TV
-  "UCYPvAwZP8pZhSMW8qs7cVCw", // India Today TV
-  "UCSrZ3UV4jOidv8ppoVuvW9Q", // Euronews English
-  "UCbATDExtWstHnwWELZnXNZA", // Euronews România
-  "UCOqFkpNwNLPGOb8EC-mwZYg", // FREEДOM
-  "UC1FbPiXx59_ltnFVx7IxWow", // FOX Weather Channel
-  "UCnEvxaWfVL91XIYuyQRO5QA", // Kairali News
-  "UC4LjkybVKXCDlneVXlKAbmw", // 鏡新聞 mnews
-  "UC5dYmq91e5_g54krpO06NJw", // AWANI
-  "UCWw6scNyopJ0yjMu1SyOEyw", // talkSPORT
-
-  // Drama and cartoons
-  "UCi-nK74pBX9Ou66z1j7KYPQ", // Yaprak Dökümü
-  "UCIdiuKAg5xVZsvXDQbOG4cg", // Aşk-ı Memnu
-  "UCw7SNYrYei7F5ttQO3o-rpA", // Disney Channel Animation
-  "UCx7gLo8iS4ofgNfBENUxWDA", // Taşacak Bu Deniz
-  "UCoBpC9J2EcbAMprw7YjC93A", // Cartoon Network
-  "UCpMth28h0W_ycDlZ5KxABDw", // Altı Üstü İstanbul
-
-  // Radio and music
-  "UCEAW_kmPVjxTC50vuLyKOQA", // Kral Akustik Radyo
-  "UCJhjE7wbdYAae1G25m0tHAA", // Relaxing Jazz Piano Radio
-  "UCIYy_Et4Uee-LejWsUzWK5Q", // Luxury Hotel Lounge Music
-  "UChpLVijUbbNs-Wmuri9yW3A", // Café Del Mar
-  "UCFzn3ls-N6pg8bHhj0D8z8Q", // Psychedelic Anatolian Rock
-  "UCrFFy9BMtlNsg2wsa4XbTPg", // Chillout 2026
-  "UCIB228QNsdJDSX8bocYCZOA", // Soft Lofi Room
-  "UC7bX_RrH3zbdp5V4j5umGgw", // Night Paris Jazz
-  "UCjCZYDvsIedScbetox2LBCA", // Tropical Summer Bossa Nova
-  "UCwobzUc3z-0PrFpoRxNszXQ", // Relaxing Zen Music
-  "UCQINXHZqCU5i06HzxRkujfg", // Hawaiian Cafe
-  "UCB1qMxUghkMwLV1eKt7CQBg", // Deep Techno
-  "UCd4TU-zpYIT3HQqjU4BCjyw", // Calming Music for Dogs
-  "UCb_QGe9EWyCXBbKkY85nBfg", // Morning Coffee & Italian Music
-
-  // Ambience and pre-recorded footage
+  // Ambience
   "UCkK0LVEYbscEptzBKFrgcrQ", // Waterfall / White Noise
   "UCDmvEp5Rtjw817rMw_Z-S1A", // Mountain River / White Noise
   "UC9X_obpHELF92vvFNtcdXFA", // Calm Woodland Stream (ASMR)
   "UCeDnpWZapyw4rwORykzLbFg", // Ocean Ambience
   "UCNjGqISO6V2WFpOFWPC8pIw", // Fall Asleep With The Universe's…
   "UCXbXfisDHV_gDjawCKTyTIw", // Rain sounds in rooms
-  "UCkwi3H7xoYTJKycMI9YAn0w", // 4K Aquarium / documentary
-  "UCg-jBMU2-9RErt1gn9a5jWg", // BORA BORA 8K Aerial
-  "UC3Usv7r1W5Tdvsubec-v1AQ", // MALDIVES 4K Aerial
-  "UCrI8aOr8G4tGjGUk6hRPpAA", // MIAMI 8K Virtual Tour
-  "UCdTff6CR1MXSZE_fd_qWREA", // 24/7 LIVE Tropical Paradise
-
-  // Clocks, alerts and monitoring boards (showing numbers, not a place)
-  "UC7pYTpHuYsmaSiNnr-HfTfw", // Hora Certa
-  "UCL2omxZpaK-k1j7UfuLQpVw", // Relógio / Hora Atual
-  "UCSsrBhwy9RdzxX9Hnvps-Vw", // КАРТА ПОВІТРЯНИХ ТРИВОГ
-  "UCvLCdNi-fitoRvWeHrzJp_A", // Карта повітряних тривог
-  "UCUVWoy_rGPdZeUp7jjRHOaQ", // 緊急地震速報ライブ
-  "UCZmcd4cQ2H_ELWAuUdOMgRQ", // GlobalQuake
-
-  // Other programmes
-  "UCpcv404DxfhGYhXgyB9Aoeg", // Triton Poker Series
 ]);
 
 /**
  * Phrases that appear only in programmes.
  *
- * For channels that mix in real cameras (TV Asahi, TBS, NTV and other broadcaster channels
- * also air fixed cameras in Shibuya and Haneda): drops the programmes without hiding the whole
- * channel. Never a single word; two adjacent words or a proper name.
+ * Never a single word; two adjacent words or a proper name.
+ *
+ * 2026-11-03: the programme, news, radio-dinle, music-for and aerial phrases matched nothing once
+ * those streams were excluded from the catalogue, and were removed (the staleness test below
+ * requires every pattern to match something). If a new import brings such streams back, exclude
+ * them in `scripts/cam-exclusions.ts` rather than reviving the patterns.
  */
 export const BROADCAST_TITLE_PATTERNS: readonly RegExp[] = [
-  // Film and series. Only programmes carry episode counts or "all episodes".
-  /\bfull\s+episodes?\b/i,
-  /\bt[üu]m\s+b[öo]l[üu]mler\b/i,
-  // (`season \d` is left out: it matched one entry only, and that was "Vancouver LIVE Cam …
-  //  Alaska Season 2026" = a real cruise ship camera. Cartoons are caught by full episodes.)
-  //
-  // "Watch TV". canlı yayın (live) is also used by real cameras, so it is not taken.
-  /\bcanl[ıi]\s*tv\b/i,
-  /\btv\s*izle\b/i,
-  /\bcanl[ıi]\s*[iİ]zle\b/i,
-  /\btelewizja\b/i,
-  // News programmes. news alone catches broadcasters' street cameras, so two words only.
-  /\bbreaking\s+news\b/i,
-  /ニュースを(?:24時間)?ライブ配信/,
-  /最新ニュースをライブ配信/,
-  /緊急地震速報/,
   // Radio. radio alone catches the background music of beach cameras, so two words only.
-  /\bradyo\s+dinle\b/i,
+  // (Ibiza.fm shows webcams under its radio stream; it is not excluded, only hidden.)
   /\blive\s+radio\b/i,
   // Sound only.
   /\bwhite\s+noise\b/i,
   /\basmr\b/i,
-  /\bmusic\s+for\s+(?:sleep|study|work|dogs|stressed)/i,
-  // Pre-recorded aerials. Not a live view, so not shown as a place.
-  /\b\d+\s*K\s+(?:aerial|virtual\s+tour)\b/i,
 ];
 
 /** Whether that camera is a "broadcast". Judged from the stream title kept for rediscovery. */

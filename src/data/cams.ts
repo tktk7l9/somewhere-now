@@ -6449,21 +6449,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "at-wetter-panorama-24-7-live-stream-webc",
-    name: { ja: "Wetter-Panorama – 24/7 LIVE Stream Webcams Österreich", en: "Wetter-Panorama – 24/7 LIVE Stream Webcams Österreich" },
-    lat: 46.5433,
-    lng: 14.1822,
-    timeZone: "Europe/Vienna",
-    category: "nature",
-    country: "AT",
-    source: {
-      videoId: "NIuO6hrFTrg",
-      channelId: "UC9xLSF0SZDbVa70iTpghQBw",
-      titleKey: "🔴 Wetter-Panorama – 24/7 LIVE Stream Webcams Österreich",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "au-tower-cam-falconcam-project-live",
     name: { ja: "Tower Cam - FalconCam Project LIVE", en: "Tower Cam - FalconCam Project LIVE" },
     lat: -38.3333,
@@ -12958,14 +12943,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "New London", Connecticut (title: New London, CT; Photon hit: New London, Connecticut)
     id: "gb-live-new-london-ct-railcam-railside-l",
     name: { ja: "LIVE New London, CT Railcam | Railside Live", en: "LIVE New London, CT Railcam | Railside Live" },
-    lat: 54.9733,
-    lng: -1.614,
-    timeZone: "Europe/London",
+    lat: 41.3556,
+    lng: -72.0995,
+    timeZone: "America/New_York",
     category: "railway",
-    country: "GB",
+    country: "US",
     source: {
       videoId: "dKI_sYiiY7Y",
       channelId: "UC7jnOYmUBKhtHOhg5keoZRw",
@@ -12985,21 +12970,6 @@ export const CAMS: Cam[] = [
       videoId: "WKGK_hYnlGE",
       channelId: "UCV95t9tjZ1Dx4kOcC-XUyCQ",
       titleKey: "London walk: London Street Walk 24/7 live stream | London Walking Tour",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "gb-new-england-summer-is-live-webcams-we",
-    name: { ja: "New England Summer is LIVE - Webcams, Weather, Music, Timelapse", en: "New England Summer is LIVE - Webcams, Weather, Music, Timelapse" },
-    lat: 54.9733,
-    lng: -1.614,
-    timeZone: "Europe/London",
-    category: "nature",
-    country: "GB",
-    source: {
-      videoId: "x_ruIH2UmjQ",
-      channelId: "UC8gbWbcNNyb5-NIXvFklkOA",
-      titleKey: "New England Summer is LIVE - Webcams, Weather, Music, Timelapse",
     },
   },
   {
@@ -13030,21 +13000,6 @@ export const CAMS: Cam[] = [
       videoId: "h8glPXsnezU",
       channelId: "UCmXB98lpzelFrlryV2llXUQ",
       titleKey: "Oxford Martin School Webcam - Broad Street, Oxford",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "gb-london-underground-first-person-journ",
-    name: { ja: "London Underground First Person Journey 24/7 Livestream!", en: "London Underground First Person Journey 24/7 Livestream!" },
-    lat: 51.5085,
-    lng: -0.1257,
-    timeZone: "Europe/London",
-    category: "city",
-    country: "GB",
-    source: {
-      videoId: "gzV7uUxwgwI",
-      channelId: "UCmEC5XS9Ol-6jqBaKpzqehQ",
-      titleKey: "🔴 London Underground First Person Journey 24/7 Livestream! 🚇",
     },
   },
   {
@@ -13559,21 +13514,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "il-live-middle-east-live-hd-camera-feeds",
-    name: { ja: "LIVE: Middle east LIVE HD Camera Feeds from Israel, Iran and more", en: "LIVE: Middle east LIVE HD Camera Feeds from Israel, Iran and more" },
-    lat: 31.5,
-    lng: 34.75,
-    timeZone: "Asia/Jerusalem",
-    category: "city",
-    country: "IL",
-    source: {
-      videoId: "fn_ZWTr0Tb8",
-      channelId: "UCuyLmOJb7PVCvx8zbRT9_GQ",
-      titleKey: "LIVE: Middle east LIVE HD Camera Feeds from Israel, Iran and more",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "in-live-total-solar-eclipse-august-12-20",
     name: { ja: "Live : Total Solar Eclipse August 12, 2026", en: "Live : Total Solar Eclipse August 12, 2026" },
     lat: 21.6471,
@@ -13690,21 +13630,6 @@ export const CAMS: Cam[] = [
       videoId: "JFpV_LBgK3M",
       channelId: "UCMpn1qLudF-zb4M4bqxLIbw",
       titleKey: "🔴 Termini Beach Hotel & Suites **** - Jesolo Lido (VE) - Live Cam Jesolo - 4k Live Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "it-morning-in-italy-mediterranean-music",
-    name: { ja: "Morning in Italy & Mediterranean Music Scenic Coastal Italy & Lake Como Bliss 4k", en: "Morning in Italy & Mediterranean Music Scenic Coastal Italy & Lake Como Bliss 4k" },
-    lat: 42.8333,
-    lng: 12.8333,
-    timeZone: "Europe/Rome",
-    category: "nature",
-    country: "IT",
-    source: {
-      videoId: "25M3rw1lP68",
-      channelId: "UCb_QGe9EWyCXBbKkY85nBfg",
-      titleKey: "Morning in Italy & Mediterranean Music 🏡🌊 Scenic Coastal Italy & Lake Como Bliss 4k",
     },
   },
   {
@@ -14275,51 +14200,6 @@ export const CAMS: Cam[] = [
       videoId: "RoQGIYTBvzA",
       channelId: "UCknKSbIa2hiSPo-rDerotLA",
       titleKey: "산청 황매산 철쭉",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "mv-maldives-4k-aerial-overwater-villas-c",
-    name: { ja: "MALDIVES 4K Aerial 🇲🇻 Overwater Villas, Crystal Lagoons & Luxury Island Paradise", en: "MALDIVES 4K Aerial 🇲🇻 Overwater Villas, Crystal Lagoons & Luxury Island Paradise" },
-    lat: 3.2,
-    lng: 73,
-    timeZone: "Indian/Maldives",
-    category: "city",
-    country: "MV",
-    source: {
-      videoId: "ubdBRHR9uCA",
-      channelId: "UC-tiimSgUQ-V_OirElcIjUw",
-      titleKey: "MALDIVES 4K Aerial 🇲🇻 🌊 Overwater Villas, Crystal Lagoons & Luxury Island Paradise 🚁",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "mv-maldives-4k-aerial-overwater-vill-2",
-    name: { ja: "MALDIVES 4K Aerial 🇲🇻 Overwater Villas, Crystal Lagoons & Luxury Island Paradise", en: "MALDIVES 4K Aerial 🇲🇻 Overwater Villas, Crystal Lagoons & Luxury Island Paradise" },
-    lat: 3.2,
-    lng: 73,
-    timeZone: "Indian/Maldives",
-    category: "city",
-    country: "MV",
-    source: {
-      videoId: "GYOUJZ5Sp9c",
-      channelId: "UC3Usv7r1W5Tdvsubec-v1AQ",
-      titleKey: "MALDIVES 4K Aerial 🇲🇻 🌊 Overwater Villas, Crystal Lagoons & Luxury Island Paradise 🚁",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "mv-maldives-4k-aerial-overwater-vill-3",
-    name: { ja: "MALDIVES 4K Aerial 🇲🇻 Overwater Villas, Crystal Lagoons & Luxury Island Paradise", en: "MALDIVES 4K Aerial 🇲🇻 Overwater Villas, Crystal Lagoons & Luxury Island Paradise" },
-    lat: 3.2,
-    lng: 73,
-    timeZone: "Indian/Maldives",
-    category: "city",
-    country: "MV",
-    source: {
-      videoId: "9GMK1OG2Mks",
-      channelId: "UCLhmQ_6W-h8u7iapUD8Ky4Q",
-      titleKey: "MALDIVES 4K Aerial 🇲🇻 🌊 Overwater Villas, Crystal Lagoons & Luxury Island Paradise 🚁",
     },
   },
   {
@@ -15418,21 +15298,6 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
-    id: "th-live-bangkok-tour-walking-tour-bangko",
-    name: { ja: "Live Bangkok tour Walking tour Bangkok Hot places ️‍ NIght walks in Thailand 방콕 태국 여행 TV タイライブ", en: "Live Bangkok tour Walking tour Bangkok Hot places ️‍ NIght walks in Thailand 방콕 태국 여행 TV タイライブ" },
-    lat: 13.754,
-    lng: 100.5014,
-    timeZone: "Asia/Bangkok",
-    category: "city",
-    country: "TH",
-    source: {
-      videoId: "OkQ0utdxwBY",
-      channelId: "UCSkaixM5p8mYuBIdy2J0ZHw",
-      titleKey: "Live Bangkok tour 🔴 Walking tour Bangkok Hot places ❤️‍🔥 NIght walks in Thailand 방콕 태국 여행 TV タイライブ",
-    },
-  },
-  {
     // coords: Open-Meteo geocoding "Patong", Phuket (title; Photon hit within 25 km: 7Days Premium Hotel Patong Phuket, จังหวัดภูเก็ต)
     id: "th-nanai-road-patong-phuket-thailand-lan",
     name: { ja: "Nanai Road, Patong, Phuket, Thailand | Landmark Bar | Live Camera Stream", en: "Nanai Road, Patong, Phuket, Thailand | Landmark Bar | Live Camera Stream" },
@@ -15550,21 +15415,6 @@ export const CAMS: Cam[] = [
       videoId: "H33wtprQqSM",
       channelId: "UCGOxU-8iNOeoG3a337shXoA",
       titleKey: "Fishing Pier Camera",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-universal-studios-live-24-7-rides-sho",
-    name: { ja: "Universal Studios Live 24/7 Rides & Shows Stream - Sleep, Study, Relax @ Universal Hollywood (USH)", en: "Universal Studios Live 24/7 Rides & Shows Stream - Sleep, Study, Relax @ Universal Hollywood (USH)" },
-    lat: 39.6217,
-    lng: -87.4514,
-    timeZone: "America/Indiana/Indianapolis",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "v99dNIuFBKo",
-      channelId: "UCyDRWDDc9aEC2fQRYlpDj4g",
-      titleKey: "🔴 Universal Studios Live 24/7 Rides & Shows Stream - Sleep, Study, Relax @ Universal Hollywood (USH)",
     },
   },
   {
@@ -16469,21 +16319,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-steel-highway-pacific-northwest-multi",
-    name: { ja: "Steel Highway Pacific Northwest Multi Stream - WA/OR Live Rail & Weather #SteelHighway", en: "Steel Highway Pacific Northwest Multi Stream - WA/OR Live Rail & Weather #SteelHighway" },
-    lat: 40.0204,
-    lng: -80.804,
-    timeZone: "America/New_York",
-    category: "railway",
-    country: "US",
-    source: {
-      videoId: "XD8QtMY88GE",
-      channelId: "UCJId-kbfsO5K4kU9cKE_TqA",
-      titleKey: "Steel Highway Pacific Northwest Multi Stream - WA/OR Live Rail & Weather  #SteelHighway",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-live-now-24-7-kilauea-volcano-livestr",
     name: { ja: "Live Now: 24/7 Kilauea Volcano Livestream in Hawaii (Cam B)", en: "Live Now: 24/7 Kilauea Volcano Livestream in Hawaii (Cam B)" },
     lat: 22.2121,
@@ -16630,36 +16465,6 @@ export const CAMS: Cam[] = [
       videoId: "WlUeYz1It5o",
       channelId: "UCzmWqxLV9jVoxvmrbiuBUMw",
       titleKey: "Barbara Drummond Thorne Academic and Research Facility Construction (Quad View)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-steel-highway-iowa-bnsf-cpkc-cn-multi",
-    name: { ja: "Steel Highway Iowa BNSF/CPKC/CN Multi Stream - IA Live Trains & Weather #steelhighway", en: "Steel Highway Iowa BNSF/CPKC/CN Multi Stream - IA Live Trains & Weather #steelhighway" },
-    lat: 40.0204,
-    lng: -80.804,
-    timeZone: "America/New_York",
-    category: "railway",
-    country: "US",
-    source: {
-      videoId: "PFWaX7PCwQI",
-      channelId: "UCJId-kbfsO5K4kU9cKE_TqA",
-      titleKey: "Steel Highway Iowa BNSF/CPKC/CN Multi Stream - IA Live Trains & Weather #steelhighway",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-steel-highway-iowa-up-iais-multi-stre",
-    name: { ja: "Steel Highway Iowa UP/IAIS Multi Stream - IA Live Rail & Weather #steelhighway", en: "Steel Highway Iowa UP/IAIS Multi Stream - IA Live Rail & Weather #steelhighway" },
-    lat: 40.0204,
-    lng: -80.804,
-    timeZone: "America/New_York",
-    category: "railway",
-    country: "US",
-    source: {
-      videoId: "Exa4xEN873A",
-      channelId: "UCJId-kbfsO5K4kU9cKE_TqA",
-      titleKey: "Steel Highway Iowa UP/IAIS Multi Stream - IA Live Rail & Weather  #steelhighway",
     },
   },
   {
@@ -17125,21 +16930,6 @@ export const CAMS: Cam[] = [
       videoId: "1EiC9bvVGnk",
       channelId: "UCEpDjqeFIGTqHwk-uULx72Q",
       titleKey: "Jackson Hole Town Square Live Webcam Stream – See the Action Now",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-live-scenic-cameras-florida-bahamas-c",
-    name: { ja: "LIVE - Scenic Cameras - Florida, Bahamas, Caribbean Islands and more. Even Alaska!", en: "LIVE - Scenic Cameras - Florida, Bahamas, Caribbean Islands and more. Even Alaska!" },
-    lat: 43.7797,
-    lng: -102.5549,
-    timeZone: "America/Denver",
-    category: "harbor",
-    country: "US",
-    source: {
-      videoId: "y0XPkjM9-P4",
-      channelId: "UCG8-xn6zUbEqmqlnsvrD33Q",
-      titleKey: "LIVE - Scenic Cameras - Florida, Bahamas, Caribbean Islands and more. Even Alaska!",
     },
   },
   {
@@ -18299,21 +18089,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-live-disney-world-dashboard-disney-ca",
-    name: { ja: "LIVE Disney World Dashboard - Disney Cams, Park Info, News & More", en: "LIVE Disney World Dashboard - Disney Cams, Park Info, News & More" },
-    lat: 36.4812,
-    lng: -95.015,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "Ufgx0F2Zjo8",
-      channelId: "UCKSs6PXgeYDSHTcGdaItJYw",
-      titleKey: "LIVE  Disney World Dashboard - Disney Cams, Park Info, News & More",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-south-pier-lighthouse-cam",
     name: { ja: "South Pier Lighthouse Cam", en: "South Pier Lighthouse Cam" },
     lat: 37.3292,
@@ -18325,21 +18100,6 @@ export const CAMS: Cam[] = [
       videoId: "Pij4VMrNMFY",
       channelId: "UCzkaQrI9-nSv373EvK5p0SQ",
       titleKey: "South Pier Lighthouse Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-tropical-summer-bossa-nova-beach-cafe",
-    name: { ja: "Tropical Summer Bossa Nova Beach Cafe Ambience & Ocean Wave Sounds for a Good Mood | Seaside Vibes", en: "Tropical Summer Bossa Nova Beach Cafe Ambience & Ocean Wave Sounds for a Good Mood | Seaside Vibes" },
-    lat: 27.0984,
-    lng: -80.2776,
-    timeZone: "America/New_York",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "w4_V8fa3Rt4",
-      channelId: "UCjCZYDvsIedScbetox2LBCA",
-      titleKey: "Tropical Summer Bossa Nova 🌴 Beach Cafe Ambience & Ocean Wave Sounds for a Good Mood | Seaside Vibes",
     },
   },
   {
@@ -18955,21 +18715,6 @@ export const CAMS: Cam[] = [
       videoId: "huTf3dIE7MU",
       channelId: "UCH0VVepamGEc7ovAEAJPmWQ",
       titleKey: "🔴 Downtown Los Angeles Live Cam - Sun Jul 12, 2026 PM",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-miami-8k-virtual-tour-brickell-skylin",
-    name: { ja: "MIAMI 8K Virtual Tour 🇺🇸 Brickell Skyline, Miami Beach & Florida Coastal Escape ️", en: "MIAMI 8K Virtual Tour 🇺🇸 Brickell Skyline, Miami Beach & Florida Coastal Escape ️" },
-    lat: 25.7501,
-    lng: -80.2045,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "JELaF9xTQNk",
-      channelId: "UCrI8aOr8G4tGjGUk6hRPpAA",
-      titleKey: "MIAMI 8K Virtual Tour 🇺🇸 🐬 Brickell Skyline, Miami Beach & Florida Coastal Escape ✈️",
     },
   },
   {
@@ -19978,21 +19723,6 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
-    id: "us-alabama-weather-network-coastal-skyca",
-    name: { ja: "Alabama Weather Network - Coastal SkyCam Cameras", en: "Alabama Weather Network - Coastal SkyCam Cameras" },
-    lat: 43.0964,
-    lng: -78.3909,
-    timeZone: "America/New_York",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "3Rp_9FUKH4I",
-      channelId: "UCKWbzT8S4nBdmdx3IeqSsKg",
-      titleKey: "Alabama Weather Network - Coastal SkyCam Cameras",
-    },
-  },
-  {
     // coords: Open-Meteo geocoding "Roanoke", Virginia (title; Photon hit within 25 km: Hotel, Virginia)
     id: "us-hotel-roanoke-railcam-east",
     name: { ja: "Hotel Roanoke RailCam - East", en: "Hotel Roanoke RailCam - East" },
@@ -20593,21 +20323,6 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
-    id: "us-the-world-live-original-version-earth",
-    name: { ja: "The World Live - Original Version | earthTV®", en: "The World Live - Original Version | earthTV®" },
-    lat: 41.2946,
-    lng: -70.0578,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "HfgIFGbdGJ0",
-      channelId: "UCRuyAVeVd7oUwh0LWmxxBBQ",
-      titleKey: "The World Live - Original Version | earthTV®",
-    },
-  },
-  {
     // coords: Open-Meteo geocoding "Fort Lauderdale", Florida (title; Photon hit within 25 km: Elbo Room, FL)
     id: "us-live-fort-lauderdale-beach",
     name: { ja: "LIVE - Fort Lauderdale Beach", en: "LIVE - Fort Lauderdale Beach" },
@@ -20713,14 +20428,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Cabo San Lucas", Baja California Sur (title: Cabo San Lucas, Baja California Sur; Photon hit: Cabo San Lucas, Baja California Sur)
     id: "us-cabo-san-lucas-baja-california-sur-en",
     name: { ja: "Cabo San Lucas, Baja California Sur En Vivo | Vista Playa El Médano", en: "Cabo San Lucas, Baja California Sur En Vivo | Vista Playa El Médano" },
-    lat: 35.4306,
-    lng: -88.4742,
-    timeZone: "America/Chicago",
+    lat: 22.8909,
+    lng: -109.9124,
+    timeZone: "America/Mazatlan",
     category: "nature",
-    country: "US",
+    country: "MX",
     source: {
       videoId: "POijZWZ1qwc",
       channelId: "UC22kLkjatN1XJVC_9T9otRg",
@@ -22079,21 +21794,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "de-destination-deutschland-24-7-live-str",
-    name: { ja: "Destination Deutschland – 24/7 LIVE Stream Webcams Germany", en: "Destination Deutschland – 24/7 LIVE Stream Webcams Germany" },
-    lat: 51.5,
-    lng: 10.5,
-    timeZone: "Europe/Berlin",
-    category: "nature",
-    country: "DE",
-    source: {
-      videoId: "Li3Dvqlo5uE",
-      channelId: "UC9xLSF0SZDbVa70iTpghQBw",
-      titleKey: "🔴 Destination Deutschland – 24/7 LIVE Stream Webcams Germany",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "de-live-a-100-neubau-ringbahnbrucke",
     name: { ja: "LIVE -- A 100 Neubau Ringbahnbrücke", en: "LIVE -- A 100 Neubau Ringbahnbrücke" },
     lat: 52.9833,
@@ -22195,21 +21895,6 @@ export const CAMS: Cam[] = [
       videoId: "Rzpgp9eylzw",
       channelId: "UCE8Jk9TunNL-G2QmrfSpQ-w",
       titleKey: "Live-HD-Webcam Kirner Land - Skywalk",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "de-spotlight-germany-24-7-live-webcams-s",
-    name: { ja: "Spotlight Germany – 24/7 Live Webcams: Städte, Küsten & Natur in HD", en: "Spotlight Germany – 24/7 Live Webcams: Städte, Küsten & Natur in HD" },
-    lat: 51.5,
-    lng: 10.5,
-    timeZone: "Europe/Berlin",
-    category: "city",
-    country: "DE",
-    source: {
-      videoId: "aYtgGjMDagw",
-      channelId: "UCzLB2h38nyHSIaALzwtPvfg",
-      titleKey: "🔴 Spotlight Germany – 24/7 Live Webcams: Städte, Küsten & Natur in HD",
     },
   },
   {
@@ -22600,21 +22285,6 @@ export const CAMS: Cam[] = [
       videoId: "PqJdoFV6kYc",
       channelId: "UCIrgn9JEkBB_GuAbONCFUHA",
       titleKey: "Pakkahuoneen ranta kamera 1",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "fi-live-webcams-finnish-ski-resorts-ruka",
-    name: { ja: "Live Webcams Finnish Ski Resorts Ruka and Pyhä", en: "Live Webcams Finnish Ski Resorts Ruka and Pyhä" },
-    lat: 59.9346,
-    lng: 23.9762,
-    timeZone: "Europe/Helsinki",
-    category: "city",
-    country: "FI",
-    source: {
-      videoId: "RbPKkXif03U",
-      channelId: "UCgL2EJAYMsU9ifTuiZ9wUFA",
-      titleKey: "Live Webcams Finnish Ski Resorts Ruka and Pyhä",
     },
   },
   {
@@ -23624,21 +23294,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "in-news18-marathi-live-tv-maharashtra-po",
-    name: { ja: "News18 Marathi Live TV |Maharashtra Politics | Manoj Jarange | Cabinet Meeting Update", en: "News18 Marathi Live TV |Maharashtra Politics | Manoj Jarange | Cabinet Meeting Update" },
-    lat: 14.746,
-    lng: 74.504,
-    timeZone: "Asia/Kolkata",
-    category: "city",
-    country: "IN",
-    source: {
-      videoId: "L-tPyWhPpzg",
-      channelId: "UCrcpw88HvKJ0skdsHniCJtQ",
-      titleKey: "News18 Marathi Live TV |🔴Maharashtra Politics | Manoj Jarange | Cabinet Meeting Update",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "it-live-now-24-7-etna-volcano-sicily-ita",
     name: { ja: "Live Now: 24/7 Etna Volcano, Sicily Italy in 4K", en: "Live Now: 24/7 Etna Volcano, Sicily Italy in 4K" },
     lat: 37.5341,
@@ -23714,21 +23369,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "it-24-7-mediterranean-coastal-lounge-rel",
-    name: { ja: "24/7 Mediterranean Coastal Lounge ️ Relaxing Italian Music & Ocean Waves for Peaceful Days.", en: "24/7 Mediterranean Coastal Lounge ️ Relaxing Italian Music & Ocean Waves for Peaceful Days." },
-    lat: 42.8333,
-    lng: 12.8333,
-    timeZone: "Europe/Rome",
-    category: "nature",
-    country: "IT",
-    source: {
-      videoId: "jbKq6xFzJVQ",
-      channelId: "UCEA_N0yxRHdXxmEvMcgdOBw",
-      titleKey: "🌊 24/7 Mediterranean Coastal Lounge ☀️ Relaxing Italian Music & Ocean Waves for Peaceful Days.",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "it-village-rosapineta-sud-rosolina-mare",
     name: { ja: "Village Rosapineta Sud - Rosolina Mare, Italy - Live Cam", en: "Village Rosapineta Sud - Rosolina Mare, Italy - Live Cam" },
     lat: 45.1342,
@@ -23785,36 +23425,6 @@ export const CAMS: Cam[] = [
       videoId: "GFq9yYbaRcc",
       channelId: "UCxS4zDiYY9Ix7Yjgsvua1fQ",
       titleKey: "LIVE - REALVIEWCAM360 da Passolanciano (CH) PanoramaPark - Italy",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "it-live-cam-around-the-world-rolling-cam",
-    name: { ja: "Live Cam around the World - Rolling Cam with Chill & Lounge Music", en: "Live Cam around the World - Rolling Cam with Chill & Lounge Music" },
-    lat: 44.6667,
-    lng: 10.8833,
-    timeZone: "Europe/Rome",
-    category: "nature",
-    country: "IT",
-    source: {
-      videoId: "i10aOLMK76k",
-      channelId: "UCMpn1qLudF-zb4M4bqxLIbw",
-      titleKey: "🔴 Live Cam around the World - Rolling Cam with Chill & Lounge Music",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "it-dolomiten-panorama-24-7-live-stream-w",
-    name: { ja: "Dolomiten Panorama – 24/7 LIVE Stream Webcams Alpen Italien", en: "Dolomiten Panorama – 24/7 LIVE Stream Webcams Alpen Italien" },
-    lat: 45.7531,
-    lng: 7.6369,
-    timeZone: "Europe/Rome",
-    category: "nature",
-    country: "IT",
-    source: {
-      videoId: "Y1qp-EVF_oU",
-      channelId: "UC9xLSF0SZDbVa70iTpghQBw",
-      titleKey: "🔴 Dolomiten Panorama – 24/7 LIVE Stream Webcams Alpen Italien",
     },
   },
   {
@@ -24929,21 +24539,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-the-real-time-earthquake-alert-channe",
-    name: { ja: "【地震ライブ 公式】日本全国 緊急地震速報ライブ The Real-time Earthquake Alert Channel for Japan (Tokyo) since 2012", en: "【地震ライブ 公式】日本全国 緊急地震速報ライブ The Real-time Earthquake Alert Channel for Japan (Tokyo) since 2012" },
-    lat: 35.6854,
-    lng: 139.7531,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "I5_vUnu1GN4",
-      channelId: "UCUVWoy_rGPdZeUp7jjRHOaQ",
-      titleKey: "【地震ライブ 公式】日本全国 緊急地震速報ライブ The Real-time Earthquake Alert Channel for Japan (Tokyo) since 2012",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-live-2026-08-12-17-00-osaka-japan-tra",
     name: { ja: "【LIVE】大阪環状線・梅田貨物線ライブカメラ 2026/08/12 17:00～ Osaka, JAPAN | Train Camera", en: "【LIVE】大阪環状線・梅田貨物線ライブカメラ 2026/08/12 17:00～ Osaka, JAPAN | Train Camera" },
     lat: 34.6938,
@@ -25990,21 +25585,6 @@ export const CAMS: Cam[] = [
       videoId: "TA67Km0o6bs",
       channelId: "UCagvBNz5N09i3hrneuWgPmg",
       titleKey: "[비☔️] 올림픽공원 생중계",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "kr-top10-korean-food-street-real-time-it",
-    name: { ja: "Top10 Korean food street ● Real-time Itaewon street Seoul South Korea Travel Vlog TV 이태원거리", en: "Top10 Korean food street ● Real-time Itaewon street Seoul South Korea Travel Vlog TV 이태원거리" },
-    lat: 37.566,
-    lng: 126.9784,
-    timeZone: "Asia/Seoul",
-    category: "city",
-    country: "KR",
-    source: {
-      videoId: "pvrjsRb4GLU",
-      channelId: "UCSkaixM5p8mYuBIdy2J0ZHw",
-      titleKey: "Top10 Korean food street ● Real-time Itaewon street Seoul South Korea Travel Vlog TV 이태원거리",
     },
   },
   {
@@ -27464,21 +27044,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-live-24-7-webcams-around-the-world-fo",
-    name: { ja: "LIVE: 24/7 WEBCAMS around the world | FOX 10 Phoenix", en: "LIVE: 24/7 WEBCAMS around the world | FOX 10 Phoenix" },
-    lat: 41.2946,
-    lng: -70.0578,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "ShuBcJKNbl4",
-      channelId: "UCNjfNLnQYbjBEvnS8KFuyGQ",
-      titleKey: "🔴LIVE: 24/7 WEBCAMS around the world | FOX 10 Phoenix",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-onni-606-live-cam-downtown-bellevue-3",
     name: { ja: "Onni 606 LIVE Cam — Downtown Bellevue 3-Tower Project | 24/7", en: "Onni 606 LIVE Cam — Downtown Bellevue 3-Tower Project | 24/7" },
     lat: 41.85,
@@ -28030,21 +27595,6 @@ export const CAMS: Cam[] = [
       videoId: "Hoh5o3Imj10",
       channelId: "UCSUv9EglJhWrY-3JyiXm0Jw",
       titleKey: "Hwy 109 N @ Eastgate Blvd/Leeville Pk",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-surfline-tv-live-surf-cams-24-7",
-    name: { ja: "Surfline TV | LIVE Surf Cams 24/7", en: "Surfline TV | LIVE Surf Cams 24/7" },
-    lat: 29.9849,
-    lng: -84.421,
-    timeZone: "America/New_York",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "hm9iAviOZ20",
-      channelId: "UC4i3-yfVazfuqwoz71T79Sw",
-      titleKey: "Surfline TV | LIVE Surf Cams 24/7",
     },
   },
   {
@@ -29999,21 +29549,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "gr-greece-sky-journey-live-4k-relaxing-d",
-    name: { ja: "Greece Sky Journey LIVE 🇬🇷 4K | Relaxing Drone Views, Ambient Music & Mediterranean Escape", en: "Greece Sky Journey LIVE 🇬🇷 4K | Relaxing Drone Views, Ambient Music & Mediterranean Escape" },
-    lat: 40.7672,
-    lng: 22.1519,
-    timeZone: "Europe/Athens",
-    category: "city",
-    country: "GR",
-    source: {
-      videoId: "OIIdQCmHNs0",
-      channelId: "UCVfbWtsQaxvlbV_-Vswlcbg",
-      titleKey: "Greece Sky Journey LIVE 🇬🇷 4K | Relaxing Drone Views, Ambient Music & Mediterranean Escape",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-live-tokyo-highway-live-camera-20-9",
     name: { ja: "【LIVE】首都高 都心環状線 宝町付近 ライブカメラ/Tokyo highway Live Camera 2026/07/13 01:00～", en: "【LIVE】首都高 都心環状線 宝町付近 ライブカメラ/Tokyo highway Live Camera 2026/07/13 01:00～" },
     lat: 35.6895,
@@ -30494,21 +30029,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "kr-2-tv-yonhapnewstv",
-    name: { ja: "[생중계] '주택공급 2차 회동' 오세훈 서울시장 브리핑…이 시각 서울시청｜ 오세훈 \"탄천물재생센터 구상 정식 제안…청년주택단지 가능\"/ 연합뉴스TV(YonhapnewsTV)", en: "[생중계] '주택공급 2차 회동' 오세훈 서울시장 브리핑…이 시각 서울시청｜ 오세훈 \"탄천물재생센터 구상 정식 제안…청년주택단지 가능\"/ 연합뉴스TV(YonhapnewsTV)" },
-    lat: 37.566,
-    lng: 126.9784,
-    timeZone: "Asia/Seoul",
-    category: "city",
-    country: "KR",
-    source: {
-      videoId: "IrB8sFK8cXo",
-      channelId: "UCTHCOPwqNfZ0uiKOvFyhGwg",
-      titleKey: "[🔴생중계] '주택공급 2차 회동' 오세훈 서울시장 브리핑…이 시각 서울시청｜ 오세훈 \"탄천물재생센터 구상 정식 제안…청년주택단지 가능\"/ 연합뉴스TV(YonhapnewsTV)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "kr-tv",
     name: { ja: "올공 올림픽공원 해드볼경기장 민심의 소리 진민경 TV 라이브 방송", en: "올공 올림픽공원 해드볼경기장 민심의 소리 진민경 TV 라이브 방송" },
     lat: 37.2611,
@@ -30520,21 +30040,6 @@ export const CAMS: Cam[] = [
       videoId: "MeZ1Lg1I3s0",
       channelId: "UC0KEt6rGoJFlShc-rbASCtA",
       titleKey: "올공  올림픽공원 해드볼경기장 민심의 소리 진민경 TV 라이브 방송",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "kr-live-2-mbn-news",
-    name: { ja: "[LIVE] 오세훈 서울시장-김윤덕 국토교통부 장관 2차 회동…용산공원 주택공급 재논의 | MBN NEWS", en: "[LIVE] 오세훈 서울시장-김윤덕 국토교통부 장관 2차 회동…용산공원 주택공급 재논의 | MBN NEWS" },
-    lat: 37.566,
-    lng: 126.9784,
-    timeZone: "Asia/Seoul",
-    category: "city",
-    country: "KR",
-    source: {
-      videoId: "ToE1yFej__c",
-      channelId: "UCG9aFJTZ-lMCHAiO1KJsirg",
-      titleKey: "🔴[LIVE] 오세훈 서울시장-김윤덕 국토교통부 장관 2차 회동…용산공원 주택공급 재논의 | MBN NEWS",
     },
   },
   {
@@ -30715,21 +30220,6 @@ export const CAMS: Cam[] = [
       videoId: "pr03p8mI7n4",
       channelId: "UCLjq5Rv7vp0sD3M9mkW2elQ",
       titleKey: "[실시간 라이브] 철쭉동산(불암산 힐링타운 내) 경치(LiveCam_Healing_Nowon_Seoul_Korea LIVE CAM Azalea Garden)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ua-live-ukraine-real-time-skyline-camera",
-    name: { ja: "LIVE: Ukraine real-time skyline cameras from Kharkiv, Donetsk, Kyiv, Sumy and more", en: "LIVE: Ukraine real-time skyline cameras from Kharkiv, Donetsk, Kyiv, Sumy and more" },
-    lat: 49.2549,
-    lng: 31.0038,
-    timeZone: "Europe/Kyiv",
-    category: "city",
-    country: "UA",
-    source: {
-      videoId: "IcZ-7sFi1HM",
-      channelId: "UCper-NWj8xdXacSpFtF4Mgg",
-      titleKey: "LIVE: Ukraine real-time skyline cameras from Kharkiv, Donetsk, Kyiv, Sumy and more",
     },
   },
   {
@@ -34229,21 +33719,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-2026-8-26-18-live",
-    name: { ja: "【ライブ】最新天気ニュース・地震情報 2026年8月26日(水)／台風18号通過後も沖縄本島や奄美は荒天に注意〈ウェザーニュースLiVEイブニング・山岸愛梨／宇野沢達也〉", en: "【ライブ】最新天気ニュース・地震情報 2026年8月26日(水)／台風18号通過後も沖縄本島や奄美は荒天に注意〈ウェザーニュースLiVEイブニング・山岸愛梨／宇野沢達也〉" },
-    lat: 26.213,
-    lng: 127.6785,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "RKTfcpUkteA",
-      channelId: "UCNsidkYpIAQ4QaufptQBPHQ",
-      titleKey: "【ライブ】最新天気ニュース・地震情報 2026年8月26日(水)／台風18号通過後も沖縄本島や奄美は荒天に注意〈ウェザーニュースLiVEイブニング・山岸愛梨／宇野沢達也〉",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-4k-live-cafe-cahaya-bulan-okinawa-jap",
     name: { ja: "【4K Live】沖縄ライブカメラ cafe CAHAYA BULAN OKINAWA JAPAN(本部町備瀬 )", en: "【4K Live】沖縄ライブカメラ cafe CAHAYA BULAN OKINAWA JAPAN(本部町備瀬 )" },
     lat: 26.1919,
@@ -34979,21 +34454,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "cn-24-mnews-taiwan-news-24h-live-24",
-    name: { ja: "鏡新聞 線上看 24小時 新聞直播｜mnews Taiwan News 24H Live｜台湾のニュース24時間オンライン放送", en: "鏡新聞 線上看 24小時 新聞直播｜mnews Taiwan News 24H Live｜台湾のニュース24時間オンライン放送" },
-    lat: 32.3281,
-    lng: 118.7638,
-    timeZone: "Asia/Shanghai",
-    category: "city",
-    country: "CN",
-    source: {
-      videoId: "5n0y6b0Q25o",
-      channelId: "UC4LjkybVKXCDlneVXlKAbmw",
-      titleKey: "鏡新聞 線上看 24小時 新聞直播｜mnews Taiwan News 24H Live｜台湾のニュース24時間オンライン放送",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "th-crystal-bay-beach-resort-panoramic-la",
     name: { ja: "Crystal Bay Beach Resort Panoramic | Lamai | Koh Samui | Thailand | Live Beach Webcam | 2160p 4K", en: "Crystal Bay Beach Resort Panoramic | Lamai | Koh Samui | Thailand | Live Beach Webcam | 2160p 4K" },
     lat: 9.4659,
@@ -35005,21 +34465,6 @@ export const CAMS: Cam[] = [
       videoId: "NTTtqzL5OWI",
       channelId: "UCmYyJaUxYiF5IbLx-0jFXHQ",
       titleKey: "🔴 Crystal Bay Beach Resort Panoramic | Lamai | Koh Samui | Thailand | Live Beach Webcam | 2160p 4K",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "sg-universal-studios-live-worldwide-virt",
-    name: { ja: "Universal Studios Live Worldwide Virtual Webcam Stream - Hollywood, Orlando, Singapore, and Japan", en: "Universal Studios Live Worldwide Virtual Webcam Stream - Hollywood, Orlando, Singapore, and Japan" },
-    lat: 1.2557,
-    lng: 103.821,
-    timeZone: "Asia/Singapore",
-    category: "city",
-    country: "SG",
-    source: {
-      videoId: "6fdFZUqi0oU",
-      channelId: "UCyDRWDDc9aEC2fQRYlpDj4g",
-      titleKey: "Universal Studios Live Worldwide Virtual Webcam Stream - Hollywood, Orlando, Singapore, and Japan",
     },
   },
   {
@@ -35144,36 +34589,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "vn-live-bac-ha-market-real-life-in-vietn",
-    name: { ja: "LIVE Bac Ha Market 🇻🇳 | Real Life in Vietnam’s Most Colorful Mountain Market Compilation Best Moment", en: "LIVE Bac Ha Market 🇻🇳 | Real Life in Vietnam’s Most Colorful Mountain Market Compilation Best Moment" },
-    lat: 21.1861,
-    lng: 106.0763,
-    timeZone: "Asia/Ho_Chi_Minh",
-    category: "city",
-    country: "VN",
-    source: {
-      videoId: "WnebXNDmBN0",
-      channelId: "UCY9cRg8kk_8AJ5ywz2rzMjw",
-      titleKey: "LIVE Bac Ha Market 🇻🇳 | Real Life in Vietnam’s Most Colorful Mountain Market Compilation Best Moment",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "in-india-today-tv-live-nepal-flash-flood",
-    name: { ja: "India Today TV LIVE: Nepal Flash Floods | PM Modi | Rahul Gandhi | US sanctions 4 India companies", en: "India Today TV LIVE: Nepal Flash Floods | PM Modi | Rahul Gandhi | US sanctions 4 India companies" },
-    lat: 29.7804,
-    lng: 74.7049,
-    timeZone: "Asia/Kolkata",
-    category: "city",
-    country: "IN",
-    source: {
-      videoId: "sYZtOFzM78M",
-      channelId: "UCYPvAwZP8pZhSMW8qs7cVCw",
-      titleKey: "India Today TV LIVE: Nepal Flash Floods | PM Modi | Rahul Gandhi | US sanctions 4 India companies",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "au-melbourne-live-from-platinum-apartmen",
     name: { ja: "MELBOURNE Live from Platinum Apartments", en: "MELBOURNE Live from Platinum Apartments" },
     lat: -37.814,
@@ -35185,96 +34600,6 @@ export const CAMS: Cam[] = [
       videoId: "l_8DrACHpwY",
       channelId: "UCLA3Uc4amh-v5eIS6M_r2ow",
       titleKey: "MELBOURNE Live from Platinum Apartments",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "in-cnn-news18-live-tv-nepal-flash-floods",
-    name: { ja: "CNN-News18 LIVE TV | NEPAL Flash Floods | Mamdani Vs RSS In NYC | GIVA Withdraws Raksha Bandhan AD", en: "CNN-News18 LIVE TV | NEPAL Flash Floods | Mamdani Vs RSS In NYC | GIVA Withdraws Raksha Bandhan AD" },
-    lat: 11.8675,
-    lng: 75.3576,
-    timeZone: "Asia/Kolkata",
-    category: "city",
-    country: "IN",
-    source: {
-      videoId: "rfDx1HMvXbQ",
-      channelId: "UCef1-8eOpJgud7szVPlZQAQ",
-      titleKey: "CNN-News18 LIVE TV | NEPAL Flash Floods | Mamdani Vs RSS In NYC | GIVA Withdraws Raksha Bandhan AD",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "in-tv9-telugu-news-live",
-    name: { ja: "TV9 Telugu News LIVE", en: "TV9 Telugu News LIVE" },
-    lat: 22.0874,
-    lng: 82.1439,
-    timeZone: "Asia/Kolkata",
-    category: "city",
-    country: "IN",
-    source: {
-      videoId: "II_m28Bm-iM",
-      channelId: "UCPXTXMecYqnRKNdqdVOGSFg",
-      titleKey: "TV9 Telugu News LIVE",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "tr-cafe-de-anatolia-24-7-live-radio-ethn",
-    name: { ja: "Cafe De Anatolia • 24/7 Live Radio • Ethno World | Oriental Radio | Best Ethnic Deep House Music", en: "Cafe De Anatolia • 24/7 Live Radio • Ethno World | Oriental Radio | Best Ethnic Deep House Music" },
-    lat: 37.7131,
-    lng: 40.3315,
-    timeZone: "Europe/Istanbul",
-    category: "city",
-    country: "TR",
-    source: {
-      videoId: "Gsxr_Jqv_I8",
-      channelId: "UC1Tr6S-XLBk1NzNX1jErWMg",
-      titleKey: "Cafe De Anatolia • 24/7 Live Radio • Ethno World | Oriental Radio | Best Ethnic Deep House Music",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "tr-kral-akustik-radyo-canl-radyo-dinle-o",
-    name: { ja: "Kral Akustik Radyo - Canlı Radyo Dinle • | Online Radyo Dinle | Kralmuzik.com #canlıradyo", en: "Kral Akustik Radyo - Canlı Radyo Dinle • | Online Radyo Dinle | Kralmuzik.com #canlıradyo" },
-    lat: 38.3856,
-    lng: 39.9693,
-    timeZone: "Europe/Istanbul",
-    category: "city",
-    country: "TR",
-    source: {
-      videoId: "6He9sFxFv8Y",
-      channelId: "UCEAW_kmPVjxTC50vuLyKOQA",
-      titleKey: "Kral Akustik Radyo - Canlı Radyo Dinle • | Online Radyo Dinle | Kralmuzik.com #canlıradyo",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "tr-psychedelic-anatolian-rock-canl-yay-n",
-    name: { ja: "Psychedelic Anatolian Rock Canlı Yayın - Barış Manço, Erkin Koray, Selda Bağcan, Cem Karaca", en: "Psychedelic Anatolian Rock Canlı Yayın - Barış Manço, Erkin Koray, Selda Bağcan, Cem Karaca" },
-    lat: 40.9135,
-    lng: 30.1895,
-    timeZone: "Europe/Istanbul",
-    category: "city",
-    country: "TR",
-    source: {
-      videoId: "JRQGif7Y7Kg",
-      channelId: "UCFzn3ls-N6pg8bHhj0D8z8Q",
-      titleKey: "Psychedelic Anatolian Rock Canlı Yayın - Barış Manço, Erkin Koray, Selda Bağcan, Cem Karaca",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "tr-cnn-turk-canl-yay-n-hd-canl-tv-izle-h",
-    name: { ja: "CNN TÜRK - Canlı Yayın ᴴᴰ - Canlı TV izle | HABER", en: "CNN TÜRK - Canlı Yayın ᴴᴰ - Canlı TV izle | HABER" },
-    lat: 37.0464,
-    lng: 29.6949,
-    timeZone: "Europe/Istanbul",
-    category: "city",
-    country: "TR",
-    source: {
-      videoId: "6N8_r2uwLEc",
-      channelId: "UCV6zcRug6Hqp1UX_FdyUeBg",
-      titleKey: "CNN TÜRK - 🔴 Canlı Yayın ᴴᴰ - Canlı TV izle | HABER",
     },
   },
   {
@@ -35305,21 +34630,6 @@ export const CAMS: Cam[] = [
       videoId: "zp6LNSoq000",
       channelId: "UCnsR6NZFdu_kOljI3SWiGJw",
       titleKey: "Western Wall, Temple Archaeological Park",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "tr-ntv-canl-yay-n-full-hd-izle",
-    name: { ja: "NTV Canlı Yayın - Full HD İzle", en: "NTV Canlı Yayın - Full HD İzle" },
-    lat: 38.1925,
-    lng: 27.5552,
-    timeZone: "Europe/Istanbul",
-    category: "city",
-    country: "TR",
-    source: {
-      videoId: "pqq5c6k70kk",
-      channelId: "UC9TDTjbOjFB9jADmPhSAPsw",
-      titleKey: "NTV Canlı Yayın - Full HD İzle",
     },
   },
   {
@@ -35383,21 +34693,6 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
-    id: "fr-disneyland-paris-disney-adventure-wor",
-    name: { ja: "Disneyland Paris & Disney Adventure World Live Virtual Webcam Ambience Stream", en: "Disneyland Paris & Disney Adventure World Live Virtual Webcam Ambience Stream" },
-    lat: 48.8534,
-    lng: 2.3488,
-    timeZone: "Europe/Paris",
-    category: "city",
-    country: "FR",
-    source: {
-      videoId: "4_cquOvbErQ",
-      channelId: "UCyDRWDDc9aEC2fQRYlpDj4g",
-      titleKey: "Disneyland Paris & Disney Adventure World Live Virtual Webcam Ambience Stream",
-    },
-  },
-  {
     // coords: Open-Meteo geocoding "Rillieux-la-Pape", Auvergne-Rhône-Alpes (title; Photon hit within 25 km: Porte de la Pape, Auvergne-Rhône-Alpes)
     id: "fr-peripherique-nord-porte-de-la-pape",
     name: { ja: "Périphérique Nord - Porte de la Pape", en: "Périphérique Nord - Porte de la Pape" },
@@ -35410,21 +34705,6 @@ export const CAMS: Cam[] = [
       videoId: "z545k7Tcb5o",
       channelId: "UCwZhshj6VacA9YoAFY9Y3MA",
       titleKey: "Périphérique Nord - Porte de la Pape",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "gb-schweiz-panorama-24-7-live-stream-web",
-    name: { ja: "Schweiz Panorama – 24/7 LIVE Stream Webcams Swiss Alps", en: "Schweiz Panorama – 24/7 LIVE Stream Webcams Swiss Alps" },
-    lat: 51.7021,
-    lng: -4.1314,
-    timeZone: "Europe/London",
-    category: "city",
-    country: "GB",
-    source: {
-      videoId: "enYFXf8u7Lc",
-      channelId: "UC9xLSF0SZDbVa70iTpghQBw",
-      titleKey: "🔴 Schweiz Panorama – 24/7 LIVE Stream Webcams Swiss Alps",
     },
   },
   {
@@ -35485,21 +34765,6 @@ export const CAMS: Cam[] = [
       videoId: "3bc9QzqjCF8",
       channelId: "UChnIgJ8_PDy0AwV84XP9HTA",
       titleKey: "Germany Now",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "fr-night-paris-jazz-slow-saxophone-relax",
-    name: { ja: "Night Paris Jazz | Slow Saxophone | Relaxing Music", en: "Night Paris Jazz | Slow Saxophone | Relaxing Music" },
-    lat: 48.8534,
-    lng: 2.3488,
-    timeZone: "Europe/Paris",
-    category: "city",
-    country: "FR",
-    source: {
-      videoId: "M4CoRnQPBxQ",
-      channelId: "UC7bX_RrH3zbdp5V4j5umGgw",
-      titleKey: "Night Paris Jazz | Slow Saxophone | Relaxing Music",
     },
   },
   {
@@ -35579,21 +34844,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "es-200-top-live-cams-from-spain-with-mus",
-    name: { ja: "200 TOP LIVE CAMS from Spain with Music and Map | SkylineWebcams", en: "200 TOP LIVE CAMS from Spain with Music and Map | SkylineWebcams" },
-    lat: 43.3128,
-    lng: -1.975,
-    timeZone: "Europe/Madrid",
-    category: "city",
-    country: "ES",
-    source: {
-      videoId: "kUfuwa8mDrA",
-      channelId: "UC2WMV4vCYurHdHPd9pCqYSg",
-      titleKey: "🔴 200 TOP LIVE CAMS from Spain with Music 🎧 and Map | SkylineWebcams",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "es-live-beach-cam-spain-sabinillas-estep",
     name: { ja: "Live Beach Cam Spain Sabinillas — Estepona, Costa del Sol 24/7", en: "Live Beach Cam Spain Sabinillas — Estepona, Costa del Sol 24/7" },
     lat: 40.7194,
@@ -35665,21 +34915,6 @@ export const CAMS: Cam[] = [
       videoId: "EEM7a3mHMR4",
       channelId: "UCxIsefyl9g9A5SGWA4FvGIA",
       titleKey: "Vatican Media Live - English",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "it-vatican-live-pope-leo-presides-over-h",
-    name: { ja: "Vatican LIVE: Pope Leo Presides Over Holy Mass at St. Peter's Basilica | Pope on World Peace | N18G", en: "Vatican LIVE: Pope Leo Presides Over Holy Mass at St. Peter's Basilica | Pope on World Peace | N18G" },
-    lat: 42.1694,
-    lng: 14.6145,
-    timeZone: "Europe/Rome",
-    category: "city",
-    country: "IT",
-    source: {
-      videoId: "A2JBODj1vio",
-      channelId: "UCmRbHAgG2k2vDUvb3xsEunQ",
-      titleKey: "Vatican LIVE: Pope Leo Presides Over Holy Mass at St. Peter's Basilica | Pope on World Peace | N18G",
     },
   },
   {
@@ -36343,36 +35578,6 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: Open-Meteo geocoding "Los Angeles", California (title; Photon hit within 25 km: Downtown, California)
-    id: "us-live-news-fox-local-los-angeles-24-7",
-    name: { ja: "LIVE NEWS: FOX LOCAL Los Angeles 24/7 Live Stream", en: "LIVE NEWS: FOX LOCAL Los Angeles 24/7 Live Stream" },
-    lat: 34.0522,
-    lng: -118.2437,
-    timeZone: "America/Los_Angeles",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "8u8pQ_uLGjo",
-      channelId: "UCHfF8wFnipMeDpJf8OmMxDg",
-      titleKey: "LIVE NEWS: FOX LOCAL Los Angeles 24/7 Live Stream",
-    },
-  },
-  {
-    // coords: Open-Meteo geocoding "San Francisco", California (title; Photon hit within 25 km: San Francisco, California)
-    id: "us-live-news-fox-local-san-francisco-24",
-    name: { ja: "LIVE NEWS: FOX LOCAL San Francisco 24/7 Live Stream", en: "LIVE NEWS: FOX LOCAL San Francisco 24/7 Live Stream" },
-    lat: 37.7749,
-    lng: -122.4194,
-    timeZone: "America/Los_Angeles",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "rM8rkzxKZRs",
-      channelId: "UCVhtkN7-c8mA8GXEoxS4YQw",
-      titleKey: "LIVE NEWS: FOX LOCAL San Francisco 24/7 Live Stream",
-    },
-  },
-  {
     // coords: Open-Meteo geocoding "San Francisco", California (title; Photon hit within 25 km: San Francisco, California)
     id: "us-pier-23-cafe-san-francisco-bay-san-fr",
     name: { ja: "Pier 23 Cafe, San Francisco Bay | San Francisco, CA USA | StreamTime LIVE", en: "Pier 23 Cafe, San Francisco Bay | San Francisco, CA USA | StreamTime LIVE" },
@@ -36385,21 +35590,6 @@ export const CAMS: Cam[] = [
       videoId: "a5IW4I-z2rs",
       channelId: "UCrtIIVfi-5tMlVXdMDzOMUA",
       titleKey: "Pier 23 Cafe, San Francisco Bay | San Francisco, CA USA | StreamTime LIVE",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-live-news-fox-local-chicago-24-7-live",
-    name: { ja: "LIVE NEWS: FOX LOCAL Chicago 24/7 Live Stream", en: "LIVE NEWS: FOX LOCAL Chicago 24/7 Live Stream" },
-    lat: 41.9976,
-    lng: -87.7647,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "E2gGh3BEhEA",
-      channelId: "UCFmofUYwZd1Ibf_O3PF71jg",
-      titleKey: "LIVE NEWS: FOX LOCAL Chicago 24/7 Live Stream",
     },
   },
   {
@@ -36445,51 +35635,6 @@ export const CAMS: Cam[] = [
       videoId: "KPVB0qFRbVc",
       channelId: "UCYgNRWRykVO9pDLBITynEVw",
       titleKey: "University of Chicago Botany Pond Live Camera",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-live-updates-music-legend-dolly-parto",
-    name: { ja: "LIVE UPDATES: Music legend Dolly Parton dies at 80 after 'brief battle with cancer'", en: "LIVE UPDATES: Music legend Dolly Parton dies at 80 after 'brief battle with cancer'" },
-    lat: 30.3888,
-    lng: -94.396,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "sj2cWegO1OU",
-      channelId: "UC_vFLohxs5PkAxlk7Y6jEtw",
-      titleKey: "LIVE UPDATES: Music legend Dolly Parton dies at 80 after 'brief battle with cancer'",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-live-abc7-news",
-    name: { ja: "LIVE: ABC7 News", en: "LIVE: ABC7 News" },
-    lat: 36.6246,
-    lng: -77.1247,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "YUJl2vWNsWU",
-      channelId: "UCYUbNjkuE4lsr2v1Id2O1oA",
-      titleKey: "LIVE: ABC7 News",
-    },
-  },
-  {
-    // coords: Open-Meteo geocoding "Seattle", Washington (title; Photon hit within 25 km: Seattle, Washington)
-    id: "us-live-news-fox-local-seattle-24-7-live",
-    name: { ja: "LIVE NEWS: FOX LOCAL Seattle 24/7 Live Stream", en: "LIVE NEWS: FOX LOCAL Seattle 24/7 Live Stream" },
-    lat: 47.6062,
-    lng: -122.3321,
-    timeZone: "America/Los_Angeles",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "BZ2eIuu0m_k",
-      channelId: "UC5bKZHg4PzURMOWcvanl6nA",
-      titleKey: "LIVE NEWS: FOX LOCAL Seattle 24/7 Live Stream",
     },
   },
   {
@@ -36733,14 +35878,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Buffalo", New York (watch page: "our live view of downtown Buffalo, NY from the headquarters of Buffalo Toronto Public Media"; Photon hit: Buffalo, New York)
     id: "ca-buffalo-toronto-public-media-roof-cam",
     name: { ja: "Buffalo Toronto Public Media Roof Cam", en: "Buffalo Toronto Public Media Roof Cam" },
-    lat: 51.0664,
-    lng: -124.153,
-    timeZone: "America/Vancouver",
+    lat: 42.8865,
+    lng: -78.8784,
+    timeZone: "America/New_York",
     category: "city",
-    country: "CA",
+    country: "US",
     source: {
       videoId: "Mb5uJu-64UA",
       channelId: "UCN8tDK98j963MHZ5BJ15CeA",
@@ -37048,21 +36193,6 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
-    id: "au-watch-abc-news-australia-live-abc-new",
-    name: { ja: "Watch ABC NEWS Australia live | ABC NEWS", en: "Watch ABC NEWS Australia live | ABC NEWS" },
-    lat: -37.106,
-    lng: 144.0647,
-    timeZone: "Australia/Melbourne",
-    category: "city",
-    country: "AU",
-    source: {
-      videoId: "vOTiJkg1voo",
-      channelId: "UCVgO39Bk5sMo66-6o6Spn6Q",
-      titleKey: "Watch ABC NEWS Australia live | ABC NEWS",
-    },
-  },
-  {
     // coords: Open-Meteo geocoding "Melbourne", Victoria (title; Photon hit within 25 km: Melbourne Airport, Victoria)
     id: "au-west-gate-bridge-live-real-time-traff",
     name: { ja: "West Gate Bridge LIVE — Real-Time Traffic & Conditions Melbourne Australia", en: "West Gate Bridge LIVE — Real-Time Traffic & Conditions Melbourne Australia" },
@@ -37105,21 +36235,6 @@ export const CAMS: Cam[] = [
       videoId: "4wb6o3QvrxY",
       channelId: "UCS9UBqaUtoIXUhX0J1BnxwQ",
       titleKey: "Snow Leopards Outdoor Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "au-live-ibiza-golden-hour-club-del-mar-d",
-    name: { ja: "LIVE: Ibiza Golden Hour | Club del Mar Deep House Mix 2026 | Lounge Chillout Mix", en: "LIVE: Ibiza Golden Hour | Club del Mar Deep House Mix 2026 | Lounge Chillout Mix" },
-    lat: -20.0167,
-    lng: 148.1833,
-    timeZone: "Australia/Brisbane",
-    category: "city",
-    country: "AU",
-    source: {
-      videoId: "-mkakxbwpy0",
-      channelId: "UCOv__nnHealpxm75hhXu5NQ",
-      titleKey: "LIVE: Ibiza Golden Hour | Club del Mar Deep House Mix 2026 | Lounge Chillout Mix",
     },
   },
   {
@@ -37274,21 +36389,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-live-airports-around-the-world-plane",
-    name: { ja: "LIVE: Airports Around the World — Plane Spotting Live Cameras 24/7 | TravelTV", en: "LIVE: Airports Around the World — Plane Spotting Live Cameras 24/7 | TravelTV" },
-    lat: 36.8524,
-    lng: -79.5909,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "FNtr2igI7e8",
-      channelId: "UC-vJL_7pXhCgpt4KjHsWCPg",
-      titleKey: "🔴 LIVE: Airports Around the World — Plane Spotting Live Cameras 24/7 | TravelTV",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "nz-northern-royal-albatross-cam-nz-dept",
     name: { ja: "Northern Royal Albatross Cam - NZ Dept. of Conservation #RoyalCam | Cornell Lab", en: "Northern Royal Albatross Cam - NZ Dept. of Conservation #RoyalCam | Cornell Lab" },
     lat: -36.9082,
@@ -37420,21 +36520,6 @@ export const CAMS: Cam[] = [
       videoId: "yr09mo1sbq0",
       channelId: "UCo_6cLHIqwYqCFhJN5g-j7w",
       titleKey: "Blue Cow Live Camera",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ch-switzerland-4k-winter-wonderland-on-s",
-    name: { ja: "Switzerland 4K ️ Winter Wonderland on Scenic Train Journeys Through the Alps - Relaxing Music", en: "Switzerland 4K ️ Winter Wonderland on Scenic Train Journeys Through the Alps - Relaxing Music" },
-    lat: 47.5056,
-    lng: 8.7241,
-    timeZone: "Europe/Zurich",
-    category: "city",
-    country: "CH",
-    source: {
-      videoId: "ZAcfrblTABs",
-      channelId: "UC1rJC1fTt_vQV_nLhNdXVwg",
-      titleKey: "Switzerland 4K ❄️ Winter Wonderland on Scenic Train Journeys Through the Alps - Relaxing Music",
     },
   },
   {
@@ -37739,36 +36824,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-live-24-7-global-volcano-monitoring-m",
-    name: { ja: "LIVE 24/7 | Global Volcano Monitoring Multi-Camera | Etna • Kīlauea • Stromboli & More", en: "LIVE 24/7 | Global Volcano Monitoring Multi-Camera | Etna • Kīlauea • Stromboli & More" },
-    lat: 40.9762,
-    lng: -74.0263,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "eGWaJYQgYIE",
-      channelId: "UCZGzBEPt4uJa903WP4zC-0Q",
-      titleKey: "🔴 LIVE 24/7 | Global Volcano Monitoring 🌋 Multi-Camera | Etna • Kīlauea • Stromboli & More",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ch-switzerland-24-7-calming-nature-piano",
-    name: { ja: "Switzerland 🇨🇭 24/7 | Calming Nature & Piano Music for Smart TV Relaxation", en: "Switzerland 🇨🇭 24/7 | Calming Nature & Piano Music for Smart TV Relaxation" },
-    lat: 46.2898,
-    lng: 8.5173,
-    timeZone: "Europe/Zurich",
-    category: "city",
-    country: "CH",
-    source: {
-      videoId: "WsmWSuqNAGU",
-      channelId: "UCPotnGNahFjLWjfsq4KYvuQ",
-      titleKey: "Switzerland 🇨🇭 24/7 | Calming Nature & Piano Music for Smart TV Relaxation",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-live-now-24-7-kilauea-volcano-liv-3",
     name: { ja: "Live Now: 24/7 Kilauea Volcano Livestream in Hawaii (Cam C)", en: "Live Now: 24/7 Kilauea Volcano Livestream in Hawaii (Cam C)" },
     lat: 22.2121,
@@ -37810,21 +36865,6 @@ export const CAMS: Cam[] = [
       videoId: "f9-oSpYpubg",
       channelId: "UCeXH8GZyV3sVqAr45AvupOA",
       titleKey: "[V2cam] Kīlauea volcano, Hawaii (east Halemaʻumaʻu crater)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-live-news-fox-local-dallas-24-7-live",
-    name: { ja: "LIVE NEWS: FOX LOCAL Dallas 24/7 Live Stream", en: "LIVE NEWS: FOX LOCAL Dallas 24/7 Live Stream" },
-    lat: 32.8977,
-    lng: -97.0358,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "HkfKsRa9qnE",
-      channelId: "UCruQg25yVBppUWjza8AlyZA",
-      titleKey: "LIVE NEWS: FOX LOCAL Dallas 24/7 Live Stream",
     },
   },
   {
@@ -38174,51 +37214,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-live-cameras-around-japan-let-s-armch",
-    name: { ja: "LIVE cameras around Japan! Let's armchair travel! | smooth jazz music", en: "LIVE cameras around Japan! Let's armchair travel! | smooth jazz music" },
-    lat: 35.7233,
-    lng: 139.5048,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "rVLCmSXhXtg",
-      channelId: "UCO3TJbHlgOoC-u9-0tcllOQ",
-      titleKey: "LIVE cameras around Japan! Let's armchair travel! | smooth jazz music",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-shibuya-nights-chill-lofi-beats-smoot",
-    name: { ja: "『 ＳＨＩＢＵＹＡ ＮＩＧＨＴＳ』 chill lofi beats + smooth jazz + city night vibes 24/7 東京都 渋谷 24時間 ローファイ ライブ", en: "『 ＳＨＩＢＵＹＡ ＮＩＧＨＴＳ』 chill lofi beats + smooth jazz + city night vibes 24/7 東京都 渋谷 24時間 ローファイ ライブ" },
-    lat: 35.6895,
-    lng: 139.6917,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "5OOn_XQRYJs",
-      channelId: "UC9OIZ77MhlVoi4IxLFXl-nQ",
-      titleKey: "✨🌃『 ＳＨＩＢＵＹＡ　ＮＩＧＨＴＳ』🌃✨ chill lofi beats + smooth jazz + city night vibes 24/7 東京都 渋谷  24時間 ローファイ ライブ",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-nagoyatv-news-live-24-most-recent-new",
-    name: { ja: "【NagoyaTV NEWS LIVE 24】Most Recent News from Aichi Gifu and Mie Prefecture, Japan", en: "【NagoyaTV NEWS LIVE 24】Most Recent News from Aichi Gifu and Mie Prefecture, Japan" },
-    lat: 35.4229,
-    lng: 136.7604,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "-C6FE2m7kX8",
-      channelId: "UCWnOKASPkCBEL-_O8odMvtg",
-      titleKey: "【NagoyaTV NEWS LIVE 24】Most Recent News from Aichi Gifu and Mie Prefecture, Japan",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-live-jr-shin-osaka-station-taxi-waiti",
     name: { ja: "〔LIVE〕JR新大阪駅タクシー待機場ライブ中継カメラ（大阪タクシーセンター公式） / Shin-Osaka Station Taxi Waiting Area Live Camera", en: "〔LIVE〕JR新大阪駅タクシー待機場ライブ中継カメラ（大阪タクシーセンター公式） / Shin-Osaka Station Taxi Waiting Area Live Camera" },
     lat: 34.6938,
@@ -38414,21 +37409,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "id-live-streaming-24-jam-kompastv",
-    name: { ja: "LIVE STREAMING 24 JAM KOMPASTV", en: "LIVE STREAMING 24 JAM KOMPASTV" },
-    lat: -1.6,
-    lng: 103.6167,
-    timeZone: "Asia/Jakarta",
-    category: "city",
-    country: "ID",
-    source: {
-      videoId: "DOOrIxw5xOw",
-      channelId: "UC5BMIWZe9isJXLZZWPWvBlg",
-      titleKey: "LIVE STREAMING 24 JAM KOMPASTV",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "id-live-pemantauan-cctv-pantai-kukup",
     name: { ja: "LIVE PEMANTAUAN CCTV PANTAI KUKUP", en: "LIVE PEMANTAUAN CCTV PANTAI KUKUP" },
     lat: -8.1331,
@@ -38470,21 +37450,6 @@ export const CAMS: Cam[] = [
       videoId: "dCDZCg71da0",
       channelId: "UCkEiJMkX7n3rZpZ2PDVc3Ow",
       titleKey: "LIVE PEMANTAUAN CCTV KALURAHAN JETIS PTZ",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "id-living-coffee-smooth-jazz-radio-relax",
-    name: { ja: "Living Coffee: Smooth Jazz Radio - Relaxing Jazz & Sweet Bossa Nova for Calm at Home", en: "Living Coffee: Smooth Jazz Radio - Relaxing Jazz & Sweet Bossa Nova for Calm at Home" },
-    lat: -3.663,
-    lng: 136.4692,
-    timeZone: "Asia/Jayapura",
-    category: "city",
-    country: "ID",
-    source: {
-      videoId: "SORD03t7nlo",
-      channelId: "UCJhjE7wbdYAae1G25m0tHAA",
-      titleKey: "Living Coffee: Smooth Jazz Radio - Relaxing Jazz & Sweet Bossa Nova for Calm at Home",
     },
   },
   {
@@ -38534,21 +37499,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "in-live-asianet-suvarna-news-24x7-kannad",
-    name: { ja: "LIVE: Asianet Suvarna News 24x7 | ಸುವರ್ಣ ನ್ಯೂಸ್ ಲೈವ್ | Kannada News | Yash Toxic Movie Released", en: "LIVE: Asianet Suvarna News 24x7 | ಸುವರ್ಣ ನ್ಯೂಸ್ ಲೈವ್ | Kannada News | Yash Toxic Movie Released" },
-    lat: 22.0874,
-    lng: 82.1439,
-    timeZone: "Asia/Kolkata",
-    category: "city",
-    country: "IN",
-    source: {
-      videoId: "F1m0ciwMs8c",
-      channelId: "UCjElJyiXmQXnWmceQ1JyKrA",
-      titleKey: "LIVE: Asianet Suvarna News 24x7 | ಸುವರ್ಣ ನ್ಯೂಸ್ ಲೈವ್ | Kannada News | Yash Toxic Movie Released",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "in-st-brigids-catholic-church-dunleer",
     name: { ja: "St Brigids Catholic Church, Dunleer", en: "St Brigids Catholic Church, Dunleer" },
     lat: 24.0449,
@@ -38560,36 +37510,6 @@ export const CAMS: Cam[] = [
       videoId: "SeaZ38SZrBs",
       channelId: "UC3DvwWMg0cJBmaSBOUv8bQg",
       titleKey: "St Brigids Catholic Church, Dunleer",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "in-sakshi-tv-telugu-news-live-latest-tel",
-    name: { ja: "Sakshi TV Telugu News LIVE | Latest Telugu News | Sakshi TV", en: "Sakshi TV Telugu News LIVE | Latest Telugu News | Sakshi TV" },
-    lat: 22.0874,
-    lng: 82.1439,
-    timeZone: "Asia/Kolkata",
-    category: "city",
-    country: "IN",
-    source: {
-      videoId: "ocy5UgWokKQ",
-      channelId: "UCZ9m4KOh8Ei60428xeGYDCQ",
-      titleKey: "Sakshi TV Telugu News LIVE | Latest Telugu News | Sakshi TV",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "in-robot-pacman-vs-lava-monster-vs-ms-pa",
-    name: { ja: "Robot Pacman vs Lava Monster vs Ms Pacman vs Scary Pacman is a Rehearsal to go to Cartoon Cat", en: "Robot Pacman vs Lava Monster vs Ms Pacman vs Scary Pacman is a Rehearsal to go to Cartoon Cat" },
-    lat: 27.086,
-    lng: 88.6617,
-    timeZone: "Asia/Kolkata",
-    category: "city",
-    country: "IN",
-    source: {
-      videoId: "Qb_HeHiie4E",
-      channelId: "UCgDcDKSlxUbDavgD8wVpZbQ",
-      titleKey: "Robot Pacman vs Lava Monster vs Ms Pacman vs Scary Pacman is a Rehearsal to go to Cartoon Cat",
     },
   },
   {
@@ -38623,104 +37543,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
-    id: "in-tv5-news-telugu-live-tv5-live",
-    name: { ja: "TV5 News Telugu LIVE | TV5 LIVE", en: "TV5 News Telugu LIVE | TV5 LIVE" },
-    lat: 22.0874,
-    lng: 82.1439,
-    timeZone: "Asia/Kolkata",
-    category: "city",
-    country: "IN",
-    source: {
-      videoId: "NdmSb1MnSR0",
-      channelId: "UCAR3h_9fLV82N2FH4cE4RKw",
-      titleKey: "TV5 News Telugu LIVE | TV5 LIVE",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "in-ntv-telugu-news-live",
-    name: { ja: "NTV Telugu News LIVE", en: "NTV Telugu News LIVE" },
-    lat: 22.0874,
-    lng: 82.1439,
-    timeZone: "Asia/Kolkata",
-    category: "city",
-    country: "IN",
-    source: {
-      videoId: "L0RktSIM980",
-      channelId: "UCumtYpCY26F6Jr3satUgMvA",
-      titleKey: "NTV Telugu News LIVE",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "in-v6-telugu-news-live-telangana-live-tv",
-    name: { ja: "V6 Telugu News LIVE | Telangana Live TV Channel | V6 News", en: "V6 Telugu News LIVE | Telangana Live TV Channel | V6 News" },
-    lat: 22.0874,
-    lng: 82.1439,
-    timeZone: "Asia/Kolkata",
-    category: "city",
-    country: "IN",
-    source: {
-      videoId: "28IZl9iM-EE",
-      channelId: "UCDCMjD1XIAsCZsYHNMGVcog",
-      titleKey: "V6 Telugu News LIVE  | Telangana Live TV Channel  | V6 News",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "in-nepal-flash-flood-live-kolkata-news-a",
-    name: { ja: "Nepal Flash Flood LIVE | Kolkata News | Andul Fire News | Suvendu Adhikari | News18 Bangla LIVE TV", en: "Nepal Flash Flood LIVE | Kolkata News | Andul Fire News | Suvendu Adhikari | News18 Bangla LIVE TV" },
-    lat: 22.0874,
-    lng: 82.1439,
-    timeZone: "Asia/Kolkata",
-    category: "city",
-    country: "IN",
-    source: {
-      videoId: "6Ec7bnQVO44",
-      channelId: "UCbf0XHULBkTfv2hBjaaDw9Q",
-      titleKey: "Nepal Flash Flood LIVE | Kolkata News | Andul Fire News | Suvendu Adhikari | News18 Bangla LIVE TV",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "in-abn-telugu-news-live-telugu-news-live",
-    name: { ja: "ABN Telugu News LIVE || Telugu News Live Updates || ABN Telugu", en: "ABN Telugu News LIVE || Telugu News Live Updates || ABN Telugu" },
-    lat: 12.9131,
-    lng: 75.9058,
-    timeZone: "Asia/Kolkata",
-    category: "city",
-    country: "IN",
-    source: {
-      videoId: "HoYsWagMFfE",
-      channelId: "UC_2irx_BQR7RsBKmUV9fePQ",
-      titleKey: "ABN Telugu News LIVE || Telugu News Live Updates || ABN Telugu",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "in-tvc-news-nigeria-livestream",
-    name: { ja: "TVC News Nigeria Livestream", en: "TVC News Nigeria Livestream" },
-    lat: 22.0874,
-    lng: 82.1439,
-    timeZone: "Asia/Kolkata",
-    category: "city",
-    country: "IN",
-    source: {
-      videoId: "b-Yzp0l8cAM",
-      channelId: "UCgp4A6I8LCWrhUzn-5SbKvA",
-      titleKey: "TVC News Nigeria Livestream",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Manchester", Iowa (title: Manchester, IA; Photon hit: Manchester, Iowa)
     id: "gb-manchester-ia-hawk-camera-live-from-j",
     name: { ja: "Manchester, IA Hawk Camera - Live from Joe's Pizza Manchester", en: "Manchester, IA Hawk Camera - Live from Joe's Pizza Manchester" },
-    lat: 51.057,
-    lng: -0.9376,
-    timeZone: "Europe/London",
+    lat: 42.4841,
+    lng: -91.4554,
+    timeZone: "America/Chicago",
     category: "city",
-    country: "GB",
+    country: "US",
     source: {
       videoId: "KuBVf_DwhwI",
       channelId: "UCuh7u6FlWOqbm7dgSG8t9kA",
@@ -38879,66 +37709,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "es-cafe-del-mar-24-7-chillout-lounge-dee",
-    name: { ja: "Café Del Mar 24/7 Chillout Lounge & Deep House Live Stream | Ibiza Bar Music", en: "Café Del Mar 24/7 Chillout Lounge & Deep House Live Stream | Ibiza Bar Music" },
-    lat: 40.7194,
-    lng: 0.7084,
-    timeZone: "Europe/Madrid",
-    category: "city",
-    country: "ES",
-    source: {
-      videoId: "zphxFs6Sa60",
-      channelId: "UCZnxk1rJ72aDurQVVyVy4cw",
-      titleKey: "Café Del Mar 24/7 🌅 Chillout Lounge & Deep House Live Stream | Ibiza Bar Music",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "es-luxury-chillout-lounge-2026-cafe-del",
-    name: { ja: "Luxury Chillout Lounge 2026 | Café Del Mar Ibiza Sunset Chill Collection", en: "Luxury Chillout Lounge 2026 | Café Del Mar Ibiza Sunset Chill Collection" },
-    lat: 40.7194,
-    lng: 0.7084,
-    timeZone: "Europe/Madrid",
-    category: "city",
-    country: "ES",
-    source: {
-      videoId: "p4lRkYtSwg8",
-      channelId: "UChpLVijUbbNs-Wmuri9yW3A",
-      titleKey: "Luxury Chillout Lounge 2026 | Café Del Mar Ibiza Sunset Chill Collection",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "es-live-ibiza-golden-hour-club-del-mar-d",
-    name: { ja: "LIVE: IBIZA Golden Hour | Club del Mar Deep House Mix | Lounge Chillout Mix 2026", en: "LIVE: IBIZA Golden Hour | Club del Mar Deep House Mix | Lounge Chillout Mix 2026" },
-    lat: 40.7194,
-    lng: 0.7084,
-    timeZone: "Europe/Madrid",
-    category: "city",
-    country: "ES",
-    source: {
-      videoId: "y8BL5kEC4dM",
-      channelId: "UCOv__nnHealpxm75hhXu5NQ",
-      titleKey: "LIVE: IBIZA Golden Hour | Club del Mar Deep House Mix | Lounge Chillout Mix 2026",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "es-seven-beats-music-ibiza-chillout-24-7",
-    name: { ja: "Seven Beats Music • Ibiza Chillout 24/7 Radio Stream [Balearic, Relax, Ambient, Lounge, Dreamy]", en: "Seven Beats Music • Ibiza Chillout 24/7 Radio Stream [Balearic, Relax, Ambient, Lounge, Dreamy]" },
-    lat: 38.9167,
-    lng: 1.2667,
-    timeZone: "Europe/Madrid",
-    category: "city",
-    country: "ES",
-    source: {
-      videoId: "BCCr3pv0bRQ",
-      channelId: "UCO6SuIBGCEbHw0AKHlKqfww",
-      titleKey: "Seven Beats Music • Ibiza Chillout 24/7 Radio Stream [Balearic, Relax, Ambient, Lounge, Dreamy]",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "es-live-cam-lanzarote-teneriffa-la-palma",
     name: { ja: "Live Cam Lanzarote - Teneriffa – La Palma - Kanarische Inseln", en: "Live Cam Lanzarote - Teneriffa – La Palma - Kanarische Inseln" },
     lat: 39.5694,
@@ -38954,21 +37724,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "es-ibiza-chill-mix-2026-24-7-4k-live-str",
-    name: { ja: "Ibiza Chill Mix 2026 • 24/7 4K Live Stream | Summer Vibes, Chillout House | House Mix by Lilly Era", en: "Ibiza Chill Mix 2026 • 24/7 4K Live Stream | Summer Vibes, Chillout House | House Mix by Lilly Era" },
-    lat: 39.8833,
-    lng: -1,
-    timeZone: "Europe/Madrid",
-    category: "city",
-    country: "ES",
-    source: {
-      videoId: "whZHMbZqRFk",
-      channelId: "UCkdEj5-kh9Ssfx7CvewfZsg",
-      titleKey: "Ibiza Chill Mix 2026 • 24/7 4K Live Stream | Summer Vibes, Chillout House | House Mix by Lilly Era",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "it-tuscany-italy-live-webcam-vineyard-an",
     name: { ja: "Tuscany, Italy Live Webcam - Vineyard and Restaurant", en: "Tuscany, Italy Live Webcam - Vineyard and Restaurant" },
     lat: 42.8333,
@@ -38980,21 +37735,6 @@ export const CAMS: Cam[] = [
       videoId: "BIno8_T0uKc",
       channelId: "UC8gbWbcNNyb5-NIXvFklkOA",
       titleKey: "Tuscany, Italy Live Webcam - Vineyard and Restaurant",
-    },
-  },
-  {
-    // coords: Open-Meteo geocoding "Bora Bora", Leeward Islands (title)
-    id: "it-bora-bora-8k-aerial-overwater-bungalo",
-    name: { ja: "BORA BORA 8K Aerial 🇵🇫 ‍️ Overwater Bungalows, Mount Otemanu & Luxury Paradise", en: "BORA BORA 8K Aerial 🇵🇫 ‍️ Overwater Bungalows, Mount Otemanu & Luxury Paradise" },
-    lat: -16.4996,
-    lng: -151.7371,
-    timeZone: "Pacific/Tahiti",
-    category: "nature",
-    country: "PF",
-    source: {
-      videoId: "O1oR_Z0m7hY",
-      channelId: "UCg-jBMU2-9RErt1gn9a5jWg",
-      titleKey: "BORA BORA 8K Aerial 🇵🇫 🏄‍♂️ Overwater Bungalows, Mount Otemanu & Luxury Paradise 🚁",
     },
   },
   {
@@ -39044,21 +37784,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "it-amalfi-coast-summer-live-relaxing-ita",
-    name: { ja: "🇮🇹 Amalfi Coast Summer LIVE️Relaxing Italian Instrumental Music |Mediterranean Cafe Ambience | 24/7", en: "🇮🇹 Amalfi Coast Summer LIVE️Relaxing Italian Instrumental Music |Mediterranean Cafe Ambience | 24/7" },
-    lat: 40.6349,
-    lng: 14.6024,
-    timeZone: "Europe/Rome",
-    category: "city",
-    country: "IT",
-    source: {
-      videoId: "cdvoGkY2NFE",
-      channelId: "UCR8lADA5V4VUSyu6DmbSI6w",
-      titleKey: "🇮🇹 Amalfi Coast Summer LIVE☀️Relaxing Italian Instrumental Music |Mediterranean Cafe Ambience | 24/7",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "ch-live-view-haus-rudolf-zell-am-see",
     name: { ja: "Live View Haus Rudolf Zell am See", en: "Live View Haus Rudolf Zell am See" },
     lat: 47.2941,
@@ -39089,21 +37814,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "pl-deep-techno-24-7-live-stream",
-    name: { ja: "Deep Techno 24/7 Live Stream", en: "Deep Techno 24/7 Live Stream" },
-    lat: 54.2884,
-    lng: 16.1484,
-    timeZone: "Europe/Warsaw",
-    category: "city",
-    country: "PL",
-    source: {
-      videoId: "G-u5OhIeln4",
-      channelId: "UCB1qMxUghkMwLV1eKt7CQBg",
-      titleKey: "Deep Techno 24/7 🔴 Live Stream",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "pl-bazylika-sw-micha-a-archanio-a-i-sw-s",
     name: { ja: "Bazylika św. Michała Archanioła i św. Stanisława w Krakowie - Transmisja Mszy Świętej", en: "Bazylika św. Michała Archanioła i św. Stanisława w Krakowie - Transmisja Mszy Świętej" },
     lat: 50.1037,
@@ -39115,36 +37825,6 @@ export const CAMS: Cam[] = [
       videoId: "knitHuUrNFY",
       channelId: "UCbR23UdCi3iEG7ZvHA_DzKA",
       titleKey: "Bazylika św. Michała Archanioła i św. Stanisława w Krakowie - Transmisja Mszy Świętej",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "it-relax-with-italian-coffee-and-jazz-mu",
-    name: { ja: "Relax with Italian Coffee and Jazz Music in Portofino | Daily Bossa Nova Guitar for a Good Mood", en: "Relax with Italian Coffee and Jazz Music in Portofino | Daily Bossa Nova Guitar for a Good Mood" },
-    lat: 42.8333,
-    lng: 12.8333,
-    timeZone: "Europe/Rome",
-    category: "city",
-    country: "IT",
-    source: {
-      videoId: "mXpEQs0CrQE",
-      channelId: "UCHEaWKddjC7CVp7mbQORO7A",
-      titleKey: "Relax with Italian Coffee and Jazz Music in Portofino ☕ | Daily Bossa Nova Guitar for a Good Mood",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "pl-relacja-na-zywo-ogladaj-telewizja-rep",
-    name: { ja: "RELACJA NA ŻYWO - OGLĄDAJ Telewizja Republika", en: "RELACJA NA ŻYWO - OGLĄDAJ Telewizja Republika" },
-    lat: 51.5524,
-    lng: 19.8498,
-    timeZone: "Europe/Warsaw",
-    category: "city",
-    country: "PL",
-    source: {
-      videoId: "dzntyCTgJMQ",
-      channelId: "UCc282c_TN8xIba_Z6GaDnQw",
-      titleKey: "RELACJA NA ŻYWO - OGLĄDAJ Telewizja Republika",
     },
   },
   {
@@ -39179,21 +37859,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "gr-greek-hits-livestream-non-stop-mix-24",
-    name: { ja: "Greek Hits Livestream | Non-Stop Mix | 24/7 LIVE Radio | Greek Music | Ελληνική Μουσική", en: "Greek Hits Livestream | Non-Stop Mix | 24/7 LIVE Radio | Greek Music | Ελληνική Μουσική" },
-    lat: 35.2155,
-    lng: 24.5045,
-    timeZone: "Europe/Athens",
-    category: "city",
-    country: "GR",
-    source: {
-      videoId: "TUU9RrFYiuc",
-      channelId: "UCKohKTsGijX-Ucu9SAPrrJw",
-      titleKey: "Greek Hits Livestream | Non-Stop Mix | 24/7 LIVE Radio 🎧 | Greek Music | Ελληνική Μουσική",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "pt-port-of-pisa-live-cam-marina-tyrrheni",
     name: { ja: "Port of Pisa Live Cam - Marina & Tyrrhenian Sea", en: "Port of Pisa Live Cam - Marina & Tyrrhenian Sea" },
     lat: 39.7179,
@@ -39208,14 +37873,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Chiavari", Liguria (title: Marina di Chiavari, Mar Ligure; Photon hit: Chiavari Marina, Liguria)
     id: "pt-marina-di-chiavari-live-cam-porto-tur",
     name: { ja: "Marina di Chiavari Live Cam - Porto Turistico e Mar Ligure", en: "Marina di Chiavari Live Cam - Porto Turistico e Mar Ligure" },
-    lat: 41.5777,
-    lng: -8.7895,
-    timeZone: "Europe/Lisbon",
+    lat: 44.3177,
+    lng: 9.3224,
+    timeZone: "Europe/Rome",
     category: "city",
-    country: "PT",
+    country: "IT",
     source: {
       videoId: "uFWQ4xM--f0",
       channelId: "UCeKy2j_-y3RGIN-9gM7p6RQ",
@@ -39343,14 +38008,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Bergen aan Zee", North Holland (title: Bergen aan Zee; Photon hit: Bergen aan Zee, Noord-Holland)
     id: "no-webcam-bergen-aan-zee-live-streaming",
     name: { ja: "Webcam Bergen aan Zee - Live streaming webcam", en: "Webcam Bergen aan Zee - Live streaming webcam" },
-    lat: 69.0667,
-    lng: 15.7667,
-    timeZone: "Europe/Oslo",
+    lat: 52.6608,
+    lng: 4.6306,
+    timeZone: "Europe/Amsterdam",
     category: "city",
-    country: "NO",
+    country: "NL",
     source: {
       videoId: "Z2SiE-MSfVY",
       channelId: "UCjz9J7Vjuy3D8mrzIlDb1Cw",
@@ -39763,21 +38428,6 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: Open-Meteo geocoding "Phoenix", Arizona (title; Photon hit within 25 km: Phoenix, Arizona)
-    id: "us-live-news-fox-local-phoenix-24-7-live",
-    name: { ja: "LIVE NEWS: FOX LOCAL Phoenix 24/7 Live Stream", en: "LIVE NEWS: FOX LOCAL Phoenix 24/7 Live Stream" },
-    lat: 33.4484,
-    lng: -112.074,
-    timeZone: "America/Phoenix",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "qilQmQW8Dqg",
-      channelId: "UCNjfNLnQYbjBEvnS8KFuyGQ",
-      titleKey: "LIVE NEWS: FOX LOCAL Phoenix 24/7 Live Stream",
-    },
-  },
-  {
     // coords: set explicitly as a well-known landmark
     id: "hr-webcam-stubicke-toplice-live-monitore",
     name: { ja: "WebCam Stubičke Toplice LIVE! (monitored with LiveStreamGuard.com)", en: "WebCam Stubičke Toplice LIVE! (monitored with LiveStreamGuard.com)" },
@@ -39925,21 +38575,6 @@ export const CAMS: Cam[] = [
       videoId: "wqyIz1eIXWs",
       channelId: "UCSs1bHCZJ24SIsXnuTeeQOw",
       titleKey: "🔴LIVE 24/7 Goodyear Ballpark Plaza Cam",
-    },
-  },
-  {
-    // coords: Open-Meteo geocoding "Atlanta", Georgia (title; Photon hit within 25 km: Atlanta, Georgia)
-    id: "us-live-news-fox-local-atlanta-24-7-live",
-    name: { ja: "LIVE NEWS: FOX LOCAL Atlanta 24/7 Live Stream", en: "LIVE NEWS: FOX LOCAL Atlanta 24/7 Live Stream" },
-    lat: 33.749,
-    lng: -84.388,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "egVaFAi74cI",
-      channelId: "UCjHWv2DU5-HLpogAAr386DQ",
-      titleKey: "LIVE NEWS: FOX LOCAL Atlanta 24/7 Live Stream",
     },
   },
   {
@@ -40199,21 +38834,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "ca-cbc-news-live-calgary",
-    name: { ja: "CBC News LIVE: Calgary", en: "CBC News LIVE: Calgary" },
-    lat: 51.0501,
-    lng: -114.0853,
-    timeZone: "America/Edmonton",
-    category: "city",
-    country: "CA",
-    source: {
-      videoId: "GXan5ROsd08",
-      channelId: "UCn9JnDto9d2-nn4lvJE3Iqw",
-      titleKey: "CBC News LIVE: Calgary",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "ca-web-cam-club-nautique-de-l-ile-d-orle",
     name: { ja: "Web Cam - Club nautique de l'Île d'Orléans", en: "Web Cam - Club nautique de l'Île d'Orléans" },
     lat: 50.1834,
@@ -40258,21 +38878,6 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: Open-Meteo geocoding "Mexico City", Mexico City (title; Photon hit within 25 km: Plaza de la Constitución, Ciudad de México)
-    id: "mx-en-vivo-reloj-hora-actual-en-ciudad-d",
-    name: { ja: "EN VIVO | Reloj / Hora actual en Ciudad de México / LIVE Mexico City Clock / What time is it now", en: "EN VIVO | Reloj / Hora actual en Ciudad de México / LIVE Mexico City Clock / What time is it now" },
-    lat: 19.4285,
-    lng: -99.1277,
-    timeZone: "America/Mexico_City",
-    category: "city",
-    country: "MX",
-    source: {
-      videoId: "I6WIn3sLFLw",
-      channelId: "UCKHaKHBOF8uNF3vmDL_z4Xg",
-      titleKey: "🔴 EN VIVO | Reloj / Hora actual en Ciudad de México / LIVE Mexico City Clock / What time is it now",
-    },
-  },
-  {
     // coords: set explicitly as a well-known landmark
     id: "br-barra-da-lagoa-florianopolis-santa-ca",
     name: { ja: "Barra da Lagoa - Florianópolis - Santa Catarina - Brasil - AO VIVO", en: "Barra da Lagoa - Florianópolis - Santa Catarina - Brasil - AO VIVO" },
@@ -40285,66 +38890,6 @@ export const CAMS: Cam[] = [
       videoId: "4Cdk-DqFg9A",
       channelId: "UCt5YT3gOz4HXJcPTC_tce-A",
       titleKey: "Barra da Lagoa - Florianópolis - Santa Catarina - Brasil - AO VIVO",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "br-ao-vivo-relogio-hora-atual-em-brasili",
-    name: { ja: "AO VIVO | Relógio / Hora Atual em Brasília / Relógio em Tempo Real / Que Horas São Agora?", en: "AO VIVO | Relógio / Hora Atual em Brasília / Relógio em Tempo Real / Que Horas São Agora?" },
-    lat: -3.0594,
-    lng: -44.086,
-    timeZone: "America/Fortaleza",
-    category: "city",
-    country: "BR",
-    source: {
-      videoId: "inTIu0bmtrE",
-      channelId: "UCL2omxZpaK-k1j7UfuLQpVw",
-      titleKey: "🔴 AO VIVO | Relógio / Hora Atual em Brasília / Relógio em Tempo Real / Que Horas São Agora?",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "br-tv-aparecida-ao-vivo",
-    name: { ja: "TV Aparecida - AO VIVO", en: "TV Aparecida - AO VIVO" },
-    lat: -22.8469,
-    lng: -45.2297,
-    timeZone: "America/Sao_Paulo",
-    category: "city",
-    country: "BR",
-    source: {
-      videoId: "4CAmwaFJo6k",
-      channelId: "UCfYrK5JU5EznsnK3wQE7iIg",
-      titleKey: "TV Aparecida - AO VIVO",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "br-tv-novo-tempo-ao-vivo-24-horas",
-    name: { ja: "TV Novo Tempo - AO VIVO 24 HORAS", en: "TV Novo Tempo - AO VIVO 24 HORAS" },
-    lat: -8.5,
-    lng: -46.4667,
-    timeZone: "America/Fortaleza",
-    category: "city",
-    country: "BR",
-    source: {
-      videoId: "l2_O7pDT0Fg",
-      channelId: "UC_OaSsAydgSIjUtjYn9qLog",
-      titleKey: "🔴 TV Novo Tempo - AO VIVO 24 HORAS",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "br-canal-siete-en-vivo",
-    name: { ja: "Canal Siete EN VIVO", en: "Canal Siete EN VIVO" },
-    lat: -11.8236,
-    lng: -41.5988,
-    timeZone: "America/Bahia",
-    category: "city",
-    country: "BR",
-    source: {
-      videoId: "Vh8xmLBJtR8",
-      channelId: "UC64ZNqX0FQHabP8iIkmnR3A",
-      titleKey: "Canal Siete EN VIVO",
     },
   },
   {
@@ -40375,21 +38920,6 @@ export const CAMS: Cam[] = [
       videoId: "ulBAncoXWws",
       channelId: "UCprCdxrg_u9E9hhc-MZDk5A",
       titleKey: "Puerto de San Antonio  En Vivo",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "br-a24-en-vivo-noticias-de-argentina-y-e",
-    name: { ja: "A24 EN VIVO | Noticias de Argentina y el mundo las 24 horas", en: "A24 EN VIVO | Noticias de Argentina y el mundo las 24 horas" },
-    lat: -6.5156,
-    lng: -38.1803,
-    timeZone: "America/Fortaleza",
-    category: "city",
-    country: "BR",
-    source: {
-      videoId: "ArKbAx1K-2U",
-      channelId: "UCR9120YBAqMfntqgRTKmkjQ",
-      titleKey: "🟥 A24 EN VIVO | Noticias de Argentina y el mundo las 24 horas",
     },
   },
   {
@@ -40483,21 +39013,6 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
-    id: "au-live-clock-current-time-in-australia",
-    name: { ja: "LIVE | Clock / Current Time in Australia (AEST) / LIVE Australia Clock / What Time Is It Now", en: "LIVE | Clock / Current Time in Australia (AEST) / LIVE Australia Clock / What Time Is It Now" },
-    lat: -34.8842,
-    lng: 150.6004,
-    timeZone: "Australia/Sydney",
-    category: "city",
-    country: "AU",
-    source: {
-      videoId: "bMmJVgByfKM",
-      channelId: "UCI5xyLl5ex8C4gZ6uhb2gWA",
-      titleKey: "🔴 LIVE | Clock / Current Time in Australia (AEST) / LIVE Australia Clock / What Time Is It Now",
-    },
-  },
-  {
     // coords: Photon: Jackson Hole Golf & Tennis Club, Wyoming; title
     id: "au-jackson-hole-golf-tennis-live-cam-see",
     name: { ja: "Jackson Hole Golf & Tennis Live Cam - SeeJH.com", en: "Jackson Hole Golf & Tennis Live Cam - SeeJH.com" },
@@ -40510,21 +39025,6 @@ export const CAMS: Cam[] = [
       videoId: "3mE_mpsx_nU",
       channelId: "UCEpDjqeFIGTqHwk-uULx72Q",
       titleKey: "Jackson Hole Golf & Tennis Live Cam -  SeeJH.com",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "au-kairali-news-live-malayalam-news-live",
-    name: { ja: "Kairali News Live | കൈരളി ന്യൂസ് ലൈവ് | Malayalam News Live | Kerala News LIVE Updates", en: "Kairali News Live | കൈരളി ന്യൂസ് ലൈവ് | Malayalam News Live | Kerala News LIVE Updates" },
-    lat: -37.106,
-    lng: 144.0647,
-    timeZone: "Australia/Melbourne",
-    category: "city",
-    country: "AU",
-    source: {
-      videoId: "yiiqRHY1Bl8",
-      channelId: "UCnEvxaWfVL91XIYuyQRO5QA",
-      titleKey: "Kairali News Live | കൈരളി ന്യൂസ് ലൈവ് | Malayalam News Live | Kerala News LIVE Updates",
     },
   },
   {
@@ -41248,21 +39748,6 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
-    id: "us-the-best-4k-aquarium-dive-into-the-me",
-    name: { ja: "The Best 4K Aquarium - Dive Into The Mesmerizing Underwater Realm, Sea Jellyfish, Coral Reefs", en: "The Best 4K Aquarium - Dive Into The Mesmerizing Underwater Realm, Sea Jellyfish, Coral Reefs" },
-    lat: 35.3438,
-    lng: -77.8489,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "xCLTpcx9aO8",
-      channelId: "UCkwi3H7xoYTJKycMI9YAn0w",
-      titleKey: "The Best 4K Aquarium - Dive Into The Mesmerizing Underwater Realm, Sea Jellyfish, Coral Reefs",
-    },
-  },
-  {
     // coords: Photon: Aquarium of the Pacific, California; watch page: "Watch the coral predators at the Aquarium of the Pacific"
     id: "us-live-colorful-coral-and-fish-at-the-a",
     name: { ja: "LIVE Colorful Coral and Fish at the Aquarium of the Pacific | explore.org", en: "LIVE Colorful Coral and Fish at the Aquarium of the Pacific | explore.org" },
@@ -41339,51 +39824,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "my-awani-live-24-7",
-    name: { ja: "AWANI Live 24/7", en: "AWANI Live 24/7" },
-    lat: 3.1412,
-    lng: 101.6865,
-    timeZone: "Asia/Kuala_Lumpur",
-    category: "city",
-    country: "MY",
-    source: {
-      videoId: "mkVyNaGee8A",
-      channelId: "UC5dYmq91e5_g54krpO06NJw",
-      titleKey: "🔴 AWANI Live 24/7 🔴",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ae-al-jazeera-english-live",
-    name: { ja: "Al Jazeera English | Live", en: "Al Jazeera English | Live" },
-    lat: 25.0772,
-    lng: 55.3093,
-    timeZone: "Asia/Dubai",
-    category: "city",
-    country: "AE",
-    source: {
-      videoId: "gCNeDWCI0vo",
-      channelId: "UCNye-wNBqNL5ZzHSJj3l8Bg",
-      titleKey: "🔴 Al Jazeera English | Live",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "in-live-cameras-around-the-world-music-t",
-    name: { ja: "Live Cameras Around the World - Music, Timelapse, Travel", en: "Live Cameras Around the World - Music, Timelapse, Travel" },
-    lat: 19.0728,
-    lng: 72.8826,
-    timeZone: "Asia/Kolkata",
-    category: "city",
-    country: "IN",
-    source: {
-      videoId: "AiNCbGzabVo",
-      channelId: "UC8gbWbcNNyb5-NIXvFklkOA",
-      titleKey: "Live Cameras Around the World - Music, Timelapse, Travel",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "my-kl-atmosphere-daily-live-stream-26-og",
     name: { ja: "KL Atmosphere Daily Live Stream (26 Ogos 2026)", en: "KL Atmosphere Daily Live Stream (26 Ogos 2026)" },
     lat: 3.1412,
@@ -41395,21 +39835,6 @@ export const CAMS: Cam[] = [
       videoId: "M8f4f07gz7o",
       channelId: "UCu6usOxLQR8CckyPE7Ri-SQ",
       titleKey: "KL Atmosphere Daily Live Stream (26 Ogos 2026)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "vn-suprememastertv-live-1080p-1-119-200",
-    name: { ja: "SupremeMasterTV Live (1080p 1 + 119,200 x Max)", en: "SupremeMasterTV Live (1080p 1 + 119,200 x Max)" },
-    lat: 10.823,
-    lng: 106.6296,
-    timeZone: "Asia/Ho_Chi_Minh",
-    category: "city",
-    country: "VN",
-    source: {
-      videoId: "ZzWBpGwKoaI",
-      channelId: "UC2dULJJ_G6TTNjsunSxP7ag",
-      titleKey: "SupremeMasterTV Live (1080p 1 + 119,200 x Max)",
     },
   },
   {
@@ -41444,21 +39869,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "tr-50-najpiekniejszych-plaz-w-polsce-ogl",
-    name: { ja: "50 najpiękniejszych plaż w Polsce, oglądaj przez cały rok - WebCamera.pl", en: "50 najpiękniejszych plaż w Polsce, oglądaj przez cały rok - WebCamera.pl" },
-    lat: 36.9081,
-    lng: 30.6956,
-    timeZone: "Europe/Istanbul",
-    category: "city",
-    country: "TR",
-    source: {
-      videoId: "uxC7Gf0_MwM",
-      channelId: "UCh2MI-QmqjA40IYO4oCXdUw",
-      titleKey: "🔴 50 najpiękniejszych plaż w Polsce, oglądaj przez cały rok - WebCamera.pl",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "de-luzern-live-lucerne-live",
     name: { ja: "Luzern live - Lucerne live", en: "Luzern live - Lucerne live" },
     lat: 52.5244,
@@ -41489,21 +39899,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "at-slovakia-24-7-live-stream-webcams",
-    name: { ja: "Slovakia – 24/7 LIVE Stream Webcams", en: "Slovakia – 24/7 LIVE Stream Webcams" },
-    lat: 48.2085,
-    lng: 16.3721,
-    timeZone: "Europe/Vienna",
-    category: "city",
-    country: "AT",
-    source: {
-      videoId: "6V39eDpTyas",
-      channelId: "UC9xLSF0SZDbVa70iTpghQBw",
-      titleKey: "🔴 Slovakia – 24/7 LIVE Stream Webcams",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "at-wetterpanorama-karnten",
     name: { ja: "Wetterpanorama Kärnten", en: "Wetterpanorama Kärnten" },
     lat: 48.2085,
@@ -41515,36 +39910,6 @@ export const CAMS: Cam[] = [
       videoId: "a_ll9NvZqaY",
       channelId: "UCgL2EJAYMsU9ifTuiZ9wUFA",
       titleKey: "Wetterpanorama Kärnten",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "il-tvp-info-ogladaj-na-zywo",
-    name: { ja: "TVP INFO | OGLĄDAJ NA ŻYWO", en: "TVP INFO | OGLĄDAJ NA ŻYWO" },
-    lat: 32.0809,
-    lng: 34.7806,
-    timeZone: "Asia/Jerusalem",
-    category: "city",
-    country: "IL",
-    source: {
-      videoId: "3jKb-uThfrg",
-      channelId: "UCzQZbOb86WvhOPoR7jgAfsA",
-      titleKey: "TVP INFO | OGLĄDAJ NA ŻYWO",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "gr-live-earthquake-monitoring-globalquak",
-    name: { ja: "Live Earthquake Monitoring | GlobalQuake", en: "Live Earthquake Monitoring | GlobalQuake" },
-    lat: 36.4057,
-    lng: 25.4568,
-    timeZone: "Europe/Athens",
-    category: "city",
-    country: "GR",
-    source: {
-      videoId: "rvtygG4n6ew",
-      channelId: "UCZmcd4cQ2H_ELWAuUdOMgRQ",
-      titleKey: "Live Earthquake Monitoring | GlobalQuake",
     },
   },
   {
@@ -41879,111 +40244,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "vn-12-hours-of-calming-music-for-dogsmus",
-    name: { ja: "12 Hours of Calming Music for DogsMusic for Stressed DogsDog Separation Anxiety Music", en: "12 Hours of Calming Music for DogsMusic for Stressed DogsDog Separation Anxiety Music" },
-    lat: 16.0678,
-    lng: 108.2208,
-    timeZone: "Asia/Ho_Chi_Minh",
-    category: "city",
-    country: "VN",
-    source: {
-      videoId: "Ciqva0oZ3HY",
-      channelId: "UCd4TU-zpYIT3HQqjU4BCjyw",
-      titleKey: "12 Hours of Calming Music for Dogs🐶Music for Stressed Dogs🎵Dog Separation Anxiety Music",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "vn-tranquil-seaside-cafe-jazz-escape-wit",
-    name: { ja: "Tranquil Seaside Cafe Jazz Escape with Hammock | Gentle Jazz Melody & Ocean View", en: "Tranquil Seaside Cafe Jazz Escape with Hammock | Gentle Jazz Melody & Ocean View" },
-    lat: 16.0678,
-    lng: 108.2208,
-    timeZone: "Asia/Ho_Chi_Minh",
-    category: "city",
-    country: "VN",
-    source: {
-      videoId: "fYlE4P7esPo",
-      channelId: "UCELRWKTpWtg9KzWwDKUCaCw",
-      titleKey: "Tranquil Seaside Cafe Jazz Escape with Hammock | Gentle Jazz Melody & Ocean View",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "my-sleep-and-chill-with-calm-jazz-music",
-    name: { ja: "Sleep and Chill with Calm Jazz Music in Cozy Apartment Ambience Overlooking the Peaceful Seaport", en: "Sleep and Chill with Calm Jazz Music in Cozy Apartment Ambience Overlooking the Peaceful Seaport" },
-    lat: 5.3729,
-    lng: 100.2496,
-    timeZone: "Asia/Kuala_Lumpur",
-    category: "city",
-    country: "MY",
-    source: {
-      videoId: "_hYFoAYqOY8",
-      channelId: "UCYEnTNjPo5MOiX3epazSjGQ",
-      titleKey: "Sleep and Chill with Calm Jazz Music in Cozy Apartment Ambience Overlooking the Peaceful Seaport",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "in-channels-television-live",
-    name: { ja: "CHANNELS TELEVISION | LIVE", en: "CHANNELS TELEVISION | LIVE" },
-    lat: 13.0878,
-    lng: 80.2785,
-    timeZone: "Asia/Kolkata",
-    category: "city",
-    country: "IN",
-    source: {
-      videoId: "W8nThq62Vb4",
-      channelId: "UCEXGDNclvmg6RW0vipJYsTQ",
-      titleKey: "CHANNELS TELEVISION | LIVE",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "in-channels-television-live-stream",
-    name: { ja: "Channels Television -- Live Stream", en: "Channels Television -- Live Stream" },
-    lat: 13.0878,
-    lng: 80.2785,
-    timeZone: "Asia/Kolkata",
-    category: "city",
-    country: "IN",
-    source: {
-      videoId: "d4zDorDl5UE",
-      channelId: "UCEXGDNclvmg6RW0vipJYsTQ",
-      titleKey: "Channels Television -- Live Stream",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "vn-luxury-hotel-lounge-music-relaxing-ja",
-    name: { ja: "Luxury Hotel Lounge Music - Relaxing Jazz Saxophone Instrumental Music - Soft Jazz Background Music", en: "Luxury Hotel Lounge Music - Relaxing Jazz Saxophone Instrumental Music - Soft Jazz Background Music" },
-    lat: 16.0678,
-    lng: 108.2208,
-    timeZone: "Asia/Ho_Chi_Minh",
-    category: "city",
-    country: "VN",
-    source: {
-      videoId: "I_2sAr9hIuc",
-      channelId: "UCIYy_Et4Uee-LejWsUzWK5Q",
-      titleKey: "Luxury Hotel Lounge Music - Relaxing Jazz Saxophone Instrumental Music - Soft Jazz Background Music",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "gb-live-talksport-24-7",
-    name: { ja: "LIVE: talkSPORT 24/7", en: "LIVE: talkSPORT 24/7" },
-    lat: 53.4106,
-    lng: -2.9779,
-    timeZone: "Europe/London",
-    category: "city",
-    country: "GB",
-    source: {
-      videoId: "uLWEssCrXYc",
-      channelId: "UCWw6scNyopJ0yjMu1SyOEyw",
-      titleKey: "LIVE: talkSPORT 24/7 🚨",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "vn-after-3-minutes-dmt-will-be-released",
     name: { ja: "After 3 Minutes, DMT Will Be RELEASED into Your PINEAL Gland, Remove ALL Negative Energy | 528 Hz", en: "After 3 Minutes, DMT Will Be RELEASED into Your PINEAL Gland, Remove ALL Negative Energy | 528 Hz" },
     lat: 16.0678,
@@ -42164,36 +40424,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "gr-chillout-2026-24-7-live-radio-summer",
-    name: { ja: "Chillout 2026 24/7 Live Radio • Summer Tropical House & Deep House Chill Music Mix by We Are Diamond", en: "Chillout 2026 24/7 Live Radio • Summer Tropical House & Deep House Chill Music Mix by We Are Diamond" },
-    lat: 37.4453,
-    lng: 25.3287,
-    timeZone: "Europe/Athens",
-    category: "city",
-    country: "GR",
-    source: {
-      videoId: "sgEJ4sOwboM",
-      channelId: "UCrFFy9BMtlNsg2wsa4XbTPg",
-      titleKey: "Chillout 2026 24/7 Live Radio • Summer Tropical House & Deep House Chill Music Mix by We Are Diamond",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "za-africanews-english-live",
-    name: { ja: "Africanews english Live", en: "Africanews english Live" },
-    lat: -29.8579,
-    lng: 31.0292,
-    timeZone: "Africa/Johannesburg",
-    category: "city",
-    country: "ZA",
-    source: {
-      videoId: "NQjabLGdP5g",
-      channelId: "UC1_E8NeF5QHY2dtdLRBCCLA",
-      titleKey: "Africanews english Live",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "at-lszq-east-approach-runway-25",
     name: { ja: "LSZQ East (approach runway 25)", en: "LSZQ East (approach runway 25)" },
     lat: 47.2627,
@@ -42235,21 +40465,6 @@ export const CAMS: Cam[] = [
       videoId: "n_GpVsz4nHU",
       channelId: "UCnM5iMGiKsZg-iOlIO2ZkdQ",
       titleKey: "Live Open Sea Cam | Monterey Bay Aquarium",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "mx-live-clock-cst-current-time",
-    name: { ja: "LIVE | Clock - CST (Current time)", en: "LIVE | Clock - CST (Current time)" },
-    lat: 20.617,
-    lng: -105.2302,
-    timeZone: "America/Mexico_City",
-    category: "city",
-    country: "MX",
-    source: {
-      videoId: "nyw30BF_i6Y",
-      channelId: "UCKm6ufPsvELiPzpa4V6IY2w",
-      titleKey: "🔴 LIVE | Clock - CST (Current time)",
     },
   },
   {
@@ -42448,21 +40663,6 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
-    id: "tr-yaprak-dokumu-canl-yay-n",
-    name: { ja: "Yaprak Dökümü Canlı Yayın", en: "Yaprak Dökümü Canlı Yayın" },
-    lat: 38.1925,
-    lng: 27.5552,
-    timeZone: "Europe/Istanbul",
-    category: "city",
-    country: "TR",
-    source: {
-      videoId: "crwxJBQKWj4",
-      channelId: "UCi-nK74pBX9Ou66z1j7KYPQ",
-      titleKey: "Yaprak Dökümü Canlı Yayın",
-    },
-  },
-  {
     // coords: Open-Meteo geocoding "Mexico City", Mexico City (title; Photon hit within 25 km: Plaza de la Constitución, Ciudad de México)
     id: "mx-en-vivo-panoramica-del-zocalo-de-la-c",
     name: { ja: "En vivo Panorámica del Zócalo de la Ciudad de México", en: "En vivo Panorámica del Zócalo de la Ciudad de México" },
@@ -42475,21 +40675,6 @@ export const CAMS: Cam[] = [
       videoId: "RFB187mV2cI",
       channelId: "UColBcWm6ybTbQnNuQS8JaKg",
       titleKey: "En vivo Panorámica del Zócalo de la Ciudad de México",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "tr-alt-ustu-istanbul-tum-bolumler-canl-i",
-    name: { ja: "Altı Üstü İstanbul | Tüm Bölümler Canlı İzle", en: "Altı Üstü İstanbul | Tüm Bölümler Canlı İzle" },
-    lat: 38.4986,
-    lng: 44.1268,
-    timeZone: "Europe/Istanbul",
-    category: "city",
-    country: "TR",
-    source: {
-      videoId: "6pU7QDkeVr8",
-      channelId: "UCpMth28h0W_ycDlZ5KxABDw",
-      titleKey: "Altı Üstü İstanbul | Tüm Bölümler Canlı İzle",
     },
   },
   {
@@ -42520,51 +40705,6 @@ export const CAMS: Cam[] = [
       videoId: "gpaXL59Xdj8",
       channelId: "UCKRILTo_VTbb0GwY3bcthFw",
       titleKey: "🔴Tokat / Erbaa Canlı Yayın - Seyrantepe Aile Çay Bahçesi Kamera 1",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "tr-tasacak-bu-deniz-tum-bolumler-canl-ya",
-    name: { ja: "Taşacak Bu Deniz - Tüm Bölümler Canlı Yayın", en: "Taşacak Bu Deniz - Tüm Bölümler Canlı Yayın" },
-    lat: 38.4986,
-    lng: 44.1268,
-    timeZone: "Europe/Istanbul",
-    category: "city",
-    country: "TR",
-    source: {
-      videoId: "MVjIaSmOs3g",
-      channelId: "UCx7gLo8iS4ofgNfBENUxWDA",
-      titleKey: "Taşacak Bu Deniz - Tüm Bölümler Canlı Yayın",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "tr-ask-memnu-canl-izle",
-    name: { ja: "Aşk-ı Memnu Canlı İzle", en: "Aşk-ı Memnu Canlı İzle" },
-    lat: 38.5833,
-    lng: 41.0833,
-    timeZone: "Europe/Istanbul",
-    category: "city",
-    country: "TR",
-    source: {
-      videoId: "JpP13Wp1ke0",
-      channelId: "UCIdiuKAg5xVZsvXDQbOG4cg",
-      titleKey: "Aşk-ı Memnu Canlı İzle",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "tr-son-dakika-haberleri-haber-global-tv",
-    name: { ja: "SON DAKİKA HABERLERİ - Haber Global TV ᴴᴰ Canlı TV İzle", en: "SON DAKİKA HABERLERİ - Haber Global TV ᴴᴰ Canlı TV İzle" },
-    lat: 40.55,
-    lng: 39.4833,
-    timeZone: "Europe/Istanbul",
-    category: "city",
-    country: "TR",
-    source: {
-      videoId: "EqoCJ8BPxtE",
-      channelId: "UCtc-a9ZUIg0_5HpsPxEO7Qg",
-      titleKey: "SON DAKİKA HABERLERİ - Haber Global TV ᴴᴰ Canlı TV İzle",
     },
   },
   {
@@ -42610,36 +40750,6 @@ export const CAMS: Cam[] = [
       videoId: "Vf14Iyj2tGw",
       channelId: "UCdSoVb1JpVTNoGLnc6WptGA",
       titleKey: "Şar Mah. Tufanbeyli Canlı Kamera | Şar Village Live Cam | Adana Turkey  7/24 live⁨  @GayeGezemMedia",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ua-live-ukraine-live-hd-camera-feeds-fro",
-    name: { ja: "LIVE: Ukraine LIVE HD Camera Feeds from Donetsk, Sumy, Kyiv, Kharkiv and more", en: "LIVE: Ukraine LIVE HD Camera Feeds from Donetsk, Sumy, Kyiv, Kharkiv and more" },
-    lat: 49.2549,
-    lng: 31.0038,
-    timeZone: "Europe/Kyiv",
-    category: "city",
-    country: "UA",
-    source: {
-      videoId: "mTEqaZj2aho",
-      channelId: "UCuyLmOJb7PVCvx8zbRT9_GQ",
-      titleKey: "LIVE: Ukraine LIVE HD Camera Feeds from Donetsk, Sumy, Kyiv, Kharkiv and more",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ua-live-24-7-key-news-from-ukraine-world",
-    name: { ja: "LIVE 24/7: Key News from Ukraine & World Updates", en: "LIVE 24/7: Key News from Ukraine & World Updates" },
-    lat: 50.3099,
-    lng: 32.5079,
-    timeZone: "Europe/Kyiv",
-    category: "city",
-    country: "UA",
-    source: {
-      videoId: "uK7u5Cu4xh0",
-      channelId: "UCOmfcmDrWs7iJrXx7V5Cnwg",
-      titleKey: "LIVE 24/7: Key News from Ukraine & World Updates",
     },
   },
   {
@@ -42914,21 +41024,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-live-clock-time-in-new-york-now-live",
-    name: { ja: "LIVE | Clock / Time in New York now / LIVE New York / what time is it now", en: "LIVE | Clock / Time in New York now / LIVE New York / what time is it now" },
-    lat: 38.4278,
-    lng: -84.8105,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "OQCwp8o5L8o",
-      channelId: "UCfvJjZ2JAX1-Repdj4W5LyQ",
-      titleKey: "🔴 LIVE | Clock / Time in New York now / LIVE New York / what time is it now",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-garden-city-realty-s-live-cam-at-rive",
     name: { ja: "Garden City Realty's Live Cam at River City Café", en: "Garden City Realty's Live Cam at River City Café" },
     lat: 44.98,
@@ -42959,21 +41054,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-watch-fox-weather-channel-live-stream",
-    name: { ja: "Watch FOX Weather Channel Live Stream: Tracking Breaking Weather News, Local and National Forecasts", en: "Watch FOX Weather Channel Live Stream: Tracking Breaking Weather News, Local and National Forecasts" },
-    lat: 43.6027,
-    lng: -111.1113,
-    timeZone: "America/Boise",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "wt6SIE7BXS8",
-      channelId: "UC1FbPiXx59_ltnFVx7IxWow",
-      titleKey: "Watch FOX Weather Channel Live Stream: Tracking Breaking Weather News, Local and National Forecasts",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "rs-kopaonik-uzivo-infokop-live-stream",
     name: { ja: "Kopaonik uživo | infoKOP Live Stream", en: "Kopaonik uživo | infoKOP Live Stream" },
     lat: 43.286,
@@ -43000,21 +41080,6 @@ export const CAMS: Cam[] = [
       videoId: "Nto6QNZZnQ0",
       channelId: "UCngk9QvbWSa3Gto7zD9xt2A",
       titleKey: "Upper East River - Savannah River View",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-calm-cafe-jazz-radio-cozy-summer-coff",
-    name: { ja: "Calm Cafe Jazz Radio ️ cozy summer coffee shop ambience to relax/study/work to", en: "Calm Cafe Jazz Radio ️ cozy summer coffee shop ambience to relax/study/work to" },
-    lat: 36.5517,
-    lng: -91.1618,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "LTFEmIIOvNQ",
-      channelId: "UCJuMbdKSMThk2RpALASyXVQ",
-      titleKey: "Calm Cafe Jazz Radio 🌳🦉☕️ cozy summer coffee shop ambience to relax/study/work to",
     },
   },
   {
@@ -43705,21 +41770,6 @@ export const CAMS: Cam[] = [
       videoId: "dQDu9qTUNn8",
       channelId: "UCf0UNIPJYnMMlnDxY89kMGQ",
       titleKey: "Grand Panama Beach Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-live-abc7-eyewitness-news",
-    name: { ja: "LIVE: ABC7 Eyewitness News", en: "LIVE: ABC7 Eyewitness News" },
-    lat: 36.6246,
-    lng: -77.1247,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "s3iVFJoxrYc",
-      channelId: "UCVxBA3Cbu3pm8w8gEIoMEog",
-      titleKey: "LIVE: ABC7 Eyewitness News",
     },
   },
   {
@@ -44459,21 +42509,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "ca-cbc-news-live-nova-scotia",
-    name: { ja: "CBC News LIVE: Nova Scotia", en: "CBC News LIVE: Nova Scotia" },
-    lat: 45.0001,
-    lng: -79.5829,
-    timeZone: "America/Toronto",
-    category: "city",
-    country: "CA",
-    source: {
-      videoId: "Utk7BN9X1Dk",
-      channelId: "UCxQXcwZ1Ls0spDyHCpwUs4Q",
-      titleKey: "CBC News LIVE: Nova Scotia",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "ca-st-john-brewer-s-live-car-barge-ferry",
     name: { ja: "St. John Brewer's Live Car Barge Ferry webcam - US Virgin Islands", en: "St. John Brewer's Live Car Barge Ferry webcam - US Virgin Islands" },
     lat: 47.5649,
@@ -44579,21 +42614,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "ca-cbc-news-live-newfoundland-and-labrad",
-    name: { ja: "CBC News LIVE: Newfoundland and Labrador", en: "CBC News LIVE: Newfoundland and Labrador" },
-    lat: 48.5648,
-    lng: -55.7788,
-    timeZone: "America/St_Johns",
-    category: "city",
-    country: "CA",
-    source: {
-      videoId: "KJb3pSYYkTQ",
-      channelId: "UCpPLxYC6uNNfNrSQokButSg",
-      titleKey: "CBC News LIVE: Newfoundland and Labrador",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "br-praia-de-candeias-pe-camera-2-ao-vivo",
     name: { ja: "PRAIA DE CANDEIAS PE - CÂMERA 2 AO VIVO - LIVE CAM", en: "PRAIA DE CANDEIAS PE - CÂMERA 2 AO VIVO - LIVE CAM" },
     lat: -6.7167,
@@ -44683,21 +42703,6 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
-    id: "br-live-hora-certa-24-7-relogio-ao-v-2",
-    name: { ja: "️LIVE Hora Certa 24/7 | RELÓGIO ao Vivo UTC-3 – Horário de Brasília AO VIVO", en: "️LIVE Hora Certa 24/7 | RELÓGIO ao Vivo UTC-3 – Horário de Brasília AO VIVO" },
-    lat: -3.0594,
-    lng: -44.086,
-    timeZone: "America/Fortaleza",
-    category: "city",
-    country: "BR",
-    source: {
-      videoId: "kPAL45DqaAM",
-      channelId: "UC7pYTpHuYsmaSiNnr-HfTfw",
-      titleKey: "🕒🌧️LIVE Hora Certa 24/7 | RELÓGIO ao Vivo UTC-3 – Horário de Brasília AO VIVO",
-    },
-  },
-  {
     // coords: Open-Meteo geocoding "Noordwijk aan Zee", South Holland (title)
     id: "mx-live-noordwijk-aan-zee-boulevard-en-b",
     name: { ja: "Live Noordwijk aan Zee Boulevard en Beach Camera", en: "Live Noordwijk aan Zee Boulevard en Beach Camera" },
@@ -44755,21 +42760,6 @@ export const CAMS: Cam[] = [
       videoId: "4lR5xyrekU0",
       channelId: "UClT_OMO0_9_EfI6nQTmfrgQ",
       titleKey: "🔴 LIVE Lourdes Sanctuary |  Healing Prayer, Rosary & Blessed Sacrament Adoration",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "br-the-deep-ocean-4k-tv-ultra-hd-full-do",
-    name: { ja: "THE DEEP OCEAN | 4K TV ULTRA HD / Full Documentary - Beautiful Coral Reef Fish Video - Stress Relief", en: "THE DEEP OCEAN | 4K TV ULTRA HD / Full Documentary - Beautiful Coral Reef Fish Video - Stress Relief" },
-    lat: -23.0106,
-    lng: -43.3228,
-    timeZone: "America/Sao_Paulo",
-    category: "city",
-    country: "BR",
-    source: {
-      videoId: "THnF0IQ8JJM",
-      channelId: "UCkwi3H7xoYTJKycMI9YAn0w",
-      titleKey: "THE DEEP OCEAN | 4K TV ULTRA HD / Full Documentary - Beautiful Coral Reef Fish Video - Stress Relief",
     },
   },
   {
@@ -45418,21 +43408,6 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
-    id: "kr-live-arirang-radio-all-things-k-k-pop",
-    name: { ja: "[Live] Arirang Radio | All Things K: K-Pop, K-Culture & News from Korea", en: "[Live] Arirang Radio | All Things K: K-Pop, K-Culture & News from Korea" },
-    lat: 36.1818,
-    lng: 127.9693,
-    timeZone: "Asia/Seoul",
-    category: "city",
-    country: "KR",
-    source: {
-      videoId: "P1fX2GGdVS0",
-      channelId: "UCUSSnoEQ8DSRK-gnWS0vfyA",
-      titleKey: "🔴 [Live] Arirang Radio | All Things K: K-Pop, K-Culture & News from Korea",
-    },
-  },
-  {
     // coords: Open-Meteo geocoding "Shoufeng", Taiwan (title; Photon hit within 25 km: 鯉魚潭)
     id: "tw-4k-live-hualien-liyu-lake-4k-live-cam",
     name: { ja: "【4K Live】Hualien Liyu Lake｜4K Live Camera｜Lofi Music/Study/Relax", en: "【4K Live】Hualien Liyu Lake｜4K Live Camera｜Lofi Music/Study/Relax" },
@@ -45445,21 +43420,6 @@ export const CAMS: Cam[] = [
       videoId: "aaKOV4qkDHw",
       channelId: "UCfYcCVNyrcAK2N1bW3iSLvA",
       titleKey: "【4K Live】Hualien Liyu Lake｜4K Live Camera｜Lofi Music/Study/Relax",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "kr-triton-poker-series-cash-game-invitat",
-    name: { ja: "Triton Poker Series: Cash Game Invitational I", en: "Triton Poker Series: Cash Game Invitational I" },
-    lat: 36.621,
-    lng: 128.7808,
-    timeZone: "Asia/Seoul",
-    category: "city",
-    country: "KR",
-    source: {
-      videoId: "nU5ClZZQ4kg",
-      channelId: "UCpcv404DxfhGYhXgyB9Aoeg",
-      titleKey: "🔴  Triton Poker Series: Cash Game Invitational I",
     },
   },
   {
@@ -45659,66 +43619,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "in-live-dunya-news-24-7-non-stop-coverag",
-    name: { ja: "𝗟𝗶𝘃𝗲 𝗗𝘂𝗻𝘆𝗮 𝗡𝗲𝘄𝘀: 24/7 Non-Stop Coverage | Headlines, Breaking News from Pakistan & Top TV Shows", en: "𝗟𝗶𝘃𝗲 𝗗𝘂𝗻𝘆𝗮 𝗡𝗲𝘄𝘀: 24/7 Non-Stop Coverage | Headlines, Breaking News from Pakistan & Top TV Shows" },
-    lat: 25.3167,
-    lng: 83.0104,
-    timeZone: "Asia/Kolkata",
-    category: "city",
-    country: "IN",
-    source: {
-      videoId: "e2XVSUYh4S0",
-      channelId: "UCnMBV5Iw4WqKILKue1nP6Hg",
-      titleKey: "🔴 𝗟𝗶𝘃𝗲 𝗗𝘂𝗻𝘆𝗮 𝗡𝗲𝘄𝘀: 24/7 Non-Stop Coverage | Headlines, Breaking News from Pakistan & Top TV Shows",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "tr-bizimkiler-tum-bolumler-canl-yay-n-no",
-    name: { ja: "Bizimkiler - Tüm Bölümler Canlı Yayın @NostaljiTRT", en: "Bizimkiler - Tüm Bölümler Canlı Yayın @NostaljiTRT" },
-    lat: 38.4986,
-    lng: 44.1268,
-    timeZone: "Europe/Istanbul",
-    category: "city",
-    country: "TR",
-    source: {
-      videoId: "jvC6-s5exnI",
-      channelId: "UCYWwhdgFmZR0uWwaS-GURyg",
-      titleKey: "Bizimkiler - Tüm Bölümler Canlı Yayın @NostaljiTRT",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "in-news18-punjab-live-cm-mann-punjab-str",
-    name: { ja: "News18 Punjab LIVE | CM Mann | Punjab Strike | Nepal Floods| Channi | Congress | Malwinder Kang", en: "News18 Punjab LIVE | CM Mann | Punjab Strike | Nepal Floods| Channi | Congress | Malwinder Kang" },
-    lat: 28.5649,
-    lng: 73.3888,
-    timeZone: "Asia/Kolkata",
-    category: "city",
-    country: "IN",
-    source: {
-      videoId: "AYJde7JQ1ok",
-      channelId: "UC-crZTQNRzZgzyighTKF0nQ",
-      titleKey: "News18 Punjab LIVE | CM  Mann | Punjab Strike | Nepal Floods| Channi | Congress | Malwinder Kang",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "in-tv9-bharatvarsh-live-iran-us-war-patn",
-    name: { ja: "TV9 Bharatvarsh LIVE: Iran US War | Patna Student Protest | Sugar Price | Congress | BJP |Hindi News", en: "TV9 Bharatvarsh LIVE: Iran US War | Patna Student Protest | Sugar Price | Congress | BJP |Hindi News" },
-    lat: 24.7307,
-    lng: 84.52,
-    timeZone: "Asia/Kolkata",
-    category: "city",
-    country: "IN",
-    source: {
-      videoId: "nSpwwcHVp80",
-      channelId: "UCOutOIcn_oho8pyVN3Ng-Pg",
-      titleKey: "TV9 Bharatvarsh LIVE: Iran US War | Patna Student Protest | Sugar Price | Congress | BJP |Hindi News",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "in-warren-peak-cam",
     name: { ja: "Warren Peak Cam", en: "Warren Peak Cam" },
     lat: 24.5858,
@@ -45745,21 +43645,6 @@ export const CAMS: Cam[] = [
       videoId: "p0YDJ55WhCo",
       channelId: "UCVyzdtbLCOfN9y3NeeHOklw",
       titleKey: "Port d'Yvonand",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "in-news18-punjab-live-tv-punjab-strike-n",
-    name: { ja: "News18 Punjab LIVE TV | Punjab Strike | Nepal Floods | Ram Rahim | BJP | Neha Bassi | Rakhi 2026", en: "News18 Punjab LIVE TV | Punjab Strike | Nepal Floods | Ram Rahim | BJP | Neha Bassi | Rakhi 2026" },
-    lat: 27.1855,
-    lng: 81.9618,
-    timeZone: "Asia/Kolkata",
-    category: "city",
-    country: "IN",
-    source: {
-      videoId: "KMWcefrAKLg",
-      channelId: "UC-crZTQNRzZgzyighTKF0nQ",
-      titleKey: "News18 Punjab LIVE TV | Punjab Strike | Nepal Floods | Ram Rahim | BJP | Neha Bassi  | Rakhi 2026",
     },
   },
   {
@@ -45880,36 +43765,6 @@ export const CAMS: Cam[] = [
       videoId: "_AyumoafMOU",
       channelId: "UCuoNAKa3P0QR1Lw9QdpmoVg",
       titleKey: "Kings Camp | Live Wildlife Stream",
-    },
-  },
-  {
-    // coords: Open-Meteo geocoding "Paris", Île-de-France Region (watch page: "broadcasted from Paris, France")
-    id: "za-france-24-english-live-international",
-    name: { ja: "FRANCE 24 English – LIVE – International Breaking News & Top stories - 24/7 stream", en: "FRANCE 24 English – LIVE – International Breaking News & Top stories - 24/7 stream" },
-    lat: 48.8534,
-    lng: 2.3488,
-    timeZone: "Europe/Paris",
-    category: "city",
-    country: "FR",
-    source: {
-      videoId: "HvZt-nh9sGg",
-      channelId: "UCQfwfsi5VrQ8yKZ-UWmAEFg",
-      titleKey: "FRANCE 24 English – LIVE – International Breaking News & Top stories - 24/7 stream",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "za-live-big-city-greens-full-episodes-me",
-    name: { ja: "LIVE! | Big City Greens Full Episodes MEGA Livestream! | @disneychannelanimation", en: "LIVE! | Big City Greens Full Episodes MEGA Livestream! | @disneychannelanimation" },
-    lat: -33.7914,
-    lng: 18.4584,
-    timeZone: "Africa/Johannesburg",
-    category: "city",
-    country: "ZA",
-    source: {
-      videoId: "B_5RPAixkG4",
-      channelId: "UCw7SNYrYei7F5ttQO3o-rpA",
-      titleKey: "🔴 LIVE! | Big City Greens Full Episodes MEGA Livestream! 🏡💚 |  @disneychannelanimation",
     },
   },
   {
@@ -46183,36 +44038,6 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
-    id: "ch-the-amazing-world-of-gumball-live-non",
-    name: { ja: "The Amazing World of Gumball Live! | Nonstop Fun | Cartoon Network", en: "The Amazing World of Gumball Live! | Nonstop Fun | Cartoon Network" },
-    lat: 46.7522,
-    lng: 8.4363,
-    timeZone: "Europe/Zurich",
-    category: "city",
-    country: "CH",
-    source: {
-      videoId: "nIyaCRNwxhU",
-      channelId: "UCoBpC9J2EcbAMprw7YjC93A",
-      titleKey: "The Amazing World of Gumball Live! | Nonstop Fun | Cartoon Network",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ch-live-phineas-and-ferb-season-1-full-e",
-    name: { ja: "LIVE! Phineas and Ferb Season 1 Full Episodes! | @disneychannelanimation ​", en: "LIVE! Phineas and Ferb Season 1 Full Episodes! | @disneychannelanimation ​" },
-    lat: 47.6153,
-    lng: 8.2056,
-    timeZone: "Europe/Zurich",
-    category: "city",
-    country: "CH",
-    source: {
-      videoId: "_HviSyC7zSU",
-      channelId: "UCw7SNYrYei7F5ttQO3o-rpA",
-      titleKey: "🔴 LIVE! Phineas and Ferb Season 1 Full Episodes! | @disneychannelanimation  ​",
-    },
-  },
-  {
     // coords: Open-Meteo geocoding "Springfield", Missouri (title)
     id: "za-mokan-railcams-springfield-missouri-b",
     name: { ja: "MOKAN Railcams Springfield, Missouri BNSF Thayer North Subdivision (MP 204.70)", en: "MOKAN Railcams Springfield, Missouri BNSF Thayer North Subdivision (MP 204.70)" },
@@ -46225,21 +44050,6 @@ export const CAMS: Cam[] = [
       videoId: "BJHCuIJpC2g",
       channelId: "UC4Nv2Ssy45CKx7XWnaUFexQ",
       titleKey: "MOKAN Railcams Springfield, Missouri BNSF Thayer North Subdivision (MP 204.70)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "de-prague-castle-night-jazz-romantic-bal",
-    name: { ja: "Prague Castle Night Jazz Romantic Balcony Café Ambience & Jazz Relaxing Music for Focus, Work", en: "Prague Castle Night Jazz Romantic Balcony Café Ambience & Jazz Relaxing Music for Focus, Work" },
-    lat: 48.9276,
-    lng: 11.1505,
-    timeZone: "Europe/Berlin",
-    category: "city",
-    country: "DE",
-    source: {
-      videoId: "DgBUQE0ZhYM",
-      channelId: "UCNGMFDOwZ_0eUa6s8m2pMAA",
-      titleKey: "Prague Castle Night Jazz ☕ Romantic Balcony Café Ambience & Jazz Relaxing Music for Focus, Work",
     },
   },
   {
@@ -46679,21 +44489,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-4k-24-7-big-waves-tahiti-and-hawaii-a",
-    name: { ja: "4K - 24/7 BIG Waves - Tahiti And Hawaii - ASMR With Relaxing Music️", en: "4K - 24/7 BIG Waves - Tahiti And Hawaii - ASMR With Relaxing Music️" },
-    lat: 64.1525,
-    lng: -145.8422,
-    timeZone: "America/Anchorage",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "6N8jzXAstuk",
-      channelId: "UCVo06dBGK9VBBhq15wJxZHQ",
-      titleKey: "🔴4K - 24/7 BIG Waves - Tahiti And Hawaii -  ASMR With Relaxing Music☑️🔴",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-south-padre-island-live-north-beach-w",
     name: { ja: "South Padre Island LIVE - North Beach Webcam at Sand Rose Beach Resort South Padre Island", en: "South Padre Island LIVE - North Beach Webcam at Sand Rose Beach Resort South Padre Island" },
     lat: 32.7043,
@@ -46874,21 +44669,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-relaxing-zen-music-24-7-healing-music",
-    name: { ja: "Relaxing Zen Music 24/7, Healing Music, Meditation Music, Spa Music, Sleep, Zen, Nature Sounds", en: "Relaxing Zen Music 24/7, Healing Music, Meditation Music, Spa Music, Sleep, Zen, Nature Sounds" },
-    lat: 33.0792,
-    lng: 130.7779,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "5_1OOKcawd8",
-      channelId: "UCwobzUc3z-0PrFpoRxNszXQ",
-      titleKey: "🔴 Relaxing Zen Music 24/7, Healing Music, Meditation Music, Spa Music, Sleep, Zen, Nature Sounds",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-bandai-city-niigata-live-camera",
     name: { ja: "【ライブカメラ】新潟 万代シテイ 今の様子＜BANDAI CITY, NIIGATA LIVE CAMERA＞", en: "【ライブカメラ】新潟 万代シテイ 今の様子＜BANDAI CITY, NIIGATA LIVE CAMERA＞" },
     lat: 37.9226,
@@ -46900,36 +44680,6 @@ export const CAMS: Cam[] = [
       videoId: "x7eCQxlXlpo",
       channelId: "UCXScRoBNwPISEKWqBXeGiwQ",
       titleKey: "【ライブカメラ】新潟 万代シテイ 今の様子＜BANDAI CITY, NIIGATA　LIVE CAMERA＞",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-shakuhachi-flute-music-traditional-ja",
-    name: { ja: "Shakuhachi Flute Music ~ Traditional Japanese Zen for Mindful Meditation", en: "Shakuhachi Flute Music ~ Traditional Japanese Zen for Mindful Meditation" },
-    lat: 33.0792,
-    lng: 130.7779,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "7UQJucoEwj4",
-      channelId: "UCrkRaf_4UZSJZnuBxjmhL8g",
-      titleKey: "Shakuhachi Flute Music ~ Traditional Japanese Zen for Mindful Meditation",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-peaceful-lofi-coffee-in-90-s-tokyo-st",
-    name: { ja: "Peaceful Lofi Coffee in 90's Tokyo Street Rainy Lofi Hip Hop Mix ️ Lofi Beats To Study/ Chill", en: "Peaceful Lofi Coffee in 90's Tokyo Street Rainy Lofi Hip Hop Mix ️ Lofi Beats To Study/ Chill" },
-    lat: 35.6895,
-    lng: 139.6917,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "4Q9jq-tdOoE",
-      channelId: "UClBrT0ADeJnemAyp2EbzVFw",
-      titleKey: "Peaceful Lofi Coffee in 90's Tokyo Street 🌆 Rainy Lofi Hip Hop Mix 🌧️ Lofi Beats To Study/ Chill",
     },
   },
   {
@@ -47035,21 +44785,6 @@ export const CAMS: Cam[] = [
       videoId: "XDo_FvBYvUI",
       channelId: "UCXT91vDi7HDSjcdOwN77ktg",
       titleKey: "Transmisión en vivo de Canal 6 Guadalajara",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "mx-n-noticias-guadalajara-en-vivo",
-    name: { ja: "N+ Noticias Guadalajara En Vivo", en: "N+ Noticias Guadalajara En Vivo" },
-    lat: 20.6774,
-    lng: -103.3475,
-    timeZone: "America/Mexico_City",
-    category: "city",
-    country: "MX",
-    source: {
-      videoId: "xPkfTHjxL7Q",
-      channelId: "UCKjq5fxPhxdCQAOUigmEHnA",
-      titleKey: "N+ Noticias Guadalajara En Vivo",
     },
   },
   {
@@ -47669,21 +45404,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-3-4",
-    name: { ja: "東海3県の情報カメラ映像 愛知 岐阜 三重【ライブ配信中】", en: "東海3県の情報カメラ映像 愛知 岐阜 三重【ライブ配信中】" },
-    lat: 35.0227,
-    lng: 136.9089,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "ElmLqemMkng",
-      channelId: "UCWnOKASPkCBEL-_O8odMvtg",
-      titleKey: "東海3県の情報カメラ映像　愛知 岐阜 三重【ライブ配信中】",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-133",
     name: { ja: "宮城県仙台市青葉区折立ライブカメラ", en: "宮城県仙台市青葉区折立ライブカメラ" },
     lat: 26.2049,
@@ -48104,21 +45824,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "it-top-live-cams-usa-uk-canada-with-rela",
-    name: { ja: "TOP LIVE CAMS USA - UK - CANADA with relaxing music | SkylineWebcams", en: "TOP LIVE CAMS USA - UK - CANADA with relaxing music | SkylineWebcams" },
-    lat: 46.2014,
-    lng: 12.8293,
-    timeZone: "Europe/Rome",
-    category: "city",
-    country: "IT",
-    source: {
-      videoId: "_eS7q-G9Zqs",
-      channelId: "UC2WMV4vCYurHdHPd9pCqYSg",
-      titleKey: "🔴 TOP LIVE CAMS USA - UK - CANADA with relaxing music 🎵 | SkylineWebcams",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "hu-live-madalena-do-mar-webcam-bar-la-fr",
     name: { ja: "LIVE: Madalena do Mar Webcam - Bar La Fronteira | Banana Plantations, Webcamtaxi", en: "LIVE: Madalena do Mar Webcam - Bar La Fronteira | Banana Plantations, Webcamtaxi" },
     lat: 45.8742,
@@ -48250,21 +45955,6 @@ export const CAMS: Cam[] = [
       videoId: "RzwHRRUPccU",
       channelId: "UCnYcHH_lKR14OV3RgzUGTtQ",
       titleKey: "🔴24H Live Nostalgic Melodies Live from Jiufen Old Street》24/7, BGM R&B & Soul #九份老街 #九份 🅐Ⓙ143",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "tw-3-love-song-24-7-365-24h-music-englis",
-    name: { ja: "國道 號即時影像－國道3號天氣、車流人流－Love Song - 24/7, 365 24H 禿鷹 Music #englishsongs #LoveSong 🅣ⓁⓈⒺ80 Ⓒ-06", en: "國道 號即時影像－國道3號天氣、車流人流－Love Song - 24/7, 365 24H 禿鷹 Music #englishsongs #LoveSong 🅣ⓁⓈⒺ80 Ⓒ-06" },
-    lat: 24.9439,
-    lng: 121.2061,
-    timeZone: "Asia/Taipei",
-    category: "city",
-    country: "TW",
-    source: {
-      videoId: "oFaEmwo1utI",
-      channelId: "UCnYcHH_lKR14OV3RgzUGTtQ",
-      titleKey: "🔴 國道 ➌ 號即時影像－國道3號天氣、車流人流－Love Song - 24/7, 365 24H 禿鷹 Music  #englishsongs #LoveSong 🅣ⓁⓈⒺ80 Ⓒ-06",
     },
   },
   {
@@ -48974,21 +46664,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "kr-24-tv-yonhapnewstv",
-    name: { ja: "[생방송] 24시간 현장을 전합니다 / 연합뉴스TV (YonhapnewsTV)", en: "[생방송] 24시간 현장을 전합니다 / 연합뉴스TV (YonhapnewsTV)" },
-    lat: 35.1017,
-    lng: 129.03,
-    timeZone: "Asia/Seoul",
-    category: "city",
-    country: "KR",
-    source: {
-      videoId: "6QZ_qc75ihU",
-      channelId: "UCTHCOPwqNfZ0uiKOvFyhGwg",
-      titleKey: "[생방송] 24시간 현장을 전합니다 / 연합뉴스TV  (YonhapnewsTV)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "tw-2026-08-26",
     name: { ja: "【專訪：高雄市議員 陳美雅（視訊連線）】2026.08.26《飛碟晚餐 王淺秋時間》", en: "【專訪：高雄市議員 陳美雅（視訊連線）】2026.08.26《飛碟晚餐 王淺秋時間》" },
     lat: 22.6163,
@@ -49060,36 +46735,6 @@ export const CAMS: Cam[] = [
       videoId: "l4omud4afQQ",
       channelId: "UCnYcHH_lKR14OV3RgzUGTtQ",
       titleKey: "🔴Live Ⓒ-08-新北市 中和區 重要路口 即時影像 24/7, 365 24H 》天氣、車流人流狀況 Love Song 🅣ⓁⒽ80",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "tw-1-24-7-365-24h-music-e-02-ls204",
-    name: { ja: "國道 號即時影像－國道1號天氣、車流人流 獨播 全球情歌心電台 | 浪漫、心碎、療癒系精選 ｜英語・華語・韓語輪播｜ 24/7, 365 24H 禿鷹 Music Ⓔ-02 🅣ⓁⓈ204", en: "國道 號即時影像－國道1號天氣、車流人流 獨播 全球情歌心電台 | 浪漫、心碎、療癒系精選 ｜英語・華語・韓語輪播｜ 24/7, 365 24H 禿鷹 Music Ⓔ-02 🅣ⓁⓈ204" },
-    lat: 22.6163,
-    lng: 120.3133,
-    timeZone: "Asia/Taipei",
-    category: "city",
-    country: "TW",
-    source: {
-      videoId: "4MA7hTv7TTs",
-      channelId: "UCnYcHH_lKR14OV3RgzUGTtQ",
-      titleKey: "🔴國道 ❶ 號即時影像－國道1號天氣、車流人流 獨播 💖全球情歌心電台 | 浪漫、心碎、療癒系精選 ｜英語・華語・韓語輪播｜ 24/7, 365 24H 💥禿鷹 Music Ⓔ-02 🅣ⓁⓈ204",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "tw-live-54-24-taiwan-set-news-24h-live-s",
-    name: { ja: "LIVE 三立新聞 54 頻道 24 小時直播｜Taiwan SET News 24h Live｜@setnews-ch54", en: "LIVE 三立新聞 54 頻道 24 小時直播｜Taiwan SET News 24h Live｜@setnews-ch54" },
-    lat: 22.6163,
-    lng: 120.3133,
-    timeZone: "Asia/Taipei",
-    category: "city",
-    country: "TW",
-    source: {
-      videoId: "yeYC0mbSIOo",
-      channelId: "UC2TuODJhC03pLgd6MpWP0iw",
-      titleKey: "🔴LIVE 三立新聞 54 頻道 24 小時直播｜Taiwan SET News 24h Live｜@setnews-ch54",
     },
   },
   {
@@ -50174,21 +47819,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-4k-african-wildlife-discovery-incredi",
-    name: { ja: "4K African Wildlife: Discovery Incredible Bardia Park - Scenic Wildlife Film African With Calm Music", en: "4K African Wildlife: Discovery Incredible Bardia Park - Scenic Wildlife Film African With Calm Music" },
-    lat: 39.7625,
-    lng: -87.2292,
-    timeZone: "America/Indiana/Indianapolis",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "sH-HOPe6tio",
-      channelId: "UCT7hGX0G_HqrkNiIQJ-9T4A",
-      titleKey: "4K African Wildlife: Discovery Incredible Bardia Park - Scenic Wildlife Film African With Calm Music",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "de-lbc-global-vision-center-construction",
     name: { ja: "LBC Global Vision Center Construction - Live Stream", en: "LBC Global Vision Center Construction - Live Stream" },
     lat: 53.8689,
@@ -50860,51 +48490,6 @@ export const CAMS: Cam[] = [
       videoId: "TJ7VDkaYNmE",
       channelId: "UCJId-kbfsO5K4kU9cKE_TqA",
       titleKey: "Burlington, WI Doug's Auto Service Live Railcam #steelhighway",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-steel-highway-missouri-nebraska-multi",
-    name: { ja: "Steel Highway Missouri/Nebraska Multi Stream - MO/NE Live Trains & Weather #steelhighway", en: "Steel Highway Missouri/Nebraska Multi Stream - MO/NE Live Trains & Weather #steelhighway" },
-    lat: 40.0204,
-    lng: -80.804,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "eiROW5titOQ",
-      channelId: "UCJId-kbfsO5K4kU9cKE_TqA",
-      titleKey: "Steel Highway Missouri/Nebraska Multi Stream - MO/NE Live Trains & Weather #steelhighway",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-steel-highway-wisconsin-illinois-mult",
-    name: { ja: "Steel Highway Wisconsin/Illinois Multi Stream - WI/IL Live Trains & Weather #steelhighway", en: "Steel Highway Wisconsin/Illinois Multi Stream - WI/IL Live Trains & Weather #steelhighway" },
-    lat: 40.0204,
-    lng: -80.804,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "Iys6kbOOo6s",
-      channelId: "UCJId-kbfsO5K4kU9cKE_TqA",
-      titleKey: "Steel Highway Wisconsin/Illinois Multi Stream - WI/IL Live Trains & Weather #steelhighway",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-steel-highway-illinois-indiana-michig",
-    name: { ja: "Steel Highway Illinois/Indiana/Michigan Multi Stream - IL/IN/MI Live Trains & Weather #steelhighway", en: "Steel Highway Illinois/Indiana/Michigan Multi Stream - IL/IN/MI Live Trains & Weather #steelhighway" },
-    lat: 40.0204,
-    lng: -80.804,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "sIFRzKjCtrA",
-      channelId: "UCJId-kbfsO5K4kU9cKE_TqA",
-      titleKey: "Steel Highway Illinois/Indiana/Michigan Multi Stream - IL/IN/MI Live Trains & Weather #steelhighway",
     },
   },
   {
@@ -51925,21 +49510,6 @@ export const CAMS: Cam[] = [
       videoId: "2hdyXUXLyQA",
       channelId: "UCRruWUK0POjg2veibHucffQ",
       titleKey: "【LIVE】福島駅方面 大阪環状線・梅田貨物線ライブカメラ 2026/08/26 17:00～ Osaka, JAPAN | Train Camera",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "it-live-piano-music-live-24-7-focus-musi",
-    name: { ja: "Live Piano Music - Live 24/7: focus music, study music, relaxing music", en: "Live Piano Music - Live 24/7: focus music, study music, relaxing music" },
-    lat: 40.8205,
-    lng: 14.76,
-    timeZone: "Europe/Rome",
-    category: "city",
-    country: "IT",
-    source: {
-      videoId: "I6o7UWEaSbw",
-      channelId: "UCMpn1qLudF-zb4M4bqxLIbw",
-      titleKey: "🔴 ♫ Live Piano Music - Live 24/7: focus music, study music, relaxing music ♫",
     },
   },
   {
@@ -53534,36 +51104,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-today-for-iga-istanbul-airport-screen",
-    name: { ja: "Today for IGA ISTANBUL AIRPORT screens - THE WORLD LIVE customized version | earthTV", en: "Today for IGA ISTANBUL AIRPORT screens - THE WORLD LIVE customized version | earthTV" },
-    lat: 71.1745,
-    lng: -155.1613,
-    timeZone: "America/Anchorage",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "IukqoWQTeXc",
-      channelId: "UCRuyAVeVd7oUwh0LWmxxBBQ",
-      titleKey: "Today for IGA ISTANBUL AIRPORT screens - THE WORLD LIVE customized version | earthTV",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-today-for-fox-weather-television-chan",
-    name: { ja: "Today for FOX WEATHER television channel - THE WORLD LIVE customized version | earthTV", en: "Today for FOX WEATHER television channel - THE WORLD LIVE customized version | earthTV" },
-    lat: 43.6027,
-    lng: -111.1113,
-    timeZone: "America/Boise",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "lQNQ5J6o_Hg",
-      channelId: "UCRuyAVeVd7oUwh0LWmxxBBQ",
-      titleKey: "Today for FOX WEATHER television channel  - THE WORLD LIVE customized version | earthTV",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-ape-cam-live",
     name: { ja: "Ape Cam LIVE", en: "Ape Cam LIVE" },
     lat: 33.1192,
@@ -53594,51 +51134,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "cn-live-2026-8-25-ann",
-    name: { ja: "【ライブ】世界人型ロボット運動会 サッカー、ブレイクダンス、ボクシング、卓球、陸上競技 中国・北京【LIVE】(2026年8月25日) ANN/テレ朝", en: "【ライブ】世界人型ロボット運動会 サッカー、ブレイクダンス、ボクシング、卓球、陸上競技 中国・北京【LIVE】(2026年8月25日) ANN/テレ朝" },
-    lat: 39.9075,
-    lng: 116.3972,
-    timeZone: "Asia/Shanghai",
-    category: "city",
-    country: "CN",
-    source: {
-      videoId: "p1E5b0H_hVk",
-      channelId: "UCGCZAYq5Xxojl_tSXcVJhiQ",
-      titleKey: "【ライブ】世界人型ロボット運動会 サッカー、ブレイクダンス、ボクシング、卓球、陸上競技 中国・北京【LIVE】(2026年8月25日) ANN/テレ朝",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "tr-treasury-and-finance-minister-mehmet",
-    name: { ja: "Treasury and Finance Minister Mehmet Şimşek Speaks Live on NTV! NTV #LIVE", en: "Treasury and Finance Minister Mehmet Şimşek Speaks Live on NTV! NTV #LIVE" },
-    lat: 41.8151,
-    lng: 34.0863,
-    timeZone: "Europe/Istanbul",
-    category: "city",
-    country: "TR",
-    source: {
-      videoId: "9YfgHvaWWqs",
-      channelId: "UC9TDTjbOjFB9jADmPhSAPsw",
-      titleKey: "Treasury and Finance Minister Mehmet Şimşek Speaks Live on NTV! 🔴 NTV #LIVE",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-live-first-execution-under-the-takaic",
-    name: { ja: "[LIVE] First execution under the Takaichi administration: Justice Minister Hiraguchi holds emerge...", en: "[LIVE] First execution under the Takaichi administration: Justice Minister Hiraguchi holds emerge..." },
-    lat: 40.2349,
-    lng: 140.8087,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "nUxt7fHFQYo",
-      channelId: "UC6AG81pAkf6Lbi_1VC5NmPA",
-      titleKey: "[LIVE] First execution under the Takaichi administration: Justice Minister Hiraguchi holds emerge...",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-talking-point-live-should-we-further",
     name: { ja: "TALKING POINT LIVE: Should We Further Regulate Tuition Agencies? | Forum", en: "TALKING POINT LIVE: Should We Further Regulate Tuition Agencies? | Forum" },
     lat: 36.1817,
@@ -53665,111 +51160,6 @@ export const CAMS: Cam[] = [
       videoId: "U564Ti2RAQw",
       channelId: "UC_Lnb8ZHqqgLbp-7hltuT9w",
       titleKey: "[LIVE] The Mark of Empire Exclusive Screening & Panel Discussion",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "in-live-nepal-swallowed-by-flash-flood-b",
-    name: { ja: "Live: Nepal Swallowed by Flash Flood | Balen Shah's Message To Nepal | Death toll Rises | Earthquake", en: "Live: Nepal Swallowed by Flash Flood | Balen Shah's Message To Nepal | Death toll Rises | Earthquake" },
-    lat: 27.1855,
-    lng: 81.9618,
-    timeZone: "Asia/Kolkata",
-    category: "city",
-    country: "IN",
-    source: {
-      videoId: "GZ7PndmLinQ",
-      channelId: "UCYPvAwZP8pZhSMW8qs7cVCw",
-      titleKey: "Live: Nepal Swallowed by Flash Flood | Balen Shah's Message To Nepal | Death toll Rises | Earthquake",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "in-nepal-flash-flood-updates-live-indian",
-    name: { ja: "Nepal Flash Flood Updates Live: Indians Among 384 Tourists Missing In Nepal, Quake | Bihar | UP", en: "Nepal Flash Flood Updates Live: Indians Among 384 Tourists Missing In Nepal, Quake | Bihar | UP" },
-    lat: 25.0138,
-    lng: 80.2843,
-    timeZone: "Asia/Kolkata",
-    category: "city",
-    country: "IN",
-    source: {
-      videoId: "fWfbJZmqRCI",
-      channelId: "UCYPvAwZP8pZhSMW8qs7cVCw",
-      titleKey: "Nepal Flash Flood Updates Live: Indians Among 384 Tourists Missing In Nepal, Quake | Bihar | UP",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "in-india-today-karnataka-roundtable-live",
-    name: { ja: "India Today Karnataka Roundtable LIVE: The Big Conversation On Karnataka's Future", en: "India Today Karnataka Roundtable LIVE: The Big Conversation On Karnataka's Future" },
-    lat: 25.2106,
-    lng: 74.9734,
-    timeZone: "Asia/Kolkata",
-    category: "city",
-    country: "IN",
-    source: {
-      videoId: "vd14SSn4wdM",
-      channelId: "UCYPvAwZP8pZhSMW8qs7cVCw",
-      titleKey: "India Today Karnataka Roundtable LIVE: The Big Conversation On Karnataka's Future",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "in-nepal-flash-flood-live-up-bihar-on-hi",
-    name: { ja: "Nepal Flash Flood Live: UP, Bihar On High Alert As Gandak Levels May Rise | Eartquake | Flood News", en: "Nepal Flash Flood Live: UP, Bihar On High Alert As Gandak Levels May Rise | Eartquake | Flood News" },
-    lat: 9.6475,
-    lng: 77.36,
-    timeZone: "Asia/Kolkata",
-    category: "city",
-    country: "IN",
-    source: {
-      videoId: "G5Dtg047TUw",
-      channelId: "UCYPvAwZP8pZhSMW8qs7cVCw",
-      titleKey: "Nepal Flash Flood Live: UP, Bihar On High Alert As Gandak Levels May Rise | Eartquake | Flood News",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "in-live-india-paksitan-tensions-operatio",
-    name: { ja: "LIVE: India-Paksitan Tensions | Operation Sindoor | Ex-CDS Anil Chauhan On Op Sindoor| Pakistan News", en: "LIVE: India-Paksitan Tensions | Operation Sindoor | Ex-CDS Anil Chauhan On Op Sindoor| Pakistan News" },
-    lat: 12.788,
-    lng: 75.5756,
-    timeZone: "Asia/Kolkata",
-    category: "city",
-    country: "IN",
-    source: {
-      videoId: "4Mo7MQmd8v0",
-      channelId: "UCYPvAwZP8pZhSMW8qs7cVCw",
-      titleKey: "LIVE: India-Paksitan Tensions | Operation Sindoor | Ex-CDS Anil Chauhan On Op Sindoor| Pakistan News",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "in-samajwadi-party-pc-live-akhilesh-yada",
-    name: { ja: "Samajwadi Party PC LIVE: Akhilesh Yadav & Dimple Yadav's Big Announcement for Women", en: "Samajwadi Party PC LIVE: Akhilesh Yadav & Dimple Yadav's Big Announcement for Women" },
-    lat: 25.465,
-    lng: 81.7833,
-    timeZone: "Asia/Kolkata",
-    category: "city",
-    country: "IN",
-    source: {
-      videoId: "YqSxK4Z7pqI",
-      channelId: "UCYPvAwZP8pZhSMW8qs7cVCw",
-      titleKey: "Samajwadi Party PC LIVE: Akhilesh Yadav & Dimple Yadav's Big Announcement for Women",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "in-delhi-h1n1-surge-live-h1n1-alarm-amid",
-    name: { ja: "Delhi H1N1 Surge LIVE: H1N1 Alarm Amid Monsoon Flu Surge | Should You Be Worried Over H1N1?", en: "Delhi H1N1 Surge LIVE: H1N1 Alarm Amid Monsoon Flu Surge | Should You Be Worried Over H1N1?" },
-    lat: 14.2697,
-    lng: 77.7485,
-    timeZone: "Asia/Kolkata",
-    category: "city",
-    country: "IN",
-    source: {
-      videoId: "eTsk765DLIc",
-      channelId: "UCYPvAwZP8pZhSMW8qs7cVCw",
-      titleKey: "Delhi H1N1 Surge LIVE: H1N1 Alarm Amid Monsoon Flu Surge | Should You Be Worried Over H1N1?",
     },
   },
   {
@@ -53845,21 +51235,6 @@ export const CAMS: Cam[] = [
       videoId: "YeeRHB_9upA",
       channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
       titleKey: "LIVE at the waterhole - 23 August 2026",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "in-live-tamil-nadu-cm-vijay-inaugurates",
-    name: { ja: "LIVE: Tamil Nadu CM Vijay Inaugurates 120 CNG Buses | Free Bus Travel For Women Expanded | #vijay", en: "LIVE: Tamil Nadu CM Vijay Inaugurates 120 CNG Buses | Free Bus Travel For Women Expanded | #vijay" },
-    lat: 12.8532,
-    lng: 74.997,
-    timeZone: "Asia/Kolkata",
-    category: "city",
-    country: "IN",
-    source: {
-      videoId: "IXbOfsheOwA",
-      channelId: "UCYPvAwZP8pZhSMW8qs7cVCw",
-      titleKey: "LIVE: Tamil Nadu CM Vijay Inaugurates 120 CNG Buses | Free Bus Travel For Women Expanded | #vijay",
     },
   },
   {
@@ -54389,21 +51764,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "hk-live-amc-gme-hymc-wed-aug-26-2026-1-o",
-    name: { ja: "LIVE AMC & GME & HYMC Wed Aug 26 2026 - 1 or 3 Min Chart & Afterhours Chat Music BYO AMC Popcorn!", en: "LIVE AMC & GME & HYMC Wed Aug 26 2026 - 1 or 3 Min Chart & Afterhours Chat Music BYO AMC Popcorn!" },
-    lat: 22.2783,
-    lng: 114.1747,
-    timeZone: "Asia/Hong_Kong",
-    category: "city",
-    country: "HK",
-    source: {
-      videoId: "UXAPxz-wLHQ",
-      channelId: "UC0JOARmIzqOXYZ90ywj_MMQ",
-      titleKey: "LIVE AMC & GME & HYMC Wed Aug 26 2026 - 1 or 3  Min Chart & Afterhours Chat Music BYO AMC Popcorn!",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-live-4-route-4-yanagimachi-street-int",
     name: { ja: "【LIVE】国道4号青森市柳町通り交差点情報カメラ Route 4, Yanagimachi Street intersection in Aomori City", en: "【LIVE】国道4号青森市柳町通り交差点情報カメラ Route 4, Yanagimachi Street intersection in Aomori City" },
     lat: 40.8167,
@@ -54524,21 +51884,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "id-live-earthquake-map-tsunami-monitor-2",
-    name: { ja: "Live Earthquake Map & Tsunami Monitor - 24/7 Real-Time Global Tracker", en: "Live Earthquake Map & Tsunami Monitor - 24/7 Real-Time Global Tracker" },
-    lat: -2.5833,
-    lng: 119.55,
-    timeZone: "Asia/Makassar",
-    category: "city",
-    country: "ID",
-    source: {
-      videoId: "MRR5Ex4W4_Q",
-      channelId: "UCEJ3VXhzw2ykC34059F_-cw",
-      titleKey: "Live Earthquake Map & Tsunami Monitor - 24/7 Real-Time Global Tracker",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "in-live-darshan-kalupur-swaminarayan-man",
     name: { ja: "LIVE - Darshan Kalupur Swaminarayan Mandir", en: "LIVE - Darshan Kalupur Swaminarayan Mandir" },
     lat: 12.7608,
@@ -54655,36 +52000,6 @@ export const CAMS: Cam[] = [
       videoId: "oORXfTviuCs",
       channelId: "UCMfjW-9aZnsR-Rq-Ngo4CpQ",
       titleKey: "LIVE Watering Hole in Kenya - MPALA | explore.org",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "mx-24-7-live-tropical-paradise-aruba-bah",
-    name: { ja: "24/7 LIVE Tropical Paradise | Aruba, Bahamas, Saint Martin, Mexico with Tropical House Vibes", en: "24/7 LIVE Tropical Paradise | Aruba, Bahamas, Saint Martin, Mexico with Tropical House Vibes" },
-    lat: 19.0276,
-    lng: -99.2231,
-    timeZone: "America/Mexico_City",
-    category: "city",
-    country: "MX",
-    source: {
-      videoId: "i3rdcRdr8Xk",
-      channelId: "UCdTff6CR1MXSZE_fd_qWREA",
-      titleKey: "24/7 LIVE Tropical Paradise | Aruba, Bahamas, Saint Martin, Mexico with Tropical House Vibes",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "br-caribbean-beach-jazz-24-7relaxing-tro",
-    name: { ja: "Caribbean Beach Jazz 24/7Relaxing Tropical Music & Bossa Nova with Ocean Waves Sounds for Good Mood", en: "Caribbean Beach Jazz 24/7Relaxing Tropical Music & Bossa Nova with Ocean Waves Sounds for Good Mood" },
-    lat: -3.8428,
-    lng: -38.3919,
-    timeZone: "America/Fortaleza",
-    category: "city",
-    country: "BR",
-    source: {
-      videoId: "qGGQkoB0EE4",
-      channelId: "UCRVO_YZslLcQ-CIGkWOC-Qw",
-      titleKey: "Caribbean Beach Jazz 24/7🌴Relaxing Tropical Music & Bossa Nova with Ocean Waves Sounds for Good Mood",
     },
   },
   {
@@ -55123,21 +52438,6 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
-    id: "au-live-beaches-around-the-world-live-be",
-    name: { ja: "LIVE: Beaches Around the World — Live Beach Cam 24/7 | TravelTV", en: "LIVE: Beaches Around the World — Live Beach Cam 24/7 | TravelTV" },
-    lat: -37.4805,
-    lng: 140.0126,
-    timeZone: "Australia/Adelaide",
-    category: "city",
-    country: "AU",
-    source: {
-      videoId: "H7Up7A4g1R0",
-      channelId: "UC-vJL_7pXhCgpt4KjHsWCPg",
-      titleKey: "🔴 LIVE: Beaches Around the World — Live Beach Cam 24/7 | TravelTV",
-    },
-  },
-  {
     // coords: Photon: Hanson Island, British Columbia; watch page: "The rocky beach of British Columbia's Hanson Island"
     id: "us-live-sea-lion-beach-british-columbia",
     name: { ja: "LIVE Sea Lion Beach - British Columbia | explore.org", en: "LIVE Sea Lion Beach - British Columbia | explore.org" },
@@ -55255,36 +52555,6 @@ export const CAMS: Cam[] = [
       videoId: "fHG-8RlsR8c",
       channelId: "UCJKH8wYxFYeufDnvy1MPofA",
       titleKey: "気田川（けたがわ）24hライブカメラ｜気田川漁業協同組合より配信（音声付）春野町・鮎の故郷・すみれの花咲く頃　　（防災カメラとしてもお役立て下さい）",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ua-24-7-25",
-    name: { ja: "КАРТА ПОВІТРЯНИХ ТРИВОГ | Де ракета? | Україна Наживо 24/7 | Сповіщення про загрози | 25 серпня", en: "КАРТА ПОВІТРЯНИХ ТРИВОГ | Де ракета? | Україна Наживо 24/7 | Сповіщення про загрози | 25 серпня" },
-    lat: 49.098,
-    lng: 23.5193,
-    timeZone: "Europe/Kyiv",
-    category: "city",
-    country: "UA",
-    source: {
-      videoId: "A8JwEeRp81o",
-      channelId: "UCSsrBhwy9RdzxX9Hnvps-Vw",
-      titleKey: "КАРТА ПОВІТРЯНИХ ТРИВОГ | 🚀 Де ракета? |  Україна Наживо 24/7 | Сповіщення про загрози |  25 серпня",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "de-railcam-uk-sampler-stream",
-    name: { ja: "Railcam UK Sampler Stream", en: "Railcam UK Sampler Stream" },
-    lat: 50.6973,
-    lng: 7.1792,
-    timeZone: "Europe/Berlin",
-    category: "city",
-    country: "DE",
-    source: {
-      videoId: "ZC7HiaMkmlU",
-      channelId: "UC6YuojLzzdEMjbFiMHyecug",
-      titleKey: "Railcam UK Sampler Stream",
     },
   },
   {
@@ -55604,81 +52874,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-hawaiian-cafe-hawaiian-ukulele-with-o",
-    name: { ja: "Hawaiian Cafe: Hawaiian Ukulele with Ocean Sounds - Relaxing Cafe Music with Ocean Waves ハワイアンミュージック", en: "Hawaiian Cafe: Hawaiian Ukulele with Ocean Sounds - Relaxing Cafe Music with Ocean Waves ハワイアンミュージック" },
-    lat: 34.8284,
-    lng: 135.6562,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "HdiKqg23D0o",
-      channelId: "UCQINXHZqCU5i06HzxRkujfg",
-      titleKey: "Hawaiian Cafe: Hawaiian Ukulele with Ocean Sounds - Relaxing Cafe Music with Ocean Waves ハワイアンミュージック",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-soft-lofi-room-chill-vibes-for-peacef",
-    name: { ja: "Soft Lofi Room Chill Vibes for Peaceful Study & Relaxation", en: "Soft Lofi Room Chill Vibes for Peaceful Study & Relaxation" },
-    lat: 35.6695,
-    lng: 139.5997,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "yf5NOyy1SXU",
-      channelId: "UCIB228QNsdJDSX8bocYCZOA",
-      titleKey: "Soft Lofi Room 🎧 Chill Vibes for Peaceful Study & Relaxation",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-elegant-bossa-nova-jazz-music-ocean-w",
-    name: { ja: "Elegant Bossa Nova Jazz Music & Ocean Wave Sounds at Seaside Cafe Ambience for Relax, Stress Relief", en: "Elegant Bossa Nova Jazz Music & Ocean Wave Sounds at Seaside Cafe Ambience for Relax, Stress Relief" },
-    lat: 35.0956,
-    lng: 136.9706,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "nOa1kTGU5pU",
-      channelId: "UCFjM4SzH8zAvsC0azlStgaw",
-      titleKey: "Elegant Bossa Nova Jazz Music & Ocean Wave Sounds at Seaside Cafe Ambience for Relax, Stress Relief",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-relaxing-jazz-piano-radio-slow-jazz-m",
-    name: { ja: "Relaxing Jazz Piano Radio - Slow Jazz Music - 24/7 Live Stream - Music For Work & Study", en: "Relaxing Jazz Piano Radio - Slow Jazz Music - 24/7 Live Stream - Music For Work & Study" },
-    lat: 34.8553,
-    lng: 135.6153,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "Dx5qFachd3A",
-      channelId: "UCJhjE7wbdYAae1G25m0tHAA",
-      titleKey: "Relaxing Jazz Piano Radio - Slow Jazz Music - 24/7 Live Stream - Music For Work & Study",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-24-news24-japan-news-live",
-    name: { ja: "【ライブ】日本の最新ニュースを24時間ライブ配信｜テレ朝NEWS24（Japan News LIVE）【チャットアンケート実施中！あなたの意見は？】", en: "【ライブ】日本の最新ニュースを24時間ライブ配信｜テレ朝NEWS24（Japan News LIVE）【チャットアンケート実施中！あなたの意見は？】" },
-    lat: 35.6691,
-    lng: 139.5947,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "coYw-eVU0Ks",
-      channelId: "UCGCZAYq5Xxojl_tSXcVJhiQ",
-      titleKey: "【ライブ】日本の最新ニュースを24時間ライブ配信｜テレ朝NEWS24（Japan News LIVE）【チャットアンケート実施中！あなたの意見は？】",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-24-24-7-live-shark-cam-ann",
     name: { ja: "【お腹で共食い!?】“最強”だけが生まれるシロワニの静かな泳ぎ｜サメ好きのパラダイスから24時間ライブ配信！アクアワールド茨城県大洗水族館 24/7 Live Shark Cam【ANN/テレ朝】", en: "【お腹で共食い!?】“最強”だけが生まれるシロワニの静かな泳ぎ｜サメ好きのパラダイスから24時間ライブ配信！アクアワールド茨城県大洗水族館 24/7 Live Shark Cam【ANN/テレ朝】" },
     lat: 26.32,
@@ -55690,66 +52885,6 @@ export const CAMS: Cam[] = [
       videoId: "4GyL-3_I9Kc",
       channelId: "UCGCZAYq5Xxojl_tSXcVJhiQ",
       titleKey: "【お腹で共食い!?】“最強”だけが生まれるシロワニの静かな泳ぎ｜サメ好きのパラダイスから24時間ライブ配信！アクアワールド茨城県大洗水族館  24/7 Live Shark Cam【ANN/テレ朝】",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "sg-24-globalnewstv-24h-live-news-24",
-    name: { ja: "寰宇新聞24小時線上直播｜GlobalNewsTV 24h live news｜ 台湾のニュース24時間ライブ配信中 ｜대만 뉴스 생방송", en: "寰宇新聞24小時線上直播｜GlobalNewsTV 24h live news｜ 台湾のニュース24時間ライブ配信中 ｜대만 뉴스 생방송" },
-    lat: 1.3133,
-    lng: 103.8997,
-    timeZone: "Asia/Singapore",
-    category: "city",
-    country: "SG",
-    source: {
-      videoId: "6IquAgfvYmc",
-      channelId: "UCp2f7tGJGN6R9Muxipem8Nw",
-      titleKey: "寰宇新聞24小時線上直播｜GlobalNewsTV 24h live news｜ 台湾のニュース24時間ライブ配信中 ｜대만 뉴스 생방송",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-icc-live-2026-8-26-ann",
-    name: { ja: "【ライブ】ICC（国際刑事裁判所）赤根智子所長が会見 トランプ政権が制裁対象に指定【LIVE】 (2026年8月26日) ANN/テレ朝", en: "【ライブ】ICC（国際刑事裁判所）赤根智子所長が会見 トランプ政権が制裁対象に指定【LIVE】 (2026年8月26日) ANN/テレ朝" },
-    lat: 35.9058,
-    lng: 139.4812,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "SNBBD6CamPs",
-      channelId: "UCGCZAYq5Xxojl_tSXcVJhiQ",
-      titleKey: "【ライブ】ICC（国際刑事裁判所）赤根智子所長が会見 トランプ政権が制裁対象に指定【LIVE】 (2026年8月26日) ANN/テレ朝",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-24h-live-tbs-news-dig",
-    name: { ja: "【24h LIVE】最新ニュースをライブ配信中！ | TBS NEWS DIG", en: "【24h LIVE】最新ニュースをライブ配信中！ | TBS NEWS DIG" },
-    lat: 35.672,
-    lng: 139.7347,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "Anr15FA9OCI",
-      channelId: "UC6AG81pAkf6Lbi_1VC5NmPA",
-      titleKey: "【24h LIVE】最新ニュースをライブ配信中！ |  TBS NEWS DIG",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-2026-8-26-live",
-    name: { ja: "【ライブ】最新天気ニュース・地震情報 2026年8月26日(水) ／九州や紀伊半島などで雨雲が急発達 東日本や東北でも強雨注意〈ウェザーニュースLiVEムーン・駒木結衣／宇野沢達也〉", en: "【ライブ】最新天気ニュース・地震情報 2026年8月26日(水) ／九州や紀伊半島などで雨雲が急発達 東日本や東北でも強雨注意〈ウェザーニュースLiVEムーン・駒木結衣／宇野沢達也〉" },
-    lat: 35.6515,
-    lng: 140.0411,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "htz9A1JMrr8",
-      channelId: "UCNsidkYpIAQ4QaufptQBPHQ",
-      titleKey: "【ライブ】最新天気ニュース・地震情報 2026年8月26日(水) ／九州や紀伊半島などで雨雲が急発達　東日本や東北でも強雨注意〈ウェザーニュースLiVEムーン・駒木結衣／宇野沢達也〉",
     },
   },
   {
@@ -55825,21 +52960,6 @@ export const CAMS: Cam[] = [
       videoId: "2VU1H3JQDe0",
       channelId: "UCnYcHH_lKR14OV3RgzUGTtQ",
       titleKey: "Ⓑ-01-🔴Live-彰化縣 重要路口 即時影像-Changhua County, Taiwan  24H》 24/7, 365 天氣、車流人流狀況 背景音樂 💖 舒緩神經的音樂-古典鋼琴🅣ⓅⓅ60",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "tw-24-7-soft-classical-piano-relaxing-mu",
-    name: { ja: "24/7 Soft Classical Piano Relaxing Music for Studying, Concentration & Deep Sleep |", en: "24/7 Soft Classical Piano Relaxing Music for Studying, Concentration & Deep Sleep |" },
-    lat: 25.0535,
-    lng: 121.5971,
-    timeZone: "Asia/Taipei",
-    category: "city",
-    country: "TW",
-    source: {
-      videoId: "DcJCvEyjWqU",
-      channelId: "UCnYcHH_lKR14OV3RgzUGTtQ",
-      titleKey: "🔴24/7 Soft Classical Piano 🎹 Relaxing Music for Studying, Concentration & Deep Sleep |",
     },
   },
   {
@@ -55963,21 +53083,6 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-2026-8-26-21-30-live",
-    name: { ja: "【ライブ】最新天気ニュース・地震情報 2026年8月26日(水) 21:30~／北陸で激しい雨〈ウェザーニュースLiVEムーン・駒木結衣／宇野沢達也〉", en: "【ライブ】最新天気ニュース・地震情報 2026年8月26日(水) 21:30~／北陸で激しい雨〈ウェザーニュースLiVEムーン・駒木結衣／宇野沢達也〉" },
-    lat: 36.8548,
-    lng: 137.4997,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "tp4IdcjXtqo",
-      channelId: "UCNsidkYpIAQ4QaufptQBPHQ",
-      titleKey: "【ライブ】最新天気ニュース・地震情報 2026年8月26日(水) 21:30~／北陸で激しい雨〈ウェザーニュースLiVEムーン・駒木結衣／宇野沢達也〉",
-    },
-  },
-  {
     // coords: Open-Meteo geocoding "Jerusalem", Jerusalem (title)
     id: "it-live-jerusalem-now-western-wall-real",
     name: { ja: "LIVE Jerusalem Now | Western Wall Real-Time Cam | SkylineWebcams", en: "LIVE Jerusalem Now | Western Wall Real-Time Cam | SkylineWebcams" },
@@ -55990,66 +53095,6 @@ export const CAMS: Cam[] = [
       videoId: "LueIPEfeFyo",
       channelId: "UC2WMV4vCYurHdHPd9pCqYSg",
       titleKey: "🔴 LIVE Jerusalem Now | Western Wall Real-Time Cam | SkylineWebcams",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-9-11-3-live-2026-8-25-ann",
-    name: { ja: "【ライブ】気象庁｜9月から11月の3カ月予報 【LIVE】 (2026年8月25日) ANN/テレ朝", en: "【ライブ】気象庁｜9月から11月の3カ月予報 【LIVE】 (2026年8月25日) ANN/テレ朝" },
-    lat: 35.6659,
-    lng: 139.7459,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "OqPX7-DwZJE",
-      channelId: "UCGCZAYq5Xxojl_tSXcVJhiQ",
-      titleKey: "【ライブ】気象庁｜9月から11月の3カ月予報　【LIVE】 (2026年8月25日) ANN/テレ朝",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-170-live-2026-8-25-ann",
-    name: { ja: "【ライブ】高市総理コメント ガソリン\"170円措置\"や物価高対策などについて【LIVE】 (2026年8月25日) ANN/テレ朝", en: "【ライブ】高市総理コメント ガソリン\"170円措置\"や物価高対策などについて【LIVE】 (2026年8月25日) ANN/テレ朝" },
-    lat: 35.9058,
-    lng: 139.4812,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "xga-c2Dw9Qw",
-      channelId: "UCGCZAYq5Xxojl_tSXcVJhiQ",
-      titleKey: "【ライブ】高市総理コメント ガソリン\"170円措置\"や物価高対策などについて【LIVE】 (2026年8月25日) ANN/テレ朝",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-icc-2026-8-26-5-live-tbs-news-dig",
-    name: { ja: "【ライブ】ICC・赤根智子所長が会見 トランプ政権による制裁対象指定めぐり（2026年8月26日午後5時～ LIVE配信）｜TBS NEWS DIG", en: "【ライブ】ICC・赤根智子所長が会見 トランプ政権による制裁対象指定めぐり（2026年8月26日午後5時～ LIVE配信）｜TBS NEWS DIG" },
-    lat: 33.2296,
-    lng: 130.3373,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "-JYakLd9n00",
-      channelId: "UC6AG81pAkf6Lbi_1VC5NmPA",
-      titleKey: "【ライブ】ICC・赤根智子所長が会見　トランプ政権による制裁対象指定めぐり（2026年8月26日午後5時～ LIVE配信）｜TBS NEWS DIG",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "tr-breaking-news-clashes-in-front-of-the",
-    name: { ja: "BREAKING NEWS Clashes in front of the Israeli Consulate! | NTV #LIVE", en: "BREAKING NEWS Clashes in front of the Israeli Consulate! | NTV #LIVE" },
-    lat: 39.8955,
-    lng: 32.8689,
-    timeZone: "Europe/Istanbul",
-    category: "city",
-    country: "TR",
-    source: {
-      videoId: "7bI6wenvj0k",
-      channelId: "UC9TDTjbOjFB9jADmPhSAPsw",
-      titleKey: "BREAKING NEWS 🔴 Clashes in front of the Israeli Consulate! | NTV #LIVE",
     },
   },
   {
@@ -56245,21 +53290,6 @@ export const CAMS: Cam[] = [
       videoId: "UsQ_I3DRpxs",
       channelId: "UCDJh28AZ5bVqncHvBAiHk3A",
       titleKey: "🔴Live webcam beach and boulevard Barnaart Zandvoort(Home to the Dutch Grand Prix) , The Netherlands",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "fj-flying-over-fiji-4k-relaxing-music-al",
-    name: { ja: "FLYING OVER FIJI 4K - Relaxing Music Along With Beautiful Tropical Paradise Nature Videos - 4K UHD", en: "FLYING OVER FIJI 4K - Relaxing Music Along With Beautiful Tropical Paradise Nature Videos - 4K UHD" },
-    lat: -18.124,
-    lng: 179.0123,
-    timeZone: "Pacific/Fiji",
-    category: "city",
-    country: "FJ",
-    source: {
-      videoId: "Q71lMAsx1Pc",
-      channelId: "UCwG4RwTm26PpZ8Wqs86zwWw",
-      titleKey: "FLYING OVER FIJI 4K - Relaxing Music Along With Beautiful Tropical Paradise Nature Videos - 4K UHD",
     },
   },
   {
@@ -56879,21 +53909,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "ch-wetterpanorama-webcams-von-panocloud",
-    name: { ja: "Wetterpanorama Webcams von PanoCloud", en: "Wetterpanorama Webcams von PanoCloud" },
-    lat: 47.3561,
-    lng: 8.5509,
-    timeZone: "Europe/Zurich",
-    category: "city",
-    country: "CH",
-    source: {
-      videoId: "F2-hJqSTaUk",
-      channelId: "UCgL2EJAYMsU9ifTuiZ9wUFA",
-      titleKey: "Wetterpanorama Webcams von PanoCloud",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "no-nordfjordhjort-live",
     name: { ja: "Nordfjordhjort Live", en: "Nordfjordhjort Live" },
     lat: 59.916,
@@ -56954,21 +53969,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "no-winter-in-norway-4k-uhd-norway-s-ench",
-    name: { ja: "Winter in Norway 4K UHD️ Norway's enchanting winter fjords and snow-covered beauty • Relaxing Music", en: "Winter in Norway 4K UHD️ Norway's enchanting winter fjords and snow-covered beauty • Relaxing Music" },
-    lat: 59.9325,
-    lng: 10.714,
-    timeZone: "Europe/Oslo",
-    category: "city",
-    country: "NO",
-    source: {
-      videoId: "GF4MCEqu1zI",
-      channelId: "UCHj38j5HL6EPajczILG-vzQ",
-      titleKey: "Winter in Norway 4K UHD❄️ Norway's enchanting winter fjords and snow-covered beauty • Relaxing Music",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "pl-live-population-count-2026",
     name: { ja: "[Live] Population Count 2026", en: "[Live] Population Count 2026" },
     lat: 53.1426,
@@ -56999,51 +53999,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "ua-ukraine-live-24-7-multiple-live-camer",
-    name: { ja: "Ukraine Live - 24/7 Multiple Live Cameras of Ukraine with News Updates", en: "Ukraine Live - 24/7 Multiple Live Cameras of Ukraine with News Updates" },
-    lat: 50.4411,
-    lng: 30.5038,
-    timeZone: "Europe/Kyiv",
-    category: "city",
-    country: "UA",
-    source: {
-      videoId: "AbBuSNMWBlQ",
-      channelId: "UC98W74iwmWXnOMHq0lYeDIw",
-      titleKey: "Ukraine Live - 24/7 Multiple Live Cameras of Ukraine with News Updates",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ua-live-real-time-ukraine-cameras",
-    name: { ja: "LIVE Real Time Ukraine Cameras", en: "LIVE Real Time Ukraine Cameras" },
-    lat: 47.7824,
-    lng: 35.1875,
-    timeZone: "Europe/Kyiv",
-    category: "city",
-    country: "UA",
-    source: {
-      videoId: "lUIOBYWfHgw",
-      channelId: "UCP4cCckKrZTWPRG1rJ_cahA",
-      titleKey: "🔴 LIVE Real Time Ukraine Cameras",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ro-live-euronews-romania",
-    name: { ja: "LIVE. Euronews România", en: "LIVE. Euronews România" },
-    lat: 44.434,
-    lng: 26.0538,
-    timeZone: "Europe/Bucharest",
-    category: "city",
-    country: "RO",
-    source: {
-      videoId: "XNcx7TFm6zg",
-      channelId: "UCbATDExtWstHnwWELZnXNZA",
-      titleKey: "LIVE. Euronews România",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "ar-surfers-supplies-live-cam",
     name: { ja: "Surfers Supplies Live Cam", en: "Surfers Supplies Live Cam" },
     lat: -38.0805,
@@ -57055,51 +54010,6 @@ export const CAMS: Cam[] = [
       videoId: "rxSRwB5zujo",
       channelId: "UCjxmE-kAeL-pcJrEYm-PWGg",
       titleKey: "Surfers Supplies Live Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "bg-euronews-english-live",
-    name: { ja: "Euronews English Live", en: "Euronews English Live" },
-    lat: 43.4035,
-    lng: 28.1475,
-    timeZone: "Europe/Sofia",
-    category: "city",
-    country: "BG",
-    source: {
-      videoId: "pykpO5kQJ98",
-      channelId: "UCSrZ3UV4jOidv8ppoVuvW9Q",
-      titleKey: "Euronews English Live",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ua-live",
-    name: { ja: "Карта повітряних тривог України Live Моніторинг ситуації в країні Миттєве сповіщення про загрози", en: "Карта повітряних тривог України Live Моніторинг ситуації в країні Миттєве сповіщення про загрози" },
-    lat: 49.098,
-    lng: 23.5193,
-    timeZone: "Europe/Kyiv",
-    category: "city",
-    country: "UA",
-    source: {
-      videoId: "96LgCn_73tM",
-      channelId: "UCvLCdNi-fitoRvWeHrzJp_A",
-      titleKey: "Карта повітряних тривог України Live Моніторинг ситуації в країні Миттєве сповіщення про загрози",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ua-free-om-live",
-    name: { ja: "FREEДOM. LIVE – Прямой эфир. Новости Украины и мира", en: "FREEДOM. LIVE – Прямой эфир. Новости Украины и мира" },
-    lat: 44.9438,
-    lng: 34.1813,
-    timeZone: "Europe/Simferopol",
-    category: "city",
-    country: "UA",
-    source: {
-      videoId: "zJUdf5y-BH0",
-      channelId: "UCOqFkpNwNLPGOb8EC-mwZYg",
-      titleKey: "FREEДOM. LIVE – Прямой эфир. Новости Украины и мира",
     },
   },
   {
@@ -57130,36 +54040,6 @@ export const CAMS: Cam[] = [
       videoId: "hrpwltQqtq0",
       channelId: "UC7RyAGaxzAI9dD8NINv653w",
       titleKey: "墾丁大街即時影像2(南下)4K",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ua-1-1",
-    name: { ja: "ТСН онлайн | Телемарафон \"Єдині новини\" онлайн | 1+1 онлайн | Новини України", en: "ТСН онлайн | Телемарафон \"Єдині новини\" онлайн | 1+1 онлайн | Новини України" },
-    lat: 44.716,
-    lng: 33.5514,
-    timeZone: "Europe/Simferopol",
-    category: "city",
-    country: "UA",
-    source: {
-      videoId: "WY8sDvZdWEA",
-      channelId: "UCXoJ8kY9zpLBEz-8saaT3ew",
-      titleKey: "ТСН онлайн | Телемарафон \"Єдині новини\" онлайн | 1+1 онлайн | Новини України",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-24-htb-live-24",
-    name: { ja: "【北海道ニュース24〜HTBニュースLIVE】北海道で起きた事件や事故、災害などを24時間配信中！", en: "【北海道ニュース24〜HTBニュースLIVE】北海道で起きた事件や事故、災害などを24時間配信中！" },
-    lat: 43.452,
-    lng: 142.8198,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "tvgbZZYS4Nk",
-      channelId: "UCSWOnDD1KIriGmyQ7SgNA4A",
-      titleKey: "【北海道ニュース24〜HTBニュースLIVE】北海道で起きた事件や事故、災害などを24時間配信中！",
     },
   },
 ];
