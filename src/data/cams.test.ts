@@ -14,9 +14,13 @@ describe("camera master data", () => {
    * 493 uploads that were never live, 213 streams whose owners forbid embedding and 12 lottery-draw
    * streams were excluded on watch-page evidence (`scripts/cam-exclusions.ts`), and one bulk
    * duplicate of a curated stream fell away.
+   *
+   * 2026-11-02 (later the same day): lowered again to 4,160. The owner decided to drop what cannot
+   * be played: 821 finished live streams whose recording is removed or members-only, plus
+   * rio-christ-redeemer and yosemite, whose streams are gone. The catalogue is now 4,163.
    */
-  it("has 4980 or more entries", () => {
-    expect(CAMS.length).toBeGreaterThanOrEqual(4980);
+  it("has 4160 or more entries", () => {
+    expect(CAMS.length).toBeGreaterThanOrEqual(4160);
   });
 
   /**

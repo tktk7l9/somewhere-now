@@ -104,21 +104,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "times-square",
-    name: { ja: "タイムズスクエア", en: "Times Square" },
-    lat: 40.758,
-    lng: -73.9855,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "JQ_jwk_7OVE",
-      channelId: "UC6qrG3W8SMK0jior2olka3g",
-      titleKey: "EarthCam Live:  Times Square North 4K",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "statue-of-liberty",
     name: { ja: "自由の女神(冠のカメラ)", en: "Statue of Liberty CrownCam" },
     lat: 40.6892,
@@ -205,21 +190,6 @@ export const CAMS: Cam[] = [
       videoId: "F1EQEDL4ddU",
       channelId: "UC6qrG3W8SMK0jior2olka3g",
       titleKey: "EarthCam Live:  Liberty Bell - Independence Hall (Philadelphia, PA)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "wrigley-field",
-    name: { ja: "リグレー・フィールド(シカゴ)", en: "Wrigley Field" },
-    lat: 41.9484,
-    lng: -87.6553,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "m38n8jVPUJ8",
-      channelId: "UC6qrG3W8SMK0jior2olka3g",
-      titleKey: "EarthCam Live:  Wrigley Field",
     },
   },
   {
@@ -373,36 +343,6 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: Open-Meteo geocoding "Wildwood", New Jersey
-    id: "wildwood",
-    name: { ja: "ワイルドウッド(ニュージャージー)", en: "Wildwood, NJ" },
-    lat: 38.9918,
-    lng: -74.8149,
-    timeZone: "America/New_York",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "cK71xhMRtds",
-      channelId: "UC6qrG3W8SMK0jior2olka3g",
-      titleKey: "EarthCam Live:  Wildwoods Cam (Wildwood, NJ)",
-    },
-  },
-  {
-    // coords: Open-Meteo geocoding "Spirit Lake", Iowa
-    id: "spirit-lake",
-    name: { ja: "スピリット湖(アイオワ)", en: "Spirit Lake, Iowa" },
-    lat: 43.4222,
-    lng: -95.1022,
-    timeZone: "America/Chicago",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "XIe9vQkAd7Q",
-      channelId: "UC6qrG3W8SMK0jior2olka3g",
-      titleKey: "EarthCam Live:  Spirit Lake, Iowa",
-    },
-  },
-  {
     // coords: set explicitly as a well-known landmark
     id: "monterey-sea-otter",
     name: { ja: "モントレー湾水族館 ラッコ", en: "Monterey Bay Aquarium — Sea Otters" },
@@ -478,21 +418,6 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: Open-Meteo geocoding "Kasane", Chobe District
-    id: "chobe-waterhole",
-    name: { ja: "チョベ(ボツワナ)の水場", en: "Chobe Watering Hole, Botswana" },
-    lat: -17.8016,
-    lng: 25.1602,
-    timeZone: "Africa/Gaborone",
-    category: "animal",
-    country: "BW",
-    source: {
-      videoId: "iqdRLSdSjWI",
-      channelId: "UC6qrG3W8SMK0jior2olka3g",
-      titleKey: "EarthCam Live:  Hideaways Camp Kuzuma, African Watering Hole (Chobe, Botswana)",
-    },
-  },
-  {
     // coords: Open-Meteo geocoding "Manaus", Amazonas
     id: "rio-negro-amazon",
     name: { ja: "アマゾン ネグロ川", en: "Rio Negro, Amazon" },
@@ -505,21 +430,6 @@ export const CAMS: Cam[] = [
       videoId: "cIjZxotXPdM",
       channelId: "UCGCZAYq5Xxojl_tSXcVJhiQ",
       titleKey: "【LIVE】癒しの熱帯 アマゾンのジャングルから配信　夜明けの空を横切るインコの群れ　夜の川に響くカエルと昆虫の声　#ネグロ川 #ブラジル【ライブ】ANN/テレ朝",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "popocatepetl",
-    name: { ja: "ポポカテペトル山", en: "Popocatépetl Volcano" },
-    lat: 19.0224,
-    lng: -98.6279,
-    timeZone: "America/Mexico_City",
-    category: "volcano",
-    country: "MX",
-    source: {
-      videoId: "z1DIktum4zo",
-      channelId: "UColBcWm6ybTbQnNuQS8JaKg",
-      titleKey: "🌋 #POPOCATÉPETL | 🛸 Los objetos salen de su garita esta noche. El #volcán #EnVivo",
     },
   },
   {
@@ -550,21 +460,6 @@ export const CAMS: Cam[] = [
       videoId: "ZH3jB650mcI",
       channelId: "UColBcWm6ybTbQnNuQS8JaKg",
       titleKey: "Paseo de la Reforma en vivo. Monumento Ángel de la Independencia",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "basilica-guadalupe",
-    name: { ja: "グアダルーペ聖堂", en: "Basilica of Guadalupe" },
-    lat: 19.4847,
-    lng: -99.1177,
-    timeZone: "America/Mexico_City",
-    category: "city",
-    country: "MX",
-    source: {
-      videoId: "NmHkMgNwawg",
-      channelId: "UColBcWm6ybTbQnNuQS8JaKg",
-      titleKey: "Basílica de Guadalupe, Ciudad de México, en vivo",
     },
   },
   {
@@ -850,21 +745,6 @@ export const CAMS: Cam[] = [
       videoId: "ll3X1mH_g9Q",
       channelId: "UCOIkT9bq-1N2BvrsBjhNlag",
       titleKey: "Cordele, Georgia, USA | LIVE Train Camera (Fixed View – Diamond)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "sydney-harbour",
-    name: { ja: "シドニー湾（ハーバーブリッジとオペラハウス）", en: "Sydney Harbour" },
-    lat: -33.845,
-    lng: 151.203,
-    timeZone: "Australia/Sydney",
-    category: "harbor",
-    country: "AU",
-    source: {
-      videoId: "VukSUsIGPGQ",
-      channelId: "UCS03bU2sY5_zu2j7LoSjAVA",
-      titleKey: "Sydney Harbour LIVE 🇦🇺 Bridge & Opera House 24/7 — McMahons Point, Australia",
     },
   },
   {
@@ -1423,21 +1303,6 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: Open-Meteo geocoding "Buenos Aires", Buenos Aires F.D.
-    id: "buenos-aires-uade",
-    name: { ja: "ブエノスアイレス", en: "Buenos Aires" },
-    lat: -34.6131,
-    lng: -58.3772,
-    timeZone: "America/Argentina/Buenos_Aires",
-    category: "city",
-    country: "AR",
-    source: {
-      videoId: "NfsyRx50gAI",
-      channelId: "UCJbgNz5VfETvD_wd4KiF2yQ",
-      titleKey: "Cámara en vivo | UADE Campus Buenos Aires",
-    },
-  },
-  {
     // coords: Open-Meteo geocoding "Montreal", Quebec
     id: "montreal-airport",
     name: { ja: "モントリオール空港", en: "Montréal–Trudeau Airport" },
@@ -1633,36 +1498,6 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: Open-Meteo geocoding "Busan", Busan
-    id: "busan-haeundae",
-    name: { ja: "釜山 海雲台ビーチ", en: "Haeundae Beach, Busan" },
-    lat: 35.1017,
-    lng: 129.03,
-    timeZone: "Asia/Seoul",
-    category: "nature",
-    country: "KR",
-    source: {
-      videoId: "LGuktGeHQxI",
-      channelId: "UCZsIhpfgnO7nNrDWu7dj89g",
-      titleKey: "[실시간 해운대해수욕장] 4K Live Cam Haeundae Busan, Transmisión en vivo de la cámara de Haeundae",
-    },
-  },
-  {
-    // coords: Open-Meteo geocoding "Seogwipo", Jeju-do
-    id: "jeju-seongsan",
-    name: { ja: "済州島 城山", en: "Seongsan, Jeju Island" },
-    lat: 33.2533,
-    lng: 126.5618,
-    timeZone: "Asia/Seoul",
-    category: "nature",
-    country: "KR",
-    source: {
-      videoId: "NCzm0l_ZqzU",
-      channelId: "UC-cGXwzS7XwlVn6zaPa3CDw",
-      titleKey: "펀제주 제주도 서귀포 성산읍 지금 날씨 실시간 제주 오늘 라이브 캠,   Jeju Island in South Korea Live CCTV Cam Sungsanilchulbong",
-    },
-  },
-  {
     // coords: Open-Meteo geocoding "Daejeon", Daejeon
     id: "daejeon-expo",
     name: { ja: "大田 エキスポ科学公園", en: "Expo Science Park, Daejeon" },
@@ -1735,21 +1570,6 @@ export const CAMS: Cam[] = [
       videoId: "5ka3YhVZgME",
       channelId: "UC_FuR9GFVJE2A8H02sQmHWw",
       titleKey: "🔴Assisi Live Webcam Basilica di San Francesco",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "mount-etna",
-    name: { ja: "エトナ火山", en: "Mount Etna" },
-    lat: 37.751,
-    lng: 14.9934,
-    timeZone: "Europe/Rome",
-    category: "volcano",
-    country: "IT",
-    source: {
-      videoId: "t4vlFU-ypIw",
-      channelId: "UC_LnSAP1K6UmVEVT1mGy_AQ",
-      titleKey: "🔴 Mount Etna Live Stream – Real-Time Volcano Webcam (Sicily, Italy) | 18 August 2026",
     },
   },
   {
@@ -1855,36 +1675,6 @@ export const CAMS: Cam[] = [
       videoId: "5FBMg0K85Jg",
       channelId: "UCBHhwpHuJR4ZSH8gvxT0DdQ",
       titleKey: "Hastings Pier Webcam and English Channel LIVE HD",
-    },
-  },
-  {
-    // coords: Open-Meteo geocoding "Ságvár", Somogy County
-    id: "sagvar-stork",
-    name: { ja: "シャーグヴァールのコウノトリ", en: "Stork Nest, Ságvár" },
-    lat: 46.8366,
-    lng: 18.1014,
-    timeZone: "Europe/Budapest",
-    category: "animal",
-    country: "HU",
-    source: {
-      videoId: "AO5I5nNbbnE",
-      channelId: "UCU31-9qcY1RDuMad67dbuhw",
-      titleKey: "LIVE White Stork Nest Cam (Ságvár, Hungary)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "rio-christ-redeemer",
-    name: { ja: "リオ コルコバードのキリスト像", en: "Christ the Redeemer, Rio" },
-    lat: -22.9519,
-    lng: -43.2105,
-    timeZone: "America/Sao_Paulo",
-    category: "city",
-    country: "BR",
-    source: {
-      videoId: "PhYE9txaPlo",
-      channelId: "UCfMOswhx9NN_laZ8Ukcm4-Q",
-      titleKey: "Cristo Redentor Ao Vivo En Vivo| Christ the Redeemer Live Cam — Rio de Janeiro Brazil",
     },
   },
   {
@@ -2053,21 +1843,6 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: Open-Meteo geocoding "Gujō", Gifu
-    id: "gujo-hachiman",
-    name: { ja: "郡上八幡", en: "Gujo Hachiman" },
-    lat: 35.7369,
-    lng: 136.9585,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "L0C80aVxJaU",
-      channelId: "UCyoue0T-ZZp8NVJ9fBAsygA",
-      titleKey: "【岐阜県郡上市】郡上八幡 お天気カメラ LIVECAM",
-    },
-  },
-  {
     // coords: Open-Meteo geocoding "Canmore", Alberta
     id: "canmore-alberta",
     name: { ja: "カンモア（カナダ・ロッキー）", en: "Canmore, Alberta" },
@@ -2140,21 +1915,6 @@ export const CAMS: Cam[] = [
       videoId: "5Uqw_G_IdjE",
       channelId: "UCPAgksFpFLJDVyMcIYsbz3A",
       titleKey: "Webcam Koksijde-Bad",
-    },
-  },
-  {
-    // coords: Open-Meteo geocoding "Itaura", Uttar Pradesh
-    id: "itaura-village",
-    name: { ja: "イタウラ村（インド）", en: "Itaura Village, India" },
-    lat: 25.5253,
-    lng: 79.1628,
-    timeZone: "Asia/Kolkata",
-    category: "city",
-    country: "IN",
-    source: {
-      videoId: "ss7rSdSTrwc",
-      channelId: "UChswY0TkLMxfTMQRfBpHhMQ",
-      titleKey: "🔴 24/7 Live: LS Jan Seva Kendra &amp; LIC Office | Itaura Village Cam",
     },
   },
   {
@@ -2338,21 +2098,6 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: Open-Meteo geocoding "Beppu", Oita
-    id: "beppu-bay",
-    name: { ja: "別府湾", en: "Beppu Bay" },
-    lat: 33.2794,
-    lng: 131.4975,
-    timeZone: "Asia/Tokyo",
-    category: "harbor",
-    country: "JP",
-    source: {
-      videoId: "hdVgObFgBV8",
-      channelId: "UCd41Qao7-RbhcZeDywVfZ9w",
-      titleKey: "【4K  LIVE】Beppu Bay Cam　国道10号・別府湾　災害時の波、道路渋滞、地震、台風などの情報にお役立てください。　＃災害＃別府湾＃別大＃夕焼け",
-    },
-  },
-  {
     // coords: set explicitly as a well-known landmark
     id: "niagara-falls",
     name: { ja: "ナイアガラの滝", en: "Niagara Falls" },
@@ -2380,21 +2125,6 @@ export const CAMS: Cam[] = [
       videoId: "7i8ARjIeM2k",
       channelId: "UCtllXAWa3EcfcsL5tvpqGSw",
       titleKey: "Coral City Camera (Miami&#39;s Free-Range Aquarium Underwater Livestream)",
-    },
-  },
-  {
-    // coords: Open-Meteo geocoding "Yosemite Valley", California
-    id: "yosemite",
-    name: { ja: "ヨセミテ国立公園", en: "Yosemite National Park" },
-    lat: 37.7407,
-    lng: -119.5779,
-    timeZone: "America/Los_Angeles",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "AvJl1Vbsg38",
-      channelId: "UCScswbWVOicLBZwD_6zfXkA",
-      titleKey: "🏔️ Yosemite National Park LIVE | El Capitan, Half Dome &amp; Yosemite Falls",
     },
   },
   {
@@ -2440,21 +2170,6 @@ export const CAMS: Cam[] = [
       videoId: "L8i9G8jhWao",
       channelId: "UCpkcJlssp52fP6xHFUYT9ag",
       titleKey: "LIVE from Hagafell - Close up - Iceland volcano eruption",
-    },
-  },
-  {
-    // coords: Open-Meteo geocoding "Akureyri", Northeast
-    id: "akureyri",
-    name: { ja: "アークレイリ（北アイスランド）", en: "Akureyri, Iceland" },
-    lat: 65.6835,
-    lng: -18.0878,
-    timeZone: "Atlantic/Reykjavik",
-    category: "city",
-    country: "IS",
-    source: {
-      videoId: "GXTycxKz_FQ",
-      channelId: "UC0aRUMUvwJ-7xx0mfNwhVZA",
-      titleKey: "Rósenborg",
     },
   },
   {
@@ -3734,21 +3449,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "au-victoria-australia-3",
-    name: { ja: "Victoria, Australia", en: "Victoria, Australia" },
-    lat: -38.4062,
-    lng: 144.1687,
-    timeZone: "Australia/Melbourne",
-    category: "city",
-    country: "AU",
-    source: {
-      videoId: "DbLMSFvB2Og",
-      channelId: "UCNbMdQzK0V0VGhAaBhsamMw",
-      titleKey: "Live Web Cam Anglesea Golf Club",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "au-ben-lomond-alpine-resort-tasmania-aus",
     name: { ja: "Ben Lomond Alpine Resort — Tasmania, Australia", en: "Ben Lomond Alpine Resort — Tasmania, Australia" },
     lat: -41.546,
@@ -3790,21 +3490,6 @@ export const CAMS: Cam[] = [
       videoId: "-3SMlcFv7II",
       channelId: "UCdDu10MbdlkTZh6gJHw3kWg",
       titleKey: "279",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "bl-col-de-la-tourmente-saint-barth-sceni",
-    name: { ja: "Col de la Tourmente Saint Barth Scenic View", en: "Col de la Tourmente Saint Barth Scenic View" },
-    lat: 17.903,
-    lng: -62.845,
-    timeZone: "America/St_Barthelemy",
-    category: "city",
-    country: "BL",
-    source: {
-      videoId: "15pVqwQb7A0",
-      channelId: "UC4nkl9OncDSVGZS9qdcRLxA",
-      titleKey: "Live Webcam - SBH Col de la Tourmente",
     },
   },
   {
@@ -3869,21 +3554,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "br-cabo-frio-beach-cameras-brazil",
-    name: { ja: "Cabo Frio Beach Cameras, Brazil", en: "Cabo Frio Beach Cameras, Brazil" },
-    lat: -22.8807,
-    lng: -42.0161,
-    timeZone: "America/Sao_Paulo",
-    category: "nature",
-    country: "BR",
-    source: {
-      videoId: "HsfII35xV4g",
-      channelId: "UC37R9R29MAwvrOBafYoBtow",
-      titleKey: "CABO FRIO AO VIVO AGORA | CÂMERAS",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "br-copacabana-beach-panorama-rio-de-jane",
     name: { ja: "Copacabana Beach Panorama — Rio de Janeiro, Brazil", en: "Copacabana Beach Panorama — Rio de Janeiro, Brazil" },
     lat: -22.968,
@@ -3914,36 +3584,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "br-florianopolis-canto-da-lagoa-brazil",
-    name: { ja: "Florianopolis Canto da Lagoa, Brazil", en: "Florianopolis Canto da Lagoa, Brazil" },
-    lat: -27.622,
-    lng: -48.462,
-    timeZone: "America/Sao_Paulo",
-    category: "city",
-    country: "BR",
-    source: {
-      videoId: "1ffJojfUyRA",
-      channelId: "UCfzoppnA7KWE2C1cUUdOyxA",
-      titleKey: "LAGOA DA CONCEIÇÃO AO VIVO | CANTO DA LAGOA EM TEMPO REAL – FLORIPA SC  INDAIÁ EVENTOS | CONEXÃODCTV",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "br-florianopolis-lagoa-da-conceicao-mira",
-    name: { ja: "Florianopolis Lagoa da Conceicao Mirante, Brazil", en: "Florianopolis Lagoa da Conceicao Mirante, Brazil" },
-    lat: -27.599,
-    lng: -48.467,
-    timeZone: "America/Sao_Paulo",
-    category: "city",
-    country: "BR",
-    source: {
-      videoId: "egXyN_SwY-E",
-      channelId: "UCfzoppnA7KWE2C1cUUdOyxA",
-      titleKey: "LAGOA DA CONCEIÇÃO AO VIVO | MIRANTE COM VISTA PANORÂMICA – FLORIPA SC  INDAIÁ EVENTOS | CONEXÃODCTV",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "br-guaruja-pitangueiras-beach-brazil",
     name: { ja: "Guaruja Pitangueiras Beach, Brazil", en: "Guaruja Pitangueiras Beach, Brazil" },
     lat: -23.998,
@@ -3955,21 +3595,6 @@ export const CAMS: Cam[] = [
       videoId: "geAj9DGl-Pw",
       channelId: "UC8YAup2viRbegzrqjAyEXYA",
       titleKey: "WebCam Guarujá ao vivo, Praia das Pitangueiras NATUREZA LINDA",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "br-ilha-porchat",
-    name: { ja: "Ilha Porchat", en: "Ilha Porchat" },
-    lat: -23.5475,
-    lng: -46.6361,
-    timeZone: "America/Sao_Paulo",
-    category: "nature",
-    country: "BR",
-    source: {
-      videoId: "RT4JhqVP8AY",
-      channelId: "UCHhtdcqzwyPYY0qBlEPh0QQ",
-      titleKey: "SANTOS  AO VIVO: Gonzaga Canal 2 Santos Agora | Câmera na Orla  – Olhar 013",
     },
   },
   {
@@ -4015,21 +3640,6 @@ export const CAMS: Cam[] = [
       videoId: "owJHKExR8QM",
       channelId: "UC4roE4SbVIvcQGCYXlnijGQ",
       titleKey: "AO VIVO 24H OCIAN PRAIA GRANDE CÂMERAS",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "br-pereque-acu-brazil",
-    name: { ja: "Pereque Acu, Brazil", en: "Pereque Acu, Brazil" },
-    lat: -23.425,
-    lng: -45.06,
-    timeZone: "America/Sao_Paulo",
-    category: "nature",
-    country: "BR",
-    source: {
-      videoId: "5mV2qwFTdzA",
-      channelId: "UCVQG1pBkRM4xlRrBmV65kUw",
-      titleKey: "PEREQUÊ AÇU - MEIO - UBATUBA - AO VIVO",
     },
   },
   {
@@ -4109,21 +3719,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "br-santos-surf-conditions-beach-brazil",
-    name: { ja: "Santos Surf Conditions Beach, Brazil", en: "Santos Surf Conditions Beach, Brazil" },
-    lat: -23.971,
-    lng: -46.333,
-    timeZone: "America/Sao_Paulo",
-    category: "nature",
-    country: "BR",
-    source: {
-      videoId: "jychMSrX9w0",
-      channelId: "UC8YAup2viRbegzrqjAyEXYA",
-      titleKey: "WebCam Santos ao vivo, veja as ondas e condições de surfe em Santos.",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "br-tenorio-canto-direito-ubatuba-brazil",
     name: { ja: "Tenorio Canto Direito Ubatuba, Brazil", en: "Tenorio Canto Direito Ubatuba, Brazil" },
     lat: -23.456,
@@ -4139,51 +3734,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "ca-banff-canada",
-    name: { ja: "Banff, Canada", en: "Banff, Canada" },
-    lat: 51.1762,
-    lng: -115.5698,
-    timeZone: "America/Edmonton",
-    category: "city",
-    country: "CA",
-    source: {
-      videoId: "m1F2ggd0hxA",
-      channelId: "UC0muoxLiFjQJVPF36pxf-1A",
-      titleKey: "Rock Isle Lake Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ca-banff-sunshine-village-canada",
-    name: { ja: "Banff Sunshine Village, Canada", en: "Banff Sunshine Village, Canada" },
-    lat: 51.0958,
-    lng: -115.7722,
-    timeZone: "America/Edmonton",
-    category: "city",
-    country: "CA",
-    source: {
-      videoId: "OJzDoKXXoGw",
-      channelId: "UC0muoxLiFjQJVPF36pxf-1A",
-      titleKey: "Goat’s Eye Base",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ca-kelowna-canada",
-    name: { ja: "Kelowna, Canada", en: "Kelowna, Canada" },
-    lat: 49.6014,
-    lng: -119.6822,
-    timeZone: "America/Vancouver",
-    category: "city",
-    country: "CA",
-    source: {
-      videoId: "zkTaY9OQM2A",
-      channelId: "UCjqDAH8vlPbt-J3DlLpJKuw",
-      titleKey: "444",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "ca-canmore-canada",
     name: { ja: "Canmore, Canada", en: "Canmore, Canada" },
     lat: 51.0834,
@@ -4195,21 +3745,6 @@ export const CAMS: Cam[] = [
       videoId: "-Fe7o0j58_s",
       channelId: "UCSB3xOs0FgIW0uqKTqoXqhg",
       titleKey: "311",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ca-downtown-canada",
-    name: { ja: "Downtown, Canada", en: "Downtown, Canada" },
-    lat: 53.92,
-    lng: -122.75,
-    timeZone: "America/Vancouver",
-    category: "city",
-    country: "CA",
-    source: {
-      videoId: "fDpNeUvss30",
-      channelId: "UCL8OSG6rGN8QrXlZx6vH-3g",
-      titleKey: "Downtown Livestream - North",
     },
   },
   {
@@ -4255,21 +3790,6 @@ export const CAMS: Cam[] = [
       videoId: "MaYMrtIXxvA",
       channelId: "UClL8n9u9ohdAfvPOmLL0U2g",
       titleKey: "140",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ca-tofino-canada",
-    name: { ja: "Tofino, Canada", en: "Tofino, Canada" },
-    lat: 49.1531,
-    lng: -125.9074,
-    timeZone: "America/Vancouver",
-    category: "nature",
-    country: "CA",
-    source: {
-      videoId: "ABI1FZmrwbQ",
-      channelId: "UCW1DIPA5POQZ1Jh1x_vl_uQ",
-      titleKey: "Wickaninnish Inn Live Stream [With Audio]",
     },
   },
   {
@@ -4394,21 +3914,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "de-trimburg-medieval-castle-ruins",
-    name: { ja: "Trimburg Medieval Castle Ruins", en: "Trimburg Medieval Castle Ruins" },
-    lat: 50.1474,
-    lng: 9.9615,
-    timeZone: "Europe/Berlin",
-    category: "city",
-    country: "DE",
-    source: {
-      videoId: "M1TS9GEIGoI",
-      channelId: "UCZVM1ShZYDLxnCkjEHmmHPQ",
-      titleKey: "Saaletal - Panorama",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "ec-sangay-volcano-4k-morona-santiago-ecu",
     name: { ja: "Sangay Volcano 4K — Morona Santiago, Ecuador", en: "Sangay Volcano 4K — Morona Santiago, Ecuador" },
     lat: -2.0053,
@@ -4484,21 +3989,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "fi-patoniva-river-oulanka-national-park",
-    name: { ja: "Patoniva River, Oulanka National Park", en: "Patoniva River, Oulanka National Park" },
-    lat: 66.4,
-    lng: 29.2,
-    timeZone: "Europe/Helsinki",
-    category: "city",
-    country: "FI",
-    source: {
-      videoId: "L7F3XGPA6vo",
-      channelId: "UCxKw0Dmg6u8z00vbEFgjk0Q",
-      titleKey: "Oulanka Live Webcam Live Stream",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "fi-yyteri-beach-pori",
     name: { ja: "Yyteri Beach, Pori", en: "Yyteri Beach, Pori" },
     lat: 61.4807,
@@ -4510,21 +4000,6 @@ export const CAMS: Cam[] = [
       videoId: "n8i3AnhnPXc",
       channelId: "UC9UE5PYgoWAgDvIvTkD6dAg",
       titleKey: "335",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "fr-gambetta-square-france",
-    name: { ja: "Gambetta Square, France", en: "Gambetta Square, France" },
-    lat: 49.8932,
-    lng: 2.2976,
-    timeZone: "Europe/Paris",
-    category: "city",
-    country: "FR",
-    source: {
-      videoId: "4i7ioN8wS20",
-      channelId: "UCfkbmwi67lrETUqnOmf-Hqw",
-      titleKey: "Webcam Amiens - Gambetta",
     },
   },
   {
@@ -4604,21 +4079,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "gb-machynlleth-uk",
-    name: { ja: "Machynlleth, UK", en: "Machynlleth, UK" },
-    lat: 52.5896,
-    lng: -3.8531,
-    timeZone: "Europe/London",
-    category: "city",
-    country: "GB",
-    source: {
-      videoId: "GMJzMSOk-V0",
-      channelId: "UCk70QelhKG9mVuj7jN4I5Cg",
-      titleKey: "🏴󠁧󠁢󠁷󠁬󠁳󠁿 DYFI OSPREY PROJECT 2026: Live Streaming in 4K 🏴󠁧󠁢󠁷󠁬󠁳󠁿",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "gb-new-quay-uk",
     name: { ja: "New Quay, UK", en: "New Quay, UK" },
     lat: 52.2152,
@@ -4660,21 +4120,6 @@ export const CAMS: Cam[] = [
       videoId: "W-ouHLSr3fc",
       channelId: "UCX1UA8V125i7_z9ZJS_UdEA",
       titleKey: "149",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "gr-gulf-of-ixia",
-    name: { ja: "Gulf of Ixia", en: "Gulf of Ixia" },
-    lat: 36.4356,
-    lng: 28.222,
-    timeZone: "Europe/Athens",
-    category: "nature",
-    country: "GR",
-    source: {
-      videoId: "h8ZGGzCcL5g",
-      channelId: "UColQKkohNGeNWYpw4d8xUBw",
-      titleKey: "800",
     },
   },
   {
@@ -4739,21 +4184,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "ie-dublin-city-centre-ireland",
-    name: { ja: "Dublin City Centre, Ireland", en: "Dublin City Centre, Ireland" },
-    lat: 53.3498,
-    lng: -6.2603,
-    timeZone: "Europe/Dublin",
-    category: "city",
-    country: "IE",
-    source: {
-      videoId: "AdUw5RdyZxI",
-      channelId: "UC6qrG3W8SMK0jior2olka3g",
-      titleKey: "EarthCam:  Times Square in 4K",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "ie-north-circular-road-dublin-ireland",
     name: { ja: "North Circular Road — Dublin, Ireland", en: "North Circular Road — Dublin, Ireland" },
     lat: 53.36,
@@ -4765,81 +4195,6 @@ export const CAMS: Cam[] = [
       videoId: "KpZ8vteYNOw",
       channelId: "UCXtzCdsTkuBWIrOSuMNvANQ",
       titleKey: "North Circular Road Live Webcam (Facing North West)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "il-ashdod-israel",
-    name: { ja: "Ashdod, Israel", en: "Ashdod, Israel" },
-    lat: 31.7921,
-    lng: 34.6497,
-    timeZone: "Asia/Jerusalem",
-    category: "nature",
-    country: "IL",
-    source: {
-      videoId: "mSONhnPsSzE",
-      channelId: "UClw5cvX6cyQqpn4FkoNO67Q",
-      titleKey: "אשדוד - חוף גיל",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "il-ashdod-hakshatot-beach-israel",
-    name: { ja: "Ashdod HaKshatot Beach, Israel", en: "Ashdod HaKshatot Beach, Israel" },
-    lat: 31.7998,
-    lng: 34.6323,
-    timeZone: "Asia/Jerusalem",
-    category: "nature",
-    country: "IL",
-    source: {
-      videoId: "GYdEdmjWTBA",
-      channelId: "UClw5cvX6cyQqpn4FkoNO67Q",
-      titleKey: "אשדוד - חוף הקשתות",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "il-community-center-israel",
-    name: { ja: "Community Center, Israel", en: "Community Center, Israel" },
-    lat: 31.779,
-    lng: 34.6494,
-    timeZone: "Asia/Jerusalem",
-    category: "city",
-    country: "IL",
-    source: {
-      videoId: "hWwLAaO0Vyo",
-      channelId: "UClw5cvX6cyQqpn4FkoNO67Q",
-      titleKey: "אשדוד - חוף זבולון",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "il-jordan-river",
-    name: { ja: "Jordan River", en: "Jordan River" },
-    lat: 31.5,
-    lng: 34.75,
-    timeZone: "Asia/Jerusalem",
-    category: "nature",
-    country: "IL",
-    source: {
-      videoId: "NLTRWDL7yfM",
-      channelId: "UCEuJE0FEa-cTwGdyTwL7gEA",
-      titleKey: "שידור חי של Jordan River Baptism | Yardenit | Jardenit",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "is-north-reykjanes",
-    name: { ja: "North Reykjanes", en: "North Reykjanes" },
-    lat: 63.8385,
-    lng: -22.4393,
-    timeZone: "Atlantic/Reykjavik",
-    category: "city",
-    country: "IS",
-    source: {
-      videoId: "yUZTszmpAJE",
-      channelId: "UCGgyr3-DI5pr5Cnnv2A8shg",
-      titleKey: "Sylingarfell Norður",
     },
   },
   {
@@ -4979,36 +4334,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-assabu",
-    name: { ja: "Assabu", en: "Assabu" },
-    lat: 41.9151,
-    lng: 140.2876,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "kJLL6uXWVaI",
-      channelId: "UCQPFueJNZut3Bk5fiViOt2Q",
-      titleKey: "72",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-live-chiba",
-    name: { ja: "【LIVE】千葉県ライブカメラ 千葉市内の現在の様子 Chiba 지바", en: "【LIVE】千葉県ライブカメラ 千葉市内の現在の様子 Chiba 지바" },
-    lat: 35.6,
-    lng: 140.1167,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "vaifJWjqu0k",
-      channelId: "UCaHr0a1x8zmQ1dxanCeuesA",
-      titleKey: "【LIVE】千葉県ライブカメラ　千葉市内の現在の様子　Chiba 지바",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-3-enoshima-livecamera-24hoursby-hview",
     name: { ja: "【江の島ライブカメラ3】腰越海岸：Enoshima LiveCamera 24Hoursby HviewCam", en: "【江の島ライブカメラ3】腰越海岸：Enoshima LiveCamera 24Hoursby HviewCam" },
     lat: 35.3012,
@@ -5035,21 +4360,6 @@ export const CAMS: Cam[] = [
       videoId: "RlU6BRXBP9c",
       channelId: "UCZ974tQkAeV7_l_opPHCcdg",
       titleKey: "578",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-fuefuki-japan",
-    name: { ja: "Fuefuki, Japan", en: "Fuefuki, Japan" },
-    lat: 35.6353,
-    lng: 138.6385,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "_9SONpu3HFQ",
-      channelId: "UCZ974tQkAeV7_l_opPHCcdg",
-      titleKey: "JR 中央本線ライブカメラ② （春日居町 ⇔ 石和温泉）下り甲府、松本方面【】",
     },
   },
   {
@@ -5174,21 +4484,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-hiroshima-japan",
-    name: { ja: "Hiroshima, Japan", en: "Hiroshima, Japan" },
-    lat: 34.4,
-    lng: 132.45,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "we2FaU_VOQI",
-      channelId: "UCyHdFYJyt4Ihwuscuk5ALJA",
-      titleKey: "【LIVE】世界遺産・宮島",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-hiroshima-japan-2",
     name: { ja: "Hiroshima, Japan", en: "Hiroshima, Japan" },
     lat: 34.4,
@@ -5279,21 +4574,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-ishigaki",
-    name: { ja: "Ishigaki", en: "Ishigaki" },
-    lat: 24.3448,
-    lng: 124.1572,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "H6pbOinBue8",
-      channelId: "UCQJE3qm7Sjc5-JXAYjAfkrw",
-      titleKey: "石垣島７３０交差点ＬＩＶＥカメラ",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-iwakuni-japan",
     name: { ja: "Iwakuni, Japan", en: "Iwakuni, Japan" },
     lat: 34.163,
@@ -5324,21 +4604,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-kagoshima-sakurajima-landmark-kts-jap",
-    name: { ja: "Kagoshima Sakurajima Landmark KTS, Japan", en: "Kagoshima Sakurajima Landmark KTS, Japan" },
-    lat: 31.5652,
-    lng: 130.526,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "w0U4AJozxek",
-      channelId: "UCG8ze26AvirHm4XpBVz7rdA",
-      titleKey: "【ライブ映像】桜島 全景（垂水市海潟）",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-134-live-camera-japan-h-view-camera-t",
     name: { ja: "江ノ電・134号線ライブカメラ 湘南 鎌倉 波情報 渋滞情報 海岸駐車場 Live Camera Japan H.View camera 【The NOON 七里ケ浜 Studio ライブカメラ2 】", en: "江ノ電・134号線ライブカメラ 湘南 鎌倉 波情報 渋滞情報 海岸駐車場 Live Camera Japan H.View camera 【The NOON 七里ケ浜 Studio ライブカメラ2 】" },
     lat: 35.3109,
@@ -5350,21 +4615,6 @@ export const CAMS: Cam[] = [
       videoId: "DgIbfgFdGVI",
       channelId: "UC_9dgNP8GvfhUURELouR3Dg",
       titleKey: "江ノ電・134号線ライブカメラ 湘南 鎌倉 波情報 渋滞情報 海岸駐車場 Live Camera Japan H.View camera 【The NOON 七里ケ浜 Studio ライブカメラ2 】",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-kamakura-japan",
-    name: { ja: "Kamakura, Japan", en: "Kamakura, Japan" },
-    lat: 35.3109,
-    lng: 139.547,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "ZeI0dnHjX6w",
-      channelId: "UCTBW35nZWfilnHd28euduBw",
-      titleKey: "((Live配信中))　鎌倉『小町通り』の現在の様子です♪　Komachi Street now, Kamakura.",
     },
   },
   {
@@ -5519,21 +4769,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-lake-biwa-japan",
-    name: { ja: "Lake Biwa, Japan", en: "Lake Biwa, Japan" },
-    lat: 35,
-    lng: 135.8667,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "bZHusX-v7NI",
-      channelId: "UCjvpBcOLMBqktt0KJxjtJCg",
-      titleKey: "現在の大津港の様子 ライブカメラ　【生配信】【裏】 滋賀県 琵琶湖 【LIVE CAMERA】【琵琶湖花噴水】",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-live-camera-hotel-mt-fuji",
     name: { ja: "ホテルマウント富士ライブカメラ/Live Camera Hotel Mt.fuji", en: "ホテルマウント富士ライブカメラ/Live Camera Hotel Mt.fuji" },
     lat: 35.6854,
@@ -5605,21 +4840,6 @@ export const CAMS: Cam[] = [
       videoId: "P3bq6nGkpnE",
       channelId: "UCfg8n0p5zxu4V9l2lnHgyyQ",
       titleKey: "1.1K",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-mitoyo",
-    name: { ja: "Mitoyo", en: "Mitoyo" },
-    lat: 34.2105,
-    lng: 133.6746,
-    timeZone: "Asia/Tokyo",
-    category: "nature",
-    country: "JP",
-    source: {
-      videoId: "u6e_v5ntnyw",
-      channelId: "UCcNpMZYWUnTNePHU0IO38pQ",
-      titleKey: "【修理中】父母ヶ浜ライブカメラ 4K",
     },
   },
   {
@@ -5699,21 +4919,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-live-3",
-    name: { ja: "【LIVE】きょうの沖縄・那覇市役所前交差点ライブカメラ【琉球新報社から】", en: "【LIVE】きょうの沖縄・那覇市役所前交差点ライブカメラ【琉球新報社から】" },
-    lat: 26.213,
-    lng: 127.6785,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "nU41kpfKLJM",
-      channelId: "UC-jBJkLN89AlQp6eeCNnnWg",
-      titleKey: "【LIVE】きょうの沖縄・那覇市役所前交差点ライブカメラ【琉球新報社から】",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-jr-nakajo-station-live-camera-fhd",
     name: { ja: "JR中条駅（胎内市）中条駅観光交流室 の情報ライブカメラ Nakajo Station Live Camera【FHDカメラ】鉄道ライブカメラ", en: "JR中条駅（胎内市）中条駅観光交流室 の情報ライブカメラ Nakajo Station Live Camera【FHDカメラ】鉄道ライブカメラ" },
     lat: 38.0496,
@@ -5725,21 +4930,6 @@ export const CAMS: Cam[] = [
       videoId: "pufHCGNHZFg",
       channelId: "UCAaw-OnuKB5FTpBkM0xUZ4Q",
       titleKey: "JR中条駅（胎内市）中条駅観光交流室 の情報ライブカメラ Nakajo Station Live Camera【FHDカメラ】鉄道ライブカメラ",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-nantan",
-    name: { ja: "Nantan", en: "Nantan" },
-    lat: 35.1098,
-    lng: 135.4916,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "RC4GOX88dxo",
-      channelId: "UCAqJUdintpCdd-Kqk-UxFTw",
-      titleKey: "2026/06/18 【LIVE CAMERA】#南丹市 #美山かやぶきの里  #ライブカメラ #livecamera  #nantan #miyama #thatchedvillage #美山",
     },
   },
   {
@@ -5759,21 +4949,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-nikko-japan",
-    name: { ja: "Nikkō, Japan", en: "Nikkō, Japan" },
-    lat: 36.75,
-    lng: 139.6167,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "7oRZg_BHPXg",
-      channelId: "UCwYeh4cu-0z0hFd3wwYgzeA",
-      titleKey: "400",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-live-camera-in-the-tokachi-obihiro-ai",
     name: { ja: "とかち帯広空港ライブカメラ Live Camera in The Tokachi-Obihiro Airport, Hokkaido in Japan", en: "とかち帯広空港ライブカメラ Live Camera in The Tokachi-Obihiro Airport, Hokkaido in Japan" },
     lat: 42.9172,
@@ -5789,21 +4964,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-ochanomizu-station-tokyo",
-    name: { ja: "Ochanomizu Station, Tokyo", en: "Ochanomizu Station, Tokyo" },
-    lat: 35.6895,
-    lng: 139.6917,
-    timeZone: "Asia/Tokyo",
-    category: "nature",
-    country: "JP",
-    source: {
-      videoId: "2AFMu3Yiw68",
-      channelId: "UCu6EQS1mVamy0GWjXAM-Qsw",
-      titleKey: "Japan City Pop | シティポップ  | Jpop / Japanese City Pop Playlist",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-odaiba-tokyo-bay-ships-and-planes-jap",
     name: { ja: "Odaiba Tokyo Bay Ships and Planes, Japan", en: "Odaiba Tokyo Bay Ships and Planes, Japan" },
     lat: 35.6346,
@@ -5815,21 +4975,6 @@ export const CAMS: Cam[] = [
       videoId: "qMDxy_qbdtE",
       channelId: "UCaxxRyMskvvbpQMo-VJpNhw",
       titleKey: "4.5K",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-okinawa-japan",
-    name: { ja: "Okinawa, Japan", en: "Okinawa, Japan" },
-    lat: 26.5069,
-    lng: 127.9458,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "fPKygdd-p2Y",
-      channelId: "UCo_JM-fsLQQLz8hovcKkK0A",
-      titleKey: "#8131okichan　沖縄県　国際通り安里三叉路 マキシアルパビル　ライブ映像　Okinawa Kokusai Street Live Camera",
     },
   },
   {
@@ -5954,21 +5099,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-panorama-of-yubatake",
-    name: { ja: "Panorama of Yubatake", en: "Panorama of Yubatake" },
-    lat: 36.6228,
-    lng: 138.5964,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "B_Sc1v1qR-g",
-      channelId: "UCbn5eHDjwmPC2K9RG8P0i_A",
-      titleKey: "Like",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-park-in-kanazawa",
     name: { ja: "Park in Kanazawa", en: "Park in Kanazawa" },
     lat: 36.6,
@@ -6010,21 +5140,6 @@ export const CAMS: Cam[] = [
       videoId: "RT_yg_qsK_M",
       channelId: "UCbn5eHDjwmPC2K9RG8P0i_A",
       titleKey: "「LIVECAMERA」草津温泉 西の河原・湯川LIVE",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-sapporo-japan",
-    name: { ja: "Sapporo, Japan", en: "Sapporo, Japan" },
-    lat: 43.0667,
-    lng: 141.35,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "yM6M8J-BZ1U",
-      channelId: "UCRZplV8vE67bgCI6_3sm3mQ",
-      titleKey: "［LIVE CAMERA］札幌 狸小路 ライブカメラ（４丁目） Tanukikoji Shopping Street in Sapporo, Hokkaido, Japan.",
     },
   },
   {
@@ -6175,21 +5290,6 @@ export const CAMS: Cam[] = [
       videoId: "dfVK7ld38Ys",
       channelId: "UCoQBJMzcwmXrRSHBFAlTsIw",
       titleKey: "【ライブ】いまの渋谷・スクランブル交差点　ライブカメラ　Shibuya Scramble Crossing - Tokyo, Japan　 Live Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-sumida-river-in-tokyo",
-    name: { ja: "Sumida River in Tokyo", en: "Sumida River in Tokyo" },
-    lat: 35.6895,
-    lng: 139.6917,
-    timeZone: "Asia/Tokyo",
-    category: "nature",
-    country: "JP",
-    source: {
-      videoId: "QotB60C4FYc",
-      channelId: "UCv5TCRTfSfVRlbTdiF0SAwg",
-      titleKey: "406",
     },
   },
   {
@@ -6554,21 +5654,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-livecamera-2",
-    name: { ja: "「LIVECAMERA」 草津温泉「湯畑」湯滝前", en: "「LIVECAMERA」 草津温泉「湯畑」湯滝前" },
-    lat: 36.6228,
-    lng: 138.5964,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "GrEEoEmmrKs",
-      channelId: "UCbn5eHDjwmPC2K9RG8P0i_A",
-      titleKey: "「LIVECAMERA」　草津温泉「湯畑」湯滝前",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-yudanaka-onsen",
     name: { ja: "Yudanaka Onsen", en: "Yudanaka Onsen" },
     lat: 35.6854,
@@ -6595,21 +5680,6 @@ export const CAMS: Cam[] = [
       videoId: "DnrgCsF1nAM",
       channelId: "UC1xeTccsAQdz7-fF0eAa5HA",
       titleKey: "上の台第一駐車場ライブカメラ",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ke-laikipia",
-    name: { ja: "Laikipia", en: "Laikipia" },
-    lat: 0.2923,
-    lng: 36.863,
-    timeZone: "Africa/Nairobi",
-    category: "city",
-    country: "KE",
-    source: {
-      videoId: "KyQAB-TKOVA",
-      channelId: "UCiGOIXjFqy5_mUNxQNOMfHw",
-      titleKey: "African Watering Hole powered by Explore.org",
     },
   },
   {
@@ -6655,36 +5725,6 @@ export const CAMS: Cam[] = [
       videoId: "CC0gjFqH_u4",
       channelId: "UCfkbmwi67lrETUqnOmf-Hqw",
       titleKey: "92",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "mx-constitution-square-in-amealco-de-bon",
-    name: { ja: "Constitution Square in Amealco de Bonfil, Mexico", en: "Constitution Square in Amealco de Bonfil, Mexico" },
-    lat: 20.59,
-    lng: -100.37,
-    timeZone: "America/Mexico_City",
-    category: "city",
-    country: "MX",
-    source: {
-      videoId: "TDWnJ3dXkMY",
-      channelId: "UCPOifgFqN0FuTrhc2Ja6n7w",
-      titleKey: "Amealco, Querétaro Pueblo Mágico En Vivo | Vista de la Plaza Constitución",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "mx-don-vasco-square-mexico",
-    name: { ja: "Don Vasco Square, Mexico", en: "Don Vasco Square, Mexico" },
-    lat: 19.59,
-    lng: -101.97,
-    timeZone: "America/Mexico_City",
-    category: "city",
-    country: "MX",
-    source: {
-      videoId: "oh3DAj61Tlk",
-      channelId: "UC22kLkjatN1XJVC_9T9otRg",
-      titleKey: "Pátzcuaro, Michoacán Pueblo Mágico En Vivo | Vista de la Plaza Don Vasco",
     },
   },
   {
@@ -6775,21 +5815,6 @@ export const CAMS: Cam[] = [
       videoId: "Cmzo6T9lz40",
       channelId: "UC1Lz8E2e08WqN6q7p2pgdAg",
       titleKey: "Cozumel, Quintana Roo En Vivo | Vista Panorámica desde Grand Park Royal Cozumel",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "mx-plaza-garibaldi-mexico",
-    name: { ja: "Plaza Garibaldi, Mexico", en: "Plaza Garibaldi, Mexico" },
-    lat: 19.4409,
-    lng: -99.1388,
-    timeZone: "America/Mexico_City",
-    category: "city",
-    country: "MX",
-    source: {
-      videoId: "o-qwlPxee2I",
-      channelId: "UCZ8JAbEUIAzuEg52lT6SmbA",
-      titleKey: "Plaza Garibaldi, Ciudad de México, en vivo",
     },
   },
   {
@@ -7030,21 +6055,6 @@ export const CAMS: Cam[] = [
       videoId: "yznpQlk0exE",
       channelId: "UC0djAWwMXP22wzocdJR9dWw",
       titleKey: "🔴Philippines Live street view camera Davao City,  F Bangoy Street & Soliman Crossing, Agdao",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ph-maria-s-cam-9-rosemary-street-agdao-d",
-    name: { ja: "Maria's Cam 9 ROSEMARY STREET AGDAO DAVAO CITY, PHILLIPPINES #philippines #davaocity", en: "Maria's Cam 9 ROSEMARY STREET AGDAO DAVAO CITY, PHILLIPPINES #philippines #davaocity" },
-    lat: 7.0858,
-    lng: 125.6152,
-    timeZone: "Asia/Manila",
-    category: "city",
-    country: "PH",
-    source: {
-      videoId: "lsLkrwlimbE",
-      channelId: "UCZ6ZuSqeKrjFP7w9lS0nx0Q",
-      titleKey: "Maria's Cam 9 ROSEMARY STREET AGDAO DAVAO CITY, PHILLIPPINES  #philippines #davaocity",
     },
   },
   {
@@ -7349,36 +6359,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-gatlinburg-skypark-live-webcam",
-    name: { ja: "Gatlinburg SkyPark Live Webcam", en: "Gatlinburg SkyPark Live Webcam" },
-    lat: 35.7157,
-    lng: -83.5201,
-    timeZone: "America/New_York",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "teGLziUvDkI",
-      channelId: "UC5XztD8QaQwqkrBb-RyGvbQ",
-      titleKey: "Gatlinburg SkyPark Live Webcam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-hermosa-beach-good-stuff-strand-cam-l",
-    name: { ja: "Hermosa Beach Good Stuff Strand Cam. Live Camera Stream from Southern California", en: "Hermosa Beach Good Stuff Strand Cam. Live Camera Stream from Southern California" },
-    lat: 38.6275,
-    lng: -92.5666,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "Jwna-J3L0NM",
-      channelId: "UCgJGxm_Pj2RX7R9L9NpelIA",
-      titleKey: "Hermosa Beach Good Stuff Strand Cam. Live Camera Stream from Southern California",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-the-edge-hotel-clearwater-beach",
     name: { ja: "The Edge Hotel Clearwater Beach", en: "The Edge Hotel Clearwater Beach" },
     lat: 43.2881,
@@ -7420,21 +6400,6 @@ export const CAMS: Cam[] = [
       videoId: "GakUUW9Anpo",
       channelId: "UCzQdo4UCx-oWrJ8Gsi9ZHvQ",
       titleKey: "Pszczyna - widok na rynek",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-miami-live-webcam-biscayne-bay-north",
-    name: { ja: "Miami Live Webcam | Biscayne Bay North Waterfront Views 24/7 | Florida Live Cams", en: "Miami Live Webcam | Biscayne Bay North Waterfront Views 24/7 | Florida Live Cams" },
-    lat: 25.7911,
-    lng: -80.1869,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "5YCajRjvWCg",
-      channelId: "UC5lNakfSdpqXCW214H5sBgQ",
-      titleKey: "Miami Live Webcam | Biscayne Bay North Waterfront Views 24/7 | Florida Live Cams",
     },
   },
   {
@@ -7739,36 +6704,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "br-sbkp-live-aeroporto-internacional-de",
-    name: { ja: "SBKP LIVE - Aeroporto Internacional de Viracopos - VCP Airport - 13/07 Noite", en: "SBKP LIVE - Aeroporto Internacional de Viracopos - VCP Airport - 13/07 Noite" },
-    lat: -23.0074,
-    lng: -47.1345,
-    timeZone: "America/Sao_Paulo",
-    category: "airport",
-    country: "BR",
-    source: {
-      videoId: "XEuLZHhSv_0",
-      channelId: "UCbpmfj2g2tYuBezI2kEDhsg",
-      titleKey: "SBKP LIVE - Aeroporto Internacional de Viracopos - VCP Airport - 13/07 Noite",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ca-pab-live-harbour-cam-24-7-tilley-cam",
-    name: { ja: "PAB LIVE – Harbour Cam (24/7) | Tilley Cam | Port aux Basques, NL", en: "PAB LIVE – Harbour Cam (24/7) | Tilley Cam | Port aux Basques, NL" },
-    lat: 48.3613,
-    lng: -64.6072,
-    timeZone: "America/Toronto",
-    category: "harbor",
-    country: "CA",
-    source: {
-      videoId: "WaLlhxa9vj4",
-      channelId: "UColsEXIDErNkCQ2ooDFUwig",
-      titleKey: "PAB LIVE – Harbour Cam (24/7) | Tilley Cam | Port aux Basques, NL",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "ca-vancouver-live-cam-false-creek-skylin",
     name: { ja: "Vancouver Live Cam | False Creek, Skyline & Construction | Featured Views | 24/7", en: "Vancouver Live Cam | False Creek, Skyline & Construction | Featured Views | 24/7" },
     lat: 49.2497,
@@ -7994,21 +6929,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "de-berlin-live-webcam-24-7-germany-berli",
-    name: { ja: "Berlin Live Webcam 24/7 - Germany, Berlin, Frankfurter Tor / Karl-Marx-Allee", en: "Berlin Live Webcam 24/7 - Germany, Berlin, Frankfurter Tor / Karl-Marx-Allee" },
-    lat: 52.5244,
-    lng: 13.4105,
-    timeZone: "Europe/Berlin",
-    category: "city",
-    country: "DE",
-    source: {
-      videoId: "_pJAwwlzM7I",
-      channelId: "UCCGO5Ox7t3Rnk1FfXghso-Q",
-      titleKey: "🔴 Berlin Live Webcam 24/7 - Germany, Berlin, Frankfurter Tor / Karl-Marx-Allee",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "de-webcam-rathaus-bad-langensalza",
     name: { ja: "Webcam Rathaus Bad Langensalza", en: "Webcam Rathaus Bad Langensalza" },
     lat: 51.1077,
@@ -8185,21 +7105,6 @@ export const CAMS: Cam[] = [
       videoId: "hRw1_JQMQoE",
       channelId: "UCnZLvSnB-MLeJBRlfGL54Hw",
       titleKey: "LIVE MALLORCA – PORT | AIRPORT | CITY | BEACH",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "es-live-lanzarote-airport-webcam-24-7",
-    name: { ja: "LIVE Lanzarote Airport – Webcam 24/7", en: "LIVE Lanzarote Airport – Webcam 24/7" },
-    lat: 28.9503,
-    lng: -13.6056,
-    timeZone: "Atlantic/Canary",
-    category: "airport",
-    country: "ES",
-    source: {
-      videoId: "hEpaqvnButc",
-      channelId: "UCnZLvSnB-MLeJBRlfGL54Hw",
-      titleKey: "LIVE Lanzarote Airport – Webcam 24/7",
     },
   },
   {
@@ -8459,21 +7364,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "fr-saint-germain-sur-ay-en-direct-webcam",
-    name: { ja: "SAINT-GERMAIN-SUR-AY EN DIRECT – Webcam LIVE plage, mer & météo en Normandie", en: "SAINT-GERMAIN-SUR-AY EN DIRECT – Webcam LIVE plage, mer & météo en Normandie" },
-    lat: 45.4339,
-    lng: 4.39,
-    timeZone: "Europe/Paris",
-    category: "nature",
-    country: "FR",
-    source: {
-      videoId: "ZlMwj15RHnU",
-      channelId: "UC7FuNS4x4F7ZKebegdKaVQg",
-      titleKey: "🌊 SAINT-GERMAIN-SUR-AY EN DIRECT – Webcam LIVE plage, mer & météo en Normandie",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "fr-webcam-brest-hotel-de-ville",
     name: { ja: "Webcam Brest - Hôtel de Ville", en: "Webcam Brest - Hôtel de Ville" },
     lat: 48.3903,
@@ -8485,21 +7375,6 @@ export const CAMS: Cam[] = [
       videoId: "SZmbvyfbPbg",
       channelId: "UCfkbmwi67lrETUqnOmf-Hqw",
       titleKey: "Webcam Brest - Hôtel de Ville",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "fr-webcam-le-lavandou-plage-de-la-fosset",
-    name: { ja: "webcam Le Lavandou - Plage de La Fossette", en: "webcam Le Lavandou - Plage de La Fossette" },
-    lat: 43.137,
-    lng: 6.366,
-    timeZone: "Europe/Paris",
-    category: "nature",
-    country: "FR",
-    source: {
-      videoId: "ddusGpSgUfY",
-      channelId: "UCfkbmwi67lrETUqnOmf-Hqw",
-      titleKey: "webcam Le Lavandou - Plage de La Fossette",
     },
   },
   {
@@ -8594,21 +7469,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "fr-webcam-merquel",
-    name: { ja: "Webcam Merquel", en: "Webcam Merquel" },
-    lat: 47.9124,
-    lng: -1.5054,
-    timeZone: "Europe/Paris",
-    category: "nature",
-    country: "FR",
-    source: {
-      videoId: "wpTiVBUlAXw",
-      channelId: "UCfkbmwi67lrETUqnOmf-Hqw",
-      titleKey: "Webcam Merquel",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "fr-webcam-arc-sous-cicon",
     name: { ja: "Webcam Arc-sous-Cicon", en: "Webcam Arc-sous-Cicon" },
     lat: 47.051,
@@ -8635,21 +7495,6 @@ export const CAMS: Cam[] = [
       videoId: "Rst3kvq9B8Y",
       channelId: "UCfkbmwi67lrETUqnOmf-Hqw",
       titleKey: "Webcam Pornichet - La Baule - La maison Régent, appartements hôteliers ****",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "fr-webcam-villelaure",
-    name: { ja: "Webcam Villelaure", en: "Webcam Villelaure" },
-    lat: 43.7107,
-    lng: 5.4342,
-    timeZone: "Europe/Paris",
-    category: "nature",
-    country: "FR",
-    source: {
-      videoId: "RvqT-vEwNd4",
-      channelId: "UCfkbmwi67lrETUqnOmf-Hqw",
-      titleKey: "Webcam Villelaure",
     },
   },
   {
@@ -8710,21 +7555,6 @@ export const CAMS: Cam[] = [
       videoId: "hoN9su9T-G4",
       channelId: "UCfkbmwi67lrETUqnOmf-Hqw",
       titleKey: "Webcam Saint-Véran - Centre Village",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "fr-fort-mahon-plage-webcam-en-direct-4k",
-    name: { ja: "Fort-Mahon Plage - Webcam en direct 4K", en: "Fort-Mahon Plage - Webcam en direct 4K" },
-    lat: 47.8444,
-    lng: 0.9157,
-    timeZone: "Europe/Paris",
-    category: "nature",
-    country: "FR",
-    source: {
-      videoId: "dLLHgCHpY6E",
-      channelId: "UCDAHA3f1RMYenm_lFgqjDXQ",
-      titleKey: "Fort-Mahon Plage - Webcam en direct 4K",
     },
   },
   {
@@ -8954,21 +7784,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "gb-weston-super-mare-beach-live-the-gran",
-    name: { ja: "Weston-super-Mare Beach Live @ The Grand Pier", en: "Weston-super-Mare Beach Live @ The Grand Pier" },
-    lat: 53.0667,
-    lng: -2.4,
-    timeZone: "Europe/London",
-    category: "nature",
-    country: "GB",
-    source: {
-      videoId: "VXnzFUwJtYM",
-      channelId: "UCRPMo1b8Ki_5yx4SNfSi5tQ",
-      titleKey: "Weston-super-Mare Beach Live @ The Grand Pier",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "gb-heathrow-airport-live-tuesday-11th-au",
     name: { ja: "Heathrow Airport Live - Tuesday 11th August 2026", en: "Heathrow Airport Live - Tuesday 11th August 2026" },
     lat: 51.4704,
@@ -9149,21 +7964,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "gb-ventnor-camera-ventnor-esplanade-isle",
-    name: { ja: "Ventnor Camera | Ventnor Esplanade Isle of Wight | LIVE UK Webcams", en: "Ventnor Camera | Ventnor Esplanade Isle of Wight | LIVE UK Webcams" },
-    lat: 50.6795,
-    lng: -1.2876,
-    timeZone: "Europe/London",
-    category: "nature",
-    country: "GB",
-    source: {
-      videoId: "CmsVx-EJU5A",
-      channelId: "UCijrngTzgjHdgeAQfJxNKqA",
-      titleKey: "🔴 Ventnor Camera | Ventnor Esplanade Isle of Wight | LIVE UK Webcams",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "gb-fawley-cam-live-views-of-the-exxonmob",
     name: { ja: "Fawley Cam - Live Views of the ExxonMobil Refinery (Flares, Steam & Southampton Water)", en: "Fawley Cam - Live Views of the ExxonMobil Refinery (Flares, Steam & Southampton Water)" },
     lat: 51.5764,
@@ -9239,21 +8039,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "gb-itchen-cam-by-southampton-sailing-clu",
-    name: { ja: "Itchen Cam - By Southampton Sailing Club Shipspotting on the Itchen River (Tug & RoRo) LIVE 24/7", en: "Itchen Cam - By Southampton Sailing Club Shipspotting on the Itchen River (Tug & RoRo) LIVE 24/7" },
-    lat: 50.9045,
-    lng: -1.3694,
-    timeZone: "Europe/London",
-    category: "nature",
-    country: "GB",
-    source: {
-      videoId: "6Qqvy20iH7w",
-      channelId: "UCAupQASEG4kt6oXHe0Xwd9Q",
-      titleKey: "Itchen Cam - By Southampton Sailing Club Shipspotting on the Itchen River (Tug & RoRo) LIVE 24/7",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "gb-ferry-cam-southampton-to-cowes-isle-o",
     name: { ja: "Ferry Cam - Southampton to Cowes Isle of Wight Red Funnel (Live Camera 24/7) IOW Festival 2026", en: "Ferry Cam - Southampton to Cowes Isle of Wight Red Funnel (Live Camera 24/7) IOW Festival 2026" },
     lat: 54.6833,
@@ -9295,36 +8080,6 @@ export const CAMS: Cam[] = [
       videoId: "b7xdKcf6TRE",
       channelId: "UCijrngTzgjHdgeAQfJxNKqA",
       titleKey: "🔴🚂 Havenstreet Station Camera | Isle of Wight Steam Railway | Isle of Wight Webcams UK LIVE | Train",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "hk-live-hong-kong-live-4k",
-    name: { ja: "LIVE HONG KONG | 陪您休閒上班看風景 LIVE | 減壓音樂 |香港實時|4K", en: "LIVE HONG KONG | 陪您休閒上班看風景 LIVE | 減壓音樂 |香港實時|4K" },
-    lat: 22.2783,
-    lng: 114.1747,
-    timeZone: "Asia/Hong_Kong",
-    category: "city",
-    country: "HK",
-    source: {
-      videoId: "VAK8DkBgjMs",
-      channelId: "UCWtgtd5245OHw4I2wL9K8jA",
-      titleKey: "LIVE HONG KONG | 陪您休閒上班看風景 LIVE | 減壓音樂🎧 |香港實時|4K",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "it-trento-live-cam-centro-citta-piazza-d",
-    name: { ja: "Trento live cam - centro città (Piazza Duomo)", en: "Trento live cam - centro città (Piazza Duomo)" },
-    lat: 46.0679,
-    lng: 11.1211,
-    timeZone: "Europe/Rome",
-    category: "city",
-    country: "IT",
-    source: {
-      videoId: "PzJVpZ9lp7Q",
-      channelId: "UCrBd0lVRjlyT-uu0fcFihUw",
-      titleKey: "Trento live cam - centro città (Piazza Duomo)",
     },
   },
   {
@@ -10049,21 +8804,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-livecam",
-    name: { ja: "【内海LiveCam】今の波は？", en: "【内海LiveCam】今の波は？" },
-    lat: 34.7395,
-    lng: 136.8706,
-    timeZone: "Asia/Tokyo",
-    category: "nature",
-    country: "JP",
-    source: {
-      videoId: "mAyyCUiz48g",
-      channelId: "UC0B_ex2k5A93COYfer6gKLw",
-      titleKey: "【内海LiveCam】今の波は？",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-live-2026-08-09-12-00",
     name: { ja: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/09 12:00〜", en: "【LIVE】新宿・歌舞伎町 ライブカメラ 2026/08/09 12:00〜" },
     lat: 35.6946,
@@ -10304,21 +9044,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "no-hafjell-live",
-    name: { ja: "Hafjell LIVE", en: "Hafjell LIVE" },
-    lat: 60.5936,
-    lng: 6.6514,
-    timeZone: "Europe/Oslo",
-    category: "city",
-    country: "NO",
-    source: {
-      videoId: "BADzwd9b0RU",
-      channelId: "UCgAmmVZsZ4vfDH-vtWawaOg",
-      titleKey: "Hafjell LIVE",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "no-marka-live",
     name: { ja: "Marka LIVE", en: "Marka LIVE" },
     lat: 68.6,
@@ -10330,21 +9055,6 @@ export const CAMS: Cam[] = [
       videoId: "3xohetm5I7Y",
       channelId: "UCgAmmVZsZ4vfDH-vtWawaOg",
       titleKey: "Marka LIVE",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "no-sogndal-live",
-    name: { ja: "Sogndal LIVE", en: "Sogndal LIVE" },
-    lat: 61.2291,
-    lng: 7.0967,
-    timeZone: "Europe/Oslo",
-    category: "city",
-    country: "NO",
-    source: {
-      videoId: "6Usok3aloeU",
-      channelId: "UCgAmmVZsZ4vfDH-vtWawaOg",
-      titleKey: "Sogndal LIVE",
     },
   },
   {
@@ -10394,21 +9104,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "no-troms-live",
-    name: { ja: "Tromsø LIVE", en: "Tromsø LIVE" },
-    lat: 69.6489,
-    lng: 18.9551,
-    timeZone: "Europe/Oslo",
-    category: "city",
-    country: "NO",
-    source: {
-      videoId: "jpCcV1-Sfnw",
-      channelId: "UCgAmmVZsZ4vfDH-vtWawaOg",
-      titleKey: "Tromsø LIVE",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "pa-live-tropical-hummingbird-cam-canopy",
     name: { ja: "LIVE Tropical Hummingbird Cam: Canopy Tower – Soberanía National Park, Panama | explore.org", en: "LIVE Tropical Hummingbird Cam: Canopy Tower – Soberanía National Park, Panama | explore.org" },
     lat: 9.0752,
@@ -10420,21 +9115,6 @@ export const CAMS: Cam[] = [
       videoId: "JE2CGFclrRg",
       channelId: "UCpLLHFUEHb89Luv-Gj6ZMgA",
       titleKey: "LIVE Tropical Hummingbird Cam: Canopy Tower – Soberanía National Park, Panama | explore.org",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "pl-siechnice-kamera-online-siechnice-ryn",
-    name: { ja: "Siechnice - kamera online Siechnice Rynek", en: "Siechnice - kamera online Siechnice Rynek" },
-    lat: 51.0338,
-    lng: 17.1474,
-    timeZone: "Europe/Warsaw",
-    category: "city",
-    country: "PL",
-    source: {
-      videoId: "SyQ4eNx0kOQ",
-      channelId: "UC-RGnR74pVb4s4QSDwkMbBA",
-      titleKey: "Siechnice - kamera online Siechnice Rynek",
     },
   },
   {
@@ -10480,51 +9160,6 @@ export const CAMS: Cam[] = [
       videoId: "fTGQTIdcPQY",
       channelId: "UCFXE9DpDuCqh0aRxpuB20nw",
       titleKey: "Живу. Постоянная живая трансляция 24/7 (камера 1)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "sa-makkah-live-hd-mecca-live-makkah-live",
-    name: { ja: "Makkah Live HD | Mecca Live | Makkah Live Today Now", en: "Makkah Live HD | Mecca Live | Makkah Live Today Now" },
-    lat: 21.4266,
-    lng: 39.8256,
-    timeZone: "Asia/Riyadh",
-    category: "city",
-    country: "SA",
-    source: {
-      videoId: "bNY8a2BB5Gc",
-      channelId: "UCSs5mehC-g9qDmIZWFe0a6Q",
-      titleKey: "🕋 Makkah Live HD | Mecca Live | Makkah Live Today Now 🕋",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "sa-madina-live-madinah-live-tv-online-ma",
-    name: { ja: "Madina Live | Madinah Live TV Online | Masjid Al Nabawi Live HD | Madinah Live Today 24/7", en: "Madina Live | Madinah Live TV Online | Masjid Al Nabawi Live HD | Madinah Live Today 24/7" },
-    lat: 24.4686,
-    lng: 39.6142,
-    timeZone: "Asia/Riyadh",
-    category: "city",
-    country: "SA",
-    source: {
-      videoId: "rHWSRMcGGBQ",
-      channelId: "UCSs5mehC-g9qDmIZWFe0a6Q",
-      titleKey: "Madina Live | Madinah Live TV Online | Masjid Al Nabawi Live HD | Madinah Live Today 24/7",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "sa-madina-live-24-7-masjid-al-nabawi-liv",
-    name: { ja: "Madina Live 24/7 | Masjid Al Nabawi Live HD | Madinah Live TV Online Today", en: "Madina Live 24/7 | Masjid Al Nabawi Live HD | Madinah Live TV Online Today" },
-    lat: 24.4686,
-    lng: 39.6142,
-    timeZone: "Asia/Riyadh",
-    category: "city",
-    country: "SA",
-    source: {
-      videoId: "9rmHzOb5ECs",
-      channelId: "UCSs5mehC-g9qDmIZWFe0a6Q",
-      titleKey: "Madina Live 24/7 | Masjid Al Nabawi Live HD | Madinah Live TV Online Today",
     },
   },
   {
@@ -10784,21 +9419,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-live-watch-live-from-the-internationa",
-    name: { ja: "LIVE: Watch Live From The International Space Station | NASA Hosts Spectacular Viewing Event | APT", en: "LIVE: Watch Live From The International Space Station | NASA Hosts Spectacular Viewing Event | APT" },
-    lat: 35.7742,
-    lng: -90.6723,
-    timeZone: "America/Chicago",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "nczOMPJGGAQ",
-      channelId: "UCpLEtz3H0jSfEneSdf1YKnw",
-      titleKey: "LIVE: Watch Live From The International Space Station | NASA Hosts Spectacular Viewing Event | APT",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-bridge-cam",
     name: { ja: "Bridge Cam", en: "Bridge Cam" },
     lat: 42.1294,
@@ -10930,21 +9550,6 @@ export const CAMS: Cam[] = [
       videoId: "2uWwGaunibo",
       channelId: "UCZpB0MKAHs4k_TTpHllCLSQ",
       titleKey: "🔴LIVE LOS ANGELES (LAX) AIRPORT ACTION!  (August 16th, 2026)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-boston-ma-live-cam-boston-common-at-b",
-    name: { ja: "Boston, MA Live Cam - Boston Common at Boylston St.", en: "Boston, MA Live Cam - Boston Common at Boylston St." },
-    lat: 42.3584,
-    lng: -71.0598,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "2lRbwu4TVtA",
-      channelId: "UC8gbWbcNNyb5-NIXvFklkOA",
-      titleKey: "Boston, MA Live Cam - Boston Common at Boylston St.",
     },
   },
   {
@@ -11189,21 +9794,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-2026-08-16-ober-gatlinburg-sky-villag",
-    name: { ja: "2026-08-16 Ober Gatlinburg Sky Village Live Camera (3,455ft)", en: "2026-08-16 Ober Gatlinburg Sky Village Live Camera (3,455ft)" },
-    lat: 38.8951,
-    lng: -77.0364,
-    timeZone: "America/New_York",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "xXoZGQcbkFg",
-      channelId: "UC4JzbPHJtEyHjwIQeka3ivg",
-      titleKey: "2026-08-16 Ober Gatlinburg Sky Village Live Camera (3,455ft)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-range-lava-mountain-wy",
     name: { ja: "Range Lava Mountain, WY", en: "Range Lava Mountain, WY" },
     lat: 31.3127,
@@ -11215,21 +9805,6 @@ export const CAMS: Cam[] = [
       videoId: "i5aqpgo31AE",
       channelId: "UCZN_xkkEPhr15LSQoVVg9sA",
       titleKey: "Range Lava Mountain, WY",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-range-sundance-wy-downtown",
-    name: { ja: "Range Sundance, WY Downtown", en: "Range Sundance, WY Downtown" },
-    lat: 31.3127,
-    lng: -87.2355,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "Iv19IkyodjQ",
-      channelId: "UCZN_xkkEPhr15LSQoVVg9sA",
-      titleKey: "Range Sundance, WY Downtown",
     },
   },
   {
@@ -11324,21 +9899,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-live-rail-cam-fullerton-california-bn",
-    name: { ja: "LIVE Rail Cam – Fullerton, California | BNSF Mainline + Amtrak + Metrolink | RailStream", en: "LIVE Rail Cam – Fullerton, California | BNSF Mainline + Amtrak + Metrolink | RailStream" },
-    lat: 33.8703,
-    lng: -117.9253,
-    timeZone: "America/Los_Angeles",
-    category: "railway",
-    country: "US",
-    source: {
-      videoId: "DgGeCeD_HBU",
-      channelId: "UC-bPJdfIq5zqIP_PQ7rUJaA",
-      titleKey: "LIVE Rail Cam – Fullerton, California | BNSF Mainline + Amtrak + Metrolink | RailStream",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-cnu-construction-webcam",
     name: { ja: "CNU Construction Webcam", en: "CNU Construction Webcam" },
     lat: 35.7201,
@@ -11425,21 +9985,6 @@ export const CAMS: Cam[] = [
       videoId: "f5D4lPET76s",
       channelId: "UC8gbWbcNNyb5-NIXvFklkOA",
       titleKey: "Turners Falls, Massachusetts - Municipal Airport Live Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-kansas-city-missouri-usa-live-tra-2",
-    name: { ja: "Kansas City, Missouri, USA | LIVE Train Camera (Doc’s Caboose – West)", en: "Kansas City, Missouri, USA | LIVE Train Camera (Doc’s Caboose – West)" },
-    lat: 39.0997,
-    lng: -94.5786,
-    timeZone: "America/Chicago",
-    category: "railway",
-    country: "US",
-    source: {
-      videoId: "xR3kxBG_v7Y",
-      channelId: "UCOIkT9bq-1N2BvrsBjhNlag",
-      titleKey: "Kansas City, Missouri, USA | LIVE Train Camera (Doc’s Caboose – West)",
     },
   },
   {
@@ -11909,21 +10454,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-bryant-park-webcam",
-    name: { ja: "Bryant Park Webcam", en: "Bryant Park Webcam" },
-    lat: 34.5026,
-    lng: -91.5571,
-    timeZone: "America/Chicago",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "Zmmskdpi4QE",
-      channelId: "UC6AlfoRUeH4B1an_R5YSSTw",
-      titleKey: "Bryant Park Webcam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-beach-cam-solglimt-b-b",
     name: { ja: "Beach Cam (Solglimt B & B)", en: "Beach Cam (Solglimt B & B)" },
     lat: 46.9181,
@@ -11935,21 +10465,6 @@ export const CAMS: Cam[] = [
       videoId: "m2wWzo9GmwY",
       channelId: "UCzkaQrI9-nSv373EvK5p0SQ",
       titleKey: "Beach Cam (Solglimt B & B)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-live-rail-cam-berea-ohio-csx-ns",
-    name: { ja: "LIVE Rail Cam – Berea, Ohio | CSX &NS", en: "LIVE Rail Cam – Berea, Ohio | CSX &NS" },
-    lat: 41.3662,
-    lng: -81.8543,
-    timeZone: "America/New_York",
-    category: "railway",
-    country: "US",
-    source: {
-      videoId: "NKLtXovsWnc",
-      channelId: "UC-bPJdfIq5zqIP_PQ7rUJaA",
-      titleKey: "LIVE Rail Cam – Berea, Ohio | CSX &NS",
     },
   },
   {
@@ -11980,21 +10495,6 @@ export const CAMS: Cam[] = [
       videoId: "EmHLP80PMU0",
       channelId: "UCtOEBEqkaQJWdgox91Cdzcg",
       titleKey: "Anna Maria Island, Florida - Live Pool Camera",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-2026-08-11-ober-gatlinburg-sky-villag",
-    name: { ja: "2026-08-11 Ober Gatlinburg Sky Village Live Camera (3,455ft)", en: "2026-08-11 Ober Gatlinburg Sky Village Live Camera (3,455ft)" },
-    lat: 38.8951,
-    lng: -77.0364,
-    timeZone: "America/New_York",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "a0a9pmFL4B4",
-      channelId: "UC4JzbPHJtEyHjwIQeka3ivg",
-      titleKey: "2026-08-11 Ober Gatlinburg Sky Village Live Camera (3,455ft)",
     },
   },
   {
@@ -12044,21 +10544,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-campus-point-surf-cam",
-    name: { ja: "Campus Point Surf Cam", en: "Campus Point Surf Cam" },
-    lat: 30.7832,
-    lng: -99.3201,
-    timeZone: "America/Chicago",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "JE3EvN55hfE",
-      channelId: "UCxd6_Ql2p4OoSXbKZGP0bmg",
-      titleKey: "Campus Point Surf Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-greenville-maine-airport-cam-live",
     name: { ja: "Greenville, Maine - Airport Cam Live", en: "Greenville, Maine - Airport Cam Live" },
     lat: 45.4595,
@@ -12070,51 +10555,6 @@ export const CAMS: Cam[] = [
       videoId: "1o39CobYA7Y",
       channelId: "UC8gbWbcNNyb5-NIXvFklkOA",
       titleKey: "Greenville, Maine - Airport Cam Live",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-live-rail-cam-waldwick-nj-njt-ns-rail",
-    name: { ja: "LIVE Rail Cam – Waldwick,NJ | NJT & NS | RailStream", en: "LIVE Rail Cam – Waldwick,NJ | NJT & NS | RailStream" },
-    lat: 41.0106,
-    lng: -74.1179,
-    timeZone: "America/New_York",
-    category: "railway",
-    country: "US",
-    source: {
-      videoId: "a_IsaWR8fBE",
-      channelId: "UC-bPJdfIq5zqIP_PQ7rUJaA",
-      titleKey: "LIVE Rail Cam – Waldwick,NJ | NJT & NS | RailStream",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-live-rail-cam-northwood-ohio-vickers",
-    name: { ja: "LIVE Rail Cam – Northwood, Ohio | Vickers Crossing", en: "LIVE Rail Cam – Northwood, Ohio | Vickers Crossing" },
-    lat: 41.6073,
-    lng: -83.4688,
-    timeZone: "America/New_York",
-    category: "railway",
-    country: "US",
-    source: {
-      videoId: "VxijdxNKA9M",
-      channelId: "UC-bPJdfIq5zqIP_PQ7rUJaA",
-      titleKey: "LIVE Rail Cam – Northwood, Ohio | Vickers Crossing",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-virginia-beach-fishing-pier-live-cam",
-    name: { ja: "Virginia Beach Fishing Pier Live Cam | Virginia Beach, VA", en: "Virginia Beach Fishing Pier Live Cam | Virginia Beach, VA" },
-    lat: 36.8529,
-    lng: -75.978,
-    timeZone: "America/New_York",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "Zx_7xF2Sbxo",
-      channelId: "UCFXlxbLuvqTKrLs1AknAfoQ",
-      titleKey: "Virginia Beach Fishing Pier Live Cam | Virginia Beach, VA",
     },
   },
   {
@@ -12299,21 +10739,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-live-maui-beach-cam-napili-kai-beach",
-    name: { ja: "LIVE Maui Beach Cam | Napili Kai Beach Resort | Maui Live Cam", en: "LIVE Maui Beach Cam | Napili Kai Beach Resort | Maui Live Cam" },
-    lat: 20.9969,
-    lng: -156.6655,
-    timeZone: "Pacific/Honolulu",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "gX7c8hzR17Y",
-      channelId: "UC5lNakfSdpqXCW214H5sBgQ",
-      titleKey: "LIVE Maui Beach Cam | Napili Kai Beach Resort | Maui Live Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-bahia-honda-live-webcam-big-pine-key",
     name: { ja: "Bahia Honda Live WebCam - Big Pine Key, Florida Keys", en: "Bahia Honda Live WebCam - Big Pine Key, Florida Keys" },
     lat: 24.6682,
@@ -12494,21 +10919,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-live-destin-beach-cam-pompano-joe-s-m",
-    name: { ja: "LIVE Destin Beach Cam | Pompano Joe's | Miramar Beach, Florida", en: "LIVE Destin Beach Cam | Pompano Joe's | Miramar Beach, Florida" },
-    lat: 30.3744,
-    lng: -86.3586,
-    timeZone: "America/Chicago",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "4mFybDorWPk",
-      channelId: "UC-G2YE1oV4v4Fk9Sr2odxaQ",
-      titleKey: "LIVE Destin Beach Cam | Pompano Joe's | Miramar Beach, Florida",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-the-village",
     name: { ja: "The Village", en: "The Village" },
     lat: 33.3946,
@@ -12595,21 +11005,6 @@ export const CAMS: Cam[] = [
       videoId: "ELdPHcv-2vI",
       channelId: "UC1zpFX74WEG2b7xa7fD22kw",
       titleKey: "Woolly's Adventure Summit",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-june-patrol",
-    name: { ja: "June Patrol", en: "June Patrol" },
-    lat: 37.6308,
-    lng: -119.0326,
-    timeZone: "America/Los_Angeles",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "UAYN7lVvVfE",
-      channelId: "UC1zpFX74WEG2b7xa7fD22kw",
-      titleKey: "June Patrol",
     },
   },
   {
@@ -12764,21 +11159,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-moody-gardens-pyramid-cam-live-galves",
-    name: { ja: "Moody Gardens Pyramid Cam LIVE | Galveston, Texas", en: "Moody Gardens Pyramid Cam LIVE | Galveston, Texas" },
-    lat: 29.2724,
-    lng: -94.8517,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "yfI8jKgOnsY",
-      channelId: "UCKDM9GYy91kKpNOGZVS0ZFg",
-      titleKey: "Moody Gardens Pyramid Cam LIVE | Galveston, Texas",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-flagstaff-arizona-usa-live-train-came",
     name: { ja: "Flagstaff, Arizona, USA | LIVE Train Camera (PTZ)", en: "Flagstaff, Arizona, USA | LIVE Train Camera (PTZ)" },
     lat: 35.1981,
@@ -12850,21 +11230,6 @@ export const CAMS: Cam[] = [
       videoId: "D5kKdEBmrYU",
       channelId: "UCOIkT9bq-1N2BvrsBjhNlag",
       titleKey: "Ashland, Virginia, USA | LIVE Train Camera (Fixed View — North)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-hellgate-ospreys-nest-cam-cornell-lab",
-    name: { ja: "Hellgate Ospreys Nest Cam | Cornell Lab | University of Montana", en: "Hellgate Ospreys Nest Cam | Cornell Lab | University of Montana" },
-    lat: 46.8471,
-    lng: -113.994,
-    timeZone: "America/Denver",
-    category: "animal",
-    country: "US",
-    source: {
-      videoId: "-qvYCbvbeN8",
-      channelId: "UCZXZQxS3d6NpR-eH_gdDwYA",
-      titleKey: "Hellgate Ospreys Nest Cam | Cornell Lab | University of Montana",
     },
   },
   {
@@ -12989,21 +11354,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-marine-city-hometown-cam-marine-city",
-    name: { ja: "Marine City HomeTown Cam | Marine City, MI | StreamTime LIVE", en: "Marine City HomeTown Cam | Marine City, MI | StreamTime LIVE" },
-    lat: 42.7195,
-    lng: -82.4921,
-    timeZone: "America/Detroit",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "GFzyA9BkHW4",
-      channelId: "UCrtIIVfi-5tMlVXdMDzOMUA",
-      titleKey: "Marine City HomeTown Cam | Marine City, MI | StreamTime LIVE",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-bandcam-live-elbo-room-dance-floor-ba",
     name: { ja: "BandCam LIVE Elbo Room Dance Floor & Bands | Fort Lauderdale", en: "BandCam LIVE Elbo Room Dance Floor & Bands | Fort Lauderdale" },
     lat: 26.1223,
@@ -13045,21 +11395,6 @@ export const CAMS: Cam[] = [
       videoId: "OteVW3af3BU",
       channelId: "UC8gbWbcNNyb5-NIXvFklkOA",
       titleKey: "Bar Harbor, Maine - West View - Bar Harbor Inn",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-24-7-msp-webcam-minneapolis-st-paul-a",
-    name: { ja: "24/7 MSP Webcam - Minneapolis / St. Paul Airport - You Control The Cams!", en: "24/7 MSP Webcam - Minneapolis / St. Paul Airport - You Control The Cams!" },
-    lat: 44.98,
-    lng: -93.2638,
-    timeZone: "America/Chicago",
-    category: "airport",
-    country: "US",
-    source: {
-      videoId: "wWm-kbryDDQ",
-      channelId: "UCGMCIiOelr1UlVNxFXibrgQ",
-      titleKey: "24/7 MSP Webcam - Minneapolis / St. Paul Airport - You Control The Cams!",
     },
   },
   {
@@ -13135,21 +11470,6 @@ export const CAMS: Cam[] = [
       videoId: "FRPe2RJZfCo",
       channelId: "UC4AoiIN2ErfWcE5-YyjDDIg",
       titleKey: "Lithia Park Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-live-rail-cam-shenandoah-junction-wes",
-    name: { ja: "LIVE Rail Cam – Shenandoah Junction, West Virginia", en: "LIVE Rail Cam – Shenandoah Junction, West Virginia" },
-    lat: 37.2998,
-    lng: -92.3049,
-    timeZone: "America/Chicago",
-    category: "railway",
-    country: "US",
-    source: {
-      videoId: "QhT13bsgL-U",
-      channelId: "UC-bPJdfIq5zqIP_PQ7rUJaA",
-      titleKey: "LIVE Rail Cam – Shenandoah Junction, West Virginia",
     },
   },
   {
@@ -13289,21 +11609,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "al-vlore-bay-albania-live-4k-lungomare-b",
-    name: { ja: "Vlore Bay Albania Live 4K | Lungomare, Beach & Sea View", en: "Vlore Bay Albania Live 4K | Lungomare, Beach & Sea View" },
-    lat: 40.4696,
-    lng: 19.4838,
-    timeZone: "Europe/Tirane",
-    category: "nature",
-    country: "AL",
-    source: {
-      videoId: "jLun451s8-g",
-      channelId: "UCKPyvPeJcrT8vAiifUbay1Q",
-      titleKey: "🔴 Vlore Bay Albania Live 4K | Lungomare, Beach & Sea View",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "al-live-vlore-albania-4k-walking-tour-al",
     name: { ja: "LIVE Vlore Albania 4K 🇦🇱 | Walking Tour | Albanian Riviera City Ambience", en: "LIVE Vlore Albania 4K 🇦🇱 | Walking Tour | Albanian Riviera City Ambience" },
     lat: 40.4696,
@@ -13330,36 +11635,6 @@ export const CAMS: Cam[] = [
       videoId: "CCPtK0N0MA4",
       channelId: "UCAPZdv5t1EpkwMLl0RETVHA",
       titleKey: "LIVE! Yerevan 🇦🇲 Summer Hot 🥵 Night Walk in a city. Komitas street",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ar-buenos-aires-argentina-en-vivo",
-    name: { ja: "Buenos Aires, Argentina en Vivo", en: "Buenos Aires, Argentina en Vivo" },
-    lat: -34.6131,
-    lng: -58.3772,
-    timeZone: "America/Argentina/Buenos_Aires",
-    category: "city",
-    country: "AR",
-    source: {
-      videoId: "AksMJTfw-vk",
-      channelId: "UCDpemLDxPZ9EB0dM83L3irw",
-      titleKey: "Buenos Aires, Argentina en Vivo",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ar-buenos-aires-argentina-en-vivo-24-7-l",
-    name: { ja: "BUENOS AIRES, Argentina en Vivo 🇦🇷 24/7 (Live Camera Argentina", en: "BUENOS AIRES, Argentina en Vivo 🇦🇷 24/7 (Live Camera Argentina" },
-    lat: -34.6131,
-    lng: -58.3772,
-    timeZone: "America/Argentina/Buenos_Aires",
-    category: "city",
-    country: "AR",
-    source: {
-      videoId: "urwuIKd8eEo",
-      channelId: "UCsXOwro8CHI2FWotcTw1U2w",
-      titleKey: "BUENOS AIRES, Argentina en Vivo 🇦🇷  24/7 (Live Camera Argentina",
     },
   },
   {
@@ -13469,51 +11744,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "br-praca-central-de-serra-branca-pb-ao-v",
-    name: { ja: "PRAÇA CENTRAL de Serra Branca - PB | AO VIVO 24h", en: "PRAÇA CENTRAL de Serra Branca - PB | AO VIVO 24h" },
-    lat: -9.9,
-    lng: -39.4,
-    timeZone: "America/Bahia",
-    category: "city",
-    country: "BR",
-    source: {
-      videoId: "_cmlw35vbfQ",
-      channelId: "UCxdSxKcL9F0SBcUlfXe6yCg",
-      titleKey: "PRAÇA CENTRAL de Serra Branca - PB | AO VIVO 24h",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "br-aeroporto-internacional-de-ponta-pora",
-    name: { ja: "Aeroporto Internacional de Ponta Porã Com Fonia da Rádio e do Centro Curitiba S15", en: "Aeroporto Internacional de Ponta Porã Com Fonia da Rádio e do Centro Curitiba S15" },
-    lat: -5.0616,
-    lng: -42.8255,
-    timeZone: "America/Fortaleza",
-    category: "airport",
-    country: "BR",
-    source: {
-      videoId: "pqEwczD6xlc",
-      channelId: "UC1roNXMETQmZZKrsF2IZCjQ",
-      titleKey: "Aeroporto Internacional de Ponta Porã Com Fonia da Rádio e do Centro Curitiba  S15",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "br-balneario-camboriu-ao-vivo",
-    name: { ja: "Balneário Camboriú ao vivo", en: "Balneário Camboriú ao vivo" },
-    lat: -27.4239,
-    lng: -51.7877,
-    timeZone: "America/Sao_Paulo",
-    category: "city",
-    country: "BR",
-    source: {
-      videoId: "TC_nOU7xAjw",
-      channelId: "UCi1vQx48j_nfrMg6XH5PItQ",
-      titleKey: "Balneário Camboriú ao vivo",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "br-brazil-now",
     name: { ja: "Brazil Now", en: "Brazil Now" },
     lat: -15.7942,
@@ -13525,21 +11755,6 @@ export const CAMS: Cam[] = [
       videoId: "-Xtz0Jo5Ln8",
       channelId: "UChnIgJ8_PDy0AwV84XP9HTA",
       titleKey: "Brazil Now",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "br-trem-ao-vivo-boa-vista-velha-campinas",
-    name: { ja: "TREM AO VIVO BOA VISTA VELHA - CAMPINAS SP BRASIL", en: "TREM AO VIVO BOA VISTA VELHA - CAMPINAS SP BRASIL" },
-    lat: -0.9932,
-    lng: -46.6745,
-    timeZone: "America/Belem",
-    category: "railway",
-    country: "BR",
-    source: {
-      videoId: "5iPdHvpnydQ",
-      channelId: "UC2LL1Rrh9mXbaII5mT-nN0g",
-      titleKey: "TREM AO VIVO BOA VISTA VELHA - CAMPINAS SP BRASIL",
     },
   },
   {
@@ -13649,66 +11864,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "br-praia-de-candeias-pe-camera-ao-vivo-l",
-    name: { ja: "PRAIA DE CANDEIAS PE - CÂMERA AO VIVO - LIVE CAM", en: "PRAIA DE CANDEIAS PE - CÂMERA AO VIVO - LIVE CAM" },
-    lat: -6.7167,
-    lng: -43.1167,
-    timeZone: "America/Fortaleza",
-    category: "city",
-    country: "BR",
-    source: {
-      videoId: "W_MfFb3qKN4",
-      channelId: "UCeo1c8wZUrwt4L7E1Q9yxdQ",
-      titleKey: "PRAIA DE CANDEIAS PE - CÂMERA AO VIVO - LIVE CAM",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "br-vitoria-de-santo-antao-pe-camera-ao-v",
-    name: { ja: "VITÓRIA DE SANTO ANTÃO PE - CÂMERA AO VIVO - LIVE CAM", en: "VITÓRIA DE SANTO ANTÃO PE - CÂMERA AO VIVO - LIVE CAM" },
-    lat: -20.3194,
-    lng: -40.3378,
-    timeZone: "America/Sao_Paulo",
-    category: "city",
-    country: "BR",
-    source: {
-      videoId: "GQDmb_qTrAM",
-      channelId: "UCeo1c8wZUrwt4L7E1Q9yxdQ",
-      titleKey: "VITÓRIA DE SANTO ANTÃO PE - CÂMERA AO VIVO - LIVE CAM",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "br-balneario-camboriu-ao-vivo-camera-do",
-    name: { ja: "Balneário Camboriú ao vivo - CÂMERA do tempo", en: "Balneário Camboriú ao vivo - CÂMERA do tempo" },
-    lat: -27.4239,
-    lng: -51.7877,
-    timeZone: "America/Sao_Paulo",
-    category: "nature",
-    country: "BR",
-    source: {
-      videoId: "UPh63IjFEp0",
-      channelId: "UCi1vQx48j_nfrMg6XH5PItQ",
-      titleKey: "Balneário Camboriú ao vivo - CÂMERA do tempo",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "br-gramado-ao-vivo",
-    name: { ja: "Gramado ao vivo", en: "Gramado ao vivo" },
-    lat: -29.3786,
-    lng: -50.8739,
-    timeZone: "America/Sao_Paulo",
-    category: "city",
-    country: "BR",
-    source: {
-      videoId: "qoAd9U-8Cic",
-      channelId: "UClkczhHdkCogS9eXg2E5s0w",
-      titleKey: "Gramado ao vivo",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "br-live-do-centro-da-cidade-de-chapeco-s",
     name: { ja: "Live do centro da cidade de Chapecó - SC - câmera ao vivo #chapeco #chapecoaovivo", en: "Live do centro da cidade de Chapecó - SC - câmera ao vivo #chapeco #chapecoaovivo" },
     lat: -4.4833,
@@ -13739,21 +11894,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "br-9-vista-da-ers-130",
-    name: { ja: "#9 VISTA DA ERS-130", en: "#9 VISTA DA ERS-130" },
-    lat: -7.6333,
-    lng: -48.1667,
-    timeZone: "America/Araguaina",
-    category: "city",
-    country: "BR",
-    source: {
-      videoId: "HXOlbMCjXHw",
-      channelId: "UCVT44GDQePOsKk-EZKeO1DQ",
-      titleKey: "#9 VISTA DA ERS-130",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "br-vista-panoramica-de-tirol-centro-rio",
     name: { ja: "Vista Panorâmica de Tirol, Centro, Rio Potengi e Ponte Velha | Trânsito e Clima de Natal AO VIVO", en: "Vista Panorâmica de Tirol, Centro, Rio Potengi e Ponte Velha | Trânsito e Clima de Natal AO VIVO" },
     lat: -7.6333,
@@ -13765,36 +11905,6 @@ export const CAMS: Cam[] = [
       videoId: "JxN06DJgRaw",
       channelId: "UCNrkCeEzYg79oHO2_5VRDMw",
       titleKey: "Vista Panorâmica de Tirol, Centro, Rio Potengi e Ponte Velha | Trânsito e Clima de Natal AO VIVO",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "br-sbsp-live-3-aeroporto-de-sao-paulo-co",
-    name: { ja: "SBSP LIVE #3 - Aeroporto de São Paulo Congonhas AO VIVO - CGH Airport - 13/07 Noite", en: "SBSP LIVE #3 - Aeroporto de São Paulo Congonhas AO VIVO - CGH Airport - 13/07 Noite" },
-    lat: -23.6275,
-    lng: -46.656,
-    timeZone: "America/Sao_Paulo",
-    category: "airport",
-    country: "BR",
-    source: {
-      videoId: "b8g-NPuIZI0",
-      channelId: "UCbpmfj2g2tYuBezI2kEDhsg",
-      titleKey: "SBSP LIVE #3 - Aeroporto de São Paulo Congonhas AO VIVO - CGH Airport - 13/07 Noite",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "br-praca-santa-teresinha-em-cristais-mac",
-    name: { ja: "Praça Santa Teresinha em Cristais, Macaúbas - Bahia", en: "Praça Santa Teresinha em Cristais, Macaúbas - Bahia" },
-    lat: -9.9,
-    lng: -39.4,
-    timeZone: "America/Bahia",
-    category: "city",
-    country: "BR",
-    source: {
-      videoId: "iUTBdNIqLjQ",
-      channelId: "UCGbmoHn-a9huz8jnV8yVG6w",
-      titleKey: "Praça Santa Teresinha em Cristais, Macaúbas - Bahia",
     },
   },
   {
@@ -13825,21 +11935,6 @@ export const CAMS: Cam[] = [
       videoId: "b9YCgJ6NY1I",
       channelId: "UC6NZjHRZXyRKsTy7GRY-fxA",
       titleKey: "Museu de Paleontologia (Estação Ferroviária) em Fernandópolis - SP",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "br-travessia-ferrea-km-415-em-tres-front",
-    name: { ja: "Travessia Férrea KM 415 em Três Fronteiras - SP", en: "Travessia Férrea KM 415 em Três Fronteiras - SP" },
-    lat: -15.2356,
-    lng: -56.4892,
-    timeZone: "America/Cuiaba",
-    category: "railway",
-    country: "BR",
-    source: {
-      videoId: "hE4zt3W7EhY",
-      channelId: "UC6NZjHRZXyRKsTy7GRY-fxA",
-      titleKey: "Travessia Férrea KM 415 em Três  Fronteiras - SP",
     },
   },
   {
@@ -13885,36 +11980,6 @@ export const CAMS: Cam[] = [
       videoId: "MGIsnMzCR7w",
       channelId: "UC6NZjHRZXyRKsTy7GRY-fxA",
       titleKey: "Estação Ferroviária 1 em Santa Fé do Sul - SP",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "br-trem-ao-vivo-hortolandia-sp-brasil",
-    name: { ja: "TREM AO VIVO HORTOLÂNDIA SP BRASIL", en: "TREM AO VIVO HORTOLÂNDIA SP BRASIL" },
-    lat: -0.9932,
-    lng: -46.6745,
-    timeZone: "America/Belem",
-    category: "railway",
-    country: "BR",
-    source: {
-      videoId: "MrExaCVDuOA",
-      channelId: "UC2LL1Rrh9mXbaII5mT-nN0g",
-      titleKey: "TREM AO VIVO HORTOLÂNDIA SP BRASIL",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "br-trem-ao-vivo-japeri-rj-brasil",
-    name: { ja: "TREM AO VIVO JAPERI RJ BRASIL", en: "TREM AO VIVO JAPERI RJ BRASIL" },
-    lat: -0.9932,
-    lng: -46.6745,
-    timeZone: "America/Belem",
-    category: "railway",
-    country: "BR",
-    source: {
-      videoId: "2Olg8sll0VU",
-      channelId: "UC2LL1Rrh9mXbaII5mT-nN0g",
-      titleKey: "TREM AO VIVO JAPERI RJ BRASIL",
     },
   },
   {
@@ -14054,21 +12119,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "br-praia-de-porto-de-galinhas-ao-vivo-we",
-    name: { ja: "PRAIA DE PORTO DE GALINHAS AO VIVO | Webcam PTZ 24H | Pernambuco Brasil", en: "PRAIA DE PORTO DE GALINHAS AO VIVO | Webcam PTZ 24H | Pernambuco Brasil" },
-    lat: -6.7167,
-    lng: -43.1167,
-    timeZone: "America/Fortaleza",
-    category: "nature",
-    country: "BR",
-    source: {
-      videoId: "zKsgtmgGHt4",
-      channelId: "UCak21Edmz9LDZ_3-bl3TNyA",
-      titleKey: "🔴 PRAIA DE PORTO DE GALINHAS AO VIVO 🌴 | Webcam PTZ 24H | Pernambuco Brasil",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "br-balneario-camboriu-ao-vivo-avenida-br",
     name: { ja: "Balneário Camboriú ao vivo - Avenida Brasil", en: "Balneário Camboriú ao vivo - Avenida Brasil" },
     lat: -27.4239,
@@ -14129,81 +12179,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "br-sbsp-live-2-aeroporto-de-sao-paulo-co",
-    name: { ja: "SBSP LIVE #2 - Aeroporto de São Paulo Congonhas AO VIVO - CGH Airport - 13/07 Noite", en: "SBSP LIVE #2 - Aeroporto de São Paulo Congonhas AO VIVO - CGH Airport - 13/07 Noite" },
-    lat: -23.6275,
-    lng: -46.656,
-    timeZone: "America/Sao_Paulo",
-    category: "airport",
-    country: "BR",
-    source: {
-      videoId: "ZJH-a0CD0CQ",
-      channelId: "UCbpmfj2g2tYuBezI2kEDhsg",
-      titleKey: "SBSP LIVE #2 - Aeroporto de São Paulo Congonhas AO VIVO - CGH Airport - 13/07 Noite",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "br-sbgr-10l-live-aeroporto-internacional",
-    name: { ja: "SBGR 10L LIVE - Aeroporto Internacional de São Paulo Guarulhos AO VIVO - GRU Airport - 13/07 Noite", en: "SBGR 10L LIVE - Aeroporto Internacional de São Paulo Guarulhos AO VIVO - GRU Airport - 13/07 Noite" },
-    lat: -23.4306,
-    lng: -46.481,
-    timeZone: "America/Sao_Paulo",
-    category: "airport",
-    country: "BR",
-    source: {
-      videoId: "lnD4BOFpBss",
-      channelId: "UCbpmfj2g2tYuBezI2kEDhsg",
-      titleKey: "SBGR 10L LIVE - Aeroporto Internacional de São Paulo Guarulhos AO VIVO - GRU Airport - 13/07 Noite",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "br-sbsp-live-1-aeroporto-de-sao-paulo-co",
-    name: { ja: "SBSP LIVE #1 - Aeroporto de São Paulo Congonhas AO VIVO - CGH Airport - 13/07 Noite", en: "SBSP LIVE #1 - Aeroporto de São Paulo Congonhas AO VIVO - CGH Airport - 13/07 Noite" },
-    lat: -23.6275,
-    lng: -46.656,
-    timeZone: "America/Sao_Paulo",
-    category: "airport",
-    country: "BR",
-    source: {
-      videoId: "npWPVCz8dHk",
-      channelId: "UCbpmfj2g2tYuBezI2kEDhsg",
-      titleKey: "SBSP LIVE #1 - Aeroporto de São Paulo Congonhas AO VIVO - CGH Airport - 13/07 Noite",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "br-sbgr-10r-live-aeroporto-internacional",
-    name: { ja: "SBGR 10R LIVE - Aeroporto Internacional de São Paulo Guarulhos AO VIVO - GRU Airport - 13/07 Noite", en: "SBGR 10R LIVE - Aeroporto Internacional de São Paulo Guarulhos AO VIVO - GRU Airport - 13/07 Noite" },
-    lat: -23.4306,
-    lng: -46.481,
-    timeZone: "America/Sao_Paulo",
-    category: "airport",
-    country: "BR",
-    source: {
-      videoId: "R6rzU6xTP74",
-      channelId: "UCbpmfj2g2tYuBezI2kEDhsg",
-      titleKey: "SBGR 10R LIVE - Aeroporto Internacional de São Paulo Guarulhos AO VIVO - GRU Airport - 13/07 Noite",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "br-sbgr-28-live-aeroporto-internacional",
-    name: { ja: "SBGR 28 LIVE - Aeroporto Internacional de São Paulo Guarulhos AO VIVO - GRU Airport - 13/07 Noite", en: "SBGR 28 LIVE - Aeroporto Internacional de São Paulo Guarulhos AO VIVO - GRU Airport - 13/07 Noite" },
-    lat: -23.4306,
-    lng: -46.481,
-    timeZone: "America/Sao_Paulo",
-    category: "airport",
-    country: "BR",
-    source: {
-      videoId: "yXrjdS-Pmkk",
-      channelId: "UCbpmfj2g2tYuBezI2kEDhsg",
-      titleKey: "SBGR 28 LIVE - Aeroporto Internacional de São Paulo Guarulhos AO VIVO - GRU Airport - 13/07 Noite",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "ca-live-24-7-alliston-ontario-traffic-we",
     name: { ja: "LIVE 24/7 | Alliston, Ontario Traffic & Weather Camera | King St S & Young St", en: "LIVE 24/7 | Alliston, Ontario Traffic & Weather Camera | King St S & Young St" },
     lat: 44.1501,
@@ -14245,21 +12220,6 @@ export const CAMS: Cam[] = [
       videoId: "5WdsHkKVanA",
       channelId: "UC5sls141Xdq9tQdxCv4In7A",
       titleKey: "Ocean Village Resort",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ca-river-otter-cam",
-    name: { ja: "River Otter Cam", en: "River Otter Cam" },
-    lat: 50.0308,
-    lng: -100.2403,
-    timeZone: "America/Winnipeg",
-    category: "animal",
-    country: "CA",
-    source: {
-      videoId: "C2iP-oVYQV4",
-      channelId: "UCjqDAH8vlPbt-J3DlLpJKuw",
-      titleKey: "River Otter Cam",
     },
   },
   {
@@ -14309,21 +12269,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "ca-kicking-horse-base-plaza-live-cam",
-    name: { ja: "Kicking Horse Base Plaza - Live Cam", en: "Kicking Horse Base Plaza - Live Cam" },
-    lat: 51.45,
-    lng: -116.2855,
-    timeZone: "America/Edmonton",
-    category: "city",
-    country: "CA",
-    source: {
-      videoId: "qW1FFVhFFi0",
-      channelId: "UCz1YzleJz5wQC54lSKMh2TA",
-      titleKey: "Kicking Horse Base Plaza - Live Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "ca-live-plane-spotting-at-toronto-pearso",
     name: { ja: "LIVE Plane Spotting at Toronto Pearson (YYZ) | Holiday Inn Express Exclusive View | July 28", en: "LIVE Plane Spotting at Toronto Pearson (YYZ) | Holiday Inn Express Exclusive View | July 28" },
     lat: 51.7448,
@@ -14365,21 +12310,6 @@ export const CAMS: Cam[] = [
       videoId: "XdF_MSlkYBs",
       channelId: "UChxvvh2NnFJtW5L8QHxVlBw",
       titleKey: "Delta Intelligent Building Technologies & Delta Controls New Building Construction LIVE!",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ca-sundial-hotel-live-stream",
-    name: { ja: "Sundial Hotel Live Stream", en: "Sundial Hotel Live Stream" },
-    lat: 51.183,
-    lng: -124.5863,
-    timeZone: "America/Vancouver",
-    category: "city",
-    country: "CA",
-    source: {
-      videoId: "VsRD_BG_7us",
-      channelId: "UCRSVYu3ANXrQuSnpw5bPUBw",
-      titleKey: "Sundial Hotel Live Stream",
     },
   },
   {
@@ -14579,36 +12509,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "cn-live-inside-china-s-mega-wholesale-ma",
-    name: { ja: "LIVE Inside China's Mega Wholesale Market 🇨🇳 | OneLink Plaza Guangzhou Walk", en: "LIVE Inside China's Mega Wholesale Market 🇨🇳 | OneLink Plaza Guangzhou Walk" },
-    lat: 26.5562,
-    lng: 119.9689,
-    timeZone: "Asia/Shanghai",
-    category: "city",
-    country: "CN",
-    source: {
-      videoId: "_B7aqTDfPC4",
-      channelId: "UCfC936icIlVjgqVDOFZKpQw",
-      titleKey: "LIVE Inside China's Mega Wholesale Market 🇨🇳 | OneLink Plaza Guangzhou Walk",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "cu-cuba-today-walking-tours-24-7-real-st",
-    name: { ja: "Cuba Today | Walking Tours 24/7 🇨🇺 | REAL Street Life & City Walks", en: "Cuba Today | Walking Tours 24/7 🇨🇺 | REAL Street Life & City Walks" },
-    lat: 22,
-    lng: -79.5,
-    timeZone: "America/Havana",
-    category: "city",
-    country: "CU",
-    source: {
-      videoId: "Sp_lVhhGPUY",
-      channelId: "UCIZ52PWMdlcF7cLu_Z94r_Q",
-      titleKey: "Cuba Today | Walking Tours 24/7 🇨🇺 | REAL Street Life & City Walks",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "de-live-hildesheim-marktplatz",
     name: { ja: "LIVE: Hildesheim Marktplatz", en: "LIVE: Hildesheim Marktplatz" },
     lat: 52.1508,
@@ -14635,21 +12535,6 @@ export const CAMS: Cam[] = [
       videoId: "BhW0jfuCb7w",
       channelId: "UCaBnz71URU0bZ7nO2qsexfQ",
       titleKey: "LIVE: Hildesheim Platz An der Lilie",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "de-dicker-turm-turmstra-e-von-der-evgl-s",
-    name: { ja: "Dicker Turm Turmstraße / von der Evgl. Stadtkirche aus gesehen", en: "Dicker Turm Turmstraße / von der Evgl. Stadtkirche aus gesehen" },
-    lat: 50.5301,
-    lng: 9.7282,
-    timeZone: "Europe/Berlin",
-    category: "city",
-    country: "DE",
-    source: {
-      videoId: "xPtzJdHTO3Y",
-      channelId: "UCMUMwkw7X1_uoovtf5bLk-Q",
-      titleKey: "Dicker Turm Turmstraße / von der Evgl. Stadtkirche aus gesehen",
     },
   },
   {
@@ -14725,21 +12610,6 @@ export const CAMS: Cam[] = [
       videoId: "61b3Jty73Zo",
       channelId: "UCR2CLso5tZOHwkFDXPuuKHw",
       titleKey: "Live - Blick vom Corbusierhaus Berlin auf das Olympiastadion",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "de-live-rhein-rees",
-    name: { ja: "Live Rhein Rees", en: "Live Rhein Rees" },
-    lat: 50.8546,
-    lng: 7.7076,
-    timeZone: "Europe/Berlin",
-    category: "nature",
-    country: "DE",
-    source: {
-      videoId: "8XOrJj1hV40",
-      channelId: "UCaLDNGnkbTjnpG7j00om-Qg",
-      titleKey: "Live Rhein Rees",
     },
   },
   {
@@ -14950,21 +12820,6 @@ export const CAMS: Cam[] = [
       videoId: "zGXXy1hclkA",
       channelId: "UCzLB2h38nyHSIaALzwtPvfg",
       titleKey: "🔴 LIVE: Brunsbüttel Schleuse – Webcam am Nord-Ostsee-Kanal & Elbmündung",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "de-live-fahre-frisia-iii-webcam-norddeic",
-    name: { ja: "LIVE: Fähre Frisia III – Webcam Norddeich ⇄ Norderney | Blick auf Nordsee & Wattenmeer", en: "LIVE: Fähre Frisia III – Webcam Norddeich ⇄ Norderney | Blick auf Nordsee & Wattenmeer" },
-    lat: 54.5692,
-    lng: 13.2584,
-    timeZone: "Europe/Berlin",
-    category: "harbor",
-    country: "DE",
-    source: {
-      videoId: "mn5GITwfwfE",
-      channelId: "UCzLB2h38nyHSIaALzwtPvfg",
-      titleKey: "🔴 LIVE: Fähre Frisia III – Webcam Norddeich ⇄ Norderney | Blick auf Nordsee & Wattenmeer",
     },
   },
   {
@@ -15224,21 +13079,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "es-solar-eclipse-on-valencia-beach-2026",
-    name: { ja: "Solar Eclipse on Valencia Beach 2026 | Total Darkness", en: "Solar Eclipse on Valencia Beach 2026 | Total Darkness" },
-    lat: 41.9717,
-    lng: -3.6588,
-    timeZone: "Europe/Madrid",
-    category: "nature",
-    country: "ES",
-    source: {
-      videoId: "7k3bAy4fmIY",
-      channelId: "UC4yfnDo6W2yTrauN-ar69Xg",
-      titleKey: "🌘 Solar Eclipse on Valencia Beach 2026 | Total Darkness ✅",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "es-mallorca-webcam-weather-port-d-andrat",
     name: { ja: "Mallorca Webcam Weather Port d'Andratx Harbor View 4K UHD|24/7 #PortAndratx #Balearics #Weather", en: "Mallorca Webcam Weather Port d'Andratx Harbor View 4K UHD|24/7 #PortAndratx #Balearics #Weather" },
     lat: 39.6078,
@@ -15329,36 +13169,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "es-live-webcam-playa-cala-agulla-capdepe",
-    name: { ja: "Live Webcam Playa Cala Agulla ️ Capdepera ️ Mallorca Baleares 🅻🅸🆅🅴", en: "Live Webcam Playa Cala Agulla ️ Capdepera ️ Mallorca Baleares 🅻🅸🆅🅴" },
-    lat: 38.9167,
-    lng: -0.0833,
-    timeZone: "Europe/Madrid",
-    category: "nature",
-    country: "ES",
-    source: {
-      videoId: "bu-e1EuoxMs",
-      channelId: "UC7ekPkSzne_PsGbRJP0nkeg",
-      titleKey: "Live Webcam Playa Cala Agulla ☀️ Capdepera 🏖️ Mallorca 🌎 Baleares 🅻🅸🆅🅴",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "es-aguas-de-cadiz-fuente-de-la-plaza-de",
-    name: { ja: "Aguas de Cádiz - Fuente de la plaza de Sevilla", en: "Aguas de Cádiz - Fuente de la plaza de Sevilla" },
-    lat: 41.2749,
-    lng: -4.6529,
-    timeZone: "Europe/Madrid",
-    category: "city",
-    country: "ES",
-    source: {
-      videoId: "0dKNLFFcHFU",
-      channelId: "UCt01tczohsGmH6X6csUS6iQ",
-      titleKey: "Aguas de Cádiz - Fuente de la plaza de Sevilla",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "es-camp-nou-en-directo-24-7-obras-del-nu",
     name: { ja: "Camp Nou EN DIRECTO 24/7 | Obras del Nuevo Estadio del FC Barcelona", en: "Camp Nou EN DIRECTO 24/7 | Obras del Nuevo Estadio del FC Barcelona" },
     lat: 42.4096,
@@ -15370,36 +13180,6 @@ export const CAMS: Cam[] = [
       videoId: "2peTXTjIrMI",
       channelId: "UCJ444PfILHP3FeTU9nDdY2g",
       titleKey: "🔴 Camp Nou EN DIRECTO 24/7 | Obras del Nuevo Estadio del FC Barcelona 🔴",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "es-valencia-walking-tour-4k-live-city-of",
-    name: { ja: "Valencia Walking Tour 4K 🇪🇸 LIVE — City of Arts, Old Town & Beach | Spain Ambience", en: "Valencia Walking Tour 4K 🇪🇸 LIVE — City of Arts, Old Town & Beach | Spain Ambience" },
-    lat: 39.4739,
-    lng: -0.3797,
-    timeZone: "Europe/Madrid",
-    category: "city",
-    country: "ES",
-    source: {
-      videoId: "ldfVQzM6TJo",
-      channelId: "UC9gSu3OwkMdqRKYZqnmy5xw",
-      titleKey: "Valencia Walking Tour 4K 🇪🇸 LIVE — City of Arts, Old Town & Beach | Spain Ambience",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "es-platja-d-aro-center-live",
-    name: { ja: "Platja d'Aro Center Live", en: "Platja d'Aro Center Live" },
-    lat: 41.8167,
-    lng: 3.0667,
-    timeZone: "Europe/Madrid",
-    category: "city",
-    country: "ES",
-    source: {
-      videoId: "LSPN10FbR3U",
-      channelId: "UCPp3S_agEGIvcEe9NynOjPw",
-      titleKey: "Platja d'Aro Center Live",
     },
   },
   {
@@ -15644,21 +13424,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "es-salinas-de-torrevieja-webcam-en-direc",
-    name: { ja: "Salinas de Torrevieja - Webcam en directo", en: "Salinas de Torrevieja - Webcam en directo" },
-    lat: 38.5202,
-    lng: -0.912,
-    timeZone: "Europe/Madrid",
-    category: "nature",
-    country: "ES",
-    source: {
-      videoId: "p3m2po8KcAg",
-      channelId: "UCY1-2AkTqFrx04jIe3_JbQw",
-      titleKey: "Salinas de Torrevieja - Webcam en directo",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "es-laguna-de-torrevieja-hospital-univers",
     name: { ja: "Laguna de Torrevieja. Hospital Universitario. Webcam de Torrevieja", en: "Laguna de Torrevieja. Hospital Universitario. Webcam de Torrevieja" },
     lat: 37.9635,
@@ -15685,21 +13450,6 @@ export const CAMS: Cam[] = [
       videoId: "CvOB-Is_yYU",
       channelId: "UCuaFFNhZkcEg2JjEPvzjzzw",
       titleKey: "Port of Helsinki - South Harbour Live (Live Camera Axis Q6155-E)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "fr-live-europe-in-4k-24-7-scenic-views-o",
-    name: { ja: "LIVE: Europe in 4K – 24/7 Scenic Views of Paris, Rome, Alps & Hidden Villages 🇪🇺", en: "LIVE: Europe in 4K – 24/7 Scenic Views of Paris, Rome, Alps & Hidden Villages 🇪🇺" },
-    lat: 48.4566,
-    lng: 7.5009,
-    timeZone: "Europe/Paris",
-    category: "city",
-    country: "FR",
-    source: {
-      videoId: "ckq-AO8PMjg",
-      channelId: "UCrlqY1M1yxakXvK9iBIiz-A",
-      titleKey: "🔴 LIVE: Europe in 4K – 24/7 Scenic Views of Paris, Rome, Alps & Hidden Villages 🇪🇺",
     },
   },
   {
@@ -15749,21 +13499,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "fr-webcam-live-les-sables-d-olonne",
-    name: { ja: "Webcam Live Les Sables D'Olonne", en: "Webcam Live Les Sables D'Olonne" },
-    lat: 49.119,
-    lng: 6.0957,
-    timeZone: "Europe/Paris",
-    category: "nature",
-    country: "FR",
-    source: {
-      videoId: "xjlaExcaEt0",
-      channelId: "UCFxb1RXdYBFqM7a_8GlfxMQ",
-      titleKey: "Webcam Live Les Sables D'Olonne",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "fr-webcam-belfort-chaux-lfgg",
     name: { ja: "Webcam Belfort Chaux LFGG", en: "Webcam Belfort Chaux LFGG" },
     lat: 47.6422,
@@ -15775,21 +13510,6 @@ export const CAMS: Cam[] = [
       videoId: "otnuEAoTtiw",
       channelId: "UCfkbmwi67lrETUqnOmf-Hqw",
       titleKey: "Webcam Belfort Chaux LFGG",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "fr-webcam-port-de-morlaix",
-    name: { ja: "Webcam Port de Morlaix", en: "Webcam Port de Morlaix" },
-    lat: 48.5846,
-    lng: -3.8344,
-    timeZone: "Europe/Paris",
-    category: "harbor",
-    country: "FR",
-    source: {
-      videoId: "SZxkRLHwoYU",
-      channelId: "UCfkbmwi67lrETUqnOmf-Hqw",
-      titleKey: "Webcam Port de Morlaix",
     },
   },
   {
@@ -15820,36 +13540,6 @@ export const CAMS: Cam[] = [
       videoId: "WUngC4GC6Vc",
       channelId: "UCE-KEyQdqRE9WA6MqUOrCZg",
       titleKey: "Villes Soeurs - Gamaches Nautique",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "gb-poole-harbour-osprey-nest-camera-land",
-    name: { ja: "Poole Harbour Osprey Nest Camera - Landscape View", en: "Poole Harbour Osprey Nest Camera - Landscape View" },
-    lat: 50.7143,
-    lng: -1.9846,
-    timeZone: "Europe/London",
-    category: "animal",
-    country: "GB",
-    source: {
-      videoId: "pLOUQ0xFgyw",
-      channelId: "UCj0vPqN3PrzH4g_FsWgjNjA",
-      titleKey: "Poole Harbour Osprey Nest Camera - Landscape View",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "gb-eastbourne-sea-camera",
-    name: { ja: "Eastbourne Sea Camera", en: "Eastbourne Sea Camera" },
-    lat: 50.7687,
-    lng: 0.2845,
-    timeZone: "Europe/London",
-    category: "nature",
-    country: "GB",
-    source: {
-      videoId: "B-GyM-_i-tw",
-      channelId: "UC5V0Zsr4Pe-eAYR_0zqzXww",
-      titleKey: "Eastbourne Sea Camera",
     },
   },
   {
@@ -15895,21 +13585,6 @@ export const CAMS: Cam[] = [
       videoId: "8eFY2KgSHI0",
       channelId: "UCGrS7fwPECc1Z2w146Ku3vw",
       titleKey: "🔴 LIVE Manchester Airport Plane Spotting 🛫",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "gb-lulworth-cove-live-webcam-4k-jurassic",
-    name: { ja: "Lulworth Cove Live Webcam (4K) Jurassic Coast, Dorset @ Jurassic Rib Rides", en: "Lulworth Cove Live Webcam (4K) Jurassic Coast, Dorset @ Jurassic Rib Rides" },
-    lat: 50.6325,
-    lng: -2.2332,
-    timeZone: "Europe/London",
-    category: "nature",
-    country: "GB",
-    source: {
-      videoId: "mGlsYdJk5r8",
-      channelId: "UCk0jOxJ3BFvR6-yN2B7gz7A",
-      titleKey: "Lulworth Cove Live Webcam (4K) Jurassic Coast, Dorset @ Jurassic Rib Rides",
     },
   },
   {
@@ -15974,21 +13649,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "gb-live-cam-kidderminster-station-concou",
-    name: { ja: "LIVE CAM - Kidderminster Station Concourse Camera on the Severn Valley Railway", en: "LIVE CAM - Kidderminster Station Concourse Camera on the Severn Valley Railway" },
-    lat: 52.3882,
-    lng: -2.25,
-    timeZone: "Europe/London",
-    category: "railway",
-    country: "GB",
-    source: {
-      videoId: "I0o6HK6wV_Q",
-      channelId: "UCoaT_geZ6GwRscQgOlchh_w",
-      titleKey: "LIVE CAM - Kidderminster Station Concourse Camera on the Severn Valley Railway",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "gb-black-swan-cam-dawlish",
     name: { ja: "Black Swan Cam Dawlish", en: "Black Swan Cam Dawlish" },
     lat: 53.75,
@@ -16000,36 +13660,6 @@ export const CAMS: Cam[] = [
       videoId: "7NkekAjAb5c",
       channelId: "UCSGpRUfc4CaBpZlaXA6tr0w",
       titleKey: "Black Swan Cam Dawlish",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "gb-willow-lawn-station-ruislip-lido-rail",
-    name: { ja: "Willow Lawn Station | Ruislip Lido Railway | Live Cam", en: "Willow Lawn Station | Ruislip Lido Railway | Live Cam" },
-    lat: 53.5686,
-    lng: -2.4503,
-    timeZone: "Europe/London",
-    category: "railway",
-    country: "GB",
-    source: {
-      videoId: "RrzGCllm11Q",
-      channelId: "UCk6DYLw_vFZjdd4n7uFS77g",
-      titleKey: "Willow Lawn Station | Ruislip Lido Railway | Live Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "gb-24-7-live-cam-stornoway-harbour-ferry",
-    name: { ja: "24/7 Live Cam - Stornoway Harbour (Ferry & Cruise Port) - Hebridean Live Webcam", en: "24/7 Live Cam - Stornoway Harbour (Ferry & Cruise Port) - Hebridean Live Webcam" },
-    lat: 58.2092,
-    lng: -6.3865,
-    timeZone: "Europe/London",
-    category: "harbor",
-    country: "GB",
-    source: {
-      videoId: "kxOHob7q8Vg",
-      channelId: "UClBjO6wiSJVHKWIPMAH6Ciw",
-      titleKey: "24/7 Live Cam - Stornoway Harbour (Ferry & Cruise Port) - Hebridean Live Webcam",
     },
   },
   {
@@ -16154,36 +13784,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "gb-lynton-barnstaple-railway-woody-bay-c",
-    name: { ja: "Lynton & Barnstaple Railway Woody Bay Cam1", en: "Lynton & Barnstaple Railway Woody Bay Cam1" },
-    lat: 51.2017,
-    lng: -3.8872,
-    timeZone: "Europe/London",
-    category: "railway",
-    country: "GB",
-    source: {
-      videoId: "KOuepc4oYNU",
-      channelId: "UCeCtUBS-1V8ieZ3nh4tgqDw",
-      titleKey: "Lynton & Barnstaple Railway Woody Bay Cam1",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "gb-lynton-barnstaple-railway-woody-b-2",
-    name: { ja: "Lynton & Barnstaple Railway Woody Bay Cam2", en: "Lynton & Barnstaple Railway Woody Bay Cam2" },
-    lat: 51.2017,
-    lng: -3.8872,
-    timeZone: "Europe/London",
-    category: "railway",
-    country: "GB",
-    source: {
-      videoId: "yukUL8ceX60",
-      channelId: "UCeCtUBS-1V8ieZ3nh4tgqDw",
-      titleKey: "Lynton & Barnstaple Railway Woody Bay Cam2",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "gb-seaton-tramway-colyford-railcam-uk",
     name: { ja: "Seaton Tramway - Colyford | Railcam UK", en: "Seaton Tramway - Colyford | Railcam UK" },
     lat: 52.5749,
@@ -16210,21 +13810,6 @@ export const CAMS: Cam[] = [
       videoId: "RM_Qc-tkYPA",
       channelId: "UCeCtUBS-1V8ieZ3nh4tgqDw",
       titleKey: "Seaton Station Camera, Seaton Tramway, Devon UK | Railcam Live1 & Seaton Tramway",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "gb-lynton-barnstaple-railway-killington",
-    name: { ja: "Lynton & Barnstaple Railway Killington Lane", en: "Lynton & Barnstaple Railway Killington Lane" },
-    lat: 51.2297,
-    lng: -3.8413,
-    timeZone: "Europe/London",
-    category: "railway",
-    country: "GB",
-    source: {
-      videoId: "pKChf62uwIQ",
-      channelId: "UCeCtUBS-1V8ieZ3nh4tgqDw",
-      titleKey: "Lynton & Barnstaple Railway Killington Lane",
     },
   },
   {
@@ -16289,21 +13874,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "gb-loch-doon-ospreys",
-    name: { ja: "Loch Doon Ospreys", en: "Loch Doon Ospreys" },
-    lat: 58.103,
-    lng: -6.4848,
-    timeZone: "Europe/London",
-    category: "animal",
-    country: "GB",
-    source: {
-      videoId: "a7Aocq3fybM",
-      channelId: "UChLoUbs2vi62h1Q0INlDdPQ",
-      titleKey: "Loch Doon Ospreys",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "gb-weymouth-beach-uk-live-webcam-cac-2",
     name: { ja: "Weymouth Beach (UK) Live Webcam @ Cactus Tearooms (4k)", en: "Weymouth Beach (UK) Live Webcam @ Cactus Tearooms (4k)" },
     lat: 50.6145,
@@ -16319,21 +13889,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "gb-poole-harbour-osprey-nest-camera-aeri",
-    name: { ja: "Poole Harbour Osprey Nest Camera - Aerial View", en: "Poole Harbour Osprey Nest Camera - Aerial View" },
-    lat: 50.7143,
-    lng: -1.9846,
-    timeZone: "Europe/London",
-    category: "animal",
-    country: "GB",
-    source: {
-      videoId: "_e2Uu-qCM2E",
-      channelId: "UCj0vPqN3PrzH4g_FsWgjNjA",
-      titleKey: "Poole Harbour Osprey Nest Camera - Aerial View",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "gb-live-manchester-airport-plane-spo-3",
     name: { ja: "LIVE: Manchester Airport Plane Spotting | Heavy Departures, Arrivals & Aviation Action ️", en: "LIVE: Manchester Airport Plane Spotting | Heavy Departures, Arrivals & Aviation Action ️" },
     lat: 53.4809,
@@ -16345,21 +13900,6 @@ export const CAMS: Cam[] = [
       videoId: "Y4CM1lIgU-I",
       channelId: "UCn4gMfJQsYVhw7nxxqkkwJw",
       titleKey: "🔴 LIVE: Manchester Airport Plane Spotting | Heavy Departures, Arrivals & Aviation Action ✈️",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "gb-epping-signal-cabin-epping-essex-uk-l",
-    name: { ja: "Epping Signal Cabin, Epping Essex, UK - London Underground Central Line | Railcam LIVE", en: "Epping Signal Cabin, Epping Essex, UK - London Underground Central Line | Railcam LIVE" },
-    lat: 51.6981,
-    lng: 0.1105,
-    timeZone: "Europe/London",
-    category: "railway",
-    country: "GB",
-    source: {
-      videoId: "CCgTynddlJw",
-      channelId: "UCVJAErIevcZynI9zgaq5bgg",
-      titleKey: "Epping Signal Cabin, Epping Essex, UK - London Underground Central Line | Railcam LIVE",
     },
   },
   {
@@ -16424,36 +13964,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "gb-blenheim-webcam-dawlish-live-cam-spon",
-    name: { ja: "Blenheim Webcam Dawlish Live Cam | Sponsored by Shoe Centre & Co", en: "Blenheim Webcam Dawlish Live Cam | Sponsored by Shoe Centre & Co" },
-    lat: 51.7206,
-    lng: -1.1707,
-    timeZone: "Europe/London",
-    category: "nature",
-    country: "GB",
-    source: {
-      videoId: "8g_AgbaTkmw",
-      channelId: "UCs1hoU1QdHuxrmNltGAYjkg",
-      titleKey: "Blenheim Webcam Dawlish Live Cam | Sponsored by Shoe Centre & Co",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "gb-blenheim-webcam-2-dawlish-4k-webcam-s",
-    name: { ja: "Blenheim Webcam 2 - Dawlish 4k Webcam Sponsored by the Shoe Centre & Co", en: "Blenheim Webcam 2 - Dawlish 4k Webcam Sponsored by the Shoe Centre & Co" },
-    lat: 51.7206,
-    lng: -1.1707,
-    timeZone: "Europe/London",
-    category: "nature",
-    country: "GB",
-    source: {
-      videoId: "0e-SOUXkie8",
-      channelId: "UCs1hoU1QdHuxrmNltGAYjkg",
-      titleKey: "Blenheim Webcam 2 - Dawlish 4k Webcam Sponsored by the Shoe Centre & Co",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "gb-peak-district-wildlife-live-inside-a",
     name: { ja: "Peak District Wildlife LIVE | Inside a live Stock Dove Nest - \"Twiggy & Twinkle\"", en: "Peak District Wildlife LIVE | Inside a live Stock Dove Nest - \"Twiggy & Twinkle\"" },
     lat: 52.6457,
@@ -16484,21 +13994,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "gb-live-cam-kidderminster-platform-on-th",
-    name: { ja: "LIVE CAM - Kidderminster Platform on the Severn Valley Railway", en: "LIVE CAM - Kidderminster Platform on the Severn Valley Railway" },
-    lat: 52.3882,
-    lng: -2.25,
-    timeZone: "Europe/London",
-    category: "railway",
-    country: "GB",
-    source: {
-      videoId: "SvehpS_lf9k",
-      channelId: "UCoaT_geZ6GwRscQgOlchh_w",
-      titleKey: "LIVE CAM - Kidderminster Platform on the Severn Valley Railway",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "gb-corfe-castle-station1-swanage-railway",
     name: { ja: "Corfe Castle Station1 - Swanage Railway | Railcam UK", en: "Corfe Castle Station1 - Swanage Railway | Railcam UK" },
     lat: 50.638,
@@ -16514,21 +14009,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "gb-seaton-beach-live-webcam-spot-on-kios",
-    name: { ja: "Seaton Beach Live Webcam @ Spot On Kiosk", en: "Seaton Beach Live Webcam @ Spot On Kiosk" },
-    lat: 52.5749,
-    lng: -0.6676,
-    timeZone: "Europe/London",
-    category: "nature",
-    country: "GB",
-    source: {
-      videoId: "JHcdPeDozGI",
-      channelId: "UCRPMo1b8Ki_5yx4SNfSi5tQ",
-      titleKey: "Seaton Beach Live Webcam @ Spot On Kiosk",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "gb-swanage-station-swanage-railway-railc",
     name: { ja: "Swanage Station-Swanage Railway | Railcam UK", en: "Swanage Station-Swanage Railway | Railcam UK" },
     lat: 50.6083,
@@ -16540,36 +14020,6 @@ export const CAMS: Cam[] = [
       videoId: "4kZXvPMWI9M",
       channelId: "UCqlT7m_qedfjMTEvD56MANA",
       titleKey: "Swanage Station-Swanage Railway | Railcam UK",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "gb-weymouth-mainline-railcam-24-7-train",
-    name: { ja: "Weymouth Mainline Railcam: 24/7 Train Arrivals & Departures | Dorset, UK", en: "Weymouth Mainline Railcam: 24/7 Train Arrivals & Departures | Dorset, UK" },
-    lat: 50.6145,
-    lng: -2.4599,
-    timeZone: "Europe/London",
-    category: "railway",
-    country: "GB",
-    source: {
-      videoId: "VcrN2Z4peDk",
-      channelId: "UCRPMo1b8Ki_5yx4SNfSi5tQ",
-      titleKey: "Weymouth Mainline Railcam: 24/7 Train Arrivals & Departures | Dorset, UK",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "gb-cheddar-reservoir-uk-live-webcam-ched",
-    name: { ja: "Cheddar Reservoir (UK) Live Webcam @ Cheddar Watersports / BCYC", en: "Cheddar Reservoir (UK) Live Webcam @ Cheddar Watersports / BCYC" },
-    lat: 51.2754,
-    lng: -2.7766,
-    timeZone: "Europe/London",
-    category: "nature",
-    country: "GB",
-    source: {
-      videoId: "qPm8lYRCKWk",
-      channelId: "UCRPMo1b8Ki_5yx4SNfSi5tQ",
-      titleKey: "Cheddar Reservoir (UK) Live Webcam @ Cheddar Watersports / BCYC",
     },
   },
   {
@@ -16844,36 +14294,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "ie-live-webcam-cabra-dublin-ireland-faci",
-    name: { ja: "Live Webcam Cabra Dublin Ireland (Facing Nth West)", en: "Live Webcam Cabra Dublin Ireland (Facing Nth West)" },
-    lat: 53.3589,
-    lng: -6.3085,
-    timeZone: "Europe/Dublin",
-    category: "city",
-    country: "IE",
-    source: {
-      videoId: "48dTF22m3eE",
-      channelId: "UCXtzCdsTkuBWIrOSuMNvANQ",
-      titleKey: "Live Webcam Cabra Dublin Ireland (Facing Nth West)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ie-live-webcam-cabra-road-dublin-ireland",
-    name: { ja: "Live Webcam Cabra Road Dublin Ireland (Facing East)", en: "Live Webcam Cabra Road Dublin Ireland (Facing East)" },
-    lat: 53.3669,
-    lng: -6.2944,
-    timeZone: "Europe/Dublin",
-    category: "city",
-    country: "IE",
-    source: {
-      videoId: "JQub4c40doo",
-      channelId: "UCXtzCdsTkuBWIrOSuMNvANQ",
-      titleKey: "Live Webcam Cabra Road Dublin Ireland  (Facing East)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "ie-the-paddocks-riding-centre-live-webca",
     name: { ja: "The Paddocks Riding Centre Live Webcam Dublin Ireland.", en: "The Paddocks Riding Centre Live Webcam Dublin Ireland." },
     lat: 52.8628,
@@ -16904,21 +14324,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "ie-rathmines-dublin-live-webcam-live-str",
-    name: { ja: "Rathmines Dublin Live Webcam. Live stream of Eclipse August 12th starting 5.45pm", en: "Rathmines Dublin Live Webcam. Live stream of Eclipse August 12th starting 5.45pm" },
-    lat: 53.3203,
-    lng: -6.2633,
-    timeZone: "Europe/Dublin",
-    category: "city",
-    country: "IE",
-    source: {
-      videoId: "cF2wcAUmWRg",
-      channelId: "UCXtzCdsTkuBWIrOSuMNvANQ",
-      titleKey: "Rathmines Dublin Live Webcam. Live stream of Eclipse August 12th starting 5.45pm",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "ie-mountjoy-street-live-webcam-dublin-ir",
     name: { ja: "Mountjoy Street Live Webcam Dublin Ireland", en: "Mountjoy Street Live Webcam Dublin Ireland" },
     lat: 53.35,
@@ -16934,21 +14339,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "il-24-7-multiple-cameras-in-israel-iran",
-    name: { ja: "24/7 Multiple Cameras in Israel, Iran, Kuwait and Middle East with news updates in chat", en: "24/7 Multiple Cameras in Israel, Iran, Kuwait and Middle East with news updates in chat" },
-    lat: 31.5,
-    lng: 34.75,
-    timeZone: "Asia/Jerusalem",
-    category: "city",
-    country: "IL",
-    source: {
-      videoId: "Tu6hjlUq2Bs",
-      channelId: "UC98W74iwmWXnOMHq0lYeDIw",
-      titleKey: "24/7 Multiple Cameras in Israel, Iran,  Kuwait and Middle East  with news updates in chat",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "il-the-western-wall-main-plaza-live-cam",
     name: { ja: "The Western Wall - Main Plaza Live Cam | מצלמות הכותל", en: "The Western Wall - Main Plaza Live Cam | מצלמות הכותל" },
     lat: 32.0916,
@@ -16960,21 +14350,6 @@ export const CAMS: Cam[] = [
       videoId: "LMHUcDktP-w",
       channelId: "UCvcdHbNAQvbe2GuIDLhlwaw",
       titleKey: "The Western Wall - Main Plaza 🔴 Live Cam 🎬 | מצלמות הכותל",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "il-pardes-institute-of-jewish-studies-ne",
-    name: { ja: "Pardes Institute of Jewish Studies New Site Construction Live Stream", en: "Pardes Institute of Jewish Studies New Site Construction Live Stream" },
-    lat: 32.3058,
-    lng: 34.9091,
-    timeZone: "Asia/Jerusalem",
-    category: "city",
-    country: "IL",
-    source: {
-      videoId: "VxOpjO2zIPM",
-      channelId: "UClcFsOOPjqZbDHVZMlfPO_w",
-      titleKey: "Pardes Institute of Jewish Studies New Site Construction Live Stream",
     },
   },
   {
@@ -17080,36 +14455,6 @@ export const CAMS: Cam[] = [
       videoId: "7-XBRpKSv4Q",
       channelId: "UCMpn1qLudF-zb4M4bqxLIbw",
       titleKey: "🔴 4K Live Webcam Venice - St. Mark's Basin in Live Streaming from Tribute to Music Venice",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "it-punta-secca-live-chiesa-s-g-battista",
-    name: { ja: "Punta Secca Live. Chiesa S. G. Battista in Piazza Vittorio Emanuele II a Santa Croce Camerina (RG)", en: "Punta Secca Live. Chiesa S. G. Battista in Piazza Vittorio Emanuele II a Santa Croce Camerina (RG)" },
-    lat: 44.8698,
-    lng: 11.3913,
-    timeZone: "Europe/Rome",
-    category: "city",
-    country: "IT",
-    source: {
-      videoId: "lPXl-URlTb8",
-      channelId: "UCuo8dvT4saGWfWtfojhsm7g",
-      titleKey: "Punta Secca Live. Chiesa S. G. Battista in Piazza Vittorio Emanuele II a Santa Croce Camerina (RG)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "it-webcam-piazza-europa",
-    name: { ja: "Webcam Piazza Europa", en: "Webcam Piazza Europa" },
-    lat: 45.5872,
-    lng: 10.1553,
-    timeZone: "Europe/Rome",
-    category: "city",
-    country: "IT",
-    source: {
-      videoId: "_aNnOHJMsME",
-      channelId: "UCGSRTG085DjtGuvJPr1c3uA",
-      titleKey: "Webcam Piazza Europa",
     },
   },
   {
@@ -17249,21 +14594,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "it-gemona-del-friuli-live-webcam",
-    name: { ja: "Gemona del Friuli Live Webcam", en: "Gemona del Friuli Live Webcam" },
-    lat: 46.2741,
-    lng: 13.1224,
-    timeZone: "Europe/Rome",
-    category: "city",
-    country: "IT",
-    source: {
-      videoId: "pRvHI1KcfYs",
-      channelId: "UCNlinmcGuYdoPgfR-aG8YSQ",
-      titleKey: "Gemona del Friuli Live Webcam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "it-webcam-live-monte-argegna-lu-garfagna",
     name: { ja: "Webcam Live Monte Argegna (LU) - Garfagnana", en: "Webcam Live Monte Argegna (LU) - Garfagnana" },
     lat: 45.7149,
@@ -17399,36 +14729,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jm-santa-cruz-st-elizabeth-jamaica-live",
-    name: { ja: "Santa Cruz, St Elizabeth, Jamaica LIVE 24/7 | See Jamaica", en: "Santa Cruz, St Elizabeth, Jamaica LIVE 24/7 | See Jamaica" },
-    lat: 18.4358,
-    lng: -77.201,
-    timeZone: "America/Jamaica",
-    category: "city",
-    country: "JM",
-    source: {
-      videoId: "TYL1W5Gfvjg",
-      channelId: "UCfS5_X4LiZJV5vq6z7itypA",
-      titleKey: "🟢 Santa Cruz, St Elizabeth, Jamaica LIVE 24/7 | See Jamaica",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jm-barbican-st-andrew-live-24-7-kingston",
-    name: { ja: "Barbican St Andrew LIVE 24/7 – Kingston Jamaica Street Cam 🇯🇲", en: "Barbican St Andrew LIVE 24/7 – Kingston Jamaica Street Cam 🇯🇲" },
-    lat: 18.4504,
-    lng: -78.1014,
-    timeZone: "America/Jamaica",
-    category: "city",
-    country: "JM",
-    source: {
-      videoId: "Pb7vAzXbAlY",
-      channelId: "UCfS5_X4LiZJV5vq6z7itypA",
-      titleKey: "🟢 Barbican St Andrew LIVE 24/7 – Kingston Jamaica Street Cam 🇯🇲",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jm-spanish-town-jamaica-live-24-7-st-cat",
     name: { ja: "Spanish Town Jamaica LIVE 24/7 | St Catherine Street View & Daily Life", en: "Spanish Town Jamaica LIVE 24/7 | St Catherine Street View & Daily Life" },
     lat: 17.9911,
@@ -17534,21 +14834,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-live-sukiyabashi-crossing-in-ginza-to",
-    name: { ja: "【LIVE】銀座ライブカメラ 数寄屋橋スクランブル交差点 Sukiyabashi crossing in Ginza, Tokyo 스키야바시 긴자", en: "【LIVE】銀座ライブカメラ 数寄屋橋スクランブル交差点 Sukiyabashi crossing in Ginza, Tokyo 스키야바시 긴자" },
-    lat: 35.6718,
-    lng: 139.7672,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "1Xm5bjdI5hU",
-      channelId: "UCaHr0a1x8zmQ1dxanCeuesA",
-      titleKey: "【LIVE】銀座ライブカメラ　数寄屋橋スクランブル交差点 Sukiyabashi crossing in Ginza, Tokyo 스키야바시 긴자",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-live-live-camera-in-the-lake-sagami-k",
     name: { ja: "【LIVE】相模湖のいま・ライブカメラ・お天気確認・相模原市・スワン丸・釣り状況 Live Camera in The Lake Sagami ,Kanagawa in Japan", en: "【LIVE】相模湖のいま・ライブカメラ・お天気確認・相模原市・スワン丸・釣り状況 Live Camera in The Lake Sagami ,Kanagawa in Japan" },
     lat: 35.6854,
@@ -17575,21 +14860,6 @@ export const CAMS: Cam[] = [
       videoId: "GnV39PD32Jc",
       channelId: "UCvV2F1QG--ONTLaZAZisi7A",
       titleKey: "Japan Spring 4K 🌸 Discover Soft Cherry Blossoms, Historic Temples & Serene Nature Views",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-tokyo-night-drive",
-    name: { ja: "tokyo night drive", en: "tokyo night drive" },
-    lat: 35.6895,
-    lng: 139.6917,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "o-ZcIJVlSM4",
-      channelId: "UC9OIZ77MhlVoi4IxLFXl-nQ",
-      titleKey: "tokyo night drive",
     },
   },
   {
@@ -17639,36 +14909,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-tokyo-bay-ptz-live-cam-24-7-chat-cont",
-    name: { ja: "Tokyo Bay PTZ Live Cam 24/7 Chat Controls the Camera | Haneda & Disney Fireworks", en: "Tokyo Bay PTZ Live Cam 24/7 Chat Controls the Camera | Haneda & Disney Fireworks" },
-    lat: 35.6895,
-    lng: 139.6917,
-    timeZone: "Asia/Tokyo",
-    category: "harbor",
-    country: "JP",
-    source: {
-      videoId: "DLsYMox4rCY",
-      channelId: "UCwalBJrcoOVwid4wKfWkRiA",
-      titleKey: "Tokyo Bay PTZ Live Cam 24/7 🎮 Chat Controls the Camera | Haneda & Disney Fireworks",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-tokyo-odaiba-live-camera",
-    name: { ja: "Tokyo Odaiba Live Camera 東京 お台場 ライブカメラ 配信", en: "Tokyo Odaiba Live Camera 東京 お台場 ライブカメラ 配信" },
-    lat: 35.6895,
-    lng: 139.6917,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "n3B8fp-Henc",
-      channelId: "UC8t7FI3O7_NV9ucGWKz2D4Q",
-      titleKey: "Tokyo Odaiba Live Camera 東京 お台場 ライブカメラ 配信",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-24-kfb-live-streaming-from-fukushima",
     name: { ja: "【福島空港24時間ライブカメラ】KFB福島放送 情報カメラ/Live streaming from Fukushima Airport", en: "【福島空港24時間ライブカメラ】KFB福島放送 情報カメラ/Live streaming from Fukushima Airport" },
     lat: 37.2274,
@@ -17710,21 +14950,6 @@ export const CAMS: Cam[] = [
       videoId: "nvtohNsjbY4",
       channelId: "UCT-PZ211r3_9mFdF0zC1HHg",
       titleKey: "JR帯広駅ライブカメラ Live Camera in The JR Obihiro Station, Hokkaido in Japan",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-live-tokyo-international-airport-hane",
-    name: { ja: "【Live】Tokyo International Airport ,Haneda Plane Spotting (NipponTV News24) IATA: HND, ICAO: RJTT", en: "【Live】Tokyo International Airport ,Haneda Plane Spotting (NipponTV News24) IATA: HND, ICAO: RJTT" },
-    lat: 35.6895,
-    lng: 139.6917,
-    timeZone: "Asia/Tokyo",
-    category: "airport",
-    country: "JP",
-    source: {
-      videoId: "3w4zEyFamuA",
-      channelId: "UCJD2Br_xC-3vY4nkJ9YPYDA",
-      titleKey: "【Live】Tokyo International Airport ,Haneda Plane Spotting (NipponTV News24)  IATA: HND, ICAO: RJTT",
     },
   },
   {
@@ -17890,21 +15115,6 @@ export const CAMS: Cam[] = [
       videoId: "3p2ZVNPPyd4",
       channelId: "UCSkaixM5p8mYuBIdy2J0ZHw",
       titleKey: "🔴 LIVE Busan Night Walk | Seomyeon Street Food Street | Busan City Walk",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "lv-streets-in-riga-live-stream",
-    name: { ja: "Streets in Riga Live Stream", en: "Streets in Riga Live Stream" },
-    lat: 56.946,
-    lng: 24.1059,
-    timeZone: "Europe/Riga",
-    category: "city",
-    country: "LV",
-    source: {
-      videoId: "eMd2VeeJ8SI",
-      channelId: "UC3nY7m9k3ir9aNSHDbQenEQ",
-      titleKey: "Streets in Riga  Live Stream",
     },
   },
   {
@@ -18134,66 +15344,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "mx-aguila-calzada-hieraaetus-pennatus-di",
-    name: { ja: "Águila calzada (Hieraaetus pennatus) DIRECTO (Cámara 64 | PN Alto Tajo, Guadalajara)", en: "Águila calzada (Hieraaetus pennatus) DIRECTO (Cámara 64 | PN Alto Tajo, Guadalajara)" },
-    lat: 18.7833,
-    lng: -97.3167,
-    timeZone: "America/Mexico_City",
-    category: "animal",
-    country: "MX",
-    source: {
-      videoId: "LssZis7XjEA",
-      channelId: "UCKqAJfYEVCPLbdgOm8QqSQg",
-      titleKey: "Águila calzada (Hieraaetus pennatus) 🔴 DIRECTO (Cámara 64 | PN Alto Tajo, Guadalajara)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "mx-acapulco-guerrero-en-vivo-vista-panor",
-    name: { ja: "Acapulco, Guerrero En Vivo | Vista Panorámica de la Bahía de Santa Lucía", en: "Acapulco, Guerrero En Vivo | Vista Panorámica de la Bahía de Santa Lucía" },
-    lat: 16.8494,
-    lng: -99.9089,
-    timeZone: "America/Mexico_City",
-    category: "nature",
-    country: "MX",
-    source: {
-      videoId: "6X_1iSXU-lc",
-      channelId: "UCPOifgFqN0FuTrhc2Ja6n7w",
-      titleKey: "Acapulco, Guerrero En Vivo | Vista Panorámica de la Bahía de Santa Lucía",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "mx-tequisquiapan-queretaro-pueblo-magico",
-    name: { ja: "Tequisquiapan, Querétaro Pueblo Mágico En Vivo | Vista Plaza Principal", en: "Tequisquiapan, Querétaro Pueblo Mágico En Vivo | Vista Plaza Principal" },
-    lat: 20.5225,
-    lng: -99.8917,
-    timeZone: "America/Mexico_City",
-    category: "city",
-    country: "MX",
-    source: {
-      videoId: "LS099g1c8o0",
-      channelId: "UCSb0o-ElVq6STwuYdAcizXQ",
-      titleKey: "Tequisquiapan, Querétaro Pueblo Mágico En Vivo | Vista Plaza Principal",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "mx-vista-panoramica-del-bosque-de-chapul",
-    name: { ja: "Vista panorámica del Bosque de Chapultepec en la Ciudad de México", en: "Vista panorámica del Bosque de Chapultepec en la Ciudad de México" },
-    lat: 20.4106,
-    lng: -89.2839,
-    timeZone: "America/Merida",
-    category: "city",
-    country: "MX",
-    source: {
-      videoId: "Uu6ICUhgeU0",
-      channelId: "UCPOifgFqN0FuTrhc2Ja6n7w",
-      titleKey: "Vista panorámica del Bosque de Chapultepec en la Ciudad de México",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "mx-vista-panoramica-de-la-minerva-en-gua",
     name: { ja: "Vista Panorámica de la Minerva en Guadalajara", en: "Vista Panorámica de la Minerva en Guadalajara" },
     lat: 20.4106,
@@ -18209,21 +15359,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "mx-acapulco-guerrero-en-vivo-vista-playa",
-    name: { ja: "Acapulco, Guerrero En Vivo | Vista Playa El Morro", en: "Acapulco, Guerrero En Vivo | Vista Playa El Morro" },
-    lat: 16.8494,
-    lng: -99.9089,
-    timeZone: "America/Mexico_City",
-    category: "nature",
-    country: "MX",
-    source: {
-      videoId: "sFVDzXOpx0o",
-      channelId: "UCShyUuV_sSnc44oPBMhPBrw",
-      titleKey: "Acapulco, Guerrero En Vivo | Vista Playa El Morro",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "mx-centro-de-la-alcaldia-tlalpan-en-vivo",
     name: { ja: "Centro de la Alcaldía Tlalpan en vivo", en: "Centro de la Alcaldía Tlalpan en vivo" },
     lat: 22.4113,
@@ -18235,21 +15370,6 @@ export const CAMS: Cam[] = [
       videoId: "DezC_w8NQ2E",
       channelId: "UCSb0o-ElVq6STwuYdAcizXQ",
       titleKey: "Centro de la Alcaldía Tlalpan en vivo",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "mx-puerto-vallarta-en-vivo-desde-grand-p",
-    name: { ja: "Puerto Vallarta en vivo desde Grand Park Royal Vallarta", en: "Puerto Vallarta en vivo desde Grand Park Royal Vallarta" },
-    lat: 21.0445,
-    lng: -86.8471,
-    timeZone: "America/Cancun",
-    category: "city",
-    country: "MX",
-    source: {
-      videoId: "V6Co4YdL25Q",
-      channelId: "UCShyUuV_sSnc44oPBMhPBrw",
-      titleKey: "Puerto Vallarta en vivo desde Grand Park Royal Vallarta",
     },
   },
   {
@@ -18389,36 +15509,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "mx-hermosillo-sonora-en-vivo-vista-plaza",
-    name: { ja: "Hermosillo, Sonora En Vivo | Vista Plaza de Zaragoza", en: "Hermosillo, Sonora En Vivo | Vista Plaza de Zaragoza" },
-    lat: 29.0887,
-    lng: -110.9668,
-    timeZone: "America/Hermosillo",
-    category: "city",
-    country: "MX",
-    source: {
-      videoId: "2T8A7ic2rTs",
-      channelId: "UCShyUuV_sSnc44oPBMhPBrw",
-      titleKey: "Hermosillo, Sonora En Vivo | Vista Plaza de Zaragoza",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "mx-vista-en-vivo-de-plaza-cuitlahuac-izt",
-    name: { ja: "Vista en vivo de Plaza Cuitláhuac, Iztapalapa", en: "Vista en vivo de Plaza Cuitláhuac, Iztapalapa" },
-    lat: 20.4106,
-    lng: -89.2839,
-    timeZone: "America/Merida",
-    category: "city",
-    country: "MX",
-    source: {
-      videoId: "wLHIxbdhgI0",
-      channelId: "UC22kLkjatN1XJVC_9T9otRg",
-      titleKey: "Vista en vivo de Plaza Cuitláhuac, Iztapalapa",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "mx-el-parque-de-xcaret-quintana-roo-en-v",
     name: { ja: "El Parque de Xcaret, Quintana Roo, en vivo", en: "El Parque de Xcaret, Quintana Roo, en vivo" },
     lat: 19.6672,
@@ -18430,66 +15520,6 @@ export const CAMS: Cam[] = [
       videoId: "QNC4b28Jk4k",
       channelId: "UCTDVlsQwAvsxX-NG03I-SOw",
       titleKey: "El Parque de Xcaret, Quintana Roo, en vivo",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "mx-bernal-queretaro-en-vivo-vista-plaza",
-    name: { ja: "Bernal, Querétaro En Vivo | Vista Plaza Principal", en: "Bernal, Querétaro En Vivo | Vista Plaza Principal" },
-    lat: 20.7403,
-    lng: -99.9412,
-    timeZone: "America/Mexico_City",
-    category: "city",
-    country: "MX",
-    source: {
-      videoId: "5RjUirCphhY",
-      channelId: "UCTDVlsQwAvsxX-NG03I-SOw",
-      titleKey: "Bernal, Querétaro En Vivo | Vista Plaza Principal",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "mx-puerto-vallarta-jalisco-en-vivo-visto",
-    name: { ja: "Puerto Vallarta, Jalisco en vivo visto desde Hyatt Ziva Puerto Vallarta", en: "Puerto Vallarta, Jalisco en vivo visto desde Hyatt Ziva Puerto Vallarta" },
-    lat: 20.617,
-    lng: -105.2302,
-    timeZone: "America/Mexico_City",
-    category: "city",
-    country: "MX",
-    source: {
-      videoId: "5boZ1Vw95OU",
-      channelId: "UC1Lz8E2e08WqN6q7p2pgdAg",
-      titleKey: "Puerto Vallarta, Jalisco en vivo visto desde Hyatt Ziva Puerto Vallarta",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "mx-vista-de-la-laguna-de-nichupte-desde",
-    name: { ja: "Vista de la Laguna de Nichupté desde Breathless Cancún Soul Resort & Spa", en: "Vista de la Laguna de Nichupté desde Breathless Cancún Soul Resort & Spa" },
-    lat: 20.4106,
-    lng: -89.2839,
-    timeZone: "America/Merida",
-    category: "city",
-    country: "MX",
-    source: {
-      videoId: "albRLCpp2b8",
-      channelId: "UC1Lz8E2e08WqN6q7p2pgdAg",
-      titleKey: "Vista de la Laguna de Nichupté desde Breathless Cancún Soul Resort & Spa",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "mx-vista-de-cancun-en-vivo-desde-breathl",
-    name: { ja: "Vista de Cancún en vivo desde Breathless Cancún Soul Resort & Spa", en: "Vista de Cancún en vivo desde Breathless Cancún Soul Resort & Spa" },
-    lat: 20.4106,
-    lng: -89.2839,
-    timeZone: "America/Merida",
-    category: "city",
-    country: "MX",
-    source: {
-      videoId: "QhiFymyJG5c",
-      channelId: "UC1Lz8E2e08WqN6q7p2pgdAg",
-      titleKey: "Vista de Cancún en vivo desde Breathless Cancún Soul Resort & Spa",
     },
   },
   {
@@ -18509,21 +15539,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "mx-pachuca-hidalgo-en-vivo-vista-de-plaz",
-    name: { ja: "Pachuca, Hidalgo En Vivo | Vista de Plaza de la Independencia hacía el SUR", en: "Pachuca, Hidalgo En Vivo | Vista de Plaza de la Independencia hacía el SUR" },
-    lat: 20.117,
-    lng: -98.7333,
-    timeZone: "America/Mexico_City",
-    category: "city",
-    country: "MX",
-    source: {
-      videoId: "Nqy5YyxpUFI",
-      channelId: "UC22kLkjatN1XJVC_9T9otRg",
-      titleKey: "Pachuca, Hidalgo En Vivo | Vista de Plaza de la Independencia hacía el SUR",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "mx-cancun-quintana-roo-en-vivo-vista-2",
     name: { ja: "Cancún, Quintana Roo En Vivo | Vista Panorámica hacia el Sur de Cancún", en: "Cancún, Quintana Roo En Vivo | Vista Panorámica hacia el Sur de Cancún" },
     lat: 21.1743,
@@ -18539,21 +15554,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "mx-live-cam-live-music-puente-internacio",
-    name: { ja: "Live Cam / Live Music Puente Internacional 2 Acuña Coah. / Del Rio Tx.", en: "Live Cam / Live Music Puente Internacional 2 Acuña Coah. / Del Rio Tx." },
-    lat: 22.7582,
-    lng: -98.9746,
-    timeZone: "America/Monterrey",
-    category: "city",
-    country: "MX",
-    source: {
-      videoId: "j0sTBU2vk-Q",
-      channelId: "UCKggdk4rcwVhzSdhEEhmaNw",
-      titleKey: "🔴 Live Cam / Live Music ♫  Puente Internacional 2 Acuña Coah. / Del Rio Tx.",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "nl-bouw-kantoor-pand-sidekix-energielaan",
     name: { ja: "Bouw Kantoor Pand Sidekix, Energielaan 3, Uden", en: "Bouw Kantoor Pand Sidekix, Energielaan 3, Uden" },
     lat: 50.9549,
@@ -18565,21 +15565,6 @@ export const CAMS: Cam[] = [
       videoId: "tJ1ohkvh3-E",
       channelId: "UC-7SAq2mY178DZ_PEOn4J9w",
       titleKey: "Bouw Kantoor Pand Sidekix, Energielaan 3, Uden",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "nl-amsterdamse-poort-live-stream-klein-b",
-    name: { ja: "Amsterdamse Poort Live Stream Klein Bijlmerplein", en: "Amsterdamse Poort Live Stream Klein Bijlmerplein" },
-    lat: 52.6883,
-    lng: 6.9153,
-    timeZone: "Europe/Amsterdam",
-    category: "city",
-    country: "NL",
-    source: {
-      videoId: "DvsbMHSbGyU",
-      channelId: "UCSkFxXbyd9TYJt3y9qg3qiw",
-      titleKey: "Amsterdamse Poort Live Stream Klein Bijlmerplein",
     },
   },
   {
@@ -18614,21 +15599,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "no-fyr-til-fyr-live",
-    name: { ja: "Fyr til Fyr LIVE", en: "Fyr til Fyr LIVE" },
-    lat: 59.1834,
-    lng: 8.0921,
-    timeZone: "Europe/Oslo",
-    category: "nature",
-    country: "NO",
-    source: {
-      videoId: "TPBIHbObzC0",
-      channelId: "UCgAmmVZsZ4vfDH-vtWawaOg",
-      titleKey: "Fyr til Fyr LIVE",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "no-oslo-skimore-live",
     name: { ja: "Oslo Skimore LIVE", en: "Oslo Skimore LIVE" },
     lat: 59.9127,
@@ -18659,21 +15629,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "no-oppdal-skisenter-live",
-    name: { ja: "Oppdal Skisenter LIVE", en: "Oppdal Skisenter LIVE" },
-    lat: 62.5943,
-    lng: 9.6912,
-    timeZone: "Europe/Oslo",
-    category: "city",
-    country: "NO",
-    source: {
-      videoId: "QTMXSlNd5k4",
-      channelId: "UCgAmmVZsZ4vfDH-vtWawaOg",
-      titleKey: "Oppdal Skisenter LIVE",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "no-drammen-skimore-live",
     name: { ja: "Drammen Skimore LIVE", en: "Drammen Skimore LIVE" },
     lat: 59.7439,
@@ -18689,21 +15644,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "no-the-best-of-norway-s-railway-spring-a",
-    name: { ja: "The Best Of Norway's Railway SPRING and SUMMER Cab Views", en: "The Best Of Norway's Railway SPRING and SUMMER Cab Views" },
-    lat: 59.6917,
-    lng: 6.7521,
-    timeZone: "Europe/Oslo",
-    category: "railway",
-    country: "NO",
-    source: {
-      videoId: "tAWFO8_O_7M",
-      channelId: "UCj-Xm8j6WBgKY8OG7s9r2vQ",
-      titleKey: "The Best Of Norway's Railway SPRING and SUMMER Cab Views",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "nz-christchurch-live-airport-stream",
     name: { ja: "Christchurch Live Airport Stream", en: "Christchurch Live Airport Stream" },
     lat: -43.5333,
@@ -18715,51 +15655,6 @@ export const CAMS: Cam[] = [
       videoId: "k7tlTYhNU7E",
       channelId: "UCfpi32rf5Qixib_bbh2lZJQ",
       titleKey: "Christchurch Live Airport Stream",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ph-olongapo-city-cctv-live-stream-three",
-    name: { ja: "Olongapo City CCTV Live Stream Three", en: "Olongapo City CCTV Live Stream Three" },
-    lat: 14.8292,
-    lng: 120.2828,
-    timeZone: "Asia/Manila",
-    category: "city",
-    country: "PH",
-    source: {
-      videoId: "r88YptGTjq8",
-      channelId: "UCbyJg0xh0Ko7i9iCkdyPOSw",
-      titleKey: "Olongapo City CCTV Live Stream Three",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ph-olongapo-city-cctv-live-stream-one",
-    name: { ja: "Olongapo City CCTV Live Stream One", en: "Olongapo City CCTV Live Stream One" },
-    lat: 14.8292,
-    lng: 120.2828,
-    timeZone: "Asia/Manila",
-    category: "city",
-    country: "PH",
-    source: {
-      videoId: "W6Ugwcu3A00",
-      channelId: "UCbyJg0xh0Ko7i9iCkdyPOSw",
-      titleKey: "Olongapo City CCTV Live Stream One",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "pe-en-vivo-plaza-de-armas-de-huaraz-audi",
-    name: { ja: "EN VIVO | Plaza de Armas de Huaraz: Audio Ambiental | Restaurante Encuentro de los Andes | 24/7", en: "EN VIVO | Plaza de Armas de Huaraz: Audio Ambiental | Restaurante Encuentro de los Andes | 24/7" },
-    lat: -4.6251,
-    lng: -80.7634,
-    timeZone: "America/Lima",
-    category: "city",
-    country: "PE",
-    source: {
-      videoId: "WCpy039qQiE",
-      channelId: "UCxx6TU_ev3fubchdb9mCeow",
-      titleKey: "🔴 EN VIVO | Plaza de Armas de Huaraz: Audio Ambiental | Restaurante Encuentro de los Andes | 24/7",
     },
   },
   {
@@ -19004,21 +15899,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "ph-olongapo-city-cctv-live-stream-two",
-    name: { ja: "Olongapo City CCTV Live Stream Two", en: "Olongapo City CCTV Live Stream Two" },
-    lat: 14.8292,
-    lng: 120.2828,
-    timeZone: "Asia/Manila",
-    category: "city",
-    country: "PH",
-    source: {
-      videoId: "qGJHpJKuUqs",
-      channelId: "UCbyJg0xh0Ko7i9iCkdyPOSw",
-      titleKey: "Olongapo City CCTV Live Stream Two",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "ph-philippines-live-camera-inside-cynthi",
     name: { ja: "PHILIPPINES Live camera Inside Cynthia Store, Agdao, Davao City #philippines", en: "PHILIPPINES Live camera Inside Cynthia Store, Agdao, Davao City #philippines" },
     lat: 13.4088,
@@ -19138,36 +16018,6 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
-    id: "pl-park-muzyczny-kudowa-zdroj",
-    name: { ja: "Park Muzyczny Kudowa Zdrój", en: "Park Muzyczny Kudowa Zdrój" },
-    lat: 50.0063,
-    lng: 21.3135,
-    timeZone: "Europe/Warsaw",
-    category: "nature",
-    country: "PL",
-    source: {
-      videoId: "70QjeKRWTz0",
-      channelId: "UCTHlXiRiln7-lSXPh2xFbOw",
-      titleKey: "Park Muzyczny Kudowa Zdrój",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "pl-kamera-uam-tv-collegium-minus-uam-poz",
-    name: { ja: "Kamera UAM.TV - Collegium Minus UAM Poznań", en: "Kamera UAM.TV - Collegium Minus UAM Poznań" },
-    lat: 50.386,
-    lng: 22.1068,
-    timeZone: "Europe/Warsaw",
-    category: "city",
-    country: "PL",
-    source: {
-      videoId: "WuEAKQYvyKM",
-      channelId: "UCqpium0PfQqY0TCj-L1ZdTA",
-      titleKey: "Kamera UAM.TV - Collegium Minus UAM Poznań",
-    },
-  },
-  {
     // coords: Open-Meteo geocoding "Minsk", Minsk City
     id: "pl-minsk-belarus-online-camera-on-storoz",
     name: { ja: "Minsk, Belarus , online camera on Storozhovskaya Street, Минск, Сторожовская улица", en: "Minsk, Belarus , online camera on Storozhovskaya Street, Минск, Сторожовская улица" },
@@ -19180,21 +16030,6 @@ export const CAMS: Cam[] = [
       videoId: "vFajdVd36jU",
       channelId: "UCqMpUK8Jhk_lSR_qIYhijGQ",
       titleKey: "Minsk, Belarus , online camera on Storozhovskaya Street, Минск, Сторожовская улица",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "pr-puerto-rico-sky-cam-com",
-    name: { ja: "Puerto Rico Sky Cam . Com", en: "Puerto Rico Sky Cam . Com" },
-    lat: 18.2483,
-    lng: -66.4999,
-    timeZone: "America/Puerto_Rico",
-    category: "city",
-    country: "PR",
-    source: {
-      videoId: "cigX_HsA3to",
-      channelId: "UCe9RVCBV5_Zux9DQfAolHtw",
-      titleKey: "Puerto Rico Sky Cam . Com",
     },
   },
   {
@@ -19559,21 +16394,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "sa-madina-live-tv-masjid-nabawi-la-madin",
-    name: { ja: "Madina Live Tv | Masjid Nabawiقناة السنة النبوية | المدينة المنورة بث مباشر | La Madina en Direct", en: "Madina Live Tv | Masjid Nabawiقناة السنة النبوية | المدينة المنورة بث مباشر | La Madina en Direct" },
-    lat: 24.4686,
-    lng: 39.6142,
-    timeZone: "Asia/Riyadh",
-    category: "city",
-    country: "SA",
-    source: {
-      videoId: "yGKvqx3Nikc",
-      channelId: "UCSs5mehC-g9qDmIZWFe0a6Q",
-      titleKey: "🔴Madina Live Tv | Masjid Nabawiقناة السنة النبوية | المدينة المنورة بث مباشر | La Madina en Direct",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "se-axis-q1809-le-bullet-camera-live-from",
     name: { ja: "AXIS Q1809-LE Bullet Camera - Live from Lund", en: "AXIS Q1809-LE Bullet Camera - Live from Lund" },
     lat: 55.7058,
@@ -19585,36 +16405,6 @@ export const CAMS: Cam[] = [
       videoId: "AYM64q1yiQ8",
       channelId: "UC2Y8cEpx6O4uyKN9wPYpuqQ",
       titleKey: "AXIS Q1809-LE Bullet Camera - Live from Lund",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "sg-live-woodlands-cam",
-    name: { ja: "Live: Woodlands Cam", en: "Live: Woodlands Cam" },
-    lat: 1.438,
-    lng: 103.7888,
-    timeZone: "Asia/Singapore",
-    category: "railway",
-    country: "SG",
-    source: {
-      videoId: "yx6OuNZa2xk",
-      channelId: "UCjpE7UdNq6oK5mOBKGjpjgA",
-      titleKey: "Live: Woodlands Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "th-pattaya-beach-road-cam-links-to-air-q",
-    name: { ja: "Pattaya Beach Road CAM, - links to Air Quality, Weather", en: "Pattaya Beach Road CAM, - links to Air Quality, Weather" },
-    lat: 12.9333,
-    lng: 100.8833,
-    timeZone: "Asia/Bangkok",
-    category: "nature",
-    country: "TH",
-    source: {
-      videoId: "qH4rM7SIPvQ",
-      channelId: "UC3T-pUHcNSSerUdq0W17wvg",
-      titleKey: "Pattaya Beach Road CAM, - links to  Air Quality, Weather",
     },
   },
   {
@@ -19679,21 +16469,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "tr-bozdogan-canl-yay-n-genel-gorunum",
-    name: { ja: "Bozdoğan Canlı Yayını | Genel Görünüm", en: "Bozdoğan Canlı Yayını | Genel Görünüm" },
-    lat: 37.6713,
-    lng: 28.3139,
-    timeZone: "Europe/Istanbul",
-    category: "city",
-    country: "TR",
-    source: {
-      videoId: "NEa9teeeMBk",
-      channelId: "UCzwOBP_uK9NtOYysvNPZfHw",
-      titleKey: "Bozdoğan Canlı Yayını |  Genel Görünüm",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "tr-giresun-kalesi-canl-yay-n",
     name: { ja: "Giresun Kalesi Canlı Yayın", en: "Giresun Kalesi Canlı Yayın" },
     lat: 40.917,
@@ -19754,21 +16529,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "tw-du-chuan-tou-tamsui",
-    name: { ja: "新北市淡水區景點(即時影像) 淡水渡船頭 直播 #淡水河 #夕陽 #觀音山 #台北港 #淡水老街河岸 #淡水渡し船乗り場 Du Chuan Tou, Tamsui", en: "新北市淡水區景點(即時影像) 淡水渡船頭 直播 #淡水河 #夕陽 #觀音山 #台北港 #淡水老街河岸 #淡水渡し船乗り場 Du Chuan Tou, Tamsui" },
-    lat: 24.1735,
-    lng: 120.7416,
-    timeZone: "Asia/Taipei",
-    category: "harbor",
-    country: "TW",
-    source: {
-      videoId: "8rFVhLx8ORE",
-      channelId: "UCBekjy3cWsLpEjibeFYecLQ",
-      titleKey: "新北市淡水區景點(即時影像) 淡水渡船頭 直播 #淡水河 #夕陽 #觀音山 #台北港 #淡水老街河岸 #淡水渡し船乗り場  Du Chuan Tou, Tamsui",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "tw-4k-hutoushan-environmental-park-live",
     name: { ja: "【4K】Hutoushan Environmental Park Live Cam 虎頭山環保公園即時影像", en: "【4K】Hutoushan Environmental Park Live Cam 虎頭山環保公園即時影像" },
     lat: 25.1697,
@@ -19780,36 +16540,6 @@ export const CAMS: Cam[] = [
       videoId: "tu_gsIkNt-w",
       channelId: "UCARB8y6PuoOBjZXJKIG-LDw",
       titleKey: "【4K】Hutoushan Environmental Park Live Cam 虎頭山環保公園即時影像",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-skid-row-cam-1-los-angeles-ca",
-    name: { ja: "Skid Row Cam 1 Los Angeles CA.", en: "Skid Row Cam 1 Los Angeles CA." },
-    lat: 37.2856,
-    lng: -100.3401,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "FLIMx-V714k",
-      channelId: "UCQ1awPPNFA4AxnJ6dQyXfbg",
-      titleKey: "Skid Row Cam 1 Los Angeles CA.",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-kensington-cam4-phila-pa",
-    name: { ja: "Kensington Cam4 Phila, PA.", en: "Kensington Cam4 Phila, PA." },
-    lat: 40.5698,
-    lng: -79.7648,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "Ja-aqt-rNjQ",
-      channelId: "UCQ1awPPNFA4AxnJ6dQyXfbg",
-      titleKey: "Kensington Cam4 Phila, PA.",
     },
   },
   {
@@ -19844,21 +16574,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-miami-skyline-live-macarthur-causeway",
-    name: { ja: "Miami Skyline LIVE | MacArthur Causeway Live Cam", en: "Miami Skyline LIVE | MacArthur Causeway Live Cam" },
-    lat: 25.7743,
-    lng: -80.1937,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "dv9wlK0f9XE",
-      channelId: "UCspnu6n44ydqafj6nFIw5hw",
-      titleKey: "Miami Skyline LIVE | MacArthur Causeway Live Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-fishing-pier-camera",
     name: { ja: "Fishing Pier Camera", en: "Fishing Pier Camera" },
     lat: 38.333,
@@ -19885,21 +16600,6 @@ export const CAMS: Cam[] = [
       videoId: "v99dNIuFBKo",
       channelId: "UCyDRWDDc9aEC2fQRYlpDj4g",
       titleKey: "🔴 Universal Studios Live 24/7 Rides & Shows Stream - Sleep, Study, Relax @ Universal Hollywood (USH)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-mori-point-pacifica-ca-4k-live",
-    name: { ja: "Mori Point, Pacifica CA 4K Live", en: "Mori Point, Pacifica CA 4K Live" },
-    lat: 44.0462,
-    lng: -73.5051,
-    timeZone: "America/New_York",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "q0Z7tv_7n-0",
-      channelId: "UC029bcZGqxOsRkvWrZLhgKQ",
-      titleKey: "Mori Point, Pacifica CA 4K Live",
     },
   },
   {
@@ -20099,21 +16799,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-lutheran-church-of-hope-construction",
-    name: { ja: "Lutheran Church of Hope Construction Cam", en: "Lutheran Church of Hope Construction Cam" },
-    lat: 42.5848,
-    lng: -74.641,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "F9m-uOAx5RI",
-      channelId: "UCDnKKkT-vB7LHDtGRRII8WA",
-      titleKey: "Lutheran Church of Hope Construction Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-brothertown-boat-harbor",
     name: { ja: "Brothertown Boat Harbor", en: "Brothertown Boat Harbor" },
     lat: 43.968,
@@ -20204,21 +16889,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-hawaii-24-7-ambient-music-drone-film",
-    name: { ja: "Hawaii 24/7 🇺🇸 Ambient Music & Drone Film | Big Island, Kauai, Oahu & Maui", en: "Hawaii 24/7 🇺🇸 Ambient Music & Drone Film | Big Island, Kauai, Oahu & Maui" },
-    lat: 33.8314,
-    lng: -118.0728,
-    timeZone: "America/Los_Angeles",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "u6wVXT7XTPU",
-      channelId: "UCf4pjyNAPfpV5G0MYCYRKMA",
-      titleKey: "Hawaii 24/7 🇺🇸 Ambient Music & Drone Film | Big Island, Kauai, Oahu & Maui",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-walking-in-new-york-at-night-midtown",
     name: { ja: "Walking in New York at Night Midtown Manhattan / NYC Walking Tour 4K", en: "Walking in New York at Night Midtown Manhattan / NYC Walking Tour 4K" },
     lat: 40.7834,
@@ -20245,21 +16915,6 @@ export const CAMS: Cam[] = [
       videoId: "QsH6t8C3qJ0",
       channelId: "UCaInTXiabNlYe1zreHafFvA",
       titleKey: "Ocean City, MD Boardwalk & Beach Cam: Plim Plaza Hotel Real-Time Views",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-bora-bora-4k-drone-video-blue-lagoon",
-    name: { ja: "Bora Bora 🇵🇫 4K Drone Video | Blue Lagoon, White Sand Beaches and Island Paradise", en: "Bora Bora 🇵🇫 4K Drone Video | Blue Lagoon, White Sand Beaches and Island Paradise" },
-    lat: 35.7144,
-    lng: -115.3405,
-    timeZone: "America/Los_Angeles",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "bVr_e3mqpt8",
-      channelId: "UCYrBPniPz0wXmOvWJYFGgxw",
-      titleKey: "Bora Bora 🇵🇫 4K Drone Video | Blue Lagoon, White Sand Beaches and Island Paradise",
     },
   },
   {
@@ -20320,21 +16975,6 @@ export const CAMS: Cam[] = [
       videoId: "CJn5d-XhbPY",
       channelId: "UC7WAqB7dyv1t8jKunD-8krA",
       titleKey: "🔴LIVE BOEING DREAM LIFTER B747 IN ANCHORAGE!| JULY 23, 2026 | ANC PLANE SPOTTING",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-live-24-7-st-louis-lambert-internatio",
-    name: { ja: "LIVE 24/7 - St. Louis Lambert International Airport (STL)", en: "LIVE 24/7 - St. Louis Lambert International Airport (STL)" },
-    lat: 38.6273,
-    lng: -90.1979,
-    timeZone: "America/Chicago",
-    category: "airport",
-    country: "US",
-    source: {
-      videoId: "N38KxWHm2T0",
-      channelId: "UCpI9GLMAgiGTKyFnsmbptuQ",
-      titleKey: "LIVE 24/7 - St. Louis Lambert International Airport (STL)",
     },
   },
   {
@@ -20639,21 +17279,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-live-georgia-aquarium-cam-ocean-voyag",
-    name: { ja: "LIVE Georgia Aquarium Cam | Ocean Voyager Cam | Whale Sharks and Rays", en: "LIVE Georgia Aquarium Cam | Ocean Voyager Cam | Whale Sharks and Rays" },
-    lat: 34.4534,
-    lng: -86.9281,
-    timeZone: "America/Chicago",
-    category: "animal",
-    country: "US",
-    source: {
-      videoId: "8WTFWvePutc",
-      channelId: "UC5lNakfSdpqXCW214H5sBgQ",
-      titleKey: "LIVE Georgia Aquarium Cam | Ocean Voyager Cam | Whale Sharks and Rays",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-usa-now",
     name: { ja: "USA Now", en: "USA Now" },
     lat: 35.4089,
@@ -20800,21 +17425,6 @@ export const CAMS: Cam[] = [
       videoId: "TKFGGr8UpaU",
       channelId: "UC1Rp_0bp86QEUt9TlMN5tlQ",
       titleKey: "Las Vegas: Aerie View Live",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-times-square-1540-broadway-view-live",
-    name: { ja: "Times Square: 1540 Broadway View Live", en: "Times Square: 1540 Broadway View Live" },
-    lat: 35.1551,
-    lng: -85.3311,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "o3Zy7MxvXE4",
-      channelId: "UC1Rp_0bp86QEUt9TlMN5tlQ",
-      titleKey: "Times Square: 1540 Broadway View Live",
     },
   },
   {
@@ -21014,36 +17624,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-bald-eagle-live-cam-2-traverse-city-m",
-    name: { ja: "BALD EAGLE Live Cam 2 Traverse City, MI #baldeagle #eaglelivecam #wildlife #nature", en: "BALD EAGLE Live Cam 2 Traverse City, MI #baldeagle #eaglelivecam #wildlife #nature" },
-    lat: 47.2552,
-    lng: -88.2643,
-    timeZone: "America/Detroit",
-    category: "animal",
-    country: "US",
-    source: {
-      videoId: "Va7LIyQkOBI",
-      channelId: "UCob_chLKvtrcg8KE-KpQiig",
-      titleKey: "BALD EAGLE Live Cam 2 Traverse City, MI #baldeagle #eaglelivecam #wildlife #nature",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-traverse-city-mi-bald-eagle-nest-live",
-    name: { ja: "Traverse City, MI Bald Eagle Nest Live Cam 1 #baldeagle #eaglelivecam #wildlife #nature", en: "Traverse City, MI Bald Eagle Nest Live Cam 1 #baldeagle #eaglelivecam #wildlife #nature" },
-    lat: 47.2552,
-    lng: -88.2643,
-    timeZone: "America/Detroit",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "OkzYFlOrZEo",
-      channelId: "UCob_chLKvtrcg8KE-KpQiig",
-      titleKey: "Traverse City, MI Bald Eagle Nest Live Cam 1 #baldeagle #eaglelivecam #wildlife #nature",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-joma-construction-pond-build-2026-liv",
     name: { ja: "JOMA Construction Pond Build 2026 LIVE", en: "JOMA Construction Pond Build 2026 LIVE" },
     lat: 38.7237,
@@ -21059,21 +17639,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-okaloosa-island-pier-camera",
-    name: { ja: "Okaloosa Island Pier Camera", en: "Okaloosa Island Pier Camera" },
-    lat: 32.3802,
-    lng: -92.3279,
-    timeZone: "America/Chicago",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "f56BJHhGkUI",
-      channelId: "UCIwK9OrHwB-tdCMh6eBAOZA",
-      titleKey: "Okaloosa Island Pier Camera",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-live-mississippi-river-flyway-cam-bir",
     name: { ja: "LIVE Mississippi River Flyway Cam: Bird Migration & Bald Eagles | explore.org", en: "LIVE Mississippi River Flyway Cam: Bird Migration & Bald Eagles | explore.org" },
     lat: 30.3819,
@@ -21085,36 +17650,6 @@ export const CAMS: Cam[] = [
       videoId: "feR0k8-nkWE",
       channelId: "UCpLLHFUEHb89Luv-Gj6ZMgA",
       titleKey: "LIVE Mississippi River Flyway Cam: Bird Migration & Bald Eagles | explore.org",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-gebhardt-insurance-traffic-cam-round",
-    name: { ja: "Gebhardt Insurance Traffic Cam Round Trip Bike Shop", en: "Gebhardt Insurance Traffic Cam Round Trip Bike Shop" },
-    lat: 45.2633,
-    lng: -90.8101,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "_XBMMTQVj68",
-      channelId: "UCQ9xXnSHkAInyb3NDVrRDPw",
-      titleKey: "Gebhardt Insurance Traffic Cam Round Trip Bike Shop",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-his-place-resort-live-river-cam",
-    name: { ja: "His Place Resort - LIVE RIVER CAM", en: "His Place Resort - LIVE RIVER CAM" },
-    lat: 39.815,
-    lng: -85.0777,
-    timeZone: "America/Indiana/Indianapolis",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "jw1Er6LyqT0",
-      channelId: "UCJfv6yJi_x_iecJSpp1mkpQ",
-      titleKey: "His Place Resort - LIVE RIVER CAM",
     },
   },
   {
@@ -21179,21 +17714,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-napili-kai-beach-resort-live-cam-maui",
-    name: { ja: "Napili Kai Beach Resort Live Cam | Maui Beach Cam", en: "Napili Kai Beach Resort Live Cam | Maui Beach Cam" },
-    lat: 20.9872,
-    lng: -156.6671,
-    timeZone: "Pacific/Honolulu",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "mmzT-lCSpHg",
-      channelId: "UCspnu6n44ydqafj6nFIw5hw",
-      titleKey: "Napili Kai Beach Resort Live Cam | Maui Beach Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-soo-locks-sault-ste-marie-michigan-us",
     name: { ja: "Soo Locks, Sault Ste Marie, Michigan USA | Streamtime LIVE", en: "Soo Locks, Sault Ste Marie, Michigan USA | Streamtime LIVE" },
     lat: 35.7942,
@@ -21220,21 +17740,6 @@ export const CAMS: Cam[] = [
       videoId: "_Zqi24i0fl4",
       channelId: "UCjbR87d5cOpRcPU13fAmPMQ",
       titleKey: "Destin, FL Live Beach Cam | Ocean Reef Resorts",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-hawaii-live-stream-4k-ala-moana-magic",
-    name: { ja: "Hawaii live stream 4K. Ala Moana, Magic Island, Honolulu. Surfers, beach, and fireworks on Friday.", en: "Hawaii live stream 4K. Ala Moana, Magic Island, Honolulu. Surfers, beach, and fireworks on Friday." },
-    lat: 21.3069,
-    lng: -157.8583,
-    timeZone: "Pacific/Honolulu",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "1V9nWQHwIwQ",
-      channelId: "UCqLFAHac-UD2ueQmcf2r-CQ",
-      titleKey: "Hawaii live stream 4K.  Ala Moana, Magic Island, Honolulu. Surfers, beach, and fireworks on Friday.",
     },
   },
   {
@@ -21494,21 +17999,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-live-24-7-londonderry-nh-traffic-cam",
-    name: { ja: "Live 24/7: Londonderry NH Traffic Cam – Interstate 93 | Bluebird Self Storage Cam", en: "Live 24/7: Londonderry NH Traffic Cam – Interstate 93 | Bluebird Self Storage Cam" },
-    lat: 42.8651,
-    lng: -71.3739,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "Vi0JiFqB5dc",
-      channelId: "UCEN8Phmf9eHMShtcX6nAzEg",
-      titleKey: "Live 24/7: Londonderry NH Traffic Cam – Interstate 93 | Bluebird Self Storage Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-grand-saline-middle-school-constructi",
     name: { ja: "Grand Saline Middle School Construction", en: "Grand Saline Middle School Construction" },
     lat: 42.9634,
@@ -21659,21 +18149,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-live-nashville-live-cam-lower-broadwa",
-    name: { ja: "LIVE: Nashville Live Cam • Lower Broadway (With Sound)", en: "LIVE: Nashville Live Cam • Lower Broadway (With Sound)" },
-    lat: 36.1659,
-    lng: -86.7844,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "7lD-OKqUuIA",
-      channelId: "UCWowQG7UH7CL50ihuJP_J1w",
-      titleKey: "🔴 LIVE: Nashville Live Cam • Lower Broadway (With Sound)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-myrtle-beach-boardwalk-cam",
     name: { ja: "Myrtle Beach Boardwalk Cam", en: "Myrtle Beach Boardwalk Cam" },
     lat: 34.5584,
@@ -21685,36 +18160,6 @@ export const CAMS: Cam[] = [
       videoId: "UKtfCDXhCq0",
       channelId: "UC_fclmrAMo6eXyXCZ9LILew",
       titleKey: "Myrtle Beach Boardwalk Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-royal-sonesta-kauai-live-stream-poipu",
-    name: { ja: "Royal Sonesta Kauai Live Stream | Poipu Beach Hawaii Cam | Real-Time Hawaii Beach Cam", en: "Royal Sonesta Kauai Live Stream | Poipu Beach Hawaii Cam | Real-Time Hawaii Beach Cam" },
-    lat: 43.0655,
-    lng: -95.2839,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "M6kN1wlNSk4",
-      channelId: "UC5lNakfSdpqXCW214H5sBgQ",
-      titleKey: "Royal Sonesta Kauai Live Stream | Poipu Beach Hawaii Cam | Real-Time Hawaii Beach Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-live-4k-south-beach-miami-beach-24-7",
-    name: { ja: "LIVE 4K South Beach, Miami Beach 24/7 Street Cam on Collins Ave", en: "LIVE 4K South Beach, Miami Beach 24/7 Street Cam on Collins Ave" },
-    lat: 37.3292,
-    lng: -86.3647,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "jwpfPq8TU8c",
-      channelId: "UCmSsdXm7F8CWlOODXSzANsg",
-      titleKey: "LIVE 4K South Beach, Miami Beach  24/7 Street Cam on Collins Ave",
     },
   },
   {
@@ -21745,21 +18190,6 @@ export const CAMS: Cam[] = [
       videoId: "vio6cp536gQ",
       channelId: "UCJId-kbfsO5K4kU9cKE_TqA",
       titleKey: "City of Alma Live Railcam - Alma, WI",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-western-harbor-cam",
-    name: { ja: "Western Harbor Cam", en: "Western Harbor Cam" },
-    lat: 42.6056,
-    lng: -90.4299,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "mpMdJJjw59E",
-      channelId: "UCzkaQrI9-nSv373EvK5p0SQ",
-      titleKey: "Western Harbor Cam",
     },
   },
   {
@@ -21805,21 +18235,6 @@ export const CAMS: Cam[] = [
       videoId: "HPS48TMmNag",
       channelId: "UCzkaQrI9-nSv373EvK5p0SQ",
       titleKey: "Duluth Canal Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-wailea-beach-resort-live-maui-hawaii",
-    name: { ja: "Wailea Beach Resort LIVE | Maui Hawaii Beach Cam | Hawaii Resort Beach Webcam", en: "Wailea Beach Resort LIVE | Maui Hawaii Beach Cam | Hawaii Resort Beach Webcam" },
-    lat: 20.6897,
-    lng: -156.4419,
-    timeZone: "Pacific/Honolulu",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "cWRSJ3EGuuo",
-      channelId: "UC5lNakfSdpqXCW214H5sBgQ",
-      titleKey: "Wailea Beach Resort LIVE | Maui Hawaii Beach Cam | Hawaii Resort Beach Webcam",
     },
   },
   {
@@ -21899,36 +18314,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-friends-of-felines-rescue-center-ffrc",
-    name: { ja: "Friends of Felines Rescue Center (FFRC)", en: "Friends of Felines Rescue Center (FFRC)" },
-    lat: 36.0948,
-    lng: -83.5791,
-    timeZone: "America/New_York",
-    category: "animal",
-    country: "US",
-    source: {
-      videoId: "KFLUFVUIGsM",
-      channelId: "UClB2FZ7Qvwq0Ons_6jN1lAQ",
-      titleKey: "Friends of Felines Rescue Center (FFRC)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-great-western-building-systems-beam-f",
-    name: { ja: "Great Western Building Systems Beam Fabrication - \"PTW\"", en: "Great Western Building Systems Beam Fabrication - \"PTW\"" },
-    lat: 47.5002,
-    lng: -111.3008,
-    timeZone: "America/Denver",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "HckYnpokxXU",
-      channelId: "UC8cLsaZLF8g_JQCkcePRIug",
-      titleKey: "Great Western Building Systems Beam Fabrication -  \"PTW\"",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-live-traffic-741-73",
     name: { ja: "Live Traffic @ 741 & 73", en: "Live Traffic @ 741 & 73" },
     lat: 35.495,
@@ -21970,21 +18355,6 @@ export const CAMS: Cam[] = [
       videoId: "PeYZZinH1wI",
       channelId: "UC-8U3VCeOEqdPJd2D77RqKw",
       titleKey: "🔴 LIVE Port Miami Cruise Ship Departures and Arrivals | ICON of the Seas",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-kensington-cam-6-philadelphia-pa",
-    name: { ja: "Kensington Cam 6 Philadelphia, PA.", en: "Kensington Cam 6 Philadelphia, PA." },
-    lat: 40.5698,
-    lng: -79.7648,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "1Clsrhhl944",
-      channelId: "UCQ1awPPNFA4AxnJ6dQyXfbg",
-      titleKey: "Kensington Cam 6 Philadelphia, PA.",
     },
   },
   {
@@ -22064,21 +18434,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-cedar-corner-roundabout-cam-at-cedar",
-    name: { ja: "Cedar Corner Roundabout Cam at Cedar Point Dr & Cleveland Road", en: "Cedar Corner Roundabout Cam at Cedar Point Dr & Cleveland Road" },
-    lat: 44.8478,
-    lng: -85.7956,
-    timeZone: "America/Detroit",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "IeXtMySCZkI",
-      channelId: "UCHrWK8ZyeP9RnY_dMcg_tHg",
-      titleKey: "Cedar Corner Roundabout Cam at Cedar Point Dr & Cleveland Road",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-sunset-terrace-at-margaritaville-beac",
     name: { ja: "Sunset Terrace at Margaritaville Beach Resort Fort Myers Beach", en: "Sunset Terrace at Margaritaville Beach Resort Fort Myers Beach" },
     lat: 30.4113,
@@ -22150,21 +18505,6 @@ export const CAMS: Cam[] = [
       videoId: "_eE4GBEjjs4",
       channelId: "UCACzxtAksIzlsuBIiOT_ubw",
       titleKey: "Hogs Breath Stage Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-miami-skyline-live-cam-macarthur-caus",
-    name: { ja: "Miami Skyline Live Cam | MacArthur Causeway", en: "Miami Skyline Live Cam | MacArthur Causeway" },
-    lat: 25.7743,
-    lng: -80.1937,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "M_JmSFLdJUE",
-      channelId: "UCspnu6n44ydqafj6nFIw5hw",
-      titleKey: "Miami Skyline Live Cam | MacArthur Causeway",
     },
   },
   {
@@ -22244,36 +18584,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-detroit-river-live-cam-from-the-dossi",
-    name: { ja: "Detroit River Live Cam from the Dossin Museum, Detroit, Michigan USA", en: "Detroit River Live Cam from the Dossin Museum, Detroit, Michigan USA" },
-    lat: 42.3314,
-    lng: -83.0457,
-    timeZone: "America/Detroit",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "VA5zde5zPGk",
-      channelId: "UCqfPoSUtVhsQp2AmJ4uot1w",
-      titleKey: "Detroit River Live Cam from the Dossin Museum, Detroit, Michigan USA",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-live-view-of-lazelle-st-in-sturgis-sd",
-    name: { ja: "Live View of Lazelle St in Sturgis SD from Sturgis Liquor", en: "Live View of Lazelle St in Sturgis SD from Sturgis Liquor" },
-    lat: 44.4097,
-    lng: -103.5091,
-    timeZone: "America/Denver",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "iY8G7URAbgI",
-      channelId: "UCTkxSTO0A1d5_6_Nc4sVYtg",
-      titleKey: "Live View of Lazelle St in Sturgis SD from Sturgis Liquor",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-key-west-southernmost-point-live-2",
     name: { ja: "Key West Southernmost Point Live Cam 2", en: "Key West Southernmost Point Live Cam 2" },
     lat: 46.8218,
@@ -22319,36 +18629,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-pacifica-pier-closeup-pacifica-ca-4k",
-    name: { ja: "Pacifica Pier Closeup, Pacifica, CA 4k Live", en: "Pacifica Pier Closeup, Pacifica, CA 4k Live" },
-    lat: 37.6138,
-    lng: -122.4869,
-    timeZone: "America/Los_Angeles",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "16hHfZzf8-I",
-      channelId: "UC029bcZGqxOsRkvWrZLhgKQ",
-      titleKey: "Pacifica Pier Closeup, Pacifica, CA 4k Live",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-live-24-7-trains-at-union-station-rai",
-    name: { ja: "LIVE: 24/7 Trains at Union Station Railcam | Amtrak, Acela, Marc, WMATA", en: "LIVE: 24/7 Trains at Union Station Railcam | Amtrak, Acela, Marc, WMATA" },
-    lat: 42.2882,
-    lng: -71.3267,
-    timeZone: "America/New_York",
-    category: "railway",
-    country: "US",
-    source: {
-      videoId: "lZesBuitv9s",
-      channelId: "UCIwDxZH4vZHp3-_wDeNT2Aw",
-      titleKey: "LIVE: 24/7 Trains at Union Station Railcam | Amtrak, Acela, Marc, WMATA",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-albertson-hall-construction-camera-2",
     name: { ja: "Albertson Hall Construction Camera #2", en: "Albertson Hall Construction Camera #2" },
     lat: 40.7734,
@@ -22375,21 +18655,6 @@ export const CAMS: Cam[] = [
       videoId: "jld8d8xgMbc",
       channelId: "UCJId-kbfsO5K4kU9cKE_TqA",
       titleKey: "Muscatine Merrill Hotel Live Railcam - Muscatine, IA #SteelHighway",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-live-doubletree-by-hilton-grand-hotel",
-    name: { ja: "LIVE DoubleTree by Hilton Grand Hotel Biscayne Bay | Miami Traffic Cam | Miami Skyline View 4K", en: "LIVE DoubleTree by Hilton Grand Hotel Biscayne Bay | Miami Traffic Cam | Miami Skyline View 4K" },
-    lat: 33.5639,
-    lng: -111.9829,
-    timeZone: "America/Phoenix",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "4UzQd1dVPlo",
-      channelId: "UC5lNakfSdpqXCW214H5sBgQ",
-      titleKey: "LIVE DoubleTree by Hilton Grand Hotel Biscayne Bay | Miami Traffic Cam | Miami Skyline View 4K",
     },
   },
   {
@@ -22450,21 +18715,6 @@ export const CAMS: Cam[] = [
       videoId: "Sf8GYK93u5o",
       channelId: "UC1kSVaY7dS-u4ZBnhOPcDyw",
       titleKey: "Dayton House Resort Live Beach Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-city-of-southfield-live-cam",
-    name: { ja: "City of Southfield Live Cam", en: "City of Southfield Live Cam" },
-    lat: 44.98,
-    lng: -93.2638,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "mdmLYHK6meA",
-      channelId: "UCUu85f--8fOKrjMCyYa5KkA",
-      titleKey: "City of Southfield Live Cam",
     },
   },
   {
@@ -22694,21 +18944,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-aster-construction",
-    name: { ja: "Aster Construction", en: "Aster Construction" },
-    lat: 48.7267,
-    lng: -111.4958,
-    timeZone: "America/Denver",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "lbLNH2gKXDE",
-      channelId: "UCZVM2Vn7DeEaCF7Ix7p3ZgA",
-      titleKey: "Aster Construction",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-live-camera-axis-p5655-e",
     name: { ja: "Live Camera Axis P5655-E", en: "Live Camera Axis P5655-E" },
     lat: 30.9299,
@@ -22765,36 +19000,6 @@ export const CAMS: Cam[] = [
       videoId: "wfuqjSNXZ14",
       channelId: "UC8NnosPOvXnm0O1u5YnLQiw",
       titleKey: "West End Bald Eagle Nest Low Cam powered by EXPLORE.org",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-live-miami-traffic",
-    name: { ja: "LIVE Miami Traffic", en: "LIVE Miami Traffic" },
-    lat: 25.7743,
-    lng: -80.1937,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "wq9x1ZMqdEA",
-      channelId: "UCC7FQevLjRzajxhGb989szw",
-      titleKey: "🔴 LIVE Miami Traffic",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-buffalo-bills-stadium-weather-cam",
-    name: { ja: "Buffalo Bills Stadium & Weather Cam", en: "Buffalo Bills Stadium & Weather Cam" },
-    lat: 42.8865,
-    lng: -78.8784,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "4aONiVQLttc",
-      channelId: "UC9Vpdl7WbXchXZRt5tXPjkg",
-      titleKey: "Buffalo Bills Stadium & Weather Cam",
     },
   },
   {
@@ -22874,21 +19079,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-kensington-cam2-philadelphia-pa",
-    name: { ja: "Kensington Cam2 Philadelphia, PA.", en: "Kensington Cam2 Philadelphia, PA." },
-    lat: 40.5698,
-    lng: -79.7648,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "EVIhbrLvUO4",
-      channelId: "UCQ1awPPNFA4AxnJ6dQyXfbg",
-      titleKey: "Kensington Cam2 Philadelphia, PA.",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-city-of-valdez-alaska-live-stream-cam",
     name: { ja: "City of Valdez, Alaska Live Stream Cameras", en: "City of Valdez, Alaska Live Stream Cameras" },
     lat: 44.98,
@@ -22900,21 +19090,6 @@ export const CAMS: Cam[] = [
       videoId: "6_xczufuiFo",
       channelId: "UCDdKMhG5rebdT_PmpTdAm2w",
       titleKey: "City of Valdez, Alaska Live Stream Cameras",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-tiger-cam-of-animal-adventure-bao-min",
-    name: { ja: "Tiger Cam of Animal Adventure: Bao & Ming", en: "Tiger Cam of Animal Adventure: Bao & Ming" },
-    lat: 34.847,
-    lng: -83.4329,
-    timeZone: "America/New_York",
-    category: "animal",
-    country: "US",
-    source: {
-      videoId: "AtIzdc3un5s",
-      channelId: "UClnQCgFa9lCBL-KXZMOoO9Q",
-      titleKey: "Tiger Cam of Animal Adventure: Bao & Ming",
     },
   },
   {
@@ -22945,21 +19120,6 @@ export const CAMS: Cam[] = [
       videoId: "Th6LPsc74D0",
       channelId: "UCnvLGayHxWh5YZjpJjZ6WRg",
       titleKey: "Walking in New York at Night 🗽 Explore Midtown Manhattan / NYC Walking Tour 4K",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-ponce-inlet-boat-ramp-parking-lot-cam",
-    name: { ja: "Ponce Inlet Boat Ramp Parking Lot Camera 1", en: "Ponce Inlet Boat Ramp Parking Lot Camera 1" },
-    lat: 30.723,
-    lng: -85.9374,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "r5Y9tlij_TQ",
-      channelId: "UCYLlybEejZQkeavAGxbix8A",
-      titleKey: "Ponce Inlet Boat Ramp Parking Lot Camera 1",
     },
   },
   {
@@ -23069,21 +19229,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-downtown-woodward-oklahoma-live-camer",
-    name: { ja: "Downtown Woodward, Oklahoma | Live Camera", en: "Downtown Woodward, Oklahoma | Live Camera" },
-    lat: 41.0724,
-    lng: -81.525,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "6oCfzMLvmMI",
-      channelId: "UCxciwKaHwvKJ6DbgxeLfqxg",
-      titleKey: "Downtown Woodward, Oklahoma | Live Camera",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-live-las-vegas-strip-stream-real-time",
     name: { ja: "LIVE: Las Vegas Strip Stream | Real-Time View", en: "LIVE: Las Vegas Strip Stream | Real-Time View" },
     lat: 36.175,
@@ -23110,21 +19255,6 @@ export const CAMS: Cam[] = [
       videoId: "edz0ux7JClE",
       channelId: "UC88QpAaX8sdqm1fWYSjzbSQ",
       titleKey: "San Diego Web Cam Live (Rotating/Switched Feed) 4K",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-live-view-of-main-street-from-tower-i",
-    name: { ja: "Live View of Main Street From Tower in Sturgis, SD", en: "Live View of Main Street From Tower in Sturgis, SD" },
-    lat: 44.4097,
-    lng: -103.5091,
-    timeZone: "America/Denver",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "B7TPT-LSeAQ",
-      channelId: "UCTkxSTO0A1d5_6_Nc4sVYtg",
-      titleKey: "Live View of Main Street From Tower in Sturgis, SD",
     },
   },
   {
@@ -23185,36 +19315,6 @@ export const CAMS: Cam[] = [
       videoId: "jmWZy59tBbk",
       channelId: "UCXGJiwin7ztBh9Q_ITQRhwA",
       titleKey: "Ely Park Fountain Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-live-cat-dog-tv-bird-feeder-cardinals",
-    name: { ja: "LIVE Cat & Dog TV Bird Feeder ️ Cardinals, Blue Jays, Goldfinches | Nature Sounds, Sleep, 4K", en: "LIVE Cat & Dog TV Bird Feeder ️ Cardinals, Blue Jays, Goldfinches | Nature Sounds, Sleep, 4K" },
-    lat: 43.1681,
-    lng: -76.573,
-    timeZone: "America/New_York",
-    category: "animal",
-    country: "US",
-    source: {
-      videoId: "c2F2Q5MukAw",
-      channelId: "UCjIyxoBtKjUZeNOEud80W5A",
-      titleKey: "🔴LIVE Cat & Dog TV Bird Feeder 🐿️ Cardinals, Blue Jays, Goldfinches | Nature Sounds, Sleep, 4K",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-live-sfo-plane-spotting-real-time-air",
-    name: { ja: "Live SFO Plane Spotting | Real-Time Aircraft Tracking and ATC Audio at San Francisco Airport (KSFO)", en: "Live SFO Plane Spotting | Real-Time Aircraft Tracking and ATC Audio at San Francisco Airport (KSFO)" },
-    lat: 37.7749,
-    lng: -122.4194,
-    timeZone: "America/Los_Angeles",
-    category: "airport",
-    country: "US",
-    source: {
-      videoId: "wdFQvKAlyA4",
-      channelId: "UClONWXOnZqm8lPKTNqvi2og",
-      titleKey: "🔴Live SFO Plane Spotting | Real-Time Aircraft Tracking and ATC Audio at San Francisco Airport (KSFO)",
     },
   },
   {
@@ -23429,66 +19529,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-port-miami-cruise-ship-terminals-bisc",
-    name: { ja: "Port Miami Cruise Ship Terminals | Biscayne Bay Weather | Downtown Miami Skyline | 3 Cameras", en: "Port Miami Cruise Ship Terminals | Biscayne Bay Weather | Downtown Miami Skyline | 3 Cameras" },
-    lat: 35.2045,
-    lng: -99.3073,
-    timeZone: "America/Chicago",
-    category: "harbor",
-    country: "US",
-    source: {
-      videoId: "WpBTavYa7Fc",
-      channelId: "UCyV9C_te1tQsF9SPxgm-rHQ",
-      titleKey: "🔴🔴 Port Miami Cruise Ship Terminals | Biscayne Bay Weather | Downtown Miami Skyline | 3 Cameras",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-dune-allen-beach-florida-vue-on-30a",
-    name: { ja: "DUNE ALLEN BEACH, FLORIDA VUE ON 30A", en: "DUNE ALLEN BEACH, FLORIDA VUE ON 30A" },
-    lat: 32.7831,
-    lng: -114.7972,
-    timeZone: "America/Los_Angeles",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "xNZBPxx8ykg",
-      channelId: "UCwHtb-E73AkUaeBb1-QJ0Qg",
-      titleKey: "DUNE ALLEN BEACH, FLORIDA VUE ON 30A",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-live-right-now-global-webcams-24-7-se",
-    name: { ja: "LIVE RIGHT NOW: Global Webcams 24/7 See Icons of the World in Real Time", en: "LIVE RIGHT NOW: Global Webcams 24/7 See Icons of the World in Real Time" },
-    lat: 37.8948,
-    lng: -84.0285,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "UVVGop6GGv8",
-      channelId: "UCrlqY1M1yxakXvK9iBIiz-A",
-      titleKey: "🔴 LIVE RIGHT NOW: Global Webcams 24/7 🌎 See Icons of the World in Real Time",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-live-okaloosa-island-beach-cam-crab-t",
-    name: { ja: "LIVE Okaloosa Island Beach Cam | Crab Trap | Fort Walton Beach Florida", en: "LIVE Okaloosa Island Beach Cam | Crab Trap | Fort Walton Beach Florida" },
-    lat: 32.3802,
-    lng: -92.3279,
-    timeZone: "America/Chicago",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "n1k9iDluHHA",
-      channelId: "UC-G2YE1oV4v4Fk9Sr2odxaQ",
-      titleKey: "LIVE Okaloosa Island Beach Cam | Crab Trap | Fort Walton Beach Florida",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-south-pier-lighthouse-cam",
     name: { ja: "South Pier Lighthouse Cam", en: "South Pier Lighthouse Cam" },
     lat: 37.3292,
@@ -23500,21 +19540,6 @@ export const CAMS: Cam[] = [
       videoId: "Pij4VMrNMFY",
       channelId: "UCzkaQrI9-nSv373EvK5p0SQ",
       titleKey: "South Pier Lighthouse Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-hubble-shocking-new-discovery-in-spac",
-    name: { ja: "Hubble Shocking New Discovery In Space? Journey into the Universe, Documentary Stream Astronomy 24/7", en: "Hubble Shocking New Discovery In Space? Journey into the Universe, Documentary Stream Astronomy 24/7" },
-    lat: 37.597,
-    lng: -84.6547,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "6wg4fd8FjVQ",
-      channelId: "UCJUtNZBqoY0aSdcpTRMUA2Q",
-      titleKey: "Hubble Shocking New Discovery In Space? Journey into the Universe, Documentary Stream Astronomy 24/7",
     },
   },
   {
@@ -23545,21 +19570,6 @@ export const CAMS: Cam[] = [
       videoId: "t_VfYNtprYE",
       channelId: "UCrtIIVfi-5tMlVXdMDzOMUA",
       titleKey: "Baltimore Shipping Channel | Baltimore, MD USA | StreamTime LIVE  in 4K",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-live-planet-earth-view-from-space",
-    name: { ja: "LIVE: Planet Earth View From Space", en: "LIVE: Planet Earth View From Space" },
-    lat: 34.2475,
-    lng: -113.9649,
-    timeZone: "America/Phoenix",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "kSGWs_I7mMI",
-      channelId: "UCMv1mrz-j0iTVmHCFzMkZ_g",
-      titleKey: "LIVE: Planet Earth View From Space",
     },
   },
   {
@@ -23624,21 +19634,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-trinidad-harbor-webcam-live-stream",
-    name: { ja: "Trinidad Harbor Webcam Live Stream", en: "Trinidad Harbor Webcam Live Stream" },
-    lat: 37.1695,
-    lng: -104.5005,
-    timeZone: "America/Denver",
-    category: "harbor",
-    country: "US",
-    source: {
-      videoId: "oAqv6M0JESY",
-      channelId: "UCNYdL7-9PEk0rhCHzquQP8Q",
-      titleKey: "Trinidad Harbor Webcam Live Stream",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-tranquil-sunset-beach-jazz-soothing-m",
     name: { ja: "Tranquil Sunset Beach Jazz – Soothing Melodies to Lift Your Spirits with Sea Sounds & Crackling Fire", en: "Tranquil Sunset Beach Jazz – Soothing Melodies to Lift Your Spirits with Sea Sounds & Crackling Fire" },
     lat: 33.9423,
@@ -23650,21 +19645,6 @@ export const CAMS: Cam[] = [
       videoId: "DW18Y2o-eUY",
       channelId: "UCYoqxCpRzCvLNSvoXLxNmaw",
       titleKey: "Tranquil Sunset Beach Jazz – Soothing Melodies to Lift Your Spirits with Sea Sounds & Crackling Fire",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-lawai-beach-resort-live-cam",
-    name: { ja: "Lawai Beach Resort - Live Cam", en: "Lawai Beach Resort - Live Cam" },
-    lat: 21.9216,
-    lng: -159.5037,
-    timeZone: "Pacific/Honolulu",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "3ATYHKN2hIg",
-      channelId: "UCdz7UmkCvw3GlZTxHRR6Pyw",
-      titleKey: "Lawai Beach Resort - Live Cam",
     },
   },
   {
@@ -23714,21 +19694,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-oceanside-ca-harbor-live",
-    name: { ja: "Oceanside, CA Harbor - Live", en: "Oceanside, CA Harbor - Live" },
-    lat: 33.1959,
-    lng: -117.3795,
-    timeZone: "America/Los_Angeles",
-    category: "harbor",
-    country: "US",
-    source: {
-      videoId: "isQSAV9rJvQ",
-      channelId: "UCwtwNjuQsTiCK8EUJtJd8YQ",
-      titleKey: "Oceanside, CA Harbor - Live",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-ocean-city-md-live-cam-inlet-view-fro",
     name: { ja: "Ocean City MD Live Cam | Inlet View from The Wedge Bar", en: "Ocean City MD Live Cam | Inlet View from The Wedge Bar" },
     lat: 39.6026,
@@ -23755,21 +19720,6 @@ export const CAMS: Cam[] = [
       videoId: "to8iWyVHNM4",
       channelId: "UCJId-kbfsO5K4kU9cKE_TqA",
       titleKey: "Bellevue 2nd Street Station Live Railcam - Bellevue, IA #SteelHighway",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-live-beautiful-destin-beach-cam-emera",
-    name: { ja: "LIVE: Beautiful Destin Beach Cam | Emerald Coast, Florida", en: "LIVE: Beautiful Destin Beach Cam | Emerald Coast, Florida" },
-    lat: 39.9851,
-    lng: -77.6542,
-    timeZone: "America/New_York",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "heFvIjq0O-Q",
-      channelId: "UCRj7u6fmW8RYQl98hcwbwng",
-      titleKey: "🔴 LIVE: Beautiful Destin Beach Cam | Emerald Coast, Florida",
     },
   },
   {
@@ -23845,21 +19795,6 @@ export const CAMS: Cam[] = [
       videoId: "j2-CuNIYF8I",
       channelId: "UC5hEYiIzYABiMThMhPj12tQ",
       titleKey: "Tabor College - BEC Construction Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-ac-boardwalk-live",
-    name: { ja: "AC Boardwalk Live", en: "AC Boardwalk Live" },
-    lat: 33.435,
-    lng: -111.5732,
-    timeZone: "America/Phoenix",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "xdR31xv7il0",
-      channelId: "UCsXI799O64fOhxu_wQcoBKg",
-      titleKey: "AC Boardwalk Live",
     },
   },
   {
@@ -24224,21 +20159,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-pineapple-willy-s-beach-cam",
-    name: { ja: "Pineapple Willy's Beach Cam", en: "Pineapple Willy's Beach Cam" },
-    lat: 31.8734,
-    lng: -86.9892,
-    timeZone: "America/Chicago",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "-rSXsJuGQ3M",
-      channelId: "UCeYBKtv_-S6xrUiAqT8Eruw",
-      titleKey: "Pineapple Willy's Beach Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-old-orchard-maine-beach-cam",
     name: { ja: "Old Orchard Maine Beach Cam", en: "Old Orchard Maine Beach Cam" },
     lat: 44.9342,
@@ -24509,21 +20429,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-live-worcester-ma-railcam-railside-li",
-    name: { ja: "LIVE Worcester, MA Railcam | Railside Live", en: "LIVE Worcester, MA Railcam | Railside Live" },
-    lat: 42.2626,
-    lng: -71.8023,
-    timeZone: "America/New_York",
-    category: "railway",
-    country: "US",
-    source: {
-      videoId: "b70NCE21Yws",
-      channelId: "UC7jnOYmUBKhtHOhg5keoZRw",
-      titleKey: "LIVE Worcester, MA Railcam | Railside Live",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-live-trains-railcam-birmingham-al-2",
     name: { ja: "LIVE Trains Railcam | Birmingham, Alabama (PTZ)", en: "LIVE Trains Railcam | Birmingham, Alabama (PTZ)" },
     lat: 42.2882,
@@ -24569,21 +20474,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-live-east-greenwich-ri-railcam-railsi",
-    name: { ja: "LIVE East Greenwich, RI Railcam | Railside Live", en: "LIVE East Greenwich, RI Railcam | Railside Live" },
-    lat: 42.0612,
-    lng: -71.864,
-    timeZone: "America/New_York",
-    category: "railway",
-    country: "US",
-    source: {
-      videoId: "sFCofJMI4ew",
-      channelId: "UC7jnOYmUBKhtHOhg5keoZRw",
-      titleKey: "LIVE East Greenwich, RI Railcam | Railside Live",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-live-cozad-ne-railcam-railside-live",
     name: { ja: "LIVE Cozad, NE Railcam | Railside Live", en: "LIVE Cozad, NE Railcam | Railside Live" },
     lat: 40.8597,
@@ -24595,21 +20485,6 @@ export const CAMS: Cam[] = [
       videoId: "chEAFgoVUXE",
       channelId: "UC7jnOYmUBKhtHOhg5keoZRw",
       titleKey: "LIVE Cozad, NE Railcam | Railside Live",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-port-huron-live-cam-showing-shipping",
-    name: { ja: "Port Huron Live Cam showing shipping traffic on the St. Clair River from BoatNerd.Com", en: "Port Huron Live Cam showing shipping traffic on the St. Clair River from BoatNerd.Com" },
-    lat: 35.2045,
-    lng: -99.3073,
-    timeZone: "America/Chicago",
-    category: "harbor",
-    country: "US",
-    source: {
-      videoId: "dqrwY6i-Zz4",
-      channelId: "UCqfPoSUtVhsQp2AmJ4uot1w",
-      titleKey: "Port Huron Live Cam showing shipping traffic on the St. Clair River from BoatNerd.Com",
     },
   },
   {
@@ -24640,21 +20515,6 @@ export const CAMS: Cam[] = [
       videoId: "laKzBnfVIsQ",
       channelId: "UCJId-kbfsO5K4kU9cKE_TqA",
       titleKey: "North Platte Golden Spike Tower (West) Live Railcam  - North Platte, NE  #steelhighway",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-kensington-cam3-philadelphia-pa",
-    name: { ja: "Kensington Cam3 Philadelphia, PA.", en: "Kensington Cam3 Philadelphia, PA." },
-    lat: 40.5698,
-    lng: -79.7648,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "cWd_niy8Rz8",
-      channelId: "UCQ1awPPNFA4AxnJ6dQyXfbg",
-      titleKey: "Kensington Cam3  Philadelphia, PA.",
     },
   },
   {
@@ -24884,21 +20744,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-24-7-sharky-s-waterfront-live-cam-at",
-    name: { ja: "24/7 Sharky's Waterfront Live Cam at Ocean Isle Beach, NC", en: "24/7 Sharky's Waterfront Live Cam at Ocean Isle Beach, NC" },
-    lat: 33.8943,
-    lng: -78.4267,
-    timeZone: "America/New_York",
-    category: "harbor",
-    country: "US",
-    source: {
-      videoId: "Dizx0Z2eDv8",
-      channelId: "UCA0SYRxAP5vLFvd3KkVZKgQ",
-      titleKey: "24/7 Sharky's Waterfront Live Cam at Ocean Isle Beach, NC",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-ott-family-bald-eagle-nest-camera-eag",
     name: { ja: "Ott Family Bald Eagle Nest Camera: Eaglet Goody! - Hatched 3/18", en: "Ott Family Bald Eagle Nest Camera: Eaglet Goody! - Hatched 3/18" },
     lat: 36.4983,
@@ -25030,21 +20875,6 @@ export const CAMS: Cam[] = [
       videoId: "67-73mgWDf0",
       channelId: "UC5fEp9PlxQP9llmRAWto_XQ",
       titleKey: "Port Everglades Traffic Cam.01",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-vision-2025-construction",
-    name: { ja: "Vision 2025 Construction", en: "Vision 2025 Construction" },
-    lat: 46.0873,
-    lng: -122.8673,
-    timeZone: "America/Los_Angeles",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "Ngy39bGXjqs",
-      channelId: "UCG4ro8GT7GGVd9LuoXOYlgA",
-      titleKey: "Vision 2025 Construction",
     },
   },
   {
@@ -25214,21 +21044,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-live-islander-resort",
-    name: { ja: "[LIVE] Islander Resort", en: "[LIVE] Islander Resort" },
-    lat: 47.6273,
-    lng: -122.5191,
-    timeZone: "America/Los_Angeles",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "xmRR7LMDoXg",
-      channelId: "UCDtNhOpRGifO1dlxJGU4wtg",
-      titleKey: "[LIVE] Islander Resort",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-fraser-point-bald-eagle-nest-2-powere",
     name: { ja: "Fraser Point Bald Eagle Nest 2 powered by EXPLORE.org", en: "Fraser Point Bald Eagle Nest 2 powered by EXPLORE.org" },
     lat: 42.5392,
@@ -25364,21 +21179,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-anacapa-ocean-channel-islands-nationa",
-    name: { ja: "Anacapa Ocean - Channel Islands National Park Cams powered by EXPLORE.org", en: "Anacapa Ocean - Channel Islands National Park Cams powered by EXPLORE.org" },
-    lat: 34.0044,
-    lng: -119.3909,
-    timeZone: "America/Los_Angeles",
-    category: "animal",
-    country: "US",
-    source: {
-      videoId: "OAJF1Ie1m_Q",
-      channelId: "UCSyg9cb3Iq-NtlbxqNB9wGw",
-      titleKey: "Anacapa Ocean - Channel Islands National Park Cams powered by EXPLORE.org",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-clarence-sundstop-live-railcam-claren",
     name: { ja: "Clarence Sundstop Live Railcam - Clarence, Iowa #SteelHighway", en: "Clarence Sundstop Live Railcam - Clarence, Iowa #SteelHighway" },
     lat: 42.9767,
@@ -25439,21 +21239,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-snow-king-mountain-lifts-seejh-com",
-    name: { ja: "Snow King Mountain Lifts - SeeJH.com", en: "Snow King Mountain Lifts - SeeJH.com" },
-    lat: 34.3959,
-    lng: -95.4128,
-    timeZone: "America/Chicago",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "g4NgJXbRrBk",
-      channelId: "UCEpDjqeFIGTqHwk-uULx72Q",
-      titleKey: "Snow King Mountain Lifts - SeeJH.com",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-live-sandhill-crane-migration-cam-aud",
     name: { ja: "LIVE Sandhill Crane Migration Cam: Audubon's Rowe Sanctuary | explore.org", en: "LIVE Sandhill Crane Migration Cam: Audubon's Rowe Sanctuary | explore.org" },
     lat: 32.4876,
@@ -25480,21 +21265,6 @@ export const CAMS: Cam[] = [
       videoId: "sKcmQQqzQcM",
       channelId: "UCYCVwMuFBia4usSBbFj2Ycg",
       titleKey: "🔴LIVE: Winter Garden, Florida Webcam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-tobacco-river-dam-michigan-24-7-hd-li",
-    name: { ja: "Tobacco River Dam - Michigan - 24/7 HD Live Stream", en: "Tobacco River Dam - Michigan - 24/7 HD Live Stream" },
-    lat: 36.8899,
-    lng: -77.9375,
-    timeZone: "America/New_York",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "Pc-4Pk-wbeM",
-      channelId: "UCV2miD06XDzTba5TXjkmWLg",
-      titleKey: "Tobacco River Dam - Michigan - 24/7 HD Live Stream",
     },
   },
   {
@@ -25570,21 +21340,6 @@ export const CAMS: Cam[] = [
       videoId: "VsuSbXPN93o",
       channelId: "UCvB8asb1Wbc-Mur7oIZ3TxA",
       titleKey: "Market Square West Live Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-new-york-city-walking-live-4k",
-    name: { ja: "New York City Walking LIVE 4K", en: "New York City Walking LIVE 4K" },
-    lat: 38.4278,
-    lng: -84.8105,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "Le_-gbv_R18",
-      channelId: "UCRODS6wub2VZ6nKON6PDwdQ",
-      titleKey: "New York City Walking LIVE 4K",
     },
   },
   {
@@ -25675,21 +21430,6 @@ export const CAMS: Cam[] = [
       videoId: "qfHSDPMyWt4",
       channelId: "UCPczfzrRgmCmYPZ9MQsHnTA",
       titleKey: "Avalanche Bay Indoor Waterpark, Boyne Mountain",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-mallory-square-4k-key-west",
-    name: { ja: "Mallory Square 4K, Key West", en: "Mallory Square 4K, Key West" },
-    lat: 37.7307,
-    lng: -81.8379,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "f9pMVLoJfyE",
-      channelId: "UCgorAQVJpb1Zf3S0gk_2gsA",
-      titleKey: "Mallory Square 4K, Key West",
     },
   },
   {
@@ -25964,51 +21704,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-tehachapi-live-train-cams-at-west-cab",
-    name: { ja: "Tehachapi Live Train Cams at West Cable", en: "Tehachapi Live Train Cams at West Cable" },
-    lat: 35.1322,
-    lng: -118.449,
-    timeZone: "America/Los_Angeles",
-    category: "railway",
-    country: "US",
-    source: {
-      videoId: "Bzd0z0YqTEw",
-      channelId: "UC6RIkXobtXWJElbwEHIC-sg",
-      titleKey: "Tehachapi Live Train Cams at West Cable",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-tehachapi-live-train-cams-at-the-teha",
-    name: { ja: "Tehachapi Live Train Cams at the Tehachapi Loop", en: "Tehachapi Live Train Cams at the Tehachapi Loop" },
-    lat: 35.1322,
-    lng: -118.449,
-    timeZone: "America/Los_Angeles",
-    category: "railway",
-    country: "US",
-    source: {
-      videoId: "pQHaVrBeZGc",
-      channelId: "UC6RIkXobtXWJElbwEHIC-sg",
-      titleKey: "Tehachapi Live Train Cams at the Tehachapi Loop 🚂",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-tehachapi-live-train-cams-at-giumarra",
-    name: { ja: "Tehachapi Live Train Cams at Giumarra Vineyards in Edison CA.", en: "Tehachapi Live Train Cams at Giumarra Vineyards in Edison CA." },
-    lat: 35.1322,
-    lng: -118.449,
-    timeZone: "America/Los_Angeles",
-    category: "railway",
-    country: "US",
-    source: {
-      videoId: "K0dU05muXdE",
-      channelId: "UC6RIkXobtXWJElbwEHIC-sg",
-      titleKey: "Tehachapi Live Train Cams at Giumarra Vineyards 🍇 in Edison CA.",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-bnsf-railway-yard-in-belen-new-mexico",
     name: { ja: "BNSF Railway Yard in Belen, New Mexico, USA | LIVE Train Camera (PTZ)", en: "BNSF Railway Yard in Belen, New Mexico, USA | LIVE Train Camera (PTZ)" },
     lat: 34.6628,
@@ -26035,21 +21730,6 @@ export const CAMS: Cam[] = [
       videoId: "vZEINdmawdc",
       channelId: "UCTIuhsbotXQGmhLgmcRYVCQ",
       titleKey: "Mussel Rock Park",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-seaside-heights-beach-cam-and-surf-re",
-    name: { ja: "Seaside Heights Beach Cam and Surf Report", en: "Seaside Heights Beach Cam and Surf Report" },
-    lat: 36.6111,
-    lng: -121.8516,
-    timeZone: "America/Los_Angeles",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "LJ5dbOYQw5A",
-      channelId: "UCvYS_wQSYrh9cXVK2XOtC8Q",
-      titleKey: "Seaside Heights Beach Cam and Surf Report",
     },
   },
   {
@@ -26125,21 +21805,6 @@ export const CAMS: Cam[] = [
       videoId: "1PLqzPwXP0c",
       channelId: "UCGOxU-8iNOeoG3a337shXoA",
       titleKey: "Live - Sport Camera - Deerfield Beach, Florida USA",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-lga-airport-live-24-7-laguardia-new-y",
-    name: { ja: "LGA Airport LIVE 24/7 • LaGuardia, New York", en: "LGA Airport LIVE 24/7 • LaGuardia, New York" },
-    lat: 40.7761,
-    lng: -73.8727,
-    timeZone: "America/New_York",
-    category: "airport",
-    country: "US",
-    source: {
-      videoId: "OUBslrCqREs",
-      channelId: "UCcGI_kXwKl_QhyW9jK_8gIA",
-      titleKey: "LGA Airport LIVE 24/7 • LaGuardia, New York",
     },
   },
   {
@@ -26324,21 +21989,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-big-boy-in-fostoria-ohio-live-from-ou",
-    name: { ja: "Big Boy in Fostoria, Ohio – Live from Our NKP Camera", en: "Big Boy in Fostoria, Ohio – Live from Our NKP Camera" },
-    lat: 41.157,
-    lng: -83.4169,
-    timeZone: "America/New_York",
-    category: "railway",
-    country: "US",
-    source: {
-      videoId: "Jil1EgWZndY",
-      channelId: "UC-bPJdfIq5zqIP_PQ7rUJaA",
-      titleKey: "Big Boy in Fostoria, Ohio – Live from Our NKP Camera",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-otter-indoor-cam",
     name: { ja: "Otter Indoor Cam", en: "Otter Indoor Cam" },
     lat: 45.2078,
@@ -26410,21 +22060,6 @@ export const CAMS: Cam[] = [
       videoId: "H6cm5Hf-yFY",
       channelId: "UC5UwWocd9b4F-GdEyJ4SKxA",
       titleKey: "Duluth Ship Cam at Canal Park ⚓️",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-live-from-the-howell-wye-bi-tower-atl",
-    name: { ja: "LIVE from The Howell Wye – BI Tower (Atlanta, Georgia Rail Cam) | RailStream", en: "LIVE from The Howell Wye – BI Tower (Atlanta, Georgia Rail Cam) | RailStream" },
-    lat: 45.3922,
-    lng: -108.9065,
-    timeZone: "America/Denver",
-    category: "railway",
-    country: "US",
-    source: {
-      videoId: "QRj1aojRv7o",
-      channelId: "UC-bPJdfIq5zqIP_PQ7rUJaA",
-      titleKey: "LIVE from The Howell Wye – BI Tower (Atlanta, Georgia Rail Cam) | RailStream",
     },
   },
   {
@@ -26519,21 +22154,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-tehachapi-live-train-cams-at-the-2",
-    name: { ja: "Tehachapi Live Train Cams at the Tehachapi Depot Railroad Museum", en: "Tehachapi Live Train Cams at the Tehachapi Depot Railroad Museum" },
-    lat: 35.1322,
-    lng: -118.449,
-    timeZone: "America/Los_Angeles",
-    category: "railway",
-    country: "US",
-    source: {
-      videoId: "yVfFVNmE0LE",
-      channelId: "UC6RIkXobtXWJElbwEHIC-sg",
-      titleKey: "Tehachapi Live Train Cams at the Tehachapi Depot Railroad Museum 🚉",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-live-cam-d-iberville-mississippi-from",
     name: { ja: "LIVE CAM: D'Iberville, Mississippi from Scarlet Pearl Casino Resort", en: "LIVE CAM: D'Iberville, Mississippi from Scarlet Pearl Casino Resort" },
     lat: 30.4263,
@@ -26594,21 +22214,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-miami-river-camera",
-    name: { ja: "Miami River Camera", en: "Miami River Camera" },
-    lat: 25.7743,
-    lng: -80.1937,
-    timeZone: "America/New_York",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "7wHgYc_kN98",
-      channelId: "UC_9dsRFZiS87yepdO4Qc9Ng",
-      titleKey: "Miami River Camera",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-live-cam-downtown-mobile-al-from-the",
     name: { ja: "LIVE CAM: Downtown Mobile, AL from The Admiral Hotel", en: "LIVE CAM: Downtown Mobile, AL from The Admiral Hotel" },
     lat: 41.0724,
@@ -26635,21 +22240,6 @@ export const CAMS: Cam[] = [
       videoId: "1fqGCuZUYhQ",
       channelId: "UC4AoiIN2ErfWcE5-YyjDDIg",
       titleKey: "Ashland Municipal Airport S03",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-pacifica-pier-and-beach-pacifica-ca-4",
-    name: { ja: "Pacifica Pier and Beach, Pacifica CA 4k Live", en: "Pacifica Pier and Beach, Pacifica CA 4k Live" },
-    lat: 37.6138,
-    lng: -122.4869,
-    timeZone: "America/Los_Angeles",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "yLJCR5TlHoI",
-      channelId: "UC029bcZGqxOsRkvWrZLhgKQ",
-      titleKey: "Pacifica Pier and Beach, Pacifica CA 4k Live",
     },
   },
   {
@@ -26699,21 +22289,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-live-stream-public-square-watertown-n",
-    name: { ja: "Live Stream — Public Square, Watertown NY", en: "Live Stream — Public Square, Watertown NY" },
-    lat: 43.2417,
-    lng: -75.2568,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "vaDjY-5Ymxc",
-      channelId: "UCr7fDhVsKZw-Gayfgdl0jfg",
-      titleKey: "Live Stream — Public Square, Watertown NY",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-aquarena-springs-drive-sessom-drive",
     name: { ja: "Aquarena Springs Drive @ Sessom Drive", en: "Aquarena Springs Drive @ Sessom Drive" },
     lat: 29.8902,
@@ -26755,36 +22330,6 @@ export const CAMS: Cam[] = [
       videoId: "d3QkaaLkUHg",
       channelId: "UCr7fDhVsKZw-Gayfgdl0jfg",
       titleKey: "Live Stream — Dry Hill Ski Area, Watertown NY",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-ih-35-wonder-world-drive",
-    name: { ja: "IH 35 @ Wonder World Drive", en: "IH 35 @ Wonder World Drive" },
-    lat: 37.6337,
-    lng: -82.6065,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "4Uwmss-8J5I",
-      channelId: "UCjasbMOPUeXxvKeqzTmq6SA",
-      titleKey: "IH 35 @ Wonder World Drive",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-village-of-tilton-5th-street",
-    name: { ja: "Village of Tilton 5th Street", en: "Village of Tilton 5th Street" },
-    lat: 37.949,
-    lng: -76.6041,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "czcqVgHG3y0",
-      channelId: "UCKrTMnwCN8B0DzFnBH3ViXw",
-      titleKey: "Village of Tilton 5th Street",
     },
   },
   {
@@ -27014,21 +22559,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-new-york-city-axis-q1808-le",
-    name: { ja: "New York City Axis Q1808-LE", en: "New York City Axis Q1808-LE" },
-    lat: 38.4278,
-    lng: -84.8105,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "YBC4Hjhhs8k",
-      channelId: "UCyUBOTTlMIQ4GaCHVsE1fyQ",
-      titleKey: "New York City Axis Q1808-LE",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-kc-zoo-polar-bear-cam",
     name: { ja: "KC Zoo Polar Bear Cam", en: "KC Zoo Polar Bear Cam" },
     lat: 38.0578,
@@ -27134,36 +22664,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-live-crane-point-museum-nature-center",
-    name: { ja: "[LIVE] Crane Point Museum & Nature Center Underwater", en: "[LIVE] Crane Point Museum & Nature Center Underwater" },
-    lat: 31.3974,
-    lng: -102.3501,
-    timeZone: "America/Chicago",
-    category: "animal",
-    country: "US",
-    source: {
-      videoId: "b1wN6Ea49oc",
-      channelId: "UC-KS6AGW3J43aFF-KOQ6VAw",
-      titleKey: "[LIVE] Crane Point Museum & Nature Center Underwater",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-live-crane-point-museum-nature-ce-2",
-    name: { ja: "[LIVE] Crane Point Museum & Nature Center", en: "[LIVE] Crane Point Museum & Nature Center" },
-    lat: 31.3974,
-    lng: -102.3501,
-    timeZone: "America/Chicago",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "PhJxYJ9c0-s",
-      channelId: "UC-KS6AGW3J43aFF-KOQ6VAw",
-      titleKey: "[LIVE] Crane Point Museum & Nature Center",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-live-tarpon-feeding-dock-at-robbie-s",
     name: { ja: "[LIVE] Tarpon Feeding Dock at Robbie's Marina in Islamorada", en: "[LIVE] Tarpon Feeding Dock at Robbie's Marina in Islamorada" },
     lat: 24.9243,
@@ -27250,51 +22750,6 @@ export const CAMS: Cam[] = [
       videoId: "p4C2WL9Nq9o",
       channelId: "UCPSSgJVH-ppHUfmdHXm55rQ",
       titleKey: "Blind Donkey - LIVE Webcam in downtown Cruz Bay, St. John, USVI",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "vn-live-cat-tien-biodiversity-monitor-24",
-    name: { ja: "[LIVE] Cat Tien Biodiversity Monitor: 24/7 Into the jungle life from Vietnam #live", en: "[LIVE] Cat Tien Biodiversity Monitor: 24/7 Into the jungle life from Vietnam #live" },
-    lat: 20.7278,
-    lng: 107.0482,
-    timeZone: "Asia/Ho_Chi_Minh",
-    category: "animal",
-    country: "VN",
-    source: {
-      videoId: "rxfhYLouk3I",
-      channelId: "UCpxPjvQmfbywPG8l8k0ThLA",
-      titleKey: "🔴 [LIVE] Cat Tien Biodiversity Monitor: 24/7 Into the jungle life from Vietnam #live",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "vn-truong-ly-tu-trong-huong-ks-song-han",
-    name: { ja: "TRƯỜNG LÝ TỰ TRỌNG - HƯỚNG KS SÔNG HÀN - 12 Lý Tự Trọng", en: "TRƯỜNG LÝ TỰ TRỌNG - HƯỚNG KS SÔNG HÀN - 12 Lý Tự Trọng" },
-    lat: 9.8958,
-    lng: 106.3914,
-    timeZone: "Asia/Ho_Chi_Minh",
-    category: "city",
-    country: "VN",
-    source: {
-      videoId: "NeJGBQAY-bE",
-      channelId: "UCr5Z4Oi3UFwkM6sLPFDC6QA",
-      titleKey: "TRƯỜNG LÝ TỰ TRỌNG - HƯỚNG KS SÔNG HÀN  - 12 Lý Tự Trọng",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "vn-truong-tieu-hoc-ly-tu-trong-ptz",
-    name: { ja: "Trường Tiểu Học Lý Tự Trọng - PTZ", en: "Trường Tiểu Học Lý Tự Trọng - PTZ" },
-    lat: 9.8958,
-    lng: 106.3914,
-    timeZone: "Asia/Ho_Chi_Minh",
-    category: "city",
-    country: "VN",
-    source: {
-      videoId: "1EamsYw_Xyo",
-      channelId: "UCr5Z4Oi3UFwkM6sLPFDC6QA",
-      titleKey: "Trường Tiểu Học Lý Tự Trọng - PTZ",
     },
   },
   {
@@ -27389,51 +22844,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "ar-camaras-ushuaia",
-    name: { ja: "Cámaras Ushuaia", en: "Cámaras Ushuaia" },
-    lat: -54.8108,
-    lng: -68.3159,
-    timeZone: "America/Argentina/Ushuaia",
-    category: "city",
-    country: "AR",
-    source: {
-      videoId: "M21hM0Epa6M",
-      channelId: "UC6NTD1HmdaZMbe9K5qADOvw",
-      titleKey: "Cámaras Ushuaia",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ar-camaras-tolhuin",
-    name: { ja: "Cámaras Tolhuin", en: "Cámaras Tolhuin" },
-    lat: -54.5108,
-    lng: -67.1955,
-    timeZone: "America/Argentina/Ushuaia",
-    category: "nature",
-    country: "AR",
-    source: {
-      videoId: "9nAmQgXzC2Y",
-      channelId: "UC6NTD1HmdaZMbe9K5qADOvw",
-      titleKey: "Cámaras Tolhuin",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ar-camaras-rio-grande",
-    name: { ja: "Cámaras Rio Grande", en: "Cámaras Rio Grande" },
-    lat: -33.1304,
-    lng: -64.3527,
-    timeZone: "America/Argentina/Cordoba",
-    category: "city",
-    country: "AR",
-    source: {
-      videoId: "gRDLM93KZUE",
-      channelId: "UC6NTD1HmdaZMbe9K5qADOvw",
-      titleKey: "Cámaras Rio Grande",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "au-webcamsydney-1-live-stream-of-harbour",
     name: { ja: "WebcamSydney 1 Live Stream of Harbour 24/7 (~4K)", en: "WebcamSydney 1 Live Stream of Harbour 24/7 (~4K)" },
     lat: -12.197,
@@ -27475,21 +22885,6 @@ export const CAMS: Cam[] = [
       videoId: "7rjVc6lYMVM",
       channelId: "UCWgNxEKv9P7WI97UQS3bUFA",
       titleKey: "🔴 Emirates NBA380 LIVE 🏀 @ Brisbane Airport w/ James & Matty + ATC ✈️",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ae-4k-dubai-travel-in-4k-burj-khalifa-lu",
-    name: { ja: "[4K] Dubai 🇦🇪 Travel in 4K | Burj Khalifa, Luxury Skyline & Desert Landscapes", en: "[4K] Dubai 🇦🇪 Travel in 4K | Burj Khalifa, Luxury Skyline & Desert Landscapes" },
-    lat: 25.0772,
-    lng: 55.3093,
-    timeZone: "Asia/Dubai",
-    category: "city",
-    country: "AE",
-    source: {
-      videoId: "WZsL0Gx3-Go",
-      channelId: "UCC9X-TdL9pCK4EcC6LOnWdA",
-      titleKey: "[4K] Dubai 🇦🇪 Travel in 4K | Burj Khalifa, Luxury Skyline & Desert Landscapes",
     },
   },
   {
@@ -27550,21 +22945,6 @@ export const CAMS: Cam[] = [
       videoId: "I5Htf131Ejs",
       channelId: "UC993GYjzZWxaslLY_WcDp4A",
       titleKey: "AO VIVO | Taquaritinga do Norte - PE | Clima Agora | Câmera 24h",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "br-live-ao-vivo-porto-alegre-poa-guaiba",
-    name: { ja: "[LIVE] AO VIVO Porto Alegre POA / GUAÍBA - Lago Guaíba, Cidade e Movimentação Portuária MOVE NO CHAT", en: "[LIVE] AO VIVO Porto Alegre POA / GUAÍBA - Lago Guaíba, Cidade e Movimentação Portuária MOVE NO CHAT" },
-    lat: -0.0382,
-    lng: -51.1748,
-    timeZone: "America/Belem",
-    category: "harbor",
-    country: "BR",
-    source: {
-      videoId: "yCeQueusZxs",
-      channelId: "UCqI8nU3-dstxAS3YCXhKuPg",
-      titleKey: "[LIVE] AO VIVO Porto Alegre POA / GUAÍBA - Lago Guaíba, Cidade e Movimentação Portuária MOVE NO CHAT",
     },
   },
   {
@@ -27734,36 +23114,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "br-ao-vivo-campo-grande-sbcg-tapio-2026",
-    name: { ja: "️ AO VIVO | Campo Grande (SBCG) | TAPIO 2026 ️ | Fonia ATC e Movimentação Aérea", en: "️ AO VIVO | Campo Grande (SBCG) | TAPIO 2026 ️ | Fonia ATC e Movimentação Aérea" },
-    lat: -5,
-    lng: -43.4667,
-    timeZone: "America/Fortaleza",
-    category: "airport",
-    country: "BR",
-    source: {
-      videoId: "FwbmvZ6vzrQ",
-      channelId: "UC1roNXMETQmZZKrsF2IZCjQ",
-      titleKey: "🎙️ AO VIVO | Campo Grande (SBCG) | TAPIO 2026 ✈️ | Fonia ATC e Movimentação Aérea",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "br-ao-vivo-da-praia-de-xangri-la-litoral",
-    name: { ja: "AO VIVO da Praia de Xangri-Lá - Litoral do Rio Grande do Sul - Clima, Ondas, Mar Sul LIVE CAM VERÃO", en: "AO VIVO da Praia de Xangri-Lá - Litoral do Rio Grande do Sul - Clima, Ondas, Mar Sul LIVE CAM VERÃO" },
-    lat: -6.7167,
-    lng: -43.1167,
-    timeZone: "America/Fortaleza",
-    category: "nature",
-    country: "BR",
-    source: {
-      videoId: "D5VLbXaqZfg",
-      channelId: "UCqI8nU3-dstxAS3YCXhKuPg",
-      titleKey: "AO VIVO da Praia de Xangri-Lá - Litoral do Rio Grande do Sul - Clima, Ondas, Mar Sul LIVE CAM VERÃO",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "br-tempestade-ao-vivo-em-gramado-vendava",
     name: { ja: "TEMPESTADE AO VIVO EM GRAMADO Vendaval e Chuva Forte no Centro | Câmera 24h AO VIVO", en: "TEMPESTADE AO VIVO EM GRAMADO Vendaval e Chuva Forte no Centro | Câmera 24h AO VIVO" },
     lat: -29.3786,
@@ -27775,21 +23125,6 @@ export const CAMS: Cam[] = [
       videoId: "cp-r_KxZmqA",
       channelId: "UCtXSCymLtFFpqg6TZdbh2Og",
       titleKey: "TEMPESTADE AO VIVO EM GRAMADO 🔴 Vendaval e Chuva Forte no Centro | Câmera 24h AO VIVO",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "br-camera-ao-vivo-maracana-caicara-praia",
-    name: { ja: "CÂMERA AO VIVO MARACANÃ CAIÇARA PRAIA GRANDE", en: "CÂMERA AO VIVO MARACANÃ CAIÇARA PRAIA GRANDE" },
-    lat: -0.7707,
-    lng: -47.4518,
-    timeZone: "America/Belem",
-    category: "nature",
-    country: "BR",
-    source: {
-      videoId: "FL_YG6UBLdQ",
-      channelId: "UC4roE4SbVIvcQGCYXlnijGQ",
-      titleKey: "CÂMERA AO VIVO MARACANÃ CAIÇARA PRAIA GRANDE",
     },
   },
   {
@@ -27809,21 +23144,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "br-ao-vivo-reconstrucao-da-ponte-baixa-p",
-    name: { ja: "Ao Vivo: Reconstrução da Ponte Baixa – Picada Cará x Arroio Feliz", en: "Ao Vivo: Reconstrução da Ponte Baixa – Picada Cará x Arroio Feliz" },
-    lat: -5.2167,
-    lng: -42.9833,
-    timeZone: "America/Fortaleza",
-    category: "city",
-    country: "BR",
-    source: {
-      videoId: "P3OWz_BML4M",
-      channelId: "UCoov9q6nfvzBHEESR4Amt5g",
-      titleKey: "Ao Vivo: Reconstrução da Ponte Baixa – Picada Cará x Arroio Feliz",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "ca-live-now-24-7-santa-maria-santiaguito",
     name: { ja: "Live Now: 24/7 Santa Maria (Santiaguito) Volcano in 4K Ultra HD (Cam C)", en: "Live Now: 24/7 Santa Maria (Santiaguito) Volcano in 4K Ultra HD (Cam C)" },
     lat: 49.61,
@@ -27835,21 +23155,6 @@ export const CAMS: Cam[] = [
       videoId: "y5JltVvFWyo",
       channelId: "UCaG0IHN1RMOZ4-U3wDXAkwA",
       titleKey: "🔴 Live Now: 24/7 Santa Maria (Santiaguito) Volcano in 4K Ultra HD (Cam C)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "br-ao-vivo-avenida-pedro-zapelini-tubara",
-    name: { ja: "AO VIVO | AVENIDA PEDRO ZAPELINI – TUBARÃO SC 🇧🇷 | IMAGENS AO VIVO 24H | SE-CONNECT INTERNET", en: "AO VIVO | AVENIDA PEDRO ZAPELINI – TUBARÃO SC 🇧🇷 | IMAGENS AO VIVO 24H | SE-CONNECT INTERNET" },
-    lat: -13.75,
-    lng: -39.5333,
-    timeZone: "America/Bahia",
-    category: "city",
-    country: "BR",
-    source: {
-      videoId: "mZlT_81Gs7c",
-      channelId: "UCyP308hB27ZZsRbvnDLpWbw",
-      titleKey: "AO VIVO | AVENIDA PEDRO ZAPELINI – TUBARÃO SC 🇧🇷 | IMAGENS AO VIVO 24H | SE-CONNECT INTERNET",
     },
   },
   {
@@ -28019,36 +23324,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "ch-surveillancemap-live-matterhorn-zerma",
-    name: { ja: "SurveillanceMap LIVE · Matterhorn · Zermatt, Schweiz", en: "SurveillanceMap LIVE · Matterhorn · Zermatt, Schweiz" },
-    lat: 45.9764,
-    lng: 7.6586,
-    timeZone: "Europe/Zurich",
-    category: "nature",
-    country: "CH",
-    source: {
-      videoId: "JcHYcrO4PRE",
-      channelId: "UCCm-nbbUP0Tx3JzEzeEVFTA",
-      titleKey: "SurveillanceMap LIVE · Matterhorn · Zermatt, Schweiz",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "cl-ledrium-tobalaba-mut-av-providencia-s",
-    name: { ja: "Ledrium - Tobalaba, MUT, Av. Providencia, Santiago, Chile, Live cam, en vivo, en directo", en: "Ledrium - Tobalaba, MUT, Av. Providencia, Santiago, Chile, Live cam, en vivo, en directo" },
-    lat: -33.456,
-    lng: -70.5467,
-    timeZone: "America/Santiago",
-    category: "city",
-    country: "CL",
-    source: {
-      videoId: "g_yDUL2GjSI",
-      channelId: "UCDMqTaUZsY3ElB4xWpO8tFA",
-      titleKey: "Ledrium - Tobalaba, MUT, Av. Providencia, Santiago, Chile, Live cam, en vivo, en directo",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "cl-ledrium-costanera-center-sanhattan-sa",
     name: { ja: "Ledrium - Costanera Center, Sanhattan, Santiago, Chile, live cam, en vivo, en directo", en: "Ledrium - Costanera Center, Sanhattan, Santiago, Chile, live cam, en vivo, en directo" },
     lat: -33.4569,
@@ -28090,21 +23365,6 @@ export const CAMS: Cam[] = [
       videoId: "BsZEOvS3qTM",
       channelId: "UCQI1rdPytw4jDAjwqXVSgfA",
       titleKey: "LIVE Giant Panda Cam - Gengda Valley | explore.org",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "cn-live-giant-panda-cam-wolong-grove-exp",
-    name: { ja: "LIVE Giant Panda Cam - Wolong Grove | explore.org", en: "LIVE Giant Panda Cam - Wolong Grove | explore.org" },
-    lat: 39.9344,
-    lng: 113.0072,
-    timeZone: "Asia/Shanghai",
-    category: "animal",
-    country: "CN",
-    source: {
-      videoId: "UKkc40WQm0c",
-      channelId: "UCQI1rdPytw4jDAjwqXVSgfA",
-      titleKey: "LIVE Giant Panda Cam - Wolong Grove | explore.org",
     },
   },
   {
@@ -28259,21 +23519,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "de-livecam-gedeonseck-boppard-filsen-und",
-    name: { ja: "Livecam Gedeonseck / Boppard, Filsen und Rheinschleife Bopparder Hamm / Mittelrheintal", en: "Livecam Gedeonseck / Boppard, Filsen und Rheinschleife Bopparder Hamm / Mittelrheintal" },
-    lat: 50.2308,
-    lng: 7.5899,
-    timeZone: "Europe/Berlin",
-    category: "nature",
-    country: "DE",
-    source: {
-      videoId: "zLlwPU3Xtrk",
-      channelId: "UCOl2i5KaGd2y_0CbSeS7TBA",
-      titleKey: "Livecam Gedeonseck / Boppard, Filsen und Rheinschleife Bopparder Hamm / Mittelrheintal",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "de-live-camera-vom-marktplatz-in-der-alt",
     name: { ja: "Live Camera vom Marktplatz in der Altstadt von Bad Wildungen", en: "Live Camera vom Marktplatz in der Altstadt von Bad Wildungen" },
     lat: 51.5708,
@@ -28300,36 +23545,6 @@ export const CAMS: Cam[] = [
       videoId: "CmJ99hSB4Eo",
       channelId: "UCMUMwkw7X1_uoovtf5bLk-Q",
       titleKey: "Evgl. Stadtkirche Ratingen-Mitte / mehr Webcams unter @RatingenCam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "de-live-abbruch-und-einhub-der-eisenbahn",
-    name: { ja: "LIVE: Abbruch und Einhub der Eisenbahnbrücke Heidenheim", en: "LIVE: Abbruch und Einhub der Eisenbahnbrücke Heidenheim" },
-    lat: 53.1971,
-    lng: 9.9757,
-    timeZone: "Europe/Berlin",
-    category: "city",
-    country: "DE",
-    source: {
-      videoId: "UG0hj4STDCI",
-      channelId: "UC0wYpb4n5L5ttcyNcfEtuxg",
-      titleKey: "LIVE: Abbruch und Einhub der Eisenbahnbrücke Heidenheim",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "de-live-ruckbau-haltestellendach-ehinger",
-    name: { ja: "LIVE: Rückbau Haltestellendach Ehinger Tor", en: "LIVE: Rückbau Haltestellendach Ehinger Tor" },
-    lat: 51.5602,
-    lng: 12.9962,
-    timeZone: "Europe/Berlin",
-    category: "city",
-    country: "DE",
-    source: {
-      videoId: "n4fZV5Gwws0",
-      channelId: "UCSMEcF6bDDGetAGJ3otaSrg",
-      titleKey: "LIVE: Rückbau Haltestellendach Ehinger Tor",
     },
   },
   {
@@ -28499,21 +23714,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "de-solebad-werne",
-    name: { ja: "Solebad Werne", en: "Solebad Werne" },
-    lat: 51.6645,
-    lng: 7.6342,
-    timeZone: "Europe/Berlin",
-    category: "city",
-    country: "DE",
-    source: {
-      videoId: "NK98sgeJiXE",
-      channelId: "UCIeAa1ORzuGMaaBNcuLgAvw",
-      titleKey: "Solebad Werne",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "de-live-hd-webcam-kirner-land-skywalk",
     name: { ja: "Live-HD-Webcam Kirner Land - Skywalk", en: "Live-HD-Webcam Kirner Land - Skywalk" },
     lat: 47.849,
@@ -28585,21 +23785,6 @@ export const CAMS: Cam[] = [
       videoId: "3bkb2hulfME",
       channelId: "UCWoSSpMoASiCNk35MlZ2WAw",
       titleKey: "Livestream von Kirchen Webcam Richtung Norden",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "de-spotlight-baltic-sea-24-7-live-webcam",
-    name: { ja: "Spotlight Baltic Sea – 24/7 Live Webcams: Beaches, Coast & Nature in HD", en: "Spotlight Baltic Sea – 24/7 Live Webcams: Beaches, Coast & Nature in HD" },
-    lat: 53.7667,
-    lng: 8.6667,
-    timeZone: "Europe/Berlin",
-    category: "nature",
-    country: "DE",
-    source: {
-      videoId: "BnLcCs_NYUM",
-      channelId: "UCzLB2h38nyHSIaALzwtPvfg",
-      titleKey: "🔴 Spotlight Baltic Sea – 24/7 Live Webcams: Beaches, Coast & Nature in HD",
     },
   },
   {
@@ -28739,21 +23924,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "es-webcam-naturaleza-en-vivo-en-la-l-2",
-    name: { ja: "WEBCAM: Naturaleza en vivo en la Laguna de Boada", en: "WEBCAM: Naturaleza en vivo en la Laguna de Boada" },
-    lat: 42.7992,
-    lng: -7.0706,
-    timeZone: "Europe/Madrid",
-    category: "animal",
-    country: "ES",
-    source: {
-      videoId: "3tvoOi1_uPk",
-      channelId: "UCkAzFEYQlJ7-Vg0XGZeuhEw",
-      titleKey: "🔴 WEBCAM: Naturaleza en vivo en la Laguna de Boada",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "es-obras-del-camp-nou",
     name: { ja: "Obras del Camp Nou", en: "Obras del Camp Nou" },
     lat: 40.7194,
@@ -28765,21 +23935,6 @@ export const CAMS: Cam[] = [
       videoId: "tGt2K0XdCFc",
       channelId: "UCwRaxCfHN9vfRb09C2L3LaQ",
       titleKey: "Obras del Camp Nou",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "es-aves-del-humedal-directo-camara-6-pal",
-    name: { ja: "Aves del Humedal DIRECTO (Cámara 6 | Palencia) LAGUNA de BOADA", en: "Aves del Humedal DIRECTO (Cámara 6 | Palencia) LAGUNA de BOADA" },
-    lat: 40.7194,
-    lng: 0.7084,
-    timeZone: "Europe/Madrid",
-    category: "animal",
-    country: "ES",
-    source: {
-      videoId: "ErmR39LAt14",
-      channelId: "UCaf5YzZisGGwejlZZZ2ls9A",
-      titleKey: "🦆 Aves del Humedal 🔴 DIRECTO (Cámara 6 | Palencia) LAGUNA de BOADA",
     },
   },
   {
@@ -28799,21 +23954,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "es-directo-parque-nacional-de-donana-mar",
-    name: { ja: "DIRECTO Parque Nacional de Doñana (marisma), Andalucía; España", en: "DIRECTO Parque Nacional de Doñana (marisma), Andalucía; España" },
-    lat: 40.5961,
-    lng: -3.9657,
-    timeZone: "Europe/Madrid",
-    category: "animal",
-    country: "ES",
-    source: {
-      videoId: "RHeNpnJBeHI",
-      channelId: "UC5qVpOmBF-4orw2cld8oDtg",
-      titleKey: "🔴 DIRECTO Parque Nacional de Doñana (marisma), Andalucía; España",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "es-webcam-en-directo-desde-jomezana-lena",
     name: { ja: "Webcam en directo desde Jomezana , Lena , Asturias. Parque Natural de las Ubiñas", en: "Webcam en directo desde Jomezana , Lena , Asturias. Parque Natural de las Ubiñas" },
     lat: 43.1609,
@@ -28825,21 +23965,6 @@ export const CAMS: Cam[] = [
       videoId: "JI-ZyE28JZc",
       channelId: "UCaoPxnZgNFn-P2uwIaTunEg",
       titleKey: "Webcam en directo desde Jomezana ,  Lena ,  Asturias. Parque Natural de las Ubiñas ",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "es-directo-laguna-dulce-campillos-camara",
-    name: { ja: "DIRECTO Laguna Dulce, CAMPILLOS (Cámara 24 | Málaga)", en: "DIRECTO Laguna Dulce, CAMPILLOS (Cámara 24 | Málaga)" },
-    lat: 37.0519,
-    lng: -4.8353,
-    timeZone: "Europe/Madrid",
-    category: "animal",
-    country: "ES",
-    source: {
-      videoId: "zY085rJhZsM",
-      channelId: "UCaf5YzZisGGwejlZZZ2ls9A",
-      titleKey: "🔴 DIRECTO Laguna Dulce, CAMPILLOS (Cámara 24 | Málaga)",
     },
   },
   {
@@ -28870,21 +23995,6 @@ export const CAMS: Cam[] = [
       videoId: "ZVgz2e-wMR4",
       channelId: "UC30mmDZa-tMpIS-cIXoErsA",
       titleKey: "Av.Castrelos - Palacios",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "es-nido-de-aguila-pescadora-p-n-archipie",
-    name: { ja: "NIDO DE ÁGUILA PESCADORA - P.N. Archipiélago de Cabrera - DIRECTO - LIVE Osprey Spain", en: "NIDO DE ÁGUILA PESCADORA - P.N. Archipiélago de Cabrera - DIRECTO - LIVE Osprey Spain" },
-    lat: 37.4063,
-    lng: -1.5829,
-    timeZone: "Europe/Madrid",
-    category: "animal",
-    country: "ES",
-    source: {
-      videoId: "y2ahRNojjGw",
-      channelId: "UCg6OElsAGYmkuSySkZpaNGw",
-      titleKey: "NIDO DE ÁGUILA PESCADORA - P.N. Archipiélago de Cabrera - 🔴 DIRECTO - LIVE Osprey Spain",
     },
   },
   {
@@ -29084,51 +24194,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "fi-super-snow-storm-city-walk-24-7-winte",
-    name: { ja: "SUPER Snow Storm City Walk 24/7 ️️ Winter in Finland February PRE-RECORDED SLOW TV CITY SOUND", en: "SUPER Snow Storm City Walk 24/7 ️️ Winter in Finland February PRE-RECORDED SLOW TV CITY SOUND" },
-    lat: 61.335,
-    lng: 23.0453,
-    timeZone: "Europe/Helsinki",
-    category: "city",
-    country: "FI",
-    source: {
-      videoId: "9h42Y9gHqnI",
-      channelId: "UCDCh_co9bI5yMjTsLeHYAVA",
-      titleKey: "🔴 SUPER Snow Storm City Walk 24/7 ❄️🌨️ Winter in Finland February  🔴 PRE-RECORDED SLOW TV CITY SOUND",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "fo-surveillancemap-live-vagur-south-west",
-    name: { ja: "SurveillanceMap LIVE · Vágur South West View · Faroe Islands, Arctic", en: "SurveillanceMap LIVE · Vágur South West View · Faroe Islands, Arctic" },
-    lat: 61.4732,
-    lng: -6.8118,
-    timeZone: "Atlantic/Faroe",
-    category: "nature",
-    country: "FO",
-    source: {
-      videoId: "otu_D2_TiLM",
-      channelId: "UCCm-nbbUP0Tx3JzEzeEVFTA",
-      titleKey: "SurveillanceMap LIVE · Vágur South West View · Faroe Islands, Arctic",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "fo-surveillancemap-live-vagur-south-east",
-    name: { ja: "SurveillanceMap LIVE · Vágur South East View · Faroe Islands, Arctic", en: "SurveillanceMap LIVE · Vágur South East View · Faroe Islands, Arctic" },
-    lat: 61.4732,
-    lng: -6.8118,
-    timeZone: "Atlantic/Faroe",
-    category: "nature",
-    country: "FO",
-    source: {
-      videoId: "EHaOI3U5M_s",
-      channelId: "UCCm-nbbUP0Tx3JzEzeEVFTA",
-      titleKey: "SurveillanceMap LIVE · Vágur South East View · Faroe Islands, Arctic",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "fi-live-webcams-finnish-ski-resorts-ruka",
     name: { ja: "Live Webcams Finnish Ski Resorts Ruka and Pyhä", en: "Live Webcams Finnish Ski Resorts Ruka and Pyhä" },
     lat: 59.9346,
@@ -29174,21 +24239,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "gb-24-08-26-stornoway-harbour-ferry-crui",
-    name: { ja: "24/08/26 - Stornoway Harbour (Ferry & Cruise Port) - Hebridean Live Cam", en: "24/08/26 - Stornoway Harbour (Ferry & Cruise Port) - Hebridean Live Cam" },
-    lat: 58.2092,
-    lng: -6.3865,
-    timeZone: "Europe/London",
-    category: "harbor",
-    country: "GB",
-    source: {
-      videoId: "jEkkDmG7NGo",
-      channelId: "UClBjO6wiSJVHKWIPMAH6Ciw",
-      titleKey: "24/08/26 - Stornoway Harbour (Ferry & Cruise Port) - Hebridean Live Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "gb-nvr-wansford-cam1-railcam-uk",
     name: { ja: "NVR- Wansford Cam1 Railcam UK", en: "NVR- Wansford Cam1 Railcam UK" },
     lat: 52.5785,
@@ -29215,36 +24265,6 @@ export const CAMS: Cam[] = [
       videoId: "QZY71EvKuPM",
       channelId: "UCE-KEyQdqRE9WA6MqUOrCZg",
       titleKey: "Destination Le Tréport Mers - Criel sur Mer",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "gb-wsr-crowcombe-stn-cam-1-west-somerset",
-    name: { ja: "WSR - Crowcombe Stn - Cam 1, West Somerset Railway, Somerset UK | Railcam LIVE", en: "WSR - Crowcombe Stn - Cam 1, West Somerset Railway, Somerset UK | Railcam LIVE" },
-    lat: 51.1243,
-    lng: -3.2337,
-    timeZone: "Europe/London",
-    category: "railway",
-    country: "GB",
-    source: {
-      videoId: "ptn6Fnc5u08",
-      channelId: "UCna41A0RgP21a0OZxpySyQg",
-      titleKey: "WSR - Crowcombe Stn - Cam 1, West Somerset Railway, Somerset UK | Railcam LIVE",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "gb-domar-cctv-4k-camera-live-stream-with",
-    name: { ja: "DOMAR CCTV 4K Camera Live Stream with Zxtech", en: "DOMAR CCTV 4K Camera Live Stream with Zxtech" },
-    lat: 51.8001,
-    lng: 0.6404,
-    timeZone: "Europe/London",
-    category: "city",
-    country: "GB",
-    source: {
-      videoId: "7Nwi6hcL2qM",
-      channelId: "UCSVUtsSw9XVrvh-pLu597Vg",
-      titleKey: "DOMAR CCTV 4K Camera Live Stream with Zxtech",
     },
   },
   {
@@ -29309,21 +24329,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "gb-wsr-crowcombe-cam2",
-    name: { ja: "WSR - Crowcombe cam2", en: "WSR - Crowcombe cam2" },
-    lat: 51.1243,
-    lng: -3.2337,
-    timeZone: "Europe/London",
-    category: "railway",
-    country: "GB",
-    source: {
-      videoId: "x-OipExeKQM",
-      channelId: "UCqlT7m_qedfjMTEvD56MANA",
-      titleKey: "WSR - Crowcombe cam2",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "gb-gilestone-osprey-cup-cam",
     name: { ja: "Gilestone Osprey Cup Cam", en: "Gilestone Osprey Cup Cam" },
     lat: 50.5689,
@@ -29335,21 +24340,6 @@ export const CAMS: Cam[] = [
       videoId: "y59VkvOsz6s",
       channelId: "UChLoUbs2vi62h1Q0INlDdPQ",
       titleKey: "Gilestone Osprey Cup Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "gb-ssen-alyth-substation-osprey-nest-cam",
-    name: { ja: "SSEN Alyth substation Osprey nest camera", en: "SSEN Alyth substation Osprey nest camera" },
-    lat: 56.6221,
-    lng: -3.23,
-    timeZone: "Europe/London",
-    category: "animal",
-    country: "GB",
-    source: {
-      videoId: "6IJOKv3flwc",
-      channelId: "UChLoUbs2vi62h1Q0INlDdPQ",
-      titleKey: "SSEN Alyth substation Osprey nest camera",
     },
   },
   {
@@ -29395,21 +24385,6 @@ export const CAMS: Cam[] = [
       videoId: "CDO4ObH-O5k",
       channelId: "UCna41A0RgP21a0OZxpySyQg",
       titleKey: "WSR - Blue Anchor Stn - Cam 2, West Somerset Railway, Somerset UK | Railcam LIVE",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "gb-dorset-live-hobby-nest-camera-2026-07",
-    name: { ja: "Dorset LIVE Hobby nest camera 2026-07-28", en: "Dorset LIVE Hobby nest camera 2026-07-28" },
-    lat: 53.2833,
-    lng: -3.05,
-    timeZone: "Europe/London",
-    category: "animal",
-    country: "GB",
-    source: {
-      videoId: "CUZpNsuflzQ",
-      channelId: "UChLoUbs2vi62h1Q0INlDdPQ",
-      titleKey: "Dorset LIVE Hobby nest camera 2026-07-28",
     },
   },
   {
@@ -29519,36 +24494,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "gb-wsr-bishops-lydeard-west-somerset-rai",
-    name: { ja: "WSR - Bishops Lydeard, West Somerset Railway, Somerset UK | Railcam LIVE", en: "WSR - Bishops Lydeard, West Somerset Railway, Somerset UK | Railcam LIVE" },
-    lat: 51.5775,
-    lng: -4.0481,
-    timeZone: "Europe/London",
-    category: "railway",
-    country: "GB",
-    source: {
-      videoId: "hEa16bHxHMM",
-      channelId: "UCna41A0RgP21a0OZxpySyQg",
-      titleKey: "WSR - Bishops Lydeard, West Somerset Railway, Somerset UK | Railcam LIVE",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "gb-otc-watersports-portland-harbour-uk-l",
-    name: { ja: "OTC Watersports Portland Harbour (UK) Live Webcam", en: "OTC Watersports Portland Harbour (UK) Live Webcam" },
-    lat: 50.5675,
-    lng: -2.4447,
-    timeZone: "Europe/London",
-    category: "harbor",
-    country: "GB",
-    source: {
-      videoId: "YIo_pnH0LzY",
-      channelId: "UCRPMo1b8Ki_5yx4SNfSi5tQ",
-      titleKey: "OTC Watersports Portland Harbour (UK) Live Webcam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "gb-railcam-banbury-station-camera-showca",
     name: { ja: "Railcam Banbury - Station Camera showcase", en: "Railcam Banbury - Station Camera showcase" },
     lat: 52.0632,
@@ -29560,21 +24505,6 @@ export const CAMS: Cam[] = [
       videoId: "1FsH5EeOppg",
       channelId: "UC6YuojLzzdEMjbFiMHyecug",
       titleKey: "Railcam Banbury - Station Camera showcase",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "gb-ncd-new-car-park-webcam",
-    name: { ja: "NCD New Car Park Webcam", en: "NCD New Car Park Webcam" },
-    lat: 54.9733,
-    lng: -1.614,
-    timeZone: "Europe/London",
-    category: "city",
-    country: "GB",
-    source: {
-      videoId: "G3tppzAMmh4",
-      channelId: "UCFOJgbR_uF1qG47fXwAKMoA",
-      titleKey: "NCD New Car Park Webcam",
     },
   },
   {
@@ -29684,111 +24614,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "id-11-minutes-ago-the-heart-of-a-ukraini",
-    name: { ja: "11 minutes ago! The heart of a Ukrainian city was hit by a Russian airstrike – ARMA 3", en: "11 minutes ago! The heart of a Ukrainian city was hit by a Russian airstrike – ARMA 3" },
-    lat: -1.6148,
-    lng: 103.6274,
-    timeZone: "Asia/Jakarta",
-    category: "city",
-    country: "ID",
-    source: {
-      videoId: "XpwMfiT3OYM",
-      channelId: "UC09PFeM8T9R6F-ihGbmNzPA",
-      titleKey: "11 minutes ago! The heart of a Ukrainian city was hit by a Russian airstrike – ARMA 3",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "id-live-view-kamera-cctv-perempatan-jemb",
-    name: { ja: "Live View Kamera CCTV Perempatan Jembatan Irigasi Kidul Ban RT 19 Dsn Pranan Kulon, Kec Salaman.", en: "Live View Kamera CCTV Perempatan Jembatan Irigasi Kidul Ban RT 19 Dsn Pranan Kulon, Kec Salaman." },
-    lat: -3.095,
-    lng: 119.765,
-    timeZone: "Asia/Makassar",
-    category: "nature",
-    country: "ID",
-    source: {
-      videoId: "U4XrKZJq428",
-      channelId: "UCT3cJOXg_PEwEfeUY7SxGrg",
-      titleKey: "🔴Live View Kamera CCTV Perempatan Jembatan Irigasi Kidul Ban RT 19 Dsn Pranan Kulon, Kec Salaman.",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "id-live-view-kamera-cctv-pertigaan-barat",
-    name: { ja: "Live View Kamera CCTV Pertigaan Barat Ngebuh Dusun Pranan Kulon ( PTZ ).", en: "Live View Kamera CCTV Pertigaan Barat Ngebuh Dusun Pranan Kulon ( PTZ )." },
-    lat: -3.095,
-    lng: 119.765,
-    timeZone: "Asia/Makassar",
-    category: "city",
-    country: "ID",
-    source: {
-      videoId: "LhKIazR69xQ",
-      channelId: "UCT3cJOXg_PEwEfeUY7SxGrg",
-      titleKey: "🔴Live View Kamera CCTV Pertigaan Barat Ngebuh Dusun Pranan Kulon ( PTZ ).",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "id-live-view-kamera-cctv-perempatan-masj",
-    name: { ja: "Live View Kamera CCTV Perempatan Masjid AL Iman RT 18 Dsn Pranan Kulon, Kec Salaman.", en: "Live View Kamera CCTV Perempatan Masjid AL Iman RT 18 Dsn Pranan Kulon, Kec Salaman." },
-    lat: -3.095,
-    lng: 119.765,
-    timeZone: "Asia/Makassar",
-    category: "city",
-    country: "ID",
-    source: {
-      videoId: "UkKx7xXT2l4",
-      channelId: "UCT3cJOXg_PEwEfeUY7SxGrg",
-      titleKey: "🔴Live View Kamera CCTV Perempatan Masjid AL Iman RT 18 Dsn Pranan Kulon, Kec Salaman.",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "id-live-cctv-simpang-tugu-teratai-kabupa",
-    name: { ja: "[LIVE CCTV] SIMPANG TUGU TERATAI KABUPATEN KETAPANG", en: "[LIVE CCTV] SIMPANG TUGU TERATAI KABUPATEN KETAPANG" },
-    lat: -4.4487,
-    lng: 104.1922,
-    timeZone: "Asia/Jakarta",
-    category: "city",
-    country: "ID",
-    source: {
-      videoId: "AkzsS0CNk5A",
-      channelId: "UCbXfqLh-qvBKoF40sm43gHA",
-      titleKey: "🔴[LIVE CCTV] SIMPANG TUGU TERATAI KABUPATEN KETAPANG",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "id-live-cctv-simpang-samsat-kabupaten-ke",
-    name: { ja: "[LIVE CCTV] SIMPANG SAMSAT KABUPATEN KETAPANG", en: "[LIVE CCTV] SIMPANG SAMSAT KABUPATEN KETAPANG" },
-    lat: -4.4487,
-    lng: 104.1922,
-    timeZone: "Asia/Jakarta",
-    category: "city",
-    country: "ID",
-    source: {
-      videoId: "fIaykbCTcCE",
-      channelId: "UCbXfqLh-qvBKoF40sm43gHA",
-      titleKey: "🔴[LIVE CCTV] SIMPANG SAMSAT KABUPATEN KETAPANG",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "id-live-cctv-lalu-lintas-baranangsiang-b",
-    name: { ja: "LIVE CCTV LALU LINTAS BARANANGSIANG BOGOR | PANTAU SECARA REAL-TIME BY PADJAJARAN CCTV", en: "LIVE CCTV LALU LINTAS BARANANGSIANG BOGOR | PANTAU SECARA REAL-TIME BY PADJAJARAN CCTV" },
-    lat: -9.7452,
-    lng: 124.0853,
-    timeZone: "Asia/Makassar",
-    category: "city",
-    country: "ID",
-    source: {
-      videoId: "9GoI5vd8eGo",
-      channelId: "UC0fVOHCQqw3S8DWHE7OdCMA",
-      titleKey: "🔴 LIVE CCTV LALU LINTAS BARANANGSIANG BOGOR | PANTAU SECARA REAL-TIME BY PADJAJARAN CCTV",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "id-live-pemantauan-cctv-lalulintas-simpa",
     name: { ja: "LIVE PEMANTAUAN CCTV LALULINTAS SIMPANG EMPAT KARANGMOJO BARAT", en: "LIVE PEMANTAUAN CCTV LALULINTAS SIMPANG EMPAT KARANGMOJO BARAT" },
     lat: -4.4487,
@@ -29834,36 +24659,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "id-cctv-blabak",
-    name: { ja: "CCTV BLABAK", en: "CCTV BLABAK" },
-    lat: -7.5564,
-    lng: 110.2536,
-    timeZone: "Asia/Jakarta",
-    category: "city",
-    country: "ID",
-    source: {
-      videoId: "8zi8Y1lUmrQ",
-      channelId: "UCCYRwYO_XVeDgWfZCRvm8Bg",
-      titleKey: "CCTV BLABAK",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "id-cctv-blondo",
-    name: { ja: "CCTV BLONDO", en: "CCTV BLONDO" },
-    lat: -7.5425,
-    lng: 110.2378,
-    timeZone: "Asia/Jakarta",
-    category: "city",
-    country: "ID",
-    source: {
-      videoId: "Xz8-7IiJF7U",
-      channelId: "UCs0qha28uWUM3qQGw4V5-vg",
-      titleKey: "CCTV BLONDO",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "id-live-now-24-7-bromo-and-semeru-volcan",
     name: { ja: "Live Now: 24/7 Bromo and Semeru Volcano, Java, Indonesia in 4K Ultra HD", en: "Live Now: 24/7 Bromo and Semeru Volcano, Java, Indonesia in 4K Ultra HD" },
     lat: -7.5522,
@@ -29890,21 +24685,6 @@ export const CAMS: Cam[] = [
       videoId: "9I4D13KLrSU",
       channelId: "UCs0qha28uWUM3qQGw4V5-vg",
       titleKey: "CCTV PAKELAN",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "id-cctv-depan-pasar-bantul",
-    name: { ja: "CCTV Depan Pasar Bantul", en: "CCTV Depan Pasar Bantul" },
-    lat: -7.084,
-    lng: 113.297,
-    timeZone: "Asia/Jakarta",
-    category: "city",
-    country: "ID",
-    source: {
-      videoId: "w466KdN0Uy8",
-      channelId: "UCtlo6u2OierMgKSMrboSS8w",
-      titleKey: "CCTV Depan Pasar Bantul",
     },
   },
   {
@@ -29984,21 +24764,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "id-cctv-simpang-paseban-view-selatan-ban",
-    name: { ja: "CCTV Simpang Paseban View Selatan Bantul", en: "CCTV Simpang Paseban View Selatan Bantul" },
-    lat: -4.4487,
-    lng: 104.1922,
-    timeZone: "Asia/Jakarta",
-    category: "city",
-    country: "ID",
-    source: {
-      videoId: "yLVnvT3hWAk",
-      channelId: "UCtlo6u2OierMgKSMrboSS8w",
-      titleKey: "CCTV Simpang Paseban View Selatan Bantul",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "id-live-pemantauan-cctv-lalulintas-kalur",
     name: { ja: "LIVE PEMANTAUAN CCTV LALULINTAS KALURAHAN GETAS", en: "LIVE PEMANTAUAN CCTV LALULINTAS KALURAHAN GETAS" },
     lat: -6.3703,
@@ -30025,36 +24790,6 @@ export const CAMS: Cam[] = [
       videoId: "F1H38Zp81sQ",
       channelId: "UCtlo6u2OierMgKSMrboSS8w",
       titleKey: "CCTV Simpang Paseban View Utara Bantul",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "id-cctv-bundaran-srandakan-bantul",
-    name: { ja: "CCTV Bundaran Srandakan Bantul", en: "CCTV Bundaran Srandakan Bantul" },
-    lat: -6.8831,
-    lng: 107.5983,
-    timeZone: "Asia/Jakarta",
-    category: "city",
-    country: "ID",
-    source: {
-      videoId: "2M5pleBbOnk",
-      channelId: "UCtlo6u2OierMgKSMrboSS8w",
-      titleKey: "CCTV Bundaran Srandakan Bantul",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "id-live-cctv-jalur-puncak-agrowisata-gun",
-    name: { ja: "LIVE CCTV Jalur Puncak Agrowisata Gunung Mas | Arah Puncak Pass 24 Jam — by Cemerlang CCTV", en: "LIVE CCTV Jalur Puncak Agrowisata Gunung Mas | Arah Puncak Pass 24 Jam — by Cemerlang CCTV" },
-    lat: -7.4487,
-    lng: 107.126,
-    timeZone: "Asia/Jakarta",
-    category: "city",
-    country: "ID",
-    source: {
-      videoId: "IZsy24Kp1Is",
-      channelId: "UC0fVOHCQqw3S8DWHE7OdCMA",
-      titleKey: "LIVE CCTV Jalur Puncak Agrowisata Gunung Mas | Arah Puncak Pass 24 Jam — by Cemerlang CCTV",
     },
   },
   {
@@ -30134,36 +24869,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "id-insane-railway-crossing-traffic-train",
-    name: { ja: "Insane Railway Crossing Traffic | Trains & Cars Nonstop Day and Night", en: "Insane Railway Crossing Traffic | Trains & Cars Nonstop Day and Night" },
-    lat: -1.9833,
-    lng: 115.0667,
-    timeZone: "Asia/Pontianak",
-    category: "railway",
-    country: "ID",
-    source: {
-      videoId: "mXEL2hZuCZ0",
-      channelId: "UCGjv6xKu3mYnFNyh6WplKXA",
-      titleKey: "Insane Railway Crossing Traffic | Trains & Cars Nonstop Day and Night 🚆",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "id-live-cctv-gapura-desa-sidomulyo-kec-w",
-    name: { ja: "[LIVE CCTV] Gapura Desa Sidomulyo - Kec. Wonosalam - Kab. Demak | MTCnet", en: "[LIVE CCTV] Gapura Desa Sidomulyo - Kec. Wonosalam - Kab. Demak | MTCnet" },
-    lat: -6.9967,
-    lng: 113.9557,
-    timeZone: "Asia/Jakarta",
-    category: "city",
-    country: "ID",
-    source: {
-      videoId: "MaZG_yNimw8",
-      channelId: "UCfl2sq_X_dXvC5FUdc-sSKA",
-      titleKey: "🔴🔴 [LIVE CCTV] Gapura Desa Sidomulyo - Kec. Wonosalam - Kab. Demak | MTCnet",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "id-today-august-23-american-laser-weapon",
     name: { ja: "TODAY, August 23! American Laser Weapon Successfully Shoots Down 250 Russian Fighter Jets - ARMA 3", en: "TODAY, August 23! American Laser Weapon Successfully Shoots Down 250 Russian Fighter Jets - ARMA 3" },
     lat: -0.6481,
@@ -30194,36 +24899,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "id-live-cctv-jalur-puncak-agrowisata-2",
-    name: { ja: "LIVE CCTV Jalur Puncak Agrowisata Gunung Mas | Arah Gadog 24 Jam — by Cemerlang CCTV", en: "LIVE CCTV Jalur Puncak Agrowisata Gunung Mas | Arah Gadog 24 Jam — by Cemerlang CCTV" },
-    lat: -7.4487,
-    lng: 107.126,
-    timeZone: "Asia/Jakarta",
-    category: "city",
-    country: "ID",
-    source: {
-      videoId: "YSmclVZTkAs",
-      channelId: "UC0fVOHCQqw3S8DWHE7OdCMA",
-      titleKey: "LIVE CCTV Jalur Puncak Agrowisata Gunung Mas | Arah Gadog 24 Jam — by Cemerlang CCTV",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "id-cctv-kujon",
-    name: { ja: "CCTV KUJON", en: "CCTV KUJON" },
-    lat: -7.6878,
-    lng: 110.8575,
-    timeZone: "Asia/Jakarta",
-    category: "city",
-    country: "ID",
-    source: {
-      videoId: "_nwNaAz22J4",
-      channelId: "UCs0qha28uWUM3qQGw4V5-vg",
-      titleKey: "CCTV KUJON",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "id-live-pemantauan-cctv-s3-petoyan-2",
     name: { ja: "LIVE PEMANTAUAN CCTV S3 PETOYAN 2", en: "LIVE PEMANTAUAN CCTV S3 PETOYAN 2" },
     lat: -8.0039,
@@ -30235,36 +24910,6 @@ export const CAMS: Cam[] = [
       videoId: "V_5I8AlPuWA",
       channelId: "UCkEiJMkX7n3rZpZ2PDVc3Ow",
       titleKey: "LIVE PEMANTAUAN CCTV S3 PETOYAN 2",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "id-live-now-24-7-semeru-volcano-watch-mu",
-    name: { ja: "Live Now: 24/7 Semeru Volcano Watch (Multi-cams)", en: "Live Now: 24/7 Semeru Volcano Watch (Multi-cams)" },
-    lat: -7.9767,
-    lng: 112.6264,
-    timeZone: "Asia/Jakarta",
-    category: "nature",
-    country: "ID",
-    source: {
-      videoId: "EYYgrzyqgZM",
-      channelId: "UCaG0IHN1RMOZ4-U3wDXAkwA",
-      titleKey: "Live Now: 24/7 Semeru Volcano Watch (Multi-cams)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "id-cctv-sayangan",
-    name: { ja: "CCTV SAYANGAN", en: "CCTV SAYANGAN" },
-    lat: -7.5692,
-    lng: 110.7919,
-    timeZone: "Asia/Jakarta",
-    category: "city",
-    country: "ID",
-    source: {
-      videoId: "eBH6o7E417k",
-      channelId: "UCs0qha28uWUM3qQGw4V5-vg",
-      titleKey: "CCTV SAYANGAN",
     },
   },
   {
@@ -30359,21 +25004,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "id-2-minutes-ago-a-us-aircraft-carrier-c",
-    name: { ja: "2 minutes ago: A US aircraft carrier carrying 500 tanks was instantly destroyed.", en: "2 minutes ago: A US aircraft carrier carrying 500 tanks was instantly destroyed." },
-    lat: -8.4298,
-    lng: 120.5859,
-    timeZone: "Asia/Makassar",
-    category: "city",
-    country: "ID",
-    source: {
-      videoId: "EvhuOI0UkF8",
-      channelId: "UC8Sdm3FMPvxWtapBW7NXF6Q",
-      titleKey: "2 minutes ago: A US aircraft carrier carrying 500 tanks was instantly destroyed.",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "id-live-cctv-jalur-puncak-cisarua-real-t",
     name: { ja: "LIVE CCTV Jalur Puncak Cisarua Real Time 24 Jam | Depan Polsek Cisarua | Cemerlang CCTV", en: "LIVE CCTV Jalur Puncak Cisarua Real Time 24 Jam | Depan Polsek Cisarua | Cemerlang CCTV" },
     lat: -7.4487,
@@ -30385,36 +25015,6 @@ export const CAMS: Cam[] = [
       videoId: "AQd-p5hFtQo",
       channelId: "UC0fVOHCQqw3S8DWHE7OdCMA",
       titleKey: "🔴 LIVE CCTV Jalur Puncak Cisarua Real Time 24 Jam | Depan Polsek Cisarua | Cemerlang CCTV",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "id-live-cctv-simpang-gadog-pantauan-lalu",
-    name: { ja: "LIVE CCTV Simpang Gadog – Pantauan Lalu Lintas Real Time | by Cemerlang CCTV", en: "LIVE CCTV Simpang Gadog – Pantauan Lalu Lintas Real Time | by Cemerlang CCTV" },
-    lat: -4.4487,
-    lng: 104.1922,
-    timeZone: "Asia/Jakarta",
-    category: "city",
-    country: "ID",
-    source: {
-      videoId: "JJ3MWNYVCU4",
-      channelId: "UC0fVOHCQqw3S8DWHE7OdCMA",
-      titleKey: "🔴 LIVE CCTV Simpang Gadog – Pantauan Lalu Lintas Real Time | by Cemerlang CCTV",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "id-cctv-salaman",
-    name: { ja: "CCTV SALAMAN", en: "CCTV SALAMAN" },
-    lat: -7.5781,
-    lng: 110.1389,
-    timeZone: "Asia/Jakarta",
-    category: "city",
-    country: "ID",
-    source: {
-      videoId: "yEZ1YS6EhS4",
-      channelId: "UCs0qha28uWUM3qQGw4V5-vg",
-      titleKey: "CCTV SALAMAN",
     },
   },
   {
@@ -30689,21 +25289,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "id-live-cctv-simpang-borobudur-plaza-v-u",
-    name: { ja: "[LIVE CCTV] SIMPANG BOROBUDUR PLAZA V. UTARA", en: "[LIVE CCTV] SIMPANG BOROBUDUR PLAZA V. UTARA" },
-    lat: -4.4487,
-    lng: 104.1922,
-    timeZone: "Asia/Jakarta",
-    category: "city",
-    country: "ID",
-    source: {
-      videoId: "FCuHGm6VMHs",
-      channelId: "UCzCIqiWzwga5C0w3TLr5MWg",
-      titleKey: "🔴[LIVE CCTV] SIMPANG BOROBUDUR PLAZA V. UTARA",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "id-live-cctv-pertigaan-depan-kabupat-2",
     name: { ja: "[LIVE CCTV] PERTIGAAN DEPAN KABUPATEN DEMAK [1] by DISHUB KAB. DEMAK", en: "[LIVE CCTV] PERTIGAAN DEPAN KABUPATEN DEMAK [1] by DISHUB KAB. DEMAK" },
     lat: -6.4728,
@@ -30779,21 +25364,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "il-live-middle-east-real-time-cameras-fr",
-    name: { ja: "LIVE: Middle East real-time cameras from Iran, Israel, Qatar and more", en: "LIVE: Middle East real-time cameras from Iran, Israel, Qatar and more" },
-    lat: 31.4781,
-    lng: 34.632,
-    timeZone: "Asia/Jerusalem",
-    category: "city",
-    country: "IL",
-    source: {
-      videoId: "AkqGOcpDvZU",
-      channelId: "UCper-NWj8xdXacSpFtF4Mgg",
-      titleKey: "LIVE: Middle East real-time cameras from Iran, Israel, Qatar and more",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "ie-st-clare-s-church-carlow-back-camera",
     name: { ja: "St Clare's Church, Carlow Back Camera", en: "St Clare's Church, Carlow Back Camera" },
     lat: 51.7958,
@@ -30820,21 +25390,6 @@ export const CAMS: Cam[] = [
       videoId: "L-tPyWhPpzg",
       channelId: "UCrcpw88HvKJ0skdsHniCJtQ",
       titleKey: "News18 Marathi Live TV |🔴Maharashtra Politics | Manoj Jarange | Cabinet Meeting Update",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "is-surveillancemap-live-djupivogur-harbo",
-    name: { ja: "SurveillanceMap LIVE · Djúpivogur Harbour · Iceland, Arctic", en: "SurveillanceMap LIVE · Djúpivogur Harbour · Iceland, Arctic" },
-    lat: 64.6571,
-    lng: -14.2852,
-    timeZone: "Atlantic/Reykjavik",
-    category: "harbor",
-    country: "IS",
-    source: {
-      videoId: "eAm6iAB1pQQ",
-      channelId: "UCCm-nbbUP0Tx3JzEzeEVFTA",
-      titleKey: "SurveillanceMap LIVE · Djúpivogur Harbour · Iceland, Arctic",
     },
   },
   {
@@ -30914,36 +25469,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "it-morning-coffee-italian-music-scenic-c",
-    name: { ja: "Morning Coffee & Italian Music Scenic Coastal Italy & Chill Mediterranean Music", en: "Morning Coffee & Italian Music Scenic Coastal Italy & Chill Mediterranean Music" },
-    lat: 42.8333,
-    lng: 12.8333,
-    timeZone: "Europe/Rome",
-    category: "nature",
-    country: "IT",
-    source: {
-      videoId: "hOqrLWcs0iA",
-      channelId: "UCb_QGe9EWyCXBbKkY85nBfg",
-      titleKey: "Morning Coffee & Italian Music 🌊 Scenic Coastal Italy & Chill Mediterranean Music 🏡🌊",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "it-morning-coffee-in-italy-scenic-coasta",
-    name: { ja: "Morning Coffee in Italy Scenic Coastal Villa & Relaxing Mediterranean Music", en: "Morning Coffee in Italy Scenic Coastal Villa & Relaxing Mediterranean Music" },
-    lat: 42.8333,
-    lng: 12.8333,
-    timeZone: "Europe/Rome",
-    category: "nature",
-    country: "IT",
-    source: {
-      videoId: "DqTZSC0IonU",
-      channelId: "UCiS_g8_JJtYelVFeY8IU3CQ",
-      titleKey: "Morning Coffee in Italy ☕ Scenic Coastal Villa & Relaxing Mediterranean Music 🏡🌊",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "it-24-7-mediterranean-coastal-lounge-rel",
     name: { ja: "24/7 Mediterranean Coastal Lounge ️ Relaxing Italian Music & Ocean Waves for Peaceful Days.", en: "24/7 Mediterranean Coastal Lounge ️ Relaxing Italian Music & Ocean Waves for Peaceful Days." },
     lat: 42.8333,
@@ -31015,21 +25540,6 @@ export const CAMS: Cam[] = [
       videoId: "ey9f0276Kyk",
       channelId: "UCNlinmcGuYdoPgfR-aG8YSQ",
       titleKey: "Valdastico Nord",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "it-iis-leonardo-da-vinci-civitanova-marc",
-    name: { ja: "IIS Leonardo Da Vinci - Civitanova Marche", en: "IIS Leonardo Da Vinci - Civitanova Marche" },
-    lat: 45.5352,
-    lng: 12.1223,
-    timeZone: "Europe/Rome",
-    category: "nature",
-    country: "IT",
-    source: {
-      videoId: "hFzbr0a4uq0",
-      channelId: "UCNlinmcGuYdoPgfR-aG8YSQ",
-      titleKey: "IIS Leonardo Da Vinci - Civitanova Marche",
     },
   },
   {
@@ -31195,21 +25705,6 @@ export const CAMS: Cam[] = [
       videoId: "dAlUhs2VnwI",
       channelId: "UCMxoigKRmM-TokKnKcFZXCQ",
       titleKey: "神奈川県大和市西鶴間180°4Kリアルタイムライブカメラ2画面構成①厚木街道　泉の森交差点/Prefecture: 180° 4K real-time live camera two screens",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-live-24-tokyo-skytree-live",
-    name: { ja: "【 LIVE 】東京都 墨田区 スカイツリー 24時間 ライブ / Tokyo Skytree Live", en: "【 LIVE 】東京都 墨田区 スカイツリー 24時間 ライブ / Tokyo Skytree Live" },
-    lat: 35.7099,
-    lng: 139.8133,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "HNpKxfWv0pk",
-      channelId: "UCCp1rWY4KFh0t3fKILlPiUQ",
-      titleKey: "【 LIVE 】東京都 墨田区 スカイツリー 24時間 ライブ / Tokyo Skytree Live",
     },
   },
   {
@@ -31394,21 +25889,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-live-zuishinin-temple-kyoto-live-came",
-    name: { ja: "【LIVE】京都 随心院ライブ中継カメラ／Zuishinin Temple, Kyoto Live camera", en: "【LIVE】京都 随心院ライブ中継カメラ／Zuishinin Temple, Kyoto Live camera" },
-    lat: 35.0211,
-    lng: 135.7538,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "5Ica9fIP_Ng",
-      channelId: "UCyVf8FIJ-kFpzUadi7_tgZQ",
-      titleKey: "【LIVE】京都 随心院ライブ中継カメラ／Zuishinin Temple, Kyoto Live camera",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-live-heian-jingu-shrine-kyoto-live-ca",
     name: { ja: "【LIVE】京都 平安神宮ライブ中継カメラ／Heian Jingu Shrine, Kyoto Live camera", en: "【LIVE】京都 平安神宮ライブ中継カメラ／Heian Jingu Shrine, Kyoto Live camera" },
     lat: 35.1272,
@@ -31529,21 +26009,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-live-tokyo-japan-train-live-camera",
-    name: { ja: "[LIVE]鉄道ライブカメラ(東京 赤羽駅周辺) Tokyo Japan Train Live Camera", en: "[LIVE]鉄道ライブカメラ(東京 赤羽駅周辺) Tokyo Japan Train Live Camera" },
-    lat: 35.6895,
-    lng: 139.6917,
-    timeZone: "Asia/Tokyo",
-    category: "railway",
-    country: "JP",
-    source: {
-      videoId: "ACcyj4wp7lk",
-      channelId: "UCE5uxiZBrhwFPwzlSfmdWQA",
-      titleKey: "🚅[LIVE]鉄道ライブカメラ(東京 赤羽駅周辺) Tokyo Japan Train Live Camera",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-live-2026-08-17-05-00-osaka-japan-tra",
     name: { ja: "【LIVE】福島駅方面 大阪環状線・梅田貨物線ライブカメラ 2026/08/17 05:00～ Osaka, JAPAN | Train Camera", en: "【LIVE】福島駅方面 大阪環状線・梅田貨物線ライブカメラ 2026/08/17 05:00～ Osaka, JAPAN | Train Camera" },
     lat: 34.6938,
@@ -31649,21 +26114,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-live-mt-fuji-japan-sbs-news6",
-    name: { ja: "【LIVE】富士山・日本平ライブカメラ Mt.Fuji, JAPAN | SBS NEWS6", en: "【LIVE】富士山・日本平ライブカメラ Mt.Fuji, JAPAN | SBS NEWS6" },
-    lat: 35.6854,
-    lng: 139.7531,
-    timeZone: "Asia/Tokyo",
-    category: "nature",
-    country: "JP",
-    source: {
-      videoId: "e5fTf-gywY0",
-      channelId: "UCOLVB0iYK8ahQ0mFn-lF-8g",
-      titleKey: "【LIVE】富士山・日本平ライブカメラ Mt.Fuji, JAPAN | SBS NEWS6",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-24h-live-4k-tokyo-shinjuku-kabukicho",
     name: { ja: "【24Ｈ：LIVE】４K配信 東京 新宿 五丁目 交差点 ライブカメラ Tokyo Shinjuku Kabukicho Live Camera【テイケイ屋上カメラ】#靖国通り#明治通り#歌舞伎町", en: "【24Ｈ：LIVE】４K配信 東京 新宿 五丁目 交差点 ライブカメラ Tokyo Shinjuku Kabukicho Live Camera【テイケイ屋上カメラ】#靖国通り#明治通り#歌舞伎町" },
     lat: 35.6912,
@@ -31675,21 +26125,6 @@ export const CAMS: Cam[] = [
       videoId: "gTO_FJzv70k",
       channelId: "UCuv7xqb-jo3HEFMIVLTY_CA",
       titleKey: "【24Ｈ：LIVE】４K配信 東京 新宿 五丁目 交差点 ライブカメラ  Tokyo Shinjuku Kabukicho  Live Camera【テイケイ屋上カメラ】#靖国通り#明治通り#歌舞伎町",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-4k-sunset-live-cam-sea-of-japan-nishi",
-    name: { ja: "【４Kライブ】絶景日本海ゆうひライブカメラ新潟市西区 Sunset Live Cam – Sea of Japan Nishi-ku, Niigata", en: "【４Kライブ】絶景日本海ゆうひライブカメラ新潟市西区 Sunset Live Cam – Sea of Japan Nishi-ku, Niigata" },
-    lat: 33.5947,
-    lng: 130.3542,
-    timeZone: "Asia/Tokyo",
-    category: "nature",
-    country: "JP",
-    source: {
-      videoId: "WWkM7VPsWOQ",
-      channelId: "UC0tIwl3Ar4zRIuzsZi6QzYw",
-      titleKey: "【４Kライブ】絶景日本海ゆうひライブカメラ新潟市西区　Sunset Live Cam – Sea of Japan  Nishi-ku, Niigata",
     },
   },
   {
@@ -31724,21 +26159,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-kagoshima-airport-by-kyt-live",
-    name: { ja: "【ライブカメラ】鹿児島空港 Kagoshima Airport by KYT Live", en: "【ライブカメラ】鹿児島空港 Kagoshima Airport by KYT Live" },
-    lat: 31.5667,
-    lng: 130.55,
-    timeZone: "Asia/Tokyo",
-    category: "airport",
-    country: "JP",
-    source: {
-      videoId: "pJC3BThpdio",
-      channelId: "UCiyk6cY1ux2HCDycnMTksdg",
-      titleKey: "【ライブカメラ】鹿児島空港 Kagoshima Airport by KYT Live",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-live-2026-08-17-17-00-osaka-japan-tra",
     name: { ja: "【LIVE】大阪環状線・梅田貨物線ライブカメラ 2026/08/17 17:00～ Osaka, JAPAN | Train Camera", en: "【LIVE】大阪環状線・梅田貨物線ライブカメラ 2026/08/17 17:00～ Osaka, JAPAN | Train Camera" },
     lat: 34.6938,
@@ -31765,21 +26185,6 @@ export const CAMS: Cam[] = [
       videoId: "1cnReFAU04k",
       channelId: "UCK9eHUAiJeNA2i_1TcgZcfw",
       titleKey: "【LIVE】河口湖からの「富士山ライブカメラ」\"mount fuji live camera\" from Lake Kawaguchiko (Yamanashi Japan)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-live-osaka-nipponbashi-livecamera",
-    name: { ja: "【LIVE】大阪日本橋ライブカメラ osaka Nipponbashi Livecamera", en: "【LIVE】大阪日本橋ライブカメラ osaka Nipponbashi Livecamera" },
-    lat: 34.6938,
-    lng: 135.5011,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "Ttbg4hvcXec",
-      channelId: "UCjeJcwvOUi4XZpM4J9bm74A",
-      titleKey: "【LIVE】大阪日本橋ライブカメラ　osaka Nipponbashi Livecamera",
     },
   },
   {
@@ -31874,36 +26279,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-jr-nakajo-station-live-camera-live-fh",
-    name: { ja: "JR中条駅（胎内市）中条駅観光交流室 の情報ライブカメラ Nakajo Station Live Camera 羽越本線 Liveカメラ【FHDカメラ】鉄道ライブカメラ", en: "JR中条駅（胎内市）中条駅観光交流室 の情報ライブカメラ Nakajo Station Live Camera 羽越本線 Liveカメラ【FHDカメラ】鉄道ライブカメラ" },
-    lat: 38.0496,
-    lng: 139.3907,
-    timeZone: "Asia/Tokyo",
-    category: "railway",
-    country: "JP",
-    source: {
-      videoId: "-Sqr6ZAJWZE",
-      channelId: "UCAaw-OnuKB5FTpBkM0xUZ4Q",
-      titleKey: "JR中条駅（胎内市）中条駅観光交流室 の情報ライブカメラ Nakajo Station Live Camera　羽越本線　Liveカメラ【FHDカメラ】鉄道ライブカメラ",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-live-ir-expo2025-osaka-kansai-osaka-b",
-    name: { ja: "【LIVE】解体進む万博会場・大屋根リングにIR建設の様子も EXPO2025 Osaka,Kansai/ Osaka Bay / 夢洲 / 舞洲 / 大阪湾〈カンテレNEWS〉", en: "【LIVE】解体進む万博会場・大屋根リングにIR建設の様子も EXPO2025 Osaka,Kansai/ Osaka Bay / 夢洲 / 舞洲 / 大阪湾〈カンテレNEWS〉" },
-    lat: 34.6938,
-    lng: 135.5011,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "fufhSmDdbxA",
-      channelId: "UCQhaZjODkIjuv38d-i5TVRw",
-      titleKey: "【LIVE】解体進む万博会場・大屋根リングにIR建設の様子も EXPO2025 Osaka,Kansai/ Osaka Bay / 夢洲 / 舞洲 / 大阪湾〈カンテレNEWS〉",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-24-live-yubara-onsen-live-camera",
     name: { ja: "24時間LIVE｜湯原温泉 砂湯入口・湯原ダム️ Yubara Onsen Live Camera", en: "24時間LIVE｜湯原温泉 砂湯入口・湯原ダム️ Yubara Onsen Live Camera" },
     lat: 36.8604,
@@ -31934,21 +26309,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-beach-and-waves-2026",
-    name: { ja: "湘南茅ヶ崎 Beach and Waves （ 江ノ島 ）2026 ライブ", en: "湘南茅ヶ崎 Beach and Waves （ 江ノ島 ）2026 ライブ" },
-    lat: 39.35,
-    lng: 141.9167,
-    timeZone: "Asia/Tokyo",
-    category: "nature",
-    country: "JP",
-    source: {
-      videoId: "FMf4XEP2ZY4",
-      channelId: "UC_UHINSFCpBr68YW56HYQ2Q",
-      titleKey: "湘南茅ヶ崎　Beach and Waves　（　江ノ島　）2026　ライブ",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-live-live-camera-hiroshima-station-rc",
     name: { ja: "【LIVE】広島駅ライブカメラ 新幹線・在来線ホームの様子 Live Camera Hiroshima Station 【RCC NEWS DIG】", en: "【LIVE】広島駅ライブカメラ 新幹線・在来線ホームの様子 Live Camera Hiroshima Station 【RCC NEWS DIG】" },
     lat: 34.4,
@@ -31960,21 +26320,6 @@ export const CAMS: Cam[] = [
       videoId: "YnCXegVqpKA",
       channelId: "UCATnyu9lou_Lw43gvyoh8uA",
       titleKey: "【LIVE】広島駅ライブカメラ  新幹線・在来線ホームの様子  Live Camera Hiroshima Station 【RCC NEWS DIG】",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-mount-hakusan-live-camera-10-13-mro",
-    name: { ja: "ライブカメラ 白山室堂 - Mount Hakusan Live Camera -※10/13（火）に配信停止予定【MRO北陸放送】", en: "ライブカメラ 白山室堂 - Mount Hakusan Live Camera -※10/13（火）に配信停止予定【MRO北陸放送】" },
-    lat: 41.8046,
-    lng: 141.166,
-    timeZone: "Asia/Tokyo",
-    category: "nature",
-    country: "JP",
-    source: {
-      videoId: "Getnw5E1ue8",
-      channelId: "UCF5te9Y8oBT7oVJNyQkhWWQ",
-      titleKey: "ライブカメラ 白山室堂 - Mount Hakusan Live Camera -※10/13（火）に配信停止予定【MRO北陸放送】",
     },
   },
   {
@@ -32084,21 +26429,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-live-osaka-dotonbori",
-    name: { ja: "【LIVE】大阪・道頓堀ライブカメラ グリコ看板前の様子は？ Osaka Dotonbori #道頓堀 #ライブカメラ", en: "【LIVE】大阪・道頓堀ライブカメラ グリコ看板前の様子は？ Osaka Dotonbori #道頓堀 #ライブカメラ" },
-    lat: 34.6938,
-    lng: 135.5011,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "czJhGgFsp38",
-      channelId: "UCkKJhKO73xF1pK5h9R82ZGQ",
-      titleKey: "【LIVE】大阪・道頓堀ライブカメラ　グリコ看板前の様子は？ Osaka Dotonbori #道頓堀 #ライブカメラ",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-live-2026-08-02-17-00-osaka-japan-tra",
     name: { ja: "【LIVE】大阪環状線・梅田貨物線ライブカメラ 2026/08/02 17:00～ Osaka, JAPAN | Train Camera", en: "【LIVE】大阪環状線・梅田貨物線ライブカメラ 2026/08/02 17:00～ Osaka, JAPAN | Train Camera" },
     lat: 34.6938,
@@ -32144,21 +26474,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-the-sea-of-japan-live-camera",
-    name: { ja: "鳥取市伏野海岸ライブカメラ The Sea of Japan live camera.", en: "鳥取市伏野海岸ライブカメラ The Sea of Japan live camera." },
-    lat: 33.5947,
-    lng: 130.3542,
-    timeZone: "Asia/Tokyo",
-    category: "nature",
-    country: "JP",
-    source: {
-      videoId: "HoeuEIpyfNU",
-      channelId: "UCLkGTD9DRsG-Y27qE9uehaQ",
-      titleKey: "鳥取市伏野海岸ライブカメラ　The Sea of Japan live camera.",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-live-camera-of-grinpa-theme-park-at-t",
     name: { ja: "富士山二合目のテーマパーク「ぐりんぱ」（静岡県）ライブカメラ/ \"Live Camera of 'Grinpa' Theme Park at the 2nd Station of Mt. Fuji", en: "富士山二合目のテーマパーク「ぐりんぱ」（静岡県）ライブカメラ/ \"Live Camera of 'Grinpa' Theme Park at the 2nd Station of Mt. Fuji" },
     lat: 33.512,
@@ -32170,21 +26485,6 @@ export const CAMS: Cam[] = [
       videoId: "Joer2U0vki4",
       channelId: "UCwzJctz6m-0wG_evkheecZA",
       titleKey: "富士山二合目のテーマパーク「ぐりんぱ」（静岡県）ライブカメラ/ \"Live Camera of 'Grinpa' Theme Park at the 2nd Station of Mt. Fuji",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-live-camera-at-aomori-station",
-    name: { ja: "青森駅前ライブ配信 Live Camera at Aomori Station", en: "青森駅前ライブ配信 Live Camera at Aomori Station" },
-    lat: 40.8167,
-    lng: 140.7333,
-    timeZone: "Asia/Tokyo",
-    category: "railway",
-    country: "JP",
-    source: {
-      videoId: "qMs_uynkM54",
-      channelId: "UCE5ajTJVTrsmxZJ-V3y8CLA",
-      titleKey: "青森駅前ライブ配信　Live Camera at Aomori Station",
     },
   },
   {
@@ -32459,21 +26759,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-itm-sky-cam-osaka-airport-live-cam",
-    name: { ja: "🇯🇵 ITM SKY CAM (大阪・伊丹空港️航空ライブカメラ) OSAKA AIRPORT LIVE CAM", en: "🇯🇵 ITM SKY CAM (大阪・伊丹空港️航空ライブカメラ) OSAKA AIRPORT LIVE CAM" },
-    lat: 34.7843,
-    lng: 135.4013,
-    timeZone: "Asia/Tokyo",
-    category: "airport",
-    country: "JP",
-    source: {
-      videoId: "cRkzDz47vns",
-      channelId: "UCur21TajiRsI1Da1GLzv7Lg",
-      titleKey: "🇯🇵🛬 ITM SKY CAM🛫 (大阪・伊丹空港✈️航空ライブカメラ) OSAKA AIRPORT LIVE CAM🎥",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-live-2-nakashibetsu-airport-line-live",
     name: { ja: "【LIVE】中標津空港線（大通北2丁目交差点） / Nakashibetsu Airport Line Live Camera", en: "【LIVE】中標津空港線（大通北2丁目交差点） / Nakashibetsu Airport Line Live Camera" },
     lat: 43.5485,
@@ -32515,21 +26800,6 @@ export const CAMS: Cam[] = [
       videoId: "MrrfNG4c9po",
       channelId: "UC9OIZ77MhlVoi4IxLFXl-nQ",
       titleKey: "lost in tokyo",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-live-yubara-onsen-town-live-camera-ja",
-    name: { ja: "【LIVE】湯原温泉 ライブカメラ️ 温泉街の街並みと天気｜Yubara Onsen Town Live Camera, Japan", en: "【LIVE】湯原温泉 ライブカメラ️ 温泉街の街並みと天気｜Yubara Onsen Town Live Camera, Japan" },
-    lat: 32.8285,
-    lng: 130.5833,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "SbFUGSSujeM",
-      channelId: "UCpBSj4JvnkOP1TJ-eIxaFKw",
-      titleKey: "【LIVE】湯原温泉 ライブカメラ♨️ 温泉街の街並みと天気｜Yubara Onsen Town Live Camera, Japan",
     },
   },
   {
@@ -33029,21 +27299,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-live-live-camera-in-enoshima-island",
-    name: { ja: "【LIVE】江の島ライブカメラ(Live Camera in Enoshima Island)", en: "【LIVE】江の島ライブカメラ(Live Camera in Enoshima Island)" },
-    lat: 35.3012,
-    lng: 139.4812,
-    timeZone: "Asia/Tokyo",
-    category: "nature",
-    country: "JP",
-    source: {
-      videoId: "CZvqU0OqYro",
-      channelId: "UCSzlMnbA7Fl0qSIggqllwFg",
-      titleKey: "🔴【LIVE】江の島ライブカメラ(Live Camera in Enoshima Island)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-jr-stv-live-camera-sapporo-station-ho",
     name: { ja: "ライブカメラ ＪＲ札幌駅 (ＳＴＶ札幌テレビ放送) Live Camera Sapporo Station , Hokkaido", en: "ライブカメラ ＪＲ札幌駅 (ＳＴＶ札幌テレビ放送) Live Camera Sapporo Station , Hokkaido" },
     lat: 43.0667,
@@ -33524,21 +27779,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-stv-livecamera-hokkaido-japan",
-    name: { ja: "ライブカメラ 北海道(ＳＴＶ札幌テレビ放送)/LiveCamera Hokkaido Japan", en: "ライブカメラ 北海道(ＳＴＶ札幌テレビ放送)/LiveCamera Hokkaido Japan" },
-    lat: 43.432,
-    lng: 142.9347,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "c6Gqe6L_xZg",
-      channelId: "UCGrZAL2OKyKHj5flMIVU72A",
-      titleKey: "ライブカメラ 北海道(ＳＴＶ札幌テレビ放送)/LiveCamera Hokkaido Japan",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-4k-live-live-stream-of-shirahama-beac",
     name: { ja: "[4K Live] 和歌山県白浜町 ライブカメラ Live Stream of Shirahama beach", en: "[4K Live] 和歌山県白浜町 ライブカメラ Live Stream of Shirahama beach" },
     lat: 33.6833,
@@ -33644,21 +27884,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "kr-livecam-healing-nowon-seoul-korea-4k",
-    name: { ja: "[실시간 라이브] 서울 힐링 노원 우이천 돌다리 경치(LiveCam_Healing_Nowon_Seoul_Korea 4K LIVE CAM Uycheon Stone Bridge )", en: "[실시간 라이브] 서울 힐링 노원 우이천 돌다리 경치(LiveCam_Healing_Nowon_Seoul_Korea 4K LIVE CAM Uycheon Stone Bridge )" },
-    lat: 36.7145,
-    lng: 126.5159,
-    timeZone: "Asia/Seoul",
-    category: "nature",
-    country: "KR",
-    source: {
-      videoId: "m1bDiKrTrAc",
-      channelId: "UCLjq5Rv7vp0sD3M9mkW2elQ",
-      titleKey: "[실시간 라이브] 서울 힐링 노원 우이천 돌다리 경치(LiveCam_Healing_Nowon_Seoul_Korea 4K LIVE CAM Uycheon Stone Bridge )",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "kr-with",
     name: { ja: "일산호수공원 날씨 러닝 산책 실시간라이브 with 김포인천국제공항 운항정보", en: "일산호수공원 날씨 러닝 산책 실시간라이브 with 김포인천국제공항 운항정보" },
     lat: 37.6126,
@@ -33685,21 +27910,6 @@ export const CAMS: Cam[] = [
       videoId: "AaQJAbQQMX4",
       channelId: "UCSkaixM5p8mYuBIdy2J0ZHw",
       titleKey: "🔴 LIVE | Explore Hongdae 🇰🇷 | Complete Walking Tour • Every Street • Day & Night | Seoul Live TV",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "kr-4k-seoul-ddp-live-camera-citypop",
-    name: { ja: "[4K] 서울 동대문 라이브 SEOUL DDP LIVE CAMERA CITYPOP", en: "[4K] 서울 동대문 라이브 SEOUL DDP LIVE CAMERA CITYPOP" },
-    lat: 37.566,
-    lng: 126.9784,
-    timeZone: "Asia/Seoul",
-    category: "city",
-    country: "KR",
-    source: {
-      videoId: "jj5wczH-Jag",
-      channelId: "UCfz-xWTTTfV1FsNd7Sh-GeA",
-      titleKey: "[4K] 서울 동대문 라이브 SEOUL DDP LIVE CAMERA CITYPOP",
     },
   },
   {
@@ -33779,51 +27989,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "kr-4k-live-cam-hongdae-seoul-korea",
-    name: { ja: "[4K LIVE CAM] 홍대입구역 – Hongdae, Seoul, Korea | 首爾, 弘大 | ソウル, ホンデ", en: "[4K LIVE CAM] 홍대입구역 – Hongdae, Seoul, Korea | 首爾, 弘大 | ソウル, ホンデ" },
-    lat: 37.566,
-    lng: 126.9784,
-    timeZone: "Asia/Seoul",
-    category: "city",
-    country: "KR",
-    source: {
-      videoId: "DnqX7X6Pefg",
-      channelId: "UC3UpyHYs2n0i5Z1IPJGJfOQ",
-      titleKey: "[4K LIVE CAM] 홍대입구역 – Hongdae, Seoul, Korea | 首爾, 弘大 | ソウル, ホンデ",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "kr-cctv-1100-jeju-halla-mt-cctv",
-    name: { ja: "제주도 한라산 실시간 cctv 백록담 어승생악 1100도로 윗세오름 jeju halla mt cctv", en: "제주도 한라산 실시간 cctv 백록담 어승생악 1100도로 윗세오름 jeju halla mt cctv" },
-    lat: 33.5097,
-    lng: 126.5219,
-    timeZone: "Asia/Seoul",
-    category: "nature",
-    country: "KR",
-    source: {
-      videoId: "UTHiHLuHsA0",
-      channelId: "UC-cGXwzS7XwlVn6zaPa3CDw",
-      titleKey: "제주도 한라산 실시간 cctv 백록담 어승생악 1100도로 윗세오름 jeju halla mt cctv",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "kr-4k-live-korea-seoul-international-fir",
-    name: { ja: "[4K LIVE] 실시간 서울세계불꽃축제 여의도 한강 라이브│Korea Seoul International Fireworks Festival Live│韓国 ソウル ライブカメラ", en: "[4K LIVE] 실시간 서울세계불꽃축제 여의도 한강 라이브│Korea Seoul International Fireworks Festival Live│韓国 ソウル ライブカメラ" },
-    lat: 37.566,
-    lng: 126.9784,
-    timeZone: "Asia/Seoul",
-    category: "nature",
-    country: "KR",
-    source: {
-      videoId: "_1qU0DWP-Gk",
-      channelId: "UC4o434ablRAEnAD7GRtzjwQ",
-      titleKey: "[4K LIVE] 실시간 서울세계불꽃축제 여의도 한강 라이브│Korea Seoul International Fireworks Festival Live│韓国 ソウル ライブカメラ",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "kr-4k-seoul-live-cam-seoul-live-camera",
     name: { ja: "[4K] 서울라이브 서울한강라이브 여의도불꽃축제 서울세계불꽃축제 Seoul live cam Seoul live Camera ソウルライブカメラ 韓国ライブカメラ", en: "[4K] 서울라이브 서울한강라이브 여의도불꽃축제 서울세계불꽃축제 Seoul live cam Seoul live Camera ソウルライブカメラ 韓国ライブカメラ" },
     lat: 37.566,
@@ -33850,21 +28015,6 @@ export const CAMS: Cam[] = [
       videoId: "cCRm_ZwxH1w",
       channelId: "UCsy6UOjk8q7Ajq9yQ7iDAbA",
       titleKey: "서울실시간 경복궁 Live Cam I \"Gyeongbokgung\", Seoul, Korea I 광화문 궁 けいふくきゅう 景福宫 서울관광 首爾風景 한국",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "kr-live-4k-busan-live-cam-korea",
-    name: { ja: "[Live] 부산 라이브캠 4K 생중계 광안리 라이브 광안대교 실시간 방송 Busan Live Cam Korea", en: "[Live] 부산 라이브캠 4K 생중계 광안리 라이브 광안대교 실시간 방송 Busan Live Cam Korea" },
-    lat: 35.1017,
-    lng: 129.03,
-    timeZone: "Asia/Seoul",
-    category: "nature",
-    country: "KR",
-    source: {
-      videoId: "AzzpSKt9Bw4",
-      channelId: "UCzetiqmyTCv30R_GSCLY_9g",
-      titleKey: "[Live] 부산 라이브캠 4K 생중계🔴 광안리 라이브 광안대교 실시간 방송  Busan Live Cam Korea",
     },
   },
   {
@@ -34064,111 +28214,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "mx-trafico-en-vivo-blvd-b-quintana-plaza",
-    name: { ja: "Trafico en vivo Blvd. B. Quintana - Plaza Boulevares.", en: "Trafico en vivo Blvd. B. Quintana - Plaza Boulevares." },
-    lat: 32.2333,
-    lng: -116.2667,
-    timeZone: "America/Tijuana",
-    category: "city",
-    country: "MX",
-    source: {
-      videoId: "9t2w3iryJ1U",
-      channelId: "UCK0_YPxAYU5Y7YMM2YkiJFQ",
-      titleKey: "Trafico en vivo Blvd. B. Quintana - Plaza Boulevares.",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "mx-trafico-en-vivo-zona-de-obra-s-n",
-    name: { ja: "Trafico en vivo - Zona de obra S-N", en: "Trafico en vivo - Zona de obra S-N" },
-    lat: 32.2333,
-    lng: -116.2667,
-    timeZone: "America/Tijuana",
-    category: "city",
-    country: "MX",
-    source: {
-      videoId: "ICe_DXght4o",
-      channelId: "UCK0_YPxAYU5Y7YMM2YkiJFQ",
-      titleKey: "Trafico en vivo - Zona de obra S-N",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "mx-trafico-en-vivo-blvd-b-quintana-obsid",
-    name: { ja: "Trafico en vivo Blvd. B. Quintana - Obsidiana Norte - Sur", en: "Trafico en vivo Blvd. B. Quintana - Obsidiana Norte - Sur" },
-    lat: 32.2333,
-    lng: -116.2667,
-    timeZone: "America/Tijuana",
-    category: "city",
-    country: "MX",
-    source: {
-      videoId: "oSuwerF_QJY",
-      channelId: "UCK0_YPxAYU5Y7YMM2YkiJFQ",
-      titleKey: "Trafico en vivo Blvd. B. Quintana - Obsidiana Norte - Sur",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "mx-trafico-en-vivo-blvd-b-quintana-o-2",
-    name: { ja: "Trafico en vivo Blvd. B. Quintana - Obsidiana", en: "Trafico en vivo Blvd. B. Quintana - Obsidiana" },
-    lat: 32.2333,
-    lng: -116.2667,
-    timeZone: "America/Tijuana",
-    category: "city",
-    country: "MX",
-    source: {
-      videoId: "v9KIo-7RDMo",
-      channelId: "UCK0_YPxAYU5Y7YMM2YkiJFQ",
-      titleKey: "Trafico en vivo Blvd. B. Quintana - Obsidiana",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "mx-trafico-en-vivo-blvd-b-quintana-centr",
-    name: { ja: "Trafico en vivo Blvd. B. Quintana - Centro Sur", en: "Trafico en vivo Blvd. B. Quintana - Centro Sur" },
-    lat: 32.2333,
-    lng: -116.2667,
-    timeZone: "America/Tijuana",
-    category: "city",
-    country: "MX",
-    source: {
-      videoId: "kvt2WBA1pcQ",
-      channelId: "UCK0_YPxAYU5Y7YMM2YkiJFQ",
-      titleKey: "Trafico en vivo Blvd. B. Quintana - Centro Sur",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "mx-trafico-en-vivo-blvd-b-quintana-holid",
-    name: { ja: "Trafico en vivo Blvd. B. Quintana - Holiday Inn", en: "Trafico en vivo Blvd. B. Quintana - Holiday Inn" },
-    lat: 32.2333,
-    lng: -116.2667,
-    timeZone: "America/Tijuana",
-    category: "city",
-    country: "MX",
-    source: {
-      videoId: "2fNUsH6Ajqs",
-      channelId: "UCK0_YPxAYU5Y7YMM2YkiJFQ",
-      titleKey: "Trafico en vivo Blvd. B. Quintana - Holiday Inn",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "mx-trafico-en-vivo-blvd-b-quintana-cales",
-    name: { ja: "Tráfico en vivo Blvd. B. Quintana - Calesa N-S", en: "Tráfico en vivo Blvd. B. Quintana - Calesa N-S" },
-    lat: 32.2333,
-    lng: -116.2667,
-    timeZone: "America/Tijuana",
-    category: "city",
-    country: "MX",
-    source: {
-      videoId: "a7UV4LCyTs4",
-      channelId: "UCK0_YPxAYU5Y7YMM2YkiJFQ",
-      titleKey: "Tráfico en vivo Blvd. B. Quintana - Calesa N-S",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "mx-live-mio-beach-hilton-los-cabos-mexic",
     name: { ja: "LIVE Mio Beach | Hilton Los Cabos | Mexico Beach & Ocean View Live Cam", en: "LIVE Mio Beach | Hilton Los Cabos | Mexico Beach & Ocean View Live Cam" },
     lat: 25.791,
@@ -34180,21 +28225,6 @@ export const CAMS: Cam[] = [
       videoId: "4CK0CsimBHs",
       channelId: "UC5lNakfSdpqXCW214H5sBgQ",
       titleKey: "LIVE Mio Beach | Hilton Los Cabos | Mexico Beach & Ocean View Live Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "mx-trafico-en-vivo-blvd-b-quintana-c-2",
-    name: { ja: "Tráfico en vivo Blvd. B. Quintana - Calesa S-N", en: "Tráfico en vivo Blvd. B. Quintana - Calesa S-N" },
-    lat: 32.2333,
-    lng: -116.2667,
-    timeZone: "America/Tijuana",
-    category: "city",
-    country: "MX",
-    source: {
-      videoId: "nqoaNhb0t5U",
-      channelId: "UCK0_YPxAYU5Y7YMM2YkiJFQ",
-      titleKey: "Tráfico en vivo Blvd. B. Quintana - Calesa S-N",
     },
   },
   {
@@ -34225,21 +28255,6 @@ export const CAMS: Cam[] = [
       videoId: "0Pg3S6s76IE",
       channelId: "UCfulDPjKRU81YWWdtFpivEg",
       titleKey: "Transmisión en vivo Puente Internacional Paso del Norte (Norte)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "mx-trafico-blvd-b-quintana-holiday-inn-s",
-    name: { ja: "Tráfico Blvd. B. Quintana - Holiday Inn S-N", en: "Tráfico Blvd. B. Quintana - Holiday Inn S-N" },
-    lat: 20.8688,
-    lng: -88.6311,
-    timeZone: "America/Merida",
-    category: "city",
-    country: "MX",
-    source: {
-      videoId: "4z3KGP4HvII",
-      channelId: "UCK0_YPxAYU5Y7YMM2YkiJFQ",
-      titleKey: "Tráfico Blvd. B. Quintana - Holiday Inn S-N",
     },
   },
   {
@@ -34315,21 +28330,6 @@ export const CAMS: Cam[] = [
       videoId: "M09NaBVPjAI",
       channelId: "UCv0wG9OEynMBWnoH1url0ig",
       titleKey: "Live stream | Amazonehaven west",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "nl-24-7-dutch-train-cab-rides-on-europe",
-    name: { ja: "24/7: Dutch Train Cab Rides on Europe’s Busiest Rail Network", en: "24/7: Dutch Train Cab Rides on Europe’s Busiest Rail Network" },
-    lat: 51.9642,
-    lng: 4.8986,
-    timeZone: "Europe/Amsterdam",
-    category: "railway",
-    country: "NL",
-    source: {
-      videoId: "k5YxiCqDX4c",
-      channelId: "UClRe-E_UCWvHG6GVwM0PUnQ",
-      titleKey: "24/7: Dutch Train Cab Rides on Europe’s Busiest Rail Network",
     },
   },
   {
@@ -34499,21 +28499,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "no-solheisen-hemsedal-live",
-    name: { ja: "Solheisen Hemsedal LIVE", en: "Solheisen Hemsedal LIVE" },
-    lat: 60.8629,
-    lng: 8.5534,
-    timeZone: "Europe/Oslo",
-    category: "city",
-    country: "NO",
-    source: {
-      videoId: "wFJzXxHqKVU",
-      channelId: "UCgAmmVZsZ4vfDH-vtWawaOg",
-      titleKey: "Solheisen Hemsedal LIVE",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "nz-live-planespotting-at-christchurch-ai",
     name: { ja: "LIVE - Planespotting at Christchurch Airport - 14 Jul 2026 ️", en: "LIVE - Planespotting at Christchurch Airport - 14 Jul 2026 ️" },
     lat: -43.5333,
@@ -34559,21 +28544,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "ph-maria-s-cam-10-rosemary-street-agdao",
-    name: { ja: "Maria's Cam 10 ROSEMARY STREET., AGDAO DAVAO CITY PHILIPPINES #philippines #davaocity", en: "Maria's Cam 10 ROSEMARY STREET., AGDAO DAVAO CITY PHILIPPINES #philippines #davaocity" },
-    lat: 15.9167,
-    lng: 120.4564,
-    timeZone: "Asia/Manila",
-    category: "city",
-    country: "PH",
-    source: {
-      videoId: "HozfwlxzwnU",
-      channelId: "UCZ6ZuSqeKrjFP7w9lS0nx0Q",
-      titleKey: "Maria's Cam 10 ROSEMARY STREET., AGDAO DAVAO CITY PHILIPPINES  #philippines #davaocity",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "ph-maria-s-cam-1-store-agdao-public-mark",
     name: { ja: "Maria's Cam 1 STORE AGDAO PUBLIC MARKET DAVAO CITY PHILIPPINES #philippines #davaocity", en: "Maria's Cam 1 STORE AGDAO PUBLIC MARKET DAVAO CITY PHILIPPINES #philippines #davaocity" },
     lat: 15.9167,
@@ -34589,21 +28559,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "ph-timawa-iloilo-city",
-    name: { ja: "Timawa, Iloilo City", en: "Timawa, Iloilo City" },
-    lat: 10.6969,
-    lng: 122.5644,
-    timeZone: "Asia/Manila",
-    category: "city",
-    country: "PH",
-    source: {
-      videoId: "sVD5eAGTzsQ",
-      channelId: "UCRpdMFPU52xtpgYGVHWyIwQ",
-      titleKey: "Timawa, Iloilo City",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "ph-maria-s-cam-2-outside-store-agdao-pub",
     name: { ja: "Maria's Cam 2 OUTSIDE STORE AGDAO PUBLIC MARKET DAVAO CITY PHILIPPINES #philippines #davaocity", en: "Maria's Cam 2 OUTSIDE STORE AGDAO PUBLIC MARKET DAVAO CITY PHILIPPINES #philippines #davaocity" },
     lat: 15.9167,
@@ -34615,21 +28570,6 @@ export const CAMS: Cam[] = [
       videoId: "5HX_7sFSX98",
       channelId: "UCZ6ZuSqeKrjFP7w9lS0nx0Q",
       titleKey: "Maria's Cam 2 OUTSIDE  STORE AGDAO PUBLIC MARKET DAVAO CITY PHILIPPINES  #philippines #davaocity",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ph-maria-s-cam-10a-rosemary-street-agdao",
-    name: { ja: "Maria's Cam 10a Rosemary Street, Agdao Davao City, Philippines", en: "Maria's Cam 10a Rosemary Street, Agdao Davao City, Philippines" },
-    lat: 15.9167,
-    lng: 120.4564,
-    timeZone: "Asia/Manila",
-    category: "city",
-    country: "PH",
-    source: {
-      videoId: "GCoBhf_Hd-o",
-      channelId: "UCZ6ZuSqeKrjFP7w9lS0nx0Q",
-      titleKey: "Maria's Cam 10a Rosemary Street, Agdao Davao City, Philippines",
     },
   },
   {
@@ -34994,21 +28934,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "ru-bakunina-33-bakunina-33",
-    name: { ja: "Bakunina 33 - Ход строительства, клубный дом бизнес-класса BAKUNINA 33 от ГК ПСК", en: "Bakunina 33 - Ход строительства, клубный дом бизнес-класса BAKUNINA 33 от ГК ПСК" },
-    lat: 44.5102,
-    lng: 40.7142,
-    timeZone: "Europe/Moscow",
-    category: "city",
-    country: "RU",
-    source: {
-      videoId: "Y4OUI_T-rwI",
-      channelId: "UCJv3JPbi_Nx7arPNMQzn33A",
-      titleKey: "Bakunina 33 - Ход строительства, клубный дом бизнес-класса BAKUNINA 33 от ГК ПСК",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "ru",
     name: { ja: "«Акватория» — ход строительства", en: "«Акватория» — ход строительства" },
     lat: 44.5102,
@@ -35024,36 +28949,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "ru-respect",
-    name: { ja: "Жилой квартал RESPECT - ход строительства, ГК «ПСК»", en: "Жилой квартал RESPECT - ход строительства, ГК «ПСК»" },
-    lat: 44.5102,
-    lng: 40.7142,
-    timeZone: "Europe/Moscow",
-    category: "city",
-    country: "RU",
-    source: {
-      videoId: "kAMoUTefkpw",
-      channelId: "UCJv3JPbi_Nx7arPNMQzn33A",
-      titleKey: "Жилой квартал RESPECT - ход строительства, ГК «ПСК»",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ru-2",
-    name: { ja: "«Ассамблея» — ход строительства", en: "«Ассамблея» — ход строительства" },
-    lat: 44.5102,
-    lng: 40.7142,
-    timeZone: "Europe/Moscow",
-    category: "city",
-    country: "RU",
-    source: {
-      videoId: "ahCtXBkqI6M",
-      channelId: "UCJv3JPbi_Nx7arPNMQzn33A",
-      titleKey: "«Ассамблея» — ход строительства",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "ru-ladozhsky-avenir",
     name: { ja: "Ladozhsky Avenir - онлайн трансляция, ход строительства", en: "Ladozhsky Avenir - онлайн трансляция, ход строительства" },
     lat: 44.5102,
@@ -35065,36 +28960,6 @@ export const CAMS: Cam[] = [
       videoId: "LdOSKdlzW-c",
       channelId: "UCJv3JPbi_Nx7arPNMQzn33A",
       titleKey: "Ladozhsky Avenir - онлайн трансляция, ход строительства",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ru-friends",
-    name: { ja: "ЖК FRIENDS, ход строительства", en: "ЖК FRIENDS, ход строительства" },
-    lat: 44.5102,
-    lng: 40.7142,
-    timeZone: "Europe/Moscow",
-    category: "city",
-    country: "RU",
-    source: {
-      videoId: "4LNIhmRvAf4",
-      channelId: "UCJv3JPbi_Nx7arPNMQzn33A",
-      titleKey: "ЖК FRIENDS, ход строительства",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ru-3",
-    name: { ja: "ЖК «Северная корона» онлайн трансляция, ход строительства", en: "ЖК «Северная корона» онлайн трансляция, ход строительства" },
-    lat: 44.5102,
-    lng: 40.7142,
-    timeZone: "Europe/Moscow",
-    category: "city",
-    country: "RU",
-    source: {
-      videoId: "7yXtHrJvkiM",
-      channelId: "UCJv3JPbi_Nx7arPNMQzn33A",
-      titleKey: "ЖК «Северная корона» онлайн трансляция, ход строительства",
     },
   },
   {
@@ -35185,36 +29050,6 @@ export const CAMS: Cam[] = [
       videoId: "byKS0r0Skn0",
       channelId: "UCyn1RFit8ur8OHy-I26bPLw",
       titleKey: "LIVE CAMERA Griboedov Canal St. Petersburg Russia. Канал Грибоедова Санкт-Петербург",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ru-online-camera-vladivostok-center",
-    name: { ja: "Online Camera Vladivostok Center Веб-камера Владивосток Океанский пр-т", en: "Online Camera Vladivostok Center Веб-камера Владивосток Океанский пр-т" },
-    lat: 43.1056,
-    lng: 131.8735,
-    timeZone: "Asia/Vladivostok",
-    category: "city",
-    country: "RU",
-    source: {
-      videoId: "nBGguzu8aTc",
-      channelId: "UCuguVwsWh3-y-C29fO1krXg",
-      titleKey: "Online Camera Vladivostok Center Веб-камера Владивосток Океанский пр-т",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ru-amera-solikamsk-russia-with-ai-chatbo",
-    name: { ja: "Камера Соликамск (Боровск), Россия, Пермский край / Сamera Solikamsk, Russia with AI chatbot", en: "Камера Соликамск (Боровск), Россия, Пермский край / Сamera Solikamsk, Russia with AI chatbot" },
-    lat: 43.977,
-    lng: 47.3752,
-    timeZone: "Europe/Moscow",
-    category: "city",
-    country: "RU",
-    source: {
-      videoId: "9ZyKdBaRQrs",
-      channelId: "UCWFlnyosSViIAqUq-TytgJA",
-      titleKey: "Камера Соликамск (Боровск), Россия, Пермский край / Сamera Solikamsk, Russia with AI chatbot",
     },
   },
   {
@@ -35609,21 +29444,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "sk-live-kamera-martin-slovakia-panoramat",
-    name: { ja: "LIVE Kamera Martin, Slovakia | Panoramatický pohľad na centrum a Malú Fatru", en: "LIVE Kamera Martin, Slovakia | Panoramatický pohľad na centrum a Malú Fatru" },
-    lat: 49.0665,
-    lng: 18.924,
-    timeZone: "Europe/Bratislava",
-    category: "city",
-    country: "SK",
-    source: {
-      videoId: "fdHkWHdnJd0",
-      channelId: "UCh0-KcRIGH_scKlva69-9Lw",
-      titleKey: "LIVE Kamera Martin, Slovakia | Panoramatický pohľad na centrum a Malú Fatru",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "tw-kinmen-live-kinmen-liaoluo-port-4k-li",
     name: { ja: "【Kinmen Live】金門料羅港即時影像｜Kinmen Liaoluo Port 4K Live Camera", en: "【Kinmen Live】金門料羅港即時影像｜Kinmen Liaoluo Port 4K Live Camera" },
     lat: 24.4204,
@@ -35804,21 +29624,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "tw-4k-heping-island-park-live-camera",
-    name: { ja: "[4K] 和平島公園即時影像 Heping Island Park Live Camera", en: "[4K] 和平島公園即時影像 Heping Island Park Live Camera" },
-    lat: 24.1775,
-    lng: 120.8816,
-    timeZone: "Asia/Taipei",
-    category: "nature",
-    country: "TW",
-    source: {
-      videoId: "g-T8NbF9xlQ",
-      channelId: "UC0mfEc84Gk0bfYIzntXGTIQ",
-      titleKey: "[4K] 和平島公園即時影像 Heping Island Park Live Camera",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "tw-taipei-live-cam-4k-jiantanshan-weifen",
     name: { ja: "【Taipei Live Cam】劍潭山微風平台 - 4K即時影像 | Jiantanshan Weifeng Observatory | 剣潭山微風デッキ", en: "【Taipei Live Cam】劍潭山微風平台 - 4K即時影像 | Jiantanshan Weifeng Observatory | 剣潭山微風デッキ" },
     lat: 23.554,
@@ -35894,51 +29699,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "ua-vencedor-do-premio-nobel-disse-este-n",
-    name: { ja: "Vencedor do Prêmio Nobel disse: “Este não é o nosso universo” — James Webb descobriu algo horrível.", en: "Vencedor do Prêmio Nobel disse: “Este não é o nosso universo” — James Webb descobriu algo horrível." },
-    lat: 51.8669,
-    lng: 25.7657,
-    timeZone: "Europe/Kyiv",
-    category: "city",
-    country: "UA",
-    source: {
-      videoId: "ljePvTogU7Q",
-      channelId: "UCF5ymLftAU6qyE7TLAc58xg",
-      titleKey: "Vencedor do Prêmio Nobel disse: “Este não é o nosso universo” — James Webb descobriu algo horrível.",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ua-combat-cam-real-war-footage-from-pokr",
-    name: { ja: "Combat Cam: Real War Footage From Pokrovsk, Kurakhove, Bakhmut, Velyka Novosilka, Belgorod, Toretsk", en: "Combat Cam: Real War Footage From Pokrovsk, Kurakhove, Bakhmut, Velyka Novosilka, Belgorod, Toretsk" },
-    lat: 48.2869,
-    lng: 38.9375,
-    timeZone: "Europe/Kyiv",
-    category: "city",
-    country: "UA",
-    source: {
-      videoId: "5bp3k4X7dCo",
-      channelId: "UCX-xHRN9CnoXto5gcPskANA",
-      titleKey: "Combat Cam: Real War Footage From Pokrovsk, Kurakhove, Bakhmut, Velyka Novosilka, Belgorod, Toretsk",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ua-o-telescopio-espacial-james-webb-dete",
-    name: { ja: "O Telescópio Espacial James Webb detectou uma galáxia muito distante... e isso levanta questões ...", en: "O Telescópio Espacial James Webb detectou uma galáxia muito distante... e isso levanta questões ..." },
-    lat: 48.7501,
-    lng: 30.2194,
-    timeZone: "Europe/Kyiv",
-    category: "city",
-    country: "UA",
-    source: {
-      videoId: "OGU3I60zd6I",
-      channelId: "UCF5ymLftAU6qyE7TLAc58xg",
-      titleKey: "O Telescópio Espacial James Webb detectou uma galáxia muito distante... e isso levanta questões ...",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-pixcams-com-wildlife-cam-2-live-strea",
     name: { ja: "PixCams.com Wildlife Cam 2 Live Stream", en: "PixCams.com Wildlife Cam 2 Live Stream" },
     lat: 35.9709,
@@ -35950,21 +29710,6 @@ export const CAMS: Cam[] = [
       videoId: "XfNhPa26fP8",
       channelId: "UC5lMzpZvCLpwyvu348B8zYw",
       titleKey: "PixCams.com Wildlife Cam 2 Live Stream",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-live-ultimate-maui-webcam-tour-ka-ana",
-    name: { ja: "LIVE: Ultimate Maui Webcam Tour Ka'anapali, Wailea, Whale Watch & Haleakalā | NOW!", en: "LIVE: Ultimate Maui Webcam Tour Ka'anapali, Wailea, Whale Watch & Haleakalā | NOW!" },
-    lat: 20.7702,
-    lng: -156.2682,
-    timeZone: "Pacific/Honolulu",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "quk14OsTyAI",
-      channelId: "UCwR5HjnjTbN6EElaxi223Ug",
-      titleKey: "🔴 LIVE: Ultimate Maui Webcam Tour 🌺 Ka'anapali, Wailea, Whale Watch & Haleakalā | NOW!",
     },
   },
   {
@@ -36025,21 +29770,6 @@ export const CAMS: Cam[] = [
       videoId: "HeZbPbqO-6M",
       channelId: "UCVcXIDytvkhJibfTwqwwzNQ",
       titleKey: "CharlevoixCam® Live Stream Channel Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-live-now-ohio-backyard-wildlife-frenz",
-    name: { ja: "LIVE NOW: Ohio Backyard Wildlife Frenzy (Birds, Squirrels, Rabbits)", en: "LIVE NOW: Ohio Backyard Wildlife Frenzy (Birds, Squirrels, Rabbits)" },
-    lat: 41.5575,
-    lng: -89.4609,
-    timeZone: "America/Chicago",
-    category: "animal",
-    country: "US",
-    source: {
-      videoId: "ACT8r8r9b78",
-      channelId: "UCuL60_Ko4m9xCaa4QDNgJrw",
-      titleKey: "🔴 LIVE NOW: Ohio Backyard Wildlife Frenzy (Birds, Squirrels, Rabbits)",
     },
   },
   {
@@ -36209,21 +29939,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-giraffe-deck-cam-animal-adventure-par",
-    name: { ja: "Giraffe Deck Cam - Animal Adventure Park", en: "Giraffe Deck Cam - Animal Adventure Park" },
-    lat: 42.9504,
-    lng: -74.8802,
-    timeZone: "America/New_York",
-    category: "animal",
-    country: "US",
-    source: {
-      videoId: "sSBswg_K0SE",
-      channelId: "UClnQCgFa9lCBL-KXZMOoO9Q",
-      titleKey: "Giraffe Deck Cam - Animal Adventure Park",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-engineering-and-tech-building-constru",
     name: { ja: "Engineering and Tech Building construction site", en: "Engineering and Tech Building construction site" },
     lat: 34.5034,
@@ -36235,21 +29950,6 @@ export const CAMS: Cam[] = [
       videoId: "1h71_LLQ-RQ",
       channelId: "UCuCuGLqFA9JcoB5Wa0TeM9g",
       titleKey: "Engineering and Tech Building construction site",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-live-ultimate-kauai-webcam-tour-poipu",
-    name: { ja: "LIVE: Ultimate Kauai Webcam Tour Poipu Beach, Princeville, Hanalei & North Shore | NOW!", en: "LIVE: Ultimate Kauai Webcam Tour Poipu Beach, Princeville, Hanalei & North Shore | NOW!" },
-    lat: 22.0494,
-    lng: -159.531,
-    timeZone: "Pacific/Honolulu",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "kqX0J3QGKn0",
-      channelId: "UCwR5HjnjTbN6EElaxi223Ug",
-      titleKey: "🔴 LIVE: Ultimate Kauai Webcam Tour 🌺 Poipu Beach, Princeville, Hanalei & North Shore | NOW!",
     },
   },
   {
@@ -36389,21 +30089,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-lujiigarden-bird-feeder-cam",
-    name: { ja: "LujiiGarden Bird Feeder Cam", en: "LujiiGarden Bird Feeder Cam" },
-    lat: 30.4744,
-    lng: -91.1232,
-    timeZone: "America/Chicago",
-    category: "animal",
-    country: "US",
-    source: {
-      videoId: "i59UQijZ4-Y",
-      channelId: "UC5lMzpZvCLpwyvu348B8zYw",
-      titleKey: "LujiiGarden Bird Feeder Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-earthcam-live-new-orleans-street-view",
     name: { ja: "EarthCam Live: New Orleans Street View", en: "EarthCam Live: New Orleans Street View" },
     lat: 38.4278,
@@ -36475,21 +30160,6 @@ export const CAMS: Cam[] = [
       videoId: "wNxk-XC8Z5s",
       channelId: "UCkuFk0kYYrst1pewv5uCeQw",
       titleKey: "Lopstick - First Connecticut Lake LIVE",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-sharx-security-demo-live-cam-rotary-t",
-    name: { ja: "Sharx Security Demo Live Cam: rotary traffic circle Derry NH USA", en: "Sharx Security Demo Live Cam: rotary traffic circle Derry NH USA" },
-    lat: 31.5343,
-    lng: -91.8165,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "dRVmzj3K2pw",
-      channelId: "UCy7ycbTd1HFIFtM66u4A0lA",
-      titleKey: "Sharx Security Demo Live Cam: rotary traffic circle Derry NH USA",
     },
   },
   {
@@ -36644,21 +30314,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-southernmost-beach-resorts-pineapple",
-    name: { ja: "Southernmost Beach Resorts: Pineapple Pool", en: "Southernmost Beach Resorts: Pineapple Pool" },
-    lat: 46.9181,
-    lng: -104.0044,
-    timeZone: "America/Denver",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "nrlgx7A-MNs",
-      channelId: "UCgorAQVJpb1Zf3S0gk_2gsA",
-      titleKey: "Southernmost Beach Resorts: Pineapple Pool",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-underwater-manatee-cam-at-homosassa-s",
     name: { ja: "Underwater Manatee Cam At Homosassa Springs | Fall in love with the beloved sea cows! | explore.org", en: "Underwater Manatee Cam At Homosassa Springs | Fall in love with the beloved sea cows! | explore.org" },
     lat: 27.4964,
@@ -36794,36 +30449,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-live-perseid-meteors-from-dark-sky-ma",
-    name: { ja: "LIVE, Perseid Meteors - from Dark Sky Maine - Chill Relax Star-watching Music CAM 1", en: "LIVE, Perseid Meteors - from Dark Sky Maine - Chill Relax Star-watching Music CAM 1" },
-    lat: 45.3922,
-    lng: -108.9065,
-    timeZone: "America/Denver",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "Lz3UkI1RSzA",
-      channelId: "UC8gbWbcNNyb5-NIXvFklkOA",
-      titleKey: "LIVE, Perseid Meteors - from Dark Sky Maine - Chill Relax Star-watching Music CAM 1",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-beachhouse-webcam-miramar-beach-fl",
-    name: { ja: "Beachhouse Webcam Miramar Beach, FL", en: "Beachhouse Webcam Miramar Beach, FL" },
-    lat: 25.9873,
-    lng: -80.2323,
-    timeZone: "America/New_York",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "K1PkxWM6QB4",
-      channelId: "UCAGUjQZXddG8ZVBBCNKP70Q",
-      titleKey: "Beachhouse Webcam Miramar Beach, FL",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-surveillancemap-live-times-square-nyc",
     name: { ja: "SurveillanceMap LIVE · Times Square · NYC", en: "SurveillanceMap LIVE · Times Square · NYC" },
     lat: 35.1551,
@@ -36884,21 +30509,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-surveillancemap-live-above-the-sky-lo",
-    name: { ja: "SurveillanceMap LIVE · Above the Sky · Lower Manhattan, New York, New York", en: "SurveillanceMap LIVE · Above the Sky · Lower Manhattan, New York, New York" },
-    lat: 41.727,
-    lng: -73.3529,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "KuzVYn1Ucbg",
-      channelId: "UCCm-nbbUP0Tx3JzEzeEVFTA",
-      titleKey: "SurveillanceMap LIVE ·  Above the Sky · Lower Manhattan, New York, New York",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-earthcam-live-milwaukee-wi",
     name: { ja: "EarthCam Live: Milwaukee, WI", en: "EarthCam Live: Milwaukee, WI" },
     lat: 43.0389,
@@ -36914,36 +30524,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-southernmost-beach-resort-pool-cam",
-    name: { ja: "Southernmost Beach Resort - Pool Cam", en: "Southernmost Beach Resort - Pool Cam" },
-    lat: 46.9181,
-    lng: -104.0044,
-    timeZone: "America/Denver",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "sFeiuRohRwc",
-      channelId: "UCWrV5sJgwc82daX_umUlV1A",
-      titleKey: "Southernmost Beach Resort - Pool Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-southernmost-beach-resort-shores-cam",
-    name: { ja: "Southernmost Beach Resort - Shores Cam", en: "Southernmost Beach Resort - Shores Cam" },
-    lat: 46.9181,
-    lng: -104.0044,
-    timeZone: "America/Denver",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "fRpwtzd3-H4",
-      channelId: "UCWrV5sJgwc82daX_umUlV1A",
-      titleKey: "🔴Southernmost Beach Resort - Shores Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-hamptons-com-live-4k-conscience-point",
     name: { ja: "Hamptons.com - LIVE! 4K Conscience Point Marina, Southampton, New York", en: "Hamptons.com - LIVE! 4K Conscience Point Marina, Southampton, New York" },
     lat: 42.6223,
@@ -36955,36 +30535,6 @@ export const CAMS: Cam[] = [
       videoId: "TLoMqn5wkng",
       channelId: "UCp2wwvvhIxKlh44p7tH-s_w",
       titleKey: "Hamptons.com - LIVE! 4K Conscience Point Marina, Southampton, New York",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-nongame-wildlife-eagle-cam-habitat-ca",
-    name: { ja: "Nongame Wildlife Eagle Cam - Habitat Cam", en: "Nongame Wildlife Eagle Cam - Habitat Cam" },
-    lat: 35.9709,
-    lng: -88.0423,
-    timeZone: "America/Chicago",
-    category: "animal",
-    country: "US",
-    source: {
-      videoId: "uGVXnrdPp80",
-      channelId: "UCkibG4ONyUmGlnOR3F3qq6Q",
-      titleKey: "Nongame Wildlife Eagle Cam - Habitat Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-pixcams-com-pa-bird-feeder-1-live-str",
-    name: { ja: "PixCams.com PA Bird Feeder 1 Live Stream", en: "PixCams.com PA Bird Feeder 1 Live Stream" },
-    lat: 30.4744,
-    lng: -91.1232,
-    timeZone: "America/Chicago",
-    category: "animal",
-    country: "US",
-    source: {
-      videoId: "6--SErd7u4o",
-      channelId: "UC5lMzpZvCLpwyvu348B8zYw",
-      titleKey: "PixCams.com PA Bird Feeder 1 Live Stream",
     },
   },
   {
@@ -37034,21 +30584,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-pixcams-com-wildlife-webcam-1-live-st",
-    name: { ja: "PixCams.com Wildlife Webcam 1 Live Stream - Natural Bird Bath!", en: "PixCams.com Wildlife Webcam 1 Live Stream - Natural Bird Bath!" },
-    lat: 35.9709,
-    lng: -88.0423,
-    timeZone: "America/Chicago",
-    category: "animal",
-    country: "US",
-    source: {
-      videoId: "pgMuZvyFw4k",
-      channelId: "UC5lMzpZvCLpwyvu348B8zYw",
-      titleKey: "PixCams.com Wildlife Webcam 1 Live Stream - Natural Bird Bath!",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-pixcams-com-pa-bird-feeder-2-live-str",
     name: { ja: "PixCams.com PA Bird Feeder 2 Live Stream", en: "PixCams.com PA Bird Feeder 2 Live Stream" },
     lat: 30.4744,
@@ -37075,21 +30610,6 @@ export const CAMS: Cam[] = [
       videoId: "5DlywACQ9qM",
       channelId: "UC5lMzpZvCLpwyvu348B8zYw",
       titleKey: "MorainePreservationFund Osprey Cam Live - O22 Fledged 7/9/26 13:23 / O23 Fledged 7/13/26 9:07",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-pixcams-com-field-cam-live-stream",
-    name: { ja: "PixCams.com Field Cam Live Stream", en: "PixCams.com Field Cam Live Stream" },
-    lat: 36.8929,
-    lng: -83.6021,
-    timeZone: "America/New_York",
-    category: "animal",
-    country: "US",
-    source: {
-      videoId: "JQWvjG5arhQ",
-      channelId: "UC5lMzpZvCLpwyvu348B8zYw",
-      titleKey: "PixCams.com Field Cam Live Stream",
     },
   },
   {
@@ -37165,21 +30685,6 @@ export const CAMS: Cam[] = [
       videoId: "_1_8X4psoPs",
       channelId: "UC5lMzpZvCLpwyvu348B8zYw",
       titleKey: "PixCams.com Migration Optical Camera",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-academic-building-new-construction",
-    name: { ja: "Academic Building New Construction", en: "Academic Building New Construction" },
-    lat: 38.4278,
-    lng: -84.8105,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "ID-yWIleGAM",
-      channelId: "UCvX17dQp6KTTPSi4lDKIZdQ",
-      titleKey: "Academic Building New Construction",
     },
   },
   {
@@ -37319,21 +30824,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-colonnade-falcon-cam",
-    name: { ja: "Colonnade Falcon Cam", en: "Colonnade Falcon Cam" },
-    lat: 35.1899,
-    lng: -78.6483,
-    timeZone: "America/New_York",
-    category: "animal",
-    country: "US",
-    source: {
-      videoId: "hA6DNAC7tNM",
-      channelId: "UCcKNAVucj3DJtmK4JrQwqdQ",
-      titleKey: "Colonnade Falcon Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-hwy-109-i-40-wb-ramp",
     name: { ja: "Hwy 109 @ I-40 WB Ramp", en: "Hwy 109 @ I-40 WB Ramp" },
     lat: 41.1476,
@@ -37469,21 +30959,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-sdrc-mission-bay-camera",
-    name: { ja: "SDRC Mission Bay Camera", en: "SDRC Mission Bay Camera" },
-    lat: 26.2159,
-    lng: -98.3253,
-    timeZone: "America/Chicago",
-    category: "harbor",
-    country: "US",
-    source: {
-      videoId: "2JxAeBCFLJ8",
-      channelId: "UCF1Qy2zp3aejeLzTewzV4lA",
-      titleKey: "SDRC Mission Bay Camera",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-hamptons-com-live-4k-west-scott-camer",
     name: { ja: "Hamptons.com - LIVE! 4K West Scott Cameron Beach, Bridgehampton, New York", en: "Hamptons.com - LIVE! 4K West Scott Cameron Beach, Bridgehampton, New York" },
     lat: 31.8024,
@@ -37495,21 +30970,6 @@ export const CAMS: Cam[] = [
       videoId: "vNSlOyebvP0",
       channelId: "UCp2wwvvhIxKlh44p7tH-s_w",
       titleKey: "Hamptons.com - LIVE! 4K West Scott Cameron Beach, Bridgehampton, New York",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-hopkins-charles-austin",
-    name: { ja: "Hopkins@Charles Austin", en: "Hopkins@Charles Austin" },
-    lat: 30.2672,
-    lng: -97.7431,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "qRYILPnsOns",
-      channelId: "UCjasbMOPUeXxvKeqzTmq6SA",
-      titleKey: "Hopkins@Charles Austin",
     },
   },
   {
@@ -37720,36 +31180,6 @@ export const CAMS: Cam[] = [
       videoId: "NUGc3nLuGsI",
       channelId: "UCr5Z4Oi3UFwkM6sLPFDC6QA",
       titleKey: "Camera đường Hùng Vương - Tam Kỳ - Thành Phố Đà Nẵng - Xem camera trực tuyến Đà Nẵng",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "vn-camera-nut-giao-thong-tay-cau-rong-a",
-    name: { ja: "Camera nút giao thông tây Cầu Rồng Đà Nẵng", en: "Camera nút giao thông tây Cầu Rồng Đà Nẵng" },
-    lat: 15.8,
-    lng: 107.6833,
-    timeZone: "Asia/Ho_Chi_Minh",
-    category: "city",
-    country: "VN",
-    source: {
-      videoId: "oC8ttZHG50I",
-      channelId: "UCr5Z4Oi3UFwkM6sLPFDC6QA",
-      titleKey: "Camera nút giao thông tây Cầu Rồng Đà Nẵng",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "vn-live-cam005-cat-tien-national-park-vi",
-    name: { ja: "LIVE CAM005 CAT TIEN NATIONAL PARK - VIET NAM", en: "LIVE CAM005 CAT TIEN NATIONAL PARK - VIET NAM" },
-    lat: 20.7278,
-    lng: 107.0482,
-    timeZone: "Asia/Ho_Chi_Minh",
-    category: "nature",
-    country: "VN",
-    source: {
-      videoId: "Y5devoifJTI",
-      channelId: "UCpxPjvQmfbywPG8l8k0ThLA",
-      titleKey: "🔴LIVE CAM005 CAT TIEN NATIONAL PARK - VIET NAM",
     },
   },
   {
@@ -38099,21 +31529,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-7",
-    name: { ja: "東京駅トレインビュー・新幹線ライブカメラ（有楽町カーブ）", en: "東京駅トレインビュー・新幹線ライブカメラ（有楽町カーブ）" },
-    lat: 35.6895,
-    lng: 139.6917,
-    timeZone: "Asia/Tokyo",
-    category: "railway",
-    country: "JP",
-    source: {
-      videoId: "0OBK4I7aRcE",
-      channelId: "UC6Ljvl0Kghy9Fhe6SXViTPw",
-      titleKey: "東京駅トレインビュー・新幹線ライブカメラ（有楽町カーブ）",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-archive-2026-07-27-00-00-24",
     name: { ja: "【 Archive 】2026-07-27『00:00』 東京都 新宿 24時間 ライブカメラ", en: "【 Archive 】2026-07-27『00:00』 東京都 新宿 24時間 ライブカメラ" },
     lat: 35.6895,
@@ -38200,21 +31615,6 @@ export const CAMS: Cam[] = [
       videoId: "8tDuhb9QnQ4",
       channelId: "UCwNfkYp9gKIvQDN1kPhpCsQ",
       titleKey: "【1万人達成】大阪ライブカメラ【LIVE】Ｆ.Ｓ.Ｔ.ＮＥＴ提供　JR三ノ宮駅　ライブカメラ　　JR三ノ宮駅　阪急電鉄　神戸三宮駅",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-jr",
-    name: { ja: "【ライブ配信】JR札幌駅のようす", en: "【ライブ配信】JR札幌駅のようす" },
-    lat: 43.0667,
-    lng: 141.35,
-    timeZone: "Asia/Tokyo",
-    category: "railway",
-    country: "JP",
-    source: {
-      videoId: "Ki93KKUVySA",
-      channelId: "UCCTpf5c_9HDo_OSu3aX8uFQ",
-      titleKey: "【ライブ配信】JR札幌駅のようす",
     },
   },
   {
@@ -38669,21 +32069,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-live-5",
-    name: { ja: "東公園・池LIVEカメラ", en: "東公園・池LIVEカメラ" },
-    lat: 33.6,
-    lng: 130.4167,
-    timeZone: "Asia/Tokyo",
-    category: "nature",
-    country: "JP",
-    source: {
-      videoId: "OEssseLG4TI",
-      channelId: "UCT3rysb7fhOJtgj1gJZE_gw",
-      titleKey: "東公園・池LIVEカメラ",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-archive-2026-08-03-00-00-24",
     name: { ja: "【 Archive 】2026-08-03『00:00』 東京都 新宿 24時間 ライブカメラ", en: "【 Archive 】2026-08-03『00:00』 東京都 新宿 24時間 ライブカメラ" },
     lat: 35.6895,
@@ -38774,36 +32159,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-14",
-    name: { ja: "青ヶ島（三宝）港（青ヶ島）", en: "青ヶ島（三宝）港（青ヶ島）" },
-    lat: 35.6895,
-    lng: 139.6917,
-    timeZone: "Asia/Tokyo",
-    category: "harbor",
-    country: "JP",
-    source: {
-      videoId: "cscuZ9wbpO0",
-      channelId: "UCqdejTsUrCvZ55Y8u9v5h9w",
-      titleKey: "青ヶ島（三宝）港（青ヶ島）",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-15",
-    name: { ja: "八重根漁港（八丈島）", en: "八重根漁港（八丈島）" },
-    lat: 35.6895,
-    lng: 139.6917,
-    timeZone: "Asia/Tokyo",
-    category: "harbor",
-    country: "JP",
-    source: {
-      videoId: "7IygrRRgXYQ",
-      channelId: "UCqdejTsUrCvZ55Y8u9v5h9w",
-      titleKey: "八重根漁港（八丈島）",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-16",
     name: { ja: "利島港（利島）", en: "利島港（利島）" },
     lat: 35.6895,
@@ -38860,36 +32215,6 @@ export const CAMS: Cam[] = [
       videoId: "FPDC_vKXuzk",
       channelId: "UCqdejTsUrCvZ55Y8u9v5h9w",
       titleKey: "三池港（三宅島）",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-20",
-    name: { ja: "伊ヶ谷漁港（三宅島）", en: "伊ヶ谷漁港（三宅島）" },
-    lat: 35.6895,
-    lng: 139.6917,
-    timeZone: "Asia/Tokyo",
-    category: "harbor",
-    country: "JP",
-    source: {
-      videoId: "6UMh7x2RSdE",
-      channelId: "UCqdejTsUrCvZ55Y8u9v5h9w",
-      titleKey: "伊ヶ谷漁港（三宅島）",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-21",
-    name: { ja: "神津島港（神津島）【公開】", en: "神津島港（神津島）【公開】" },
-    lat: 35.6895,
-    lng: 139.6917,
-    timeZone: "Asia/Tokyo",
-    category: "harbor",
-    country: "JP",
-    source: {
-      videoId: "2v_bBrtolUM",
-      channelId: "UCqdejTsUrCvZ55Y8u9v5h9w",
-      titleKey: "神津島港（神津島）【公開】",
     },
   },
   {
@@ -39070,21 +32395,6 @@ export const CAMS: Cam[] = [
       videoId: "M3VHa-aP-h8",
       channelId: "UCawcG-FdPCNSu_JGIAZH0OQ",
       titleKey: "【LIVE】首都高 都心環状線 宝町付近 ライブカメラ/Tokyo highway Live Camera 2026/08/04 00:25～",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-jr-2",
-    name: { ja: "【フリー動画】さいたま市鉄道ライブカメラ（JR上野東京ライン・京浜東北線・湘南新宿ライン・東北本線の運行情報）", en: "【フリー動画】さいたま市鉄道ライブカメラ（JR上野東京ライン・京浜東北線・湘南新宿ライン・東北本線の運行情報）" },
-    lat: 35.6895,
-    lng: 139.6917,
-    timeZone: "Asia/Tokyo",
-    category: "railway",
-    country: "JP",
-    source: {
-      videoId: "RJxnX65VDVo",
-      channelId: "UCtf0x3AATj7_5_ZXojdcW7g",
-      titleKey: "【フリー動画】さいたま市鉄道ライブカメラ（JR上野東京ライン・京浜東北線・湘南新宿ライン・東北本線の運行情報）",
     },
   },
   {
@@ -39569,21 +32879,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-live-camera-4-tanukikoji-shopping-str",
-    name: { ja: "［LIVE CAMERA］札幌 狸小路 ライブカメラ（４丁目） Tanukikoji Shopping Street in Sapporo, Hokkaido, Japan.", en: "［LIVE CAMERA］札幌 狸小路 ライブカメラ（４丁目） Tanukikoji Shopping Street in Sapporo, Hokkaido, Japan." },
-    lat: 43.0667,
-    lng: 141.35,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "Bl_PyBh1L50",
-      channelId: "UCRZplV8vE67bgCI6_3sm3mQ",
-      titleKey: "［LIVE CAMERA］札幌 狸小路 ライブカメラ（４丁目） Tanukikoji Shopping Street in Sapporo, Hokkaido, Japan.",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "za-muizenberg-beach-live-webcam-reef-sou",
     name: { ja: "Muizenberg Beach Live Webcam | REEF South Africa  @Reef-SA", en: "Muizenberg Beach Live Webcam | REEF South Africa  @Reef-SA" },
     lat: -34.097,
@@ -39629,21 +32924,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-alexandria-bay-chamber-of-commerce-ri",
-    name: { ja: "Alexandria Bay Chamber of Commerce River View Stream", en: "Alexandria Bay Chamber of Commerce River View Stream" },
-    lat: 44.3366,
-    lng: -75.9181,
-    timeZone: "America/New_York",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "XfiHdsxawCY",
-      channelId: "UCSJ2YAapD9w3rYhDKgp9GeA",
-      titleKey: "Alexandria Bay Chamber of Commerce River View Stream",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "de-flugplatz-webcam-des-aero-club-altena",
     name: { ja: "Flugplatz-Webcam des AERO-CLUB Altena-Hegenscheid e.V.", en: "Flugplatz-Webcam des AERO-CLUB Altena-Hegenscheid e.V." },
     lat: 51.8386,
@@ -39655,36 +32935,6 @@ export const CAMS: Cam[] = [
       videoId: "7EdDvAeAT1U",
       channelId: "UC4MstdNTeNy4-ij8f-nCd5g",
       titleKey: "Flugplatz-Webcam des AERO-CLUB Altena-Hegenscheid e.V.",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "kr-daegu-gyeongbuk-live",
-    name: { ja: "[대구·경북] 합법적 물멍·풍경멍 가능한 실시간 방송 멍~ ️Daegu Gyeongbuk Live", en: "[대구·경북] 합법적 물멍·풍경멍 가능한 실시간 방송 멍~ ️Daegu Gyeongbuk Live" },
-    lat: 35.8703,
-    lng: 128.5911,
-    timeZone: "Asia/Seoul",
-    category: "nature",
-    country: "KR",
-    source: {
-      videoId: "GwUjCIxgDNQ",
-      channelId: "UCREjdu30qQ0Mfrbz9t-gt9A",
-      titleKey: "[대구·경북🔴] 합법적 물멍·풍경멍 가능한 실시간 방송 멍~ ☁️Daegu Gyeongbuk Live",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "id-live-cctv-simpang-kel-tengah-cam-2-ka",
-    name: { ja: "[LIVE CCTV] SIMPANG KEL. TENGAH CAM 2 KABUPATEN KETAPANG", en: "[LIVE CCTV] SIMPANG KEL. TENGAH CAM 2 KABUPATEN KETAPANG" },
-    lat: -7.5553,
-    lng: 109.1131,
-    timeZone: "Asia/Jakarta",
-    category: "city",
-    country: "ID",
-    source: {
-      videoId: "te1poxeR53Y",
-      channelId: "UCbXfqLh-qvBKoF40sm43gHA",
-      titleKey: "🔴[LIVE CCTV] SIMPANG KEL. TENGAH CAM 2 KABUPATEN KETAPANG",
     },
   },
   {
@@ -39764,51 +33014,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "mx-como-es-el-universo-de-las-estrellas",
-    name: { ja: "¿Cómo es el Universo? De las estrellas cercanas a los vacíos gigantes", en: "¿Cómo es el Universo? De las estrellas cercanas a los vacíos gigantes" },
-    lat: 20.617,
-    lng: -105.2302,
-    timeZone: "America/Mexico_City",
-    category: "city",
-    country: "MX",
-    source: {
-      videoId: "sQo0hMynH3s",
-      channelId: "UCip3oM9j3mNxTbYk1yRVs-w",
-      titleKey: "¿Cómo es el Universo? De las estrellas cercanas a los vacíos gigantes",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-lincolnville-maine-harbor-cam",
-    name: { ja: "Lincolnville, Maine - Harbor Cam", en: "Lincolnville, Maine - Harbor Cam" },
-    lat: 44.2812,
-    lng: -69.0087,
-    timeZone: "America/New_York",
-    category: "harbor",
-    country: "US",
-    source: {
-      videoId: "BBayXL-zPC4",
-      channelId: "UC1QHI-zQvIIkptXJsupfTZg",
-      titleKey: "Lincolnville, Maine - Harbor Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "kr-live-cam-i-seoul-seokchon-lake-seoul",
-    name: { ja: "서울실시간 석촌호수라이브 Live Cam I Seoul, \"Seokchon Lake\", Seoul,Korea I 서울관광지 서울호수 잠실롯데몰 송리단길 잠실소피텔", en: "서울실시간 석촌호수라이브 Live Cam I Seoul, \"Seokchon Lake\", Seoul,Korea I 서울관광지 서울호수 잠실롯데몰 송리단길 잠실소피텔" },
-    lat: 37.566,
-    lng: 126.9784,
-    timeZone: "Asia/Seoul",
-    category: "nature",
-    country: "KR",
-    source: {
-      videoId: "_bQ-zPlmfx4",
-      channelId: "UCsy6UOjk8q7Ajq9yQ7iDAbA",
-      titleKey: "서울실시간 석촌호수라이브 Live Cam I Seoul, \"Seokchon Lake\", Seoul,Korea I 서울관광지 서울호수 잠실롯데몰 송리단길 잠실소피텔",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-i-35-sh-6-waco",
     name: { ja: "I-35 @ SH-6 - Waco", en: "I-35 @ SH-6 - Waco" },
     lat: 31.5493,
@@ -39835,51 +33040,6 @@ export const CAMS: Cam[] = [
       videoId: "7ZlAcCd4tng",
       channelId: "UCyO7TguGO6xJmRpK2wevnbA",
       titleKey: "올림픽공원 리리리방ㅋㅋㅋㅋㅋㅋ",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "kr-8-25",
-    name: { ja: "8.25 잠실 올림픽공원 라이브", en: "8.25 잠실 올림픽공원 라이브" },
-    lat: 37.2611,
-    lng: 127.0278,
-    timeZone: "Asia/Seoul",
-    category: "city",
-    country: "KR",
-    source: {
-      videoId: "yoQqGE8Zhkw",
-      channelId: "UCUQCgQi_URNBKNyB5A21Tmw",
-      titleKey: "8.25 잠실 올림픽공원 라이브",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-amusement-park-24-7-live-cam-stream-c",
-    name: { ja: "Amusement Park 24/7 Live Cam Stream - Cedar Point, Liseberg, Kings Island, and MORE!", en: "Amusement Park 24/7 Live Cam Stream - Cedar Point, Liseberg, Kings Island, and MORE!" },
-    lat: 39.7625,
-    lng: -87.2292,
-    timeZone: "America/Indiana/Indianapolis",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "_73ygpjQIDQ",
-      channelId: "UChjNorEuzrjLM7LMZfTF-nQ",
-      titleKey: "🔴🎢Amusement Park 24/7 Live Cam Stream - Cedar Point, Liseberg, Kings Island, and MORE!",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "in-4k-live-wildlife-safari-wild-animals",
-    name: { ja: "4k live wildlife safari | wild animals & birds in 4k | real nature sounds", en: "4k live wildlife safari | wild animals & birds in 4k | real nature sounds" },
-    lat: 34.3632,
-    lng: 73.7793,
-    timeZone: "Asia/Kolkata",
-    category: "animal",
-    country: "IN",
-    source: {
-      videoId: "I8NtH7-zMAQ",
-      channelId: "UCulnWZVBZmBC3trj9rYcrWA",
-      titleKey: "4k live wildlife safari | wild animals & birds in 4k | real nature sounds",
     },
   },
   {
@@ -39944,21 +33104,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "fr-paris-live-walking-tour-4k-eiffel-tow",
-    name: { ja: "Paris LIVE Walking Tour 4K | Eiffel Tower, Champs-Élysées & Seine Walk — France", en: "Paris LIVE Walking Tour 4K | Eiffel Tower, Champs-Élysées & Seine Walk — France" },
-    lat: 47.5401,
-    lng: 1.5052,
-    timeZone: "Europe/Paris",
-    category: "city",
-    country: "FR",
-    source: {
-      videoId: "nrulaI6I4jI",
-      channelId: "UC9gSu3OwkMdqRKYZqnmy5xw",
-      titleKey: "Paris LIVE Walking Tour 4K | Eiffel Tower, Champs-Élysées & Seine Walk — France",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-novice-plane-spotting-pdx-airport-por",
     name: { ja: "Novice Plane Spotting PDX Airport - Portland, OR 8.25.26", en: "Novice Plane Spotting PDX Airport - Portland, OR 8.25.26" },
     lat: 45.5234,
@@ -39974,21 +33119,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-sfo-night-action-archive-plane-spotti",
-    name: { ja: "SFO NIGHT ACTION Archive ️ Plane Spotting at San Francisco Airport After Dark - ATC Radio", en: "SFO NIGHT ACTION Archive ️ Plane Spotting at San Francisco Airport After Dark - ATC Radio" },
-    lat: 37.7749,
-    lng: -122.4194,
-    timeZone: "America/Los_Angeles",
-    category: "harbor",
-    country: "US",
-    source: {
-      videoId: "9EmmTigiEzs",
-      channelId: "UCUbhwy4N1HXGvPqz2yqMTRQ",
-      titleKey: "🌙 SFO NIGHT ACTION Archive ✈️ Plane Spotting at San Francisco Airport After Dark - ATC Radio",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-maldives-4k-drone-footage-white-sandb",
     name: { ja: "Maldives 4K Drone Footage | White Sandbanks, Turquoise Bays & Luxury Island Escape UHD", en: "Maldives 4K Drone Footage | White Sandbanks, Turquoise Bays & Luxury Island Escape UHD" },
     lat: 41.7242,
@@ -40000,36 +33130,6 @@ export const CAMS: Cam[] = [
       videoId: "1rpCQGdoHdQ",
       channelId: "UCSAeCwAgxdQlGbvysnk17bA",
       titleKey: "Maldives 4K Drone Footage | White Sandbanks, Turquoise Bays & Luxury Island Escape UHD",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "in-iit-b2-ankit-awasthi-sir",
-    name: { ja: "IIT कानपुर के वैज्ञानिकों का नया तूफान B2 बॉम्बर जैसा स्टेल्थ ड्रोन बना डाला | Ankit Awasthi Sir", en: "IIT कानपुर के वैज्ञानिकों का नया तूफान B2 बॉम्बर जैसा स्टेल्थ ड्रोन बना डाला | Ankit Awasthi Sir" },
-    lat: 33.2166,
-    lng: 74.1636,
-    timeZone: "Asia/Kolkata",
-    category: "city",
-    country: "IN",
-    source: {
-      videoId: "jwyTAxFvIBM",
-      channelId: "UCb39KdEajmDLJUC4fuICH0g",
-      titleKey: "IIT कानपुर के वैज्ञानिकों का नया तूफान B2 बॉम्बर जैसा स्टेल्थ ड्रोन बना डाला | Ankit Awasthi Sir",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-live-big-island-hawai-i-webcam-tour-k",
-    name: { ja: "LIVE: Big Island Hawaiʻi Webcam Tour Kīlauea Volcano, Kohala Coast, Kona & Mauna Kea | NOW!", en: "LIVE: Big Island Hawaiʻi Webcam Tour Kīlauea Volcano, Kohala Coast, Kona & Mauna Kea | NOW!" },
-    lat: 64.1525,
-    lng: -145.8422,
-    timeZone: "America/Anchorage",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "PO04G-ukSZg",
-      channelId: "UCwR5HjnjTbN6EElaxi223Ug",
-      titleKey: "🔴 LIVE: Big Island Hawaiʻi Webcam Tour 🌋 Kīlauea Volcano, Kohala Coast, Kona & Mauna Kea | NOW!",
     },
   },
   {
@@ -40075,21 +33175,6 @@ export const CAMS: Cam[] = [
       videoId: "Fc6qu8rN8kU",
       channelId: "UCsqYNkZkunGLM7o2_iR64Kg",
       titleKey: "2026.08.26.수 올림픽공원 2-3 (11시15분~) #올공 #라이브 #개표 #철다르크",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "kr-8-26",
-    name: { ja: "[아침반라이브] 8/26 올림픽공원 핸드볼경기장, 민주적 항거의 현장", en: "[아침반라이브] 8/26 올림픽공원 핸드볼경기장, 민주적 항거의 현장" },
-    lat: 37.2611,
-    lng: 127.0278,
-    timeZone: "Asia/Seoul",
-    category: "nature",
-    country: "KR",
-    source: {
-      videoId: "2Ofn0yNBWV4",
-      channelId: "UCdBzglCiAZ37KDi6jXQazTA",
-      titleKey: "[아침반라이브] 8/26 올림픽공원 핸드볼경기장, 민주적 항거의 현장",
     },
   },
   {
@@ -40244,21 +33329,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "kr-live-cam-l-gwangandaegyo-bridge-busan",
-    name: { ja: "부산실시간 광안대교 Live Cam l \"Gwangandaegyo Bridge\", Busan,Korea l 부산야경뷰 광안리해변 부산바다 바다라이브 한국바다 Oceanview", en: "부산실시간 광안대교 Live Cam l \"Gwangandaegyo Bridge\", Busan,Korea l 부산야경뷰 광안리해변 부산바다 바다라이브 한국바다 Oceanview" },
-    lat: 35.1017,
-    lng: 129.03,
-    timeZone: "Asia/Seoul",
-    category: "nature",
-    country: "KR",
-    source: {
-      videoId: "TBOXgW5VV8s",
-      channelId: "UCsy6UOjk8q7Ajq9yQ7iDAbA",
-      titleKey: "부산실시간 광안대교 Live Cam l \"Gwangandaegyo Bridge\", Busan,Korea l 부산야경뷰 광안리해변 부산바다 바다라이브 한국바다 Oceanview",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "kr-live-cam-i-jamsil-bridge-seoul-korea",
     name: { ja: "서울실시간 한강라이브 잠실대교 Live Cam I \"Jamsil Bridge\" Seoul,korea I SeoulHanGangLive ソウル漢江ライブ 首尔汉江现场演出", en: "서울실시간 한강라이브 잠실대교 Live Cam I \"Jamsil Bridge\" Seoul,korea I SeoulHanGangLive ソウル漢江ライブ 首尔汉江现场演出" },
     lat: 37.566,
@@ -40360,21 +33430,6 @@ export const CAMS: Cam[] = [
       videoId: "IcZ-7sFi1HM",
       channelId: "UCper-NWj8xdXacSpFtF4Mgg",
       titleKey: "LIVE: Ukraine real-time skyline cameras from Kharkiv, Donetsk, Kyiv, Sumy and more",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "kr-live",
-    name: { ja: "남산서울타워 파노라마 LIVE", en: "남산서울타워 파노라마 LIVE" },
-    lat: 37.566,
-    lng: 126.9784,
-    timeZone: "Asia/Seoul",
-    category: "city",
-    country: "KR",
-    source: {
-      videoId: "M6lq50Ptp1g",
-      channelId: "UC90AkGrousC-CDBcCL8UaSg",
-      titleKey: "남산서울타워 파노라마 LIVE",
     },
   },
   {
@@ -40514,21 +33569,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "de-einbecker-morgenpost-webcam",
-    name: { ja: "Einbecker Morgenpost - Webcam", en: "Einbecker Morgenpost - Webcam" },
-    lat: 51.8146,
-    lng: 9.8397,
-    timeZone: "Europe/Berlin",
-    category: "city",
-    country: "DE",
-    source: {
-      videoId: "1KRAt-gjz0w",
-      channelId: "UCQ67X9KtVFMo2h1a1AMGZZQ",
-      titleKey: "Einbecker Morgenpost - Webcam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "de-skyline-ratingen-west-sud-dakota-bruc",
     name: { ja: "Skyline Ratingen-West / Süd-Dakota-Brücke", en: "Skyline Ratingen-West / Süd-Dakota-Brücke" },
     lat: 50.0527,
@@ -40585,21 +33625,6 @@ export const CAMS: Cam[] = [
       videoId: "5NHSUJqba1U",
       channelId: "UCD6AZR3EYik2AUJsuh1VfJA",
       titleKey: "浜崎海岸LIVE",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "th-live-interactive-camera-control-reoli",
-    name: { ja: "LIVE Interactive Camera Control - Reolink P850 PTZ ลองกดควบคุมกล้องได้ที่นี่!", en: "LIVE Interactive Camera Control - Reolink P850 PTZ ลองกดควบคุมกล้องได้ที่นี่!" },
-    lat: 8.6363,
-    lng: 98.2469,
-    timeZone: "Asia/Bangkok",
-    category: "city",
-    country: "TH",
-    source: {
-      videoId: "y368ae2_Y6U",
-      channelId: "UCBRYB3-qydB67zMyBsE1yvg",
-      titleKey: "LIVE Interactive Camera Control - Reolink P850 PTZ ลองกดควบคุมกล้องได้ที่นี่!",
     },
   },
   {
@@ -40664,36 +33689,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-3d-4k-24",
-    name: { ja: "羽田空港 ライブ｜上空、地上から 飛行機の着陸・離陸を3D 4K表示｜ 24 時間 リアルタイム配信中", en: "羽田空港 ライブ｜上空、地上から 飛行機の着陸・離陸を3D 4K表示｜ 24 時間 リアルタイム配信中" },
-    lat: 35.5457,
-    lng: 139.7761,
-    timeZone: "Asia/Tokyo",
-    category: "airport",
-    country: "JP",
-    source: {
-      videoId: "a58oJZrrtYM",
-      channelId: "UClBBTDumgJDB5K8l6dPojWw",
-      titleKey: "羽田空港 ライブ｜上空、地上から 飛行機の着陸・離陸を3D 4K表示｜ 24 時間 リアルタイム配信中",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-live-11",
-    name: { ja: "ミニ尾瀬公園LIVEカメラ", en: "ミニ尾瀬公園LIVEカメラ" },
-    lat: 35.5079,
-    lng: 139.6176,
-    timeZone: "Asia/Tokyo",
-    category: "nature",
-    country: "JP",
-    source: {
-      videoId: "NKox7HbFQGI",
-      channelId: "UC7OxrzcNuusCuR0x4JB5TBw",
-      titleKey: "ミニ尾瀬公園LIVEカメラ",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-a-b",
     name: { ja: "竹田綜合病院 A,B駐車場 ライブカメラ（福島県 会津若松市）", en: "竹田綜合病院 A,B駐車場 ライブカメラ（福島県 会津若松市）" },
     lat: 35.0145,
@@ -40739,21 +33734,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "kr-4",
-    name: { ja: "우주 끝에서의 충격적 발견: 우리 세계 너머에 숨겨진 것", en: "우주 끝에서의 충격적 발견: 우리 세계 너머에 숨겨진 것" },
-    lat: 36.9945,
-    lng: 127.4357,
-    timeZone: "Asia/Seoul",
-    category: "nature",
-    country: "KR",
-    source: {
-      videoId: "KvgGT_NuM_I",
-      channelId: "UCqQgmjFrXIi5NSsO9xsYJuQ",
-      titleKey: "우주 끝에서의 충격적 발견: 우리 세계 너머에 숨겨진 것",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "se-sweden-now",
     name: { ja: "Sweden Now", en: "Sweden Now" },
     lat: 59.3219,
@@ -40765,51 +33745,6 @@ export const CAMS: Cam[] = [
       videoId: "YlMYlOjhF9U",
       channelId: "UChnIgJ8_PDy0AwV84XP9HTA",
       titleKey: "Sweden Now",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ua-telescopul-james-webb-a-atins-margine",
-    name: { ja: "Telescopul James Webb a atins marginea Universului: „Am găsit o barieră fizică...”", en: "Telescopul James Webb a atins marginea Universului: „Am găsit o barieră fizică...”" },
-    lat: 50.5177,
-    lng: 30.8385,
-    timeZone: "Europe/Kyiv",
-    category: "city",
-    country: "UA",
-    source: {
-      videoId: "TQkIHd_eqrA",
-      channelId: "UCum60xRFd1uBWosmoJCa_ww",
-      titleKey: "Telescopul James Webb a atins marginea Universului: „Am găsit o barieră fizică...”",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-sandcastles-2",
-    name: { ja: "Sandcastles 2", en: "Sandcastles 2" },
-    lat: 30.5581,
-    lng: -81.4442,
-    timeZone: "America/New_York",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "2GDRzKPSwK8",
-      channelId: "UCztcSr39dluY_X0U7Nu2C7A",
-      titleKey: "Sandcastles 2",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-sandcastles-1",
-    name: { ja: "Sandcastles 1", en: "Sandcastles 1" },
-    lat: 30.5581,
-    lng: -81.4442,
-    timeZone: "America/New_York",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "M6lPntwR1F4",
-      channelId: "UCztcSr39dluY_X0U7Nu2C7A",
-      titleKey: "Sandcastles 1",
     },
   },
   {
@@ -40919,21 +33854,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "kr-korea-live-24-7-cam",
-    name: { ja: "Korea Live 24/7 Cam 펀제주 실시간 제주도 날씨 제주 한림 상명 금오름 방향 시계탑", en: "Korea Live 24/7 Cam 펀제주 실시간 제주도 날씨 제주 한림 상명 금오름 방향 시계탑" },
-    lat: 33.3803,
-    lng: 126.5483,
-    timeZone: "Asia/Seoul",
-    category: "nature",
-    country: "KR",
-    source: {
-      videoId: "90OGQnofN8s",
-      channelId: "UC-cGXwzS7XwlVn6zaPa3CDw",
-      titleKey: "Korea Live 24/7 Cam 펀제주 실시간 제주도 날씨 제주 한림 상명 금오름 방향 시계탑",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "nz-new-zealand-now",
     name: { ja: "New Zealand Now", en: "New Zealand Now" },
     lat: -39.4858,
@@ -40964,21 +33884,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-38",
-    name: { ja: "道の駅日光駐車場ライブカメラ/ニコニコ本陣", en: "道の駅日光駐車場ライブカメラ/ニコニコ本陣" },
-    lat: 36.7247,
-    lng: 139.6879,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "4KKjVhACVAY",
-      channelId: "UCVTfCMdif-dxt-e_ijach_Q",
-      titleKey: "道の駅日光駐車場ライブカメラ/ニコニコ本陣",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "kr-live-2",
     name: { ja: "[ LIVE ] 지금 제주는? | 날씨&교통정보 실시간 라이브", en: "[ LIVE ] 지금 제주는? | 날씨&교통정보 실시간 라이브" },
     lat: 37.5847,
@@ -40994,21 +33899,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "ar-live-cozy-squirrel-bird-sanctuary-car",
-    name: { ja: "LIVE Cozy Squirrel & Bird Sanctuary ️ Cardinals, Blue Jays & Chickadees | Cat TV, Dog TV, Sleep", en: "LIVE Cozy Squirrel & Bird Sanctuary ️ Cardinals, Blue Jays & Chickadees | Cat TV, Dog TV, Sleep" },
-    lat: -34.4674,
-    lng: -58.5578,
-    timeZone: "America/Argentina/Buenos_Aires",
-    category: "city",
-    country: "AR",
-    source: {
-      videoId: "n9ZcUp3ySos",
-      channelId: "UCsn6lfIHLi2ZiUrxN2ddX_w",
-      titleKey: "🔴 LIVE Cozy Squirrel & Bird Sanctuary 🐿️ Cardinals, Blue Jays & Chickadees | Cat TV, Dog TV, Sleep",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-live-camera-2",
     name: { ja: "関門海峡【LIVE CAMERA】癒しの空間、関門海峡を（門司港から）ライブ配信中！ 船の汽笛が聴けるように生音での配信中！※チャット参加の方は概要欄一読を", en: "関門海峡【LIVE CAMERA】癒しの空間、関門海峡を（門司港から）ライブ配信中！ 船の汽笛が聴けるように生音での配信中！※チャット参加の方は概要欄一読を" },
     lat: 33.9218,
@@ -41020,21 +33910,6 @@ export const CAMS: Cam[] = [
       videoId: "_r-g8wU-0o8",
       channelId: "UC3vSAbIwuDdbyxln1Wlnehg",
       titleKey: "関門海峡【LIVE CAMERA】癒しの空間、関門海峡を（門司港から）ライブ配信中！ 船の汽笛が聴けるように生音での配信中！※チャット参加の方は概要欄一読を🙏",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ph-inside-maria-s-living-room-24-7-phili",
-    name: { ja: "Inside Maria's Living Room 24/7 #philippines #davaocity", en: "Inside Maria's Living Room 24/7 #philippines #davaocity" },
-    lat: 16.9382,
-    lng: 121.7653,
-    timeZone: "Asia/Manila",
-    category: "city",
-    country: "PH",
-    source: {
-      videoId: "eCe08tVSy3I",
-      channelId: "UCZ6ZuSqeKrjFP7w9lS0nx0Q",
-      titleKey: "Inside Maria's Living Room 24/7 #philippines #davaocity",
     },
   },
   {
@@ -41099,21 +33974,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-live-camera-of-mt-fuji",
-    name: { ja: "富士山パーキング ／ 富士山ライブ映像（Live camera of Mt,Fuji）", en: "富士山パーキング ／ 富士山ライブ映像（Live camera of Mt,Fuji）" },
-    lat: 35.4799,
-    lng: 138.7739,
-    timeZone: "Asia/Tokyo",
-    category: "nature",
-    country: "JP",
-    source: {
-      videoId: "-m7Q2ee7BEA",
-      channelId: "UCt15r9h0Iofrvs0OLPy6T1w",
-      titleKey: "富士山パーキング ／ 富士山ライブ映像（Live camera of Mt,Fuji）",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-39",
     name: { ja: "ライトジム秋田 駐車場", en: "ライトジム秋田 駐車場" },
     lat: 35.6517,
@@ -41125,21 +33985,6 @@ export const CAMS: Cam[] = [
       videoId: "biggqIQp34E",
       channelId: "UC_sFR75w11B2dD31x5LPIAw",
       titleKey: "ライトジム秋田  駐車場",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-live-camera-of-fujisanparking",
-    name: { ja: "富士山パーキング ／ 駐車場ライブ映像（Live camera of FujisanParking）", en: "富士山パーキング ／ 駐車場ライブ映像（Live camera of FujisanParking）" },
-    lat: 35.4799,
-    lng: 138.7739,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "XpB-RZd3_4E",
-      channelId: "UCt15r9h0Iofrvs0OLPy6T1w",
-      titleKey: "富士山パーキング ／ 駐車場ライブ映像（Live camera of FujisanParking）",
     },
   },
   {
@@ -41279,21 +34124,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "se-live-camera-axis-p3827-pve-panoramic",
-    name: { ja: "Live Camera Axis P3827-PVE Panoramic Camera", en: "Live Camera Axis P3827-PVE Panoramic Camera" },
-    lat: 55.7202,
-    lng: 13.2261,
-    timeZone: "Europe/Stockholm",
-    category: "city",
-    country: "SE",
-    source: {
-      videoId: "IaOCYP4q5jw",
-      channelId: "UC2Y8cEpx6O4uyKN9wPYpuqQ",
-      titleKey: "Live Camera Axis P3827-PVE Panoramic Camera",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-7-30-19-00",
     name: { ja: "今日のナンモナンモ帯広 ‐ 工事の様子を配信中（放映時間：7:30～19:00 日曜休止）", en: "今日のナンモナンモ帯広 ‐ 工事の様子を配信中（放映時間：7:30～19:00 日曜休止）" },
     lat: 35.9067,
@@ -41335,21 +34165,6 @@ export const CAMS: Cam[] = [
       videoId: "Geo48day-7s",
       channelId: "UCJkkk_rzYQ_iKbzVP8y4kbQ",
       titleKey: "【360 4K Live】雲林 #北港 #北港朝天宮 #朝天宮媽祖 #朝天宮 #雲林縣政府  360 4K全景即時影像 #360看見台灣 #360看見雲林 #Formosa360",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-vol2-livecam-live-cam",
-    name: { ja: "ちくてつ ライブ ＶＯＬ２ ＬＩＶＥＣＡＭ 鉄道ライブカメラ LIVE CAM", en: "ちくてつ ライブ ＶＯＬ２ ＬＩＶＥＣＡＭ 鉄道ライブカメラ LIVE CAM" },
-    lat: 35.6934,
-    lng: 139.8976,
-    timeZone: "Asia/Tokyo",
-    category: "railway",
-    country: "JP",
-    source: {
-      videoId: "WP3eWB4YxYY",
-      channelId: "UC5dUwMo6gNhhviIjzGV0tqg",
-      titleKey: "ちくてつ　ライブ　ＶＯＬ２　ＬＩＶＥＣＡＭ　鉄道ライブカメラ LIVE CAM",
     },
   },
   {
@@ -41429,21 +34244,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-jr-live",
-    name: { ja: "JR中条駅（胎内市）中条駅観光交流室 の情報ライブカメラ【西口タクシー乗場】状況確認Liveカメラ『配信テスト中』", en: "JR中条駅（胎内市）中条駅観光交流室 の情報ライブカメラ【西口タクシー乗場】状況確認Liveカメラ『配信テスト中』" },
-    lat: 38.0499,
-    lng: 139.3982,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "UXEA0kHRazU",
-      channelId: "UCAaw-OnuKB5FTpBkM0xUZ4Q",
-      titleKey: "JR中条駅（胎内市）中条駅観光交流室 の情報ライブカメラ【西口タクシー乗場】状況確認Liveカメラ『配信テスト中』",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-bbq",
     name: { ja: "鹿児島県南九州市 岩屋公園流水プール、BBQエリアなど", en: "鹿児島県南九州市 岩屋公園流水プール、BBQエリアなど" },
     lat: 31.3783,
@@ -41459,21 +34259,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-live-12",
-    name: { ja: "仙台市役所本庁舎工事LIVEカメラ", en: "仙台市役所本庁舎工事LIVEカメラ" },
-    lat: 35.5079,
-    lng: 139.6176,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "dvqM0l2C8dA",
-      channelId: "UCJCsY-GzkfrLbwAjDfjRQPg",
-      titleKey: "仙台市役所本庁舎工事LIVEカメラ",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "sa",
     name: { ja: "بث مباشر | قناة السنة النبوية", en: "بث مباشر | قناة السنة النبوية" },
     lat: 18.3832,
@@ -41485,21 +34270,6 @@ export const CAMS: Cam[] = [
       videoId: "Rs7St51oDDc",
       channelId: "UCROKYPep-UuODNwyipe6JMw",
       titleKey: "بث مباشر | قناة السنة النبوية",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "kr-7",
-    name: { ja: "펀제주 실시간 제주도 날씨 제주 서귀포 엉또폭포", en: "펀제주 실시간 제주도 날씨 제주 서귀포 엉또폭포" },
-    lat: 33.3803,
-    lng: 126.5483,
-    timeZone: "Asia/Seoul",
-    category: "nature",
-    country: "KR",
-    source: {
-      videoId: "rzX1emU7UFE",
-      channelId: "UC-cGXwzS7XwlVn6zaPa3CDw",
-      titleKey: "펀제주 실시간 제주도 날씨 제주 서귀포 엉또폭포",
     },
   },
   {
@@ -41654,21 +34424,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-42",
-    name: { ja: "成田空港第三ターミナルへ最も近いコインパーキング駐車場（スーパーパーキング）", en: "成田空港第三ターミナルへ最も近いコインパーキング駐車場（スーパーパーキング）" },
-    lat: 33.2787,
-    lng: 131.5011,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "KBwgvcdA7Qo",
-      channelId: "UC5JYOz4iA6xfbkoXqUdzWPA",
-      titleKey: "成田空港第三ターミナルへ最も近いコインパーキング駐車場（スーパーパーキング）",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "kr-webcam",
     name: { ja: "엘리시안강촌 페가수스 WebCam", en: "엘리시안강촌 페가수스 WebCam" },
     lat: 37.6189,
@@ -41695,51 +34450,6 @@ export const CAMS: Cam[] = [
       videoId: "iwbF1j08AO0",
       channelId: "UCbLm5pG7JURHymVMcISf6_g",
       titleKey: "「LIVE CAMERA」草津温泉バスターミナル",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-43",
-    name: { ja: "阿蘇パーキングライブカメラ 西原村 萌の里", en: "阿蘇パーキングライブカメラ 西原村 萌の里" },
-    lat: 32.8235,
-    lng: 130.9336,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "4R2Pjfldd04",
-      channelId: "UCA3lOUibZDU3jQB0Q3proVQ",
-      titleKey: "阿蘇パーキングライブカメラ 西原村 萌の里",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-44",
-    name: { ja: "阿蘇パーキングライブカメラ 高森町上色見熊野座神社", en: "阿蘇パーキングライブカメラ 高森町上色見熊野座神社" },
-    lat: 32.8538,
-    lng: 131.1585,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "82uCs10qJCo",
-      channelId: "UCA3lOUibZDU3jQB0Q3proVQ",
-      titleKey: "阿蘇パーキングライブカメラ 高森町上色見熊野座神社",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-45",
-    name: { ja: "阿蘇パーキングライブカメラ 小国町 道の駅小国ゆうステーション", en: "阿蘇パーキングライブカメラ 小国町 道の駅小国ゆうステーション" },
-    lat: 33.1215,
-    lng: 131.0682,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "sPbNtqR1BcU",
-      channelId: "UCA3lOUibZDU3jQB0Q3proVQ",
-      titleKey: "阿蘇パーキングライブカメラ 小国町 道の駅小国ゆうステーション",
     },
   },
   {
@@ -41774,21 +34484,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "kr-live-cam-i-gangmoon-beach-gangwondo-k",
-    name: { ja: "강릉실시간 강문해변 Live Cam I \"Gangmoon beach\", Gangwondo, Korea I 강릉바다 바다실시간 여행지 강원도일출 강릉일출", en: "강릉실시간 강문해변 Live Cam I \"Gangmoon beach\", Gangwondo, Korea I 강릉바다 바다실시간 여행지 강원도일출 강릉일출" },
-    lat: 37.7958,
-    lng: 128.9183,
-    timeZone: "Asia/Seoul",
-    category: "nature",
-    country: "KR",
-    source: {
-      videoId: "n8mJCRXGoXc",
-      channelId: "UCsy6UOjk8q7Ajq9yQ7iDAbA",
-      titleKey: "강릉실시간 강문해변 Live Cam I \"Gangmoon beach\", Gangwondo, Korea I 강릉바다 바다실시간 여행지 강원도일출 강릉일출",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "kr-live-cam-i-sokcho-beach-gangwondo-kor",
     name: { ja: "속초실시간 속초해수욕장 Live Cam I \"Sokcho Beach\", Gangwondo,Korea I 여름휴가 해변 밤바다 바다경치 강원도여행 오션뷰 속초아이", en: "속초실시간 속초해수욕장 Live Cam I \"Sokcho Beach\", Gangwondo,Korea I 여름휴가 해변 밤바다 바다경치 강원도여행 오션뷰 속초아이" },
     lat: 38.1881,
@@ -41815,21 +34510,6 @@ export const CAMS: Cam[] = [
       videoId: "bhR-dAIkEnk",
       channelId: "UCNXruE6yclmkVorOxq51qMQ",
       titleKey: "Salamandra Lyžiarske Stredisko - Webkamera",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "sk-salamandra-resort-sportoviska",
-    name: { ja: "Salamandra Resort - Športoviská", en: "Salamandra Resort - Športoviská" },
-    lat: 48.7236,
-    lng: 21.2633,
-    timeZone: "Europe/Bratislava",
-    category: "nature",
-    country: "SK",
-    source: {
-      videoId: "75wJG5rUmv8",
-      channelId: "UCNXruE6yclmkVorOxq51qMQ",
-      titleKey: "Salamandra Resort - Športoviská",
     },
   },
   {
@@ -41924,21 +34604,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-a260807",
-    name: { ja: "茨城大竹 ライブカメラ 波情報 概要欄説明をお読みください A260807", en: "茨城大竹 ライブカメラ 波情報 概要欄説明をお読みください A260807" },
-    lat: 26.6109,
-    lng: 127.9922,
-    timeZone: "Asia/Tokyo",
-    category: "nature",
-    country: "JP",
-    source: {
-      videoId: "LWbvYMFroVM",
-      channelId: "UC77Eqb-7TzAj5HweU_pBSlw",
-      titleKey: "茨城大竹 ライブカメラ 波情報 概要欄説明をお読みください  A260807",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-49",
     name: { ja: "【ねこにう】 女子部 出窓でまったり！サマーベッド涼しいね", en: "【ねこにう】 女子部 出窓でまったり！サマーベッド涼しいね" },
     lat: 35.691,
@@ -41980,36 +34645,6 @@ export const CAMS: Cam[] = [
       videoId: "VPtrs9gWyk8",
       channelId: "UCe0IyAHwKBq-ohmOxboQGEg",
       titleKey: "旧軽井沢町営駐車場出入口付近ライブカメラ",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-andare-residences-live-stream",
-    name: { ja: "Andare Residences Live Stream", en: "Andare Residences Live Stream" },
-    lat: 47.6146,
-    lng: -122.3343,
-    timeZone: "America/Los_Angeles",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "I-Frs8VjSzM",
-      channelId: "UC2VoeYh8kVYbLCoBUx7_UCA",
-      titleKey: "Andare Residences Live Stream",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-a260821-1355",
-    name: { ja: "茨城大竹 ライブカメラ 波情報 概要欄説明をお読みください A260821 1355", en: "茨城大竹 ライブカメラ 波情報 概要欄説明をお読みください A260821 1355" },
-    lat: 26.6109,
-    lng: 127.9922,
-    timeZone: "Asia/Tokyo",
-    category: "nature",
-    country: "JP",
-    source: {
-      videoId: "tt4KpMZWC-Q",
-      channelId: "UC77Eqb-7TzAj5HweU_pBSlw",
-      titleKey: "茨城大竹 ライブカメラ 波情報 概要欄説明をお読みください  A260821 1355",
     },
   },
   {
@@ -42059,51 +34694,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "kr-8",
-    name: { ja: "실시간 제주국제공항 날씨", en: "실시간 제주국제공항 날씨" },
-    lat: 33.5071,
-    lng: 126.4916,
-    timeZone: "Asia/Seoul",
-    category: "airport",
-    country: "KR",
-    source: {
-      videoId: "SR_LgY-yBFk",
-      channelId: "UCisEmY9g7F6eGDbW2bZkS4w",
-      titleKey: "실시간 제주국제공항 날씨",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-jr-2-8",
-    name: { ja: "JR 中央本線ライブカメラ② （春日居町 ⇔ 石和温泉）下り甲府、松本方面【8月】", en: "JR 中央本線ライブカメラ② （春日居町 ⇔ 石和温泉）下り甲府、松本方面【8月】" },
-    lat: 35.6735,
-    lng: 138.6591,
-    timeZone: "Asia/Tokyo",
-    category: "railway",
-    country: "JP",
-    source: {
-      videoId: "9YpQONYzX_A",
-      channelId: "UCZ974tQkAeV7_l_opPHCcdg",
-      titleKey: "JR 中央本線ライブカメラ② （春日居町 ⇔ 石和温泉）下り甲府、松本方面【8月】",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "kr-live-3",
-    name: { ja: "[Live] 강원도 고성군 해변 파도소리", en: "[Live] 강원도 고성군 해변 파도소리" },
-    lat: 37.7725,
-    lng: 128.3821,
-    timeZone: "Asia/Seoul",
-    category: "nature",
-    country: "KR",
-    source: {
-      videoId: "ge-dlQ0V2kA",
-      channelId: "UCyjC8Vk4AGIXVP0zhWokf4w",
-      titleKey: "[Live] 강원도 고성군 해변 🎧파도소리",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "kr-live-4",
     name: { ja: "[LIVE] 개기일식 & 페르세우스 유성우 실시간 관측 라이브", en: "[LIVE] 개기일식 & 페르세우스 유성우 실시간 관측 라이브" },
     lat: 37.5847,
@@ -42149,21 +34739,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "kr-cctv",
-    name: { ja: "제주시 구좌읍 한동리 인카페온더비치 cctv 해당방송이 끊기면 다른 영상으로 복구되어 송출됩니다. 구독, 알림설정 하시면 복구시 빠르게 영상을 보실수 있습니다.", en: "제주시 구좌읍 한동리 인카페온더비치 cctv 해당방송이 끊기면 다른 영상으로 복구되어 송출됩니다. 구독, 알림설정 하시면 복구시 빠르게 영상을 보실수 있습니다." },
-    lat: 33.4998,
-    lng: 126.5314,
-    timeZone: "Asia/Seoul",
-    category: "nature",
-    country: "KR",
-    source: {
-      videoId: "129k_gjGDhU",
-      channelId: "UC-cGXwzS7XwlVn6zaPa3CDw",
-      titleKey: "제주시 구좌읍 한동리 인카페온더비치  cctv 해당방송이 끊기면 다른 영상으로 복구되어 송출됩니다. 구독, 알림설정 하시면 복구시 빠르게 영상을 보실수 있습니다.",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-branch",
     name: { ja: "BRANCH神戸学園都市", en: "BRANCH神戸学園都市" },
     lat: 34.6982,
@@ -42175,21 +34750,6 @@ export const CAMS: Cam[] = [
       videoId: "IsrM7G7r88E",
       channelId: "UCBTHAoI7hCHgj9clmfnQQzg",
       titleKey: "BRANCH神戸学園都市",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ru-live-chat-controlled-camera-perm-russ",
-    name: { ja: "Управляемая онлайн камера, Пермь / Live chat-controlled camera, Perm`, RUSSIA, Relax Music", en: "Управляемая онлайн камера, Пермь / Live chat-controlled camera, Perm`, RUSSIA, Relax Music" },
-    lat: 58.0109,
-    lng: 56.2319,
-    timeZone: "Asia/Yekaterinburg",
-    category: "city",
-    country: "RU",
-    source: {
-      videoId: "E4M-zK4r7ZY",
-      channelId: "UChRL6IZBphO5aVDfWRodnSg",
-      titleKey: "Управляемая онлайн камера, Пермь / Live chat-controlled camera, Perm`, RUSSIA, Relax Music",
     },
   },
   {
@@ -42220,21 +34780,6 @@ export const CAMS: Cam[] = [
       videoId: "WowFZXMJRrw",
       channelId: "UCHl9NImRJ-BlCpk9iqaL7Hw",
       titleKey: "株式会社 IIZASA牧場-2",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-live-24h-robo-house",
-    name: { ja: "【LIVE】多頭飼いロボロフスキーハムスター 24Hライブカメラ生配信 Robo house", en: "【LIVE】多頭飼いロボロフスキーハムスター 24Hライブカメラ生配信 Robo house" },
-    lat: 38.2666,
-    lng: 140.8783,
-    timeZone: "Asia/Tokyo",
-    category: "animal",
-    country: "JP",
-    source: {
-      videoId: "KeKN3VWK40g",
-      channelId: "UC2N9PwuXEQVO9EwNafehm0g",
-      titleKey: "【LIVE】多頭飼いロボロフスキーハムスター 24Hライブカメラ生配信　Robo house",
     },
   },
   {
@@ -42310,21 +34855,6 @@ export const CAMS: Cam[] = [
       videoId: "1zcIUk66HX4",
       channelId: "UCSyg9cb3Iq-NtlbxqNB9wGw",
       titleKey: "Utopia Village Top-of-Wall Underwater Reef Cam powered by EXPLORE.org",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "th-live-reolink-e560p-e1-outdoor-poe-4k",
-    name: { ja: "LIVE: ชมภาพสดกล้อง Reolink E560P (E1 Outdoor PoE) 4K PTZ ซูม 3 เท่า หมุนตามคนอัตโนมัติ", en: "LIVE: ชมภาพสดกล้อง Reolink E560P (E1 Outdoor PoE) 4K PTZ ซูม 3 เท่า หมุนตามคนอัตโนมัติ" },
-    lat: 13.7441,
-    lng: 100.5431,
-    timeZone: "Asia/Bangkok",
-    category: "nature",
-    country: "TH",
-    source: {
-      videoId: "taD-29zfTK0",
-      channelId: "UCBRYB3-qydB67zMyBsE1yvg",
-      titleKey: "🔴 LIVE: ชมภาพสดกล้อง Reolink E560P (E1 Outdoor PoE) 4K PTZ ซูม 3 เท่า หมุนตามคนอัตโนมัติ",
     },
   },
   {
@@ -42854,36 +35384,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-live-16",
-    name: { ja: "城のホテル甲府 甲府城天守台LIVE", en: "城のホテル甲府 甲府城天守台LIVE" },
-    lat: 35.6661,
-    lng: 138.5703,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "L6KE12PAKYA",
-      channelId: "UCA1PeQnw4Ys2kmBXa2GIF-Q",
-      titleKey: "城のホテル甲府 甲府城天守台LIVE",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-60",
-    name: { ja: "下田プリンスホテル 白浜中央海水浴場（ライブカメラより）", en: "下田プリンスホテル 白浜中央海水浴場（ライブカメラより）" },
-    lat: 34.6963,
-    lng: 138.9732,
-    timeZone: "Asia/Tokyo",
-    category: "nature",
-    country: "JP",
-    source: {
-      videoId: "z3sngsY_u4Y",
-      channelId: "UCn6wb4E1-pdzUG2Fn_tAfWA",
-      titleKey: "下田プリンスホテル　白浜中央海水浴場（ライブカメラより）",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-61",
     name: { ja: "長生村一松海岸潮位監視カメラ", en: "長生村一松海岸潮位監視カメラ" },
     lat: 35.4123,
@@ -43060,21 +35560,6 @@ export const CAMS: Cam[] = [
       videoId: "nh0TUmU-Sko",
       channelId: "UCwzJctz6m-0wG_evkheecZA",
       titleKey: "忍野しのびの里ライブカメラ／Live stream of Mt.Fuji from \"Oshino Ninja Village\"",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "kr-1",
-    name: { ja: "문경새재 제1관문", en: "문경새재 제1관문" },
-    lat: 36.5859,
-    lng: 128.1871,
-    timeZone: "Asia/Seoul",
-    category: "nature",
-    country: "KR",
-    source: {
-      videoId: "KKwavDUMlsQ",
-      channelId: "UCcfLRRQXje39U6EuGTzBrgg",
-      titleKey: "문경새재 제1관문",
     },
   },
   {
@@ -43334,21 +35819,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-guinea-pig-live-stream",
-    name: { ja: "モルモットのライブ配信 Guinea pig live stream", en: "モルモットのライブ配信 Guinea pig live stream" },
-    lat: 35.6904,
-    lng: 139.7691,
-    timeZone: "Asia/Tokyo",
-    category: "animal",
-    country: "JP",
-    source: {
-      videoId: "KW7wtpsvdKI",
-      channelId: "UCjtXFQoZ-ZTkR9x-hUXPY1A",
-      titleKey: "🔴モルモットのライブ配信 Guinea pig live stream",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-live-19",
     name: { ja: "歌舞伎町一番街LIVEカメラ", en: "歌舞伎町一番街LIVEカメラ" },
     lat: 35.5079,
@@ -43375,21 +35845,6 @@ export const CAMS: Cam[] = [
       videoId: "8VbOUB-dplM",
       channelId: "UCwWWMxoGXIVX_LZUn11bneQ",
       titleKey: "プリンス通り付近ライブカメラ",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-71",
-    name: { ja: "現在の浅間山の様子", en: "現在の浅間山の様子" },
-    lat: 36.3483,
-    lng: 138.597,
-    timeZone: "Asia/Tokyo",
-    category: "nature",
-    country: "JP",
-    source: {
-      videoId: "Arw1omQUnr4",
-      channelId: "UCwWWMxoGXIVX_LZUn11bneQ",
-      titleKey: "現在の浅間山の様子",
     },
   },
   {
@@ -43529,21 +35984,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-18-3",
-    name: { ja: "国道18号バイパス（軽井沢グリーンライン）消防署付近", en: "国道18号バイパス（軽井沢グリーンライン）消防署付近" },
-    lat: 36.3483,
-    lng: 138.597,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "YiUnKdAq424",
-      channelId: "UCwWWMxoGXIVX_LZUn11bneQ",
-      titleKey: "国道18号バイパス（軽井沢グリーンライン）消防署付近",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-244-higashikansen-river-monitoring-ca",
     name: { ja: "東幹川 国道244付近 河川監視用カメラ | Higashikansen River Monitoring Camera near National Route 244", en: "東幹川 国道244付近 河川監視用カメラ | Higashikansen River Monitoring Camera near National Route 244" },
     lat: 43.9166,
@@ -43555,21 +35995,6 @@ export const CAMS: Cam[] = [
       videoId: "3xj_z7AJ6Vw",
       channelId: "UCosghz8j35-5OCT5OR5_keQ",
       titleKey: "東幹川 国道244付近 河川監視用カメラ | Higashikansen River Monitoring Camera near National Route 244",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-75",
-    name: { ja: "横須賀市災害監視カメラ うみかぜ公園", en: "横須賀市災害監視カメラ うみかぜ公園" },
-    lat: 35.2768,
-    lng: 139.6827,
-    timeZone: "Asia/Tokyo",
-    category: "nature",
-    country: "JP",
-    source: {
-      videoId: "Yj4CHgedlVw",
-      channelId: "UCQDVaWThh91v2lgtCCqio5w",
-      titleKey: "横須賀市災害監視カメラ　うみかぜ公園",
     },
   },
   {
@@ -43630,21 +36055,6 @@ export const CAMS: Cam[] = [
       videoId: "qN6Xwpi-lnA",
       channelId: "UCuE_--BXc0J7gIAtA_t4NnQ",
       titleKey: "【LIVE】野鳥たちで賑わう 米子水鳥公園",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "tw-360-4k-live-360-4k-360-formosa360-rog",
-    name: { ja: "#合歡山主峰 【360 4K Live】 #太魯閣國家公園 360 4K全景即時影像 #360看見台灣 #Formosa360 #rogy360taiwan #看見台灣360", en: "#合歡山主峰 【360 4K Live】 #太魯閣國家公園 360 4K全景即時影像 #360看見台灣 #Formosa360 #rogy360taiwan #看見台灣360" },
-    lat: 24.5673,
-    lng: 120.8779,
-    timeZone: "Asia/Taipei",
-    category: "nature",
-    country: "TW",
-    source: {
-      videoId: "yvKEPw53CTs",
-      channelId: "UCqv4mqa4LRLYNTwxaRo9-qg",
-      titleKey: "#合歡山主峰 【360 4K Live】 #太魯閣國家公園 360 4K全景即時影像 #360看見台灣 #Formosa360 #rogy360taiwan #看見台灣360",
     },
   },
   {
@@ -43840,21 +36250,6 @@ export const CAMS: Cam[] = [
       videoId: "EaRgJQ--2eE",
       channelId: "UCfCxyg8waxuAPxa8WmBY49g",
       titleKey: "渋谷センター街 マクドナルド前 ライブカメラ",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-livecamera-292-2",
-    name: { ja: "「LIVECAMERA」国道292号 草津前口", en: "「LIVECAMERA」国道292号 草津前口" },
-    lat: 36.5808,
-    lng: 138.5672,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "WB4jllqVRCc",
-      channelId: "UCbn5eHDjwmPC2K9RG8P0i_A",
-      titleKey: "「LIVECAMERA」国道292号 草津前口",
     },
   },
   {
@@ -44129,21 +36524,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-79",
-    name: { ja: "【ライブカメラ】気仙川：岩手県住田町世田米（旧昭和橋付近より）", en: "【ライブカメラ】気仙川：岩手県住田町世田米（旧昭和橋付近より）" },
-    lat: 34.9402,
-    lng: 135.7579,
-    timeZone: "Asia/Tokyo",
-    category: "nature",
-    country: "JP",
-    source: {
-      videoId: "5LvLwe6cqtY",
-      channelId: "UCxgmra63vcFgLji9jhAad9A",
-      titleKey: "【ライブカメラ】気仙川：岩手県住田町世田米（旧昭和橋付近より）",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-live-yamatoriver-live-camera",
     name: { ja: "【LIVE】大和川河川 / Yamatoriver Live Camera", en: "【LIVE】大和川河川 / Yamatoriver Live Camera" },
     lat: 34.595,
@@ -44309,36 +36689,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-80",
-    name: { ja: "【札幌 ライブカメラ】札幌新道、石狩街道、札樽自動車道交通状況", en: "【札幌 ライブカメラ】札幌新道、石狩街道、札樽自動車道交通状況" },
-    lat: 43.0667,
-    lng: 141.35,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "AD2S75lTwkc",
-      channelId: "UCaiHqyz7a0OEAK0m128Cp9Q",
-      titleKey: "【札幌 ライブカメラ】札幌新道、石狩街道、札樽自動車道交通状況",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-81",
-    name: { ja: "【北海道札幌市東区】元町駅交差点ライブカメラ", en: "【北海道札幌市東区】元町駅交差点ライブカメラ" },
-    lat: 43.0667,
-    lng: 141.35,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "lK0pXrdkwK8",
-      channelId: "UCrMOS_QpjjeIjMKUMOm4_Qw",
-      titleKey: "【北海道札幌市東区】元町駅交差点ライブカメラ",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-live-1-4",
     name: { ja: "【LIVE】道路状況・札幌市中央区南1条通り/東4丁目通り交差点", en: "【LIVE】道路状況・札幌市中央区南1条通り/東4丁目通り交差点" },
     lat: 43.0667,
@@ -44354,21 +36704,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-live-tokyo-kanda",
-    name: { ja: "【LIVE】神田駅北口ライブカメラ【Tokyo kanda】", en: "【LIVE】神田駅北口ライブカメラ【Tokyo kanda】" },
-    lat: 35.6895,
-    lng: 139.6917,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "ftkM0BVLhtg",
-      channelId: "UCu76uqpelv-VALL5d6zsljg",
-      titleKey: "【LIVE】神田駅北口ライブカメラ【Tokyo kanda】",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-sapporo-streetcar-since-1918-live-24",
     name: { ja: "Sapporo Streetcar—Since 1918 Live 24/7 Japan Railcam | 路面電車 札幌市電 1918- | lofi beats", en: "Sapporo Streetcar—Since 1918 Live 24/7 Japan Railcam | 路面電車 札幌市電 1918- | lofi beats" },
     lat: 43.0667,
@@ -44380,36 +36715,6 @@ export const CAMS: Cam[] = [
       videoId: "HBF7bRKGlEU",
       channelId: "UCIMs8atP2qoxcfAvhiFlzGQ",
       titleKey: "Sapporo Streetcar—Since 1918 Live 24/7 Japan Railcam | 🚋路面電車 札幌市電 1918- | lofi beats",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-live-tokyo-live-camera",
-    name: { ja: "【LIVE】東京・板橋仲宿交差点下り TOKYO LIVE CAMERA", en: "【LIVE】東京・板橋仲宿交差点下り TOKYO LIVE CAMERA" },
-    lat: 35.6895,
-    lng: 139.6917,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "jIBl1-avIc0",
-      channelId: "UCjC0AEc_OpnKFcfRI_8nl4Q",
-      titleKey: "【LIVE】東京・板橋仲宿交差点下り TOKYO LIVE CAMERA",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-sapporo-japan-traffic-cam-cityscape-l",
-    name: { ja: "Sapporo Japan Traffic Cam & Cityscape Live 24/7 | 札幌市電 中央区役所前停留場 SC03", en: "Sapporo Japan Traffic Cam & Cityscape Live 24/7 | 札幌市電 中央区役所前停留場 SC03" },
-    lat: 35.6854,
-    lng: 139.7531,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "zBaPnBEWQeg",
-      channelId: "UC3IqtfSTFjXK5hhFqeTgJkw",
-      titleKey: "Sapporo Japan Traffic Cam & Cityscape Live 24/7 | 🚋札幌市電 中央区役所前停留場 SC03",
     },
   },
   {
@@ -44489,21 +36794,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-live-kix-1-kansai-international-airpo",
-    name: { ja: "【LIVE】関西国際空港(KIX)ライブカメラ 第1ターミナル｜ Kansai International Airport - Osaka, Japan＜カンテレNEWS＞", en: "【LIVE】関西国際空港(KIX)ライブカメラ 第1ターミナル｜ Kansai International Airport - Osaka, Japan＜カンテレNEWS＞" },
-    lat: 34.4273,
-    lng: 135.2441,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "tusny7uGPS8",
-      channelId: "UCQhaZjODkIjuv38d-i5TVRw",
-      titleKey: "【LIVE】関西国際空港(KIX)ライブカメラ　第1ターミナル｜ Kansai International Airport - Osaka, Japan＜カンテレNEWS＞",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-live-2026-08-26-17-00-osaka-japan-tra",
     name: { ja: "【LIVE】大阪環状線・梅田貨物線ライブカメラ 2026/08/26 17:00～ Osaka, JAPAN | Train Camera", en: "【LIVE】大阪環状線・梅田貨物線ライブカメラ 2026/08/26 17:00～ Osaka, JAPAN | Train Camera" },
     lat: 34.6938,
@@ -44545,21 +36835,6 @@ export const CAMS: Cam[] = [
       videoId: "YIjxwMxWzgE",
       channelId: "UC7lHIZbQzHILorlX4R0izsw",
       titleKey: "ライブ配信・夜景がきれい！あべのハルカス・大阪の夜景/JAPAN NIGHT VEW /Live streaming and beautiful night view! Osaka,Japan",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-live-osaka-japan-24-7-livestreaming-w",
-    name: { ja: "【LIVE】お天気カメラ 大阪／OSAKA,JAPAN 24/7 livestreaming weather /Osaka Sky Livecam", en: "【LIVE】お天気カメラ 大阪／OSAKA,JAPAN 24/7 livestreaming weather /Osaka Sky Livecam" },
-    lat: 34.6938,
-    lng: 135.5011,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "KpAr98JS_aE",
-      channelId: "UC7lHIZbQzHILorlX4R0izsw",
-      titleKey: "【LIVE】お天気カメラ　大阪／OSAKA,JAPAN 24/7 livestreaming weather   /Osaka Sky Livecam",
     },
   },
   {
@@ -44650,21 +36925,6 @@ export const CAMS: Cam[] = [
       videoId: "WOrWnnJleA4",
       channelId: "UCnpVhaYEaUYwiQaFdqoPK0g",
       titleKey: "【ライブカメラ】 横浜みなとみらいの景色とリアルな街の音 ライブ配信｜作業用・勉強用 Minatomirai Yokohama City Japan Live Stream H.View",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-yokohama-port-live-camera",
-    name: { ja: "ライブカメラ みなとみらい、ベイブリッジ、横浜港：Yokohama Port Live Camera", en: "ライブカメラ みなとみらい、ベイブリッジ、横浜港：Yokohama Port Live Camera" },
-    lat: 33.6006,
-    lng: 130.3653,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "AEhdDHMR_vc",
-      channelId: "UCm8DGdhRoGe-GPCXfCT65og",
-      titleKey: "ライブカメラ　みなとみらい、ベイブリッジ、横浜港：Yokohama Port Live Camera",
     },
   },
   {
@@ -44939,21 +37199,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-fukuoka-airport",
-    name: { ja: "【ライブカメラ】福岡空港 Fukuoka Airport ＆他ライブカメラ", en: "【ライブカメラ】福岡空港 Fukuoka Airport ＆他ライブカメラ" },
-    lat: 33.5973,
-    lng: 130.4482,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "uuMhOREzUYA",
-      channelId: "UCS8ZQejq2CL-nZcnRWZCA5Q",
-      titleKey: "【ライブカメラ】福岡空港　Fukuoka Airport　＆他ライブカメラ",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-95",
     name: { ja: "沖縄県那覇市首里汀良町モノレールライブカメラ", en: "沖縄県那覇市首里汀良町モノレールライブカメラ" },
     lat: 26.213,
@@ -45029,21 +37274,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-97",
-    name: { ja: "【ペルセウス座流星群】沖縄・石垣島天文台 星空ライブカメラ(ベータ版)", en: "【ペルセウス座流星群】沖縄・石垣島天文台 星空ライブカメラ(ベータ版)" },
-    lat: 26.213,
-    lng: 127.6785,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "QzFmToex1Aw",
-      channelId: "UCbU9TQlRGeBGc9SjUYmsGAw",
-      titleKey: "【ペルセウス座流星群】沖縄・石垣島天文台 星空ライブカメラ(ベータ版)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-4k-live-cafe-cahaya-bulan-okinawa-jap",
     name: { ja: "【4K Live】沖縄ライブカメラ cafe CAHAYA BULAN OKINAWA JAPAN(本部町備瀬 )", en: "【4K Live】沖縄ライブカメラ cafe CAHAYA BULAN OKINAWA JAPAN(本部町備瀬 )" },
     lat: 26.1919,
@@ -45074,21 +37304,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-8-26-live-ishigakijima-okinawa-japan",
-    name: { ja: "8月26日(水)｜【LIVE】石垣島ライブカメラ（名蔵湾・フサキビーチ） ／ ISHIGAKIJIMA OKINAWA JAPAN", en: "8月26日(水)｜【LIVE】石垣島ライブカメラ（名蔵湾・フサキビーチ） ／ ISHIGAKIJIMA OKINAWA JAPAN" },
-    lat: 24.4,
-    lng: 124.2,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "0EeGabC__4E",
-      channelId: "UCWFKZJdFJIIH1E9DGYBaY0A",
-      titleKey: "8月26日(水)｜【LIVE】石垣島ライブカメラ（名蔵湾・フサキビーチ） ／ ISHIGAKIJIMA OKINAWA JAPAN",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-akita-japan-live",
     name: { ja: "秋田県にかほ市 道の駅象潟「ねむの丘」ライブカメラ-Akita Japan LIVE", en: "秋田県にかほ市 道の駅象潟「ねむの丘」ライブカメラ-Akita Japan LIVE" },
     lat: 35.6854,
@@ -45100,21 +37315,6 @@ export const CAMS: Cam[] = [
       videoId: "hKQVYhxzmg4",
       channelId: "UCaXRryxoYWX-66VtGPDOmdA",
       titleKey: "秋田県にかほ市　道の駅象潟「ねむの丘」ライブカメラ-Akita Japan LIVE",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-live-hatoma-island-okinawa-japan-live",
-    name: { ja: "【LIVE】沖縄鳩間島ライブカメラHatoma Island Okinawa Japan Livecamera", en: "【LIVE】沖縄鳩間島ライブカメラHatoma Island Okinawa Japan Livecamera" },
-    lat: 26.213,
-    lng: 127.6785,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "Uh_od38Qtf4",
-      channelId: "UCw-gq5ojQF91k2ldN_VlnLg",
-      titleKey: "【LIVE】沖縄鳩間島ライブカメラHatoma Island Okinawa Japan Livecamera",
     },
   },
   {
@@ -45145,21 +37345,6 @@ export const CAMS: Cam[] = [
       videoId: "prhi5doir6U",
       channelId: "UCNt5Ctj5uR_A5jTn_yZ9mVQ",
       titleKey: "[LIVE]仙台空港ライブカメラ / Live streaming from Sendai Airport",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-live-58-42x-ptz",
-    name: { ja: "【LIVE】沖縄 国道58号線ライブカメラ 宜野湾 大謝名交差点 42X PTZ", en: "【LIVE】沖縄 国道58号線ライブカメラ 宜野湾 大謝名交差点 42X PTZ" },
-    lat: 26.213,
-    lng: 127.6785,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "qcXFhfNRe5g",
-      channelId: "UCCpZAU0b2vZv598fDBlTlqw",
-      titleKey: "🔴【LIVE】沖縄 国道58号線ライブカメラ 宜野湾 大謝名交差点 42X PTZ",
     },
   },
   {
@@ -45209,21 +37394,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-98",
-    name: { ja: "【大牟田の今を映す】ライブカメラ 増田うなぎ前 福岡県 大牟田市 三池 新町 最新ライブ配信 リアルタイム ライブ映像 定点カメラ 登校下校確認 天気 事故 台風情報 大雨 地震 雷", en: "【大牟田の今を映す】ライブカメラ 増田うなぎ前 福岡県 大牟田市 三池 新町 最新ライブ配信 リアルタイム ライブ映像 定点カメラ 登校下校確認 天気 事故 台風情報 大雨 地震 雷" },
-    lat: 33.6,
-    lng: 130.4167,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "MsUviESYH8s",
-      channelId: "UCL8aQfzHSWNNPCAO-IDR_8A",
-      titleKey: "【大牟田の今を映す】ライブカメラ 増田うなぎ前　　  福岡県 大牟田市 三池 新町 最新ライブ配信  リアルタイム ライブ映像 定点カメラ 登校下校確認 天気 事故 台風情報 大雨 地震 雷",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-news-live-kanazawa-ishikawa-japan",
     name: { ja: "【石川県・金沢市＆News LIVE チャンネル】Kanazawa, Ishikawa Japan #テレビ金沢 #ニュース #地震 #災害 #能登半島地震", en: "【石川県・金沢市＆News LIVE チャンネル】Kanazawa, Ishikawa Japan #テレビ金沢 #ニュース #地震 #災害 #能登半島地震" },
     lat: 36.6,
@@ -45235,21 +37405,6 @@ export const CAMS: Cam[] = [
       videoId: "QdJWeODVjvA",
       channelId: "UCzeRR8rMI8IkjqGx_MFlUjQ",
       titleKey: "【石川県・金沢市＆News LIVE チャンネル】Kanazawa, Ishikawa Japan　#テレビ金沢 #ニュース #地震 #災害 #能登半島地震",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-rifu-japan-earthquake-live-stream",
-    name: { ja: "宮城県利府町の室内ライブカメラ(地震定点観測) / Rifu, Japan - Earthquake Live stream", en: "宮城県利府町の室内ライブカメラ(地震定点観測) / Rifu, Japan - Earthquake Live stream" },
-    lat: 38.3309,
-    lng: 140.9769,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "gNmLky6Tc7Q",
-      channelId: "UCwckgZv2TyZSxDUFIf4IHeg",
-      titleKey: "宮城県利府町の室内ライブカメラ(地震定点観測) / Rifu, Japan - Earthquake Live stream",
     },
   },
   {
@@ -45355,21 +37510,6 @@ export const CAMS: Cam[] = [
       videoId: "VYaWdldfU4Q",
       channelId: "UCagfXxy3O7noRW1xlCo5cCQ",
       titleKey: "[4K Live] KUROSAKA Cam 5 　広島街道踏切 俯瞰",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-live-ukb-kobe-airport-hyogo-japan-new",
-    name: { ja: "【LIVE】神戸空港 (UKB)ライブカメラ｜ Kobe Airport - Hyogo, Japan 大阪湾をバックに離発着する飛行機の様子をご覧ください＜カンテレNEWS＞", en: "【LIVE】神戸空港 (UKB)ライブカメラ｜ Kobe Airport - Hyogo, Japan 大阪湾をバックに離発着する飛行機の様子をご覧ください＜カンテレNEWS＞" },
-    lat: 34.6913,
-    lng: 135.183,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "mHK35PWO7DE",
-      channelId: "UCQhaZjODkIjuv38d-i5TVRw",
-      titleKey: "【LIVE】神戸空港 (UKB)ライブカメラ｜ Kobe Airport - Hyogo, Japan　大阪湾をバックに離発着する飛行機の様子をご覧ください＜カンテレNEWS＞",
     },
   },
   {
@@ -45509,21 +37649,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-mount-fuji-live-from-fumotoppara-shiz",
-    name: { ja: "富士山ライブ配信 ふもとっぱらキャンプサイトから - Mount Fuji Live from Fumotoppara (Shizuoka Japan)", en: "富士山ライブ配信 ふもとっぱらキャンプサイトから - Mount Fuji Live from Fumotoppara (Shizuoka Japan)" },
-    lat: 35.1667,
-    lng: 138.6833,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "hBaHx5WdnbQ",
-      channelId: "UCYcexkyqYKH9oWzprRGsW0A",
-      titleKey: "富士山ライブ配信 ふもとっぱらキャンプサイトから - Mount Fuji Live from Fumotoppara (Shizuoka Japan)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-live-mt-fuji-world-heritage-site-live",
     name: { ja: "【LIVE】静岡市さった峠 広重の富士山 / Mt. Fuji (World Heritage Site): Live Streaming in Shizuoka City", en: "【LIVE】静岡市さった峠 広重の富士山 / Mt. Fuji (World Heritage Site): Live Streaming in Shizuoka City" },
     lat: 33.512,
@@ -45614,21 +37739,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "kr-seoul-live-cam-24-7-han-river-real-ti",
-    name: { ja: "Seoul Live Cam 24/7 Han River| Real-time Korea Skyline", en: "Seoul Live Cam 24/7 Han River| Real-time Korea Skyline" },
-    lat: 37.54,
-    lng: 127.2056,
-    timeZone: "Asia/Seoul",
-    category: "city",
-    country: "KR",
-    source: {
-      videoId: "HDblGb_WV5Y",
-      channelId: "UCdBZr3OUnD6Cix_PY0Xxe2Q",
-      titleKey: "Seoul Live Cam 24/7 Han River| Real-time Korea Skyline",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "kr-live-seoul-myeongdong-jongno-walking",
     name: { ja: "LIVE | Seoul Myeongdong & Jongno Walking Tour 🇰🇷 | Myeongdong Live TV | 명동, 종로 음식거리 라이브", en: "LIVE | Seoul Myeongdong & Jongno Walking Tour 🇰🇷 | Myeongdong Live TV | 명동, 종로 음식거리 라이브" },
     lat: 37.566,
@@ -45655,36 +37765,6 @@ export const CAMS: Cam[] = [
       videoId: "geIlSasuNio",
       channelId: "UCSkaixM5p8mYuBIdy2J0ZHw",
       titleKey: "🔴 LIVE | Seoul Seongsu Walking Tour 🇰🇷 | Seongsu Live TV | Korea Night walks |건대, 성수동 거리 라이브 TV",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "tw-live-camera-taipei-neihu",
-    name: { ja: "Live Camera Taipei Neihu 台北內湖瑞光路即時影像", en: "Live Camera Taipei Neihu 台北內湖瑞光路即時影像" },
-    lat: 25.0815,
-    lng: 121.5881,
-    timeZone: "Asia/Taipei",
-    category: "city",
-    country: "TW",
-    source: {
-      videoId: "6zE8oh0OODY",
-      channelId: "UC2WzdVP6H_2q5vrIEus_TSg",
-      titleKey: "Live Camera Taipei Neihu 台北內湖瑞光路即時影像",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "kr-4k-seoul-ddp-live-camera-lofi",
-    name: { ja: "[4K] 서울 동대문 라이브 SEOUL DDP LIVE CAMERA LOFI", en: "[4K] 서울 동대문 라이브 SEOUL DDP LIVE CAMERA LOFI" },
-    lat: 37.566,
-    lng: 126.9784,
-    timeZone: "Asia/Seoul",
-    category: "city",
-    country: "KR",
-    source: {
-      videoId: "t5WpxyF8q5g",
-      channelId: "UCfz-xWTTTfV1FsNd7Sh-GeA",
-      titleKey: "[4K] 서울 동대문 라이브 SEOUL DDP LIVE CAMERA LOFI",
     },
   },
   {
@@ -45869,21 +37949,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "hk-live-hong-kong-s-only-24-7-live-camer",
-    name: { ja: "【LIVE】 Hong Kong's ONLY 24/7 LIVE camera from The Peak with Relaxing Music BGM 24/7 實景直播 抒情背景音樂", en: "【LIVE】 Hong Kong's ONLY 24/7 LIVE camera from The Peak with Relaxing Music BGM 24/7 實景直播 抒情背景音樂" },
-    lat: 22.2783,
-    lng: 114.1747,
-    timeZone: "Asia/Hong_Kong",
-    category: "city",
-    country: "HK",
-    source: {
-      videoId: "KQMp39IV56Y",
-      channelId: "UCNcY1o1xGgTX_19w0cXes9g",
-      titleKey: "🔴【LIVE】 Hong Kong's ONLY 24/7 LIVE camera from The Peak with Relaxing Music BGM 24/7 實景直播 抒情背景音樂🎧",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "hk-nature-sound-hong-kong-aberdeen-harbo",
     name: { ja: "【Nature Sound 】Hong Kong Aberdeen Harbour Live Camera - 香港市景即時影像 香港仔海峽", en: "【Nature Sound 】Hong Kong Aberdeen Harbour Live Camera - 香港市景即時影像 香港仔海峽" },
     lat: 22.2783,
@@ -45895,21 +37960,6 @@ export const CAMS: Cam[] = [
       videoId: "7fFxGqhlWYY",
       channelId: "UCBDx32JFg9vk9VHtQppv5tg",
       titleKey: "【Nature Sound 🔊】Hong Kong Aberdeen Harbour Live Camera - 香港市景即時影像 香港仔海峽",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "hk-live-cam-hong-kong-live-stream-lofi-h",
-    name: { ja: "【香港直播】實時東九龍維港 live cam, hong kong live stream, lofi hip hop bgm, 輕鬆音樂", en: "【香港直播】實時東九龍維港 live cam, hong kong live stream, lofi hip hop bgm, 輕鬆音樂" },
-    lat: 22.2783,
-    lng: 114.1747,
-    timeZone: "Asia/Hong_Kong",
-    category: "city",
-    country: "HK",
-    source: {
-      videoId: "dCT-JPC9Ug4",
-      channelId: "UC7DDCAQ65_KJeYJQ3fCmWUA",
-      titleKey: "【香港直播】實時東九龍維港 live cam, hong kong live stream, lofi hip hop bgm, 輕鬆音樂",
     },
   },
   {
@@ -46034,21 +38084,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "sg-singapore-port-4k-livestream-disney-c",
-    name: { ja: "Singapore Port 4K Livestream Disney Cruise (Tanjong Pagar live shipping webcam) with LoFi beats", en: "Singapore Port 4K Livestream Disney Cruise (Tanjong Pagar live shipping webcam) with LoFi beats" },
-    lat: 1.2897,
-    lng: 103.8501,
-    timeZone: "Asia/Singapore",
-    category: "city",
-    country: "SG",
-    source: {
-      videoId: "JKqqosMYcDI",
-      channelId: "UCeh-xpdolXxtC7ey15ccW-g",
-      titleKey: "Singapore Port 4K Livestream Disney Cruise (Tanjong Pagar live shipping webcam) with LoFi beats",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "sg-universal-studios-live-worldwide-virt",
     name: { ja: "Universal Studios Live Worldwide Virtual Webcam Stream - Hollywood, Orlando, Singapore, and Japan", en: "Universal Studios Live Worldwide Virtual Webcam Stream - Hollywood, Orlando, Singapore, and Japan" },
     lat: 1.2557,
@@ -46060,21 +38095,6 @@ export const CAMS: Cam[] = [
       videoId: "6fdFZUqi0oU",
       channelId: "UCyDRWDDc9aEC2fQRYlpDj4g",
       titleKey: "Universal Studios Live Worldwide Virtual Webcam Stream - Hollywood, Orlando, Singapore, and Japan",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "sg-singapore-cbd-live-stream-4k-with-lof",
-    name: { ja: "Singapore CBD Live Stream 4K with LoFi Music", en: "Singapore CBD Live Stream 4K with LoFi Music" },
-    lat: 1.2897,
-    lng: 103.8501,
-    timeZone: "Asia/Singapore",
-    category: "city",
-    country: "SG",
-    source: {
-      videoId: "Wmjfjc8QxkI",
-      channelId: "UCeh-xpdolXxtC7ey15ccW-g",
-      titleKey: "Singapore CBD Live Stream 4K with LoFi Music",
     },
   },
   {
@@ -46124,21 +38144,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "id-bali-tropical-beach-live-24-7-ocean-s",
-    name: { ja: "Bali Tropical Beach (LIVE 24/7). Ocean Sounds & Rolling Waves For Deep Sleeping", en: "Bali Tropical Beach (LIVE 24/7). Ocean Sounds & Rolling Waves For Deep Sleeping" },
-    lat: -8.3333,
-    lng: 115,
-    timeZone: "Asia/Makassar",
-    category: "city",
-    country: "ID",
-    source: {
-      videoId: "1avu7zP4dnU",
-      channelId: "UCeDnpWZapyw4rwORykzLbFg",
-      titleKey: "Bali 🏝 Tropical Beach (LIVE 24/7). Ocean Sounds & Rolling Waves For Deep Sleeping",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "id-seychelles-ocean-4k-live-24-7-wild-be",
     name: { ja: "Seychelles Ocean 4K (LIVE 24/7). Wild Beach & Ocean Waves Sounds. Relaxing Ocean", en: "Seychelles Ocean 4K (LIVE 24/7). Wild Beach & Ocean Waves Sounds. Relaxing Ocean" },
     lat: 3.3918,
@@ -46180,21 +38185,6 @@ export const CAMS: Cam[] = [
       videoId: "nTHJUQqW3wc",
       channelId: "UC0djAWwMXP22wzocdJR9dWw",
       titleKey: "🔴Live PTZ camera, Agdao Public Market, Davao City #philippines",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ph-live-ptz-camera-agdao-bus-stop-flyove",
-    name: { ja: "Live PTZ camera , Agdao Bus Stop & Flyover, Davao City #philippines", en: "Live PTZ camera , Agdao Bus Stop & Flyover, Davao City #philippines" },
-    lat: 12.3093,
-    lng: 122.6139,
-    timeZone: "Asia/Manila",
-    category: "city",
-    country: "PH",
-    source: {
-      videoId: "15weHVdoNFs",
-      channelId: "UC0djAWwMXP22wzocdJR9dWw",
-      titleKey: "🔴 Live PTZ camera , Agdao Bus Stop & Flyover, Davao City #philippines",
     },
   },
   {
@@ -46244,21 +38234,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "vn-hanoi-live-camera-24-7-vinh-tuy-bridg",
-    name: { ja: "Hanoi Live Camera 24/7 | Vinh Tuy Bridge Traffic | Hanoi Skyline Night View", en: "Hanoi Live Camera 24/7 | Vinh Tuy Bridge Traffic | Hanoi Skyline Night View" },
-    lat: 13.0955,
-    lng: 109.3209,
-    timeZone: "Asia/Ho_Chi_Minh",
-    category: "city",
-    country: "VN",
-    source: {
-      videoId: "DbOPyeg50bk",
-      channelId: "UCBVNLnTUkBWfcQuUXvaSEUw",
-      titleKey: "Hanoi Live Camera 24/7 | Vinh Tuy Bridge Traffic | Hanoi Skyline Night View",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "vn-live-bac-ha-market-real-life-in-vietn",
     name: { ja: "LIVE Bac Ha Market 🇻🇳 | Real Life in Vietnam’s Most Colorful Mountain Market Compilation Best Moment", en: "LIVE Bac Ha Market 🇻🇳 | Real Life in Vietnam’s Most Colorful Mountain Market Compilation Best Moment" },
     lat: 21.1861,
@@ -46270,21 +38245,6 @@ export const CAMS: Cam[] = [
       videoId: "WnebXNDmBN0",
       channelId: "UCY9cRg8kk_8AJ5ywz2rzMjw",
       titleKey: "LIVE Bac Ha Market 🇻🇳 | Real Life in Vietnam’s Most Colorful Mountain Market Compilation Best Moment",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "in-mumbai-sky-view-live-monsoon-skies",
-    name: { ja: "Mumbai Sky View Live | Monsoon skies", en: "Mumbai Sky View Live | Monsoon skies" },
-    lat: 35.0174,
-    lng: 77.5967,
-    timeZone: "Asia/Kolkata",
-    category: "city",
-    country: "IN",
-    source: {
-      videoId: "0C-tW2uCrGs",
-      channelId: "UCL81aABYBOuCrcu27Ax0zQQ",
-      titleKey: "Mumbai Sky View Live | Monsoon skies",
     },
   },
   {
@@ -46364,21 +38324,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "in-news-24-live-tv-sugar-price-hike-genz",
-    name: { ja: "News 24 LIVE TV: Sugar Price Hike | GenZ Conclave | Rahul Gandhi | Congress | PM Modi | BJP", en: "News 24 LIVE TV: Sugar Price Hike | GenZ Conclave | Rahul Gandhi | Congress | PM Modi | BJP" },
-    lat: 22.0874,
-    lng: 82.1439,
-    timeZone: "Asia/Kolkata",
-    category: "city",
-    country: "IN",
-    source: {
-      videoId: "hu20-r1oe2g",
-      channelId: "UCuzS3rPQAYqHcLWqOFuY0pw",
-      titleKey: "News 24 LIVE TV: Sugar Price Hike | GenZ Conclave | Rahul Gandhi | Congress | PM Modi | BJP",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "tr-cafe-de-anatolia-24-7-live-radio-ethn",
     name: { ja: "Cafe De Anatolia • 24/7 Live Radio • Ethno World | Oriental Radio | Best Ethnic Deep House Music", en: "Cafe De Anatolia • 24/7 Live Radio • Ethno World | Oriental Radio | Best Ethnic Deep House Music" },
     lat: 37.7131,
@@ -46439,21 +38384,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "il-middle-east-poland-baltic-states-live",
-    name: { ja: "Middle East, Poland, Baltic States Live | Beirut, Tel Aviv, Israel, Northern Israel, Jordan, Warsaw", en: "Middle East, Poland, Baltic States Live | Beirut, Tel Aviv, Israel, Northern Israel, Jordan, Warsaw" },
-    lat: 31.4781,
-    lng: 34.632,
-    timeZone: "Asia/Jerusalem",
-    category: "city",
-    country: "IL",
-    source: {
-      videoId: "FNccF1s7Wrw",
-      channelId: "UC2SO-5oK1SE4IqNXh4oqq1A",
-      titleKey: "Middle East, Poland, Baltic States Live | Beirut, Tel Aviv,  Israel, Northern Israel, Jordan, Warsaw",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "il-wild-egyptian-fruit-bat-live-israel-c",
     name: { ja: "Wild Egyptian Fruit Bat LIVE Israel Cam|The Bat Lab for Neuro-Ecol.| Charter Group of Wildlife", en: "Wild Egyptian Fruit Bat LIVE Israel Cam|The Bat Lab for Neuro-Ecol.| Charter Group of Wildlife" },
     lat: 32.0238,
@@ -46480,21 +38410,6 @@ export const CAMS: Cam[] = [
       videoId: "zp6LNSoq000",
       channelId: "UCnsR6NZFdu_kOljI3SWiGJw",
       titleKey: "Western Wall, Temple Archaeological Park",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "tr-4k-istanbul-hagia-sophia-bosphorus-st",
-    name: { ja: "[4K] Istanbul 🇹🇷 Hagia Sophia, Bosphorus Strait & Waterfront Skyline Views", en: "[4K] Istanbul 🇹🇷 Hagia Sophia, Bosphorus Strait & Waterfront Skyline Views" },
-    lat: 41.0138,
-    lng: 28.9497,
-    timeZone: "Europe/Istanbul",
-    category: "city",
-    country: "TR",
-    source: {
-      videoId: "bbVe5h7X3uw",
-      channelId: "UCKH3euoCLvcV3FK6WWpTwpQ",
-      titleKey: "[4K] Istanbul 🇹🇷 Hagia Sophia, Bosphorus Strait & Waterfront Skyline Views",
     },
   },
   {
@@ -46529,36 +38444,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "il-live-hd-multi-cams-from-middle-east-r",
-    name: { ja: "Live HD Multi cams from: Middle East & Russia/Ukraine Conflicts", en: "Live HD Multi cams from: Middle East & Russia/Ukraine Conflicts" },
-    lat: 31.4781,
-    lng: 34.632,
-    timeZone: "Asia/Jerusalem",
-    category: "city",
-    country: "IL",
-    source: {
-      videoId: "r5m_wedm-9E",
-      channelId: "UC9ivJE5pGfGzRVRfNobMSLA",
-      titleKey: "Live HD Multi cams from: Middle East & Russia/Ukraine Conflicts",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "gb-london-rush-hour-live-real-time-traff",
-    name: { ja: "London Rush Hour LIVE Real-Time Traffic Cams Across London", en: "London Rush Hour LIVE Real-Time Traffic Cams Across London" },
-    lat: 51.2833,
-    lng: -1.8167,
-    timeZone: "Europe/London",
-    category: "city",
-    country: "GB",
-    source: {
-      videoId: "0VV3JZhnlIo",
-      channelId: "UCGkR-YV14Ldx_XYROr3t_dA",
-      titleKey: "London Rush Hour LIVE 🚦 Real-Time Traffic Cams Across London",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "gb-colyford-station-camera-seaton-tramwa",
     name: { ja: "Colyford Station Camera, Seaton Tramway, Devon UK | Railcam LIVE & Seaton Tramway", en: "Colyford Station Camera, Seaton Tramway, Devon UK | Railcam LIVE & Seaton Tramway" },
     lat: 50.3781,
@@ -46570,36 +38455,6 @@ export const CAMS: Cam[] = [
       videoId: "7x4D0qmUkLg",
       channelId: "UCOx13sr_wa0ppMsHY9b0aMQ",
       titleKey: "Colyford Station Camera, Seaton Tramway, Devon UK | Railcam LIVE & Seaton Tramway",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "gb-london-bridge-river-thames-live-webca",
-    name: { ja: "London Bridge / River Thames Live Webcam @ The Golden Hinde (4K)", en: "London Bridge / River Thames Live Webcam @ The Golden Hinde (4K)" },
-    lat: 51.1422,
-    lng: 1.2745,
-    timeZone: "Europe/London",
-    category: "city",
-    country: "GB",
-    source: {
-      videoId: "H3vVUBQYGHo",
-      channelId: "UCk0jOxJ3BFvR6-yN2B7gz7A",
-      titleKey: "London Bridge / River Thames Live Webcam @ The Golden Hinde (4K)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "gb-aberdour-live-streaming-weathercam-fi",
-    name: { ja: "Aberdour Live Streaming WeatherCam - FifeWeather.co.uk", en: "Aberdour Live Streaming WeatherCam - FifeWeather.co.uk" },
-    lat: 56.0542,
-    lng: -3.3006,
-    timeZone: "Europe/London",
-    category: "city",
-    country: "GB",
-    source: {
-      videoId: "9eKzgA3Af7k",
-      channelId: "UCDPUOq2ADKZwRleMUImX-Ww",
-      titleKey: "Aberdour Live Streaming WeatherCam - FifeWeather.co.uk",
     },
   },
   {
@@ -46630,21 +38485,6 @@ export const CAMS: Cam[] = [
       videoId: "X7_o1eJmOLA",
       channelId: "UCAY-GlV3P5twjg7B9tjx_lg",
       titleKey: "🔴LIVE - Fort William Live Wide Webcam - Scotland - Loch Linnhe & West End Car Park",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "fr-webcam-palais-d-iena-conseil-economiq",
-    name: { ja: "Webcam Palais d’Iéna - Conseil Économique, Social et Environnemental - Vue Tour Eiffel - Paris", en: "Webcam Palais d’Iéna - Conseil Économique, Social et Environnemental - Vue Tour Eiffel - Paris" },
-    lat: 48.8534,
-    lng: 2.3488,
-    timeZone: "Europe/Paris",
-    category: "city",
-    country: "FR",
-    source: {
-      videoId: "OzYp4NRZlwQ",
-      channelId: "UCfkbmwi67lrETUqnOmf-Hqw",
-      titleKey: "Webcam Palais d’Iéna - Conseil Économique, Social et Environnemental - Vue Tour Eiffel - Paris",
     },
   },
   {
@@ -46799,21 +38639,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "de-hamburg-hafen-live-24-poller-hocken-s",
-    name: { ja: "Hamburg Hafen Live 24 ️ Poller hocken & Schiffe gucken an den Landungsbrücken", en: "Hamburg Hafen Live 24 ️ Poller hocken & Schiffe gucken an den Landungsbrücken" },
-    lat: 51.2166,
-    lng: 6.7371,
-    timeZone: "Europe/Berlin",
-    category: "city",
-    country: "DE",
-    source: {
-      videoId: "M66yEt1TZwY",
-      channelId: "UCrO5Kp9hYBEAAxseZWCydxQ",
-      titleKey: "Hamburg Hafen Live 24 🛳️ Poller hocken & Schiffe gucken an den Landungsbrücken",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "de-mpc-group-hamburg-hafen",
     name: { ja: "MPC Group: Hamburg Hafen", en: "MPC Group: Hamburg Hafen" },
     lat: 51.2166,
@@ -46934,21 +38759,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "es-live-360o-sky-camera-from-malaga-anda",
-    name: { ja: "Live 360º Sky Camera from Málaga, Andalusia (Spain) ️", en: "Live 360º Sky Camera from Málaga, Andalusia (Spain) ️" },
-    lat: 39.7158,
-    lng: -3.3202,
-    timeZone: "Europe/Madrid",
-    category: "city",
-    country: "ES",
-    source: {
-      videoId: "7QEMp9ozXFA",
-      channelId: "UCf0UXgwzKAnrheOwHNy9XLA",
-      titleKey: "🔴 Live 360º Sky Camera from Málaga, Andalusia (Spain) 🌤️",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "nl-webcam-nl-dezaanseschans-nl-live-ultr",
     name: { ja: "WebCam.NL | dezaanseschans.nl | live ultraHD Pan Tilt Zoom camera Zaanse Schans.", en: "WebCam.NL | dezaanseschans.nl | live ultraHD Pan Tilt Zoom camera Zaanse Schans." },
     lat: 52.66,
@@ -47005,21 +38815,6 @@ export const CAMS: Cam[] = [
       videoId: "EEM7a3mHMR4",
       channelId: "UCxIsefyl9g9A5SGWA4FvGIA",
       titleKey: "Vatican Media Live - English",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "it-roma-five-suites-piazza-venezia-live",
-    name: { ja: "Roma Five Suites - Piazza Venezia - Live Webcam from Rome", en: "Roma Five Suites - Piazza Venezia - Live Webcam from Rome" },
-    lat: 44.9936,
-    lng: 11.1064,
-    timeZone: "Europe/Rome",
-    category: "city",
-    country: "IT",
-    source: {
-      videoId: "yRTTjMYVCXY",
-      channelId: "UCDL2IVxAgPI7wybiUlQKrWg",
-      titleKey: "Roma Five Suites - Piazza Venezia - Live Webcam from Rome",
     },
   },
   {
@@ -47294,21 +39089,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "hu-allatkert-budapest-sziveben-szavanna",
-    name: { ja: "Állatkert Budapest szívében - Szavanna kifutó ÉLŐ", en: "Állatkert Budapest szívében - Szavanna kifutó ÉLŐ" },
-    lat: 47.8023,
-    lng: 18.7669,
-    timeZone: "Europe/Budapest",
-    category: "city",
-    country: "HU",
-    source: {
-      videoId: "sBg8TC11i6k",
-      channelId: "UCzE4PjV4gHoDAsN6BXwsLQw",
-      titleKey: "Állatkert Budapest szívében - Szavanna kifutó ÉLŐ",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "hu-allatkert-budapest-sziveben-elefant-k",
     name: { ja: "Állatkert Budapest szívében - Elefánt kifutó ÉLŐ", en: "Állatkert Budapest szívében - Elefánt kifutó ÉLŐ" },
     lat: 47.8023,
@@ -47444,21 +39224,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "gr-live-24-7-skiathos-bay-port-real-time",
-    name: { ja: "LIVE 24/7 | Skiathos Bay & Port – Real-Time Ship Spotting from Greece", en: "LIVE 24/7 | Skiathos Bay & Port – Real-Time Ship Spotting from Greece" },
-    lat: 39.5863,
-    lng: 21.9636,
-    timeZone: "Europe/Athens",
-    category: "city",
-    country: "GR",
-    source: {
-      videoId: "k9_uTRCJy7Q",
-      channelId: "UC8-BXn_sXlaJmGSE9SkRTYg",
-      titleKey: "LIVE 24/7 | Skiathos Bay & Port – Real-Time Ship Spotting from Greece",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "gr-patitiri-port-alonissos-live-portcam",
     name: { ja: "Patitiri port, Alonissos Live portcam", en: "Patitiri port, Alonissos Live portcam" },
     lat: 39.4231,
@@ -47485,36 +39250,6 @@ export const CAMS: Cam[] = [
       videoId: "Zksbxgm6VHA",
       channelId: "UCUT8t0c6nWr-g-RylAZkr8g",
       titleKey: "Thassos Live from Hotel Angelica",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "pt-i-love-lx-live-stream",
-    name: { ja: "I love Lx Live Stream", en: "I love Lx Live Stream" },
-    lat: 41.9556,
-    lng: -8.7358,
-    timeZone: "Europe/Lisbon",
-    category: "city",
-    country: "PT",
-    source: {
-      videoId: "MTczfN3ANUM",
-      channelId: "UCjvtkjWwpnhgGv2nutFFr-A",
-      titleKey: "I love Lx Live Stream",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "pt-livecam-costa-da-caparica-2-panoramic",
-    name: { ja: "LIVECAM - Costa da Caparica 2 Panorâmica, Portugal", en: "LIVECAM - Costa da Caparica 2 Panorâmica, Portugal" },
-    lat: 38.6457,
-    lng: -9.2246,
-    timeZone: "Europe/Lisbon",
-    category: "city",
-    country: "PT",
-    source: {
-      videoId: "qhU5x83fUt8",
-      channelId: "UCHSNLuGE3aeMG1RaS4r6sFg",
-      titleKey: "LIVECAM - Costa da Caparica 2 Panorâmica, Portugal",
     },
   },
   {
@@ -47575,21 +39310,6 @@ export const CAMS: Cam[] = [
       videoId: "faKBmRq0lYg",
       channelId: "UCWGnrzAM1XZFK9EDxNWRsjg",
       titleKey: "Oslo LIVE",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "is-live-aurora-from-reykjavik-iceland",
-    name: { ja: "Live Aurora from Reykjavík Iceland", en: "Live Aurora from Reykjavík Iceland" },
-    lat: 64.1355,
-    lng: -21.8954,
-    timeZone: "Atlantic/Reykjavik",
-    category: "city",
-    country: "IS",
-    source: {
-      videoId: "iqkZCpPVeJ0",
-      channelId: "UC6OWqjtFTsdtHAAuGWv1kPw",
-      titleKey: "Live Aurora from Reykjavík Iceland",
     },
   },
   {
@@ -47665,21 +39385,6 @@ export const CAMS: Cam[] = [
       videoId: "kXD4A9uFHcg",
       channelId: "UCGgyr3-DI5pr5Cnnv2A8shg",
       titleKey: "Grindavik - Mosaic",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "is-live-24-7-iceland-earthquake-map-volc",
-    name: { ja: "LIVE 24/7 | Iceland Earthquake Map & Volcano Monitor Reykjanes Peninsula | Real-Time Data", en: "LIVE 24/7 | Iceland Earthquake Map & Volcano Monitor Reykjanes Peninsula | Real-Time Data" },
-    lat: 63.8002,
-    lng: -22.705,
-    timeZone: "Atlantic/Reykjavik",
-    category: "city",
-    country: "IS",
-    source: {
-      videoId: "2qj5fiaShzY",
-      channelId: "UCZGzBEPt4uJa903WP4zC-0Q",
-      titleKey: "🔴 LIVE 24/7 | Iceland Earthquake Map & Volcano Monitor 🌋 Reykjanes Peninsula | Real-Time Data",
     },
   },
   {
@@ -47815,36 +39520,6 @@ export const CAMS: Cam[] = [
       videoId: "jy3fkOBIolk",
       channelId: "UCeGyo_v1ppwH-e77CVqLSJg",
       titleKey: "Dublin Port Poolbeg Lighthouse View: Live Ship Movements on the River Liffey",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "fi-helsinki-night-walk-24-7-finland-nigh",
-    name: { ja: "Helsinki Night Walk 24/7 🇫🇮 | Finland Nightlife in 4K HDR | Relaxing Slow TV | Pre-Recorded Loop", en: "Helsinki Night Walk 24/7 🇫🇮 | Finland Nightlife in 4K HDR | Relaxing Slow TV | Pre-Recorded Loop" },
-    lat: 60.5382,
-    lng: 21.4392,
-    timeZone: "Europe/Helsinki",
-    category: "city",
-    country: "FI",
-    source: {
-      videoId: "jOZ3zmgbWyk",
-      channelId: "UCDCh_co9bI5yMjTsLeHYAVA",
-      titleKey: "🔴 Helsinki Night Walk 24/7 🇫🇮 | Finland Nightlife in 4K HDR | Relaxing Slow TV | Pre-Recorded Loop",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "fi-helsinki-summer-day-4k-walking-tour-2",
-    name: { ja: "🇫🇮 Helsinki Summer Day ️ 4K Walking Tour 24/7 🇫🇮 Finland City Ambience Pre-Recorded", en: "🇫🇮 Helsinki Summer Day ️ 4K Walking Tour 24/7 🇫🇮 Finland City Ambience Pre-Recorded" },
-    lat: 61.1167,
-    lng: 27.4333,
-    timeZone: "Europe/Helsinki",
-    category: "city",
-    country: "FI",
-    source: {
-      videoId: "0BQf5sJcDUI",
-      channelId: "UCDCh_co9bI5yMjTsLeHYAVA",
-      titleKey: "🔴 🇫🇮 Helsinki Summer Day ☀️ 4K Walking Tour 24/7 🇫🇮 Finland City Ambience Pre-Recorded",
     },
   },
   {
@@ -47999,21 +39674,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-castro-street-cam-1-live-stream",
-    name: { ja: "Castro Street Cam 1 Live Stream", en: "Castro Street Cam 1 Live Stream" },
-    lat: 37.7592,
-    lng: -122.4349,
-    timeZone: "America/Los_Angeles",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "-Cln1w-PSnA",
-      channelId: "UCoFUleuZUyRUVDjO4JcCSTQ",
-      titleKey: "Castro Street Cam 1 Live Stream",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "fi-railcam-tampere-finland",
     name: { ja: "Railcam Tampere, Finland", en: "Railcam Tampere, Finland" },
     lat: 61.4991,
@@ -48025,21 +39685,6 @@ export const CAMS: Cam[] = [
       videoId: "s2ZNpFPJKr8",
       channelId: "UCkFQ1N7dp9MWlsghxoZhqIg",
       titleKey: "Railcam Tampere, Finland",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "fi-helsinki-finland-summer-walk-24-7-4k",
-    name: { ja: "HELSINKI FINLAND Summer Walk 24/7 🇫🇮 4K HDR Walking Tour | Pre-Recorded Slow TV", en: "HELSINKI FINLAND Summer Walk 24/7 🇫🇮 4K HDR Walking Tour | Pre-Recorded Slow TV" },
-    lat: 60.1695,
-    lng: 24.9354,
-    timeZone: "Europe/Helsinki",
-    category: "city",
-    country: "FI",
-    source: {
-      videoId: "JQAuqeI3ES4",
-      channelId: "UCDCh_co9bI5yMjTsLeHYAVA",
-      titleKey: "🔴 HELSINKI FINLAND Summer Walk 24/7 🇫🇮 4K HDR Walking Tour | Pre-Recorded Slow TV",
     },
   },
   {
@@ -48134,21 +39779,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-port-miami-cruise-ship-terminals-live",
-    name: { ja: "Port Miami Cruise Ship Terminals - LIVE", en: "Port Miami Cruise Ship Terminals - LIVE" },
-    lat: 35.2045,
-    lng: -99.3073,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "xsqwSMuz1oA",
-      channelId: "UCxZWJceFYLZC1nivcTdLDOQ",
-      titleKey: "🔴 Port Miami Cruise Ship Terminals - LIVE",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-chehalis-washington-usa-live-train-ca",
     name: { ja: "Chehalis, Washington, USA | LIVE Train Camera (Fixed View – North)", en: "Chehalis, Washington, USA | LIVE Train Camera (Fixed View – North)" },
     lat: 46.6621,
@@ -48220,21 +39850,6 @@ export const CAMS: Cam[] = [
       videoId: "tYBI0xrWDII",
       channelId: "UCCEeBYYhHrHuFBGM3yLjvqg",
       titleKey: "Miami Intracoastal Live | Sunny Isles Beach | Aventura | Florida",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-las-vegas-city-hall-roof-cam-live",
-    name: { ja: "Las Vegas City Hall Roof Cam- Live", en: "Las Vegas City Hall Roof Cam- Live" },
-    lat: 36.175,
-    lng: -115.1372,
-    timeZone: "America/Los_Angeles",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "KtCweD6zjfA",
-      channelId: "UCCs9Fy2QlMXah1JPxRs9Xdw",
-      titleKey: "Las Vegas City Hall Roof Cam- Live",
     },
   },
   {
@@ -48314,21 +39929,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-live-ultimate-oahu-webcam-tour-waikik",
-    name: { ja: "LIVE: Ultimate Oahu Webcam Tour Waikiki Beach, North Shore Surf & Diamond Head | NOW!", en: "LIVE: Ultimate Oahu Webcam Tour Waikiki Beach, North Shore Surf & Diamond Head | NOW!" },
-    lat: 20.7,
-    lng: -155.9972,
-    timeZone: "Pacific/Honolulu",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "mLYWolyZxuM",
-      channelId: "UCwR5HjnjTbN6EElaxi223Ug",
-      titleKey: "🔴 LIVE: Ultimate Oahu Webcam Tour 🌺 Waikiki Beach, North Shore Surf & Diamond Head | NOW!",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-west-maui-live-stream",
     name: { ja: "West Maui Live Stream", en: "West Maui Live Stream" },
     lat: 20.888,
@@ -48400,21 +40000,6 @@ export const CAMS: Cam[] = [
       videoId: "KJuGU7v5oYw",
       channelId: "UC6qrG3W8SMK0jior2olka3g",
       titleKey: "EarthCam Live: Bellagio Conservatory & Botanical Gardens (Las Vegas, NV)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-live-north-central-washington-tower-c",
-    name: { ja: "LIVE North Central Washington Tower Cameras 24/7", en: "LIVE North Central Washington Tower Cameras 24/7" },
-    lat: 40.8486,
-    lng: -111.9069,
-    timeZone: "America/Denver",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "uoELtsHI6Xg",
-      channelId: "UC6JX5HWnyoyLc0-sGNl5P7Q",
-      titleKey: "LIVE North Central Washington Tower Cameras 24/7",
     },
   },
   {
@@ -48524,21 +40109,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "ca-bee-camera-livestream",
-    name: { ja: "Bee Camera Livestream", en: "Bee Camera Livestream" },
-    lat: 44.0799,
-    lng: -79.7816,
-    timeZone: "America/Toronto",
-    category: "city",
-    country: "CA",
-    source: {
-      videoId: "JLpRcd7OYsY",
-      channelId: "UCTj8uOe-T0TQmbe6Y3LuAXw",
-      titleKey: "Bee Camera Livestream",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "ca-deep-cove-vancouver-canada-webcam",
     name: { ja: "Deep Cove, Vancouver Canada Webcam", en: "Deep Cove, Vancouver Canada Webcam" },
     lat: 48.6833,
@@ -48550,51 +40120,6 @@ export const CAMS: Cam[] = [
       videoId: "T0oUufecXeE",
       channelId: "UCwgTQPAmGjWLoTVM8bg275A",
       titleKey: "Deep Cove, Vancouver Canada Webcam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ca-live-english-bay-vancouver-includes-e",
-    name: { ja: "LIVE English Bay Vancouver, includes English Bay, Kits Beach, Vanier Park, Sunset Beach, Westend", en: "LIVE English Bay Vancouver, includes English Bay, Kits Beach, Vanier Park, Sunset Beach, Westend" },
-    lat: 46.3656,
-    lng: -74.8199,
-    timeZone: "America/Toronto",
-    category: "city",
-    country: "CA",
-    source: {
-      videoId: "s0aC_c2qftk",
-      channelId: "UCYfRhVI02Qa_zdFhYEwvENw",
-      titleKey: "LIVE English Bay Vancouver, includes English Bay, Kits Beach, Vanier Park, Sunset Beach, Westend",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "mx-camara-en-vivo-cancun-vista-desde-hot",
-    name: { ja: "Cámara en Vivo Cancún - Vista desde Hoteles Solaris (Live Cam 24/7)", en: "Cámara en Vivo Cancún - Vista desde Hoteles Solaris (Live Cam 24/7)" },
-    lat: 20.4106,
-    lng: -89.2839,
-    timeZone: "America/Merida",
-    category: "city",
-    country: "MX",
-    source: {
-      videoId: "ELgxvY636bo",
-      channelId: "UCwNWi3cIOuzJNvQgS74lspQ",
-      titleKey: "Cámara en Vivo Cancún - Vista desde Hoteles Solaris (Live Cam 24/7)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ca-live-english-bay-vancouver-20-views",
-    name: { ja: "LIVE English Bay Vancouver, 20 Views", en: "LIVE English Bay Vancouver, 20 Views" },
-    lat: 46.3656,
-    lng: -74.8199,
-    timeZone: "America/Toronto",
-    category: "city",
-    country: "CA",
-    source: {
-      videoId: "WDRtnRQE1Mc",
-      channelId: "UCYfRhVI02Qa_zdFhYEwvENw",
-      titleKey: "LIVE English Bay Vancouver, 20 Views",
     },
   },
   {
@@ -48659,51 +40184,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "ca-cbc-news-live-toronto",
-    name: { ja: "CBC News LIVE: Toronto", en: "CBC News LIVE: Toronto" },
-    lat: 43.7371,
-    lng: -79.5659,
-    timeZone: "America/Toronto",
-    category: "city",
-    country: "CA",
-    source: {
-      videoId: "mM3kOpgjm98",
-      channelId: "UCFsB6ruUukbK9KYuPIRFH7Q",
-      titleKey: "CBC News LIVE: Toronto",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "mx-cancun-playa-hotel-presidente-en-vivo",
-    name: { ja: "Cancun. Playa Hotel Presidente en vivo", en: "Cancun. Playa Hotel Presidente en vivo" },
-    lat: 18.0216,
-    lng: -95.7064,
-    timeZone: "America/Mexico_City",
-    category: "city",
-    country: "MX",
-    source: {
-      videoId: "OS5Vpxp1zRM",
-      channelId: "UCTDVlsQwAvsxX-NG03I-SOw",
-      titleKey: "Cancun. Playa Hotel Presidente en vivo",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ca-bc-place-vancouver-live-cam-0822-2026",
-    name: { ja: "BC Place, Vancouver Live Cam (0822, 2026)", en: "BC Place, Vancouver Live Cam (0822, 2026)" },
-    lat: 47.2332,
-    lng: -53.9648,
-    timeZone: "America/St_Johns",
-    category: "city",
-    country: "CA",
-    source: {
-      videoId: "_ktdAH0_RmM",
-      channelId: "UCr7GtOadmMI2KMfei9yElxQ",
-      titleKey: "BC Place, Vancouver Live Cam (0822, 2026)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "mx-isla-mujeres-quintana-roo-pueblo-magi",
     name: { ja: "Isla Mujeres, Quintana Roo Pueblo Mágico En Vivo | Vista Panorámica de Playa Norte", en: "Isla Mujeres, Quintana Roo Pueblo Mágico En Vivo | Vista Panorámica de Playa Norte" },
     lat: 29.967,
@@ -48734,81 +40214,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "br-live-aeroporto-santos-dumont-rio-de-j",
-    name: { ja: "LIVE - AEROPORTO SANTOS DUMONT / RIO DE JANEIRO - BRASIL SDU SBRJ", en: "LIVE - AEROPORTO SANTOS DUMONT / RIO DE JANEIRO - BRASIL SDU SBRJ" },
-    lat: -22.9064,
-    lng: -43.1822,
-    timeZone: "America/Sao_Paulo",
-    category: "city",
-    country: "BR",
-    source: {
-      videoId: "rAUdch_GyXs",
-      channelId: "UCNKQAsFBh59t4IixJDJYz-Q",
-      titleKey: "LIVE - AEROPORTO SANTOS DUMONT / RIO DE JANEIRO - BRASIL SDU SBRJ",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "br-ao-vivo-angra-dos-reis-agora",
-    name: { ja: "AO VIVO: ANGRA DOS REIS AGORA", en: "AO VIVO: ANGRA DOS REIS AGORA" },
-    lat: -0.8003,
-    lng: -48.096,
-    timeZone: "America/Belem",
-    category: "city",
-    country: "BR",
-    source: {
-      videoId: "CsQ1RRjk3qU",
-      channelId: "UC9vUpxCiVZrFMs9kyLc6lUg",
-      titleKey: "🔴 AO VIVO: ANGRA DOS REIS AGORA",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "br-ao-vivo-arraial-do-cabo-agora-praia-e",
-    name: { ja: "AO VIVO: Arraial do Cabo AGORA 🇧🇷 | Praia em Tempo Real", en: "AO VIVO: Arraial do Cabo AGORA 🇧🇷 | Praia em Tempo Real" },
-    lat: -8.2877,
-    lng: -35.0292,
-    timeZone: "America/Recife",
-    category: "city",
-    country: "BR",
-    source: {
-      videoId: "9uccePeQQK4",
-      channelId: "UC6hcr5RRZvTtSfsNJ2MLj2Q",
-      titleKey: "🔴 AO VIVO: Arraial do Cabo AGORA 🇧🇷 | Praia em Tempo Real",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "br-trem-ao-vivo-embu-guacu-sp-brasil",
-    name: { ja: "TREM AO VIVO EMBÚ GUAÇÚ SP BRASIL", en: "TREM AO VIVO EMBÚ GUAÇÚ SP BRASIL" },
-    lat: -23.7254,
-    lng: -46.786,
-    timeZone: "America/Sao_Paulo",
-    category: "city",
-    country: "BR",
-    source: {
-      videoId: "VahCvcV-9rk",
-      channelId: "UC2LL1Rrh9mXbaII5mT-nN0g",
-      titleKey: "TREM AO VIVO EMBÚ GUAÇÚ  SP BRASIL",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "br-trem-ao-vivo-barra-funda-sao-paulo-br",
-    name: { ja: "TREM AO VIVO BARRA FUNDA SÃO PAULO BRASIL", en: "TREM AO VIVO BARRA FUNDA SÃO PAULO BRASIL" },
-    lat: -23.5475,
-    lng: -46.6361,
-    timeZone: "America/Sao_Paulo",
-    category: "city",
-    country: "BR",
-    source: {
-      videoId: "6HF6sqHk_Fg",
-      channelId: "UC2LL1Rrh9mXbaII5mT-nN0g",
-      titleKey: "TREM AO VIVO  BARRA FUNDA SÃO PAULO BRASIL",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "br-camera-ao-vivo-pindorama-sp-brasil",
     name: { ja: "CAMERA AO VIVO PINDORAMA SP BRASIL", en: "CAMERA AO VIVO PINDORAMA SP BRASIL" },
     lat: -21.5833,
@@ -48835,21 +40240,6 @@ export const CAMS: Cam[] = [
       videoId: "FqgTC1hW2TE",
       channelId: "UCVGWSxGiA_UDHzY6tKOYCUA",
       titleKey: "NECOCHEA EN VIVO, Mirá la mejor playa Argentina en vivo. 24/7 CAM 2 4K",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ar-pinamar-playa-en-vivo-camaras-pinamar",
-    name: { ja: "PINAMAR PLAYA EN VIVO: Cámaras Pinamar - Valeria del Mar - Carilo - BUENOS AIRES - ARGENTINA AHORA", en: "PINAMAR PLAYA EN VIVO: Cámaras Pinamar - Valeria del Mar - Carilo - BUENOS AIRES - ARGENTINA AHORA" },
-    lat: -27.8855,
-    lng: -55.9204,
-    timeZone: "America/Argentina/Cordoba",
-    category: "city",
-    country: "AR",
-    source: {
-      videoId: "sQfqxlZvVDQ",
-      channelId: "UCjeImUhRB1SLqN-svqDRJJw",
-      titleKey: "PINAMAR PLAYA EN VIVO: Cámaras Pinamar - Valeria del Mar - Carilo - BUENOS AIRES - ARGENTINA AHORA",
     },
   },
   {
@@ -48914,21 +40304,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "za-cape-town-weather-cam-live-relaxing-m",
-    name: { ja: "Cape Town Weather Cam LIVE | Relaxing Music, Sunrises & Mountain Views", en: "Cape Town Weather Cam LIVE | Relaxing Music, Sunrises & Mountain Views" },
-    lat: -33.9258,
-    lng: 18.4232,
-    timeZone: "Africa/Johannesburg",
-    category: "city",
-    country: "ZA",
-    source: {
-      videoId: "I8oZ9FII2vA",
-      channelId: "UCcB9AMGvaMF0LCKWDF-9PkA",
-      titleKey: "Cape Town Weather Cam LIVE | Relaxing Music, Sunrises & Mountain Views",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "za-tcs-cape-town-maastricht",
     name: { ja: "TCS Cape Town | Maastricht", en: "TCS Cape Town | Maastricht" },
     lat: -33.9258,
@@ -48970,21 +40345,6 @@ export const CAMS: Cam[] = [
       videoId: "E0k8r-PgOGg",
       channelId: "UCLwTi-vM5zaadH1ytPo-rTg",
       titleKey: "Strand Bodyboard Collective Live, False Bay, Cape Town - Strand beach cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "za-live-south-africa-bird-feeder-wildlif",
-    name: { ja: "LIVE South Africa Bird Feeder & Wildlife Cam (Hoopoes, Hornbills & More)", en: "LIVE South Africa Bird Feeder & Wildlife Cam (Hoopoes, Hornbills & More)" },
-    lat: -28.0333,
-    lng: 32.4833,
-    timeZone: "Africa/Johannesburg",
-    category: "city",
-    country: "ZA",
-    source: {
-      videoId: "MrLVxFR1IbI",
-      channelId: "UCuL60_Ko4m9xCaa4QDNgJrw",
-      titleKey: "🔴 LIVE South Africa Bird Feeder & Wildlife Cam (Hoopoes, Hornbills & More)",
     },
   },
   {
@@ -49079,21 +40439,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "au-melbourne-australia-weather-night-sky",
-    name: { ja: "Melbourne Australia Weather/Night Sky 4K Livestream", en: "Melbourne Australia Weather/Night Sky 4K Livestream" },
-    lat: -38.105,
-    lng: 145.2163,
-    timeZone: "Australia/Melbourne",
-    category: "city",
-    country: "AU",
-    source: {
-      videoId: "5n8odconoKU",
-      channelId: "UCcBVQcqindH9Qtue1IYbKwA",
-      titleKey: "Melbourne Australia Weather/Night Sky 4K Livestream",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "au-view-from-huntington-beach-pier",
     name: { ja: "View from Huntington Beach Pier", en: "View from Huntington Beach Pier" },
     lat: -37.7399,
@@ -49124,21 +40469,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "au-box-camera-falconcam-project-live",
-    name: { ja: "Box Camera - FalconCam Project LIVE", en: "Box Camera - FalconCam Project LIVE" },
-    lat: -16.0697,
-    lng: 136.308,
-    timeZone: "Australia/Darwin",
-    category: "city",
-    country: "AU",
-    source: {
-      videoId: "yv2RtoIMNzA",
-      channelId: "UCNMulUCdUibAMPnaR1e0kEw",
-      titleKey: "Box Camera - FalconCam Project LIVE",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "au-live-ibiza-golden-hour-club-del-mar-d",
     name: { ja: "LIVE: Ibiza Golden Hour | Club del Mar Deep House Mix 2026 | Lounge Chillout Mix", en: "LIVE: Ibiza Golden Hour | Club del Mar Deep House Mix 2026 | Lounge Chillout Mix" },
     lat: -20.0167,
@@ -49150,21 +40480,6 @@ export const CAMS: Cam[] = [
       videoId: "-mkakxbwpy0",
       channelId: "UCOv__nnHealpxm75hhXu5NQ",
       titleKey: "LIVE: Ibiza Golden Hour | Club del Mar Deep House Mix 2026 | Lounge Chillout Mix",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "au-superbank-snapper-rocks-gold-coast-au",
-    name: { ja: "SUPERBANK, SNAPPER ROCKS, GOLD COAST, AUSTRALIA", en: "SUPERBANK, SNAPPER ROCKS, GOLD COAST, AUSTRALIA" },
-    lat: -28.0003,
-    lng: 153.4309,
-    timeZone: "Australia/Brisbane",
-    category: "city",
-    country: "AU",
-    source: {
-      videoId: "VRyJri2iQVc",
-      channelId: "UCVg9jNZIe4ajBcgzx7YmfHw",
-      titleKey: "SUPERBANK, SNAPPER ROCKS, GOLD COAST, AUSTRALIA",
     },
   },
   {
@@ -49210,21 +40525,6 @@ export const CAMS: Cam[] = [
       videoId: "mxEholKv57A",
       channelId: "UCLaxio5CTbT1gl5i8FB2-yw",
       titleKey: "LIVE Langebaan Lagoon Camera | Pearly’s Restaurant | 24/7 South Africa Live Stream",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "au-south-east-queensland-tmr-camera-netw",
-    name: { ja: "South East Queensland TMR Camera Network", en: "South East Queensland TMR Camera Network" },
-    lat: -38.1035,
-    lng: 147.127,
-    timeZone: "Australia/Melbourne",
-    category: "city",
-    country: "AU",
-    source: {
-      videoId: "I2mJLN0ATLo",
-      channelId: "UC8IQsCbObnK7FcuV7zs6RTw",
-      titleKey: "South East Queensland TMR Camera Network",
     },
   },
   {
@@ -49349,21 +40649,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "nz-24-7-live-beach-haven-in-auckland-new",
-    name: { ja: "24/7 LIVE: Beach Haven in Auckland New Zealand | Sea Views, Coastal Birds & Sunsets | NO ADS", en: "24/7 LIVE: Beach Haven in Auckland New Zealand | Sea Views, Coastal Birds & Sunsets | NO ADS" },
-    lat: -44.3,
-    lng: 171.2667,
-    timeZone: "Pacific/Auckland",
-    category: "city",
-    country: "NZ",
-    source: {
-      videoId: "FOuXD98JpK4",
-      channelId: "UCUoOsS2eeqnFSUvA3PpSOlQ",
-      titleKey: "🟢 24/7 LIVE: Beach Haven in Auckland New Zealand | Sea Views, Coastal Birds & Sunsets | NO ADS",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "nz-northern-royal-albatross-cam-nz-dept",
     name: { ja: "Northern Royal Albatross Cam - NZ Dept. of Conservation #RoyalCam | Cornell Lab", en: "Northern Royal Albatross Cam - NZ Dept. of Conservation #RoyalCam | Cornell Lab" },
     lat: -36.9082,
@@ -49375,21 +40660,6 @@ export const CAMS: Cam[] = [
       videoId: "Mm_zVDDUeNA",
       channelId: "UCZXZQxS3d6NpR-eH_gdDwYA",
       titleKey: "Northern Royal Albatross Cam - NZ Dept. of Conservation #RoyalCam | Cornell Lab",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "za-live-africa-wildlife-magnificent-bird",
-    name: { ja: "LIVE - Africa Wildlife | Magnificent Birds, Bushbabies, Genets & Bats", en: "LIVE - Africa Wildlife | Magnificent Birds, Bushbabies, Genets & Bats" },
-    lat: -26.8389,
-    lng: 27.8495,
-    timeZone: "Africa/Johannesburg",
-    category: "city",
-    country: "ZA",
-    source: {
-      videoId: "BVbFRP_vIIc",
-      channelId: "UCFzY3MF-rYrexk1be3gnTRw",
-      titleKey: "🔴LIVE - Africa Wildlife | Magnificent Birds, Bushbabies, Genets & Bats",
     },
   },
   {
@@ -49559,36 +40829,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "br-ao-vivo-santa-catarina-em-tempo-real",
-    name: { ja: "AO VIVO | SANTA CATARINA EM TEMPO REAL | PRAIAS, TRÂNSITO E CIDADES 24H", en: "AO VIVO | SANTA CATARINA EM TEMPO REAL | PRAIAS, TRÂNSITO E CIDADES 24H" },
-    lat: -13.8667,
-    lng: -41.5333,
-    timeZone: "America/Bahia",
-    category: "city",
-    country: "BR",
-    source: {
-      videoId: "4EEjIOeaL9c",
-      channelId: "UC37R9R29MAwvrOBafYoBtow",
-      titleKey: "AO VIVO | SANTA CATARINA EM TEMPO REAL  | PRAIAS, TRÂNSITO E CIDADES 24H",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "br-arroio-do-silva-camera-ao-vivo-monito",
-    name: { ja: "Arroio do Silva | Câmera Ao Vivo - Monitoramento Vejaomar 24horas por dia", en: "Arroio do Silva | Câmera Ao Vivo - Monitoramento Vejaomar 24horas por dia" },
-    lat: -23.6861,
-    lng: -46.6228,
-    timeZone: "America/Sao_Paulo",
-    category: "city",
-    country: "BR",
-    source: {
-      videoId: "VmySlU1qj4M",
-      channelId: "UCkeTESRiAY8OcsgvNTKQU0Q",
-      titleKey: "Arroio do Silva | Câmera Ao Vivo - Monitoramento Vejaomar 24horas por dia",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "de-live-warnemunde-webcam-mit-leuchtturm",
     name: { ja: "LIVE: Warnemünde – Webcam mit Leuchtturm & Hafeneinfahrt", en: "LIVE: Warnemünde – Webcam mit Leuchtturm & Hafeneinfahrt" },
     lat: 54.181,
@@ -49645,21 +40885,6 @@ export const CAMS: Cam[] = [
       videoId: "6Pk_8BViotw",
       channelId: "UCsMjKXwh0yqJeRb-7kUZwHA",
       titleKey: "🔴Concha Beach - San Sebastian, Spain - Live Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-fort-myers-beach-live-webcam",
-    name: { ja: "Fort Myers Beach Live Webcam", en: "Fort Myers Beach Live Webcam" },
-    lat: 26.452,
-    lng: -81.9481,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "ocoHYjmUt1s",
-      channelId: "UCFwcRt5FpEFCx8lcw4EIN2w",
-      titleKey: "Fort Myers Beach Live Webcam",
     },
   },
   {
@@ -49889,21 +41114,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "ch-switzerland-in-full-bloom-4k-a-dreaml",
-    name: { ja: "Switzerland in Full Bloom 4K A Dreamlike Escape into Switzerland’s Springtime Beauty", en: "Switzerland in Full Bloom 4K A Dreamlike Escape into Switzerland’s Springtime Beauty" },
-    lat: 47.6153,
-    lng: 8.2056,
-    timeZone: "Europe/Zurich",
-    category: "city",
-    country: "CH",
-    source: {
-      videoId: "slsrciqocjw",
-      channelId: "UCHd7PWgQ77067LU-0XsZaSw",
-      titleKey: "Switzerland in Full Bloom 4K 🌷 A Dreamlike Escape into Switzerland’s Springtime Beauty",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-live-24-7-global-volcano-monitoring-m",
     name: { ja: "LIVE 24/7 | Global Volcano Monitoring Multi-Camera | Etna • Kīlauea • Stromboli & More", en: "LIVE 24/7 | Global Volcano Monitoring Multi-Camera | Etna • Kīlauea • Stromboli & More" },
     lat: 40.9762,
@@ -49945,66 +41155,6 @@ export const CAMS: Cam[] = [
       videoId: "Nvjf1vZZrkk",
       channelId: "UCaG0IHN1RMOZ4-U3wDXAkwA",
       titleKey: "🔴 Live Now: 24/7 Kilauea Volcano Livestream in Hawaii (Cam C)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-kilauea-volcano-is-erupting-lava-eart",
-    name: { ja: "KĪLAUEA VOLCANO IS ERUPTING | LAVA & Earthquake Feed | Hawaiʻi 24/7", en: "KĪLAUEA VOLCANO IS ERUPTING | LAVA & Earthquake Feed | Hawaiʻi 24/7" },
-    lat: 41.6168,
-    lng: -75.0191,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "Dfbj7tC29Cs",
-      channelId: "UC4hL_YP9833K19Mh-ELfrsA",
-      titleKey: "KĪLAUEA VOLCANO IS ERUPTING | LAVA & Earthquake Feed | Hawaiʻi 24/7",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-kilauea-volcano-eruption-live-24-7-li",
-    name: { ja: "Kilauea Volcano Eruption Live, 24/7 Live USGS Cams and Data", en: "Kilauea Volcano Eruption Live, 24/7 Live USGS Cams and Data" },
-    lat: 42.9539,
-    lng: -73.8742,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "d93MlUgmk4s",
-      channelId: "UC-I69toJP1JJGUSID_xwmLw",
-      titleKey: "Kilauea Volcano Eruption Live, 24/7 Live USGS Cams and Data",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ch-livecam-berghotel-bischofalp-1650-m-u",
-    name: { ja: "Livecam Berghotel Bischofalp (1650 m ü. M.) – Glarnerland, Schweiz", en: "Livecam Berghotel Bischofalp (1650 m ü. M.) – Glarnerland, Schweiz" },
-    lat: 47.0002,
-    lng: 8.0143,
-    timeZone: "Europe/Zurich",
-    category: "city",
-    country: "CH",
-    source: {
-      videoId: "vSCViBmfQxE",
-      channelId: "UCciEHpWQMvztkjGEFeHZbqg",
-      titleKey: "Livecam Berghotel Bischofalp (1650 m ü. M.) – Glarnerland, Schweiz",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-live-kilauea-volcano-erupting-now",
-    name: { ja: "LIVE Kilauea Volcano Erupting NOW!", en: "LIVE Kilauea Volcano Erupting NOW!" },
-    lat: 22.2121,
-    lng: -159.4134,
-    timeZone: "Pacific/Honolulu",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "Wy1SB8bbjmM",
-      channelId: "UCNrGOnduIS9BXIRmDcHasZA",
-      titleKey: "🌎LIVE Kilauea Volcano Erupting NOW!",
     },
   },
   {
@@ -50084,21 +41234,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-live-kilauea-episode-54-watch-next-er",
-    name: { ja: "LIVE: Kīlauea Episode 54 Watch | Next Eruption Likely Aug 24–28 | Hawaii", en: "LIVE: Kīlauea Episode 54 Watch | Next Eruption Likely Aug 24–28 | Hawaii" },
-    lat: 38.8735,
-    lng: -94.3111,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "z1eaEX2Sk7o",
-      channelId: "UCZGzBEPt4uJa903WP4zC-0Q",
-      titleKey: "🔴 LIVE: Kīlauea Episode 54 Watch | Next Eruption Likely Aug 24–28 | Hawaii",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "fr-webcam-oleron-plage-de-la-perroche",
     name: { ja: "Webcam Oléron - Plage de La Perroche", en: "Webcam Oléron - Plage de La Perroche" },
     lat: 50.3224,
@@ -50155,21 +41290,6 @@ export const CAMS: Cam[] = [
       videoId: "_S6fKuBTeW0",
       channelId: "UC9XF0EUJZUHSMXFQZ7rNYJQ",
       titleKey: "【LIVE】外苑前交差点（定点）2026/5/20 14:15〜",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-99",
-    name: { ja: "【#ライブカメラ】 情報カメラ #大通公園 #北海道", en: "【#ライブカメラ】 情報カメラ #大通公園 #北海道" },
-    lat: 43.0594,
-    lng: 141.3437,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "SiNdj5dEq_8",
-      channelId: "UC9YtvuF-DrWVieSt4OqoY3A",
-      titleKey: "【#ライブカメラ】 情報カメラ #大通公園   #北海道",
     },
   },
   {
@@ -50234,36 +41354,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-103",
-    name: { ja: "#ふらっと内海 内海海岸ライブカメラ", en: "#ふらっと内海 内海海岸ライブカメラ" },
-    lat: 34.7454,
-    lng: 136.8759,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "UvSPftyU30U",
-      channelId: "UCFM4GflSxh1UEJK1MJbnsEg",
-      titleKey: "#ふらっと内海　内海海岸ライブカメラ",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-live-24-7-soft-lofi-jazz-bgm",
-    name: { ja: "【LIVE】近鉄 久居駅前ライブカメラ (三重県) 24/7｜ひのとり・しまかぜ等の特急列車｜Soft LoFi & Jazz BGM", en: "【LIVE】近鉄 久居駅前ライブカメラ (三重県) 24/7｜ひのとり・しまかぜ等の特急列車｜Soft LoFi & Jazz BGM" },
-    lat: 34.8284,
-    lng: 135.6562,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "xCpBwLhOvwQ",
-      channelId: "UCI24HewpQ3XQorXQEjrYPJw",
-      titleKey: "【LIVE】近鉄 久居駅前ライブカメラ (三重県) 24/7｜ひのとり・しまかぜ等の特急列車｜Soft LoFi & Jazz BGM",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-live-camera-5",
     name: { ja: "仙台城跡 Live Camera", en: "仙台城跡 Live Camera" },
     lat: 38.2529,
@@ -50275,21 +41365,6 @@ export const CAMS: Cam[] = [
       videoId: "Ado_7_DMTdc",
       channelId: "UClaKuQ4CsCqpPQpIB-ieqIg",
       titleKey: "仙台城跡 Live Camera",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-104",
-    name: { ja: "お天気＆道路情報カメラ 北根黒松(仙台市) ライブカメラ", en: "お天気＆道路情報カメラ 北根黒松(仙台市) ライブカメラ" },
-    lat: 38.305,
-    lng: 140.88,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "e1UJO_F4CJ8",
-      channelId: "UCtmMHYVblONASz9ayeLEmFA",
-      titleKey: "お天気＆道路情報カメラ　北根黒松(仙台市)　ライブカメラ",
     },
   },
   {
@@ -50369,21 +41444,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-106",
-    name: { ja: "ライブカメラ 愛宕上杉通り 昭和町交差点方面", en: "ライブカメラ 愛宕上杉通り 昭和町交差点方面" },
-    lat: 38.2464,
-    lng: 140.8795,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "0EzsqHx2AhU",
-      channelId: "UCDTa60kXUzk0hf_LLLG00aw",
-      titleKey: "ライブカメラ  愛宕上杉通り 昭和町交差点方面",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-live-23",
     name: { ja: "【LIVE】広島空港", en: "【LIVE】広島空港" },
     lat: 34.4375,
@@ -50425,36 +41485,6 @@ export const CAMS: Cam[] = [
       videoId: "LOSuQJUY_gc",
       channelId: "UCj8MaS8DMpPHGraWX6pKPww",
       titleKey: "姫路バイパス 姫路南ランプ　ライブカメラ",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-110",
-    name: { ja: "佐賀県唐津市呼子町 - 風の見える丘ライブカメラ", en: "佐賀県唐津市呼子町 - 風の見える丘ライブカメラ" },
-    lat: 33.5277,
-    lng: 129.8702,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "TsHfxgJI4FU",
-      channelId: "UCTBDGkDuKgIwRt-cGIPAmKw",
-      titleKey: "佐賀県唐津市呼子町 - 風の見える丘ライブカメラ",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-111",
-    name: { ja: "長崎県島原市「しまばら火張山花公園 」からライブ映像", en: "長崎県島原市「しまばら火張山花公園 」からライブ映像" },
-    lat: 32.7879,
-    lng: 130.3372,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "32Azf9yJmRI",
-      channelId: "UCFd3iy-coOTNOOfG8HA9DPw",
-      titleKey: "長崎県島原市「しまばら火張山花公園 」からライブ映像",
     },
   },
   {
@@ -50519,21 +41549,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-mt-sakurajima-volcano-by-kyt-live",
-    name: { ja: "【ライブカメラ】桜島 Mt.Sakurajima Volcano by KYT Live", en: "【ライブカメラ】桜島 Mt.Sakurajima Volcano by KYT Live" },
-    lat: 31.5673,
-    lng: 130.565,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "c4o2HemaM68",
-      channelId: "UCiyk6cY1ux2HCDycnMTksdg",
-      titleKey: "【ライブカメラ】桜島 Mt.Sakurajima Volcano by KYT Live",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-live-nandenko-weather-live-camera-sak",
     name: { ja: "【LIVE】南電工 お天気ライブカメラ 鹿児島 桜島と甲突川河口 / Nandenko Weather Live Camera Sakurajima and Kotsuki River Estuary", en: "【LIVE】南電工 お天気ライブカメラ 鹿児島 桜島と甲突川河口 / Nandenko Weather Live Camera Sakurajima and Kotsuki River Estuary" },
     lat: 35.5955,
@@ -50594,21 +41609,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-tokyo-live-camera-4k",
-    name: { ja: "Tokyo Live Camera【4K】", en: "Tokyo Live Camera【4K】" },
-    lat: 35.6895,
-    lng: 139.6917,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "Dq5VHiCebZg",
-      channelId: "UC2bNTeNkDDyodoCnWCOqBWg",
-      titleKey: "Tokyo Live Camera【4K】",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-shibuya-nights-chill-lofi-beats-smoot",
     name: { ja: "『 ＳＨＩＢＵＹＡ ＮＩＧＨＴＳ』 chill lofi beats + smooth jazz + city night vibes 24/7 東京都 渋谷 24時間 ローファイ ライブ", en: "『 ＳＨＩＢＵＹＡ ＮＩＧＨＴＳ』 chill lofi beats + smooth jazz + city night vibes 24/7 東京都 渋谷 24時間 ローファイ ライブ" },
     lat: 35.6895,
@@ -50639,21 +41639,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-tokyo-live-webcam-24-7-shinjuku-stree",
-    name: { ja: "Tokyo Live Webcam 24/7 🇯🇵 | Shinjuku Streets • Chill Lounge & City Pop", en: "Tokyo Live Webcam 24/7 🇯🇵 | Shinjuku Streets • Chill Lounge & City Pop" },
-    lat: 35.6912,
-    lng: 139.7085,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "t2ppIAKnQNE",
-      channelId: "UCmW6LJcUNPrt7KkHZtIcWkw",
-      titleKey: "🔴Tokyo Live Webcam 24/7 🇯🇵 | Shinjuku Streets • Chill Lounge & City Pop 🎧",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-live-jr-shin-osaka-station-taxi-waiti",
     name: { ja: "〔LIVE〕JR新大阪駅タクシー待機場ライブ中継カメラ（大阪タクシーセンター公式） / Shin-Osaka Station Taxi Waiting Area Live Camera", en: "〔LIVE〕JR新大阪駅タクシー待機場ライブ中継カメラ（大阪タクシーセンター公式） / Shin-Osaka Station Taxi Waiting Area Live Camera" },
     lat: 34.6938,
@@ -50680,21 +41665,6 @@ export const CAMS: Cam[] = [
       videoId: "y3_x8el5ZJY",
       channelId: "UC8nqJIBj9B4DimyFEtQ6RpA",
       titleKey: "【24/7 TPE 4K Live】Taoyuan International Airport South Runway Live plane spotting",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "kr-live-24-7-planes-atc-cams-chill-music",
-    name: { ja: "LIVE 24/7 | Planes + ATC · Cams · Chill Music", en: "LIVE 24/7 | Planes + ATC · Cams · Chill Music" },
-    lat: 35.4226,
-    lng: 126.9078,
-    timeZone: "Asia/Seoul",
-    category: "city",
-    country: "KR",
-    source: {
-      videoId: "spcz9pIVCtQ",
-      channelId: "UCOqQ6ql6B2ixjsmGq2NO7AA",
-      titleKey: "🔴 LIVE 24/7 | Planes + ATC · Cams · Chill Music",
     },
   },
   {
@@ -50969,21 +41939,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "id-live-now-24-7-merapi-volcano-erupting",
-    name: { ja: "Live Now: 24/7 Merapi Volcano Erupting in 4K Ultra HD (Indonesia)", en: "Live Now: 24/7 Merapi Volcano Erupting in 4K Ultra HD (Indonesia)" },
-    lat: -3.7399,
-    lng: 103.6734,
-    timeZone: "Asia/Jakarta",
-    category: "city",
-    country: "ID",
-    source: {
-      videoId: "SeyldmYkfDI",
-      channelId: "UCaG0IHN1RMOZ4-U3wDXAkwA",
-      titleKey: "🔴 Live Now: 24/7 Merapi Volcano Erupting in 4K Ultra HD (Indonesia)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "id-live-pemantauan-cctv-kalurahan-je-2",
     name: { ja: "LIVE PEMANTAUAN CCTV KALURAHAN JETIS PTZ", en: "LIVE PEMANTAUAN CCTV KALURAHAN JETIS PTZ" },
     lat: -6.9122,
@@ -51239,51 +42194,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "in-live-darshan-shree-somnath-temple-jun",
-    name: { ja: "Live Darshan - Shree Somnath Temple Junagadh , Gujarat (श्री सोमनाथ मंदिर के दर्शन)", en: "Live Darshan - Shree Somnath Temple Junagadh , Gujarat (श्री सोमनाथ मंदिर के दर्शन)" },
-    lat: 24.7744,
-    lng: 85.7055,
-    timeZone: "Asia/Kolkata",
-    category: "city",
-    country: "IN",
-    source: {
-      videoId: "J4z7CIrvsuw",
-      channelId: "UCXhail7h5FDRbHprlR56nIw",
-      titleKey: "🔴Live Darshan - Shree Somnath Temple Junagadh , Gujarat (श्री सोमनाथ मंदिर के दर्शन)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "in-aaj-tak-live-tv-nepal-flood-delhi-lax",
-    name: { ja: "Aaj Tak LIVE TV: Nepal Flood | Delhi Laxmi Yojana | UP Free Bus Travel Yojana | Hindi News", en: "Aaj Tak LIVE TV: Nepal Flood | Delhi Laxmi Yojana | UP Free Bus Travel Yojana | Hindi News" },
-    lat: 29.1625,
-    lng: 80.0682,
-    timeZone: "Asia/Kolkata",
-    category: "city",
-    country: "IN",
-    source: {
-      videoId: "dEJ6H_DIhEg",
-      channelId: "UCt4t-jeY85JegMlZ-E5UWtA",
-      titleKey: "Aaj Tak LIVE TV: Nepal Flood | Delhi Laxmi Yojana | UP Free Bus Travel Yojana | Hindi News",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "tr-yalan-dunya-canl-izle",
-    name: { ja: "Yalan Dünya | Canlı İzle", en: "Yalan Dünya | Canlı İzle" },
-    lat: 39.6304,
-    lng: 36.3115,
-    timeZone: "Europe/Istanbul",
-    category: "city",
-    country: "TR",
-    source: {
-      videoId: "Efh06uzzORM",
-      channelId: "UCN2Q-lSzQa7RjrCxQZ8DzbA",
-      titleKey: "Yalan Dünya | Canlı İzle",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "gb-manchester-ia-hawk-camera-live-from-j",
     name: { ja: "Manchester, IA Hawk Camera - Live from Joe's Pizza Manchester", en: "Manchester, IA Hawk Camera - Live from Joe's Pizza Manchester" },
     lat: 51.057,
@@ -51344,21 +42254,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: Open-Meteo geocoding "Manchester", New Hampshire
-    id: "gb-peregrine-networks-live-peregrine-fal",
-    name: { ja: "Peregrine Networks Live Peregrine Falcon Feed1 (Manchester, NH, USA)", en: "Peregrine Networks Live Peregrine Falcon Feed1 (Manchester, NH, USA)" },
-    lat: 42.9956,
-    lng: -71.4548,
-    timeZone: "America/New_York",
-    category: "animal",
-    country: "US",
-    source: {
-      videoId: "BEHwTBqq3vM",
-      channelId: "UCWqiOqqcBZT9Rx3HX7Zrd6A",
-      titleKey: "Peregrine Networks Live Peregrine Falcon Feed1 (Manchester, NH, USA)",
-    },
-  },
-  {
-    // coords: Open-Meteo geocoding "Manchester", New Hampshire
     id: "gb-peregrine-networks-live-peregrine-2",
     name: { ja: "Peregrine Networks Live Peregrine Falcon Feed3 (Manchester, NH, USA)", en: "Peregrine Networks Live Peregrine Falcon Feed3 (Manchester, NH, USA)" },
     lat: 42.9956,
@@ -51404,36 +42299,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "fr-webcam-houat",
-    name: { ja: "Webcam Houat", en: "Webcam Houat" },
-    lat: 47.4,
-    lng: -2.9667,
-    timeZone: "Europe/Paris",
-    category: "city",
-    country: "FR",
-    source: {
-      videoId: "u4z18aLOA3k",
-      channelId: "UCfkbmwi67lrETUqnOmf-Hqw",
-      titleKey: "Webcam Houat",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "fr-live-cruise-ship-cams-around-the-worl",
-    name: { ja: "LIVE Cruise Ship Cams Around the World | 24/7", en: "LIVE Cruise Ship Cams Around the World | 24/7" },
-    lat: 42.9091,
-    lng: 2.0308,
-    timeZone: "Europe/Paris",
-    category: "city",
-    country: "FR",
-    source: {
-      videoId: "8j3l1GfBLg0",
-      channelId: "UCrlqY1M1yxakXvK9iBIiz-A",
-      titleKey: "🔴 LIVE Cruise Ship Cams Around the World 🌎 | 24/7",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "fr-webcam-live-port-de-l-aber-wrac-h-fin",
     name: { ja: "Webcam Live – Port de l’Aber Wrac’h (Finistère, Bretagne)", en: "Webcam Live – Port de l’Aber Wrac’h (Finistère, Bretagne)" },
     lat: 46.1642,
@@ -51445,21 +42310,6 @@ export const CAMS: Cam[] = [
       videoId: "dW-wGCSZiDo",
       channelId: "UC-cbe4YVRyl1vdpvTsEAhXw",
       titleKey: "🌊 Webcam Live – Port de l’Aber Wrac’h (Finistère, Bretagne) ⚓",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "fr-webcam-marseille-calanque-samena",
-    name: { ja: "Webcam Marseille : Calanque Samena", en: "Webcam Marseille : Calanque Samena" },
-    lat: 43.297,
-    lng: 5.3811,
-    timeZone: "Europe/Paris",
-    category: "city",
-    country: "FR",
-    source: {
-      videoId: "xsUGUMAFc-I",
-      channelId: "UCBPHtwB5-bOR9O8J3H12LYQ",
-      titleKey: "🔴 Webcam Marseille : Calanque Samena",
     },
   },
   {
@@ -51674,36 +42524,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "it-menaggio-piazza-garibaldi",
-    name: { ja: "Menaggio - Piazza Garibaldi -", en: "Menaggio - Piazza Garibaldi -" },
-    lat: 45.5872,
-    lng: 10.1553,
-    timeZone: "Europe/Rome",
-    category: "city",
-    country: "IT",
-    source: {
-      videoId: "vyGnbPNlpsU",
-      channelId: "UCaLNBpVCnRQ129Ow2MaMtew",
-      titleKey: "Menaggio - Piazza Garibaldi -",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "at-bergblick-live-aus-den-alpen",
-    name: { ja: "Bergblick | LIVE aus den Alpen", en: "Bergblick | LIVE aus den Alpen" },
-    lat: 47.3333,
-    lng: 13.3333,
-    timeZone: "Europe/Vienna",
-    category: "city",
-    country: "AT",
-    source: {
-      videoId: "0l_c9ANWCj8",
-      channelId: "UCb5Dm1wPIb5A5Q-ypqowInA",
-      titleKey: "🔴Bergblick | LIVE aus den Alpen",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "it-sombrero-beach-live-webcam-marathon-f",
     name: { ja: "Sombrero Beach Live WebCam - Marathon, Florida Keys", en: "Sombrero Beach Live WebCam - Marathon, Florida Keys" },
     lat: 44.0195,
@@ -51775,21 +42595,6 @@ export const CAMS: Cam[] = [
       videoId: "VnsRQvfv_g4",
       channelId: "UC3ewP9SczRIGGpDXDQvpPyQ",
       titleKey: "🔴 LIVE: RIO Boat | 24/7 LIVE",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ch-webcam-adelboden-sonnen-panorama-7-24",
-    name: { ja: "Webcam Adelboden - Sonnen Panorama - 7/24 LIVE Stream Webcam", en: "Webcam Adelboden - Sonnen Panorama - 7/24 LIVE Stream Webcam" },
-    lat: 47.4583,
-    lng: 9.1394,
-    timeZone: "Europe/Zurich",
-    category: "city",
-    country: "CH",
-    source: {
-      videoId: "UbGnB3IQanA",
-      channelId: "UCb73l43T4jf_sDaPCPbqsvw",
-      titleKey: "Webcam Adelboden - Sonnen Panorama - 7/24 LIVE Stream Webcam",
     },
   },
   {
@@ -51959,21 +42764,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "pt-webcam-live-porto-di-vernazza-cinque",
-    name: { ja: "Webcam Live Porto di Vernazza - Cinque Terre", en: "Webcam Live Porto di Vernazza - Cinque Terre" },
-    lat: 41.1485,
-    lng: -8.611,
-    timeZone: "Europe/Lisbon",
-    category: "city",
-    country: "PT",
-    source: {
-      videoId: "bQ9VS-hM1D8",
-      channelId: "UCsRATfTd6c2eYhuhfnxnNLg",
-      titleKey: "Webcam Live Porto di Vernazza - Cinque Terre",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "pt-port-of-pisa-live-cam-marina-tyrrheni",
     name: { ja: "Port of Pisa Live Cam - Marina & Tyrrhenian Sea", en: "Port of Pisa Live Cam - Marina & Tyrrhenian Sea" },
     lat: 39.7179,
@@ -52000,21 +42790,6 @@ export const CAMS: Cam[] = [
       videoId: "uFWQ4xM--f0",
       channelId: "UCeKy2j_-y3RGIN-9gM7p6RQ",
       titleKey: "Marina di Chiavari Live Cam - Porto Turistico e Mar Ligure",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "pl-gdansk-live-4k-wrzeszcz-city-webcam-2",
-    name: { ja: "Gdańsk LIVE 4K 🇵🇱 | Wrzeszcz City Webcam 24/7 | PKM & Olivia Centre from TGD", en: "Gdańsk LIVE 4K 🇵🇱 | Wrzeszcz City Webcam 24/7 | PKM & Olivia Centre from TGD" },
-    lat: 54.3523,
-    lng: 18.6491,
-    timeZone: "Europe/Warsaw",
-    category: "city",
-    country: "PL",
-    source: {
-      videoId: "OIEIRS-5iO0",
-      channelId: "UCcQJdC0Aa8rWfeOjl4fdyVw",
-      titleKey: "Gdańsk LIVE 4K 🇵🇱 | Wrzeszcz City Webcam 24/7 | PKM & Olivia Centre from TGD",
     },
   },
   {
@@ -52195,21 +42970,6 @@ export const CAMS: Cam[] = [
       videoId: "9iLdNRPGFuQ",
       channelId: "UCbZNp6qI3ffGgYhnAF9whyQ",
       titleKey: "🔴 LIVE: Barreirinha Beach Cam, Funchal Centre | @MadeiraWebBeachesLive",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "no-live-bigtrains-tv-cp10-csx-river-line",
-    name: { ja: "LIVE BigTrains.TV CP10 CSX River Line Bergenfield NJ", en: "LIVE BigTrains.TV CP10 CSX River Line Bergenfield NJ" },
-    lat: 59.0356,
-    lng: 5.6777,
-    timeZone: "Europe/Oslo",
-    category: "city",
-    country: "NO",
-    source: {
-      videoId: "GoFaRKaO4hM",
-      channelId: "UC9PfqU54WV-eb4Uk14De2wA",
-      titleKey: "LIVE BigTrains.TV CP10 CSX River Line Bergenfield NJ",
     },
   },
   {
@@ -52544,21 +43304,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "hr-webcam-bol-2-live-monitored-with-live",
-    name: { ja: "WebCam Bol 2 LIVE! (monitored with LiveStreamGuard.com)", en: "WebCam Bol 2 LIVE! (monitored with LiveStreamGuard.com)" },
-    lat: 43.2619,
-    lng: 16.655,
-    timeZone: "Europe/Zagreb",
-    category: "city",
-    country: "HR",
-    source: {
-      videoId: "6LbpnmSY_dg",
-      channelId: "UCc2PVvLCwujfpdKg2dm080A",
-      titleKey: "WebCam Bol 2 LIVE! (monitored with LiveStreamGuard.com)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-live-shark-cam-monterey-bay-aquarium",
     name: { ja: "Live Shark Cam | Monterey Bay Aquarium", en: "Live Shark Cam | Monterey Bay Aquarium" },
     lat: 35.7423,
@@ -52664,21 +43409,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-live-abc15-arizona-latest-news-weathe",
-    name: { ja: "LIVE | ABC15 Arizona latest news, weather, investigations & more", en: "LIVE | ABC15 Arizona latest news, weather, investigations & more" },
-    lat: 33.9375,
-    lng: -117.2306,
-    timeZone: "America/Los_Angeles",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "AsHhodqzm7k",
-      channelId: "UCIVk1L1-JmpdiGuZcVjImtA",
-      titleKey: "LIVE | ABC15 Arizona latest news, weather, investigations & more",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-jasmine-the-tiger-cam-at-turpentine-c",
     name: { ja: "Jasmine the Tiger Cam at Turpentine Creek powered by EXPLORE.org", en: "Jasmine the Tiger Cam at Turpentine Creek powered by EXPLORE.org" },
     lat: 34.847,
@@ -52769,21 +43499,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-live-now-arizona-bird-feeder-cam-acor",
-    name: { ja: "LIVE NOW: Arizona Bird Feeder Cam (Acorn Woodpeckers, Goldfinches & More)", en: "LIVE NOW: Arizona Bird Feeder Cam (Acorn Woodpeckers, Goldfinches & More)" },
-    lat: 30.4744,
-    lng: -91.1232,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "jaGPSAZ_uow",
-      channelId: "UCuL60_Ko4m9xCaa4QDNgJrw",
-      titleKey: "🔴 LIVE NOW: Arizona Bird Feeder Cam (Acorn Woodpeckers, Goldfinches & More)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-live-news-fox-local-atlanta-24-7-live",
     name: { ja: "LIVE NEWS: FOX LOCAL Atlanta 24/7 Live Stream", en: "LIVE NEWS: FOX LOCAL Atlanta 24/7 Live Stream" },
     lat: 43.6027,
@@ -52814,21 +43529,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-csx-chattanooga-sub-nashville-to-chat",
-    name: { ja: "CSX Chattanooga Sub - Nashville to Chattanooga - 4 Panel", en: "CSX Chattanooga Sub - Nashville to Chattanooga - 4 Panel" },
-    lat: 37.4817,
-    lng: -100.8438,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "3bPatpTDUFI",
-      channelId: "UCrDi5CITB3O5yTK_9hi7smw",
-      titleKey: "🔴CSX Chattanooga Sub - Nashville to Chattanooga - 4  Panel",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-dalton-georgia-usa-live-train-camera",
     name: { ja: "Dalton, Georgia, USA | LIVE Train Camera (Fixed View – North)", en: "Dalton, Georgia, USA | LIVE Train Camera (Fixed View – North)" },
     lat: 34.7698,
@@ -52840,21 +43540,6 @@ export const CAMS: Cam[] = [
       videoId: "DofPCzEUlXk",
       channelId: "UCOIkT9bq-1N2BvrsBjhNlag",
       titleKey: "Dalton, Georgia, USA | LIVE Train Camera (Fixed View – North)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-atlanta-history-center-live-goat-cam",
-    name: { ja: "Atlanta History Center Live Goat Cam", en: "Atlanta History Center Live Goat Cam" },
-    lat: 33.8418,
-    lng: -84.386,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "O25Ni73LtLE",
-      channelId: "UCIJ2wUaebGnCaFm1TTkebMA",
-      titleKey: "Atlanta History Center Live Goat Cam",
     },
   },
   {
@@ -52934,21 +43619,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-dolphin-live-webcam-key-largo-florida",
-    name: { ja: "Dolphin Live WebCam - Key Largo, Florida Keys", en: "Dolphin Live WebCam - Key Largo, Florida Keys" },
-    lat: 46.8218,
-    lng: -123.0962,
-    timeZone: "America/Los_Angeles",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "ghg9lhFDouM",
-      channelId: "UC_JkC_sNaRfTrbRw9_b2QoA",
-      titleKey: "Dolphin Live WebCam - Key Largo, Florida Keys",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-beach-club-livestream",
     name: { ja: "Beach Club Livestream", en: "Beach Club Livestream" },
     lat: 37.2145,
@@ -53024,36 +43694,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "ca-niagara-falls-live-cam",
-    name: { ja: "Niagara Falls LIVE Cam", en: "Niagara Falls LIVE Cam" },
-    lat: 43.0786,
-    lng: -79.0864,
-    timeZone: "America/Toronto",
-    category: "city",
-    country: "CA",
-    source: {
-      videoId: "UBTpYGj4cik",
-      channelId: "UCZiCPccfD2LhOznNHoqrbIQ",
-      titleKey: "🔴 Niagara Falls LIVE Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ca-live-sky-cam-niagara-falls",
-    name: { ja: "LIVE Sky Cam Niagara Falls", en: "LIVE Sky Cam Niagara Falls" },
-    lat: 45.3961,
-    lng: -74.7958,
-    timeZone: "America/Toronto",
-    category: "city",
-    country: "CA",
-    source: {
-      videoId: "3KhQK5KG7VU",
-      channelId: "UCZiCPccfD2LhOznNHoqrbIQ",
-      titleKey: "🔴 LIVE Sky Cam Niagara Falls",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "ca-peace-bridge-canadian-inspection-lane",
     name: { ja: "Peace Bridge - Canadian Inspection Lanes", en: "Peace Bridge - Canadian Inspection Lanes" },
     lat: 56.2371,
@@ -53114,21 +43754,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "ca-live-quebec-chateau-frontenac-harbor",
-    name: { ja: "LIVE Québec | Château Frontenac • Harbor • Sky Cam • Radar 24/7", en: "LIVE Québec | Château Frontenac • Harbor • Sky Cam • Radar 24/7" },
-    lat: 45.3961,
-    lng: -74.7958,
-    timeZone: "America/Toronto",
-    category: "city",
-    country: "CA",
-    source: {
-      videoId: "nJ1ChbhimjQ",
-      channelId: "UCpAcgvxttlboarOXKs8hvbw",
-      titleKey: "🔴LIVE Québec | Château Frontenac • Harbor • Sky Cam • Radar 24/7",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "mx-camara-en-vivo-los-cabos-vista-desde",
     name: { ja: "Cámara en Vivo Los Cabos - Vista desde Hoteles Solaris (Live Cam 24/7)", en: "Cámara en Vivo Los Cabos - Vista desde Hoteles Solaris (Live Cam 24/7)" },
     lat: 25.791,
@@ -53155,21 +43780,6 @@ export const CAMS: Cam[] = [
       videoId: "5WN2PJ_Qxjs",
       channelId: "UCcbzs8WNAZ_UOp21fJzSHfA",
       titleKey: "City of Auburn Toomer's Corner Webcam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ca-diffusion-en-direct-de-saguenay",
-    name: { ja: "Diffusion en direct de Saguenay", en: "Diffusion en direct de Saguenay" },
-    lat: 51.2345,
-    lng: -55.9902,
-    timeZone: "America/St_Johns",
-    category: "city",
-    country: "CA",
-    source: {
-      videoId: "ZGk4fkhBTvU",
-      channelId: "UCmYXN0dWONiJXXleAGV3qnA",
-      titleKey: "Diffusion en direct de Saguenay",
     },
   },
   {
@@ -53234,21 +43844,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "ca-cbc-news-live-quebec",
-    name: { ja: "CBC News LIVE: Quebec", en: "CBC News LIVE: Quebec" },
-    lat: 45.0001,
-    lng: -79.5829,
-    timeZone: "America/Toronto",
-    category: "city",
-    country: "CA",
-    source: {
-      videoId: "WIgNWfoZQ4g",
-      channelId: "UC3IKTmW6IjbrFe2W7lOXxFw",
-      titleKey: "CBC News LIVE: Quebec",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "ca-calgary-live-webcam-sunalta-canada",
     name: { ja: "Calgary Live Webcam | Sunalta | Canada", en: "Calgary Live Webcam | Sunalta | Canada" },
     lat: 51.0501,
@@ -53260,36 +43855,6 @@ export const CAMS: Cam[] = [
       videoId: "bFJjd4anhvY",
       channelId: "UC8p1N6NQkCnUukz3fkwb9Rw",
       titleKey: "Calgary Live Webcam | Sunalta | Canada",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "mx-lime-out-floating-taco-boat-live-webc",
-    name: { ja: "Lime Out Floating Taco Boat LIVE webcam from Coral Bay, St John, USVI", en: "Lime Out Floating Taco Boat LIVE webcam from Coral Bay, St John, USVI" },
-    lat: 19.4746,
-    lng: -97.1953,
-    timeZone: "America/Mexico_City",
-    category: "city",
-    country: "MX",
-    source: {
-      videoId: "zNvNY9xf9T4",
-      channelId: "UCPSSgJVH-ppHUfmdHXm55rQ",
-      titleKey: "Lime Out Floating Taco Boat LIVE webcam from Coral Bay, St John, USVI",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "mx-zihuatanejo-en-vivo-playa-la-ropa",
-    name: { ja: "Zihuatanejo - En vivo Playa La Ropa", en: "Zihuatanejo - En vivo Playa La Ropa" },
-    lat: 18.0216,
-    lng: -95.7064,
-    timeZone: "America/Mexico_City",
-    category: "city",
-    country: "MX",
-    source: {
-      videoId: "e756N1tufY8",
-      channelId: "UCkZ-Wllch8bWLe-6dSNRsfQ",
-      titleKey: "🔴  Zihuatanejo - En vivo Playa La Ropa",
     },
   },
   {
@@ -53380,21 +43945,6 @@ export const CAMS: Cam[] = [
       videoId: "Vh8xmLBJtR8",
       channelId: "UC64ZNqX0FQHabP8iIkmnR3A",
       titleKey: "Canal Siete EN VIVO",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "br-live-hora-certa-24-7-relogio-ao-vivo",
-    name: { ja: "LIVE HORA CERTA 24/7 RELÓGIO AO VIVO UTC-3 (HORÁRIO DE BRASÍLIA) HORA OFICIAL DE BRASÍLIA Ao Vivo", en: "LIVE HORA CERTA 24/7 RELÓGIO AO VIVO UTC-3 (HORÁRIO DE BRASÍLIA) HORA OFICIAL DE BRASÍLIA Ao Vivo" },
-    lat: -3.0594,
-    lng: -44.086,
-    timeZone: "America/Fortaleza",
-    category: "city",
-    country: "BR",
-    source: {
-      videoId: "3wOHItqP_zU",
-      channelId: "UC3ACLDxuy75577-GDItIgNA",
-      titleKey: "🕒💧LIVE HORA CERTA 24/7 RELÓGIO AO VIVO  UTC-3 (HORÁRIO DE BRASÍLIA) HORA OFICIAL DE BRASÍLIA Ao Vivo",
     },
   },
   {
@@ -53504,36 +44054,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "za-southbroom-beach-webcam-from-riptide",
-    name: { ja: "Southbroom Beach Webcam from Riptide Restaurant and powered by Wolf Security", en: "Southbroom Beach Webcam from Riptide Restaurant and powered by Wolf Security" },
-    lat: -34.0022,
-    lng: 25.3307,
-    timeZone: "Africa/Johannesburg",
-    category: "city",
-    country: "ZA",
-    source: {
-      videoId: "ZZeg7y7ET80",
-      channelId: "UCWNZhsEde-lWL8vEXLSb2Kg",
-      titleKey: "Southbroom Beach Webcam from Riptide Restaurant and powered by Wolf Security",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "au-brisbane-weather-live",
-    name: { ja: "Brisbane Weather Live", en: "Brisbane Weather Live" },
-    lat: -37.4333,
-    lng: 143.6667,
-    timeZone: "Australia/Melbourne",
-    category: "city",
-    country: "AU",
-    source: {
-      videoId: "o1LRcS28T2M",
-      channelId: "UCwyuvrVtIg0xjH2qPufk3RQ",
-      titleKey: "Brisbane Weather Live",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "zw-hwange-safari-lodge-zimbabwe-live-wil",
     name: { ja: "Hwange Safari Lodge - Zimbabwe | Live Wildlife Stream", en: "Hwange Safari Lodge - Zimbabwe | Live Wildlife Stream" },
     lat: -18.3645,
@@ -53590,21 +44110,6 @@ export const CAMS: Cam[] = [
       videoId: "bMmJVgByfKM",
       channelId: "UCI5xyLl5ex8C4gZ6uhb2gWA",
       titleKey: "🔴 LIVE | Clock / Current Time in Australia (AEST) / LIVE Australia Clock / What Time Is It Now",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "au-south-east-queensland-dashboard",
-    name: { ja: "South East Queensland Dashboard", en: "South East Queensland Dashboard" },
-    lat: -38.1035,
-    lng: 147.127,
-    timeZone: "Australia/Melbourne",
-    category: "city",
-    country: "AU",
-    source: {
-      videoId: "43beGFdRmW4",
-      channelId: "UC8IQsCbObnK7FcuV7zs6RTw",
-      titleKey: "South East Queensland Dashboard",
     },
   },
   {
@@ -53729,36 +44234,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "nz-wellington-waterfront-webcam-geeks-on",
-    name: { ja: "Wellington Waterfront Webcam | Geeks on Wheels", en: "Wellington Waterfront Webcam | Geeks on Wheels" },
-    lat: -41.2866,
-    lng: 174.7756,
-    timeZone: "Pacific/Auckland",
-    category: "city",
-    country: "NZ",
-    source: {
-      videoId: "tnXoyr_hh7g",
-      channelId: "UCCC0TDm8G6eIDXwDlfFAfMg",
-      titleKey: "Wellington Waterfront Webcam | Geeks on Wheels",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-live-24-7-lake-powell-marina-cam-boat",
-    name: { ja: "LIVE 24/7 | Lake Powell Marina Cam | Boats, Sunsets & Marina views!", en: "LIVE 24/7 | Lake Powell Marina Cam | Boats, Sunsets & Marina views!" },
-    lat: 46.5763,
-    lng: -119.0067,
-    timeZone: "America/Los_Angeles",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "NEK2iTuyOX4",
-      channelId: "UCpb2CEZ66mLTsqIgLY-bgqg",
-      titleKey: "LIVE 24/7 | Lake Powell Marina Cam | Boats, Sunsets & Marina views!",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "nz-chichester-cathedral-peregrine-camera",
     name: { ja: "Chichester Cathedral | Peregrine Camera Nest", en: "Chichester Cathedral | Peregrine Camera Nest" },
     lat: -45.45,
@@ -53863,21 +44338,6 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: Open-Meteo geocoding "Ramsgate", England
-    id: "us-ramsgate-royal-harbour-live-webcam-24",
-    name: { ja: "Ramsgate Royal Harbour LIVE Webcam 24/7 | Inner Marina, Boats & Weather, Kent UK", en: "Ramsgate Royal Harbour LIVE Webcam 24/7 | Inner Marina, Boats & Weather, Kent UK" },
-    lat: 51.3357,
-    lng: 1.418,
-    timeZone: "Europe/London",
-    category: "harbor",
-    country: "GB",
-    source: {
-      videoId: "6R_H9Ljp-Qs",
-      channelId: "UCcrSw7gTYq6ZQ1MdIo23Q1w",
-      titleKey: "Ramsgate Royal Harbour LIVE Webcam 24/7 | Inner Marina, Boats & Weather, Kent UK",
-    },
-  },
-  {
     // coords: set explicitly as a well-known landmark
     id: "us-boones-ferry-marina-boat-ramp-webcam",
     name: { ja: "Boones Ferry Marina Boat Ramp Webcam | River City Boat Sales", en: "Boones Ferry Marina Boat Ramp Webcam | River City Boat Sales" },
@@ -53920,21 +44380,6 @@ export const CAMS: Cam[] = [
       videoId: "UmiLYeh8-r8",
       channelId: "UCi10dXWs-pdQ9aIbtH5vAWA",
       titleKey: "Washington Island Ferry Dock Camera (#3)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-ocean-city-boardwalk-pan-cam",
-    name: { ja: "Ocean City Boardwalk Pan Cam", en: "Ocean City Boardwalk Pan Cam" },
-    lat: 39.3889,
-    lng: -89.0801,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "kBvlAcTHVlE",
-      channelId: "UC-szBTOZqw5cvTbOtgwy7KA",
-      titleKey: "Ocean City Boardwalk Pan Cam",
     },
   },
   {
@@ -54029,21 +44474,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-east-summit-live-webcam",
-    name: { ja: "East Summit Live Webcam", en: "East Summit Live Webcam" },
-    lat: 42.0612,
-    lng: -71.864,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "CDeGOHHwsDg",
-      channelId: "UChP_bnv9cDFZWfVKw3iBwRQ",
-      titleKey: "East Summit Live Webcam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-bear-valley-mountain-resort-summit-ca",
     name: { ja: "Bear Valley Mountain Resort Summit Cam", en: "Bear Valley Mountain Resort Summit Cam" },
     lat: 39.6293,
@@ -54119,21 +44549,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-socalmountains-com-goldmine-mountain",
-    name: { ja: "Socalmountains.com Goldmine Mountain (Big Bear) Live Streaming Cam", en: "Socalmountains.com Goldmine Mountain (Big Bear) Live Streaming Cam" },
-    lat: 34.2907,
-    lng: -83.046,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "GgQXgMJeHiA",
-      channelId: "UCUyHh9bRlaPmQPuZ8B4Mt8A",
-      titleKey: "Socalmountains.com Goldmine Mountain (Big Bear) Live Streaming Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-lone-peak-tram-cam",
     name: { ja: "Lone Peak Tram Cam", en: "Lone Peak Tram Cam" },
     lat: 37.5301,
@@ -54160,21 +44575,6 @@ export const CAMS: Cam[] = [
       videoId: "7ucskwkESko",
       channelId: "UC8fK-SBpN1jaSGDV7a8gdLw",
       titleKey: "Live Stream of the Iconic View of Fallingwater",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-upper-chisolm-live-webcam",
-    name: { ja: "Upper Chisolm Live Webcam", en: "Upper Chisolm Live Webcam" },
-    lat: 41.6639,
-    lng: -83.5552,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "dyjqN3NezH0",
-      channelId: "UChP_bnv9cDFZWfVKw3iBwRQ",
-      titleKey: "Upper Chisolm Live Webcam",
     },
   },
   {
@@ -54250,36 +44650,6 @@ export const CAMS: Cam[] = [
       videoId: "nslC27nST-Y",
       channelId: "UCg72Hd6UZAgPBAUZplnmPMQ",
       titleKey: "24/7 Mount Rainier Wildflowers Live Stream | Peaceful Nature Sounds & Sunset Views",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-live-ultimate-montana-webcam-tour-gla",
-    name: { ja: "LIVE: Ultimate Montana Webcam Tour ️ Glacier NP, Yellowstone & Big Sky Country | NOW!", en: "LIVE: Ultimate Montana Webcam Tour ️ Glacier NP, Yellowstone & Big Sky Country | NOW!" },
-    lat: 31.7599,
-    lng: -97.0378,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "yiZ6nFZ8NRw",
-      channelId: "UCra25Cnn_rX85Exlg41G9Xw",
-      titleKey: "🔴 LIVE: Ultimate Montana Webcam Tour 🏔️ Glacier NP, Yellowstone & Big Sky Country | NOW!",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-soothing-headache-migraine-pain-and-a",
-    name: { ja: "Soothing Headache, Migraine, Pain and Anxiety Relief - Gentle Waterfall, Open Heart Music, Helios 4K", en: "Soothing Headache, Migraine, Pain and Anxiety Relief - Gentle Waterfall, Open Heart Music, Helios 4K" },
-    lat: 63.7325,
-    lng: -148.9106,
-    timeZone: "America/Anchorage",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "kYissYTEjww",
-      channelId: "UC4L-dSrzbPoZcr1Av5GvwKw",
-      titleKey: "Soothing Headache, Migraine, Pain and Anxiety Relief - Gentle Waterfall, Open Heart Music, Helios 4K",
     },
   },
   {
@@ -54370,21 +44740,6 @@ export const CAMS: Cam[] = [
       videoId: "8kEzFZvtLzM",
       channelId: "UC9X_obpHELF92vvFNtcdXFA",
       titleKey: "Calm Woodland Stream with Beautiful Birdsong | Relax, Stress Relief and Sleep, ASMR",
-    },
-  },
-  {
-    // coords: Photon: Alum Bay
-    id: "us-alum-bay-camera-scenic-the-needles-li",
-    name: { ja: "Alum Bay Camera (Scenic) | The Needles Lighthouse | Isle of Wight Webcams UK LIVE", en: "Alum Bay Camera (Scenic) | The Needles Lighthouse | Isle of Wight Webcams UK LIVE" },
-    lat: 50.6665,
-    lng: -1.5755,
-    timeZone: "Europe/London",
-    category: "nature",
-    country: "GB",
-    source: {
-      videoId: "EyMkSCRrTRI",
-      channelId: "UC33OGvU5mkzc1MV14iY7Ppw",
-      titleKey: "🔴 Alum Bay Camera (Scenic) | The Needles Lighthouse | Isle of Wight Webcams UK LIVE",
     },
   },
   {
@@ -54494,21 +44849,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-saint-louis-zoo-live-stream",
-    name: { ja: "Saint Louis Zoo Live Stream", en: "Saint Louis Zoo Live Stream" },
-    lat: 38.6352,
-    lng: -90.2909,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "b8RCVeXUYMY",
-      channelId: "UCSRFoiZxRF9edyGvMTxV-AA",
-      titleKey: "Saint Louis Zoo Live Stream",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-st-augustine-alligator-farm-live-24-7",
     name: { ja: "St. Augustine Alligator Farm LIVE 24/7", en: "St. Augustine Alligator Farm LIVE 24/7" },
     lat: 38.6273,
@@ -54550,21 +44890,6 @@ export const CAMS: Cam[] = [
       videoId: "AinDIqEXEu4",
       channelId: "UCMMBk7t5_yJ03OWwHdGTWOw",
       titleKey: "24/7 Lorain Lighthouse Cam with Audio",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-penguin-webcam-at-saint-louis-zoo",
-    name: { ja: "Penguin Webcam at Saint Louis Zoo", en: "Penguin Webcam at Saint Louis Zoo" },
-    lat: 38.637,
-    lng: -90.2912,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "hHLlZhianIQ",
-      channelId: "UCSRFoiZxRF9edyGvMTxV-AA",
-      titleKey: "Penguin Webcam at Saint Louis Zoo",
     },
   },
   {
@@ -54884,21 +45209,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "pl-weather-webcams-from-poland-pogoda-w",
-    name: { ja: "Weather WebCams from Poland / Pogoda w Polsce / Dane giełdowe - WebCamera.pl", en: "Weather WebCams from Poland / Pogoda w Polsce / Dane giełdowe - WebCamera.pl" },
-    lat: 52.2298,
-    lng: 21.0118,
-    timeZone: "Europe/Warsaw",
-    category: "city",
-    country: "PL",
-    source: {
-      videoId: "B9oTl2vWU64",
-      channelId: "UCh2MI-QmqjA40IYO4oCXdUw",
-      titleKey: "🔴 Weather WebCams from Poland / Pogoda w Polsce / Dane giełdowe - WebCamera.pl",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "il-tvp-info-ogladaj-na-zywo",
     name: { ja: "TVP INFO | OGLĄDAJ NA ŻYWO", en: "TVP INFO | OGLĄDAJ NA ŻYWO" },
     lat: 32.0809,
@@ -54955,21 +45265,6 @@ export const CAMS: Cam[] = [
       videoId: "ymjl0_nRXME",
       channelId: "UCzk5x_PbhFKUoJx_HNTefDQ",
       titleKey: "Urząd Transportu Kolejowego – transmisja widoku na Warszawę Zachodnią",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "pl-white-storks-at-knepp",
-    name: { ja: "White Storks at Knepp", en: "White Storks at Knepp" },
-    lat: 52.2298,
-    lng: 21.0118,
-    timeZone: "Europe/Warsaw",
-    category: "city",
-    country: "PL",
-    source: {
-      videoId: "s0liN8AzykQ",
-      channelId: "UCSfPBp6AQ9WqKMG5OrEeaQg",
-      titleKey: "White Storks at Knepp",
     },
   },
   {
@@ -55184,21 +45479,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "tw-4k-live-cam-lishan-sakuraen-hill",
-    name: { ja: "【梨山美景4K Live cam】櫻緣丘即時影像｜Lishan Sakuraen Hill｜桜園の丘", en: "【梨山美景4K Live cam】櫻緣丘即時影像｜Lishan Sakuraen Hill｜桜園の丘" },
-    lat: 24.1469,
-    lng: 120.6839,
-    timeZone: "Asia/Taipei",
-    category: "city",
-    country: "TW",
-    source: {
-      videoId: "nZr0Qymeol4",
-      channelId: "UCRJaOd58HaYbcYxZ6hwx20Q",
-      titleKey: "【梨山美景4K Live cam】櫻緣丘即時影像｜Lishan Sakuraen Hill｜桜園の丘",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "tw-mwcc-live-camera-1",
     name: { ja: "MWCC Live Camera #1", en: "MWCC Live Camera #1" },
     lat: 22.6163,
@@ -55349,21 +45629,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "vn-forest-live-stream-look-around-and-en",
-    name: { ja: "Forest Live Stream! Look Around and Enjoy the Nature of Western New York State", en: "Forest Live Stream! Look Around and Enjoy the Nature of Western New York State" },
-    lat: 16.0678,
-    lng: 108.2208,
-    timeZone: "Asia/Ho_Chi_Minh",
-    category: "city",
-    country: "VN",
-    source: {
-      videoId: "YtnJ_CE8AGY",
-      channelId: "UC5KBGbzrcGawBVpEl6iNWuw",
-      titleKey: "Forest Live Stream! Look Around and Enjoy the Nature of Western New York State",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "in-channels-television-live",
     name: { ja: "CHANNELS TELEVISION | LIVE", en: "CHANNELS TELEVISION | LIVE" },
     lat: 13.0878,
@@ -55499,21 +45764,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "fr-olcott-ny-harborcam",
-    name: { ja: "Olcott, NY Harborcam", en: "Olcott, NY Harborcam" },
-    lat: 44.8412,
-    lng: -0.5805,
-    timeZone: "Europe/Paris",
-    category: "city",
-    country: "FR",
-    source: {
-      videoId: "iJ5bRlGMyeY",
-      channelId: "UCN3FplODPLUGtdcx-T3nniQ",
-      titleKey: "Olcott, NY Harborcam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "no-vervet-live",
     name: { ja: "Vervet Live", en: "Vervet Live" },
     lat: 69.6676,
@@ -55525,21 +45775,6 @@ export const CAMS: Cam[] = [
       videoId: "zKpPfH8u3GI",
       channelId: "UC6HiVa8ET2pDdiDZqzmTPhw",
       titleKey: "Vervet Live",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "de-kolner-dom-live-webcam-im-testbetrieb",
-    name: { ja: "Kölner Dom: Live-Webcam im Testbetrieb", en: "Kölner Dom: Live-Webcam im Testbetrieb" },
-    lat: 50.9333,
-    lng: 6.95,
-    timeZone: "Europe/Berlin",
-    category: "city",
-    country: "DE",
-    source: {
-      videoId: "kodtgRure8Y",
-      channelId: "UCgX-WrCB5ALQOILWx-b6gUg",
-      titleKey: "Kölner Dom: Live-Webcam im Testbetrieb",
     },
   },
   {
@@ -55859,21 +46094,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "br-ao-vivo-cabo-frio-rj-praia-do-pero-po",
-    name: { ja: "AO VIVO: CABO FRIO - RJ | PRAIA DO PERÓ | PORTAL UPTV", en: "AO VIVO: CABO FRIO - RJ | PRAIA DO PERÓ | PORTAL UPTV" },
-    lat: -8.2877,
-    lng: -35.0292,
-    timeZone: "America/Recife",
-    category: "city",
-    country: "BR",
-    source: {
-      videoId: "Zi8dZLSuw54",
-      channelId: "UC9vUpxCiVZrFMs9kyLc6lUg",
-      titleKey: "🔴 AO VIVO: CABO FRIO - RJ | PRAIA DO PERÓ | PORTAL UPTV",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "it-live-da-jesolo-spiagge-green-beach",
     name: { ja: "Live Da Jesolo Spiagge - Green Beach", en: "Live Da Jesolo Spiagge - Green Beach" },
     lat: 42.0346,
@@ -55885,36 +46105,6 @@ export const CAMS: Cam[] = [
       videoId: "1-6FHrCJKtA",
       channelId: "UCDB_gbIJPzzT7xg__hSfqSw",
       titleKey: "Live Da Jesolo Spiagge - Green Beach",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "zw-en-vivo-episodios-completos-de-bluey",
-    name: { ja: "EN VIVO: Episodios completos de Bluey en HD | 24 HORAS | Bluey con Juguetes | Bluey", en: "EN VIVO: Episodios completos de Bluey en HD | 24 HORAS | Bluey con Juguetes | Bluey" },
-    lat: -17.9328,
-    lng: 25.8307,
-    timeZone: "Africa/Harare",
-    category: "city",
-    country: "ZW",
-    source: {
-      videoId: "4bbPfVFaSx8",
-      channelId: "UCYvpkMpzo1S_rmcj2Axmbig",
-      titleKey: "🔴EN VIVO: Episodios completos de Bluey en HD 💙🦄 | 24 HORAS | Bluey con Juguetes | Bluey",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "mx-vista-panoramica-en-vivo-de-la-ciudad",
-    name: { ja: "Vista Panorámica en vivo de la Ciudad de Hermosillo, Sonora", en: "Vista Panorámica en vivo de la Ciudad de Hermosillo, Sonora" },
-    lat: 20.4106,
-    lng: -89.2839,
-    timeZone: "America/Merida",
-    category: "city",
-    country: "MX",
-    source: {
-      videoId: "X2_e8oHny2s",
-      channelId: "UC22kLkjatN1XJVC_9T9otRg",
-      titleKey: "Vista Panorámica en vivo de la Ciudad de Hermosillo, Sonora",
     },
   },
   {
@@ -56069,21 +46259,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "tr-kapikule-canli-ipsala-canli-hamzabeyl",
-    name: { ja: "Kapikule Canli - Ipsala Canli - Hamzabeyli Canli - Pazarkule Canli", en: "Kapikule Canli - Ipsala Canli - Hamzabeyli Canli - Pazarkule Canli" },
-    lat: 40.9211,
-    lng: 26.3827,
-    timeZone: "Europe/Istanbul",
-    category: "city",
-    country: "TR",
-    source: {
-      videoId: "MQ_cvCiw3jQ",
-      channelId: "UCiItVg9epdaPdIqNeqyFQOA",
-      titleKey: "Kapikule Canli - Ipsala Canli -  Hamzabeyli Canli - Pazarkule Canli",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "tr-tasacak-bu-deniz-tum-bolumler-canl-ya",
     name: { ja: "Taşacak Bu Deniz - Tüm Bölümler Canlı Yayın", en: "Taşacak Bu Deniz - Tüm Bölümler Canlı Yayın" },
     lat: 38.4986,
@@ -56174,21 +46349,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "tr-2-p-narbeyli-koyu-canl-yay-n-7-24-tok",
-    name: { ja: "(2) Pınarbeyli köyü Canlı Yayın 7/24 (Tokat/Erbaa)", en: "(2) Pınarbeyli köyü Canlı Yayın 7/24 (Tokat/Erbaa)" },
-    lat: 40.1369,
-    lng: 29.7569,
-    timeZone: "Europe/Istanbul",
-    category: "city",
-    country: "TR",
-    source: {
-      videoId: "jluROz4AC14",
-      channelId: "UCKRILTo_VTbb0GwY3bcthFw",
-      titleKey: "🔴 (2) Pınarbeyli köyü Canlı Yayın 7/24 (Tokat/Erbaa)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "ua-live-ukraine-live-hd-camera-feeds-fro",
     name: { ja: "LIVE: Ukraine LIVE HD Camera Feeds from Donetsk, Sumy, Kyiv, Kharkiv and more", en: "LIVE: Ukraine LIVE HD Camera Feeds from Donetsk, Sumy, Kyiv, Kharkiv and more" },
     lat: 49.2549,
@@ -56260,21 +46420,6 @@ export const CAMS: Cam[] = [
       videoId: "WC3CkcTYCYY",
       channelId: "UCAxEkcZK-6Mmm3UXWEuZEEQ",
       titleKey: "Cluj Napoca | Piata Unirii - Unirii Square | Planetarium Cafe 🔴 Live Webcam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ro-bran-vila-panorama-bucegi-mountain-vi",
-    name: { ja: "Bran Vila Panorama - Bucegi mountain view Live Webcam", en: "Bran Vila Panorama - Bucegi mountain view Live Webcam" },
-    lat: 45.5167,
-    lng: 25.35,
-    timeZone: "Europe/Bucharest",
-    category: "city",
-    country: "RO",
-    source: {
-      videoId: "ynUpKpsvtJw",
-      channelId: "UCAxEkcZK-6Mmm3UXWEuZEEQ",
-      titleKey: "Bran Vila Panorama - Bucegi mountain view 🔴  Live Webcam",
     },
   },
   {
@@ -56549,21 +46694,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-north-carolina-bird-feeder-daily-live",
-    name: { ja: "North Carolina Bird Feeder Daily Live Stream The Most Cardinals on YouTube", en: "North Carolina Bird Feeder Daily Live Stream The Most Cardinals on YouTube" },
-    lat: 30.4744,
-    lng: -91.1232,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "0zT458PYuB8",
-      channelId: "UCG1uo50XHSYJXArjRdENvfA",
-      titleKey: "🔴North Carolina Bird Feeder Daily Live Stream 🐦The Most Cardinals on YouTube",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-watch-fox-weather-channel-live-stream",
     name: { ja: "Watch FOX Weather Channel Live Stream: Tracking Breaking Weather News, Local and National Forecasts", en: "Watch FOX Weather Channel Live Stream: Tracking Breaking Weather News, Local and National Forecasts" },
     lat: 43.6027,
@@ -56635,21 +46765,6 @@ export const CAMS: Cam[] = [
       videoId: "yIA5FVKQCIk",
       channelId: "UCUJU-T8xmLoP62EayhQ7xWA",
       titleKey: "Upper Newport Bay Osprey Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-newport-harbor-hotel-marina-live-stre",
-    name: { ja: "Newport Harbor Hotel & Marina Live Stream", en: "Newport Harbor Hotel & Marina Live Stream" },
-    lat: 36.116,
-    lng: -77.1844,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "TpfJFjZyy0c",
-      channelId: "UCOfIEbPaydPatRoUl-3y7FA",
-      titleKey: "Newport Harbor Hotel & Marina Live Stream",
     },
   },
   {
@@ -56909,21 +47024,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-snow-stake-winter-park-resort",
-    name: { ja: "Snow Stake @ Winter Park Resort", en: "Snow Stake @ Winter Park Resort" },
-    lat: 34.3959,
-    lng: -95.4128,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "_wOIgFEMypY",
-      channelId: "UCfGg4QKTWmRGaV6iIUFofTA",
-      titleKey: "Snow Stake @ Winter Park Resort",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-heart-six-ranch-live-main-lodge",
     name: { ja: "HEART SIX RANCH - LIVE (Main Lodge)", en: "HEART SIX RANCH - LIVE (Main Lodge)" },
     lat: 37.369,
@@ -57014,21 +47114,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-palisades-tahoe-ski-resort-alpine-lod",
-    name: { ja: "Palisades Tahoe Ski Resort - Alpine Lodge Base Area", en: "Palisades Tahoe Ski Resort - Alpine Lodge Base Area" },
-    lat: 40.339,
-    lng: -80.9573,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "xJjrP9DmA1k",
-      channelId: "UCaoot-UaT_POsnUQ7MXnq8w",
-      titleKey: "Palisades Tahoe Ski Resort - Alpine Lodge Base Area",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-live-moon-jelly-cam-monterey-bay-aqua",
     name: { ja: "Live Moon Jelly Cam | Monterey Bay Aquarium", en: "Live Moon Jelly Cam | Monterey Bay Aquarium" },
     lat: 35.7423,
@@ -57040,21 +47125,6 @@ export const CAMS: Cam[] = [
       videoId: "zL68biE6wAs",
       channelId: "UCnM5iMGiKsZg-iOlIO2ZkdQ",
       titleKey: "Live Moon Jelly Cam | Monterey Bay Aquarium",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-live-aviary-cam-monterey-bay-aquarium",
-    name: { ja: "Live Aviary Cam | Monterey Bay Aquarium", en: "Live Aviary Cam | Monterey Bay Aquarium" },
-    lat: 35.7423,
-    lng: -90.5623,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "cUoet3dmRU4",
-      channelId: "UCnM5iMGiKsZg-iOlIO2ZkdQ",
-      titleKey: "Live Aviary Cam | Monterey Bay Aquarium",
     },
   },
   {
@@ -57284,21 +47354,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-emerald-cam-live-from-the-galveston-s",
-    name: { ja: "EMERALD CAM: Live from the Galveston Ship Channel", en: "EMERALD CAM: Live from the Galveston Ship Channel" },
-    lat: 41.7823,
-    lng: -80.5356,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "gAdtr9_mBTk",
-      channelId: "UCTprn7AEnBMwRwkhs9jUFTg",
-      titleKey: "EMERALD CAM: Live from the Galveston Ship Channel",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-jimmy-s-crows-nest-sunrise",
     name: { ja: "Jimmy's Crows Nest - Sunrise", en: "Jimmy's Crows Nest - Sunrise" },
     lat: 37.3668,
@@ -57340,21 +47395,6 @@ export const CAMS: Cam[] = [
       videoId: "03Q1t-czp1M",
       channelId: "UCJTTzETV9AfJYvTmCWO-3rQ",
       titleKey: "Moonspinner LIVE Beach Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-panama-city-beach-live-cam-gulf-views",
-    name: { ja: "Panama City Beach Live Cam | Gulf Views from Runaway Island Gulf Front Restaurant", en: "Panama City Beach Live Cam | Gulf Views from Runaway Island Gulf Front Restaurant" },
-    lat: 30.2276,
-    lng: -85.9004,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "a7_QEdjsgtE",
-      channelId: "UCZkETwsAfT_cF6BEJt1fC3w",
-      titleKey: "Panama City Beach Live Cam | Gulf Views from Runaway Island Gulf Front Restaurant",
     },
   },
   {
@@ -57520,21 +47560,6 @@ export const CAMS: Cam[] = [
       videoId: "REpNAzupM9Y",
       channelId: "UCOuon1wAskHRf0z-MiU3auw",
       titleKey: "Winstead Inn Beach Resort– Beach Live Stream",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-ldv-carillon-beach-live-webcam-panama",
-    name: { ja: "LDV - Carillon Beach Live Webcam, Panama City Beach Florida", en: "LDV - Carillon Beach Live Webcam, Panama City Beach Florida" },
-    lat: 44.98,
-    lng: -93.2638,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "7129nXp5fRo",
-      channelId: "UCzdWPo-cHlPs4DPvpIH9Z3w",
-      titleKey: "LDV - Carillon Beach Live Webcam, Panama City Beach Florida",
     },
   },
   {
@@ -57839,36 +47864,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-sea-eaglecam4-live-stream",
-    name: { ja: "Sea-EagleCAM4 Live Stream", en: "Sea-EagleCAM4 Live Stream" },
-    lat: 47.6062,
-    lng: -122.3321,
-    timeZone: "America/Los_Angeles",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "nw4pdgy3-U0",
-      channelId: "UCZss13TJZLtZ0ones3HpYMQ",
-      titleKey: "Sea-EagleCAM4 Live Stream",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-live-bald-eagle-cam-glacier-gardens-j",
-    name: { ja: "Live Bald Eagle Cam @ Glacier Gardens, Juneau, AK", en: "Live Bald Eagle Cam @ Glacier Gardens, Juneau, AK" },
-    lat: 33.854,
-    lng: -87.1828,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "lUUcakg0YTA",
-      channelId: "UCIs73neL0UZJCIlgSpSfFAQ",
-      titleKey: "Live Bald Eagle Cam @ Glacier Gardens, Juneau, AK",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-northern-lights-powered-by-explore-or",
     name: { ja: "Northern Lights powered by EXPLORE.org", en: "Northern Lights powered by EXPLORE.org" },
     lat: 58.3019,
@@ -58139,21 +48134,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "ca-enjoy-a-view-of-the-st-john-s-harbour",
-    name: { ja: "Enjoy a view of the St. John's harbour front area", en: "Enjoy a view of the St. John's harbour front area" },
-    lat: 47.5649,
-    lng: -52.7093,
-    timeZone: "America/St_Johns",
-    category: "city",
-    country: "CA",
-    source: {
-      videoId: "y7FKz_y86Bo",
-      channelId: "UCpPLxYC6uNNfNrSQokButSg",
-      titleKey: "Enjoy a view of the St. John's harbour front area",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "ca-live-view-from-long-bay-beach-villa-l",
     name: { ja: "LIVE view from Long Bay Beach Villa - looking over Coral Bay, St. John in the US Virgin Islands", en: "LIVE view from Long Bay Beach Villa - looking over Coral Bay, St. John in the US Virgin Islands" },
     lat: 46.3656,
@@ -58195,21 +48175,6 @@ export const CAMS: Cam[] = [
       videoId: "d-drfinzIWU",
       channelId: "UCUvxivDAeh1glHOXUn8_ljg",
       titleKey: "Windmill Bar Live Jam Fam Cam - St. John, USVI",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ca-lime-out-stt-floating-taco-boat-live",
-    name: { ja: "Lime Out STT - Floating Taco Boat LIVE webcam from Lindbergh Bay, St. Thomas, USVI", en: "Lime Out STT - Floating Taco Boat LIVE webcam from Lindbergh Bay, St. Thomas, USVI" },
-    lat: 44.4809,
-    lng: -76.0458,
-    timeZone: "America/Toronto",
-    category: "city",
-    country: "CA",
-    source: {
-      videoId: "nSJxrl07Gyg",
-      channelId: "UCPSSgJVH-ppHUfmdHXm55rQ",
-      titleKey: "Lime Out STT - Floating Taco Boat LIVE webcam from Lindbergh Bay, St. Thomas, USVI",
     },
   },
   {
@@ -58394,36 +48359,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "mx-buccanos-beach-club-cozumel-mexico-li",
-    name: { ja: "Buccanos Beach Club Cozumel Mexico LIVE CAM", en: "Buccanos Beach Club Cozumel Mexico LIVE CAM" },
-    lat: 27.5386,
-    lng: -100.6269,
-    timeZone: "America/Monterrey",
-    category: "city",
-    country: "MX",
-    source: {
-      videoId: "JX1O3DKjY-k",
-      channelId: "UCiLRXb-DT7pHI828VW6wh7Q",
-      titleKey: "Buccanos Beach Club Cozumel Mexico LIVE CAM",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "mx-zihuatanejo-en-vivo-playa-la-madera",
-    name: { ja: "Zihuatanejo - En vivo Playa La Madera", en: "Zihuatanejo - En vivo Playa La Madera" },
-    lat: 18.0216,
-    lng: -95.7064,
-    timeZone: "America/Mexico_City",
-    category: "city",
-    country: "MX",
-    source: {
-      videoId: "btSfGGIn_Eo",
-      channelId: "UCkZ-Wllch8bWLe-6dSNRsfQ",
-      titleKey: "🔴  Zihuatanejo - En vivo Playa La Madera",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "br-praia-de-candeias-pe-camera-2-ao-vivo",
     name: { ja: "PRAIA DE CANDEIAS PE - CÂMERA 2 AO VIVO - LIVE CAM", en: "PRAIA DE CANDEIAS PE - CÂMERA 2 AO VIVO - LIVE CAM" },
     lat: -6.7167,
@@ -58450,21 +48385,6 @@ export const CAMS: Cam[] = [
       videoId: "keWC1l1flQw",
       channelId: "UCWrV5sJgwc82daX_umUlV1A",
       titleKey: "Casa Malca - Tulum, Mexico",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "mx-playa-del-carmen-en-vivo-vista-panora",
-    name: { ja: "Playa del Carmen EN VIVO - Vista panorámica Webcams de México", en: "Playa del Carmen EN VIVO - Vista panorámica Webcams de México" },
-    lat: 28.1901,
-    lng: -105.4701,
-    timeZone: "America/Chihuahua",
-    category: "city",
-    country: "MX",
-    source: {
-      videoId: "nNEaRNxZ0Lg",
-      channelId: "UCSb0o-ElVq6STwuYdAcizXQ",
-      titleKey: "Playa del Carmen EN VIVO - Vista panorámica Webcams de México",
     },
   },
   {
@@ -58510,21 +48430,6 @@ export const CAMS: Cam[] = [
       videoId: "xvV7F_TH_OA",
       channelId: "UCdz_Kbzu83ZE86LVcGFN0JA",
       titleKey: "SBRF CAM 2 - \"PÁTIO\" | MADRUGADA/MANHÃ | AEROPORTO DO RECIFE AO VIVO 24H | RECIFE AIRPORT LIVE",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "br-ao-vivo-camera-de-rua-city-live-cam-o",
-    name: { ja: "AO VIVO Câmera de Rua | City Live Cam | Olinda #cityviews #citylife #streetphotography #urban", en: "AO VIVO Câmera de Rua | City Live Cam | Olinda #cityviews #citylife #streetphotography #urban" },
-    lat: -26.6512,
-    lng: -48.7005,
-    timeZone: "America/Sao_Paulo",
-    category: "city",
-    country: "BR",
-    source: {
-      videoId: "ZFjD0uxntWU",
-      channelId: "UCAjAwOKrfmZX1552JnE_i5g",
-      titleKey: "🔴 AO VIVO  Câmera de Rua | City Live Cam | Olinda #cityviews  #citylife  #streetphotography  #urban",
     },
   },
   {
@@ -58694,21 +48599,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "ar-bariloche-en-vivo-ruta-40-lago-nahuel",
-    name: { ja: "BARILOCHE EN VIVO Ruta 40, Lago Nahuel Huapi y Gutiérrez | Clima en Directo 24/7", en: "BARILOCHE EN VIVO Ruta 40, Lago Nahuel Huapi y Gutiérrez | Clima en Directo 24/7" },
-    lat: -34.9521,
-    lng: -58.1699,
-    timeZone: "America/Argentina/Buenos_Aires",
-    category: "city",
-    country: "AR",
-    source: {
-      videoId: "tfi0NRWIYoU",
-      channelId: "UC6xytvQk12YygDYVKlY6xQQ",
-      titleKey: "🔴 BARILOCHE EN VIVO 🎥 Ruta 40, Lago Nahuel Huapi y Gutiérrez | Clima en Directo 24/7",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "ar-macroplaza-live-cam-live-music-cd-acu",
     name: { ja: "Macroplaza Live Cam / Live Music Cd. Acuña, México", en: "Macroplaza Live Cam / Live Music Cd. Acuña, México" },
     lat: -29.9079,
@@ -58739,21 +48629,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "ar-24-7-2-cd-acuna-mexico-live-cam-live",
-    name: { ja: "24/7 - 2 Cd. Acuña, México Live Cam / Live Music", en: "24/7 - 2 Cd. Acuña, México Live Cam / Live Music" },
-    lat: -29.9079,
-    lng: -57.9575,
-    timeZone: "America/Argentina/Cordoba",
-    category: "city",
-    country: "AR",
-    source: {
-      videoId: "09EPp9I-hIw",
-      channelId: "UCKggdk4rcwVhzSdhEEhmaNw",
-      titleKey: "🔴24/7 - 2  Cd. Acuña, México Live Cam / Live Music ♫",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "ar-camaras-en-vivo-argentina-patagonia-e",
     name: { ja: "CÁMARAS EN VIVO ARGENTINA PATAGONIA | EL CALAFATE - GLACIAR PERITO MORENO - EL CHALTEN ️", en: "CÁMARAS EN VIVO ARGENTINA PATAGONIA | EL CALAFATE - GLACIAR PERITO MORENO - EL CHALTEN ️" },
     lat: -54.7932,
@@ -58765,21 +48640,6 @@ export const CAMS: Cam[] = [
       videoId: "-XSiGzdACGw",
       channelId: "UC4-_9wNSp9Pd8sxH_cB7C6Q",
       titleKey: "🔴 CÁMARAS EN VIVO  ARGENTINA  PATAGONIA | EL CALAFATE - GLACIAR PERITO MORENO - EL CHALTEN ❄️",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-4k-niseko-annupuri-international-ski",
-    name: { ja: "[4K]ニセコアンヌプリ国際スキー場ライブカメラ - niseko annupuri international ski area livecam", en: "[4K]ニセコアンヌプリ国際スキー場ライブカメラ - niseko annupuri international ski area livecam" },
-    lat: 32.8167,
-    lng: 131.55,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "iCetfeKzJFs",
-      channelId: "UCrgX2wz-e6y2no7Vhqqn29A",
-      titleKey: "[4K]ニセコアンヌプリ国際スキー場ライブカメラ - niseko annupuri international ski area livecam",
     },
   },
   {
@@ -58874,36 +48734,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-live-hakuba-goryu-snow-resort-from-li",
-    name: { ja: "【LIVE】Hakuba Goryu Snow Resort from Lift Inn Hakuba Goryu エイブル白馬五竜スキー場の目の前の宿、リフトイン白馬五竜屋上から【ライブカメラ】", en: "【LIVE】Hakuba Goryu Snow Resort from Lift Inn Hakuba Goryu エイブル白馬五竜スキー場の目の前の宿、リフトイン白馬五竜屋上から【ライブカメラ】" },
-    lat: 43.0843,
-    lng: 143.6024,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "TEC-hUC08oM",
-      channelId: "UCGPIuarrmUxkgE3czv92i6w",
-      titleKey: "【LIVE】Hakuba Goryu Snow Resort from Lift Inn Hakuba Goryu　エイブル白馬五竜スキー場の目の前の宿、リフトイン白馬五竜屋上から【ライブカメラ】",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-camera-hakuba47-2026-03-09-09-44",
-    name: { ja: "Camera Hakuba47 - 2026-03-09 09:44", en: "Camera Hakuba47 - 2026-03-09 09:44" },
-    lat: 36.6982,
-    lng: 137.8619,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "B6xMPiF22Vo",
-      channelId: "UCPldIceiQxfDX-nHAQOem7w",
-      titleKey: "Camera Hakuba47 - 2026-03-09 09:44",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-camera-2026-03-09-22-52",
     name: { ja: "Camera 白馬岩岳マウンテンリゾート - 2026-03-09 22:52", en: "Camera 白馬岩岳マウンテンリゾート - 2026-03-09 22:52" },
     lat: 36.6982,
@@ -58930,21 +48760,6 @@ export const CAMS: Cam[] = [
       videoId: "YeaSn08yzdA",
       channelId: "UCPldIceiQxfDX-nHAQOem7w",
       titleKey: "Camera 白馬村野平地区 - 2026-03-06 18:25",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-sapporo-in-summer-lofi-radio-24-hours",
-    name: { ja: "Sapporo in Summer, lofi radio 24 hours | August 16, 2026 | 札幌市中央区交差点", en: "Sapporo in Summer, lofi radio 24 hours | August 16, 2026 | 札幌市中央区交差点" },
-    lat: 44.6833,
-    lng: 141.8833,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "X-vzOfg0yPk",
-      channelId: "UCIMs8atP2qoxcfAvhiFlzGQ",
-      titleKey: "Sapporo in Summer, lofi radio 24 hours | August 16, 2026 | 札幌市中央区交差点",
     },
   },
   {
@@ -59020,21 +48835,6 @@ export const CAMS: Cam[] = [
       videoId: "GB85xHlkjWw",
       channelId: "UC18wakGTIO6r-3e44biki3g",
       titleKey: "道の駅しもごう ライブカメラ| Michi-no-Eki Shimogo Live Camera",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-shonan-beach-fm-78-9-sagami-bay-enosh",
-    name: { ja: "Shonan Beach FM 78.9 - Sagami Bay, Enoshima & Mt. Fuji", en: "Shonan Beach FM 78.9 - Sagami Bay, Enoshima & Mt. Fuji" },
-    lat: 35.1667,
-    lng: 138.6833,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "fzQPDcFbzaA",
-      channelId: "UCFZUwIuza5InZvhykOud-MA",
-      titleKey: "Shonan Beach FM 78.9 - Sagami Bay, Enoshima & Mt. Fuji",
     },
   },
   {
@@ -59170,21 +48970,6 @@ export const CAMS: Cam[] = [
       videoId: "lliA98w18CI",
       channelId: "UCzveOOdDNoywnxTm6QyazPg",
       titleKey: "長野県松本市平田東ライブカメラ Nagano Matsumoto Hiratahigashi Live Camera.world.cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-shinhotakaropeway-livecamera",
-    name: { ja: "新穂高ロープウェイ ライブカメラ SHINHOTAKAROPEWAY LIVECAMERA", en: "新穂高ロープウェイ ライブカメラ SHINHOTAKAROPEWAY LIVECAMERA" },
-    lat: 36.2333,
-    lng: 137.9667,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "qmqsvWrFfww",
-      channelId: "UC3i9y6EYpXlvrHLm2wMbOkQ",
-      titleKey: "新穂高ロープウェイ ライブカメラ　SHINHOTAKAROPEWAY LIVECAMERA",
     },
   },
   {
@@ -59474,21 +49259,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-live-ishigaki-island-okinawa-japan-rb",
-    name: { ja: "【LIVE】沖縄・石垣島（Ishigaki Island) Okinawa JAPAN｜RBC News", en: "【LIVE】沖縄・石垣島（Ishigaki Island) Okinawa JAPAN｜RBC News" },
-    lat: 26.213,
-    lng: 127.6785,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "5jHCxMEGor0",
-      channelId: "UCl27leged0PT2kIrRtrFYKA",
-      titleKey: "【LIVE】沖縄・石垣島（Ishigaki Island) Okinawa JAPAN｜RBC News",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-no-24-live",
     name: { ja: "【配信中】大分市水害監視カメラNo.24 宮谷 宮谷川映像【Live動画】", en: "【配信中】大分市水害監視カメラNo.24 宮谷 宮谷川映像【Live動画】" },
     lat: 33.2794,
@@ -59515,21 +49285,6 @@ export const CAMS: Cam[] = [
       videoId: "4S4hrquuPqg",
       channelId: "UC6jBiJMXG--qdohTfJ5EJSg",
       titleKey: "槍見館　槍ヶ岳ライブカメラ　Mt. Yari Live Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-live-beppu-bay-camera-hov",
-    name: { ja: "【LIVE】Beppu Bay Camera Hov", en: "【LIVE】Beppu Bay Camera Hov" },
-    lat: 33.2794,
-    lng: 131.4975,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "0PEeZq9KE2o",
-      channelId: "UCd41Qao7-RbhcZeDywVfZ9w",
-      titleKey: "【LIVE】Beppu Bay Camera　Hov",
     },
   },
   {
@@ -59594,21 +49349,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-live-25",
-    name: { ja: "石垣島ユーグレナ離島ターミナル側ＬＩＶＥカメラ", en: "石垣島ユーグレナ離島ターミナル側ＬＩＶＥカメラ" },
-    lat: 24.3448,
-    lng: 124.1572,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "0UrgmAFFBEY",
-      channelId: "UCMBkpkdFghMYW6TQp7X77wA",
-      titleKey: "石垣島ユーグレナ離島ターミナル側ＬＩＶＥカメラ",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "kr-live-arirang-radio-all-things-k-k-pop",
     name: { ja: "[Live] Arirang Radio | All Things K: K-Pop, K-Culture & News from Korea", en: "[Live] Arirang Radio | All Things K: K-Pop, K-Culture & News from Korea" },
     lat: 36.1818,
@@ -59620,21 +49360,6 @@ export const CAMS: Cam[] = [
       videoId: "P1fX2GGdVS0",
       channelId: "UCUSSnoEQ8DSRK-gnWS0vfyA",
       titleKey: "🔴 [Live] Arirang Radio | All Things K: K-Pop, K-Culture & News from Korea",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-4k-taitung-fushan-area-live-camera",
-    name: { ja: "【4K】台東富山即時影像 Taitung Fushan Area Live Camera", en: "【4K】台東富山即時影像 Taitung Fushan Area Live Camera" },
-    lat: 36.2333,
-    lng: 137.9667,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "Rsq95SQ26bY",
-      channelId: "UCT4jEYvUdpdN9oUALaypGfQ",
-      titleKey: "【4K】台東富山即時影像 Taitung Fushan Area Live Camera",
     },
   },
   {
@@ -59729,21 +49454,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "tw-vandana-monastery-live-camera-hualien",
-    name: { ja: "[即時影像] ️ 花蓮和南寺 ️ Vandana Monastery live camera [Hualien, Taiwan]", en: "[即時影像] ️ 花蓮和南寺 ️ Vandana Monastery live camera [Hualien, Taiwan]" },
-    lat: 23.9769,
-    lng: 121.6044,
-    timeZone: "Asia/Taipei",
-    category: "city",
-    country: "TW",
-    source: {
-      videoId: "q-39iN_S7-E",
-      channelId: "UC9N8jQEgv7fZ-WRT8-vW03A",
-      titleKey: "[即時影像] ☸️ 花蓮和南寺 ☸️ Vandana Monastery live camera [Hualien, Taiwan]",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "tw-4k-live-hualien-liushishi-mountain-4k",
     name: { ja: "【4K Live】六十石山 - 花東縱谷即時影像｜Hualien Liushishi Mountain｜4K Live Camera", en: "【4K Live】六十石山 - 花東縱谷即時影像｜Hualien Liushishi Mountain｜4K Live Camera" },
     lat: 23.9769,
@@ -59755,21 +49465,6 @@ export const CAMS: Cam[] = [
       videoId: "DliL9uMtPrI",
       channelId: "UCfYcCVNyrcAK2N1bW3iSLvA",
       titleKey: "【4K Live】六十石山 - 花東縱谷即時影像｜Hualien Liushishi Mountain｜4K Live Camera",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "tw-live-taiwan-hualien-ji-an-live-camera",
-    name: { ja: "【Live】花蓮吉安 即時天氣影像 Taiwan Hualien Ji'an Live Camera & Weather | 台湾花蓮県吉安駅付近", en: "【Live】花蓮吉安 即時天氣影像 Taiwan Hualien Ji'an Live Camera & Weather | 台湾花蓮県吉安駅付近" },
-    lat: 23.9769,
-    lng: 121.6044,
-    timeZone: "Asia/Taipei",
-    category: "city",
-    country: "TW",
-    source: {
-      videoId: "EsQOvbpEOPI",
-      channelId: "UCj8tIQ_-XRoOy2-7bxktcRg",
-      titleKey: "【Live】花蓮吉安 即時天氣影像 Taiwan Hualien Ji'an Live Camera & Weather | 台湾花蓮県吉安駅付近",
     },
   },
   {
@@ -59800,36 +49495,6 @@ export const CAMS: Cam[] = [
       videoId: "FbB8WDUXXqU",
       channelId: "UC0mfEc84Gk0bfYIzntXGTIQ",
       titleKey: "[4K] 白沙灣即時影像 Baisha Bay Live Camera",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "kr-cctv-jeju-island-in-south-korea-live",
-    name: { ja: "제주도 서귀포 마라도 cctv 지금 날씨 실시간 제주 오늘 라이브 캠, 펀제주 제주여행 필수영상 Jeju Island in South Korea Live Cam", en: "제주도 서귀포 마라도 cctv 지금 날씨 실시간 제주 오늘 라이브 캠, 펀제주 제주여행 필수영상 Jeju Island in South Korea Live Cam" },
-    lat: 36.5,
-    lng: 127.75,
-    timeZone: "Asia/Seoul",
-    category: "city",
-    country: "KR",
-    source: {
-      videoId: "I4a3moh62aM",
-      channelId: "UC-cGXwzS7XwlVn6zaPa3CDw",
-      titleKey: "제주도 서귀포 마라도 cctv 지금 날씨 실시간 제주 오늘 라이브 캠, 펀제주 제주여행 필수영상  Jeju Island in South Korea Live Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "tw-live-24-hengchun-guanshan-live-camera",
-    name: { ja: "【墾丁LIVE】恆春關山「海景、夕陽、星空、閃電、月光海」24小時不間斷即時影像 / 半島秘境達人工作坊提供/ Hengchun Guanshan Live Camera Taiwan", en: "【墾丁LIVE】恆春關山「海景、夕陽、星空、閃電、月光海」24小時不間斷即時影像 / 半島秘境達人工作坊提供/ Hengchun Guanshan Live Camera Taiwan" },
-    lat: 22.0042,
-    lng: 120.7439,
-    timeZone: "Asia/Taipei",
-    category: "city",
-    country: "TW",
-    source: {
-      videoId: "POk4BTN3q3I",
-      channelId: "UCpQVW7GL3VZ3I-Dql6Tr4yw",
-      titleKey: "【墾丁LIVE】恆春關山「海景、夕陽、星空、閃電、月光海」24小時不間斷即時影像 / 半島秘境達人工作坊提供/ Hengchun Guanshan Live Camera Taiwan",
     },
   },
   {
@@ -59890,21 +49555,6 @@ export const CAMS: Cam[] = [
       videoId: "OuC1Z6m1Hys",
       channelId: "UCbTcDX9g_EHASsbZ8L0-D1Q",
       titleKey: "[4K] Koh Samui, Thailand 🇹🇭 — Chaweng Beach Walking Tour | Hot 🔥 Day | Live 24/7",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "vn-kiet-tac-vi-cam-baroque-solo-nhac-co",
-    name: { ja: "Kiệt tác Vĩ cầm Baroque Solo | Nhạc Cổ điển Bất hủ để Tập trung, Học tập và Thư giãn Hiệu quả", en: "Kiệt tác Vĩ cầm Baroque Solo | Nhạc Cổ điển Bất hủ để Tập trung, Học tập và Thư giãn Hiệu quả" },
-    lat: 22.15,
-    lng: 104.25,
-    timeZone: "Asia/Ho_Chi_Minh",
-    category: "city",
-    country: "VN",
-    source: {
-      videoId: "M2HhBFel6JU",
-      channelId: "UCiRQgWa_if5iweFEQpOoiNg",
-      titleKey: "Kiệt tác Vĩ cầm Baroque Solo | Nhạc Cổ điển Bất hủ để Tập trung, Học tập và Thư giãn Hiệu quả",
     },
   },
   {
@@ -60194,36 +49844,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "za-table-mountain-cape-town-live",
-    name: { ja: "Table Mountain Cape Town Live", en: "Table Mountain Cape Town Live" },
-    lat: -33.9258,
-    lng: 18.4232,
-    timeZone: "Africa/Johannesburg",
-    category: "city",
-    country: "ZA",
-    source: {
-      videoId: "myOiD4m3yAs",
-      channelId: "UCNZsYGNgg_rtmdQ9JwSrkpg",
-      titleKey: "Table Mountain Cape Town Live",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "in-punjab-punjab-govt-election-update-cm",
-    name: { ja: "PUNJAB | ਅੱਜ ਦੀਆਂ ਵੱਡੀਆਂ ਖ਼ਬਰਾਂ | Punjab Govt.. | ELECTION Update | CM FACE | LIVING INDIA TV 24X7", en: "PUNJAB | ਅੱਜ ਦੀਆਂ ਵੱਡੀਆਂ ਖ਼ਬਰਾਂ | Punjab Govt.. | ELECTION Update | CM FACE | LIVING INDIA TV 24X7" },
-    lat: 27.5529,
-    lng: 78.6563,
-    timeZone: "Asia/Kolkata",
-    category: "city",
-    country: "IN",
-    source: {
-      videoId: "2O42OtdYBc0",
-      channelId: "UC68JhJpCRYYhOcO054zw_Ew",
-      titleKey: "PUNJAB | ਅੱਜ ਦੀਆਂ ਵੱਡੀਆਂ ਖ਼ਬਰਾਂ | Punjab Govt.. | ELECTION Update | CM FACE | LIVING INDIA TV 24X7",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "za-france-24-english-live-international",
     name: { ja: "FRANCE 24 English – LIVE – International Breaking News & Top stories - 24/7 stream", en: "FRANCE 24 English – LIVE – International Breaking News & Top stories - 24/7 stream" },
     lat: -30.9218,
@@ -60419,21 +50039,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-live-port-miami-cruise-ship-terminals",
-    name: { ja: "LIVE Port Miami Cruise Ship Terminals", en: "LIVE Port Miami Cruise Ship Terminals" },
-    lat: 35.2045,
-    lng: -99.3073,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "ptyuseSJQCY",
-      channelId: "UC6RbL0ZAyA_rc__Acbqh2mw",
-      titleKey: "🔴 LIVE Port Miami Cruise Ship Terminals",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-bansko-ski-resort-live-cam-24-7-26-au",
     name: { ja: "Bansko Ski Resort Live Cam 24/7 | 26 Aug 2026 — Morning", en: "Bansko Ski Resort Live Cam 24/7 | 26 Aug 2026 — Morning" },
     lat: 40.339,
@@ -60445,21 +50050,6 @@ export const CAMS: Cam[] = [
       videoId: "fcU0dChBtjo",
       channelId: "UCjYIMaXG8IO8t4_0dvMFKNA",
       titleKey: "🔴Bansko Ski Resort Live Cam 24/7 | 26 Aug 2026 — Morning",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-nakiska-ski-resort-mid-mountain-live",
-    name: { ja: "Nakiska Ski Resort Mid-Mountain Live Cam", en: "Nakiska Ski Resort Mid-Mountain Live Cam" },
-    lat: 40.339,
-    lng: -80.9573,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "MRl0nW5Gekk",
-      channelId: "UCKA25x2KdMeZI41zKH24CNQ",
-      titleKey: "Nakiska Ski Resort Mid-Mountain Live Cam",
     },
   },
   {
@@ -60689,36 +50279,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "fr-saint-tropez-live-french-riviera-cote",
-    name: { ja: "SAINT-TROPEZ LIVE 🇫🇷 | French Riviera Cote d Azur", en: "SAINT-TROPEZ LIVE 🇫🇷 | French Riviera Cote d Azur" },
-    lat: 47.2538,
-    lng: 6.3126,
-    timeZone: "Europe/Paris",
-    category: "city",
-    country: "FR",
-    source: {
-      videoId: "fUMSP-HLWOY",
-      channelId: "UCAS8wcFNhFF5uUuZHNEn_dg",
-      titleKey: "SAINT-TROPEZ LIVE 🇫🇷 | French Riviera 🔴 Cote d Azur",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "fr-webcam-la-croix-valmer-lily-of-the-va",
-    name: { ja: "Webcam La Croix-Valmer - Lily of the Valley", en: "Webcam La Croix-Valmer - Lily of the Valley" },
-    lat: 45.55,
-    lng: 3.7833,
-    timeZone: "Europe/Paris",
-    category: "city",
-    country: "FR",
-    source: {
-      videoId: "-k63O5mK63w",
-      channelId: "UCfkbmwi67lrETUqnOmf-Hqw",
-      titleKey: "Webcam La Croix-Valmer - Lily of the Valley",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "fr-webcam-arvieux",
     name: { ja: "Webcam Arvieux", en: "Webcam Arvieux" },
     lat: 44.7672,
@@ -60809,21 +50369,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "fr-webcam-la-chalp-saint-veran",
-    name: { ja: "Webcam La Chalp Saint-Véran", en: "Webcam La Chalp Saint-Véran" },
-    lat: 44.7004,
-    lng: 6.8683,
-    timeZone: "Europe/Paris",
-    category: "city",
-    country: "FR",
-    source: {
-      videoId: "e8u1GUObSJo",
-      channelId: "UCfkbmwi67lrETUqnOmf-Hqw",
-      titleKey: "Webcam La Chalp Saint-Véran",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "de-livecam-1-kap-arkona-insel-rugen",
     name: { ja: "Livecam 1 | Kap Arkona | Insel Rügen", en: "Livecam 1 | Kap Arkona | Insel Rügen" },
     lat: 48.2801,
@@ -60865,21 +50410,6 @@ export const CAMS: Cam[] = [
       videoId: "3vf7JzqXOwE",
       channelId: "UCCZiM9a5S5UlaXhncQVWq9g",
       titleKey: "LIVE 4K Webcam Heiligenhafen | Aktuelles Ostsee-Wetter aus der Ostsee-Loge 🌊",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "de-schluttsiel-harbour-webcam-live-north",
-    name: { ja: "Schlüttsiel Harbour Webcam LIVE North Sea (Everstra Live)", en: "Schlüttsiel Harbour Webcam LIVE North Sea (Everstra Live)" },
-    lat: 53.7667,
-    lng: 8.6667,
-    timeZone: "Europe/Berlin",
-    category: "city",
-    country: "DE",
-    source: {
-      videoId: "OVeePNGAbMQ",
-      channelId: "UCgCn1DRR2AJYPGf1FRK8ekg",
-      titleKey: "Schlüttsiel Harbour Webcam LIVE 🔴 North Sea (Everstra Live)",
     },
   },
   {
@@ -61214,21 +50744,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-cold-lake-marina",
-    name: { ja: "Cold Lake Marina", en: "Cold Lake Marina" },
-    lat: 42.6442,
-    lng: -78.6847,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "IvbrO52Gp-g",
-      channelId: "UCo5gGiSUgbZBxQhOn1xI5ow",
-      titleKey: "Cold Lake Marina",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-boston-harbor-live-view-2026-08-26-da",
     name: { ja: "Boston Harbor Live View - 2026-08-26 (Daytime)", en: "Boston Harbor Live View - 2026-08-26 (Daytime)" },
     lat: 37.2634,
@@ -61259,21 +50774,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-live-webcam-weston-super-mare-marine",
-    name: { ja: "LIVE WEBCAM: Weston-super-Mare Marine Lake", en: "LIVE WEBCAM: Weston-super-Mare Marine Lake" },
-    lat: 46.5763,
-    lng: -119.0067,
-    timeZone: "America/Los_Angeles",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "_Fmb_RsiwTU",
-      channelId: "UCHwXtAHEV3_A7sy2mFZi35w",
-      titleKey: "🔴LIVE WEBCAM: Weston-super-Mare Marine Lake",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-sebec-lake-maine-live-granny-s-wine-c",
     name: { ja: "Sebec Lake, Maine - Live - Granny's Wine Cellar at Merrill's Marina", en: "Sebec Lake, Maine - Live - Granny's Wine Cellar at Merrill's Marina" },
     lat: 40.6165,
@@ -61285,21 +50785,6 @@ export const CAMS: Cam[] = [
       videoId: "1ljVMbgUEbM",
       channelId: "UC8gbWbcNNyb5-NIXvFklkOA",
       titleKey: "Sebec Lake, Maine - Live - Granny's Wine Cellar at Merrill's Marina",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-schooner-wharf-bar-webcam-key-west-we",
-    name: { ja: "Schooner Wharf Bar Webcam | Key West webcam, schooner wharf, key west bar cam", en: "Schooner Wharf Bar Webcam | Key West webcam, schooner wharf, key west bar cam" },
-    lat: 32.7892,
-    lng: -114.5561,
-    timeZone: "America/Los_Angeles",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "Q2yLOnODXWo",
-      channelId: "UC6LtdFfeq_8pnrnhiLgYOvw",
-      titleKey: "Schooner Wharf Bar Webcam | Key West webcam, schooner wharf, key west bar cam",
     },
   },
   {
@@ -61349,21 +50834,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-live-aizu-higashiyama-spa-mukaitaki-l",
-    name: { ja: "【Live】会津若松市 会津 東山温泉 向瀧 中庭 ライブカメラ/Aizu Higashiyama Spa MUKAITAKI Live Camera", en: "【Live】会津若松市 会津 東山温泉 向瀧 中庭 ライブカメラ/Aizu Higashiyama Spa MUKAITAKI Live Camera" },
-    lat: 33.8731,
-    lng: 130.811,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "ISAqpsDLxy8",
-      channelId: "UCTY5Gt9CxQcKVdHX6RFgojQ",
-      titleKey: "【Live】会津若松市　会津 東山温泉 向瀧 中庭 ライブカメラ/Aizu Higashiyama Spa MUKAITAKI Live Camera",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-train-tokyo-station-live-camera",
     name: { ja: "【東京駅 ライブ】天カメを見ながら鉄道について語り合う雑談部屋です！ Train, Tokyo Station Live Camera [日テレ鉄道部]", en: "【東京駅 ライブ】天カメを見ながら鉄道について語り合う雑談部屋です！ Train, Tokyo Station Live Camera [日テレ鉄道部]" },
     lat: 35.6895,
@@ -61394,36 +50864,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-naha-airport-iata-oka-icao-roah-news",
-    name: { ja: "【ライブカメラ】那覇空港の現在の様子は ──Naha Airport IATA: OKA , ICAO: ROAH（日テレNEWS LIVE）", en: "【ライブカメラ】那覇空港の現在の様子は ──Naha Airport IATA: OKA , ICAO: ROAH（日テレNEWS LIVE）" },
-    lat: 26.3358,
-    lng: 127.8014,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "a0ob2ey-zPg",
-      channelId: "UCuTAXTexrhetbOe3zgskJBQ",
-      titleKey: "【ライブカメラ】那覇空港の現在の様子は ──Naha Airport　IATA: OKA , ICAO: ROAH（日テレNEWS LIVE）",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-24-3d-atc-hnd-rjtt",
-    name: { ja: "羽田空港 24時間ライブ｜3D航空交通・離着陸・ATC｜HND / RJTT", en: "羽田空港 24時間ライブ｜3D航空交通・離着陸・ATC｜HND / RJTT" },
-    lat: 35.5523,
-    lng: 139.7797,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "qQoBmgDKZiI",
-      channelId: "UCHB8-XbfawI0QsLTryrRnUA",
-      titleKey: "羽田空港 24時間ライブ｜3D航空交通・離着陸・ATC｜HND / RJTT",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-live-shinkansen-tohokujapan-nonstop-c",
     name: { ja: "LIVE Shinkansen TOHOKUJAPAN NONSTOP CAMERA 東北新幹線 郡山 ライブカメラ 鉄道 爆速 MAX320km/h bullet train DISNEY️", en: "LIVE Shinkansen TOHOKUJAPAN NONSTOP CAMERA 東北新幹線 郡山 ライブカメラ 鉄道 爆速 MAX320km/h bullet train DISNEY️" },
     lat: 35.1029,
@@ -61435,21 +50875,6 @@ export const CAMS: Cam[] = [
       videoId: "yLHx5DV9rB8",
       channelId: "UCHxsYayZMyj1RbaAgxU0lCQ",
       titleKey: "🔴LIVE Shinkansen TOHOKU🗾JAPAN NONSTOP CAMERA 東北新幹線 郡山 ライブカメラ 鉄道 爆速 MAX320km/h bullet train DISNEY✨️",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-lake-tazawa-live-camera-semboku-city",
-    name: { ja: "田沢湖ライブカメラ｜秋田県・仙北市｜日本一深い湖 ｜ Lake Tazawa Live Camera | Semboku City, Akita, Japan", en: "田沢湖ライブカメラ｜秋田県・仙北市｜日本一深い湖 ｜ Lake Tazawa Live Camera | Semboku City, Akita, Japan" },
-    lat: 35.8773,
-    lng: 139.8216,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "XkFBxz86Eoc",
-      channelId: "UCLy0LVrhCARQJBfzc7PbdeA",
-      titleKey: "田沢湖ライブカメラ｜秋田県・仙北市｜日本一深い湖 ｜ Lake Tazawa Live Camera | Semboku City, Akita, Japan",
     },
   },
   {
@@ -61649,21 +51074,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "br-monitoramento-clima-em-boa-viagem-rec",
-    name: { ja: "MONITORAMENTO CLIMA em BOA VIAGEM, RECIFE – VEJA em TEMPO REAL", en: "MONITORAMENTO CLIMA em BOA VIAGEM, RECIFE – VEJA em TEMPO REAL" },
-    lat: 2.8197,
-    lng: -60.6733,
-    timeZone: "America/Boa_Vista",
-    category: "city",
-    country: "BR",
-    source: {
-      videoId: "RjC3mz-qJII",
-      channelId: "UCtN2-whvtsHv91DiGXIXaYg",
-      titleKey: "🔴 MONITORAMENTO CLIMA em BOA VIAGEM, RECIFE – VEJA em TEMPO REAL 🛑",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "it-venezia-italia-live-webcam-campo-sant",
     name: { ja: "Venezia Italia Live Webcam - Campo Santa Maria Formosa Venice - Stream from Ruzzini Palace Hotel", en: "Venezia Italia Live Webcam - Campo Santa Maria Formosa Venice - Stream from Ruzzini Palace Hotel" },
     lat: 42.7426,
@@ -61705,51 +51115,6 @@ export const CAMS: Cam[] = [
       videoId: "R2UH-UgZKI8",
       channelId: "UCak21Edmz9LDZ_3-bl3TNyA",
       titleKey: "🔴 GOIOERÊ AO VIVO| CAM 1| Centro agora| Catedral | Movimento  na Av. Francisco Scarpari",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "fr-trevou-treguignec-en-direct-webcam-li",
-    name: { ja: "TRÉVOU-TRÉGUIGNEC EN DIRECT – Webcam LIVE plage, mer & météo en Bretagne", en: "TRÉVOU-TRÉGUIGNEC EN DIRECT – Webcam LIVE plage, mer & météo en Bretagne" },
-    lat: 47.7056,
-    lng: 1.5062,
-    timeZone: "Europe/Paris",
-    category: "city",
-    country: "FR",
-    source: {
-      videoId: "XIU6nXVSHq4",
-      channelId: "UCGzIa7-JbUYCBZ6ic3J_6-Q",
-      titleKey: "🌊 TRÉVOU-TRÉGUIGNEC EN DIRECT – Webcam LIVE plage, mer & météo en Bretagne",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "br-ao-vivo-laguna-sc-imagens-ao-vivo-24h",
-    name: { ja: "AO VIVO | LAGUNA SC 🇧🇷 | IMAGENS AO VIVO 24H | SANTA CATARINA | SE-CONNECT INTERNET", en: "AO VIVO | LAGUNA SC 🇧🇷 | IMAGENS AO VIVO 24H | SANTA CATARINA | SE-CONNECT INTERNET" },
-    lat: -28.4825,
-    lng: -48.7808,
-    timeZone: "America/Sao_Paulo",
-    category: "city",
-    country: "BR",
-    source: {
-      videoId: "qrWwvPrIxpM",
-      channelId: "UCyP308hB27ZZsRbvnDLpWbw",
-      titleKey: "AO VIVO | LAGUNA SC 🇧🇷 | IMAGENS AO VIVO 24H | SANTA CATARINA | SE-CONNECT INTERNET",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "fr-saint-jouin-bruneval-en-direct-webcam",
-    name: { ja: "SAINT-JOUIN-BRUNEVAL EN DIRECT – Webcam LIVE plage, mer & météo en Normandie", en: "SAINT-JOUIN-BRUNEVAL EN DIRECT – Webcam LIVE plage, mer & météo en Normandie" },
-    lat: 47.7056,
-    lng: 1.5062,
-    timeZone: "Europe/Paris",
-    category: "city",
-    country: "FR",
-    source: {
-      videoId: "yGrB7oCQ1TM",
-      channelId: "UChjBK4brIsSd02wXYMrinJg",
-      titleKey: "🌊 SAINT-JOUIN-BRUNEVAL EN DIRECT – Webcam LIVE plage, mer & météo en Normandie",
     },
   },
   {
@@ -61859,21 +51224,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "gr-skiathos-island-live-camera-sporades",
-    name: { ja: "Skiathos Island Live Camera | Sporades Greece", en: "Skiathos Island Live Camera | Sporades Greece" },
-    lat: 39.1693,
-    lng: 23.4553,
-    timeZone: "Europe/Athens",
-    category: "city",
-    country: "GR",
-    source: {
-      videoId: "_J1amHD_PvM",
-      channelId: "UCT2lCIqG-9wfPBPA5p0xHJg",
-      titleKey: "Skiathos Island Live Camera | Sporades Greece",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "gr-tinos-island-new-port-live-streaming",
     name: { ja: "Tinos Island New Port Live Streaming Camera ~ Vidalis Rent a Car since 1980", en: "Tinos Island New Port Live Streaming Camera ~ Vidalis Rent a Car since 1980" },
     lat: 37.0151,
@@ -61904,21 +51254,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "hr-suncana-uvala-borik-mali-losinj-live",
-    name: { ja: "Sunčana uvala, Borik, Mali Lošinj [LIVE streaming]", en: "Sunčana uvala, Borik, Mali Lošinj [LIVE streaming]" },
-    lat: 45.3409,
-    lng: 15.2708,
-    timeZone: "Europe/Zagreb",
-    category: "city",
-    country: "HR",
-    source: {
-      videoId: "BG9JTb-qLLg",
-      channelId: "UCFHFmA6nw4ZXQmUM2MZR04A",
-      titleKey: "Sunčana uvala, Borik, Mali Lošinj [LIVE streaming]",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "es-mallorca-webcam-live-magaluf-beach-pu",
     name: { ja: "Mallorca Webcam LIVE Magaluf Beach & Punta Ballena 24/7 | Party & Beach Vibes #magaluf #mallorca", en: "Mallorca Webcam LIVE Magaluf Beach & Punta Ballena 24/7 | Party & Beach Vibes #magaluf #mallorca" },
     lat: 28.7333,
@@ -61945,21 +51280,6 @@ export const CAMS: Cam[] = [
       videoId: "YSlMTkpyEbw",
       channelId: "UCrKCn_Tk5Vm-46-C4kGyBhg",
       titleKey: "Live Kamera Berg (Brienzer Rutsch)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "gr-skiathos-live-camera-24-7-real-time-i",
-    name: { ja: "Skiathos Live Camera 24/7 🇬🇷 | Real-Time Island View Greece", en: "Skiathos Live Camera 24/7 🇬🇷 | Real-Time Island View Greece" },
-    lat: 36.2595,
-    lng: 27.7676,
-    timeZone: "Europe/Athens",
-    category: "city",
-    country: "GR",
-    source: {
-      videoId: "gmb2JhecOEY",
-      channelId: "UCY49yj_IAE5nzV9vfC5wJYQ",
-      titleKey: "🔴 Skiathos Live Camera 24/7 🇬🇷 | Real-Time Island View Greece",
     },
   },
   {
@@ -62084,21 +51404,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "ca-vancouver-rowing-club-live-stream",
-    name: { ja: "Vancouver Rowing Club Live Stream", en: "Vancouver Rowing Club Live Stream" },
-    lat: 49.2966,
-    lng: -123.1342,
-    timeZone: "America/Vancouver",
-    category: "city",
-    country: "CA",
-    source: {
-      videoId: "Q4BuAWCHiao",
-      channelId: "UCPwmbS2kvFsXwrB_VLeMuBQ",
-      titleKey: "Vancouver Rowing Club Live Stream",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "at-residenzhochalm-com-live-hd-camera-sa",
     name: { ja: "residenzhochalm.com | live HD camera Saalbach Hinterglemm. (AT.)", en: "residenzhochalm.com | live HD camera Saalbach Hinterglemm. (AT.)" },
     lat: 47.3914,
@@ -62125,21 +51430,6 @@ export const CAMS: Cam[] = [
       videoId: "lSxf3e9qteY",
       channelId: "UC-6Ulu0kD3MxadQ5mPCwhDQ",
       titleKey: "Muttersberg Seilbahn und Gastronomie - Livecam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ca-chek-news-nanaimo-harbour-cam-24-7-li",
-    name: { ja: "CHEK News | Nanaimo Harbour Cam 24/7 Livestream", en: "CHEK News | Nanaimo Harbour Cam 24/7 Livestream" },
-    lat: 49.1901,
-    lng: -123.9491,
-    timeZone: "America/Vancouver",
-    category: "city",
-    country: "CA",
-    source: {
-      videoId: "2iB-pHJQcak",
-      channelId: "UCfog4FL7j66csMPFH9zdDvg",
-      titleKey: "CHEK News | Nanaimo Harbour Cam 24/7 Livestream",
     },
   },
   {
@@ -62245,21 +51535,6 @@ export const CAMS: Cam[] = [
       videoId: "I4n4oVDQrpQ",
       channelId: "UCExASDN78i5BDDgHWoy9QRQ",
       titleKey: "埼玉県川越市大正浪漫夢通りライブカメラ",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-live-by-hviewcam",
-    name: { ja: "【LIVE】材木座海岸／由比ガ浜 ／県営材木座駐車場＠ローカス鎌倉：by HviewCam", en: "【LIVE】材木座海岸／由比ガ浜 ／県営材木座駐車場＠ローカス鎌倉：by HviewCam" },
-    lat: 35.3123,
-    lng: 139.5469,
-    timeZone: "Asia/Tokyo",
-    category: "nature",
-    country: "JP",
-    source: {
-      videoId: "hxKBnoLH0uk",
-      channelId: "UCfoiWJgMmg4p9olz1WE0-9A",
-      titleKey: "【🔴LIVE】🌊材木座海岸／🏖由比ガ浜 ／🚙県営材木座駐車場＠ローカス鎌倉：🎥by HviewCam",
     },
   },
   {
@@ -62609,21 +51884,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-146",
-    name: { ja: "【ライブカメラ】山形県 大蔵村 肘折温泉", en: "【ライブカメラ】山形県 大蔵村 肘折温泉" },
-    lat: 38.2333,
-    lng: 140.3667,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "R1Du85BPMpA",
-      channelId: "UCcOSt2pOCZgE7gndPPEwhAw",
-      titleKey: "【ライブカメラ】山形県 大蔵村 肘折温泉",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-live-28",
     name: { ja: "【LIVE】西郷港ライブカメラ 島根県隠岐の島町", en: "【LIVE】西郷港ライブカメラ 島根県隠岐の島町" },
     lat: 35.7833,
@@ -62804,36 +52064,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-snow-king-mountain-base-seejh-ai",
-    name: { ja: "Snow King Mountain Base - SeeJH.ai", en: "Snow King Mountain Base - SeeJH.ai" },
-    lat: 34.3959,
-    lng: -95.4128,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "SB45P6fZs9E",
-      channelId: "UCEpDjqeFIGTqHwk-uULx72Q",
-      titleKey: "Snow King Mountain Base - SeeJH.ai",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-teton-village-wy-seejh-ai",
-    name: { ja: "Teton Village, WY - SeeJH.ai", en: "Teton Village, WY - SeeJH.ai" },
-    lat: 43.4799,
-    lng: -110.7624,
-    timeZone: "America/Denver",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "VCxmDnsK6yA",
-      channelId: "UCEpDjqeFIGTqHwk-uULx72Q",
-      titleKey: "Teton Village, WY - SeeJH.ai",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-snake-river-cabins-seejh-ai",
     name: { ja: "Snake River Cabins - SeeJH.ai", en: "Snake River Cabins - SeeJH.ai" },
     lat: 42.6894,
@@ -62894,21 +52124,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "mx-vista-de-virtus-bodega-en-valladolid",
-    name: { ja: "Vista de Virtus: Bodega en Valladolid", en: "Vista de Virtus: Bodega en Valladolid" },
-    lat: 20.4106,
-    lng: -89.2839,
-    timeZone: "America/Merida",
-    category: "city",
-    country: "MX",
-    source: {
-      videoId: "QPmBjjrUAZ8",
-      channelId: "UColBcWm6ybTbQnNuQS8JaKg",
-      titleKey: "Vista de Virtus: Bodega en Valladolid",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-thistle-dew-cabin-teton-valley-idaho",
     name: { ja: "Thistle Dew Cabin Teton Valley, Idaho - SeeJH.ai", en: "Thistle Dew Cabin Teton Valley, Idaho - SeeJH.ai" },
     lat: 31.5952,
@@ -62954,36 +52169,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "mx-popocatepetl-noche-de-incandescencia",
-    name: { ja: "#POPOCATÉPETL | Noche de incandescencia enciende la noche. En Vivo", en: "#POPOCATÉPETL | Noche de incandescencia enciende la noche. En Vivo" },
-    lat: 20.9842,
-    lng: -101.3081,
-    timeZone: "America/Mexico_City",
-    category: "city",
-    country: "MX",
-    source: {
-      videoId: "9_c1L1KDJ9Y",
-      channelId: "UColBcWm6ybTbQnNuQS8JaKg",
-      titleKey: "🌋 #POPOCATÉPETL | Noche de incandescencia enciende la noche. En Vivo",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "mx-en-vivo-pluma-volcanica-del-popocatep",
-    name: { ja: "EN VIVO | Pluma volcánica del Popocatépetl sigue apuntando hacia CDMX", en: "EN VIVO | Pluma volcánica del Popocatépetl sigue apuntando hacia CDMX" },
-    lat: 28.1901,
-    lng: -105.4701,
-    timeZone: "America/Chihuahua",
-    category: "city",
-    country: "MX",
-    source: {
-      videoId: "BUvS0mDoXuQ",
-      channelId: "UColBcWm6ybTbQnNuQS8JaKg",
-      titleKey: "🚨 EN VIVO |  Pluma volcánica del Popocatépetl sigue apuntando hacia CDMX 🌋",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-2026-8-17-26-ann-live",
     name: { ja: "【正副議長ポストを巡る“金銭授受疑惑”】福岡県議会の“ドン”が議員辞職へ/ 蔵内議長「後日福岡で報告したい」/など【ニュースまとめ】(2026年8月17日～26日) ANN/テレ朝 LIVE", en: "【正副議長ポストを巡る“金銭授受疑惑”】福岡県議会の“ドン”が議員辞職へ/ 蔵内議長「後日福岡で報告したい」/など【ニュースまとめ】(2026年8月17日～26日) ANN/テレ朝 LIVE" },
     lat: 35.8777,
@@ -63010,21 +52195,6 @@ export const CAMS: Cam[] = [
       videoId: "WEH5oihflCI",
       channelId: "UCGCZAYq5Xxojl_tSXcVJhiQ",
       titleKey: "【ライブ】台風18号｜沖縄本島、奄美直撃へ　家屋倒壊するような暴風の恐れも【LIVE】 (2026年8月25日) ANN/テレ朝",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-24-earthquake-alert-japan-live",
-    name: { ja: "【地震ライブ】緊急地震速報 24時間リアルタイム配信中 ウェザーニュース／Earthquake Alert Japan Live", en: "【地震ライブ】緊急地震速報 24時間リアルタイム配信中 ウェザーニュース／Earthquake Alert Japan Live" },
-    lat: 35.6854,
-    lng: 139.7531,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "TVSCwRnsxy8",
-      channelId: "UCNsidkYpIAQ4QaufptQBPHQ",
-      titleKey: "【地震ライブ】緊急地震速報 24時間リアルタイム配信中 ウェザーニュース／Earthquake Alert Japan Live",
     },
   },
   {
@@ -63085,36 +52255,6 @@ export const CAMS: Cam[] = [
       videoId: "Q_AnKD9JxyU",
       channelId: "UC1tBnbs03VJ34oLD8cmJSVw",
       titleKey: "🔴 LIVE: Paul do Mar WebCam 24/7 | O Precipício, Fajã da Ovelha | Madeira-Web",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-live-fort-lauderdale-beach-cam-elbo-r",
-    name: { ja: "LIVE | Fort lauderdale beach Cam Elbo Room Social Club", en: "LIVE | Fort lauderdale beach Cam Elbo Room Social Club" },
-    lat: 32.7254,
-    lng: -97.3208,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "VzhdbBwCAK4",
-      channelId: "UCUkUjr4syovc3NbLWtuVfYw",
-      titleKey: "🔴 LIVE | Fort lauderdale beach Cam 🌊 Elbo Room Social Club 🎸",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-day-drinkers-ad-free-24-7-elbo-room-s",
-    name: { ja: "DAY DRINKERS AD-FREE 24/7 | Elbo Room Social Club", en: "DAY DRINKERS AD-FREE 24/7 | Elbo Room Social Club" },
-    lat: 39.7589,
-    lng: -84.1916,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "MhRM4fRz9Ow",
-      channelId: "UCUkUjr4syovc3NbLWtuVfYw",
-      titleKey: "🎶 DAY DRINKERS 🔴 AD-FREE 24/7 | Elbo Room Social Club",
     },
   },
   {
@@ -63314,21 +52454,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-watch-whale-sharks-live-georgia-aquar",
-    name: { ja: "Watch Whale Sharks LIVE | Georgia Aquarium Cam | Ocean Voyager", en: "Watch Whale Sharks LIVE | Georgia Aquarium Cam | Ocean Voyager" },
-    lat: 35.6379,
-    lng: -86.8253,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "DtKB7dLOBk8",
-      channelId: "UCspnu6n44ydqafj6nFIw5hw",
-      titleKey: "Watch Whale Sharks LIVE | Georgia Aquarium Cam | Ocean Voyager",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "tw-24h-d-10-sp49",
     name: { ja: "台北大巨蛋 棒球場 以及台北市熱門重要路口、各行政區、 公館圓環拆除-正交路口 即時影像 輪流切換 24H 》車流、人流、天氣狀況Ⓓ-10 運動搖滾 🅣ⓈⓅ49", en: "台北大巨蛋 棒球場 以及台北市熱門重要路口、各行政區、 公館圓環拆除-正交路口 即時影像 輪流切換 24H 》車流、人流、天氣狀況Ⓓ-10 運動搖滾 🅣ⓈⓅ49" },
     lat: 25.0531,
@@ -63340,66 +52465,6 @@ export const CAMS: Cam[] = [
       videoId: "x0fI1yRA8I0",
       channelId: "UCnYcHH_lKR14OV3RgzUGTtQ",
       titleKey: "🔴台北大巨蛋 棒球場 以及💥台北市熱門重要路口、各行政區、 公館圓環拆除-正交路口 即時影像 輪流切換 24H 》車流、人流、天氣狀況Ⓓ-10  運動搖滾 🅣ⓈⓅ49",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ph-davao-philippines",
-    name: { ja: "Davao, Philippines", en: "Davao, Philippines" },
-    lat: 7.0731,
-    lng: 125.6128,
-    timeZone: "Asia/Manila",
-    category: "city",
-    country: "PH",
-    source: {
-      videoId: "XHUaMlOwVsc",
-      channelId: "UChgFU1eFcdrVJjjeqw2zvlQ",
-      titleKey: "PHILIPPINES Japan Street replay, Davao City #philippines",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ph-edge-babor-ph-edge-2-bbq-area-agdao-p",
-    name: { ja: "Edge Babor PH — Edge 2 BBQ Area Agdao, Philippines", en: "Edge Babor PH — Edge 2 BBQ Area Agdao, Philippines" },
-    lat: 7.088,
-    lng: 125.6135,
-    timeZone: "Asia/Manila",
-    category: "city",
-    country: "PH",
-    source: {
-      videoId: "R_xMH1DjpjU",
-      channelId: "UCa6T92S2NKwSdQw8rXLe2rQ",
-      titleKey: "Edge Cam 2 BBQ Area Agdao, Davao City #davaocity #philippines",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ph-edge-babor-ph-edge-4-jane-eatery-agda",
-    name: { ja: "Edge Babor PH — Edge 4 Jane Eatery Agdao, Philippines", en: "Edge Babor PH — Edge 4 Jane Eatery Agdao, Philippines" },
-    lat: 7.0888,
-    lng: 125.6151,
-    timeZone: "Asia/Manila",
-    category: "city",
-    country: "PH",
-    source: {
-      videoId: "yhNqqnSW8pw",
-      channelId: "UCa6T92S2NKwSdQw8rXLe2rQ",
-      titleKey: "Edge Cam 4 Jane Eatery Agdao, Davao City #davaocity #philippines",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ph-edge-babor-ph-edge-5-d-family-barbers",
-    name: { ja: "Edge Babor PH — Edge 5 D'Family BarberShop Agdao, Philippines", en: "Edge Babor PH — Edge 5 D'Family BarberShop Agdao, Philippines" },
-    lat: 7.0896,
-    lng: 125.6158,
-    timeZone: "Asia/Manila",
-    category: "city",
-    country: "PH",
-    source: {
-      videoId: "nepz9aZkCcE",
-      channelId: "UCa6T92S2NKwSdQw8rXLe2rQ",
-      titleKey: "Edge Cam5 D'Family BarberShop Agdao #davaocity #philippines",
     },
   },
   {
@@ -63449,21 +52514,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "ph-jazbaz-philippines-5-soliman-street",
-    name: { ja: "JazBaz — Philippines 5 Soliman Street", en: "JazBaz — Philippines 5 Soliman Street" },
-    lat: 7.0893,
-    lng: 125.6133,
-    timeZone: "Asia/Manila",
-    category: "city",
-    country: "PH",
-    source: {
-      videoId: "ui5S0ld_0po",
-      channelId: "UC0djAWwMXP22wzocdJR9dWw",
-      titleKey: "Philippines Cam 5, Soliman Street, Agdao, Davao City #philippines",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "ph-jazbaz-philippines-street-view",
     name: { ja: "JazBaz — Philippines Street View", en: "JazBaz — Philippines Street View" },
     lat: 7.0737,
@@ -63490,21 +52540,6 @@ export const CAMS: Cam[] = [
       videoId: "AnzgJmFq4As",
       channelId: "UCZ6ZuSqeKrjFP7w9lS0nx0Q",
       titleKey: "Maria's Cam11 New Salmonan Agdao infront of the School #philippines #davaocity",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ru-lakhta-center-russia",
-    name: { ja: "Lakhta Center, Russia", en: "Lakhta Center, Russia" },
-    lat: 59.9869,
-    lng: 30.1785,
-    timeZone: "Europe/Moscow",
-    category: "city",
-    country: "RU",
-    source: {
-      videoId: "69VRD2HGheM",
-      channelId: "UCZGfc2AjPX3DQ8I8lhPIDcg",
-      titleKey: "Lakhta 360 Online",
     },
   },
   {
@@ -63539,111 +52574,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "th-house-of-sanskara-beach",
-    name: { ja: "House of Sanskara Beach", en: "House of Sanskara Beach" },
-    lat: 9.6768,
-    lng: 100.068,
-    timeZone: "Asia/Bangkok",
-    category: "nature",
-    country: "TH",
-    source: {
-      videoId: "FBYUkqutqzE",
-      channelId: "UCegzBUd6-PYoO_v7gjJgufg",
-      titleKey: "New URL in description",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "tr-istanbul-miniaturk",
-    name: { ja: "Istanbul, Miniatürk", en: "Istanbul, Miniatürk" },
-    lat: 41.0138,
-    lng: 28.9497,
-    timeZone: "Europe/Istanbul",
-    category: "city",
-    country: "TR",
-    source: {
-      videoId: "pjdLnIXJf2g",
-      channelId: "UCsuYe1DdSCqki_HlwalNNLg",
-      titleKey: "Arise Hotel Golden Horn",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "tw-neihu-road",
-    name: { ja: "Neihu Road", en: "Neihu Road" },
-    lat: 25.0531,
-    lng: 121.5264,
-    timeZone: "Asia/Taipei",
-    category: "city",
-    country: "TW",
-    source: {
-      videoId: "SfPJLSMuCQE",
-      channelId: "UCzofN-7yLDKoPmh37yqMpiA",
-      titleKey: "[ Taiwan ] Live view demonstration : GV-BX2802",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-big-moose-mountain-usa",
-    name: { ja: "Big Moose Mountain, USA", en: "Big Moose Mountain, USA" },
-    lat: 45.5067,
-    lng: -69.7019,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "McUEIgZLHxI",
-      channelId: "UC8gbWbcNNyb5-NIXvFklkOA",
-      titleKey: "Big Moose Mountain, Maine US - Live Ski Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-eagle-nest-usa",
-    name: { ja: "Eagle Nest, USA", en: "Eagle Nest, USA" },
-    lat: 36.5547,
-    lng: -105.2636,
-    timeZone: "America/Denver",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "2jf6zs5oRLg",
-      channelId: "UCtMr9ZgraacKwDyBhA_FbqQ",
-      titleKey: "Wildlife Rescue of Dade County Eagle Nest Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-lee-vining-usa",
-    name: { ja: "Lee Vining, USA", en: "Lee Vining, USA" },
-    lat: 37.9574,
-    lng: -119.1218,
-    timeZone: "America/Los_Angeles",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "7AzazJDBnQU",
-      channelId: "UC8ZDngNjQa_tFO4Q4DGYMiQ",
-      titleKey: "Lee Vining Livestream",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-lincoln-city-usa",
-    name: { ja: "Lincoln City, USA", en: "Lincoln City, USA" },
-    lat: 44.9582,
-    lng: -124.0179,
-    timeZone: "America/Los_Angeles",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "A7ib2rokOHg",
-      channelId: "UCXN7rPhZK6Rp8lMhvpSri_Q",
-      titleKey: "Chinook Winds Casino Resort in Lincoln City, OR",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-mount-fuji-usa",
     name: { ja: "Mount Fuji, USA", en: "Mount Fuji, USA" },
     lat: 42.625,
@@ -63670,36 +52600,6 @@ export const CAMS: Cam[] = [
       videoId: "wi8WBIcwXRY",
       channelId: "UCjYc5xAEWCYIcqG1-KC9nZQ",
       titleKey: "Ormond Beach Cam 180",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-pipeline-usa",
-    name: { ja: "Pipeline, USA", en: "Pipeline, USA" },
-    lat: 21.6659,
-    lng: -158.0539,
-    timeZone: "Pacific/Honolulu",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "DY5RYp4sxYc",
-      channelId: "UCSyg9cb3Iq-NtlbxqNB9wGw",
-      titleKey: "Pipeline Cam powered by EXPLORE.org",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-virginia-tech-burruss-hall-usa",
-    name: { ja: "Virginia Tech Burruss Hall, USA", en: "Virginia Tech Burruss Hall, USA" },
-    lat: 37.2284,
-    lng: -80.4234,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "7TE5vU_ndPE",
-      channelId: "UCVq6pcRSD2Mago-iR3N34rw",
-      titleKey: "Burruss Hall Webcam",
     },
   },
   {
@@ -64034,36 +52934,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-live-miobydots-jr-minamoa-3f",
-    name: { ja: "【不定期LIVE】「ミナモア（miobyDoTS）」から見る「広島」＼チャットで語ろう！／｜JR広島駅の新駅ビル「minamoa」西棟3Fミオバイドッツから広島市内の様子をライブ配信！", en: "【不定期LIVE】「ミナモア（miobyDoTS）」から見る「広島」＼チャットで語ろう！／｜JR広島駅の新駅ビル「minamoa」西棟3Fミオバイドッツから広島市内の様子をライブ配信！" },
-    lat: 34.4,
-    lng: 132.45,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "LRszS7dj6f0",
-      channelId: "UCgYvSHFrrKoZ8Toq7g0tcag",
-      titleKey: "【不定期LIVE】「ミナモア（miobyDoTS）」から見る「広島」＼チャットで語ろう！／｜JR広島駅の新駅ビル「minamoa」西棟3Fミオバイドッツから広島市内の様子をライブ配信！",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-tss-live-camera",
-    name: { ja: "TSS情報カメラ ライブ配信 / LIVE Camera", en: "TSS情報カメラ ライブ配信 / LIVE Camera" },
-    lat: 34.4,
-    lng: 132.45,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "lf-RntqEthQ",
-      channelId: "UC7_jFLwpm5apDF-v-pXZb4w",
-      titleKey: "TSS情報カメラ　ライブ配信 / LIVE Camera",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-live-31",
     name: { ja: "【LIVE】上野学園ホール情報カメラ【白島駅側】", en: "【LIVE】上野学園ホール情報カメラ【白島駅側】" },
     lat: 34.4,
@@ -64259,36 +53129,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-167",
-    name: { ja: "ライブカメラ", en: "ライブカメラ" },
-    lat: 31.5667,
-    lng: 130.55,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "4C65kqdVmhI",
-      channelId: "UCmGV3cjwDinrtulXJH6Yc4g",
-      titleKey: "ライブカメラ",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-live-no-4-cc112",
-    name: { ja: "【LIVE-NO.4】富士山頂ライブカメラ CC112 西向きカメラ", en: "【LIVE-NO.4】富士山頂ライブカメラ CC112 西向きカメラ" },
-    lat: 35.4403,
-    lng: 138.7959,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "hzJMyFceuGY",
-      channelId: "UCVpaKPFGZGMyer120elPbPA",
-      titleKey: "【LIVE-NO.4】富士山頂ライブカメラ CC112　西向きカメラ",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "tw-d-08-live-x-jazz-music-24h-kaohsiung",
     name: { ja: "Ⓓ-08 Live-高雄市 重要路口 即時影像 啦啦隊應援曲 x Jazz爵士曲風 歌曲已上線，禿鷹Music 獨播 24H Kaohsiung, Taiwan 》 天氣、車流人流 🅣Ⓚ16", en: "Ⓓ-08 Live-高雄市 重要路口 即時影像 啦啦隊應援曲 x Jazz爵士曲風 歌曲已上線，禿鷹Music 獨播 24H Kaohsiung, Taiwan 》 天氣、車流人流 🅣Ⓚ16" },
     lat: 22.6163,
@@ -64334,21 +53174,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-live-no-1-cc112",
-    name: { ja: "【LIVE-NO.1】 富士山頂ライブカメラ CC112 東向きカメラ（ご来光カメラ）", en: "【LIVE-NO.1】 富士山頂ライブカメラ CC112 東向きカメラ（ご来光カメラ）" },
-    lat: 35.4403,
-    lng: 138.7959,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "zWORRn1aRRw",
-      channelId: "UCVpaKPFGZGMyer120elPbPA",
-      titleKey: "【LIVE-NO.1】　富士山頂ライブカメラ CC112　東向きカメラ（ご来光カメラ）",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "tw-2026-08-26",
     name: { ja: "【專訪：高雄市議員 陳美雅（視訊連線）】2026.08.26《飛碟晚餐 王淺秋時間》", en: "【專訪：高雄市議員 陳美雅（視訊連線）】2026.08.26《飛碟晚餐 王淺秋時間》" },
     lat: 22.6163,
@@ -64360,36 +53185,6 @@ export const CAMS: Cam[] = [
       videoId: "_2flFKciiRg",
       channelId: "UCUaf4I5TYCExf9mWzv1cB_A",
       titleKey: "【專訪：高雄市議員 陳美雅（視訊連線）】2026.08.26《飛碟晚餐 王淺秋時間》",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "kr-cctv-2",
-    name: { ja: "제주바다 화면전환 제주도 바다 실시간 cctv", en: "제주바다 화면전환 제주도 바다 실시간 cctv" },
-    lat: 33.5097,
-    lng: 126.5219,
-    timeZone: "Asia/Seoul",
-    category: "city",
-    country: "KR",
-    source: {
-      videoId: "x08xIIawl1o",
-      channelId: "UC-cGXwzS7XwlVn6zaPa3CDw",
-      titleKey: "제주바다 화면전환 제주도 바다 실시간 cctv",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "kr-live-cam-i-seongsan-ilchulbong-jejudo",
-    name: { ja: "제주도실시간 성산일출봉라이브 Live Cam I \"Seongsan Ilchulbong\", Jejudo,korea I SeongsanSunrisePark 济州岛城山日出峰 백색소음", en: "제주도실시간 성산일출봉라이브 Live Cam I \"Seongsan Ilchulbong\", Jejudo,korea I SeongsanSunrisePark 济州岛城山日出峰 백색소음" },
-    lat: 33.5097,
-    lng: 126.5219,
-    timeZone: "Asia/Seoul",
-    category: "city",
-    country: "KR",
-    source: {
-      videoId: "pMaqsb26eSE",
-      channelId: "UCsy6UOjk8q7Ajq9yQ7iDAbA",
-      titleKey: "제주도실시간 성산일출봉라이브 Live Cam I \"Seongsan Ilchulbong\", Jejudo,korea I SeongsanSunrisePark 济州岛城山日出峰 백색소음",
     },
   },
   {
@@ -64439,21 +53234,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "tw-keelung-live-cam-4k-keelung-maritime",
-    name: { ja: "【Keelung Live Cam】基隆海洋廣場 - 4K即時影像｜Keelung Maritime Plaza", en: "【Keelung Live Cam】基隆海洋廣場 - 4K即時影像｜Keelung Maritime Plaza" },
-    lat: 25.1311,
-    lng: 121.7412,
-    timeZone: "Asia/Taipei",
-    category: "city",
-    country: "TW",
-    source: {
-      videoId: "colNBGSM1g8",
-      channelId: "UCCvQqg1UKGP1Wshak1078hw",
-      titleKey: "【Keelung Live Cam】基隆海洋廣場 - 4K即時影像｜Keelung Maritime Plaza",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "tw-live-c-08-24-7-365-24h-love-song-lh80",
     name: { ja: "Live Ⓒ-08-新北市 中和區 重要路口 即時影像 24/7, 365 24H 》天氣、車流人流狀況 Love Song 🅣ⓁⒽ80", en: "Live Ⓒ-08-新北市 中和區 重要路口 即時影像 24/7, 365 24H 》天氣、車流人流狀況 Love Song 🅣ⓁⒽ80" },
     lat: 25.0531,
@@ -64484,21 +53264,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "tw-7",
-    name: { ja: "高雄國際航空站國內線聯合候補櫃台直播", en: "高雄國際航空站國內線聯合候補櫃台直播" },
-    lat: 22.6163,
-    lng: 120.3133,
-    timeZone: "Asia/Taipei",
-    category: "city",
-    country: "TW",
-    source: {
-      videoId: "L4hCgK8KG5M",
-      channelId: "UCXNh8KKRPNlcSKIKOqHDMQw",
-      titleKey: "高雄國際航空站國內線聯合候補櫃台直播",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "tw-1-24-7-365-24h-music-e-02-ls204",
     name: { ja: "國道 號即時影像－國道1號天氣、車流人流 獨播 全球情歌心電台 | 浪漫、心碎、療癒系精選 ｜英語・華語・韓語輪播｜ 24/7, 365 24H 禿鷹 Music Ⓔ-02 🅣ⓁⓈ204", en: "國道 號即時影像－國道1號天氣、車流人流 獨播 全球情歌心電台 | 浪漫、心碎、療癒系精選 ｜英語・華語・韓語輪播｜ 24/7, 365 24H 禿鷹 Music Ⓔ-02 🅣ⓁⓈ204" },
     lat: 22.6163,
@@ -64510,21 +53275,6 @@ export const CAMS: Cam[] = [
       videoId: "4MA7hTv7TTs",
       channelId: "UCnYcHH_lKR14OV3RgzUGTtQ",
       titleKey: "🔴國道 ❶ 號即時影像－國道1號天氣、車流人流 獨播 💖全球情歌心電台 | 浪漫、心碎、療癒系精選 ｜英語・華語・韓語輪播｜ 24/7, 365 24H 💥禿鷹 Music Ⓔ-02 🅣ⓁⓈ204",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "cn-24h",
-    name: { ja: "24h不间断直播《小巷人家》未删减【感谢订阅中剧独播】（闫妮、李光洁、蒋欣、关晓彤、郭晓东 领衔主演）", en: "24h不间断直播《小巷人家》未删减【感谢订阅中剧独播】（闫妮、李光洁、蒋欣、关晓彤、郭晓东 领衔主演）" },
-    lat: 23.1167,
-    lng: 113.25,
-    timeZone: "Asia/Shanghai",
-    category: "city",
-    country: "CN",
-    source: {
-      videoId: "T53-fmKqm_0",
-      channelId: "UCAqDX_XjLlvhjY0eDqHpVQw",
-      titleKey: "24h不间断直播《小巷人家》未删减【感谢订阅中剧独播】（闫妮、李光洁、蒋欣、关晓彤、郭晓东 领衔主演）",
     },
   },
   {
@@ -64724,21 +53474,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "kr-2-lineage2-2-pvp-pk",
-    name: { ja: "리니지2 엠초 우주채초 파푸리온벨트 도전 업읽남 Lineage2/天堂2/PVP/PK", en: "리니지2 엠초 우주채초 파푸리온벨트 도전 업읽남 Lineage2/天堂2/PVP/PK" },
-    lat: 37.5632,
-    lng: 126.9872,
-    timeZone: "Asia/Seoul",
-    category: "nature",
-    country: "KR",
-    source: {
-      videoId: "XWnLUSb6pgg",
-      channelId: "UCSAi3ChfWLN2mYNHJo1CRKA",
-      titleKey: "리니지2 엠초 우주채초 파푸리온벨트 도전 업읽남 Lineage2/天堂2/PVP/PK",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-2-8",
     name: { ja: "【ねこにう】 ねこ広場2 『にゃんこたちが間近に見えるカメラです～』", en: "【ねこにう】 ねこ広場2 『にゃんこたちが間近に見えるカメラです～』" },
     lat: 35.3434,
@@ -64885,21 +53620,6 @@ export const CAMS: Cam[] = [
       videoId: "uvfo7eEirHs",
       channelId: "UCu8GW2WcGp_9Lic2wZY_IVg",
       titleKey: "ライブカメラ｜熊本駅前",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-jr-3-8",
-    name: { ja: "JR 中央本線ライブカメラ③（春日居町 ⇔ 石和温泉）熊野権現踏切【8月】", en: "JR 中央本線ライブカメラ③（春日居町 ⇔ 石和温泉）熊野権現踏切【8月】" },
-    lat: 34.7012,
-    lng: 138.1014,
-    timeZone: "Asia/Tokyo",
-    category: "railway",
-    country: "JP",
-    source: {
-      videoId: "G3_58aWKi_Q",
-      channelId: "UCZ974tQkAeV7_l_opPHCcdg",
-      titleKey: "JR 中央本線ライブカメラ③（春日居町 ⇔ 石和温泉）熊野権現踏切【8月】",
     },
   },
   {
@@ -65369,21 +54089,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "tc-villa-renaissance-grace-bay-turks-and",
-    name: { ja: "Villa Renaissance Grace Bay Turks and Caicos", en: "Villa Renaissance Grace Bay Turks and Caicos" },
-    lat: 21.796,
-    lng: -72.176,
-    timeZone: "America/Grand_Turk",
-    category: "nature",
-    country: "TC",
-    source: {
-      videoId: "shNgEojhTK4",
-      channelId: "UCx6ra-kP4Z2kZQfu5zTX1vA",
-      titleKey: "Villa Renaissance | Turks & Caicos Is | LiveCam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "th-surat-thani-thailand",
     name: { ja: "Surat Thani, Thailand", en: "Surat Thani, Thailand" },
     lat: 9.4755,
@@ -65594,21 +54299,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-lavallette-usa",
-    name: { ja: "Lavallette, USA", en: "Lavallette, USA" },
-    lat: 39.9704,
-    lng: -74.0687,
-    timeZone: "America/New_York",
-    category: "nature",
-    country: "US",
-    source: {
-      videoId: "amB3Sbxqff0",
-      channelId: "UCerwpb67bWHWfaYUAy6oVrA",
-      titleKey: "Lavallette Beach Cam - Live Stream",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-lebanon-usa",
     name: { ja: "Lebanon, USA", en: "Lebanon, USA" },
     lat: 36.2081,
@@ -65699,21 +54389,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "ro-fountain-of-manole-curtea-de-arges",
-    name: { ja: "Fountain of Manole, Curtea de Argeș", en: "Fountain of Manole, Curtea de Argeș" },
-    lat: 45.1342,
-    lng: 24.6741,
-    timeZone: "Europe/Bucharest",
-    category: "city",
-    country: "RO",
-    source: {
-      videoId: "YJULVN8Otl0",
-      channelId: "UCMWBgjc589gA9wgcgw8KemA",
-      titleKey: "Fantana Lui Manole - Curtea de Arges - Live | www.alarmesicamere.ro |",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-winter-park-usa",
     name: { ja: "Winter Park, USA", en: "Winter Park, USA" },
     lat: 39.854,
@@ -65759,81 +54434,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "vn-da-nang-vietnam",
-    name: { ja: "Da Nang, Vietnam", en: "Da Nang, Vietnam" },
-    lat: 16.0678,
-    lng: 108.2208,
-    timeZone: "Asia/Ho_Chi_Minh",
-    category: "city",
-    country: "VN",
-    source: {
-      videoId: "L_eizGlcM9Q",
-      channelId: "UCr5Z4Oi3UFwkM6sLPFDC6QA",
-      titleKey: "CAMERA PTZ KHÁCH SẠN HẢI TRIỀU ĐÀ NẴNG",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "vn-nha-trang-coastal-city-vietnam",
-    name: { ja: "Nha Trang Coastal City, Vietnam", en: "Nha Trang Coastal City, Vietnam" },
-    lat: 12.2388,
-    lng: 109.1967,
-    timeZone: "Asia/Ho_Chi_Minh",
-    category: "city",
-    country: "VN",
-    source: {
-      videoId: "SCpZOgLKVfY",
-      channelId: "UCgqmMYGNtMkNWmfUDz12j4Q",
-      titleKey: "Vietnam Nha Trang live camera online / 나트랑 / Вьетнам Нячанг онлайн камера. ЖК Океанус",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "za-cape-town-south-africa",
-    name: { ja: "Cape Town, South Africa", en: "Cape Town, South Africa" },
-    lat: -33.9288,
-    lng: 18.4172,
-    timeZone: "Africa/Johannesburg",
-    category: "city",
-    country: "ZA",
-    source: {
-      videoId: "khhdEM2Q_68",
-      channelId: "UCMyCO_-D2eLocsvoiGob7iw",
-      titleKey: "Cape Town Live Stream Webcam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "sn-live-cctv-simpang-kantor-bupati-kabup",
-    name: { ja: "[LIVE CCTV] SIMPANG KANTOR BUPATI KABUPATEN KETAPANG", en: "[LIVE CCTV] SIMPANG KANTOR BUPATI KABUPATEN KETAPANG" },
-    lat: 13.65,
-    lng: -15.7333,
-    timeZone: "Africa/Dakar",
-    category: "city",
-    country: "SN",
-    source: {
-      videoId: "wQxdSWKumzc",
-      channelId: "UCbXfqLh-qvBKoF40sm43gHA",
-      titleKey: "🔴[LIVE CCTV] SIMPANG KANTOR BUPATI KABUPATEN KETAPANG",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "sn-live-cctv-simpang-kantor-bupati-cam-3",
-    name: { ja: "[LIVE CCTV] SIMPANG KANTOR BUPATI CAM 3 KABUPATEN KETAPANG", en: "[LIVE CCTV] SIMPANG KANTOR BUPATI CAM 3 KABUPATEN KETAPANG" },
-    lat: 13.65,
-    lng: -15.7333,
-    timeZone: "Africa/Dakar",
-    category: "city",
-    country: "SN",
-    source: {
-      videoId: "uHsGDVaV_sg",
-      channelId: "UCbXfqLh-qvBKoF40sm43gHA",
-      titleKey: "🔴[LIVE CCTV] SIMPANG KANTOR BUPATI CAM 3 KABUPATEN KETAPANG",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-4k-african-wildlife-discovery-incredi",
     name: { ja: "4K African Wildlife: Discovery Incredible Bardia Park - Scenic Wildlife Film African With Calm Music", en: "4K African Wildlife: Discovery Incredible Bardia Park - Scenic Wildlife Film African With Calm Music" },
     lat: 39.7625,
@@ -65845,21 +54445,6 @@ export const CAMS: Cam[] = [
       videoId: "sH-HOPe6tio",
       channelId: "UCT7hGX0G_HqrkNiIQJ-9T4A",
       titleKey: "4K African Wildlife: Discovery Incredible Bardia Park - Scenic Wildlife Film African With Calm Music",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "aq-construction-live-cam",
-    name: { ja: "Construction Live Cam", en: "Construction Live Cam" },
-    lat: -72.3167,
-    lng: 170.2167,
-    timeZone: "Antarctica/McMurdo",
-    category: "city",
-    country: "AQ",
-    source: {
-      videoId: "qcb0HiE0afM",
-      channelId: "UCaepEHpHsWBgmGA5EDzKz_w",
-      titleKey: "Construction Live Cam",
     },
   },
   {
@@ -66614,21 +55199,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-winlock-washington-live-railcam-winlo",
-    name: { ja: "Winlock, Washington Live Railcam - Winlock Liquidation Warehouse #steelhighway", en: "Winlock, Washington Live Railcam - Winlock Liquidation Warehouse #steelhighway" },
-    lat: 46.4912,
-    lng: -122.9379,
-    timeZone: "America/Los_Angeles",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "S3YTiO4jQtI",
-      channelId: "UCJId-kbfsO5K4kU9cKE_TqA",
-      titleKey: "Winlock, Washington Live Railcam - Winlock Liquidation Warehouse  #steelhighway",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-grand-mound-depot-museum-live-railcam",
     name: { ja: "Grand Mound Depot Museum Live Railcam - Grand Mound, IA #SteelHighway", en: "Grand Mound Depot Museum Live Railcam - Grand Mound, IA #SteelHighway" },
     lat: 42.9634,
@@ -66928,21 +55498,6 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: Photon: Santiaguito
-    id: "us-live-members-only-santa-maria-santiag",
-    name: { ja: "Live: Members-Only Santa Maria (Santiaguito) Volcano in Guatemala (Cam D)", en: "Live: Members-Only Santa Maria (Santiaguito) Volcano in Guatemala (Cam D)" },
-    lat: 14.7419,
-    lng: -91.569,
-    timeZone: "America/Guatemala",
-    category: "volcano",
-    country: "GT",
-    source: {
-      videoId: "FwOhjdc6IGI",
-      channelId: "UCaG0IHN1RMOZ4-U3wDXAkwA",
-      titleKey: "✪ Live: Members-Only Santa Maria (Santiaguito) Volcano in Guatemala (Cam D)",
-    },
-  },
-  {
     // coords: set explicitly as a well-known landmark
     id: "us-live-now-24-7-iceland-volcano-watch-i",
     name: { ja: "Live Now: 24/7 Iceland Volcano Watch in 4K Ultra HD (Cam D)", en: "Live Now: 24/7 Iceland Volcano Watch in 4K Ultra HD (Cam D)" },
@@ -66985,51 +55540,6 @@ export const CAMS: Cam[] = [
       videoId: "SXcN_7JNFsQ",
       channelId: "UCaG0IHN1RMOZ4-U3wDXAkwA",
       titleKey: "🔴 Live Now: 24/7 Erupting Popocatépetl Volcano from San Matias Tlalancaleca Mexico in 4K Ultra HD",
-    },
-  },
-  {
-    // coords: Open-Meteo geocoding "San Pedro Benito Juárez", Puebla
-    id: "us-live-members-only-popocatepetl-volcan",
-    name: { ja: "Live: Members-Only Popocatépetl Volcano from San Pedro Benito Juárez, Mexico (Cam C)", en: "Live: Members-Only Popocatépetl Volcano from San Pedro Benito Juárez, Mexico (Cam C)" },
-    lat: 18.9472,
-    lng: -98.5514,
-    timeZone: "America/Mexico_City",
-    category: "volcano",
-    country: "MX",
-    source: {
-      videoId: "a5VnMDnzGmQ",
-      channelId: "UCaG0IHN1RMOZ4-U3wDXAkwA",
-      titleKey: "✪ Live: Members-Only Popocatépetl Volcano from San Pedro Benito Juárez, Mexico (Cam C)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "id-live-pemantauan-cctv-lalulintas-area",
-    name: { ja: "LIVE PEMANTAUAN CCTV LALULINTAS AREA WISATA PANTAI", en: "LIVE PEMANTAUAN CCTV LALULINTAS AREA WISATA PANTAI" },
-    lat: -8.6428,
-    lng: 122.0237,
-    timeZone: "Asia/Makassar",
-    category: "city",
-    country: "ID",
-    source: {
-      videoId: "bcjSWZBmakE",
-      channelId: "UCkEiJMkX7n3rZpZ2PDVc3Ow",
-      titleKey: "LIVE PEMANTAUAN CCTV LALULINTAS AREA WISATA PANTAI",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "id-live-pemantauan-cctv-lalulintas-a-2",
-    name: { ja: "LIVE PEMANTAUAN CCTV LALULINTAS AREA BARAT", en: "LIVE PEMANTAUAN CCTV LALULINTAS AREA BARAT" },
-    lat: -8.6428,
-    lng: 122.0237,
-    timeZone: "Asia/Makassar",
-    category: "city",
-    country: "ID",
-    source: {
-      videoId: "UzsJMEqmDAg",
-      channelId: "UCkEiJMkX7n3rZpZ2PDVc3Ow",
-      titleKey: "LIVE PEMANTAUAN CCTV LALULINTAS AREA BARAT",
     },
   },
   {
@@ -67150,21 +55660,6 @@ export const CAMS: Cam[] = [
       videoId: "sGw16JUacSk",
       channelId: "UCkEiJMkX7n3rZpZ2PDVc3Ow",
       titleKey: "LIVE PEMANTAUAN CCTV LALULINTAS KALURAHAN SAMBIREJO",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "id-live-pemantauan-cctv-pintu-masuk-utam",
-    name: { ja: "LIVE PEMANTAUAN CCTV PINTU MASUK UTAMA PANTAI 2", en: "LIVE PEMANTAUAN CCTV PINTU MASUK UTAMA PANTAI 2" },
-    lat: -6.1653,
-    lng: 107.0372,
-    timeZone: "Asia/Jakarta",
-    category: "city",
-    country: "ID",
-    source: {
-      videoId: "B96LfyFCk64",
-      channelId: "UCkEiJMkX7n3rZpZ2PDVc3Ow",
-      titleKey: "LIVE PEMANTAUAN CCTV PINTU MASUK UTAMA PANTAI 2",
     },
   },
   {
@@ -67390,21 +55885,6 @@ export const CAMS: Cam[] = [
       videoId: "5dhmXmUD1ZE",
       channelId: "UCuoNAKa3P0QR1Lw9QdpmoVg",
       titleKey: "LIVE from Porini Rhino Camp | Ol Pejeta Conservancy, Kenya",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "za-live-from-jack-s-camp-kalahari-waterh",
-    name: { ja: "Live from Jack’s Camp | Kalahari Waterhole Cam - Elephants, Lions & More", en: "Live from Jack’s Camp | Kalahari Waterhole Cam - Elephants, Lions & More" },
-    lat: -25.1833,
-    lng: 29.3667,
-    timeZone: "Africa/Johannesburg",
-    category: "city",
-    country: "ZA",
-    source: {
-      videoId: "jG0uYl5S44E",
-      channelId: "UCuoNAKa3P0QR1Lw9QdpmoVg",
-      titleKey: "Live from Jack’s Camp | Kalahari Waterhole Cam - Elephants, Lions & More",
     },
   },
   {
@@ -67679,21 +56159,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-moosehead-lake-maine-live-cam",
-    name: { ja: "Moosehead Lake, Maine - LIVE cam", en: "Moosehead Lake, Maine - LIVE cam" },
-    lat: 45.5834,
-    lng: -69.7137,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "EGh3HIea6v4",
-      channelId: "UC8gbWbcNNyb5-NIXvFklkOA",
-      titleKey: "Moosehead Lake, Maine - LIVE cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-brewster-s-bait-tackle-back-channel-p",
     name: { ja: "Brewster's Bait & Tackle - Back Channel - Portsmouth, New Hampshire", en: "Brewster's Bait & Tackle - Back Channel - Portsmouth, New Hampshire" },
     lat: 31.1574,
@@ -67720,21 +56185,6 @@ export const CAMS: Cam[] = [
       videoId: "-rXriX4SiQk",
       channelId: "UCuoNAKa3P0QR1Lw9QdpmoVg",
       titleKey: "Wilderness Linkwasha LIVE Cam | Hwange Waterhole 24/7 Wildlife Stream",
-    },
-  },
-  {
-    // coords: Photon: Boteti
-    id: "za-moela-safari-lodge-live-zebra-migrati",
-    name: { ja: "Moela Safari Lodge LIVE - Zebra Migration | Boteti River, Botswana", en: "Moela Safari Lodge LIVE - Zebra Migration | Boteti River, Botswana" },
-    lat: -20.6496,
-    lng: 24.4077,
-    timeZone: "Africa/Gaborone",
-    category: "animal",
-    country: "BW",
-    source: {
-      videoId: "54Y7xlLrkuo",
-      channelId: "UCuoNAKa3P0QR1Lw9QdpmoVg",
-      titleKey: "Moela Safari Lodge LIVE - Zebra Migration | Boteti River, Botswana",
     },
   },
   {
@@ -68125,21 +56575,6 @@ export const CAMS: Cam[] = [
       videoId: "C3WFn2jgMzk",
       channelId: "UCWe6K8h_5sXGCnzvt-exu8Q",
       titleKey: "🔴 LIVE Trains AD Free | Caliente, Nevada (Depot Cam)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-live-trains-ad-free-st-louis-missouri",
-    name: { ja: "LIVE Trains AD Free | St Louis, Missouri", en: "LIVE Trains AD Free | St Louis, Missouri" },
-    lat: 38.6273,
-    lng: -90.1979,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "83zOF_E687I",
-      channelId: "UCWe6K8h_5sXGCnzvt-exu8Q",
-      titleKey: "🔴 LIVE Trains AD Free | St Louis, Missouri",
     },
   },
   {
@@ -69479,21 +57914,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "mx-cdmx-lluvias-rayos-y-granizo-esta-tar",
-    name: { ja: "️️ CDMX | Lluvias, Rayos y Granizo esta tarde-noche Zócalo En Vivo", en: "️️ CDMX | Lluvias, Rayos y Granizo esta tarde-noche Zócalo En Vivo" },
-    lat: 17.383,
-    lng: -100.8731,
-    timeZone: "America/Mexico_City",
-    category: "city",
-    country: "MX",
-    source: {
-      videoId: "3Y8_Xtz_92E",
-      channelId: "UColBcWm6ybTbQnNuQS8JaKg",
-      titleKey: "🌧️⚡️ 🚨 CDMX | Lluvias, Rayos y Granizo esta tarde-noche ⚡Zócalo En Vivo",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "fi-levi-six-chairlift-levi-ski-resort-fi",
     name: { ja: "Levi Six chairlift | Levi Ski Resort | Finland", en: "Levi Six chairlift | Levi Ski Resort | Finland" },
     lat: 67.7856,
@@ -69674,21 +58094,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "in-live-flash-flood-wreaks-havoc-in-nepa",
-    name: { ja: "Live: Flash Flood Wreaks Havoc In Nepal | PM Modi | Balen Shah | UP-Bihar On High Alert | Tourists", en: "Live: Flash Flood Wreaks Havoc In Nepal | PM Modi | Balen Shah | UP-Bihar On High Alert | Tourists" },
-    lat: 29.7804,
-    lng: 74.7049,
-    timeZone: "Asia/Kolkata",
-    category: "city",
-    country: "IN",
-    source: {
-      videoId: "aQ2VKJUaKW0",
-      channelId: "UCYPvAwZP8pZhSMW8qs7cVCw",
-      titleKey: "Live: Flash Flood Wreaks Havoc In Nepal | PM Modi | Balen Shah | UP-Bihar On High Alert | Tourists",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "in-nepal-flash-flood-updates-live-indian",
     name: { ja: "Nepal Flash Flood Updates Live: Indians Among 384 Tourists Missing In Nepal, Quake | Bihar | UP", en: "Nepal Flash Flood Updates Live: Indians Among 384 Tourists Missing In Nepal, Quake | Bihar | UP" },
     lat: 25.0138,
@@ -69700,21 +58105,6 @@ export const CAMS: Cam[] = [
       videoId: "fWfbJZmqRCI",
       channelId: "UCYPvAwZP8pZhSMW8qs7cVCw",
       titleKey: "Nepal Flash Flood Updates Live: Indians Among 384 Tourists Missing In Nepal, Quake | Bihar | UP",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "in-india-today-tv-live-nepal-flash-f-2",
-    name: { ja: "India Today TV LIVE: Nepal Flash Floods | Indians Missing | Bihar |Sugar Price Surge |Trump |PM Modi", en: "India Today TV LIVE: Nepal Flash Floods | Indians Missing | Bihar |Sugar Price Surge |Trump |PM Modi" },
-    lat: 29.7804,
-    lng: 74.7049,
-    timeZone: "Asia/Kolkata",
-    category: "city",
-    country: "IN",
-    source: {
-      videoId: "eh_dalcjpfY",
-      channelId: "UCYPvAwZP8pZhSMW8qs7cVCw",
-      titleKey: "India Today TV LIVE: Nepal Flash Floods | Indians Missing | Bihar |Sugar Price Surge |Trump |PM Modi",
     },
   },
   {
@@ -69764,21 +58154,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "in-india-today-tv-live-nepal-flash-f-3",
-    name: { ja: "India Today TV LIVE: Nepal Flash Floods | Indians Missing | PM Modi | Rahul Gandhi | US Sanctions", en: "India Today TV LIVE: Nepal Flash Floods | Indians Missing | PM Modi | Rahul Gandhi | US Sanctions" },
-    lat: 27.1855,
-    lng: 81.9618,
-    timeZone: "Asia/Kolkata",
-    category: "city",
-    country: "IN",
-    source: {
-      videoId: "26-N7obe23o",
-      channelId: "UCYPvAwZP8pZhSMW8qs7cVCw",
-      titleKey: "India Today TV LIVE: Nepal Flash Floods | Indians Missing | PM Modi | Rahul Gandhi | US Sanctions",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "in-samajwadi-party-pc-live-akhilesh-yada",
     name: { ja: "Samajwadi Party PC LIVE: Akhilesh Yadav & Dimple Yadav's Big Announcement for Women", en: "Samajwadi Party PC LIVE: Akhilesh Yadav & Dimple Yadav's Big Announcement for Women" },
     lat: 25.465,
@@ -69790,21 +58165,6 @@ export const CAMS: Cam[] = [
       videoId: "YqSxK4Z7pqI",
       channelId: "UCYPvAwZP8pZhSMW8qs7cVCw",
       titleKey: "Samajwadi Party PC LIVE: Akhilesh Yadav & Dimple Yadav's Big Announcement for Women",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "in-india-today-tv-live-indians-missing-i",
-    name: { ja: "India Today TV LIVE: Indians Missing In Nepal Flash Floods | Sugar Price Surge| US-Iran War | Trump", en: "India Today TV LIVE: Indians Missing In Nepal Flash Floods | Sugar Price Surge| US-Iran War | Trump" },
-    lat: 27.1855,
-    lng: 81.9618,
-    timeZone: "Asia/Kolkata",
-    category: "city",
-    country: "IN",
-    source: {
-      videoId: "9z1FUkDriQY",
-      channelId: "UCYPvAwZP8pZhSMW8qs7cVCw",
-      titleKey: "India Today TV LIVE: Indians Missing In Nepal Flash Floods | Sugar Price Surge| US-Iran War | Trump",
     },
   },
   {
@@ -69899,21 +58259,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "za-live-at-the-waterhole-26-august-2-2",
-    name: { ja: "LIVE at the waterhole - 26 August 2026 - AD FREE", en: "LIVE at the waterhole - 26 August 2026 - AD FREE" },
-    lat: -25.9466,
-    lng: 25.1217,
-    timeZone: "Africa/Johannesburg",
-    category: "city",
-    country: "ZA",
-    source: {
-      videoId: "3SMnfCsONaI",
-      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
-      titleKey: "LIVE at the waterhole - 26 August 2026 - AD FREE",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "za-live-at-the-waterhole-24-august-2026",
     name: { ja: "LIVE at the waterhole - 24 August 2026", en: "LIVE at the waterhole - 24 August 2026" },
     lat: -31.7033,
@@ -69925,21 +58270,6 @@ export const CAMS: Cam[] = [
       videoId: "F9sQEXGy-Bk",
       channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
       titleKey: "LIVE at the waterhole - 24 August 2026",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "za-live-at-the-waterhole-24-august-2-2",
-    name: { ja: "LIVE at the waterhole - 24 August 2026 - AD FREE", en: "LIVE at the waterhole - 24 August 2026 - AD FREE" },
-    lat: -25.9466,
-    lng: 25.1217,
-    timeZone: "Africa/Johannesburg",
-    category: "city",
-    country: "ZA",
-    source: {
-      videoId: "S8U7c_EQUsA",
-      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
-      titleKey: "LIVE at the waterhole - 24 August 2026 - AD FREE",
     },
   },
   {
@@ -69959,36 +58289,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "za-elephant-sundowners-safarilive-su-2",
-    name: { ja: "Elephant sundowners - SafariLIVE Sunset - 23 August 2026 - AD FREE", en: "Elephant sundowners - SafariLIVE Sunset - 23 August 2026 - AD FREE" },
-    lat: -25.9466,
-    lng: 25.1217,
-    timeZone: "Africa/Johannesburg",
-    category: "city",
-    country: "ZA",
-    source: {
-      videoId: "Od_-89eQGRE",
-      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
-      titleKey: "Elephant sundowners - SafariLIVE Sunset - 23 August 2026 - AD FREE",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "za-live-at-the-waterhole-23-august-2026",
-    name: { ja: "LIVE at the waterhole - 23 August 2026 - AD FREE", en: "LIVE at the waterhole - 23 August 2026 - AD FREE" },
-    lat: -25.9466,
-    lng: 25.1217,
-    timeZone: "Africa/Johannesburg",
-    category: "city",
-    country: "ZA",
-    source: {
-      videoId: "c7uRF1cxbrA",
-      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
-      titleKey: "LIVE at the waterhole - 23 August 2026 - AD FREE",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "za-live-at-the-waterhole-23-august-2-2",
     name: { ja: "LIVE at the waterhole - 23 August 2026", en: "LIVE at the waterhole - 23 August 2026" },
     lat: -31.7033,
@@ -70000,21 +58300,6 @@ export const CAMS: Cam[] = [
       videoId: "YeeRHB_9upA",
       channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
       titleKey: "LIVE at the waterhole - 23 August 2026",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "za-breakfast-with-the-boys-safarilive-su",
-    name: { ja: "Breakfast with the boys - SafariLIVE Sunrise - 26 August 2026 - AD FREE", en: "Breakfast with the boys - SafariLIVE Sunrise - 26 August 2026 - AD FREE" },
-    lat: -25.9466,
-    lng: 25.1217,
-    timeZone: "Africa/Johannesburg",
-    category: "city",
-    country: "ZA",
-    source: {
-      videoId: "E3iI7tKIwKk",
-      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
-      titleKey: "Breakfast with the boys - SafariLIVE Sunrise - 26 August 2026 - AD FREE",
     },
   },
   {
@@ -70034,21 +58319,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "za-rosetted-reunion-safarilive-sunset-22",
-    name: { ja: "Rosetted reunion - SafariLIVE Sunset - 22 August 2026 - AD FREE", en: "Rosetted reunion - SafariLIVE Sunset - 22 August 2026 - AD FREE" },
-    lat: -25.9466,
-    lng: 25.1217,
-    timeZone: "Africa/Johannesburg",
-    category: "city",
-    country: "ZA",
-    source: {
-      videoId: "hniyzTUiHU0",
-      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
-      titleKey: "Rosetted reunion - SafariLIVE Sunset - 22 August 2026 - AD FREE",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "za-rosetted-reunion-safarilive-sunse-2",
     name: { ja: "Rosetted reunion - SafariLIVE Sunset - 22 August 2026", en: "Rosetted reunion - SafariLIVE Sunset - 22 August 2026" },
     lat: -33.8539,
@@ -70060,21 +58330,6 @@ export const CAMS: Cam[] = [
       videoId: "ZH770vfjisc",
       channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
       titleKey: "Rosetted reunion - SafariLIVE Sunset - 22 August 2026",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "za-live-at-the-waterhole-22-august-2026",
-    name: { ja: "LIVE at the waterhole - 22 August 2026 - AD FREE", en: "LIVE at the waterhole - 22 August 2026 - AD FREE" },
-    lat: -25.9466,
-    lng: 25.1217,
-    timeZone: "Africa/Johannesburg",
-    category: "city",
-    country: "ZA",
-    source: {
-      videoId: "7liuUIRccls",
-      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
-      titleKey: "LIVE at the waterhole - 22 August 2026 - AD FREE",
     },
   },
   {
@@ -70094,66 +58349,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "za-giants-meet-the-clan-safarilive-sunse",
-    name: { ja: "Giants meet the clan - SafariLIVE Sunset - 25 August 2026 - Members Only", en: "Giants meet the clan - SafariLIVE Sunset - 25 August 2026 - Members Only" },
-    lat: -24.8535,
-    lng: 31.3416,
-    timeZone: "Africa/Johannesburg",
-    category: "city",
-    country: "ZA",
-    source: {
-      videoId: "awggIeRQpEE",
-      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
-      titleKey: "Giants meet the clan - SafariLIVE Sunset - 25 August 2026 - Members Only",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "za-live-at-the-waterhole-25-august-2-2",
-    name: { ja: "LIVE at the waterhole - 25 August 2026 - AD FREE", en: "LIVE at the waterhole - 25 August 2026 - AD FREE" },
-    lat: -25.9466,
-    lng: 25.1217,
-    timeZone: "Africa/Johannesburg",
-    category: "city",
-    country: "ZA",
-    source: {
-      videoId: "i3w4d9g1JV4",
-      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
-      titleKey: "LIVE at the waterhole - 25 August 2026 - AD FREE",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "za-wild-intentions-safarilive-sunrise-25",
-    name: { ja: "Wild intentions - SafariLIVE Sunrise - 25 August 2026 - Members Only", en: "Wild intentions - SafariLIVE Sunrise - 25 August 2026 - Members Only" },
-    lat: -32.6423,
-    lng: 28.1286,
-    timeZone: "Africa/Johannesburg",
-    category: "city",
-    country: "ZA",
-    source: {
-      videoId: "EkWWfi4Rpa4",
-      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
-      titleKey: "Wild intentions - SafariLIVE Sunrise - 25 August 2026 - Members Only",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "za-live-at-the-waterhole-21-august-2026",
-    name: { ja: "LIVE at the waterhole - 21 August 2026 - AD FREE", en: "LIVE at the waterhole - 21 August 2026 - AD FREE" },
-    lat: -25.9466,
-    lng: 25.1217,
-    timeZone: "Africa/Johannesburg",
-    category: "city",
-    country: "ZA",
-    source: {
-      videoId: "cTJv-MXhpT8",
-      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
-      titleKey: "LIVE at the waterhole - 21 August 2026 - AD FREE",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "za-live-at-the-waterhole-21-august-2-2",
     name: { ja: "LIVE at the waterhole - 21 August 2026", en: "LIVE at the waterhole - 21 August 2026" },
     lat: -31.7033,
@@ -70165,21 +58360,6 @@ export const CAMS: Cam[] = [
       videoId: "udUQHjISE4Y",
       channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
       titleKey: "LIVE at the waterhole - 21 August 2026",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "za-all-hail-the-leopard-queen-tlalamba-s",
-    name: { ja: "All hail the leopard Queen Tlalamba - SafariLIVE Sunrise - 23 August 2026 - AD FREE", en: "All hail the leopard Queen Tlalamba - SafariLIVE Sunrise - 23 August 2026 - AD FREE" },
-    lat: -22.6639,
-    lng: 29.0934,
-    timeZone: "Africa/Johannesburg",
-    category: "city",
-    country: "ZA",
-    source: {
-      videoId: "ra1jIeqcLiM",
-      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
-      titleKey: "All hail the leopard Queen Tlalamba - SafariLIVE Sunrise - 23 August 2026 - AD FREE",
     },
   },
   {
@@ -70229,51 +58409,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "za-little-lions-big-curiosity-safari-2",
-    name: { ja: "Little lions, big curiosity - SafariLIVE Sunrise - 22 August 2026 - AD FREE", en: "Little lions, big curiosity - SafariLIVE Sunrise - 22 August 2026 - AD FREE" },
-    lat: -33.7914,
-    lng: 18.4584,
-    timeZone: "Africa/Johannesburg",
-    category: "city",
-    country: "ZA",
-    source: {
-      videoId: "b7IU4UnPFqY",
-      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
-      titleKey: "Little lions, big curiosity - SafariLIVE Sunrise - 22 August 2026 - AD FREE",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "za-a-day-of-little-ones-safarilive-sunse",
-    name: { ja: "A day of little ones - SafariLIVE Sunset - 21 August 2026 - AD FREE", en: "A day of little ones - SafariLIVE Sunset - 21 August 2026 - AD FREE" },
-    lat: -28.0834,
-    lng: 31.541,
-    timeZone: "Africa/Johannesburg",
-    category: "city",
-    country: "ZA",
-    source: {
-      videoId: "VZpqgJRI25s",
-      channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
-      titleKey: "A day of little ones - SafariLIVE Sunset - 21 August 2026 - AD FREE",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-live-walrus-cam-first-beach-view-roun",
-    name: { ja: "LIVE Walrus Cam: First Beach View – Round Island, Alaska | explore.org", en: "LIVE Walrus Cam: First Beach View – Round Island, Alaska | explore.org" },
-    lat: 55.2495,
-    lng: -131.3844,
-    timeZone: "America/Sitka",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "zVsCxyi47Kk",
-      channelId: "UC5RV1g0fRYXfrt75hqvohKw",
-      titleKey: "LIVE Walrus Cam: First Beach View – Round Island, Alaska | explore.org",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "za-a-day-of-little-ones-safarilive-s-2",
     name: { ja: "A day of little ones - SafariLIVE Sunset - 21 August 2026", en: "A day of little ones - SafariLIVE Sunset - 21 August 2026" },
     lat: -28.0834,
@@ -70285,21 +58420,6 @@ export const CAMS: Cam[] = [
       videoId: "JBgtRAxqFkc",
       channelId: "UCV6HJBZD_hZcIX9JVJ3dCXQ",
       titleKey: "A day of little ones - SafariLIVE Sunset - 21 August  2026",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-live-anacapa-island-cove-lookout-cam",
-    name: { ja: "LIVE Anacapa Island Cove Lookout Cam: Channel Islands National Park - NPS | explore.org", en: "LIVE Anacapa Island Cove Lookout Cam: Channel Islands National Park - NPS | explore.org" },
-    lat: 45.2965,
-    lng: -117.808,
-    timeZone: "America/Los_Angeles",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "fAS2TFePbQk",
-      channelId: "UCJRuk-FJ6dzX0MOpnd0UDCg",
-      titleKey: "LIVE Anacapa Island Cove Lookout Cam: Channel Islands National Park - NPS | explore.org",
     },
   },
   {
@@ -70514,21 +58634,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-live-mount-washington-observatory-tow",
-    name: { ja: "LIVE: Mount Washington Observatory Tower Cam", en: "LIVE: Mount Washington Observatory Tower Cam" },
-    lat: 39.6854,
-    lng: -74.6057,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "JuJVUhj9JBo",
-      channelId: "UCq-cqqXchflIRPLsf_n3wlg",
-      titleKey: "LIVE: Mount Washington Observatory Tower Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-marginal-way-ogunquit-maine-live-view",
     name: { ja: "Marginal Way Ogunquit Maine Live View", en: "Marginal Way Ogunquit Maine Live View" },
     lat: 39.6412,
@@ -70540,21 +58645,6 @@ export const CAMS: Cam[] = [
       videoId: "RLIRtD89O7g",
       channelId: "UCALmdjIUxpKqyUTxg5QOSMQ",
       titleKey: "Marginal Way Ogunquit Maine Live View",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-lake-fairlee-looncam",
-    name: { ja: "Lake Fairlee LoonCam", en: "Lake Fairlee LoonCam" },
-    lat: 43.8902,
-    lng: -72.2189,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "mFSGKt0sV60",
-      channelId: "UCnFHrbtq6DwJn_5iNxgxdxg",
-      titleKey: "Lake Fairlee LoonCam",
     },
   },
   {
@@ -70769,51 +58859,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-birds-squirrels-webcam-in-hokkaido-ja",
-    name: { ja: "【ライブカメラ】エゾリスとキタキツネの生配信/Birds Squirrels webcam in Hokkaido Japan", en: "【ライブカメラ】エゾリスとキタキツネの生配信/Birds Squirrels webcam in Hokkaido Japan" },
-    lat: 35.6854,
-    lng: 139.7531,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "jl3e24fTbnY",
-      channelId: "UCDniwwb6FPDtoMsVSCVWi6A",
-      titleKey: "【ライブカメラ】エゾリスとキタキツネの生配信/Birds Squirrels webcam in Hokkaido Japan",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-live-key-largo-marina-live-webcam-key",
-    name: { ja: "[LIVE] Key Largo Marina Live WebCam - Key Largo, Florida Keys", en: "[LIVE] Key Largo Marina Live WebCam - Key Largo, Florida Keys" },
-    lat: 46.8218,
-    lng: -123.0962,
-    timeZone: "America/Los_Angeles",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "T7nRMTfWsIs",
-      channelId: "UC_JkC_sNaRfTrbRw9_b2QoA",
-      titleKey: "[LIVE] Key Largo Marina Live WebCam - Key Largo, Florida Keys",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-gasparilla-marina-live-stream-englewo",
-    name: { ja: "Gasparilla Marina - Live Stream - Englewood / Placida Florida - Gulf Coast - Fuel Dock Cameras", en: "Gasparilla Marina - Live Stream - Englewood / Placida Florida - Gulf Coast - Fuel Dock Cameras" },
-    lat: 35.5604,
-    lng: -79.2817,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "6KJag1a8U3U",
-      channelId: "UCBaRocHs1GIeA2bk_c3TySw",
-      titleKey: "Gasparilla Marina - Live Stream - Englewood / Placida Florida - Gulf Coast - Fuel Dock Cameras",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-24-7-live-bird-feeder-cam-hokkaido-ja",
     name: { ja: "【ライブカメラ】北海道の野鳥【24/7】LIVE Bird Feeder Cam - Hokkaido, Japan", en: "【ライブカメラ】北海道の野鳥【24/7】LIVE Bird Feeder Cam - Hokkaido, Japan" },
     lat: 35.6854,
@@ -70979,21 +59024,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-live-34",
-    name: { ja: "【LIVE】三島川之江港 ライブカメラ 愛媛県四国中央市", en: "【LIVE】三島川之江港 ライブカメラ 愛媛県四国中央市" },
-    lat: 33.9754,
-    lng: 133.5489,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "GSO-cLay-x4",
-      channelId: "UCIf6siGkL7JdkyPkDwgYD2Q",
-      titleKey: "【LIVE】三島川之江港 ライブカメラ 愛媛県四国中央市",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-matsuyama-airport-myj-news-ch-4",
     name: { ja: "【ライブカメラ 】松山空港 Matsuyama Airport,MYJ＜NEWS CH.4＞", en: "【ライブカメラ 】松山空港 Matsuyama Airport,MYJ＜NEWS CH.4＞" },
     lat: 33.8392,
@@ -71110,21 +59140,6 @@ export const CAMS: Cam[] = [
       videoId: "oJ8nu5DDRoc",
       channelId: "UCVItNtUctAknegvmYcMhUQg",
       titleKey: "LIVE | 🔴 | Darshan from Shree Swaminarayan Mandir - Bhuj",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "in-ujjain-mahakal-live-24x7-shreemahakal",
-    name: { ja: "Ujjain Mahakal LIVE 24x7 Shreemahakaleshwar Today Bhasm & Sandhya Shringar Aart Darshan #mahakal", en: "Ujjain Mahakal LIVE 24x7 Shreemahakaleshwar Today Bhasm & Sandhya Shringar Aart Darshan #mahakal" },
-    lat: 21.9573,
-    lng: 84.0397,
-    timeZone: "Asia/Kolkata",
-    category: "city",
-    country: "IN",
-    source: {
-      videoId: "HEnbwbMfsZI",
-      channelId: "UCvJUZw7742vo8Rc71OkOuAw",
-      titleKey: "🚩Ujjain Mahakal LIVE 24x7 Shreemahakaleshwar 🔱 Today Bhasm & Sandhya Shringar Aart Darshan #mahakal",
     },
   },
   {
@@ -71309,36 +59324,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "pe-new-years-2027-countdown-all-timezone",
-    name: { ja: "NEW YEARS 2027 COUNTDOWN ALL TIMEZONES! - LIVE 24/7", en: "NEW YEARS 2027 COUNTDOWN ALL TIMEZONES! - LIVE 24/7" },
-    lat: -12.5923,
-    lng: -76.0363,
-    timeZone: "America/Lima",
-    category: "city",
-    country: "PE",
-    source: {
-      videoId: "CaV0eBsikhc",
-      channelId: "UC7tCJBrRaLu4EFP6RSdrggw",
-      titleKey: "NEW YEARS 2027 COUNTDOWN ALL TIMEZONES! - LIVE🔴 24/7",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "gb-loch-arkaig-osprey-camera-2",
-    name: { ja: "Loch Arkaig Osprey Camera 2", en: "Loch Arkaig Osprey Camera 2" },
-    lat: 58.103,
-    lng: -6.4848,
-    timeZone: "Europe/London",
-    category: "city",
-    country: "GB",
-    source: {
-      videoId: "iFzGp7mT_PY",
-      channelId: "UCJONGed182uY9_TVRp1qiMg",
-      titleKey: "Loch Arkaig Osprey Camera 2",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "is-eruzione-etna-nunziata-di-mascali-liv",
     name: { ja: "ERUZIONE ETNA - Nunziata di Mascali live webcam - Panoramica Etna est", en: "ERUZIONE ETNA - Nunziata di Mascali live webcam - Panoramica Etna est" },
     lat: 63.7058,
@@ -71444,36 +59429,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "gb-tenby-south-beach-live-webcam-pembrok",
-    name: { ja: "Tenby South Beach Live Webcam | Pembrokeshire Coast | Puffin Cottage Holidays", en: "Tenby South Beach Live Webcam | Pembrokeshire Coast | Puffin Cottage Holidays" },
-    lat: 51.6728,
-    lng: -4.7045,
-    timeZone: "Europe/London",
-    category: "city",
-    country: "GB",
-    source: {
-      videoId: "LUNS990R450",
-      channelId: "UCX1UA8V125i7_z9ZJS_UdEA",
-      titleKey: "🌊 Tenby South Beach Live Webcam | Pembrokeshire Coast | Puffin Cottage Holidays 🌊",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "gb-llandudno-north-parade-from-min-y-don",
-    name: { ja: "Llandudno North Parade from Min y Don Llandudno", en: "Llandudno North Parade from Min y Don Llandudno" },
-    lat: 51.6167,
-    lng: -1.95,
-    timeZone: "Europe/London",
-    category: "city",
-    country: "GB",
-    source: {
-      videoId: "P0jRqh_82uE",
-      channelId: "UC83brW6sqxKVjmjlqkh2Fqg",
-      titleKey: "Llandudno North Parade from Min y Don Llandudno",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "gb-towyn-north-wales-coast-mainline-rail",
     name: { ja: "Towyn- North Wales Coast Mainline | Railcam Uk", en: "Towyn- North Wales Coast Mainline | Railcam Uk" },
     lat: 52.6,
@@ -71519,21 +59474,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "gb-tullochwood-lodges-live-stream-across",
-    name: { ja: "Tullochwood Lodges Live Stream Across The Lochan", en: "Tullochwood Lodges Live Stream Across The Lochan" },
-    lat: 54.8663,
-    lng: -5.0057,
-    timeZone: "Europe/London",
-    category: "city",
-    country: "GB",
-    source: {
-      videoId: "st6Z0xFYsQI",
-      channelId: "UCAmsy8DCRy45hqC_YVGW62A",
-      titleKey: "Tullochwood Lodges Live Stream Across The Lochan",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "gb-live-broad-haven-beach-pembrokesh-2",
     name: { ja: "Live Broad Haven Beach Pembrokeshire (North View)", en: "Live Broad Haven Beach Pembrokeshire (North View)" },
     lat: 51.7816,
@@ -71549,21 +59489,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "gb-north-wales-live-weather-hd-webcam",
-    name: { ja: "North Wales Live Weather HD Webcam", en: "North Wales Live Weather HD Webcam" },
-    lat: 52.25,
-    lng: -0.8833,
-    timeZone: "Europe/London",
-    category: "city",
-    country: "GB",
-    source: {
-      videoId: "aUw3mS_PW9g",
-      channelId: "UCNaB5V22nfsGWutsYXQBqLw",
-      titleKey: "North Wales Live Weather HD Webcam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "gb-bowleaze-cove-beach-weymouth-uk-live",
     name: { ja: "Bowleaze Cove Beach (Weymouth, UK) Live Webcam @ Beachside Cafe", en: "Bowleaze Cove Beach (Weymouth, UK) Live Webcam @ Beachside Cafe" },
     lat: 57.1,
@@ -71575,36 +59500,6 @@ export const CAMS: Cam[] = [
       videoId: "OYVUBm7AB1Y",
       channelId: "UCG-Icsd_kbKnt9QraydFQPQ",
       titleKey: "Bowleaze Cove Beach (Weymouth, UK) Live Webcam @ Beachside Cafe",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ie-portrush-live-surf-cam",
-    name: { ja: "Portrush Live Surf Cam", en: "Portrush Live Surf Cam" },
-    lat: 52.8879,
-    lng: -6.6058,
-    timeZone: "Europe/Dublin",
-    category: "city",
-    country: "IE",
-    source: {
-      videoId: "edrTjkN8UOA",
-      channelId: "UC1lHYBK_YeXDJv6sedRwW0A",
-      titleKey: "Portrush Live Surf Cam",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "co-columbia-sc-traffic-cam-police-scanne",
-    name: { ja: "Columbia SC Traffic Cam + Police Scanner | I-26, I-20, I-77", en: "Columbia SC Traffic Cam + Police Scanner | I-26, I-20, I-77" },
-    lat: 5.217,
-    lng: -75.8212,
-    timeZone: "America/Bogota",
-    category: "city",
-    country: "CO",
-    source: {
-      videoId: "F14aJZOBLPg",
-      channelId: "UCX1QTUluCHrv6Pqo6RAGTmg",
-      titleKey: "Columbia SC Traffic Cam + Police Scanner | I-26, I-20, I-77",
     },
   },
   {
@@ -71650,21 +59545,6 @@ export const CAMS: Cam[] = [
       videoId: "9wxPPTIrC8k",
       channelId: "UC4wFbFtRzpetXPhRulCdBIg",
       titleKey: "Haverdals Golfklubb Live",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "se-risk-riksgransen-snowboard-och-skidkl",
-    name: { ja: "RISK - Riksgränsen Snowboard och SkidKlubb. Live from our clubhouse camera.", en: "RISK - Riksgränsen Snowboard och SkidKlubb. Live from our clubhouse camera." },
-    lat: 65.7333,
-    lng: 24.1333,
-    timeZone: "Europe/Stockholm",
-    category: "city",
-    country: "SE",
-    source: {
-      videoId: "Fx5ZDS0jKtU",
-      channelId: "UC1XlmGqT1StautEMJmV_T5Q",
-      titleKey: "RISK - Riksgränsen Snowboard och SkidKlubb. Live from our clubhouse camera.",
     },
   },
   {
@@ -71804,21 +59684,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "nl-egmond-aan-zee-live-webcam-strand-zee",
-    name: { ja: "Egmond aan Zee Live Webcam | Strand, Zee & Dorpscentrum", en: "Egmond aan Zee Live Webcam | Strand, Zee & Dorpscentrum" },
-    lat: 52.6165,
-    lng: 4.6193,
-    timeZone: "Europe/Amsterdam",
-    category: "city",
-    country: "NL",
-    source: {
-      videoId: "9xa5IvsIMoE",
-      channelId: "UCZZWtFnPc7_ohFnBeYTbT3w",
-      titleKey: "🔴 Egmond aan Zee Live Webcam 🌊 | Strand, Zee & Dorpscentrum",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "nl-live-zandvoort-boulevard-and-beach-ca",
     name: { ja: "Live Zandvoort Boulevard and Beach Camera", en: "Live Zandvoort Boulevard and Beach Camera" },
     lat: 52.3713,
@@ -71924,21 +59789,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "nz-lyall-bay-surf-cam-by-lbslsc",
-    name: { ja: "Lyall Bay Surf Cam by LBSLSC", en: "Lyall Bay Surf Cam by LBSLSC" },
-    lat: -39.4203,
-    lng: 176.8673,
-    timeZone: "Pacific/Auckland",
-    category: "city",
-    country: "NZ",
-    source: {
-      videoId: "Wqkr-o1P9OQ",
-      channelId: "UCQ47DQGRsWne_sKrIC9DcrQ",
-      titleKey: "Lyall Bay Surf Cam by LBSLSC",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-live-sea-lion-beach-british-columbia",
     name: { ja: "LIVE Sea Lion Beach - British Columbia | explore.org", en: "LIVE Sea Lion Beach - British Columbia | explore.org" },
     lat: 47.6062,
@@ -71950,21 +59800,6 @@ export const CAMS: Cam[] = [
       videoId: "-uooI2satIQ",
       channelId: "UC5RV1g0fRYXfrt75hqvohKw",
       titleKey: "LIVE Sea Lion Beach - British Columbia | explore.org",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-live-puffin-loafing-ledge-maine-seabi",
-    name: { ja: "LIVE Puffin Loafing Ledge: Maine Seabird Colony | explore.org", en: "LIVE Puffin Loafing Ledge: Maine Seabird Colony | explore.org" },
-    lat: 42.0334,
-    lng: -87.8834,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "daFe_ygulPY",
-      channelId: "UCQpqwndsfuLig9BRo88AD_g",
-      titleKey: "LIVE Puffin Loafing Ledge: Maine Seabird Colony | explore.org",
     },
   },
   {
@@ -72104,21 +59939,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "bg-live-bulgaria-webcams",
-    name: { ja: "Live камери България: София, Бояна и Черни връх | Bulgaria webcams", en: "Live камери България: София, Бояна и Черни връх | Bulgaria webcams" },
-    lat: 42.9619,
-    lng: 24.4058,
-    timeZone: "Europe/Sofia",
-    category: "city",
-    country: "BG",
-    source: {
-      videoId: "LKYcD-VAUjc",
-      channelId: "UCunD6k4qnEcO684VkVRdEAA",
-      titleKey: "Live камери България: София, Бояна и Черни връх | Bulgaria webcams",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "de-railcam-uk-sampler-stream",
     name: { ja: "Railcam UK Sampler Stream", en: "Railcam UK Sampler Stream" },
     lat: 50.6973,
@@ -72145,21 +59965,6 @@ export const CAMS: Cam[] = [
       videoId: "_8uhgXIZ_vQ",
       channelId: "UCJfBClnssf9nQdzBEYpvQWQ",
       titleKey: "Lake Noquebay Live From Timberline Resort",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "np-4k-live-wildlife-safari-animals-live",
-    name: { ja: "4k live wildlife safari | animals live | relaxing nature sound", en: "4k live wildlife safari | animals live | relaxing nature sound" },
-    lat: 27.7058,
-    lng: 85.3202,
-    timeZone: "Asia/Kathmandu",
-    category: "city",
-    country: "NP",
-    source: {
-      videoId: "7X-FPA3QuYU",
-      channelId: "UCAyFoigoMfo1wHN7XRn-HQA",
-      titleKey: "4k live wildlife safari | animals live | relaxing nature sound",
     },
   },
   {
@@ -72223,21 +60028,6 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: Open-Meteo geocoding "George Town", Penang
-    id: "ch-live-penang-webcam-weather-georgetown",
-    name: { ja: "LIVE Penang webcam weather Georgetown, Penang Malaysia 马来西亚 - 槟城 - 乔治市 Gurney Drive-Komtar-Jelutong", en: "LIVE Penang webcam weather Georgetown, Penang Malaysia 马来西亚 - 槟城 - 乔治市 Gurney Drive-Komtar-Jelutong" },
-    lat: 5.4112,
-    lng: 100.3354,
-    timeZone: "Asia/Kuala_Lumpur",
-    category: "city",
-    country: "MY",
-    source: {
-      videoId: "JJ4pSHaYB5s",
-      channelId: "UCceaS3UV2CUXseTsOjCAtcQ",
-      titleKey: "LIVE Penang webcam weather Georgetown, Penang Malaysia 马来西亚 - 槟城 - 乔治市 Gurney Drive-Komtar-Jelutong",
-    },
-  },
-  {
     // coords: set explicitly as a well-known landmark
     id: "de-live-greater-nevada-field-camera",
     name: { ja: "Live Greater Nevada Field Camera", en: "Live Greater Nevada Field Camera" },
@@ -72298,21 +60088,6 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: Open-Meteo geocoding "Davao City", Davao Region
-    id: "pl-philippines-live-camera-bankerohan-ma",
-    name: { ja: "PHILIPPINES Live camera, Bankerohan Market area 2, Davao City #philippines", en: "PHILIPPINES Live camera, Bankerohan Market area 2, Davao City #philippines" },
-    lat: 7.0731,
-    lng: 125.6128,
-    timeZone: "Asia/Manila",
-    category: "city",
-    country: "PH",
-    source: {
-      videoId: "JklHtgXkQ2o",
-      channelId: "UC0djAWwMXP22wzocdJR9dWw",
-      titleKey: "🔴 PHILIPPINES Live camera, Bankerohan Market area 2, Davao City #philippines",
-    },
-  },
-  {
     // coords: set explicitly as a well-known landmark
     id: "pl-maria-s-cam-12-felve-tuna-panga-and-e",
     name: { ja: "Maria's Cam 12 Felve Tuna Panga and Eatery , Ubalde Agdao Davao City, Philippine", en: "Maria's Cam 12 Felve Tuna Panga and Eatery , Ubalde Agdao Davao City, Philippine" },
@@ -72325,21 +60100,6 @@ export const CAMS: Cam[] = [
       videoId: "tllSPGECsPc",
       channelId: "UCZ6ZuSqeKrjFP7w9lS0nx0Q",
       titleKey: "Maria's Cam 12 Felve Tuna Panga and Eatery , Ubalde Agdao Davao City, Philippine",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "no-live-santa-claus-village",
-    name: { ja: "LIVE @ Santa Claus Village", en: "LIVE @ Santa Claus Village" },
-    lat: 59.9024,
-    lng: 10.7671,
-    timeZone: "Europe/Oslo",
-    category: "city",
-    country: "NO",
-    source: {
-      videoId: "e90mfzdBBb8",
-      channelId: "UCMhdPZXDUCTMHxck5GIqHaw",
-      titleKey: "LIVE @ Santa Claus Village",
     },
   },
   {
@@ -72419,21 +60179,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "no-live-northern-lights-camera-from-utsj",
-    name: { ja: "LIVE northern lights camera from Utsjoki in Finnish Lapland", en: "LIVE northern lights camera from Utsjoki in Finnish Lapland" },
-    lat: 69.6501,
-    lng: 18.956,
-    timeZone: "Europe/Oslo",
-    category: "city",
-    country: "NO",
-    source: {
-      videoId: "3HXRJ-4tOCw",
-      channelId: "UC7sG1cQ5TFIJarNQa2SSfGw",
-      titleKey: "LIVE northern lights camera from Utsjoki in Finnish Lapland",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-live-35",
     name: { ja: "【LIVE】松江・宍道湖ライブカメラ", en: "【LIVE】松江・宍道湖ライブカメラ" },
     lat: 35.41,
@@ -72460,21 +60205,6 @@ export const CAMS: Cam[] = [
       videoId: "EPEiGzCTX7w",
       channelId: "UCfE5u1B3RuyBxgpuh8biMfA",
       titleKey: "【LIVE CAMERA】長門湯本温泉ライブカメラ 恩湯（おんとう）前",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "no-nelson-tasman-live-camera-weather-and",
-    name: { ja: "Nelson/Tasman Live Camera - Weather and Stargazing in 4K | Meteor Showers - Aurora sometimes..", en: "Nelson/Tasman Live Camera - Weather and Stargazing in 4K | Meteor Showers - Aurora sometimes.." },
-    lat: -54.4215,
-    lng: 3.4329,
-    timeZone: "Etc/GMT",
-    category: "city",
-    country: "NO",
-    source: {
-      videoId: "MPwMmEvl6F0",
-      channelId: "UCu8iqjezmCQJC0K2csGS7Yg",
-      titleKey: "🔴 Nelson/Tasman Live Camera - Weather and Stargazing in 4K  | Meteor Showers - Aurora sometimes..",
     },
   },
   {
@@ -72955,21 +60685,6 @@ export const CAMS: Cam[] = [
       videoId: "CpeiYBljpdo",
       channelId: "UCkEiJMkX7n3rZpZ2PDVc3Ow",
       titleKey: "LIVE PEMANTAUAN CCTV LALULINTAS TPR",
-    },
-  },
-  {
-    // coords: Open-Meteo geocoding "Hwange National Park", Matabeleland North
-    id: "za-live-wildlife-camera-at-the-hide-hwan",
-    name: { ja: "Live Wildlife Camera at The Hide | Hwange Waterhole, Zimbabwe", en: "Live Wildlife Camera at The Hide | Hwange Waterhole, Zimbabwe" },
-    lat: -19.1667,
-    lng: 26.5,
-    timeZone: "Africa/Harare",
-    category: "animal",
-    country: "ZW",
-    source: {
-      videoId: "nXI-kWu6BLo",
-      channelId: "UCuoNAKa3P0QR1Lw9QdpmoVg",
-      titleKey: "Live Wildlife Camera at The Hide | Hwange Waterhole, Zimbabwe",
     },
   },
   {
@@ -73769,21 +61484,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "in-live",
-    name: { ja: "LIVE : प्रतिदिन सुबह शाम - श्री दुर्गा चालीसा का ११ बार पाठ करने से सारे कष्ट दुःख दूर होते हैं |", en: "LIVE : प्रतिदिन सुबह शाम - श्री दुर्गा चालीसा का ११ बार पाठ करने से सारे कष्ट दुःख दूर होते हैं |" },
-    lat: 27.7223,
-    lng: 91.8917,
-    timeZone: "Asia/Kolkata",
-    category: "city",
-    country: "IN",
-    source: {
-      videoId: "Lb7tv3KNzlg",
-      channelId: "UCkgnXAsrqL7SYKDZiwuuOEQ",
-      titleKey: "🔴LIVE : प्रतिदिन  सुबह शाम - श्री दुर्गा चालीसा का ११ बार पाठ करने से सारे कष्ट दुःख दूर होते हैं |",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "pe-the-global-prayer-room-24-7-livestrea",
     name: { ja: "The Global Prayer Room | 24/7 Livestream", en: "The Global Prayer Room | 24/7 Livestream" },
     lat: -12.0913,
@@ -73915,21 +61615,6 @@ export const CAMS: Cam[] = [
       videoId: "VZ7UthXFfTw",
       channelId: "UCbn5eHDjwmPC2K9RG8P0i_A",
       titleKey: "「LIVECAMERA 」草津温泉・本白根山ライブカメラ（固定式）",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-livecamera-8",
-    name: { ja: "「LIVECAMERA 」草津温泉・白根山ライブカメラ（移動式）", en: "「LIVECAMERA 」草津温泉・白根山ライブカメラ（移動式）" },
-    lat: 35.0167,
-    lng: 135.9667,
-    timeZone: "Asia/Tokyo",
-    category: "nature",
-    country: "JP",
-    source: {
-      videoId: "yMm2Q3zLXKI",
-      channelId: "UCbn5eHDjwmPC2K9RG8P0i_A",
-      titleKey: "「LIVECAMERA 」草津温泉・白根山ライブカメラ（移動式）",
     },
   },
   {
@@ -74564,21 +62249,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "in-falcon-cam-hibbard-2",
-    name: { ja: "Falcon Cam - Hibbard 2", en: "Falcon Cam - Hibbard 2" },
-    lat: 11.9823,
-    lng: 79.7773,
-    timeZone: "Asia/Kolkata",
-    category: "city",
-    country: "IN",
-    source: {
-      videoId: "IIBH_Zva4ms",
-      channelId: "UCYzcstmc8YHTmPJkvFfiRWA",
-      titleKey: "Falcon Cam - Hibbard 2",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "no-winter-in-norway-4k-uhd-norway-s-ench",
     name: { ja: "Winter in Norway 4K UHD️ Norway's enchanting winter fjords and snow-covered beauty • Relaxing Music", en: "Winter in Norway 4K UHD️ Norway's enchanting winter fjords and snow-covered beauty • Relaxing Music" },
     lat: 59.9325,
@@ -74650,21 +62320,6 @@ export const CAMS: Cam[] = [
       videoId: "lUIOBYWfHgw",
       channelId: "UCP4cCckKrZTWPRG1rJ_cahA",
       titleKey: "🔴 LIVE Real Time Ukraine Cameras",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ua-24-7-live-cams-ukraine-russia-conflic",
-    name: { ja: "24/7 Live Cams: Ukraine – Russia Conflict", en: "24/7 Live Cams: Ukraine – Russia Conflict" },
-    lat: 48.5728,
-    lng: 39.3145,
-    timeZone: "Europe/Kyiv",
-    category: "city",
-    country: "UA",
-    source: {
-      videoId: "CH8JsNKY3xo",
-      channelId: "UCPMcDwo2Exvc1_y0rlL-DQQ",
-      titleKey: "24/7 Live Cams: Ukraine – Russia Conflict",
     },
   },
   {

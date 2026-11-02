@@ -45,7 +45,6 @@ describe("isBroadcast", () => {
   it("also tells by the wording of the title", () => {
     const titles = [
       "🔴 LIVE! Phineas and Ferb Full Episodes! | @disneychannelanimation",
-      "🔴EN VIVO: Episodios completos de Bluey en HD",
       "Bizimkiler - Tüm Bölümler Canlı Yayın",
       "CNN TÜRK - 🔴 Canlı Yayın ᴴᴰ - Canlı TV izle | HABER",
       "Aşk-ı Memnu Canlı İzle",

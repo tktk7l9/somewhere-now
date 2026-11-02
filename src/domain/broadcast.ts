@@ -49,7 +49,6 @@ export const BROADCAST_CHANNELS: ReadonlySet<string> = new Set([
   "UCXoJ8kY9zpLBEz-8saaT3ew", // ТСН / 1+1
   "UCVgO39Bk5sMo66-6o6Spn6Q", // ABC NEWS Australia
   "UCTHCOPwqNfZ0uiKOvFyhGwg", // 연합뉴스TV
-  "UCt4t-jeY85JegMlZ-E5UWtA", // Aaj Tak
   "UCtc-a9ZUIg0_5HpsPxEO7Qg", // Haber Global
   "UCOutOIcn_oho8pyVN3Ng-Pg", // TV9 Bharatvarsh
   "UCumtYpCY26F6Jr3satUgMvA", // NTV Telugu News
@@ -64,7 +63,6 @@ export const BROADCAST_CHANNELS: ReadonlySet<string> = new Set([
   "UCbf0XHULBkTfv2hBjaaDw9Q", // News18 Bangla
   "UCrcpw88HvKJ0skdsHniCJtQ", // News18 Marathi
   "UCef1-8eOpJgud7szVPlZQAQ", // CNN-News18
-  "UCuzS3rPQAYqHcLWqOFuY0pw", // News 24 (IN)
   "UC83jt4dlz1Gjl58fzQrrKZg", // CNA
   "UCgp4A6I8LCWrhUzn-5SbKvA", // TVC News Nigeria
   "UC_OaSsAydgSIjUtjYn9qLog", // TV Novo Tempo
@@ -88,9 +86,7 @@ export const BROADCAST_CHANNELS: ReadonlySet<string> = new Set([
   "UCIdiuKAg5xVZsvXDQbOG4cg", // Aşk-ı Memnu
   "UCw7SNYrYei7F5ttQO3o-rpA", // Disney Channel Animation
   "UCx7gLo8iS4ofgNfBENUxWDA", // Taşacak Bu Deniz
-  "UCYvpkMpzo1S_rmcj2Axmbig", // Bluey
   "UCoBpC9J2EcbAMprw7YjC93A", // Cartoon Network
-  "UCN2Q-lSzQa7RjrCxQZ8DzbA", // Yalan Dünya
   "UCpMth28h0W_ycDlZ5KxABDw", // Altı Üstü İstanbul
 
   // Radio and music
@@ -125,11 +121,9 @@ export const BROADCAST_CHANNELS: ReadonlySet<string> = new Set([
   "UCrI8aOr8G4tGjGUk6hRPpAA", // MIAMI 8K Virtual Tour
   "UCpk3W9ZdKX83AakFh6j4uQw", // Switzerland 4K
   "UCdTff6CR1MXSZE_fd_qWREA", // 24/7 LIVE Tropical Paradise
-  "UCj-Xm8j6WBgKY8OG7s9r2vQ", // Norway's Railway Cab Views
 
   // Clocks, alerts and monitoring boards (showing numbers, not a place)
   "UC7pYTpHuYsmaSiNnr-HfTfw", // Hora Certa
-  "UC3ACLDxuy75577-GDItIgNA", // HORA CERTA
   "UCL2omxZpaK-k1j7UfuLQpVw", // Relógio / Hora Atual
   "UCSsrBhwy9RdzxX9Hnvps-Vw", // КАРТА ПОВІТРЯНИХ ТРИВОГ
   "UCvLCdNi-fitoRvWeHrzJp_A", // Карта повітряних тривог
@@ -150,7 +144,6 @@ export const BROADCAST_CHANNELS: ReadonlySet<string> = new Set([
 export const BROADCAST_TITLE_PATTERNS: readonly RegExp[] = [
   // Film and series. Only programmes carry episode counts or "all episodes".
   /\bfull\s+episodes?\b/i,
-  /\bepisodios?\s+completos?\b/i,
   /\bt[üu]m\s+b[öo]l[üu]mler\b/i,
   // (`season \d` is left out: it matched one entry only, and that was "Vancouver LIVE Cam …
   //  Alaska Season 2026" = a real cruise ship camera. Cartoons are caught by full episodes.)
