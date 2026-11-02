@@ -9973,11 +9973,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Fairport", New York (title; Photon hit within 25 km: Faust's USA Karate, NY)
     id: "us-fairport-new-york-usa-live-train-came",
     name: { ja: "Fairport, New York, USA | LIVE Train Camera (Fixed View – West)", en: "Fairport, New York, USA | LIVE Train Camera (Fixed View – West)" },
-    lat: 42.167,
-    lng: -76.8205,
+    lat: 43.0987,
+    lng: -77.4419,
     timeZone: "America/New_York",
     category: "railway",
     country: "US",
@@ -13483,11 +13483,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Dublin", Leinster (title; Photon hit within 25 km: Dublin City University Glasnevin Campus)
     id: "ie-live-webcam-collins-avenue-dublin-ire",
     name: { ja: "Live Webcam Collins Avenue Dublin Ireland", en: "Live Webcam Collins Avenue Dublin Ireland" },
-    lat: 53.6442,
-    lng: -7.2067,
+    lat: 53.3331,
+    lng: -6.2489,
     timeZone: "Europe/Dublin",
     category: "city",
     country: "IE",
@@ -13498,11 +13498,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: The Paddocks Riding Centre; Open-Meteo: Dublin, Leinster; title
     id: "ie-the-paddocks-riding-centre-live-webca",
     name: { ja: "The Paddocks Riding Centre Live Webcam Dublin Ireland.", en: "The Paddocks Riding Centre Live Webcam Dublin Ireland." },
-    lat: 52.8628,
-    lng: -8.1995,
+    lat: 53.2504,
+    lng: -6.2262,
     timeZone: "Europe/Dublin",
     category: "nature",
     country: "IE",
@@ -16528,11 +16528,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Chicago", Illinois (title; Photon hit within 25 km: Trump International Hotel & Tower Chicago, IL)
     id: "us-live-stream-construction-hotel-chicag",
     name: { ja: "Live Stream - Construction Hotel Chicago", en: "Live Stream - Construction Hotel Chicago" },
-    lat: 35.7201,
-    lng: -88.8217,
+    lat: 41.85,
+    lng: -87.65,
     timeZone: "America/Chicago",
     category: "city",
     country: "US",
@@ -20968,11 +20968,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Dry Hill Ski Area, NY; Open-Meteo: Watertown, New York; title
     id: "us-live-stream-dry-hill-ski-area-waterto",
     name: { ja: "Live Stream — Dry Hill Ski Area, Watertown NY", en: "Live Stream — Dry Hill Ski Area, Watertown NY" },
-    lat: 35.8168,
-    lng: -83.1432,
+    lat: 43.931,
+    lng: -75.9016,
     timeZone: "America/New_York",
     category: "city",
     country: "US",
@@ -27523,11 +27523,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Westhampton", New York (title; Photon hit within 25 km: Hamptons Jiu Jitsu Westhampton Beach, New York)
     id: "us-hamptons-com-live-pike-s-beach-westha",
     name: { ja: "Hamptons.com - LIVE! Pike's Beach, Westhampton , New York", en: "Hamptons.com - LIVE! Pike's Beach, Westhampton , New York" },
-    lat: 44.2046,
-    lng: -70.5527,
+    lat: 40.8245,
+    lng: -72.6662,
     timeZone: "America/New_York",
     category: "nature",
     country: "US",
@@ -27598,11 +27598,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Kansas City, Missouri; Open-Meteo: Kansas City, Missouri; title
     id: "us-earthcam-live-kansas-city-cam-kansas",
     name: { ja: "EarthCam Live: Kansas City Cam (Kansas City, MO)", en: "EarthCam Live: Kansas City Cam (Kansas City, MO)" },
-    lat: 36.2051,
-    lng: -94.7977,
+    lat: 39.1001,
+    lng: -94.5781,
     timeZone: "America/Chicago",
     category: "city",
     country: "US",
@@ -35743,11 +35743,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Bagni Miki, Veneto; Open-Meteo: Sottomarina, Veneto; title
     id: "it-bagni-miki-chioggia-sottomarina-venez",
     name: { ja: "Bagni Miki - Chioggia Sottomarina (Venezia) - Live Full HD", en: "Bagni Miki - Chioggia Sottomarina (Venezia) - Live Full HD" },
-    lat: 44.3975,
-    lng: 9.122,
+    lat: 45.1976,
+    lng: 12.3033,
     timeZone: "Europe/Rome",
     category: "city",
     country: "IT",
@@ -36283,11 +36283,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Hedigan's - The Brian Boru; Open-Meteo: Glasnevin, Leinster; title
     id: "ie-the-brian-boru-pub-live-webcam-glasne",
     name: { ja: "The Brian Boru Pub Live Webcam Glasnevin Dublin Ireland", en: "The Brian Boru Pub Live Webcam Glasnevin Dublin Ireland" },
-    lat: 53.5526,
-    lng: -6.8928,
+    lat: 53.3652,
+    lng: -6.2722,
     timeZone: "Europe/Dublin",
     category: "city",
     country: "IE",
@@ -37168,11 +37168,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Viaduct Bascule Bridge, Auckland; Open-Meteo: Auckland, Auckland; title
     id: "nz-auckland-live-cam-viaduct-harbour-har",
     name: { ja: "Auckland Live Cam · Viaduct Harbour & Harbour Bridge · 4K 24/7", en: "Auckland Live Cam · Viaduct Harbour & Harbour Bridge · 4K 24/7" },
-    lat: -45.2584,
-    lng: 169.3801,
+    lat: -36.8418,
+    lng: 174.7618,
     timeZone: "Pacific/Auckland",
     category: "city",
     country: "NZ",
@@ -44293,12 +44293,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Tofino Sea Kayaking, British Columbia; Open-Meteo: Tofino, British Columbia; title
     id: "ca-tofino-sea-kayaking-live-harbour-cam",
     name: { ja: "Tofino Sea Kayaking Live Harbour Cam", en: "Tofino Sea Kayaking Live Harbour Cam" },
-    lat: 45.7834,
-    lng: -62.9781,
-    timeZone: "America/Halifax",
+    lat: 49.154,
+    lng: -125.9082,
+    timeZone: "America/Vancouver",
     category: "city",
     country: "CA",
     source: {
@@ -51898,12 +51898,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Weymouth Fore River, Massachusetts; Open-Meteo: Weymouth, Massachusetts; title
     id: "us-weymouth-massachusetts-fore-river-liv",
     name: { ja: "Weymouth, Massachusetts - Fore River - Live cam", en: "Weymouth, Massachusetts - Fore River - Live cam" },
-    lat: 32.3646,
-    lng: -89.4742,
-    timeZone: "America/Chicago",
+    lat: 42.232,
+    lng: -70.9603,
+    timeZone: "America/New_York",
     category: "city",
     country: "US",
     source: {
@@ -54103,11 +54103,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Marginal Way, Maine; Open-Meteo: Ogunquit, Maine; title
     id: "us-marginal-way-ogunquit-maine-live-view",
     name: { ja: "Marginal Way Ogunquit Maine Live View", en: "Marginal Way Ogunquit Maine Live View" },
-    lat: 39.6412,
-    lng: -81.1834,
+    lat: 43.2393,
+    lng: -70.5898,
     timeZone: "America/New_York",
     category: "city",
     country: "US",
