@@ -56,14 +56,12 @@ export const BROADCAST_CHANNELS: ReadonlySet<string> = new Set([
   "UCp2f7tGJGN6R9Muxipem8Nw", // 寰宇新聞 GlobalNewsTV
   "UCDCMjD1XIAsCZsYHNMGVcog", // V6 Telugu News
   "UCQfwfsi5VrQ8yKZ-UWmAEFg", // FRANCE 24 English
-  "UCKII0Ml9S5wneKbHswmUrIQ", // CNN Indonesia
   "UCnMBV5Iw4WqKILKue1nP6Hg", // Dunya News
   "UCAR3h_9fLV82N2FH4cE4RKw", // TV5 News Telugu
   "UC-crZTQNRzZgzyighTKF0nQ", // News18 Punjab
   "UCbf0XHULBkTfv2hBjaaDw9Q", // News18 Bangla
   "UCrcpw88HvKJ0skdsHniCJtQ", // News18 Marathi
   "UCef1-8eOpJgud7szVPlZQAQ", // CNN-News18
-  "UC83jt4dlz1Gjl58fzQrrKZg", // CNA
   "UCgp4A6I8LCWrhUzn-5SbKvA", // TVC News Nigeria
   "UC_OaSsAydgSIjUtjYn9qLog", // TV Novo Tempo
   "UC64ZNqX0FQHabP8iIkmnR3A", // Canal Siete
@@ -90,7 +88,6 @@ export const BROADCAST_CHANNELS: ReadonlySet<string> = new Set([
   "UCpMth28h0W_ycDlZ5KxABDw", // Altı Üstü İstanbul
 
   // Radio and music
-  "UCJozD5RVug7EZdTjqkGISYQ", // RADIO 10
   "UCEAW_kmPVjxTC50vuLyKOQA", // Kral Akustik Radyo
   "UCJhjE7wbdYAae1G25m0tHAA", // Relaxing Jazz Piano Radio
   "UCIYy_Et4Uee-LejWsUzWK5Q", // Luxury Hotel Lounge Music
@@ -98,7 +95,6 @@ export const BROADCAST_CHANNELS: ReadonlySet<string> = new Set([
   "UCFzn3ls-N6pg8bHhj0D8z8Q", // Psychedelic Anatolian Rock
   "UCrFFy9BMtlNsg2wsa4XbTPg", // Chillout 2026
   "UCIB228QNsdJDSX8bocYCZOA", // Soft Lofi Room
-  "UCYoqxCpRzCvLNSvoXLxNmaw", // Tranquil Sunset Beach Jazz
   "UC7bX_RrH3zbdp5V4j5umGgw", // Night Paris Jazz
   "UCjCZYDvsIedScbetox2LBCA", // Tropical Summer Bossa Nova
   "UCwobzUc3z-0PrFpoRxNszXQ", // Relaxing Zen Music
@@ -117,9 +113,7 @@ export const BROADCAST_CHANNELS: ReadonlySet<string> = new Set([
   "UCkwi3H7xoYTJKycMI9YAn0w", // 4K Aquarium / documentary
   "UCg-jBMU2-9RErt1gn9a5jWg", // BORA BORA 8K Aerial
   "UC3Usv7r1W5Tdvsubec-v1AQ", // MALDIVES 4K Aerial
-  "UCRMfq-zDxS_Qc7J8WX3xx_A", // Bora Bora 4K Aerial
   "UCrI8aOr8G4tGjGUk6hRPpAA", // MIAMI 8K Virtual Tour
-  "UCpk3W9ZdKX83AakFh6j4uQw", // Switzerland 4K
   "UCdTff6CR1MXSZE_fd_qWREA", // 24/7 LIVE Tropical Paradise
 
   // Clocks, alerts and monitoring boards (showing numbers, not a place)
@@ -155,7 +149,6 @@ export const BROADCAST_TITLE_PATTERNS: readonly RegExp[] = [
   /\btelewizja\b/i,
   // News programmes. news alone catches broadcasters' street cameras, so two words only.
   /\bbreaking\s+news\b/i,
-  /報道ステーション|ニュースまとめ/,
   /ニュースを(?:24時間)?ライブ配信/,
   /最新ニュースをライブ配信/,
   /緊急地震速報/,

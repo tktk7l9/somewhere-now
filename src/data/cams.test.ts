@@ -18,9 +18,12 @@ describe("camera master data", () => {
    * 2026-11-02 (later the same day): lowered again to 4,160. The owner decided to drop what cannot
    * be played: 821 finished live streams whose recording is removed or members-only, plus
    * rio-christ-redeemer and yosemite, whose streams are gone. The catalogue is now 4,163.
+   *
+   * 2026-11-02 (third pass): lowered to 3,800 under the same decision. 353 offline cameras whose
+   * stream is private, deleted or unavailable were dropped; the catalogue is now 3,810.
    */
-  it("has 4160 or more entries", () => {
-    expect(CAMS.length).toBeGreaterThanOrEqual(4160);
+  it("has 3800 or more entries", () => {
+    expect(CAMS.length).toBeGreaterThanOrEqual(3800);
   });
 
   /**
