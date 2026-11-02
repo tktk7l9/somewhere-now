@@ -6,8 +6,24 @@ describe("camera master data", () => {
     expect(collectCamProblems(CAMS)).toEqual([]);
   });
 
-  it("has 5700 or more entries", () => {
-    expect(CAMS.length).toBeGreaterThanOrEqual(5700);
+  /**
+   * A floor, so a build that silently loses cameras (a rate-limited run, a broken importer) fails
+   * here. It sits just under the current total, not at a round target.
+   *
+   * 2026-11-02: lowered from 5,700 to 4,980 on purpose. The catalogue went from 5,705 to 4,986:
+   * 493 uploads that were never live, 213 streams whose owners forbid embedding and 12 lottery-draw
+   * streams were excluded on watch-page evidence (`scripts/cam-exclusions.ts`), and one bulk
+   * duplicate of a curated stream fell away.
+   *
+   * 2026-11-02 (later the same day): lowered again to 4,160. The owner decided to drop what cannot
+   * be played: 821 finished live streams whose recording is removed or members-only, plus
+   * rio-christ-redeemer and yosemite, whose streams are gone. The catalogue is now 4,163.
+   *
+   * 2026-11-02 (third pass): lowered to 3,800 under the same decision. 353 offline cameras whose
+   * stream is private, deleted or unavailable were dropped; the catalogue is now 3,810.
+   */
+  it("has 3800 or more entries", () => {
+    expect(CAMS.length).toBeGreaterThanOrEqual(3800);
   });
 
   /**

@@ -7,6 +7,8 @@ import {
   rankLiveByViewers,
   resolveEmbedUrl,
   resolvedVideoId,
+  canPlay,
+  youtubeLink,
   type Cam,
   type CamState,
   publicStates,
@@ -283,6 +285,38 @@ describe("pickRandom", () => {
 
   it("returns null for an empty array", () => {
     expect(pickRandom([], () => 0)).toBeNull();
+  });
+});
+
+describe("canPlay", () => {
+  it("tries a stream whose state is live, unknown or not known yet", () => {
+    expect(canPlay(undefined)).toBe(true);
+    expect(canPlay(state({ status: "live" }))).toBe(true);
+    expect(canPlay(state({ status: "unknown" }))).toBe(true);
+  });
+
+  it("does not open a player for a stopped or blocked stream", () => {
+    expect(canPlay(state({ status: "offline" }))).toBe(false);
+    expect(canPlay(state({ status: "blocked" }))).toBe(false);
+  });
+});
+
+describe("youtubeLink", () => {
+  it("goes to the stream while it plays, and when only embedding is refused", () => {
+    expect(youtubeLink(cam(), state({ videoId: "zzzzzzzzzzz", status: "live" }))).toEqual({
+      kind: "watch",
+      href: "https://www.youtube.com/watch?v=zzzzzzzzzzz",
+    });
+    expect(youtubeLink(cam(), state({ videoId: "zzzzzzzzzzz", status: "blocked" })).kind).toBe("watch");
+  });
+
+  it("goes to the channel when the stream is off air or no stream is known", () => {
+    expect(youtubeLink(cam(), state({ status: "offline" })).kind).toBe("channel");
+    const noVideo = cam();
+    noVideo.source = { ...noVideo.source, videoId: null };
+    expect(youtubeLink(noVideo, undefined).href).toContain(
+      `/channel/${encodeURIComponent(noVideo.source.channelId)}`,
+    );
   });
 });
 

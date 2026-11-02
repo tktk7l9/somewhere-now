@@ -401,6 +401,42 @@ describe("startApp", () => {
     expect(map.setVisible).toHaveBeenLastCalledWith(ALL_CAMS);
   });
 
+  describe("cameras with nothing to play", () => {
+    it("goes from a stopped camera to the nearest live one", async () => {
+      const user = userEvent.setup();
+      const { map } = await start({
+        url: "/?cam=tokyo",
+        states: {
+          updatedAt: "2026-06-01T03:00:00Z",
+          cams: { tokyo: offline(), reykjavik: live(1), kilauea: live(1) },
+        } as StatePayload,
+      });
+      await user.click(within(panel()).getByRole("button", { name: "近くの配信中のカメラへ" }));
+      expect(params().get("cam")).toBe("kilauea");
+      expect(map.focus).toHaveBeenCalledWith(KILAUEA);
+    });
+
+    it("does not offer a way out when nothing is live", async () => {
+      await start({
+        url: "/?cam=tokyo",
+        states: { updatedAt: "2026-06-01T03:00:00Z", cams: { tokyo: offline() } } as StatePayload,
+      });
+      expect(within(panel()).queryByRole("button", { name: "近くの配信中のカメラへ" })).toBeNull();
+    });
+
+    it("explains a link to a camera that is no longer listed", async () => {
+      await start({ url: "/?cam=gone" });
+      expect(within(noticeBox()).getByRole("status").textContent).toMatch(/収録から外れました/);
+      expect(location.search).toBe("");
+    });
+
+    it("keeps the listed cameras of a link when only some are gone", async () => {
+      await start({ url: "/?view=gone,tokyo" });
+      expect(within(noticeBox()).getByRole("status").textContent).toMatch(/一部は収録から外れました/);
+      expect(params().get("cam")).toBe("tokyo");
+    });
+  });
+
   describe("take me somewhere", () => {
     it("opens a live camera", async () => {
       const user = userEvent.setup();
@@ -411,7 +447,17 @@ describe("startApp", () => {
       expect(map.focus).toHaveBeenCalledWith(TOKYO);
     });
 
-    it("falls back to any visible camera when nothing is live", async () => {
+    it("does not take anyone to a camera that is off air", async () => {
+      const user = userEvent.setup();
+      await start({
+        states: { updatedAt: "2026-06-01T03:00:00Z", cams: { tokyo: offline() } } as StatePayload,
+      });
+      await user.click(screen.getByRole("button", { name: "どこかへ連れてって" }));
+      expect(params().get("cam")).toBeNull();
+      expect(within(noticeBox()).getByRole("status").textContent).toMatch(/いま配信しているカメラがありません/);
+    });
+
+    it("falls back to any visible camera while the state is unavailable", async () => {
       const user = userEvent.setup();
       vi.spyOn(Math, "random").mockReturnValue(0.99);
       await start({ states: null });

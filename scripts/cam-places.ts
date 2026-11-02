@@ -39,6 +39,8 @@ export interface CamPlace {
   titleKey: string;
   place?: PlaceQuery;
   at?: { lat: number; lng: number; timeZone: string; country: string };
+  /** Where `at` came from, when it is not a landmark anyone can confirm. Kept in cams.ts. */
+  from?: string;
 }
 
 export const CAM_PLACES_CURATED: CamPlace[] = [
@@ -50,7 +52,7 @@ export const CAM_PLACES_CURATED: CamPlace[] = [
     category: "city",
     handle: "ANNnewsCH",
     channelId: "UCGCZAYq5Xxojl_tSXcVJhiQ",
-    videoId: "8H3nRCFVR6Y",
+    videoId: "5B4LmH4JbnY",
     titleKey: "【ライブ】渋谷スクランブル交差点 / Shibuya Scramble Crossing Live Camera【LIVE】ANN/テレ朝",
     at: { lat: 35.6595, lng: 139.7005, timeZone: "Asia/Tokyo", country: "JP" },
   },
@@ -72,7 +74,7 @@ export const CAM_PLACES_CURATED: CamPlace[] = [
     category: "airport",
     handle: "ANNnewsCH",
     channelId: "UCGCZAYq5Xxojl_tSXcVJhiQ",
-    videoId: "OyWPJhU-iI8",
+    videoId: "KMqigNv3LcY",
     titleKey: "【ライブ】羽田空港第2ターミナルを24時間配信中！  HANEDA,Tokyo International Airport Terminal2【LIVE】ANN/テレ朝",
     at: { lat: 35.5494, lng: 139.7798, timeZone: "Asia/Tokyo", country: "JP" },
   },
@@ -412,7 +414,7 @@ export const CAM_PLACES_CURATED: CamPlace[] = [
     category: "nature",
     handle: "ANNnewsCH",
     channelId: "UCGCZAYq5Xxojl_tSXcVJhiQ",
-    videoId: "zAZ6S9pv0jA",
+    videoId: "cIjZxotXPdM",
     titleKey: "【LIVE】癒しの熱帯 アマゾンのジャングルから配信　夜明けの空を横切るインコの群れ　夜の川に響くカエルと昆虫の声　#ネグロ川 #ブラジル【ライブ】ANN/テレ朝",
     place: { name: "Manaus", countryCode: "BR" },
   },
@@ -671,7 +673,7 @@ export const CAM_PLACES_CURATED: CamPlace[] = [
     category: "railway",
     handle: "VirtualRailfan",
     channelId: "UCOIkT9bq-1N2BvrsBjhNlag",
-    videoId: "_eArnSLGhSo",
+    videoId: "4XYbh4Pegzw",
     titleKey: "Ashland, Virginia, USA | LIVE Train Camera (PTZ)",
     place: { name: "Ashland", countryCode: "US", admin1: "Virginia" },
   },
@@ -746,7 +748,7 @@ export const CAM_PLACES_CURATED: CamPlace[] = [
     category: "city",
     handle: "ラジカルビデオジョッキー RVJJP",
     channelId: "UCQ2mmGKtrBp6rL8tSMJCCwA",
-    videoId: "i2PpmC1IeKk",
+    videoId: "K-ibJs5xuuw",
     titleKey: "【LIVE】大阪 道頓堀 ライブカメラ　osaka Dotonbori LiveCamera",
     at: { lat: 34.6687, lng: 135.5013, timeZone: "Asia/Tokyo", country: "JP" },
   },
@@ -1089,8 +1091,8 @@ export const CAM_PLACES_CURATED: CamPlace[] = [
     category: "harbor",
     handle: "香港人の日常生活",
     channelId: "UCBDx32JFg9vk9VHtQppv5tg",
-    videoId: "DkmX5xQer1c",
-    titleKey: "24/7 HK Live - Hong Kong Aberdeen Harbour Live Camera - 香港市景即時影像 香港仔海峽",
+    videoId: "PznqRZYdiHs",
+    titleKey: "✨【Nature Sound 🔊】Hong Kong Aberdeen Harbour Live Camera - 香港市景即時影像 香港仔海峽✨",
     at: { lat: 22.247, lng: 114.155, timeZone: "Asia/Hong_Kong", country: "HK" },
   },
   {
@@ -1100,8 +1102,8 @@ export const CAM_PLACES_CURATED: CamPlace[] = [
     category: "nature",
     handle: "The Real Samui Webcam",
     channelId: "UCmYyJaUxYiF5IbLx-0jFXHQ",
-    videoId: "kkVrj2cr9Ko",
-    titleKey: "🔴 LIVE Crystal Bay Yacht Club Lamai | Koh Samui Beach Webcam | Thailand 24/7 | 1080p HD",
+    videoId: "3N3ZwIB_X4Y",
+    titleKey: "🔴 LIVE Crystal Bay Yacht Club Lamai | Koh Samui Beach Webcam | Thailand 24/7 | 2160p 4K",
     place: { name: "Ko Samui", countryCode: "TH" },
   },
   {
@@ -1623,8 +1625,8 @@ export const CAM_PLACES_CURATED: CamPlace[] = [
     category: "nature",
     handle: "투어 바스켓 (보홀)",
     channelId: "UCvcgdCvIPABMv-LOILqIHsw",
-    videoId: "F4QxpMNKggI",
-    titleKey: "LIVE !! 보홀 여행 필수 체크! 헤난 알로나 리조트 정문 실시간 날씨 &amp; 거리 분위기 라이브 캠 (어반스파이스)",
+    videoId: "8jKkdYBiabY",
+    titleKey: "LIVE !! 보홀 여행 필수 체크! 헤난 알로나 리조트 정문 실시간 날씨 & 거리 분위기 라이브 캠 (어반스파이스)",
     place: { name: "Panglao", countryCode: "PH" },
   },
   {
@@ -1760,7 +1762,7 @@ export const CAM_PLACES_CURATED: CamPlace[] = [
     category: "city",
     handle: "Webcamtaxi",
     channelId: "UC1tBnbs03VJ34oLD8cmJSVw",
-    videoId: "45wxTsNFPXw",
+    videoId: "HyJCliLzdow",
     titleKey: "LIVE Porto Webcam Ribeira and Vila Nova de Gaia – Oporto, Portugal",
     place: { name: "Porto", countryCode: "PT" },
   },
@@ -1815,7 +1817,7 @@ export const CAM_PLACES_CURATED: CamPlace[] = [
     category: "airport",
     handle: "SlowTV",
     channelId: "UC3ewP9SczRIGGpDXDQvpPyQ",
-    videoId: "kuOmmVkOGN8",
+    videoId: "Deo_lcwn8lk",
     titleKey: "🔴 LIVE: Planespotting at Prague Vaclav Havel Airport, Prague | 24/7 LIVE",
     place: { name: "Prague", countryCode: "CZ" },
   },
@@ -1837,7 +1839,7 @@ export const CAM_PLACES_CURATED: CamPlace[] = [
     category: "nature",
     handle: "REEF SOUTH AFRICA",
     channelId: "UCef_Yfk6baScsTCcDxzXE5Q",
-    videoId: "-dGHAohQcSc",
+    videoId: "eoTaA3a7wkU",
     titleKey: "Muizenberg Beach Live Webcam | REEF South Africa  @Reef-SA",
     place: { name: "Muizenberg", countryCode: "ZA" },
   },
@@ -1984,7 +1986,7 @@ export const CAM_PLACES_CURATED: CamPlace[] = [
     category: "nature",
     handle: "afarTV",
     channelId: "UCaG0IHN1RMOZ4-U3wDXAkwA",
-    videoId: "h8O0UXsL7uk",
+    videoId: "VVa_nZtUofE",
     titleKey: "🔴 Live Now: 24/7 Iceberg Cam of Ilulissat, Greenland in 4K Ultra HD",
     place: { name: "Ilulissat", countryCode: "GL" },
   },
@@ -2479,7 +2481,7 @@ export const CAM_PLACES_CURATED: CamPlace[] = [
     channelId: "UC4nkl9OncDSVGZS9qdcRLxA",
     videoId: "DATTZ-F82Zk",
     titleKey: "Live Webcam - SBH Anse de Flamands",
-    place: { name: "Gustavia", countryCode: "BL" },
+    place: { name: "Anse des Flamands", countryCode: "BL" },
   },
   {
     id: "bl-baie-de-lorient",
@@ -2490,7 +2492,8 @@ export const CAM_PLACES_CURATED: CamPlace[] = [
     channelId: "UC4nkl9OncDSVGZS9qdcRLxA",
     videoId: "IeeDy5VfSsg",
     titleKey: "Live Webcam - SBH Baie de Lorient",
-    place: { name: "Gustavia", countryCode: "BL" },
+    at: { lat: 17.9076, lng: -62.8218, timeZone: "America/St_Barthelemy", country: "BL" },
+    from: "Photon: Plage de Lorient",
   },
   {
     id: "bl-baie-de-saint-jean",
@@ -2754,7 +2757,7 @@ export const CAM_PLACES_CURATED: CamPlace[] = [
     channelId: "UCBVNLnTUkBWfcQuUXvaSEUw",
     videoId: "LbvV4avTI5Q",
     titleKey: "🔴 Hanoi Live Camera 24/7 | Trực tiếp Cầu Vĩnh Tuy & Sông Hồng | Chill BGM 2K",
-    place: { name: "Hanoi", countryCode: "VN" },
+    at: { lat: 21.0245, lng: 105.8412, timeZone: "Asia/Ho_Chi_Minh", country: "VN" },
   },
   {
     id: "by-minsk-grushevsky-square",
@@ -2853,7 +2856,10 @@ export const CAM_PLACES_CURATED: CamPlace[] = [
     channelId: "UCuoNAKa3P0QR1Lw9QdpmoVg",
     videoId: "EbdnE0I_Aoo",
     titleKey: "Live Wildlife Camera at Nimali Tarangire | Private Conservancy, Tanzania",
-    place: { name: "Tarangire", countryCode: "TZ" },
+    // nimaliafrica.com: "on the eastern edge of neighbouring Tarangire National Park". No geocoder
+    // knows the camp, so the pin is the park's, not the old round -4, 36.
+    at: { lat: -4.1248, lng: 36.0857, timeZone: "Africa/Dar_es_Salaam", country: "TZ" },
+    from: "Photon: Tarangire National Park",
   },
   {
     id: "bw-senyati-waterhole",
@@ -2864,7 +2870,8 @@ export const CAM_PLACES_CURATED: CamPlace[] = [
     channelId: "UCuoNAKa3P0QR1Lw9QdpmoVg",
     videoId: "EdDdTrahHjI",
     titleKey: "Senyati LIVE 24/7 Waterhole Cam | Chobe, Botswana - Elephants & Wildlife",
-    place: { name: "Kasane", countryCode: "BW" },
+    at: { lat: -17.8723, lng: 25.2358, timeZone: "Africa/Gaborone", country: "BW" },
+    from: "Photon: Senyati Safari Camp",
   },
   {
     id: "ke-angama-amboseli",

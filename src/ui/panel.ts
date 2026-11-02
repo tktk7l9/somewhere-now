@@ -4,13 +4,13 @@
 // camera id and cards that stay are not touched.
 
 import type { Cam, PublicCamState } from "../domain/cams";
-import { resolvedVideoId } from "../domain/cams";
+import { canPlay, resolvedVideoId, youtubeLink } from "../domain/cams";
 import { formatLocalTime, utcOffsetLabel } from "../domain/localTime";
 import { weatherIcon, weatherLabel, type Lang } from "../domain/weather";
 import { fetchPlaceOverview, fetchWeather } from "../api/client";
-import { camName, categoryLabel, countryName, t, viewersText } from "./i18n";
+import { camName, categoryLabel, countryName, statusLabel, t, viewersText } from "./i18n";
 import { mountPinLegend } from "./pin";
-import { mountPlayer, type PlayerHandle } from "./player";
+import { createFallback, mountPlayer, type PlayerHandle } from "./player";
 
 export interface PanelHandlers {
   onToggleSound(): void;
@@ -18,6 +18,8 @@ export interface PanelHandlers {
   onClose(camId: string): void;
   onFocus(camId: string): void;
   onUnplayable(camId: string): void;
+  /** Leaves a camera with nothing to play for the nearest live one (SHIG 55, 60). */
+  onWatchNearest(camId: string): void;
   /** The way out of an empty result: turns every filter off (SHIG 55, 60). */
   onClearFilters(): void;
 }
@@ -32,6 +34,8 @@ export interface PanelContext {
    * accidents).
    */
   soundOn: boolean;
+  /** Whether some live camera can stand in for this one. */
+  hasLiveNearby(camId: string): boolean;
 }
 
 /** A distinction for telling the reason apart when nothing can be shown. */
@@ -39,6 +43,14 @@ export type EmptyReason = "none" | "noMatch" | "watching";
 
 interface Card {
   root: HTMLElement;
+  frame: HTMLElement;
+  fallback: HTMLElement | null;
+  /** What `fallback` currently says, so a redraw leaves an unchanged one (and its focus) alone. */
+  fallbackKey: string;
+  /** The player opened before the state was known, so it may be showing a dead stream. */
+  unverified: boolean;
+  /** The stream the player reported as unplayable. It is not opened again. */
+  failedVideoId: string | null;
   title: HTMLElement;
   sub: HTMLElement;
   readout: HTMLElement;
@@ -84,19 +96,6 @@ function chip(label: string, onClick: () => void, pressed?: boolean): HTMLButton
   return button;
 }
 
-function statusLabel(status: PublicCamState["status"] | undefined, lang: Lang): string {
-  switch (status) {
-    case "live":
-      return t("statusLive", lang);
-    case "offline":
-      return t("statusOffline", lang);
-    case "blocked":
-      return t("statusBlocked", lang);
-    default:
-      return t("statusUnknown", lang);
-  }
-}
-
 export function createPanel(container: HTMLElement, handlers: PanelHandlers) {
   // Only the 1 lead stream plays. Multi-screen is unified into "並べて見る" (Video wall).
   //
@@ -122,27 +121,6 @@ export function createPanel(container: HTMLElement, handlers: PanelHandlers) {
     frame.className = "card__frame";
     root.append(frame);
 
-    const state = ctx.states.get(cam.id);
-    const playable = state === undefined || state.status === "live" || state.status === "unknown";
-
-    let player: PlayerHandle | null = null;
-    if (playable) {
-      player = mountPlayer(frame, cam, state, {
-        muted: !(focused && ctx.soundOn),
-        lang: ctx.lang,
-        onUnplayable: () => handlers.onUnplayable(cam.id),
-      });
-    } else {
-      const fallback = document.createElement("div");
-      fallback.className = "card__fallback";
-      fallback.innerHTML = `<strong>${statusLabel(state.status, ctx.lang)}</strong>`;
-      const body = document.createElement("p");
-      body.style.margin = "0";
-      body.textContent = t(state.status === "blocked" ? "blockedBody" : "offlineBody", ctx.lang);
-      fallback.append(body);
-      frame.append(fallback);
-    }
-
     const bodyEl = document.createElement("div");
     bodyEl.className = "card__body";
 
@@ -166,7 +144,85 @@ export function createPanel(container: HTMLElement, handlers: PanelHandlers) {
     bodyEl.append(title, sub, readout, overview, actions);
     root.append(bodyEl);
 
-    return { root, title, sub, readout, overview, actions, player, overviewKey: "" };
+    const card: Card = {
+      root,
+      frame,
+      fallback: null,
+      fallbackKey: "",
+      unverified: false,
+      failedVideoId: null,
+      title,
+      sub,
+      readout,
+      overview,
+      actions,
+      player: null,
+      overviewKey: "",
+    };
+    syncFrame(card, cam, ctx, focused);
+    return card;
+  }
+
+  function startPlayer(card: Card, cam: Cam, ctx: PanelContext, focused: boolean): void {
+    const state = ctx.states.get(cam.id);
+    const videoId = resolvedVideoId(cam, state);
+    card.unverified = state === undefined || state.status === "unknown";
+    card.player = mountPlayer(card.frame, cam, state, {
+      muted: !(focused && ctx.soundOn),
+      lang: ctx.lang,
+      onUnplayable: () => {
+        card.failedVideoId = videoId;
+        handlers.onUnplayable(cam.id);
+      },
+    });
+  }
+
+  function paintFallback(
+    card: Card,
+    cam: Cam,
+    status: "offline" | "blocked",
+    ctx: PanelContext,
+  ): void {
+    const nearby = ctx.hasLiveNearby(cam.id);
+    const key = `${status}:${ctx.lang}:${nearby}`;
+    if (card.fallbackKey === key) return;
+    card.fallbackKey = key;
+    card.fallback?.remove();
+    const fallback = createFallback(status, ctx.lang);
+    if (nearby) fallback.append(chip(t("watchNearest", ctx.lang), () => handlers.onWatchNearest(cam.id)));
+    card.frame.append(fallback);
+    card.fallback = fallback;
+  }
+
+  /**
+   * Keeps the frame true to the state, which can arrive or change after the card was built.
+   *
+   * A running iframe is replaced only when it cannot be showing anything: the player said so, or
+   * it was opened on a guess and the state says the stream is gone. Otherwise a stream someone is
+   * watching would be cut because the sweep is a step behind.
+   */
+  function syncFrame(card: Card, cam: Cam, ctx: PanelContext, focused: boolean): void {
+    const state = ctx.states.get(cam.id);
+    const playable = canPlay(state);
+
+    if (card.player !== null) {
+      if (playable) {
+        if (state?.status === "live") card.unverified = false;
+        return;
+      }
+      if (state?.status === "offline" && !card.unverified) return;
+      card.player.destroy();
+      card.player = null;
+    }
+
+    if (playable && resolvedVideoId(cam, state) !== card.failedVideoId) {
+      card.fallback?.remove();
+      card.fallback = null;
+      card.fallbackKey = "";
+      startPlayer(card, cam, ctx, focused);
+      return;
+    }
+    paintFallback(card, cam, state?.status === "offline" ? "offline" : "blocked", ctx);
   }
 
   function paintReadout(card: Card, cam: Cam, ctx: PanelContext): void {
@@ -271,19 +327,23 @@ export function createPanel(container: HTMLElement, handlers: PanelHandlers) {
 
   function paintActions(card: Card, cam: Cam, ctx: PanelContext): void {
     const favorited = ctx.favoriteIds.has(cam.id);
+    const target = youtubeLink(cam, ctx.states.get(cam.id));
     const link = document.createElement("a");
     link.className = "chip";
-    link.href = `https://www.youtube.com/watch?v=${resolvedVideoId(cam, ctx.states.get(cam.id)) ?? ""}`;
+    link.href = target.href;
     link.target = "_blank";
     link.rel = "noopener noreferrer";
-    link.textContent = t("watchOnYouTube", ctx.lang);
+    link.textContent = t(target.kind === "watch" ? "watchOnYouTube" : "openChannel", ctx.lang);
 
     // "閉じる" goes last and apart from the two toggles, so a finger aiming at sound or favorite
     // does not close the camera instead (SHIG 16, 13).
     const close = chip(t("removeFromView", ctx.lang), () => handlers.onClose(cam.id));
     close.classList.add("chip--close");
+    // With no player there is nothing for the sound toggle to act on (SHIG 1).
     card.actions.replaceChildren(
-      chip(t("soundOn", ctx.lang), handlers.onToggleSound, ctx.soundOn),
+      ...(card.player === null
+        ? []
+        : [chip(t("soundOn", ctx.lang), handlers.onToggleSound, ctx.soundOn)]),
       chip(t("favorite", ctx.lang), () => handlers.onToggleFavorite(cam.id), favorited),
       link,
       close,
@@ -314,6 +374,7 @@ export function createPanel(container: HTMLElement, handlers: PanelHandlers) {
         current = { camId: focused.id, card: buildCard(focused, ctx, true) };
         cardHost.replaceChildren(current.card.root);
       }
+      syncFrame(current.card, focused, ctx, true);
       // Does not touch the existing lead iframe; repaints only the display around it.
       current.card.player?.setMuted(!ctx.soundOn);
       current.card.player?.setTitle(camName(focused.name, ctx.lang));

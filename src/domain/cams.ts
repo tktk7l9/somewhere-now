@@ -278,6 +278,32 @@ export function resolvedVideoId(cam: Pick<Cam, "source">, state: PublicCamState 
 }
 
 /**
+ * Whether opening a player makes sense. An unknown state still gets a try: the master's stream may
+ * be fine, and the player reports back when it is not.
+ */
+export function canPlay(state: PublicCamState | undefined): boolean {
+  return state === undefined || state.status === "live" || state.status === "unknown";
+}
+
+/**
+ * Where "open on YouTube" should go. A stream that is off air has a dead watch page, so the
+ * channel is the useful destination. A blocked stream does play on YouTube.
+ */
+export function youtubeLink(
+  cam: Pick<Cam, "source">,
+  state: PublicCamState | undefined,
+): { kind: "watch" | "channel"; href: string } {
+  const videoId = resolvedVideoId(cam, state);
+  if (videoId === null || state?.status === "offline") {
+    return {
+      kind: "channel",
+      href: `https://www.youtube.com/channel/${encodeURIComponent(cam.source.channelId)}`,
+    };
+  }
+  return { kind: "watch", href: `https://www.youtube.com/watch?v=${videoId}` };
+}
+
+/**
  * URL of the iframe used for playback. The videoId resolved by the state has top priority;
  * if absent, the master's videoId; if that is absent too, falls back to the channel's current live stream.
  */

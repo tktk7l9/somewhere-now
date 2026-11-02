@@ -17,11 +17,23 @@ import { writeCamSources } from "./build-cam-sources.ts";
 import { CAM_PLACES_CURATED, type CamPlace } from "./cam-places.ts";
 import { CAM_PLACES_BULK } from "./cam-places-bulk.ts";
 import { EXCLUDED_VIDEO_IDS } from "./cam-exclusions.ts";
+import { CAM_RELOCATIONS } from "./cam-relocations.ts";
+
+const RELOCATIONS = new Map(CAM_RELOCATIONS.map((r) => [r.id, r]));
+
+function relocated(place: CamPlace): CamPlace {
+  const move = RELOCATIONS.get(place.id);
+  if (move === undefined) return place;
+  const { at, place: query, from, category } = move;
+  return { ...place, at, place: query, from, category: category ?? place.category };
+}
 
 const CAM_PLACES: CamPlace[] = [
   ...(CAM_PLACES_CURATED as CamPlace[]),
   ...(CAM_PLACES_BULK as CamPlace[]),
-].filter((p) => !EXCLUDED_VIDEO_IDS.has(p.videoId));
+]
+  .filter((p) => !EXCLUDED_VIDEO_IDS.has(p.videoId))
+  .map(relocated);
 
 const BULK_IDS = new Set(CAM_PLACES_BULK.map((p) => p.id));
 
@@ -127,6 +139,11 @@ async function geocode(query: NonNullable<CamPlace["place"]>): Promise<GeocodeHi
   return hit;
 }
 
+/** Open-Meteo gives northern Vietnam Bangkok's zone. Same offset, but the wrong country's name. */
+function localZone(country: string, timeZone: string): string {
+  return country === "VN" && timeZone === "Asia/Bangkok" ? "Asia/Ho_Chi_Minh" : timeZone;
+}
+
 function serialize(resolved: readonly Resolved[]): string {
   const entries = resolved
     .map(({ place, lat, lng, timeZone, country, origin }) => {
@@ -137,7 +154,7 @@ function serialize(resolved: readonly Resolved[]): string {
     name: { ja: ${JSON.stringify(p.nameJa)}, en: ${JSON.stringify(p.nameEn)} },
     lat: ${lat},
     lng: ${lng},
-    timeZone: ${JSON.stringify(timeZone)},
+    timeZone: ${JSON.stringify(localZone(country, timeZone))},
     category: ${JSON.stringify(p.category)},
     country: ${JSON.stringify(country)},
     source: {
@@ -185,7 +202,7 @@ async function resolvePlace(
       resolved: {
         place,
         ...place.at,
-        origin: "coords: set explicitly as a well-known landmark",
+        origin: `coords: ${place.from ?? "set explicitly as a well-known landmark"}`,
       },
       warning,
     };
@@ -198,7 +215,7 @@ async function resolvePlace(
         place,
         lat: Number(hit.latitude.toFixed(4)),
         lng: Number(hit.longitude.toFixed(4)),
-        timeZone: hit.timezone,
+        timeZone: localZone(hit.country_code, hit.timezone),
         country: hit.country_code,
         origin: `coords: Open-Meteo geocoding "${hit.name}"${hit.admin1 === undefined ? "" : `, ${hit.admin1}`}`,
       },
@@ -257,6 +274,9 @@ async function main(): Promise<void> {
 
   for (const place of bulk) {
     const result = await resolvePlace(place, "allowed");
+    if (place.place !== undefined) {
+      await new Promise((r) => setTimeout(r, GEOCODE_DELAY_MS));
+    }
     if (result.failure !== undefined) failures.push(result.failure);
     else if (result.resolved !== undefined) resolved.push(result.resolved);
   }

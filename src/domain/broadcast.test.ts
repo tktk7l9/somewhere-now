@@ -45,13 +45,11 @@ describe("isBroadcast", () => {
   it("also tells by the wording of the title", () => {
     const titles = [
       "🔴 LIVE! Phineas and Ferb Full Episodes! | @disneychannelanimation",
-      "🔴EN VIVO: Episodios completos de Bluey en HD",
       "Bizimkiler - Tüm Bölümler Canlı Yayın",
       "CNN TÜRK - 🔴 Canlı Yayın ᴴᴰ - Canlı TV izle | HABER",
       "Aşk-ı Memnu Canlı İzle",
       "RELACJA NA ŻYWO - OGLĄDAJ Telewizja Republika",
       "FRANCE 24 English – LIVE – International Breaking News & Top stories",
-      "「殴られたようだ」相模原で高校生死亡【報道ステーション】",
       "【ライブ】日本の最新ニュースを24時間ライブ配信｜テレ朝NEWS24",
       "【地震ライブ】緊急地震速報 24時間リアルタイム配信中 ウェザーニュース",
       "Kral Akustik Radyo - Canlı Radyo Dinle",

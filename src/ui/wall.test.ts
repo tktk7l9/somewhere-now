@@ -2,7 +2,7 @@
 import { screen, within } from "@testing-library/dom";
 import userEvent from "@testing-library/user-event";
 
-import { KILAUEA, NAIROBI, REYKJAVIK, TOKYO } from "./__fixtures__/cams";
+import { KILAUEA, NAIROBI, REYKJAVIK, TOKYO, blocked, live, offline } from "./__fixtures__/cams";
 import { createWall } from "./wall";
 
 const NO_STATES = new Map();
@@ -33,6 +33,58 @@ describe("createWall", () => {
   });
   afterEach(() => {
     vi.useRealTimers();
+  });
+
+  it("says a stopped stream is stopped instead of opening a dead player", () => {
+    const { container, wall } = setup();
+    wall.update([TOKYO], new Map([["tokyo", offline()]]), "ja", false);
+    vi.advanceTimersByTime(0);
+
+    expect(container.querySelector("iframe")).toBeNull();
+    expect(within(cellOf("東京の交差点")).getByText("配信していません")).toBeTruthy();
+  });
+
+  it("starts a stopped camera when it comes back, and stops one that turns out blocked", () => {
+    const { container, wall } = setup();
+    wall.update([TOKYO], new Map([["tokyo", offline()]]), "ja", false);
+    vi.advanceTimersByTime(0);
+
+    wall.update([TOKYO], new Map([["tokyo", live(1)]]), "ja", false);
+    expect(container.querySelector("iframe")).not.toBeNull();
+    expect(container.querySelector(".card__fallback")).toBeNull();
+
+    wall.update([TOKYO], new Map([["tokyo", blocked()]]), "en", false);
+    expect(container.querySelector("iframe")).toBeNull();
+    expect(screen.getByText("Can't play here")).toBeTruthy();
+  });
+
+  it("does not cut a running stream when the sweep reports it off air", () => {
+    const { container, wall } = setup();
+    wall.update([TOKYO], new Map([["tokyo", live(1)]]), "ja", false);
+    vi.advanceTimersByTime(0);
+    const iframe = container.querySelector("iframe");
+
+    wall.update([TOKYO], new Map([["tokyo", offline()]]), "ja", false);
+    expect(container.querySelector("iframe")).toBe(iframe);
+  });
+
+  it("does not reopen a stream the player reported as unplayable", () => {
+    const { container, wall, onUnplayable } = setup();
+    const states = new Map([["tokyo", live(1, "deadstream0")]]);
+    wall.update([TOKYO], states, "ja", false);
+    vi.advanceTimersByTime(0);
+    window.dispatchEvent(
+      new MessageEvent("message", {
+        data: JSON.stringify({ event: "onError", info: 150 }),
+        origin: "https://www.youtube-nocookie.com",
+        source: container.querySelector("iframe")!.contentWindow,
+      }),
+    );
+    expect(onUnplayable).toHaveBeenCalledWith("tokyo");
+
+    wall.update([TOKYO], new Map([["tokyo", { ...blocked(), videoId: "deadstream0" }]]), "ja", false);
+    wall.update([TOKYO], states, "ja", false);
+    expect(container.querySelector("iframe")).toBeNull();
   });
 
   it("explains an empty wall and offers the way back to the map", async () => {

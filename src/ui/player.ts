@@ -12,7 +12,7 @@
 import type { Cam, PublicCamState } from "../domain/cams";
 import { EMBED_ORIGIN, resolveEmbedUrl } from "../domain/cams";
 import type { Lang } from "../domain/weather";
-import { camName } from "./i18n";
+import { camName, statusLabel, t } from "./i18n";
 
 /** Error codes YouTube returns for non-embeddable or deleted videos. */
 const FATAL_ERROR_CODES = new Set([100, 101, 150]);
@@ -54,6 +54,19 @@ function embedSrc(cam: Cam, state: PublicCamState | undefined, muted: boolean): 
 
 function post(iframe: HTMLIFrameElement, message: Record<string, unknown>): void {
   iframe.contentWindow?.postMessage(JSON.stringify(message), EMBED_ORIGIN);
+}
+
+/** What stands in the player's place when there is nothing to play (SHIG 55). */
+export function createFallback(status: "offline" | "blocked", lang: Lang): HTMLElement {
+  const fallback = document.createElement("div");
+  fallback.className = "card__fallback";
+  const title = document.createElement("strong");
+  title.textContent = statusLabel(status, lang);
+  const body = document.createElement("p");
+  body.style.margin = "0";
+  body.textContent = t(status === "blocked" ? "blockedBody" : "offlineBody", lang);
+  fallback.append(title, body);
+  return fallback;
 }
 
 export function mountPlayer(

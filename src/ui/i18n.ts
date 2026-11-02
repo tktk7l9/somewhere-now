@@ -1,7 +1,7 @@
 // Display strings. The app shows cameras of the world, so English is in from the start.
 // Strings say plainly "what that action does" (Save changes, not Submit).
 
-import type { CamCategory } from "../domain/cams";
+import type { CamCategory, CamStatus } from "../domain/cams";
 import type { Lang } from "../domain/weather";
 
 type Dict = Record<Lang, string>;
@@ -105,15 +105,25 @@ const STRINGS = {
   },
   statusLive: { ja: "配信中", en: "Live" },
   statusOffline: { ja: "配信していません", en: "Off air" },
-  statusBlocked: { ja: "埋め込み不可", en: "Embedding blocked" },
+  statusBlocked: { ja: "ここでは再生できません", en: "Can't play here" },
   statusUnknown: { ja: "状態を確認中", en: "Checking" },
   offlineBody: {
     ja: "この配信は今止まっています。次の確認で新しい配信が見つかれば戻ります。",
     en: "This stream is down. It returns when the next check finds a new one.",
   },
   blockedBody: {
-    ja: "この配信は外部サイトでの再生が許可されていません。",
-    en: "This stream cannot be played outside YouTube.",
+    ja: "配信元が外部サイトでの再生を許可していないか、配信が削除されています。",
+    en: "The owner doesn't allow playback on other sites, or the stream was removed.",
+  },
+  watchNearest: { ja: "近くの配信中のカメラへ", en: "Go to the nearest live camera" },
+  openChannel: { ja: "YouTube のチャンネルを開く", en: "Open the YouTube channel" },
+  camRemoved: {
+    ja: "このリンクのカメラは収録から外れました。",
+    en: "The camera in this link is no longer listed.",
+  },
+  camsRemoved: {
+    ja: "このリンクのカメラの一部は収録から外れました。",
+    en: "Some cameras in this link are no longer listed.",
   },
   viewers: { ja: "人が視聴中", en: "watching" },
   placeSource: { ja: "出典: Wikipedia", en: "Source: Wikipedia" },
@@ -146,6 +156,19 @@ export type StringKey = keyof typeof STRINGS;
 
 export function t(key: StringKey, lang: Lang): string {
   return STRINGS[key][lang];
+}
+
+export function statusLabel(status: CamStatus | undefined, lang: Lang): string {
+  switch (status) {
+    case "live":
+      return t("statusLive", lang);
+    case "offline":
+      return t("statusOffline", lang);
+    case "blocked":
+      return t("statusBlocked", lang);
+    default:
+      return t("statusUnknown", lang);
+  }
 }
 
 /**
