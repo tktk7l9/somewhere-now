@@ -6,8 +6,17 @@ describe("camera master data", () => {
     expect(collectCamProblems(CAMS)).toEqual([]);
   });
 
-  it("has 5700 or more entries", () => {
-    expect(CAMS.length).toBeGreaterThanOrEqual(5700);
+  /**
+   * A floor, so a build that silently loses cameras (a rate-limited run, a broken importer) fails
+   * here. It sits just under the current total, not at a round target.
+   *
+   * 2026-11-02: lowered from 5,700 to 4,980 on purpose. The catalogue went from 5,705 to 4,986:
+   * 493 uploads that were never live, 213 streams whose owners forbid embedding and 12 lottery-draw
+   * streams were excluded on watch-page evidence (`scripts/cam-exclusions.ts`), and one bulk
+   * duplicate of a curated stream fell away.
+   */
+  it("has 4980 or more entries", () => {
+    expect(CAMS.length).toBeGreaterThanOrEqual(4980);
   });
 
   /**
