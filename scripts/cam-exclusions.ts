@@ -8055,6 +8055,1774 @@ export const CAM_EXCLUSIONS: CamExclusion[] = [
     videoId: "CH8JsNKY3xo",
     reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream awqoL8ZxbDI, 2026-11-02",
   },
+  // ── Streams whose watch page is private, deleted or unavailable (checked by each camera's videoId
+  //    after the rebuild, and by the newer stream the live state holds, if any). The live-state sweep
+  //    had each one offline; the owner decided on 2026-11-02 to drop what cannot be played.
+  {
+    // id-ubud-bali-outdoor-indonesia
+    videoId: "xuSvwBMhysw",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // id-live-pemantauan-cctv-pantai-wediombo
+    videoId: "gwUwOto2gJg",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-134-live-camera-japan-h-view-camera-t
+    videoId: "DgIbfgFdGVI",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-kamakura-japan-2
+    videoId: "T2dB77dObao",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-bamboo-forest-path-kyoto-live-ca
+    videoId: "Op-lf2NRMzs",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-kyoto-station-bus-terminal-kyoto
+    videoId: "v9rQqa_VTEY",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-odaiba-tokyo-bay-ships-and-planes-jap
+    videoId: "qMDxy_qbdtE",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // mx-los-muertos-pier
+    videoId: "FJDr8qokFT4",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page; its current stream OpYVUzkLzGw too (ERRO…\"This video is unavailable\"), 2026-11-02",
+  },
+  {
+    // es-mallorca-webcam-playa-palmira-rendezv
+    videoId: "Xlw0je0q-kk",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // es-mallorca-webcam-sant-elm-beach-live-4
+    videoId: "9svQ7gvPGc0",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // es-mallorca-webcam-port-d-andratx-house
+    videoId: "MqVlAR3L2Q4",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // es-mallorca-webcam-playa-palmira-ren-2
+    videoId: "DM9VFnG7T1o",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-1-jr-1-h-view
+    videoId: "QIismNv5DXI",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-h-view
+    videoId: "OKCDmhQ4QGw",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // th-4k-thailand-s-best-beach-kata-beach-s
+    videoId: "2qFg0VEArYQ",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // th-4k-kata-beach-kata-noi-beach-walking
+    videoId: "_SWYJU609pM",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // th-4k-karon-beach-phuket-summer-vibes-re
+    videoId: "tME8ztax5qY",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // th-famous-the-best-pancake-man-chaweng-k
+    videoId: "e9T0L_POAOk",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-wichita-state-university-niar-hamr-co
+    videoId: "99l3LNKtnkI",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-us-capitol-building-senate-floor-live
+    videoId: "2-glov2GinU",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-venice-beach-live-cam-24-7-sunset-sur
+    videoId: "Pl4SbEOUvIs",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // ar-mendoza-live-24-7-city-center-street
+    videoId: "iqX6f4hGLWA",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // at-summer-escape-24-7-live-stream-webcam
+    videoId: "2C7vrUAIfu4",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // az-canl-yay-m-bak-s-h-ri-ceyhun-s-limov
+    videoId: "nOCHBQN-Wao",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-morro-sao-joao-sentido-lajeado-oeste
+    videoId: "-22vN9H4T-k",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-morro-sao-joao-sentido-porto-alegre-s
+    videoId: "slsKpIYENGg",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-morro-sao-joao-sentido-novo-hamburgo
+    videoId: "J0LKIylHcjk",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-montenegro-panoramico-leste-ao-vivo-2
+    videoId: "MUWjOucOeUc",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-live-do-centro-da-cidade-de-chapeco-s
+    videoId: "R1nXsBCG--s",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-rio-de-janeiro-panoramic-view-live-vi
+    videoId: "5iy6o-Se6YE",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-live-2-praia-do-forte-cabo-frio-ao-vi
+    videoId: "l8o5Q55p_pg",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-cristo-redentor-parque-lage-trilha-li
+    videoId: "ICqyoAgpbO8",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-aeroporto-de-chapeco-ao-vivo-sbch-xap
+    videoId: "ae9hVV0ylHo",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // ca-24-7-live-cat-tv-no-ads-backyard-bird
+    videoId: "piMJecuC01U",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // de-stadtmitte-von-der-sud-dakota-brucke
+    videoId: "oYF1yEIwQqo",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // de-blick-auf-st-peter-und-paul-oberstra
+    videoId: "AY__GkQN3WA",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // de-blick-von-st-peter-paul-auf-den-markt
+    videoId: "Z_A7MI6gQzY",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // de-st-peter-und-paul-glaspavillon-kirchp
+    videoId: "axkFz16ZPFQ",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // de-st-peter-und-paul-richtung-ost
+    videoId: "ZiJFfLBgsXg",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // de-st-peter-und-paul-richtung-suden-bech
+    videoId: "exryljdXqhA",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // de-blick-von-den-drei-konigen-auf-den-bu
+    videoId: "UKZRlxbpomg",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // de-blick-von-der-ev-stadtkirche-nach-sud
+    videoId: "xD4vs6RWRXU",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // de-glockenstube-der-ev-stadtkirche-in-ra
+    videoId: "eySahWNxlzc",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // ee-tallinn-old-town-live-sunny-summer-da
+    videoId: "lS5NR12GuXM",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // es-mallorca-webcam-port-d-andratx-la-mol
+    videoId: "A6sr3An4oV4",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // es-mallorca-webcam-camp-de-mar-playa-2
+    videoId: "oi1p7eZsbUI",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // fr-live-webcam-lille-ciel-en-direct-dans
+    videoId: "PtH2JL9MEBw",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-teign-estuary-cam-teignmouth-railcam
+    videoId: "ug3AO8rn0IE",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-langstone-harbour
+    videoId: "YEHwZHXa6Bw",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-dark-ocean-waves-for-sleep-live-elimi
+    videoId: "X95tN0-xmN0",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // gr-patitiri-port-outside-dock-lithos-bar
+    videoId: "QWZmAySTQ-w",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // id-live-simpang-patimura-dishub-kota-pon
+    videoId: "dt8hVdiXYko",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-japan-spring-4k-discover-soft-cherry
+    videoId: "GnV39PD32Jc",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-seoul-namsan-4k-live-namsan-tower
+    videoId: "0v8x5wyXeB8",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-live-busan-night-walk-seomyeon-street
+    videoId: "3p2ZVNPPyd4",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // mo-live-macau-night-walk-macau-city-stre
+    videoId: "K79E6JnKOGA",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // mv-maldives-4k-drone-footage-overwater-v
+    videoId: "0cOKgOEAH2g",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // mt-live-24-7-malta-ship-spotting-by-day
+    videoId: "3cVonNYbU14",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // mx-los-muertos-beach-cam-la-palapa-puert
+    videoId: "T6BwOCPXGoo",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // mv-maldives-8k-drone-footage-overwater-v
+    videoId: "I8IlcM3RJ3Y",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // mx-ixtapa-zihuatanejo-guerrero-en-vivo-v
+    videoId: "kYrxFTGpX3Y",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // mx-el-parque-de-xcaret-quintana-roo-en-v
+    videoId: "QNC4b28Jk4k",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // pf-bora-bora-4k-aerial-mount-otemanu-tur
+    videoId: "G6I3qMLRadQ",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // pf-bora-bora-8k-drone-footage-mount-otem
+    videoId: "Q03_VmMPo5U",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // pl-minsk-belarus-online-camera-on-storoz
+    videoId: "vFajdVd36jU",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // th-bangkok-night-walk-thailand-street-wa
+    videoId: "GeB8rnbUISY",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // th-live-bangkok-night-walk-bangkok-city
+    videoId: "E2_PYLe0BAk",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // tr-aksaray-hasan-dag-na-dogru-arac-kamer
+    videoId: "YLCEBGpifWo",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-camera-2-2026-american-samoa-rov-mapp
+    videoId: "C_UYhq5jGws",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-miami-4k-art-deco-streets-beachfront
+    videoId: "KP0SSOUGpN8",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-grand-saline-middle-school-constructi
+    videoId: "ItLQEH1lSVg",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-downtown-clayton-live-camera
+    videoId: "BWtr3Od7lTk",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-duval-street-key-west-florida-live-ca
+    videoId: "cjhviN6wsSI",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-city-of-valdez-alaska-live-stream-cam
+    videoId: "6_xczufuiFo",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-ponce-inlet-boat-ramp-parking-lot-2
+    videoId: "yLutXUkuHBI",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video has been removed for violating YouTube's Communit…\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-ogunquit-beach-live-camera-from-the-n
+    videoId: "F7yflUIGo68",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-from-fremont-street-in-downtown
+    videoId: "5XXJN_Ep88E",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-las-vegas-strip-stream-real-time
+    videoId: "Dm_zzJs-leo",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-just-listen-frequency-of-universe-111
+    videoId: "EKPy6X_lMoo",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-oahu-hawaii-4k-exploring-hawaii-s-stu
+    videoId: "2EXIu40BF78",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page; its current stream 9xYm79A7bmA too (ERRO…\"Video unavailable\"), 2026-11-02",
+  },
+  {
+    // us-tranquil-sunset-beach-jazz-soothing-m
+    videoId: "DW18Y2o-eUY",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-miami-4k-stunning-south-beach-turquoi
+    videoId: "bJfVAhTrGEg",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-trains-railcam-st-louis-miss-2
+    videoId: "NXmFAhX_3vY",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page; its current stream h19fX6yYkHc too (LOGI…\"Private video\"), 2026-11-02",
+  },
+  {
+    // us-pa-bat-box-2-live-stream
+    videoId: "JiE5YlXWnys",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-iroquois-national-wildlife-refuge-bal
+    videoId: "ogUiSSpNIs4",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-st-george-street-south-st-augustine-l
+    videoId: "ZksWoEAhmTU",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-lithia-park-bandshell
+    videoId: "AeSUypToXO4",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-dauphin-island-sea-lab-live-cam
+    videoId: "Kckw310hYgA",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-boot-key-harbor-city-marina-live
+    videoId: "Ilio-LZ-pI0",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // vn-the-best-italian-music-italian-vibes
+    videoId: "agApYsQN0L4",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-itanet-ao-vivo-santo-antonio-de-padua
+    videoId: "KfwVVXPx1-4",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-cvllp-clube-de-voo-livre-do-litoral-p
+    videoId: "ukoSyGLdoTQ",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-itanet-ao-vivo-aperibe-rj-cidade-simp
+    videoId: "PwAOlxeJeGA",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-itanet-ao-vivo-itaperuna-rodoviaria-p
+    videoId: "pBxxB6pais8",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-itanet-ao-vivo-itaperuna-cristo-reden
+    videoId: "RWUYkg8TNsg",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // cz-live-trains-at-oustecke-nadrazi-24-7
+    videoId: "oFLvtPKBXEs",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // de-kirmesplatz-der-st-seb-bruderschaft-r
+    videoId: "1tP9bt-DzQM",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // de-schie-stand-der-st-seb-bruderschaft-r
+    videoId: "9SmJnTv8Wt4",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // de-ratinger-marktplatz-mit-dem-brunnen
+    videoId: "ccCzVOpvGaY",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // de-evgl-stadtkirche-ratingen-mitte-mehr
+    videoId: "CmJ99hSB4Eo",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // de-glockstube-st-peter-paul-ratingen
+    videoId: "SCa5WnvnKas",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // de-livestream-von-kirchen-webcam-richtun
+    videoId: "3bkb2hulfME",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // ee-sunny-summer-tallinn-old-town-live-wa
+    videoId: "BOaQPji_w6g",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // es-webcam-en-directo-desde-jomezana-lena
+    videoId: "JI-ZyE28JZc",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-live-kestrel-nest-cam-kizzie-kane-kes
+    videoId: "AnDCHWLU6UU",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-gilestone-osprey-cup-cam
+    videoId: "y59VkvOsz6s",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-gilestone-osprey-nest-cam
+    videoId: "k4hidTtQ3Xs",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // hk-travel-hong-kong-live-tv-colorful-hon
+    videoId: "n1Q2njXWwP4",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // hk-live-hong-kong-walking-tour-live-glov
+    videoId: "ssJAT3nSGaU",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // id-cctv-gulon
+    videoId: "27-oia1jEUI",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // id-live-cctv-pertigaan-depan-kabupaten-d
+    videoId: "GHuRrOnW2MQ",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // id-live-cctv-pertigaan-jembatan-kracaan
+    videoId: "A2Lgrc0B4Rw",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // id-live-cctv-jl-pantura-sayung-demak-01
+    videoId: "Oo8pSXi0R6U",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // id-live-cctv-traffic-light-jl-sultan-fat
+    videoId: "uM1gksCoh8I",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // id-live-cctv-pertigaan-depan-kabupat-2
+    videoId: "SUhOdlj8aW8",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // it-4k-venice-italy-historic-canals-elega
+    videoId: "N69e7xh4FSQ",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-yaamanashi-fujiyoshida-live-camera-wo
+    videoId: "q786Auz8UpY",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-kyoto-station-hachijo-taxi-staio
+    videoId: "CO_ZjH6N7RE",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-saga-arashiyama-kyoto-live-camer
+    videoId: "jqtsC5BYlIk",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-kitano-tenmangu-shrine-kyoto-liv
+    videoId: "KHglGodzQ9g",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-the-philosopher-s-path-kyoto-liv
+    videoId: "S6IkZhhwG4A",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-japan-hakone-lake-ashi-live-camera
+    videoId: "qYnCG4J26d8",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-live-explore-itaewon-hannam-complete
+    videoId: "_fCH3lLlrYU",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-live-explore-hongdae-complete-walking
+    videoId: "AaQJAbQQMX4",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-live-beautiful-korea-night-walks-pala
+    videoId: "AKnHACzivls",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-gwangandaegyo-live-cam-busan-diamond
+    videoId: "FJlxNUM-AXQ",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-4k-live-cam-gwangandaegyo-busan-diamo
+    videoId: "jmVmZlsQIL8",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-gwangandaegyo-live-cam-busan-diam-2
+    videoId: "OhXqC3pDBaU",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-gwangandaegyo-live-cam-busan-diam-3
+    videoId: "ufRTT1XhcSs",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-4k-seoul-live-cam-seoul-live-camera
+    videoId: "5AMfLpAsl-A",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-4k-seoul-korea-itaewon-club-street-se
+    videoId: "tu9nlOYd1LY",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-live-korea-2026-korean-nightlife-fant
+    videoId: "CvOGBLhLhyg",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-live-korea-2026-korean-nightlife-hong
+    videoId: "a3q2dPG3lVI",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-real-time-july-17th-friday-8pm-seoul
+    videoId: "IQFL3rCmq_k",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-itaewon-night-street-walk-seoul-explo
+    videoId: "VRI4QRKGEk4",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-hongdae-night-street-walk-seoul-cozy
+    videoId: "0YDJw6qXzts",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-korean-culture-tv5-itaewon-youth-nigh
+    videoId: "yTe-61w9hmk",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-real-time-july-19th-sunday-4pm-seoul
+    videoId: "GQ5DHpkNXpo",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-24-7busan-beach-live-cam-korea-walkin
+    videoId: "xJyQyD1CMJU",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // mx-fresh-summer-morning-at-the-beach-amb
+    videoId: "Y-IP0oE_Q14",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // my-live-from-zoo-negara-malaysia-present
+    videoId: "5j62NCx1Ij0",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // pf-no-ai-iconic-bora-bora-24-7-tropical
+    videoId: "4rdnua9rLIM",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // pl-warszawa-na-zywo-warsaw-livestream-wa
+    videoId: "AJGLajSFggk",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // pt-zona-de-caca-de-mertola-2k-c-audio-ce
+    videoId: "SLRUHkkBejw",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // ru-1-24-7-online-camera-1-24-7-russia-le
+    videoId: "4Uaxi5akPZA",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // ru-24-7-multichannel-camera-omsk-russia
+    videoId: "bu6XkQUmdJ8",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // th-live-thailand-walking-tour-live-glove
+    videoId: "JRBKPwU1gCc",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // tr-4k-istanbul-travel-in-4k-hagia-sophia
+    videoId: "wHMMfiAYATk",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // tr-turkiye-beach-walk-antalya-beach-vibe
+    videoId: "-s2bMhkA-Kg",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-hamptons-com-live-4k-sunset-beach-inl
+    videoId: "8WZdm4fszj4",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-hamptons-com-live-tiana-beach-hampton
+    videoId: "uXFlG8Xtk9U",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-hamptons-com-live-surf-cam-ponquogue
+    videoId: "tZ9LDNP83xw",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-bcema-sky-cams
+    videoId: "_MeFJIAcgSI",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-reggae-island-mix-feel-good-tropical
+    videoId: "UhV7qfWTW8s",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-hamptons-com-live-4k-downtown-circle
+    videoId: "I8OrIYmm1i0",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-hamptons-com-live-4k-main-street-sag
+    videoId: "i3is63To-cE",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-huntrix-jinu-s-slow-motion-beach-day
+    videoId: "qi-2xJUNGiI",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-hamptons-com-live-4k-conscience-point
+    videoId: "TLoMqn5wkng",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-pixcams-com-pa-bird-feeder-3-close-up
+    videoId: "M_MnriRVIUc",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-pixcams-com-mcp-wetlands-purple-marti
+    videoId: "2fk5Ot_HI7g",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-baths-by-spicer-bros-camera-at-45th-s
+    videoId: "Y9Ts33BAmOY",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-pixcams-com-pa-bird-feeder-2-live-str
+    videoId: "a-IydWw-VXM",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-hamptons-com-live-long-wharf-sag-harb
+    videoId: "bBNay8b8Q74",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-hamptons-com-live-sag-harbor-bay-sag
+    videoId: "vGLm--kTC50",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-hamptons-com-live-windmill-bay-beach
+    videoId: "l1A96hXsrCU",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-1-live-f-s-t-net-jr-jr
+    videoId: "8tDuhb9QnQ4",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-24-sapporo-mt-moiwa-ropeway-summ
+    videoId: "g4pjPdnUNdE",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-531m-24-sapporo-mt-moiwa-ropeway
+    videoId: "oBzjApj3VBA",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-tokyo-highway-live-camera-20-8
+    videoId: "OfKqUmCESP4",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-jct-tokyo-highway-live-camer-18
+    videoId: "zLkmjaMGPdo",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-6
+    videoId: "Onyb8uHQV5Y",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-education-complex-construction
+    videoId: "xcJ7Qi1yX_c",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-yellowstone-national-park-8k-uhd-colo
+    videoId: "3OjhTBXJRG8",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-paradise-4k-mountain-valleys-forests
+    videoId: "x7NPE58QUi0",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-maldives-4k-drone-footage-white-sandb
+    videoId: "1rpCQGdoHdQ",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-2026-08-26-2-3-11-15
+    videoId: "Fc6qu8rN8kU",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // id-heidi-dan-zidane-bermain-di-taman-pet
+    videoId: "1f6DvMhV3kQ",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // vn-vietnam-travel-live-tv-walking-hotspo
+    videoId: "eveR520xI6w",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // de-skyline-ratingen-west-sud-dakota-bruc
+    videoId: "WggQGfOhrGM",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // va-praca-sao-pedro-vaticano
+    videoId: "whNHDxYAk6w",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-live-explore-korea-live-tv-korea-trav
+    videoId: "-LE4Nh4yxT0",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-a-b
+    videoId: "ItvTn2H8Mg8",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-40
+    videoId: "-O5l1yvrumA",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-2026-8-26
+    videoId: "1dVS91DxB8M",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-live-cam-i-homigot-sunrise-square-poh
+    videoId: "5_-JdL7hOA4",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-camera-fuji-motosuko-resort
+    videoId: "JGyGoXlKZmw",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-live-cam-i-sokcho-beach-gangwondo-kor
+    videoId: "BVC5ckBcVx0",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // vn-live-vietnam-walking-tour-live-gloven
+    videoId: "5x_Abm-P_ws",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // se-live-camera-axis-q6318-le
+    videoId: "rhJcVpyyPPI",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // dk-femern-livestream
+    videoId: "9oiO86W3SUQ",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // cn-5
+    videoId: "3vrnQ-MFOmY",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-hiroshima-peace-memorial-park-ja
+    videoId: "PO2Afl_fH3E",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-sin-osaka-cam-hd
+    videoId: "xcAw8VImzU4",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-japan-shinosaka-live-camera
+    videoId: "6QvV7joyZKY",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-4k-live-yokohama-japan-live-cam-zoom
+    videoId: "OcxqQP5R0Os",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page; its current stream BcLfmQwvrAs too (LOGI…\"Private video\"), 2026-11-02",
+  },
+  {
+    // jp-4k-4k-live-camera-anjindai-yokosuka
+    videoId: "cxml56qWwP0",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-nagoya-station-japan-live
+    videoId: "bEv1d0w_WJo",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-toba-aquarium-sea-otter-live-camera
+    videoId: "M--DaeXPHAM",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-fbs
+    videoId: "uI8tWGe_FtA",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-21
+    videoId: "1z64AKqCDTQ",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-mt-fuji-live-camera-japan-h-view-came
+    videoId: "PFqSE8GNfnE",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-live-seoul-myeongdong-jongno-walking
+    videoId: "_HetAfMZqIg",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-live-seoul-seongsu-walking-tour-seong
+    videoId: "geIlSasuNio",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // id-live-streaming-24-jam-cnn-indonesia
+    videoId: "PDDOkUq33Sw",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // in-live-atc-feed-jfk-every-takeoff-landi
+    videoId: "kLLb-fPOPuk",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // fr-live-webcam-paris-la-seine-et-notre-d
+    videoId: "7OgCYX4Inr8",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // nl-haven-harbour-volendam
+    videoId: "9UpAVPmtPtA",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // es-spain-live-cam-puerta-del-sol-madrid
+    videoId: "shLkBrdmLMM",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // it-milan-street-cam-piazza-san-babila-li
+    videoId: "9rExydGWkdc",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // it-milan-italy-live-weather-nowcasting
+    videoId: "YXx1qUaGabo",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // cz-creative-live-streaming-from-prague-c
+    videoId: "N3ShIAO7H4Y",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // cz-nove-otevreny-dvorecky-most-praha
+    videoId: "yQe334ro-w0",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // cz-live-luzna-u-rakovnika-train-station
+    videoId: "EHgE96uSTdk",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // pt-live-penha-de-franca-mar-webcam-madei
+    videoId: "yUuaAsk3xXU",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // se-oro-satama-livekamera-oro-harbour-liv
+    videoId: "WJw9s3EdBKw",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-4k-chicago-lakefront-24-7-live-plaype
+    videoId: "IpJEEBc6E8o",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-miami-4k-walking-tours-24-7-ambient-s
+    videoId: "GgmD8xuOqMM",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // ca-24-7-in-an-exclusive-luxury-miami-con
+    videoId: "CoP5wLD9clU",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-south-america-webcam-tour-beaches-cit
+    videoId: "RNas-XKO4jA",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // za-live-webcam-bikini-beach-gordon-s-bay
+    videoId: "TO-Rizq1QiQ",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // za-strand-bodyboard-collective-live-fals
+    videoId: "E0k8r-PgOGg",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // au-melbourne-live-cam-city-skyline-strea
+    videoId: "Kl_L2zZ4xj8",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-carlsbad-beach-san-diego-california-l
+    videoId: "mgl2gTIQ30A",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // ch-switzerland-4k-breathtaking-views-of
+    videoId: "g9Rc_zZiEnI",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-kilauea-volcano-cam-real-time-st
+    videoId: "QEV3u-GFhP8",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-mt-fuji-live-camera
+    videoId: "_qdu714QT1E",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-live-24-7-incheon-airport-arrivals-li
+    videoId: "WnvHRpfLYqY",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // tw-4k-kaohsiung-music-center-4k-live-cam
+    videoId: "BrY-vD07nuM",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // th-south-pattaya-live-cam
+    videoId: "ZPpdZUR9XFM",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // cn-china-live-what-they-don-t-show-you-o
+    videoId: "_HExpSgfRNk",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // sa-madina-live-tv-online-24-7-today-hd
+    videoId: "naaOMgZbIHQ",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // es-gandia-beach-valencia-spain-live-cam
+    videoId: "zeg0ZPEV1_4",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // it-sorrento-italy-4k-coastal-cliffs-lemo
+    videoId: "AWEPIltiX6A",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // ch-live-rio-boat-24-7-live
+    videoId: "VnsRQvfv_g4",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // pl-sanok-live-rynek-kamera-na-zywo
+    videoId: "mDDWtALSOw4",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // ch-switzerland-4k-breathtaking-views-2
+    videoId: "F2u-MIRhWBk",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page; its current stream or0jHuh2EFk too (ERRO…\"Video unavailable\"), 2026-11-02",
+  },
+  {
+    // us-ocean-key-resort-sunset-pier-key-west
+    videoId: "htpZ21xtzhM",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // ca-live-24-7-quebec-city-weather-camera
+    videoId: "-NluTUttjhM",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-radio-som-que-alimenta-gospel-brasil
+    videoId: "ful0qGqtSgQ",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This live stream has been terminated due to use of 3rd party…\" on the watch page, 2026-11-02",
+  },
+  {
+    // nz-chichester-cathedral-peregrine-camera
+    videoId: "gbq_oLjPpJA",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-24-7-mount-rainier-wildflowers-live-s
+    videoId: "nslC27nST-Y",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // sg-cna-24-7-live-breaking-news-on-asia-a
+    videoId: "XWq5kBlakcQ",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // vn-live-explore-vietnam-live-tv-vietnam
+    videoId: "szXkrFW3pvE",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // il-watch-sky-news
+    videoId: "YDvsBbKfLPA",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // cn-live-stream-hv-cv-quick-veld-2-en-3
+    videoId: "d_a_ZHOZyT8",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-farol-santo-alberto-e-praia-do-farol
+    videoId: "z5Z1zGFqeqo",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // tr-tjk-tv-canl-yay-n
+    videoId: "g89RQMJtK6E",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-upper-newport-bay-osprey-cam
+    videoId: "yIA5FVKQCIk",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // ca-newfoundland-power-osprey-nestcam
+    videoId: "E8_lcRxDM0M",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-vista-panoramica-da-br-101-ao-vivo-tr
+    videoId: "zXwsShTCd4Y",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-bora-bora-4k-discover-paradise-beache
+    videoId: "bxmuUL0Zrxs",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-10-cameras-em-tempo-real-transito-cli
+    videoId: "SUFBzifltdo",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // ar-mar-de-las-pampas-live-24-7-beach-cam
+    videoId: "rFd-cQy3KKQ",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-24-7-live-mid-roll
+    videoId: "tGej_oRBp1U",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // ar-live-tucson-weather-radar-southern-ar
+    videoId: "FZ78136q03A",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-chill-lofi-beats-japanese-town-ambien
+    videoId: "E_m998odXqo",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-118
+    videoId: "YgOeNr76p_E",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-3-matsumoto-castle-live-cam-3-weather
+    videoId: "jWr_0kT2A_g",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-1-matsumoto-castle-live-cam-1-honmaru
+    videoId: "MDo8JOa9i3U",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-h-view-livecam
+    videoId: "Ephdu4UUZH8",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-kabira-bay-ishigaki-island-nighttime
+    videoId: "cKOUqWab-Q4",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // th-4k-koh-samui-thailand-chaweng-beach-w
+    videoId: "OuC1Z6m1Hys",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page; its current stream TtzC5Q7NxQg too (LOGI…\"Private video\"), 2026-11-02",
+  },
+  {
+    // us-mt-bachelor-mid-mountain
+    videoId: "qjfPiDu9F50",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // no-space-weather-live-monitoring-solar-f
+    videoId: "ToUVD_JdKvM",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-winnisquam-marine-live
+    videoId: "PSHMTUb7y8E",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-kyoto-japan-live-camera-livecam
+    videoId: "IQKJPxjnjUw",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // es-luanco-en-directo-24-7-asturias-mar-c
+    videoId: "B991F1clou8",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // gr-tinos-island-new-port-live-streaming
+    videoId: "UEwttxQC5-g",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-136
+    videoId: "RWCYemiWm3A",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-2026-8-17-26-ann-live
+    videoId: "xKgsUy1O3Uw",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-18-live-2026-8-25-ann
+    videoId: "WEH5oihflCI",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-members-only-2nd-floor-live-24-7-ad-f
+    videoId: "9jd69EMwGKo",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-mount-fuji-usa
+    videoId: "6YP6EYc0vhc",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-ormond-by-the-sea-usa
+    videoId: "wi8WBIcwXRY",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-qab
+    videoId: "ZdvNQ3D0PY4",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-159
+    videoId: "VohP1yGAAYo",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-160
+    videoId: "eK249Kh3lQQ",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // tw-live-rckh-khh-live-camera-atc-24-7
+    videoId: "DTN-tML3KgA",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // cn-live-romance-in-the-alley
+    videoId: "xOtIU6jrrHU",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-nhk-world-japan-news
+    videoId: "f0lYkdA-Gtw",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-17-2026-8-24
+    videoId: "FS3vouRzgzI",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-0-7k
+    videoId: "CJ9Fl8AViPY",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-prescott-wi-usa-east-train-cam-live-b
+    videoId: "G5lPXTHNA1I",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // sx-live-august-26-maho-beach-plane-spott
+    videoId: "WjGbh6S_UOQ",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // sx-live-august-1-maho-beach-plane-spotti
+    videoId: "IysLkjS2UWQ",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // id-live-pemantauan-cctv-lalulintas-s-8
+    videoId: "c2Rhj-A2u7k",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // th-live-camera-stream-hushbar-soi-green
+    videoId: "snH8AlZaS70",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-live-explore-historic-seoul-complete
+    videoId: "gcm_SlGCmcY",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page; its current stream CvOGBLhLhyg too (LOGI…\"Private video\"), 2026-11-02",
+  },
+  {
+    // kr-live-seoul-gangnam-walking-tour-gangn
+    videoId: "XGBAmnzJybE",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-korean-culture-tv4-seoul-festival-seo
+    videoId: "Ws0ZTD3UyCU",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-cna-originals-live-the-best-documenta
+    videoId: "fSUMKrxPEd8",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // za-safarilive-sunrise-27-august-2026
+    videoId: "XUCkeW_nmb8",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // za-safarilive-sunset-26-august-2026
+    videoId: "GxYXZp7ojdU",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // za-elephant-sundowners-safarilive-sunset
+    videoId: "Xt0h7f__-Fo",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // za-rosetted-reunion-safarilive-sunse-2
+    videoId: "ZH770vfjisc",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // za-all-hail-the-leopard-queen-tlalam-2
+    videoId: "so7XjP4EPVk",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // za-little-lions-big-curiosity-safarilive
+    videoId: "7GTitTtH-Ag",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // za-breakfast-with-the-boys-safariliv-2
+    videoId: "wuaa0UiTGY4",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // za-a-day-of-little-ones-safarilive-s-2
+    videoId: "JBgtRAxqFkc",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-summertime-in-the-green-mountain-stat
+    videoId: "YRnu73rJrr0",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-abs-abs-s-weather-live-cameras-in-aki
+    videoId: "2esxbRlwPJM",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-sagatv
+    videoId: "e8uHdS4VDec",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // np-webcam-nepal-live-simikot-airport-hum
+    videoId: "MnbbmXgNgiI",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // in-live-kedarnath-live-darshan-2026-keda
+    videoId: "U9ouTskDt2E",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // pe-todo-es-posible-con-pablo-duggan-radi
+    videoId: "dkEANC9Q3AY",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // mx-ixtapa-zihuatanejo-guerrero-en-vi-3
+    videoId: "fMmvV2n_0eg",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page; its current stream gHdQ8VDZt9Y too (ERRO…\"Video unavailable\"), 2026-11-02",
+  },
+  {
+    // gb-durisdeer-scotland-live-stream-webcam
+    videoId: "-yDDiTj7yd8",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // fj-sweet-morning-jazz-at-maldives-beach
+    videoId: "9nvo8OcCtXg",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // de-live-webcam-palma-de-mallorca-paseo-m
+    videoId: "Lip4XNVyulc",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // no-northumberland-aurora-cam-live-stream
+    videoId: "hvFJgkTBpNI",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-35
+    videoId: "rTViPLUmYAc",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-8-26-ann-live
+    videoId: "lrmm_CysgZA",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-10-2-4-15-2026-8-25-26-ann-live
+    videoId: "ZWRuNTp8tI8",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-japan-news-digest-live-8-26-tbs
+    videoId: "wkIG1PhnU4o",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // hu-live-forum-machico-webcam-madeira-por
+    videoId: "sEo0ASp-U8A",
+    reason: "Stream cannot be played: playabilityStatus ERROR \"This video is unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-8-28-ann-live
+    videoId: "BjVE5yLTq4I",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-8-29-ann-live
+    videoId: "PSbbbgmlpXk",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-8-28-ann-live-2
+    videoId: "Q88XS9BIqFU",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-8-29-ann-live-2
+    videoId: "KJWxJWUVnRI",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-8-27-ann-live
+    videoId: "5CwM4dOJz24",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-8-28-ann-live-3
+    videoId: "goWRxuovi8w",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-8-27-ann-live-2
+    videoId: "iGyex7HzJ8M",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-8-26-ann-live-2
+    videoId: "3GBd6MxfOXk",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-8-27-ann-live-3
+    videoId: "Guw2RKuXcZ0",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-8-27-ann-live-4
+    videoId: "lTVTDQkxNR8",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-8-26-ann-live-3
+    videoId: "WHZmFEz_fuU",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-8-28-ann-live-4
+    videoId: "kTylodRNTRQ",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-8-26-ann-live-4
+    videoId: "ejukhcNWrLY",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-8-25-ann-live
+    videoId: "f26Mu6gWoCQ",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-8-25-ann-live-2
+    videoId: "YUe2keHekys",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-japan-news-digest-live-8-26-2
+    videoId: "NMiZPyt0YQg",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-japan-news-digest-live-8-25-tbs
+    videoId: "gR0R7dtpvzs",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-japan-news-digest-live-8-25-2
+    videoId: "NsgHzLWXX4g",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-japan-news-digest-8-25-tbs-news
+    videoId: "jo2AvJF15xw",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-japan-news-digest-8-26-tbs-news
+    videoId: "dTahcdcLgGA",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-japan-news-digest-live-8-24-tbs
+    videoId: "CVPC0Me0PRs",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-japan-news-digest-live-8-24-2
+    videoId: "lqGeiCxwMqI",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-japan-news-digest-8-23-tbs-news
+    videoId: "bP4c_wXx37s",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-japan-news-digest-live-8-23-tbs
+    videoId: "NZvCjjWoZfA",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-japan-news-digest-live-8-23-2
+    videoId: "Eo_HT-9AGBU",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-japan-news-digest-8-22-tbs-news
+    videoId: "B6wLZqN7xZI",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-japan-news-digest-live-8-22-tbs
+    videoId: "V18IN3eD1G0",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-japan-news-digest-live-tbs-news
+    videoId: "3F0-tXiV0WE",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-japan-news-digest-live-tbs-n-2
+    videoId: "k5l78Kt5hmk",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-japan-news-digest-live-tbs-n-3
+    videoId: "yVgG1YPmsaQ",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-morning-news-japan-news-digest-l
+    videoId: "gpXkQ9WCcxk",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-morning-news-japan-news-dige-2
+    videoId: "Ytw-ZwT-AC4",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-evening-news-japan-news-digest-l
+    videoId: "nSh83hI9ibU",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-morning-news-japan-news-dige-3
+    videoId: "ePh3FbHbmoo",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-morning-news-japan-news-dige-4
+    videoId: "EM6uHHEuSOE",
+    reason: "Stream cannot be played: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, 2026-11-02",
+  },
+  {
+    // ar-argentina-coast
+    videoId: "2u4GnVNtlsY",
+    reason: "Stream cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page; its current stream -479TZi-EAs too (ERRO…\"This video is unavailable\"), 2026-11-02",
+  },
+  {
+    // us-live-cozad-ne-railcam-railside-live
+    videoId: "chEAFgoVUXE",
+    reason: "Stream cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page; its current stream Fo3NPh7Lw1o too (LOGI…\"Private video\"), 2026-11-02",
+  },
+  {
+    // us-live-trains-railcam-london-ontario
+    videoId: "GwYD_WoV9KI",
+    reason: "Stream cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page; its current stream QctiA8bz3bA too (LOGI…\"Private video\"), 2026-11-02",
+  },
 ];
 
 export const EXCLUDED_VIDEO_IDS: ReadonlySet<string> = new Set(
