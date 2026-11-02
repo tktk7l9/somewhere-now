@@ -101,6 +101,17 @@ class KvError extends Data.TaggedError("KvError")<{ readonly op: string; readonl
 const kv = <A>(op: string, run: () => Promise<A>): Effect.Effect<A, KvError> =>
   Effect.tryPromise({ try: run, catch: (cause) => new KvError({ op, cause }) });
 
+/**
+ * Best-effort work that outlives the response (edge cache fill, public copy write-back).
+ *
+ * A promise handed to ctx.waitUntil that rejects is dropped without a log line, so a
+ * failing cache or KV write would leave no trace. Catch it here and name the step instead;
+ * the response has already been served, so there is nothing else to do with it.
+ */
+function background(ctx: ExecutionContext, step: string, work: Promise<unknown>): void {
+  ctx.waitUntil(work.catch((cause: unknown) => console.error(`[api/cams] ${step} failed`, cause)));
+}
+
 async function readState(env: Env): Promise<StatePayload> {
   const stored = await env.CAM_STATE.get<StatePayload>(STATE_KEY, "json");
   return stored ?? { updatedAt: new Date(0).toISOString(), cams: {} };
@@ -157,7 +168,9 @@ async function buildCamsResponse(env: Env, ctx: ExecutionContext): Promise<Respo
 
   const payload = await readState(env);
   const body = publicBody(payload);
-  ctx.waitUntil(
+  background(
+    ctx,
+    `put ${PUBLIC_KEY}`,
     env.CAM_STATE.put(PUBLIC_KEY, body, { metadata: { updatedAt: payload.updatedAt } }),
   );
   return new Response(body, { headers: camsHeaders(payload.updatedAt) });
@@ -188,7 +201,7 @@ async function camsResponse(
   let response = await cache.match(cacheKey);
   if (response === undefined) {
     response = await buildCamsResponse(env, ctx);
-    ctx.waitUntil(cache.put(cacheKey, response.clone()));
+    background(ctx, "edge cache put", cache.put(cacheKey, response.clone()));
   }
 
   const etag = response.headers.get("etag");

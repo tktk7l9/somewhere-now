@@ -50,6 +50,18 @@ export const UPLOADS_MAX_PAGES = 3;
  */
 export const MAX_CALLS_PER_CHANNEL = UPLOADS_MAX_PAGES * 2;
 
+/**
+ * How long a single API call may take before it is abandoned.
+ *
+ * The Cron body is handed to ctx.waitUntil, and the quota ledger is written only after the
+ * last call returns. A call that never answers would hold that write past the next
+ * 10-minute run, which then reads the stale ledger and overwrites this run's consumption
+ * (last write wins; KV has no atomic update). Google normally answers well under a second,
+ * so a run of up to ~40 calls stays within the Cron slot even if every call hits this limit.
+ * An abort surfaces as YouTubeNetworkError, the same as any other failed call.
+ */
+export const REQUEST_TIMEOUT_MS = 10_000;
+
 /** Maximum cost of the 2 paths for looking up a channel's current live streams. */
 export const CHANNEL_LOOKUP_COST = {
   /** Via the uploads playlist (including paging). */
@@ -251,7 +263,7 @@ export function createYouTubeClient(apiKey: string, fetchImpl: typeof fetch): Yo
       unitsUsed += cost;
       callsMade += 1;
       const res = yield* Effect.tryPromise({
-        try: () => fetchImpl(url),
+        try: () => fetchImpl(url, { signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS) }),
         catch: (cause) => new YouTubeNetworkError({ cause }),
       });
       if (!res.ok) {

@@ -10,7 +10,7 @@ import { CRON, type StatePayload } from "./schedule";
 const STATE_KEY = "cam-state:v1";
 const PUBLIC_KEY = "cam-state-public:v1";
 
-function memoryKv(initial: Record<string, string> = {}, opts: { failGet?: boolean } = {}) {
+function memoryKv(initial: Record<string, string> = {}, opts: { failGet?: boolean; failPut?: boolean } = {}) {
   const store = new Map(Object.entries(initial));
   const puts: string[] = [];
   const kv = {
@@ -20,6 +20,7 @@ function memoryKv(initial: Record<string, string> = {}, opts: { failGet?: boolea
       return value !== null && type === "json" ? JSON.parse(value) : value;
     },
     async put(key: string, value: string) {
+      if (opts.failPut === true) throw new Error("KV write limit reached");
       puts.push(key);
       store.set(key, value);
     },
@@ -28,8 +29,8 @@ function memoryKv(initial: Record<string, string> = {}, opts: { failGet?: boolea
 }
 
 /** The in-memory KV also needs getWithMetadata for the /api/cams path. */
-function memoryKvWithMeta(initial: Record<string, string> = {}) {
-  const base = memoryKv(initial);
+function memoryKvWithMeta(initial: Record<string, string> = {}, opts: { failPut?: boolean } = {}) {
+  const base = memoryKv(initial, opts);
   const kv = base.kv as unknown as Record<string, unknown>;
   kv.getWithMetadata = async (key: string) => ({
     value: base.store.get(key) ?? null,
@@ -227,5 +228,28 @@ describe("fetch", () => {
     }
     expect(fetchSpy).not.toHaveBeenCalled();
     expect(puts).toEqual([]);
+  });
+
+  // Work handed to ctx.waitUntil after the response (edge cache fill, public copy write-back)
+  // is best effort. If it rejected unhandled, nothing would be logged and runFetch's
+  // Promise.all would reject; the response must still be served and the step named.
+  it("serves the response and logs when the edge cache put fails", async () => {
+    vi.stubGlobal("caches", {
+      default: { match: async () => undefined, put: async () => { throw new Error("cache unavailable"); } },
+    });
+    const { kv } = memoryKvWithMeta({ [PUBLIC_KEY]: '{"updatedAt":"2026-10-06T00:00:00.000Z","cams":{}}' });
+    const res = await runFetch(new Request("https://example.test/api/cams"), { CAM_STATE: kv });
+
+    expect(res.status).toBe(200);
+    expect(logs).toEqual(["[api/cams] edge cache put failed Error: cache unavailable"]);
+  });
+
+  it("serves the body built from the source of truth even when writing the public copy fails", async () => {
+    const { kv } = memoryKvWithMeta({ [STATE_KEY]: '{"updatedAt":"2026-10-06T00:00:00.000Z","cams":{}}' }, { failPut: true });
+    const res = await runFetch(new Request("https://example.test/api/cams"), { CAM_STATE: kv });
+
+    expect(res.status).toBe(200);
+    expect(await res.json()).toEqual({ updatedAt: "2026-10-06T00:00:00.000Z", cams: {} });
+    expect(logs).toEqual([`[api/cams] put ${PUBLIC_KEY} failed Error: KV write limit reached`]);
   });
 });
