@@ -217,7 +217,9 @@ async function resolvePlace(
         lng: Number(hit.longitude.toFixed(4)),
         timeZone: localZone(hit.country_code, hit.timezone),
         country: hit.country_code,
-        origin: `coords: Open-Meteo geocoding "${hit.name}"${hit.admin1 === undefined ? "" : `, ${hit.admin1}`}`,
+        origin:
+          `coords: Open-Meteo geocoding "${hit.name}"${hit.admin1 === undefined ? "" : `, ${hit.admin1}`}` +
+          (place.from === undefined ? "" : ` (${place.from})`),
       },
       warning,
     };

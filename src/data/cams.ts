@@ -4078,14 +4078,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Newport", Oregon (watch page: "Yaquina Bay at the Oregon Coast Aquarium in Newport, Oregon")
     id: "gb-newport-uk",
     name: { ja: "Newport, UK", en: "Newport, UK" },
-    lat: 51.5877,
-    lng: -2.9983,
-    timeZone: "Europe/London",
+    lat: 44.6368,
+    lng: -124.0534,
+    timeZone: "America/Los_Angeles",
     category: "nature",
-    country: "GB",
+    country: "US",
     source: {
       videoId: "Nw-3ukCSobw",
       channelId: "UCXN7rPhZK6Rp8lMhvpSri_Q",
@@ -5623,12 +5623,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Loreto", Baja California Sur (title)
     id: "mx-loreto-baja-california-sur-en-vivo",
     name: { ja: "Loreto, Baja California Sur en vivo", en: "Loreto, Baja California Sur en vivo" },
-    lat: 22.2719,
-    lng: -101.986,
-    timeZone: "America/Mexico_City",
+    lat: 26.0122,
+    lng: -111.3489,
+    timeZone: "America/Mazatlan",
     category: "nature",
     country: "MX",
     source: {
@@ -13948,14 +13948,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Venice", Veneto (title)
     id: "jp-4k-live-cam-of-ponte-delle-guglie-ven",
     name: { ja: "4K Live Cam of Ponte delle Guglie Venice - View from Hotel Leone Venezia - Live stream ライブカメラ", en: "4K Live Cam of Ponte delle Guglie Venice - View from Hotel Leone Venezia - Live stream ライブカメラ" },
-    lat: 43.9783,
-    lng: 142.7533,
-    timeZone: "Asia/Tokyo",
+    lat: 45.4371,
+    lng: 12.3326,
+    timeZone: "Europe/Rome",
     category: "nature",
-    country: "JP",
+    country: "IT",
     source: {
       videoId: "mt7uE-n0YPI",
       channelId: "UCMpn1qLudF-zb4M4bqxLIbw",
@@ -21388,14 +21388,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Makgadikgadi Pans National Park; watch page: "the vast Makgadikgadi Pans near Jack's Camp, Botswana"
     id: "za-kalahari-salt-pan-conservation-live-c",
     name: { ja: "Kalahari Salt Pan | Conservation Live Cam", en: "Kalahari Salt Pan | Conservation Live Cam" },
-    lat: -27.65,
-    lng: 22.6333,
-    timeZone: "Africa/Johannesburg",
+    lat: -20.5108,
+    lng: 24.8106,
+    timeZone: "Africa/Gaborone",
     category: "animal",
-    country: "ZA",
+    country: "BW",
     source: {
       videoId: "ZVRUiKmCs84",
       channelId: "UCuoNAKa3P0QR1Lw9QdpmoVg",
@@ -23848,14 +23848,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Brasov", Brașov County (title)
     id: "it-town-square-piata-sfatului-brasov-piz",
     name: { ja: "Town Square - Piata Sfatului Brasov Pizza Roma Live Webcam", en: "Town Square - Piata Sfatului Brasov Pizza Roma Live Webcam" },
-    lat: 45.0386,
-    lng: 9.05,
-    timeZone: "Europe/Rome",
+    lat: 45.6486,
+    lng: 25.6061,
+    timeZone: "Europe/Bucharest",
     category: "city",
-    country: "IT",
+    country: "RO",
     source: {
       videoId: "HmBsPGMdxwY",
       channelId: "UCAxEkcZK-6Mmm3UXWEuZEEQ",
@@ -24733,14 +24733,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Chaikou; title: Green Island, Taitung
     id: "jp-live-cam-chaikou-snorkeling-area-2160",
     name: { ja: "【Live Cam】東海岸即時影像 - 綠島柴口浮潛區｜Chaikou Snorkeling Area｜柴口スノーケリングスポット 2160p｜台東綠島｜Green Island", en: "【Live Cam】東海岸即時影像 - 綠島柴口浮潛區｜Chaikou Snorkeling Area｜柴口スノーケリングスポット 2160p｜台東綠島｜Green Island" },
-    lat: 33.6636,
-    lng: 130.421,
-    timeZone: "Asia/Tokyo",
+    lat: 22.6742,
+    lng: 121.4794,
+    timeZone: "Asia/Taipei",
     category: "nature",
-    country: "JP",
+    country: "TW",
     source: {
       videoId: "a8nJQr5rBGs",
       channelId: "UC5FiBoG6GcB5QqsiOsGe22A",
@@ -24748,14 +24748,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Green Island; title
     id: "jp-live-cam-fanchuanbi-grassland-in-gree",
     name: { ja: "【Live Cam】東海岸即時影像 - 綠島帆船鼻｜Fanchuanbi Grassland in Green Island｜緑島帆船鼻の大草原 2160p", en: "【Live Cam】東海岸即時影像 - 綠島帆船鼻｜Fanchuanbi Grassland in Green Island｜緑島帆船鼻の大草原 2160p" },
-    lat: 35.2061,
-    lng: 139.6716,
-    timeZone: "Asia/Tokyo",
+    lat: 22.6563,
+    lng: 121.4908,
+    timeZone: "Asia/Taipei",
     category: "nature",
-    country: "JP",
+    country: "TW",
     source: {
       videoId: "fv1yFousBvc",
       channelId: "UC5FiBoG6GcB5QqsiOsGe22A",
@@ -27733,14 +27733,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Lerici", Liguria (title)
     id: "us-webcam-live-lerici-venere-azzurra-sp",
     name: { ja: "Webcam Live Lerici Venere Azzurra (SP) - Panorama dall'Hotel Florida Lerici", en: "Webcam Live Lerici Venere Azzurra (SP) - Panorama dall'Hotel Florida Lerici" },
-    lat: 33.4193,
-    lng: -86.7936,
-    timeZone: "America/Chicago",
+    lat: 44.0759,
+    lng: 9.9112,
+    timeZone: "Europe/Rome",
     category: "nature",
-    country: "US",
+    country: "IT",
     source: {
       videoId: "tbQqobLDCSg",
       channelId: "UC12-jDuDnEJAhtmukCFBEGQ",
@@ -31588,14 +31588,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Greenwood Village", Colorado (watch page: "the live view of downtown Denver, CO from our office building in Greenwood Village")
     id: "jp-denver-city-camera-sponsored-by-boese",
     name: { ja: "Denver City Camera (Sponsored by Boesen Law)", en: "Denver City Camera (Sponsored by Boesen Law)" },
-    lat: 35.7972,
-    lng: 139.9676,
-    timeZone: "Asia/Tokyo",
+    lat: 39.6172,
+    lng: -104.9508,
+    timeZone: "America/Denver",
     category: "city",
-    country: "JP",
+    country: "US",
     source: {
       videoId: "E_VpviMTH9k",
       channelId: "UCPQHImqkYaf7h3PzfQI9OmA",
@@ -35053,14 +35053,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: North Island, Seychelles; watch page: "the peaceful beauty of North Island, Seychelles"
     id: "id-seychelles-ocean-4k-live-24-7-wild-be",
     name: { ja: "Seychelles Ocean 4K (LIVE 24/7). Wild Beach & Ocean Waves Sounds. Relaxing Ocean", en: "Seychelles Ocean 4K (LIVE 24/7). Wild Beach & Ocean Waves Sounds. Relaxing Ocean" },
-    lat: 3.3918,
-    lng: 97.8636,
-    timeZone: "Asia/Jakarta",
-    category: "city",
-    country: "ID",
+    lat: -4.3921,
+    lng: 55.244,
+    timeZone: "Indian/Mahe",
+    category: "nature",
+    country: "SC",
     source: {
       videoId: "Thtj8Ht7Z_c",
       channelId: "UCeDnpWZapyw4rwORykzLbFg",
@@ -35428,14 +35428,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Venice", Veneto (title)
     id: "fr-4k-live-webcam-on-grand-canal-venice",
     name: { ja: "4K Live Webcam on Grand Canal, Venice - Live Stream from Ristorante Trattoria Povoledo", en: "4K Live Webcam on Grand Canal, Venice - Live Stream from Ristorante Trattoria Povoledo" },
-    lat: 48.3849,
-    lng: 5.487,
-    timeZone: "Europe/Paris",
+    lat: 45.4371,
+    lng: 12.3326,
+    timeZone: "Europe/Rome",
     category: "city",
-    country: "FR",
+    country: "IT",
     source: {
       videoId: "r8N6IsoIkTk",
       channelId: "UCMpn1qLudF-zb4M4bqxLIbw",
@@ -35443,14 +35443,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: InterContinental Maldives Resort; title
     id: "fr-ocean-ambience-4k-live-24-7-tropical",
     name: { ja: "Ocean Ambience 4K (LIVE 24/7). Tropical Beach & Ocean Waves Sounds. Maldives InterContinental", en: "Ocean Ambience 4K (LIVE 24/7). Tropical Beach & Ocean Waves Sounds. Maldives InterContinental" },
-    lat: 47.2584,
-    lng: -2.2698,
-    timeZone: "Europe/Paris",
-    category: "city",
-    country: "FR",
+    lat: 5.3599,
+    lng: 72.9194,
+    timeZone: "Indian/Maldives",
+    category: "nature",
+    country: "MV",
     source: {
       videoId: "_BMi3usEwi8",
       channelId: "UCeDnpWZapyw4rwORykzLbFg",
@@ -36028,14 +36028,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Vineyard Haven", Massachusetts (watch page: "View of the Vineyard Haven harbor")
     id: "gr-gomv-com-martha-s-vineyard-ocean-view",
     name: { ja: "GOMV.COM Martha's Vineyard Ocean View Live Webcam & Current Weather", en: "GOMV.COM Martha's Vineyard Ocean View Live Webcam & Current Weather" },
-    lat: 40.206,
-    lng: 23.308,
-    timeZone: "Europe/Athens",
-    category: "city",
-    country: "GR",
+    lat: 41.454,
+    lng: -70.6012,
+    timeZone: "America/New_York",
+    category: "harbor",
+    country: "US",
     source: {
       videoId: "Y0BRntF3178",
       channelId: "UCGfre1YJATN850wNq-jzgEw",
@@ -36043,14 +36043,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Lisbon Falls, Mpumalanga; watch page: "the highest waterfalls in Mpumalanga, South Africa"
     id: "pt-live-lisbon-falls-relaxing-waterfall",
     name: { ja: "LIVE: Lisbon Falls | Relaxing Waterfall Background", en: "LIVE: Lisbon Falls | Relaxing Waterfall Background" },
-    lat: 38.7251,
-    lng: -9.1498,
-    timeZone: "Europe/Lisbon",
-    category: "city",
-    country: "PT",
+    lat: -24.8607,
+    lng: 30.8355,
+    timeZone: "Africa/Johannesburg",
+    category: "nature",
+    country: "ZA",
     source: {
       videoId: "-qwXenyHDN4",
       channelId: "UCUtGnX65osNPQ98Y3-SSgpg",
@@ -36193,14 +36193,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Helsinki", Uusimaa (title)
     id: "dk-port-of-helsinki-west-harbour-south-c",
     name: { ja: "Port of Helsinki - West harbour - south cam", en: "Port of Helsinki - West harbour - south cam" },
-    lat: 55.6455,
-    lng: 12.4101,
-    timeZone: "Europe/Copenhagen",
-    category: "city",
-    country: "DK",
+    lat: 60.1695,
+    lng: 24.9354,
+    timeZone: "Europe/Helsinki",
+    category: "harbor",
+    country: "FI",
     source: {
       videoId: "6hPWq2IG08M",
       channelId: "UCuaFFNhZkcEg2JjEPvzjzzw",
@@ -37198,14 +37198,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Velaa Private Island; title
     id: "us-ocean-ambience-live-24-7-tropical-bea",
     name: { ja: "Ocean Ambience LIVE 24/7 Tropical Beach & Ocean Waves Sounds. VELAA Maldives", en: "Ocean Ambience LIVE 24/7 Tropical Beach & Ocean Waves Sounds. VELAA Maldives" },
-    lat: 39.6026,
-    lng: -78.9439,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
+    lat: 5.8311,
+    lng: 73.2094,
+    timeZone: "Indian/Maldives",
+    category: "nature",
+    country: "MV",
     source: {
       videoId: "h9ba5qkpNA4",
       channelId: "UCPFewb4iRU051Go77_WrP0w",
@@ -37228,14 +37228,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "New York", New York (title)
     id: "au-nyc-live-cam-brooklyn-bridge-manhatta",
     name: { ja: "NYC Live Cam — Brooklyn Bridge & Manhattan Bridge, East River 2026-08-25 9PM ET", en: "NYC Live Cam — Brooklyn Bridge & Manhattan Bridge, East River 2026-08-25 9PM ET" },
-    lat: -38.1035,
-    lng: 147.127,
-    timeZone: "Australia/Melbourne",
+    lat: 40.7143,
+    lng: -74.006,
+    timeZone: "America/New_York",
     category: "city",
-    country: "AU",
+    country: "US",
     source: {
       videoId: "Gz5OEG_YJag",
       channelId: "UCVPMAdvP_2BvrBr3JnB1gPw",
@@ -37303,14 +37303,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Maasai Mara Airport", Narok County (title: Masai Mara)
     id: "za-live-mara-river-main-crossing-masai-m",
     name: { ja: "LIVE: Mara River Main Crossing | Masai Mara Wildlife Cam 24/7", en: "LIVE: Mara River Main Crossing | Masai Mara Wildlife Cam 24/7" },
-    lat: -23.1167,
-    lng: 29.6333,
-    timeZone: "Africa/Johannesburg",
-    category: "city",
-    country: "ZA",
+    lat: -1.4086,
+    lng: 35.1102,
+    timeZone: "Africa/Nairobi",
+    category: "animal",
+    country: "KE",
     source: {
       videoId: "BaEFc79IMCA",
       channelId: "UCuoNAKa3P0QR1Lw9QdpmoVg",
@@ -37333,14 +37333,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Maasai Mara Airport", Narok County (title: Masai Mara)
     id: "za-live-fig-tree-crossing-masai-mara-gre",
     name: { ja: "LIVE Fig Tree Crossing: Masai Mara Great Migration River Crossing - Africam | explore.org", en: "LIVE Fig Tree Crossing: Masai Mara Great Migration River Crossing - Africam | explore.org" },
-    lat: -31.984,
-    lng: 28.9857,
-    timeZone: "Africa/Johannesburg",
-    category: "city",
-    country: "ZA",
+    lat: -1.4086,
+    lng: 35.1102,
+    timeZone: "Africa/Nairobi",
+    category: "animal",
+    country: "KE",
     source: {
       videoId: "Io1Kle7QR-E",
       channelId: "UCiGOIXjFqy5_mUNxQNOMfHw",
@@ -37363,14 +37363,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Elewana Tortilis Camp Amboseli; watch page: "your window into the heart of Amboseli, Kenya"
     id: "za-live-from-tortilis-camp-amboseli-wate",
     name: { ja: "Live from Tortilis Camp | Amboseli Waterhole with Mount Kilimanjaro", en: "Live from Tortilis Camp | Amboseli Waterhole with Mount Kilimanjaro" },
-    lat: -25.1833,
-    lng: 29.3667,
-    timeZone: "Africa/Johannesburg",
-    category: "city",
-    country: "ZA",
+    lat: -2.6829,
+    lng: 37.1822,
+    timeZone: "Africa/Nairobi",
+    category: "animal",
+    country: "KE",
     source: {
       videoId: "XyPU5-pNg5E",
       channelId: "UCuoNAKa3P0QR1Lw9QdpmoVg",
@@ -37378,14 +37378,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Arc 2000, Auvergne-Rhône-Alpes; title
     id: "ch-les-arcs-livecam-arc-2000",
     name: { ja: "Les Arcs - Livecam Arc 2000", en: "Les Arcs - Livecam Arc 2000" },
-    lat: 46.5048,
-    lng: 7.0621,
-    timeZone: "Europe/Zurich",
+    lat: 45.5721,
+    lng: 6.8323,
+    timeZone: "Europe/Paris",
     category: "city",
-    country: "CH",
+    country: "FR",
     source: {
       videoId: "B0vZX9GnpxI",
       channelId: "UCRiY_FP2PZHeWWuIsMKyxGA",
@@ -38728,14 +38728,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Manchester", New Hampshire (title: Manchester NH)
     id: "gb-live-24-7-manchester-nh-cemetery-broo",
     name: { ja: "Live 24/7: Manchester NH Cemetery Brook Drain Tunnel Project | Bluebird Self Storage Cam", en: "Live 24/7: Manchester NH Cemetery Brook Drain Tunnel Project | Bluebird Self Storage Cam" },
-    lat: 51.159,
-    lng: 0.9499,
-    timeZone: "Europe/London",
+    lat: 42.9956,
+    lng: -71.4548,
+    timeZone: "America/New_York",
     category: "city",
-    country: "GB",
+    country: "US",
     source: {
       videoId: "PdBOqzJQ7o8",
       channelId: "UCEN8Phmf9eHMShtcX6nAzEg",
@@ -38833,14 +38833,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: John F. Kennedy International Airport; title: (JFK)
     id: "de-re-live-new-york-planespotting-with-h",
     name: { ja: "️ RE-Live New York Planespotting with Highlights (JFK) Airport! #planespotting #twahotel", en: "️ RE-Live New York Planespotting with Highlights (JFK) Airport! #planespotting #twahotel" },
-    lat: 49.8124,
-    lng: 6.583,
-    timeZone: "Europe/Berlin",
-    category: "city",
-    country: "DE",
+    lat: 40.6429,
+    lng: -73.7794,
+    timeZone: "America/New_York",
+    category: "airport",
+    country: "US",
     source: {
       videoId: "11INCtK6uiA",
       channelId: "UC3yyv3A3atZf0d0ybFMrhbw",
@@ -38983,14 +38983,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Bora Bora", Leeward Islands (title)
     id: "it-bora-bora-8k-aerial-overwater-bungalo",
     name: { ja: "BORA BORA 8K Aerial 🇵🇫 ‍️ Overwater Bungalows, Mount Otemanu & Luxury Paradise", en: "BORA BORA 8K Aerial 🇵🇫 ‍️ Overwater Bungalows, Mount Otemanu & Luxury Paradise" },
-    lat: 44.6659,
-    lng: 9.0307,
-    timeZone: "Europe/Rome",
-    category: "city",
-    country: "IT",
+    lat: -16.4996,
+    lng: -151.7371,
+    timeZone: "Pacific/Tahiti",
+    category: "nature",
+    country: "PF",
     source: {
       videoId: "O1oR_Z0m7hY",
       channelId: "UCg-jBMU2-9RErt1gn9a5jWg",
@@ -38998,14 +38998,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Marathon", Florida (title: Marathon, Florida Keys)
     id: "it-sombrero-beach-live-webcam-marathon-f",
     name: { ja: "Sombrero Beach Live WebCam - Marathon, Florida Keys", en: "Sombrero Beach Live WebCam - Marathon, Florida Keys" },
-    lat: 44.0195,
-    lng: 12.6381,
-    timeZone: "Europe/Rome",
-    category: "city",
-    country: "IT",
+    lat: 24.7138,
+    lng: -81.0904,
+    timeZone: "America/New_York",
+    category: "nature",
+    country: "US",
     source: {
       videoId: "jE4og3o_SXs",
       channelId: "UC_JkC_sNaRfTrbRw9_b2QoA",
@@ -40498,14 +40498,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Jackson Hole Golf & Tennis Club, Wyoming; title
     id: "au-jackson-hole-golf-tennis-live-cam-see",
     name: { ja: "Jackson Hole Golf & Tennis Live Cam - SeeJH.com", en: "Jackson Hole Golf & Tennis Live Cam - SeeJH.com" },
-    lat: -30.4034,
-    lng: 121.7828,
-    timeZone: "Australia/Perth",
+    lat: 43.5672,
+    lng: -110.7484,
+    timeZone: "America/Denver",
     category: "city",
-    country: "AU",
+    country: "US",
     source: {
       videoId: "3mE_mpsx_nU",
       channelId: "UCEpDjqeFIGTqHwk-uULx72Q",
@@ -40543,14 +40543,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Fairbanks", Alaska (title)
     id: "au-fairbanks-aurora-camera-powered-by-ex",
     name: { ja: "Fairbanks Aurora Camera powered by EXPLORE.org", en: "Fairbanks Aurora Camera powered by EXPLORE.org" },
-    lat: -22.2928,
-    lng: 147.6027,
-    timeZone: "Australia/Brisbane",
-    category: "city",
-    country: "AU",
+    lat: 64.8378,
+    lng: -147.7164,
+    timeZone: "America/Anchorage",
+    category: "nature",
+    country: "US",
     source: {
       videoId: "O52zDyxg5QI",
       channelId: "UCUtGnX65osNPQ98Y3-SSgpg",
@@ -40693,14 +40693,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: ECHO Leahy Center for Lake Champlain, Vermont; title
     id: "nz-wcax-sky-watch-3-camera-echo-center-f",
     name: { ja: "WCAX Sky Watch 3 Camera: ECHO Center for Lake Champlain", en: "WCAX Sky Watch 3 Camera: ECHO Center for Lake Champlain" },
-    lat: -43.0333,
-    lng: 171.45,
-    timeZone: "Pacific/Auckland",
+    lat: 44.4766,
+    lng: -73.221,
+    timeZone: "America/New_York",
     category: "city",
-    country: "NZ",
+    country: "US",
     source: {
       videoId: "JIE0vE51OKU",
       channelId: "UCn7285bO_vEziJ9brPtkFMA",
@@ -41098,14 +41098,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Lisbon Falls, Mpumalanga; watch page: "the heart of the waterfall area of Mpumalanga"
     id: "us-lisbon-falls-relaxing-live-stream-ful",
     name: { ja: "Lisbon Falls Relaxing Live Stream Full HD Africam", en: "Lisbon Falls Relaxing Live Stream Full HD Africam" },
-    lat: 33.8703,
-    lng: -117.9253,
-    timeZone: "America/Los_Angeles",
-    category: "city",
-    country: "US",
+    lat: -24.8607,
+    lng: 30.8355,
+    timeZone: "Africa/Johannesburg",
+    category: "nature",
+    country: "ZA",
     source: {
       videoId: "-q7PIgn8YLY",
       channelId: "UCuoNAKa3P0QR1Lw9QdpmoVg",
@@ -41413,14 +41413,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Scheveningen", South Holland (title)
     id: "tr-live-scheveningen-noord-boulevard-en",
     name: { ja: "Live Scheveningen Noord Boulevard en Beach Camera", en: "Live Scheveningen Noord Boulevard en Beach Camera" },
-    lat: 36.9081,
-    lng: 30.6956,
-    timeZone: "Europe/Istanbul",
+    lat: 52.1046,
+    lng: 4.2756,
+    timeZone: "Europe/Amsterdam",
     category: "city",
-    country: "TR",
+    country: "NL",
     source: {
       videoId: "DaG5JReOYEw",
       channelId: "UCgDKPUQWlxzaqPm6tOFrInw",
@@ -41548,14 +41548,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Amsterdam", North Holland (title)
     id: "de-amsterdam-stationseiland-centraal-sta",
     name: { ja: "Amsterdam - Stationseiland - Centraal station (4G mobile connection)", en: "Amsterdam - Stationseiland - Centraal station (4G mobile connection)" },
-    lat: 53.5507,
-    lng: 9.993,
-    timeZone: "Europe/Berlin",
+    lat: 52.374,
+    lng: 4.8897,
+    timeZone: "Europe/Amsterdam",
     category: "city",
-    country: "DE",
+    country: "NL",
     source: {
       videoId: "1phWWCgzXgM",
       channelId: "UCoGAnM2Ek-KVDEQiyuN_XGg",
@@ -43033,14 +43033,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Sitka", Alaska (title)
     id: "ar-earthcam-live-sitka-alaska",
     name: { ja: "EarthCam Live: Sitka, Alaska", en: "EarthCam Live: Sitka, Alaska" },
-    lat: -54.8108,
-    lng: -68.3159,
-    timeZone: "America/Argentina/Ushuaia",
+    lat: 57.0532,
+    lng: -135.3309,
+    timeZone: "America/Sitka",
     category: "city",
-    country: "AR",
+    country: "US",
     source: {
       videoId: "sF5hFDGN20Y",
       channelId: "UC6qrG3W8SMK0jior2olka3g",
@@ -44368,14 +44368,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Daytona Beach", Florida (title)
     id: "ca-4klive-cam-daytona-beach-live-cam-lif",
     name: { ja: "4KLive Cam |Daytona Beach Live Cam | Life on Halifax River Florida | 08/25/2026", en: "4KLive Cam |Daytona Beach Live Cam | Life on Halifax River Florida | 08/25/2026" },
-    lat: 49.6333,
-    lng: -55.8982,
-    timeZone: "America/St_Johns",
+    lat: 29.2108,
+    lng: -81.0228,
+    timeZone: "America/New_York",
     category: "city",
-    country: "CA",
+    country: "US",
     source: {
       videoId: "T-4DfKX9UTw",
       channelId: "UCCcAoE2qKUbbX5d_cuTURXw",
@@ -44698,14 +44698,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Noordwijk aan Zee", South Holland (title)
     id: "mx-live-noordwijk-aan-zee-boulevard-en-b",
     name: { ja: "Live Noordwijk aan Zee Boulevard en Beach Camera", en: "Live Noordwijk aan Zee Boulevard en Beach Camera" },
-    lat: 20.2117,
-    lng: -87.4633,
-    timeZone: "America/Cancun",
+    lat: 52.2433,
+    lng: 4.4347,
+    timeZone: "Europe/Amsterdam",
     category: "city",
-    country: "MX",
+    country: "NL",
     source: {
       videoId: "dtFG_mcfWjQ",
       channelId: "UCgDKPUQWlxzaqPm6tOFrInw",
@@ -44713,14 +44713,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Mendota", Illinois (title: Mendota, IL)
     id: "ar-mendota-union-depot-railroad-museum-m",
     name: { ja: "Mendota Union Depot Railroad Museum - Mendota, IL #SteelHighway", en: "Mendota Union Depot Railroad Museum - Mendota, IL #SteelHighway" },
-    lat: -29.4136,
-    lng: -62.7904,
-    timeZone: "America/Argentina/Cordoba",
-    category: "city",
-    country: "AR",
+    lat: 41.5472,
+    lng: -89.1176,
+    timeZone: "America/Chicago",
+    category: "railway",
+    country: "US",
     source: {
       videoId: "f8u6iNqQ8u8",
       channelId: "UCJId-kbfsO5K4kU9cKE_TqA",
@@ -45553,14 +45553,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Chino Hills", California (title)
     id: "mo-live-earthquake-information-raspberry",
     name: { ja: "Live Earthquake Information - RaspberryShake 4D Seismograph RD29A - Chino Hills, Southern California", en: "Live Earthquake Information - RaspberryShake 4D Seismograph RD29A - Chino Hills, Southern California" },
-    lat: 22.2006,
-    lng: 113.5461,
-    timeZone: "Asia/Macau",
+    lat: 33.9339,
+    lng: -117.7378,
+    timeZone: "America/Los_Angeles",
     category: "city",
-    country: "MO",
+    country: "US",
     source: {
       videoId: "zpVRx505C9w",
       channelId: "UCAhqlmltCW94ipicG8X-oLw",
@@ -45763,14 +45763,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Boteti; watch page: "a vital waterhole on the Boteti River in Botswana's Makgadikgadi region"
     id: "tz-camelthorn-waterhole-live-zebra-migra",
     name: { ja: "Camelthorn Waterhole Live - Zebra Migration, Hippos & More | Botswana", en: "Camelthorn Waterhole Live - Zebra Migration, Hippos & More | Botswana" },
-    lat: -1.5333,
-    lng: 33.8333,
-    timeZone: "Africa/Dar_es_Salaam",
-    category: "city",
-    country: "TZ",
+    lat: -20.6496,
+    lng: 24.4077,
+    timeZone: "Africa/Gaborone",
+    category: "animal",
+    country: "BW",
     source: {
       videoId: "mk02pEy3FdA",
       channelId: "UCuoNAKa3P0QR1Lw9QdpmoVg",
@@ -45883,14 +45883,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Paris", Île-de-France Region (watch page: "broadcasted from Paris, France")
     id: "za-france-24-english-live-international",
     name: { ja: "FRANCE 24 English – LIVE – International Breaking News & Top stories - 24/7 stream", en: "FRANCE 24 English – LIVE – International Breaking News & Top stories - 24/7 stream" },
-    lat: -30.9218,
-    lng: 29.5715,
-    timeZone: "Africa/Johannesburg",
+    lat: 48.8534,
+    lng: 2.3488,
+    timeZone: "Europe/Paris",
     category: "city",
-    country: "ZA",
+    country: "FR",
     source: {
       videoId: "HvZt-nh9sGg",
       channelId: "UCQfwfsi5VrQ8yKZ-UWmAEFg",
@@ -46003,14 +46003,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Ter Heijde", South Holland (title)
     id: "au-live-ter-heijde-beach-camera",
     name: { ja: "Live Ter Heijde Beach Camera", en: "Live Ter Heijde Beach Camera" },
-    lat: -32.7,
-    lng: 138.15,
-    timeZone: "Australia/Adelaide",
+    lat: 52.03,
+    lng: 4.1681,
+    timeZone: "Europe/Amsterdam",
     category: "city",
-    country: "AU",
+    country: "NL",
     source: {
       videoId: "fXL2w_ZBQp8",
       channelId: "UCgDKPUQWlxzaqPm6tOFrInw",
@@ -46033,14 +46033,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Stock Island", Florida (title: Lower Keys, Florida Keys)
     id: "tz-stock-island-waterfront-live-webcam-l",
     name: { ja: "Stock Island Waterfront Live WebCam - Lower Keys, Florida Keys", en: "Stock Island Waterfront Live WebCam - Lower Keys, Florida Keys" },
-    lat: -5.0667,
-    lng: 39.1,
-    timeZone: "Africa/Dar_es_Salaam",
-    category: "city",
-    country: "TZ",
+    lat: 24.5671,
+    lng: -81.7384,
+    timeZone: "America/New_York",
+    category: "harbor",
+    country: "US",
     source: {
       videoId: "GaRu2KaIsa4",
       channelId: "UC_JkC_sNaRfTrbRw9_b2QoA",
@@ -46063,14 +46063,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Netley", England (title)
     id: "us-netley-cam-southampton-water-shipspot",
     name: { ja: "Netley Cam - Southampton Water Shipspotting (NCSC Netley Cliff Sailing Club) Cruise Tanker Ships", en: "Netley Cam - Southampton Water Shipspotting (NCSC Netley Cliff Sailing Club) Cruise Tanker Ships" },
-    lat: 34.8272,
-    lng: -116.6884,
-    timeZone: "America/Los_Angeles",
-    category: "city",
-    country: "US",
+    lat: 50.8746,
+    lng: -1.3548,
+    timeZone: "Europe/London",
+    category: "harbor",
+    country: "GB",
     source: {
       videoId: "r7WzgzncE6M",
       channelId: "UCAupQASEG4kt6oXHe0Xwd9Q",
@@ -46168,14 +46168,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Mount Washington Cog Railway, New Hampshire; title
     id: "ch-cog-railway-and-mount-washington-obse",
     name: { ja: "Cog Railway and Mount Washington Observatory Track Cam", en: "Cog Railway and Mount Washington Observatory Track Cam" },
-    lat: 46.4162,
-    lng: 8.9174,
-    timeZone: "Europe/Zurich",
-    category: "city",
-    country: "CH",
+    lat: 44.2704,
+    lng: -71.3025,
+    timeZone: "America/New_York",
+    category: "railway",
+    country: "US",
     source: {
       videoId: "xYbH_qKYb5A",
       channelId: "UCq-cqqXchflIRPLsf_n3wlg",
@@ -46213,14 +46213,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Springfield", Missouri (title)
     id: "za-mokan-railcams-springfield-missouri-b",
     name: { ja: "MOKAN Railcams Springfield, Missouri BNSF Thayer North Subdivision (MP 204.70)", en: "MOKAN Railcams Springfield, Missouri BNSF Thayer North Subdivision (MP 204.70)" },
-    lat: -33.9812,
-    lng: 25.5473,
-    timeZone: "Africa/Johannesburg",
-    category: "city",
-    country: "ZA",
+    lat: 37.2153,
+    lng: -93.2982,
+    timeZone: "America/Chicago",
+    category: "railway",
+    country: "US",
     source: {
       videoId: "BJHCuIJpC2g",
       channelId: "UC4Nv2Ssy45CKx7XWnaUFexQ",
@@ -46453,14 +46453,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Wapusk National Park, Manitoba; title
     id: "no-live-arctic-tundra-cape-south-wapusk",
     name: { ja: "LIVE Arctic Tundra: Cape South - Wapusk National Park | explore.org", en: "LIVE Arctic Tundra: Cape South - Wapusk National Park | explore.org" },
-    lat: 71.1333,
-    lng: 27.6446,
-    timeZone: "Europe/Oslo",
-    category: "city",
-    country: "NO",
+    lat: 57.951,
+    lng: -93.3349,
+    timeZone: "America/Winnipeg",
+    category: "nature",
+    country: "CA",
     source: {
       videoId: "dF6frKSZZU8",
       channelId: "UCQI1rdPytw4jDAjwqXVSgfA",
@@ -46558,14 +46558,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Whitehorse", Yukon (watch page: "Live from Kaleido Lodge in Whitehorse, Yukon, Canada")
     id: "no-live-aurora-camera-northern-lights-yu",
     name: { ja: "LIVE Aurora Camera | Northern Lights & Yukon Sky — Kaleido Lodge, Canada", en: "LIVE Aurora Camera | Northern Lights & Yukon Sky — Kaleido Lodge, Canada" },
-    lat: 59.2,
-    lng: 9.6833,
-    timeZone: "Europe/Oslo",
-    category: "city",
-    country: "NO",
+    lat: 60.7161,
+    lng: -135.0538,
+    timeZone: "America/Whitehorse",
+    category: "nature",
+    country: "CA",
     source: {
       videoId: "QqJFCF5E_Cw",
       channelId: "UCs4QPhDq9ymQliACRqcOPjQ",
@@ -48133,14 +48133,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Machico", Madeira (title)
     id: "hu-live-port-of-machico-hd-webcam-madeir",
     name: { ja: "LIVE: Port of Machico HD Webcam, Madeira Island | @WebcamTaxi", en: "LIVE: Port of Machico HD Webcam, Madeira Island | @WebcamTaxi" },
-    lat: 47.4059,
-    lng: 19.9334,
-    timeZone: "Europe/Budapest",
-    category: "city",
-    country: "HU",
+    lat: 32.7162,
+    lng: -16.7676,
+    timeZone: "Atlantic/Madeira",
+    category: "harbor",
+    country: "PT",
     source: {
       videoId: "MhOuCDXuP_0",
       channelId: "UC1tBnbs03VJ34oLD8cmJSVw",
@@ -48148,14 +48148,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Paul do Mar", Madeira (title)
     id: "hu-live-paul-do-mar-webcam-24-7-o-precip",
     name: { ja: "LIVE: Paul do Mar WebCam 24/7 | O Precipício, Fajã da Ovelha | Madeira-Web", en: "LIVE: Paul do Mar WebCam 24/7 | O Precipício, Fajã da Ovelha | Madeira-Web" },
-    lat: 45.8742,
-    lng: 18.5088,
-    timeZone: "Europe/Budapest",
+    lat: 32.759,
+    lng: -17.2303,
+    timeZone: "Atlantic/Madeira",
     category: "city",
-    country: "HU",
+    country: "PT",
     source: {
       videoId: "Q_AnKD9JxyU",
       channelId: "UC1tBnbs03VJ34oLD8cmJSVw",
@@ -49138,14 +49138,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Sanxiantai; title
     id: "jp-live-cam-sanxiantai-2160p",
     name: { ja: "【Live Cam】東海岸即時影像 - 三仙台｜Sanxiantai｜三仙台（さんせんたい）風景区 2160p", en: "【Live Cam】東海岸即時影像 - 三仙台｜Sanxiantai｜三仙台（さんせんたい）風景区 2160p" },
-    lat: 38.2667,
-    lng: 140.8667,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
+    lat: 23.1253,
+    lng: 121.4189,
+    timeZone: "Asia/Taipei",
+    category: "nature",
+    country: "TW",
     source: {
       videoId: "X_fchztvqI0",
       channelId: "UC5FiBoG6GcB5QqsiOsGe22A",
@@ -51628,14 +51628,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Serengeti National Park; watch page: "Streaming straight from the iconic Serengeti National Park"
     id: "za-live-from-the-serengeti-wildlife-safa",
     name: { ja: "Live from the Serengeti | Wildlife Safari Cam | Serengeti Explorer", en: "Live from the Serengeti | Wildlife Safari Cam | Serengeti Explorer" },
-    lat: -25.7018,
-    lng: 27.231,
-    timeZone: "Africa/Johannesburg",
-    category: "city",
-    country: "ZA",
+    lat: -2.3713,
+    lng: 34.6984,
+    timeZone: "Africa/Dar_es_Salaam",
+    category: "animal",
+    country: "TZ",
     source: {
       videoId: "BmOLK7LTKbY",
       channelId: "UCuoNAKa3P0QR1Lw9QdpmoVg",
@@ -51853,14 +51853,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Hwange National Park", Matabeleland North (title: Hwange)
     id: "za-wilderness-linkwasha-live-cam-hwange",
     name: { ja: "Wilderness Linkwasha LIVE Cam | Hwange Waterhole 24/7 Wildlife Stream", en: "Wilderness Linkwasha LIVE Cam | Hwange Waterhole 24/7 Wildlife Stream" },
-    lat: -33.9939,
-    lng: 22.5757,
-    timeZone: "Africa/Johannesburg",
-    category: "city",
-    country: "ZA",
+    lat: -19.1667,
+    lng: 26.5,
+    timeZone: "Africa/Harare",
+    category: "animal",
+    country: "ZW",
     source: {
       videoId: "-rXriX4SiQk",
       channelId: "UCuoNAKa3P0QR1Lw9QdpmoVg",
@@ -55138,14 +55138,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Hanson Island, British Columbia; watch page: "The rocky beach of British Columbia's Hanson Island"
     id: "us-live-sea-lion-beach-british-columbia",
     name: { ja: "LIVE Sea Lion Beach - British Columbia | explore.org", en: "LIVE Sea Lion Beach - British Columbia | explore.org" },
-    lat: 47.6062,
-    lng: -122.3321,
-    timeZone: "America/Los_Angeles",
-    category: "city",
-    country: "US",
+    lat: 50.5726,
+    lng: -126.7459,
+    timeZone: "America/Vancouver",
+    category: "animal",
+    country: "CA",
     source: {
       videoId: "-uooI2satIQ",
       channelId: "UC5RV1g0fRYXfrt75hqvohKw",
@@ -55303,14 +55303,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Săcele", Brașov County (title: Sacele, Brasov)
     id: "ch-sacele-panoramic-webcam-metromat-bras",
     name: { ja: "Sacele Panoramic Webcam - Metromat Brasov - Live Webcam", en: "Sacele Panoramic Webcam - Metromat Brasov - Live Webcam" },
-    lat: 46.1798,
-    lng: 7.2933,
-    timeZone: "Europe/Zurich",
+    lat: 45.6167,
+    lng: 25.711,
+    timeZone: "Europe/Bucharest",
     category: "city",
-    country: "CH",
+    country: "RO",
     source: {
       videoId: "EbckOT0HIQk",
       channelId: "UCAxEkcZK-6Mmm3UXWEuZEEQ",
@@ -55348,14 +55348,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Greater Nevada Field, Nevada; title
     id: "de-live-greater-nevada-field-camera",
     name: { ja: "Live Greater Nevada Field Camera", en: "Live Greater Nevada Field Camera" },
-    lat: 52.9684,
-    lng: 11.1673,
-    timeZone: "Europe/Berlin",
+    lat: 39.5288,
+    lng: -119.8091,
+    timeZone: "America/Los_Angeles",
     category: "city",
-    country: "DE",
+    country: "US",
     source: {
       videoId: "V-ERTb6JXrc",
       channelId: "UCsDU8TKp0yzyVggxWlLQlDQ",
@@ -55363,14 +55363,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Portsmouth", New Hampshire (title: Portsmouth, NH US)
     id: "pl-market-square-portsmouth-nh-us",
     name: { ja: "Market Square, Portsmouth, NH US", en: "Market Square, Portsmouth, NH US" },
-    lat: 50.2522,
-    lng: 19.0214,
-    timeZone: "Europe/Warsaw",
+    lat: 43.077,
+    lng: -70.7577,
+    timeZone: "America/New_York",
     category: "city",
-    country: "PL",
+    country: "US",
     source: {
       videoId: "LkZZTkRHLVQ",
       channelId: "UC8gbWbcNNyb5-NIXvFklkOA",
@@ -55378,14 +55378,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Newburyport", Massachusetts (watch page: "the Newburyport.com State Street North Live Cam")
     id: "pl-state-street-north-live-cam",
     name: { ja: "State Street North Live Cam", en: "State Street North Live Cam" },
-    lat: 53.4925,
-    lng: 14.5922,
-    timeZone: "Europe/Warsaw",
+    lat: 42.8126,
+    lng: -70.8773,
+    timeZone: "America/New_York",
     category: "city",
-    country: "PL",
+    country: "US",
     source: {
       videoId: "CGrmP5woZz8",
       channelId: "UCvB8asb1Wbc-Mur7oIZ3TxA",
@@ -55408,14 +55408,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Davao City", Davao Region (title: Davao City, Philippines)
     id: "pl-maria-s-cam-12-felve-tuna-panga-and-e",
     name: { ja: "Maria's Cam 12 Felve Tuna Panga and Eatery , Ubalde Agdao Davao City, Philippine", en: "Maria's Cam 12 Felve Tuna Panga and Eatery , Ubalde Agdao Davao City, Philippine" },
-    lat: 52.2395,
-    lng: 21.03,
-    timeZone: "Europe/Warsaw",
+    lat: 7.0731,
+    lng: 125.6128,
+    timeZone: "Asia/Manila",
     category: "city",
-    country: "PL",
+    country: "PH",
     source: {
       videoId: "tllSPGECsPc",
       channelId: "UCZ6ZuSqeKrjFP7w9lS0nx0Q",
@@ -55978,14 +55978,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Open-Meteo geocoding "Jerusalem", Jerusalem (title)
     id: "it-live-jerusalem-now-western-wall-real",
     name: { ja: "LIVE Jerusalem Now | Western Wall Real-Time Cam | SkylineWebcams", en: "LIVE Jerusalem Now | Western Wall Real-Time Cam | SkylineWebcams" },
-    lat: 41.8953,
-    lng: 12.4907,
-    timeZone: "Europe/Rome",
+    lat: 31.769,
+    lng: 35.2163,
+    timeZone: "Asia/Jerusalem",
     category: "city",
-    country: "IT",
+    country: "IL",
     source: {
       videoId: "LueIPEfeFyo",
       channelId: "UC2WMV4vCYurHdHPd9pCqYSg",
@@ -56938,14 +56938,14 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Olkirimatian, Kajiado County; watch page: "Lentorre Lodge is located in the Kenyan Olkirimatian Conservancy"
     id: "za-live-from-lentorre-kenya-live-wildlif",
     name: { ja: "Live From Lentorre, Kenya | Live Wildlife Camera", en: "Live From Lentorre, Kenya | Live Wildlife Camera" },
-    lat: -33.9995,
-    lng: 18.4996,
-    timeZone: "Africa/Johannesburg",
-    category: "city",
-    country: "ZA",
+    lat: -1.8598,
+    lng: 36.1505,
+    timeZone: "Africa/Nairobi",
+    category: "animal",
+    country: "KE",
     source: {
       videoId: "bEmFpjwMOvs",
       channelId: "UCuoNAKa3P0QR1Lw9QdpmoVg",
