@@ -3936,6 +3936,4125 @@ export const CAM_EXCLUSIONS: CamExclusion[] = [
     videoId: "5ANdi_pay8w",
     reason: "Lottery-draw gambling stream, not a camera: title on the watch page, 2026-11-02",
   },
+  // ── Finished live streams that cannot be played, not even as a recording (the recording was
+  //    removed, or it is members-only). The live-state sweep had each one offline; the owner decided
+  //    on 2026-11-02 to drop what cannot be played. rio-christ-redeemer and yosemite are here too: their
+  //    stream is gone and their channels carry no replacement.
+  {
+    // times-square
+    videoId: "JQ_jwk_7OVE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // wrigley-field
+    videoId: "m38n8jVPUJ8",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // wildwood
+    videoId: "cK71xhMRtds",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // spirit-lake
+    videoId: "XIe9vQkAd7Q",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream zv67_HAFTOA, 2026-11-02",
+  },
+  {
+    // chobe-waterhole
+    videoId: "iqdRLSdSjWI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream 6VMVEWTJHh4, 2026-11-02",
+  },
+  {
+    // popocatepetl
+    videoId: "z1DIktum4zo",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // basilica-guadalupe
+    videoId: "NmHkMgNwawg",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // sydney-harbour
+    videoId: "VukSUsIGPGQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream YCuN0j_cIJk, 2026-11-02",
+  },
+  {
+    // buenos-aires-uade
+    videoId: "NfsyRx50gAI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // busan-haeundae
+    videoId: "LGuktGeHQxI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream x5paecMrjA8, 2026-11-02",
+  },
+  {
+    // jeju-seongsan
+    videoId: "NCzm0l_ZqzU",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream pz7rF65cJOA, 2026-11-02",
+  },
+  {
+    // mount-etna
+    videoId: "t4vlFU-ypIw",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // sagvar-stork
+    videoId: "AO5I5nNbbnE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // rio-christ-redeemer
+    videoId: "PhYE9txaPlo",
+    reason: "No playable stream: playabilityStatus ERROR \"This video is unavailable\" on the watch page, and no stream on its channel, 2026-11-02",
+  },
+  {
+    // gujo-hachiman
+    videoId: "L0C80aVxJaU",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // itaura-village
+    videoId: "ss7rSdSTrwc",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream jNJxQw8FwYw, 2026-11-02",
+  },
+  {
+    // beppu-bay
+    videoId: "hdVgObFgBV8",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // yosemite
+    videoId: "AvJl1Vbsg38",
+    reason: "No playable stream: playabilityStatus LOGIN_REQUIRED \"Private video\" on the watch page, and no stream on its channel, 2026-11-02",
+  },
+  {
+    // akureyri
+    videoId: "GXTycxKz_FQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // au-victoria-australia-3
+    videoId: "DbLMSFvB2Og",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // bl-col-de-la-tourmente-saint-barth-sceni
+    videoId: "15pVqwQb7A0",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-cabo-frio-beach-cameras-brazil
+    videoId: "HsfII35xV4g",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-florianopolis-canto-da-lagoa-brazil
+    videoId: "1ffJojfUyRA",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-florianopolis-lagoa-da-conceicao-mira
+    videoId: "egXyN_SwY-E",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-ilha-porchat
+    videoId: "RT4JhqVP8AY",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-pereque-acu-brazil
+    videoId: "5mV2qwFTdzA",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-santos-surf-conditions-beach-brazil
+    videoId: "jychMSrX9w0",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream PvpVD2ntBU8, 2026-11-02",
+  },
+  {
+    // ca-banff-canada
+    videoId: "m1F2ggd0hxA",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ca-banff-sunshine-village-canada
+    videoId: "OJzDoKXXoGw",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ca-kelowna-canada
+    videoId: "zkTaY9OQM2A",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ca-downtown-canada
+    videoId: "fDpNeUvss30",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ca-tofino-canada
+    videoId: "ABI1FZmrwbQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // de-trimburg-medieval-castle-ruins
+    videoId: "M1TS9GEIGoI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // fi-patoniva-river-oulanka-national-park
+    videoId: "L7F3XGPA6vo",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream aKjX6v-vFMg, 2026-11-02",
+  },
+  {
+    // fr-gambetta-square-france
+    videoId: "4i7ioN8wS20",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-machynlleth-uk
+    videoId: "GMJzMSOk-V0",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream AVot1AJoL8c, 2026-11-02",
+  },
+  {
+    // gr-gulf-of-ixia
+    videoId: "h8ZGGzCcL5g",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ie-dublin-city-centre-ireland
+    videoId: "AdUw5RdyZxI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // il-ashdod-israel
+    videoId: "mSONhnPsSzE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // il-ashdod-hakshatot-beach-israel
+    videoId: "GYdEdmjWTBA",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // il-community-center-israel
+    videoId: "hWwLAaO0Vyo",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream 7vjpHM3uYHs, 2026-11-02",
+  },
+  {
+    // il-jordan-river
+    videoId: "NLTRWDL7yfM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // is-north-reykjanes
+    videoId: "yUZTszmpAJE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-assabu
+    videoId: "kJLL6uXWVaI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-chiba
+    videoId: "vaifJWjqu0k",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-fuefuki-japan
+    videoId: "_9SONpu3HFQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream xcnuSHi18jY, 2026-11-02",
+  },
+  {
+    // jp-hiroshima-japan
+    videoId: "we2FaU_VOQI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream zjvrfeVODFY, 2026-11-02",
+  },
+  {
+    // jp-ishigaki
+    videoId: "H6pbOinBue8",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream b6tb6fT3M-s, 2026-11-02",
+  },
+  {
+    // jp-kagoshima-sakurajima-landmark-kts-jap
+    videoId: "w0U4AJozxek",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-kamakura-japan
+    videoId: "ZeI0dnHjX6w",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-lake-biwa-japan
+    videoId: "bZHusX-v7NI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream sM2IjSRBwnY, 2026-11-02",
+  },
+  {
+    // jp-mitoyo
+    videoId: "u6e_v5ntnyw",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-3
+    videoId: "nU41kpfKLJM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-nantan
+    videoId: "RC4GOX88dxo",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-nikko-japan
+    videoId: "7oRZg_BHPXg",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-ochanomizu-station-tokyo
+    videoId: "2AFMu3Yiw68",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream rx9veGIWmMc, 2026-11-02",
+  },
+  {
+    // jp-okinawa-japan
+    videoId: "fPKygdd-p2Y",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream Pv1nB-zgoKs, 2026-11-02",
+  },
+  {
+    // jp-panorama-of-yubatake
+    videoId: "B_Sc1v1qR-g",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-sapporo-japan
+    videoId: "yM6M8J-BZ1U",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream b2Ve2fudoHM, 2026-11-02",
+  },
+  {
+    // jp-sumida-river-in-tokyo
+    videoId: "QotB60C4FYc",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-livecamera-2
+    videoId: "GrEEoEmmrKs",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ke-laikipia
+    videoId: "KyQAB-TKOVA",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // mx-constitution-square-in-amealco-de-bon
+    videoId: "TDWnJ3dXkMY",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream 8wEVZYgzEh4, 2026-11-02",
+  },
+  {
+    // mx-don-vasco-square-mexico
+    videoId: "oh3DAj61Tlk",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // mx-plaza-garibaldi-mexico
+    videoId: "o-qwlPxee2I",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream KBU8GXi-XMI, 2026-11-02",
+  },
+  {
+    // ph-maria-s-cam-9-rosemary-street-agdao-d
+    videoId: "lsLkrwlimbE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-gatlinburg-skypark-live-webcam
+    videoId: "teGLziUvDkI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-hermosa-beach-good-stuff-strand-cam-l
+    videoId: "Jwna-J3L0NM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-miami-live-webcam-biscayne-bay-north
+    videoId: "5YCajRjvWCg",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-sbkp-live-aeroporto-internacional-de
+    videoId: "XEuLZHhSv_0",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This video is available to this channel's members on level:…\" on the watch page, 2026-11-02",
+  },
+  {
+    // ca-pab-live-harbour-cam-24-7-tilley-cam
+    videoId: "WaLlhxa9vj4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream K2V_xSCvdLg, 2026-11-02",
+  },
+  {
+    // de-berlin-live-webcam-24-7-germany-berli
+    videoId: "_pJAwwlzM7I",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // es-live-lanzarote-airport-webcam-24-7
+    videoId: "hEpaqvnButc",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // fr-saint-germain-sur-ay-en-direct-webcam
+    videoId: "ZlMwj15RHnU",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // fr-webcam-le-lavandou-plage-de-la-fosset
+    videoId: "ddusGpSgUfY",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // fr-webcam-merquel
+    videoId: "wpTiVBUlAXw",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // fr-webcam-villelaure
+    videoId: "RvqT-vEwNd4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // fr-fort-mahon-plage-webcam-en-direct-4k
+    videoId: "dLLHgCHpY6E",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-weston-super-mare-beach-live-the-gran
+    videoId: "VXnzFUwJtYM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream 927bUBTR7v0, 2026-11-02",
+  },
+  {
+    // gb-ventnor-camera-ventnor-esplanade-isle
+    videoId: "CmsVx-EJU5A",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-itchen-cam-by-southampton-sailing-clu
+    videoId: "6Qqvy20iH7w",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream hKkNY1L0Qq4, 2026-11-02",
+  },
+  {
+    // hk-live-hong-kong-live-4k
+    videoId: "VAK8DkBgjMs",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // it-trento-live-cam-centro-citta-piazza-d
+    videoId: "PzJVpZ9lp7Q",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-livecam
+    videoId: "mAyyCUiz48g",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream g_WNkDJmwM0, 2026-11-02",
+  },
+  {
+    // no-hafjell-live
+    videoId: "BADzwd9b0RU",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // no-sogndal-live
+    videoId: "6Usok3aloeU",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // no-troms-live
+    videoId: "jpCcV1-Sfnw",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // pl-siechnice-kamera-online-siechnice-ryn
+    videoId: "SyQ4eNx0kOQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // sa-makkah-live-hd-mecca-live-makkah-live
+    videoId: "bNY8a2BB5Gc",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // sa-madina-live-madinah-live-tv-online-ma
+    videoId: "rHWSRMcGGBQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // sa-madina-live-24-7-masjid-al-nabawi-liv
+    videoId: "9rmHzOb5ECs",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-watch-live-from-the-internationa
+    videoId: "nczOMPJGGAQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-boston-ma-live-cam-boston-common-at-b
+    videoId: "2lRbwu4TVtA",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-2026-08-16-ober-gatlinburg-sky-villag
+    videoId: "xXoZGQcbkFg",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-range-sundance-wy-downtown
+    videoId: "Iv19IkyodjQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-rail-cam-fullerton-california-bn
+    videoId: "DgGeCeD_HBU",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-kansas-city-missouri-usa-live-tra-2
+    videoId: "xR3kxBG_v7Y",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-bryant-park-webcam
+    videoId: "Zmmskdpi4QE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-rail-cam-berea-ohio-csx-ns
+    videoId: "NKLtXovsWnc",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-2026-08-11-ober-gatlinburg-sky-villag
+    videoId: "a0a9pmFL4B4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-campus-point-surf-cam
+    videoId: "JE3EvN55hfE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-rail-cam-waldwick-nj-njt-ns-rail
+    videoId: "a_IsaWR8fBE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-rail-cam-northwood-ohio-vickers
+    videoId: "VxijdxNKA9M",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream YZ7brXsIFqs, 2026-11-02",
+  },
+  {
+    // us-virginia-beach-fishing-pier-live-cam
+    videoId: "Zx_7xF2Sbxo",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-maui-beach-cam-napili-kai-beach
+    videoId: "gX7c8hzR17Y",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-destin-beach-cam-pompano-joe-s-m
+    videoId: "4mFybDorWPk",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-june-patrol
+    videoId: "UAYN7lVvVfE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-moody-gardens-pyramid-cam-live-galves
+    videoId: "yfI8jKgOnsY",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-hellgate-ospreys-nest-cam-cornell-lab
+    videoId: "-qvYCbvbeN8",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-marine-city-hometown-cam-marine-city
+    videoId: "GFzyA9BkHW4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-24-7-msp-webcam-minneapolis-st-paul-a
+    videoId: "wWm-kbryDDQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-rail-cam-shenandoah-junction-wes
+    videoId: "QhT13bsgL-U",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // al-vlore-bay-albania-live-4k-lungomare-b
+    videoId: "jLun451s8-g",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ar-buenos-aires-argentina-en-vivo
+    videoId: "AksMJTfw-vk",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ar-buenos-aires-argentina-en-vivo-24-7-l
+    videoId: "urwuIKd8eEo",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-praca-central-de-serra-branca-pb-ao-v
+    videoId: "_cmlw35vbfQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-aeroporto-internacional-de-ponta-pora
+    videoId: "pqEwczD6xlc",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-balneario-camboriu-ao-vivo
+    videoId: "TC_nOU7xAjw",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-trem-ao-vivo-boa-vista-velha-campinas
+    videoId: "5iPdHvpnydQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream hhrvXTCUvW8, 2026-11-02",
+  },
+  {
+    // br-praia-de-candeias-pe-camera-ao-vivo-l
+    videoId: "W_MfFb3qKN4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-vitoria-de-santo-antao-pe-camera-ao-v
+    videoId: "GQDmb_qTrAM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream Z5UagggcYpo, 2026-11-02",
+  },
+  {
+    // br-balneario-camboriu-ao-vivo-camera-do
+    videoId: "UPh63IjFEp0",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream GW-WBInJWJw, 2026-11-02",
+  },
+  {
+    // br-gramado-ao-vivo
+    videoId: "qoAd9U-8Cic",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-9-vista-da-ers-130
+    videoId: "HXOlbMCjXHw",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-sbsp-live-3-aeroporto-de-sao-paulo-co
+    videoId: "b8g-NPuIZI0",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This video is available to this channel's members on level:…\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-praca-santa-teresinha-em-cristais-mac
+    videoId: "iUTBdNIqLjQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream BdQ3nEYq3LY, 2026-11-02",
+  },
+  {
+    // br-travessia-ferrea-km-415-em-tres-front
+    videoId: "hE4zt3W7EhY",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-trem-ao-vivo-hortolandia-sp-brasil
+    videoId: "MrExaCVDuOA",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-trem-ao-vivo-japeri-rj-brasil
+    videoId: "2Olg8sll0VU",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-praia-de-porto-de-galinhas-ao-vivo-we
+    videoId: "zKsgtmgGHt4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-sbsp-live-2-aeroporto-de-sao-paulo-co
+    videoId: "ZJH-a0CD0CQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This video is available to this channel's members on level:…\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-sbgr-10l-live-aeroporto-internacional
+    videoId: "lnD4BOFpBss",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This video is available to this channel's members on level:…\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-sbsp-live-1-aeroporto-de-sao-paulo-co
+    videoId: "npWPVCz8dHk",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This video is available to this channel's members on level:…\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-sbgr-10r-live-aeroporto-internacional
+    videoId: "R6rzU6xTP74",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This video is available to this channel's members on level:…\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-sbgr-28-live-aeroporto-internacional
+    videoId: "yXrjdS-Pmkk",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This video is available to this channel's members on level:…\" on the watch page, 2026-11-02",
+  },
+  {
+    // ca-river-otter-cam
+    videoId: "C2iP-oVYQV4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ca-kicking-horse-base-plaza-live-cam
+    videoId: "qW1FFVhFFi0",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ca-sundial-hotel-live-stream
+    videoId: "VsRD_BG_7us",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // cn-live-inside-china-s-mega-wholesale-ma
+    videoId: "_B7aqTDfPC4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // cu-cuba-today-walking-tours-24-7-real-st
+    videoId: "Sp_lVhhGPUY",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream 2TxBUZ6oG1U, 2026-11-02",
+  },
+  {
+    // de-dicker-turm-turmstra-e-von-der-evgl-s
+    videoId: "xPtzJdHTO3Y",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // de-live-rhein-rees
+    videoId: "8XOrJj1hV40",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // de-live-fahre-frisia-iii-webcam-norddeic
+    videoId: "mn5GITwfwfE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // es-solar-eclipse-on-valencia-beach-2026
+    videoId: "7k3bAy4fmIY",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // es-live-webcam-playa-cala-agulla-capdepe
+    videoId: "bu-e1EuoxMs",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream t0wN-5gU2vs, 2026-11-02",
+  },
+  {
+    // es-aguas-de-cadiz-fuente-de-la-plaza-de
+    videoId: "0dKNLFFcHFU",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // es-valencia-walking-tour-4k-live-city-of
+    videoId: "ldfVQzM6TJo",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // es-platja-d-aro-center-live
+    videoId: "LSPN10FbR3U",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // es-salinas-de-torrevieja-webcam-en-direc
+    videoId: "p3m2po8KcAg",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // fr-live-europe-in-4k-24-7-scenic-views-o
+    videoId: "ckq-AO8PMjg",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // fr-webcam-live-les-sables-d-olonne
+    videoId: "xjlaExcaEt0",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // fr-webcam-port-de-morlaix
+    videoId: "SZxkRLHwoYU",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-poole-harbour-osprey-nest-camera-land
+    videoId: "pLOUQ0xFgyw",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-eastbourne-sea-camera
+    videoId: "B-GyM-_i-tw",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-lulworth-cove-live-webcam-4k-jurassic
+    videoId: "mGlsYdJk5r8",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-live-cam-kidderminster-station-concou
+    videoId: "I0o6HK6wV_Q",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-willow-lawn-station-ruislip-lido-rail
+    videoId: "RrzGCllm11Q",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-24-7-live-cam-stornoway-harbour-ferry
+    videoId: "kxOHob7q8Vg",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-lynton-barnstaple-railway-woody-bay-c
+    videoId: "KOuepc4oYNU",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-lynton-barnstaple-railway-woody-b-2
+    videoId: "yukUL8ceX60",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-lynton-barnstaple-railway-killington
+    videoId: "pKChf62uwIQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-loch-doon-ospreys
+    videoId: "a7Aocq3fybM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-poole-harbour-osprey-nest-camera-aeri
+    videoId: "_e2Uu-qCM2E",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-epping-signal-cabin-epping-essex-uk-l
+    videoId: "CCgTynddlJw",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-blenheim-webcam-dawlish-live-cam-spon
+    videoId: "8g_AgbaTkmw",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-blenheim-webcam-2-dawlish-4k-webcam-s
+    videoId: "0e-SOUXkie8",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-live-cam-kidderminster-platform-on-th
+    videoId: "SvehpS_lf9k",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-seaton-beach-live-webcam-spot-on-kios
+    videoId: "JHcdPeDozGI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-weymouth-mainline-railcam-24-7-train
+    videoId: "VcrN2Z4peDk",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-cheddar-reservoir-uk-live-webcam-ched
+    videoId: "qPm8lYRCKWk",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ie-live-webcam-cabra-dublin-ireland-faci
+    videoId: "48dTF22m3eE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ie-live-webcam-cabra-road-dublin-ireland
+    videoId: "JQub4c40doo",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ie-rathmines-dublin-live-webcam-live-str
+    videoId: "cF2wcAUmWRg",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // il-24-7-multiple-cameras-in-israel-iran
+    videoId: "Tu6hjlUq2Bs",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // il-pardes-institute-of-jewish-studies-ne
+    videoId: "VxOpjO2zIPM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // it-punta-secca-live-chiesa-s-g-battista
+    videoId: "lPXl-URlTb8",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // it-webcam-piazza-europa
+    videoId: "_aNnOHJMsME",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // it-gemona-del-friuli-live-webcam
+    videoId: "pRvHI1KcfYs",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream WP8SIjbsxwg, 2026-11-02",
+  },
+  {
+    // jm-santa-cruz-st-elizabeth-jamaica-live
+    videoId: "TYL1W5Gfvjg",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream wJsOXySDNos, 2026-11-02",
+  },
+  {
+    // jm-barbican-st-andrew-live-24-7-kingston
+    videoId: "Pb7vAzXbAlY",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-sukiyabashi-crossing-in-ginza-to
+    videoId: "1Xm5bjdI5hU",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-tokyo-night-drive
+    videoId: "o-ZcIJVlSM4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream pQaz70OJHBc, 2026-11-02",
+  },
+  {
+    // jp-tokyo-bay-ptz-live-cam-24-7-chat-cont
+    videoId: "DLsYMox4rCY",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-tokyo-odaiba-live-camera
+    videoId: "n3B8fp-Henc",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-tokyo-international-airport-hane
+    videoId: "3w4zEyFamuA",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // lv-streets-in-riga-live-stream
+    videoId: "eMd2VeeJ8SI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // mx-aguila-calzada-hieraaetus-pennatus-di
+    videoId: "LssZis7XjEA",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // mx-acapulco-guerrero-en-vivo-vista-panor
+    videoId: "6X_1iSXU-lc",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream 8o1j9vIW7tc, 2026-11-02",
+  },
+  {
+    // mx-tequisquiapan-queretaro-pueblo-magico
+    videoId: "LS099g1c8o0",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // mx-vista-panoramica-del-bosque-de-chapul
+    videoId: "Uu6ICUhgeU0",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream ciBL0DYBYpU, 2026-11-02",
+  },
+  {
+    // mx-acapulco-guerrero-en-vivo-vista-playa
+    videoId: "sFVDzXOpx0o",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // mx-puerto-vallarta-en-vivo-desde-grand-p
+    videoId: "V6Co4YdL25Q",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // mx-hermosillo-sonora-en-vivo-vista-plaza
+    videoId: "2T8A7ic2rTs",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream csSJXjfRXmM, 2026-11-02",
+  },
+  {
+    // mx-vista-en-vivo-de-plaza-cuitlahuac-izt
+    videoId: "wLHIxbdhgI0",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream 40W2Q6Hf0xY, 2026-11-02",
+  },
+  {
+    // mx-bernal-queretaro-en-vivo-vista-plaza
+    videoId: "5RjUirCphhY",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // mx-puerto-vallarta-jalisco-en-vivo-visto
+    videoId: "5boZ1Vw95OU",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // mx-vista-de-la-laguna-de-nichupte-desde
+    videoId: "albRLCpp2b8",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // mx-vista-de-cancun-en-vivo-desde-breathl
+    videoId: "QhiFymyJG5c",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream Kp9gH_N7wdE, 2026-11-02",
+  },
+  {
+    // mx-pachuca-hidalgo-en-vivo-vista-de-plaz
+    videoId: "Nqy5YyxpUFI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // mx-live-cam-live-music-puente-internacio
+    videoId: "j0sTBU2vk-Q",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream IcSuaDl-Nyc, 2026-11-02",
+  },
+  {
+    // nl-amsterdamse-poort-live-stream-klein-b
+    videoId: "DvsbMHSbGyU",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // no-fyr-til-fyr-live
+    videoId: "TPBIHbObzC0",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // no-oppdal-skisenter-live
+    videoId: "QTMXSlNd5k4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // no-the-best-of-norway-s-railway-spring-a
+    videoId: "tAWFO8_O_7M",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ph-olongapo-city-cctv-live-stream-three
+    videoId: "r88YptGTjq8",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ph-olongapo-city-cctv-live-stream-one
+    videoId: "W6Ugwcu3A00",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // pe-en-vivo-plaza-de-armas-de-huaraz-audi
+    videoId: "WCpy039qQiE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ph-olongapo-city-cctv-live-stream-two
+    videoId: "qGJHpJKuUqs",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // pl-park-muzyczny-kudowa-zdroj
+    videoId: "70QjeKRWTz0",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // pl-kamera-uam-tv-collegium-minus-uam-poz
+    videoId: "WuEAKQYvyKM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // pr-puerto-rico-sky-cam-com
+    videoId: "cigX_HsA3to",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // sa-madina-live-tv-masjid-nabawi-la-madin
+    videoId: "yGKvqx3Nikc",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // sg-live-woodlands-cam
+    videoId: "yx6OuNZa2xk",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // th-pattaya-beach-road-cam-links-to-air-q
+    videoId: "qH4rM7SIPvQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // tr-bozdogan-canl-yay-n-genel-gorunum
+    videoId: "NEa9teeeMBk",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // tw-du-chuan-tou-tamsui
+    videoId: "8rFVhLx8ORE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-skid-row-cam-1-los-angeles-ca
+    videoId: "FLIMx-V714k",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-kensington-cam4-phila-pa
+    videoId: "Ja-aqt-rNjQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-miami-skyline-live-macarthur-causeway
+    videoId: "dv9wlK0f9XE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-mori-point-pacifica-ca-4k-live
+    videoId: "q0Z7tv_7n-0",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-lutheran-church-of-hope-construction
+    videoId: "F9m-uOAx5RI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-hawaii-24-7-ambient-music-drone-film
+    videoId: "u6wVXT7XTPU",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-bora-bora-4k-drone-video-blue-lagoon
+    videoId: "bVr_e3mqpt8",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-24-7-st-louis-lambert-internatio
+    videoId: "N38KxWHm2T0",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-georgia-aquarium-cam-ocean-voyag
+    videoId: "8WTFWvePutc",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-times-square-1540-broadway-view-live
+    videoId: "o3Zy7MxvXE4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-bald-eagle-live-cam-2-traverse-city-m
+    videoId: "Va7LIyQkOBI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-traverse-city-mi-bald-eagle-nest-live
+    videoId: "OkzYFlOrZEo",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-okaloosa-island-pier-camera
+    videoId: "f56BJHhGkUI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-gebhardt-insurance-traffic-cam-round
+    videoId: "_XBMMTQVj68",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-his-place-resort-live-river-cam
+    videoId: "jw1Er6LyqT0",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-napili-kai-beach-resort-live-cam-maui
+    videoId: "mmzT-lCSpHg",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-hawaii-live-stream-4k-ala-moana-magic
+    videoId: "1V9nWQHwIwQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-24-7-londonderry-nh-traffic-cam
+    videoId: "Vi0JiFqB5dc",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-nashville-live-cam-lower-broadwa
+    videoId: "7lD-OKqUuIA",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-royal-sonesta-kauai-live-stream-poipu
+    videoId: "M6kN1wlNSk4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-4k-south-beach-miami-beach-24-7
+    videoId: "jwpfPq8TU8c",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-western-harbor-cam
+    videoId: "mpMdJJjw59E",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-wailea-beach-resort-live-maui-hawaii
+    videoId: "cWRSJ3EGuuo",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-friends-of-felines-rescue-center-ffrc
+    videoId: "KFLUFVUIGsM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-great-western-building-systems-beam-f
+    videoId: "HckYnpokxXU",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-kensington-cam-6-philadelphia-pa
+    videoId: "1Clsrhhl944",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-cedar-corner-roundabout-cam-at-cedar
+    videoId: "IeXtMySCZkI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-miami-skyline-live-cam-macarthur-caus
+    videoId: "M_JmSFLdJUE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-detroit-river-live-cam-from-the-dossi
+    videoId: "VA5zde5zPGk",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-view-of-lazelle-st-in-sturgis-sd
+    videoId: "iY8G7URAbgI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-pacifica-pier-closeup-pacifica-ca-4k
+    videoId: "16hHfZzf8-I",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-24-7-trains-at-union-station-rai
+    videoId: "lZesBuitv9s",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-doubletree-by-hilton-grand-hotel
+    videoId: "4UzQd1dVPlo",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-city-of-southfield-live-cam
+    videoId: "mdmLYHK6meA",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-aster-construction
+    videoId: "lbLNH2gKXDE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-miami-traffic
+    videoId: "wq9x1ZMqdEA",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-buffalo-bills-stadium-weather-cam
+    videoId: "4aONiVQLttc",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-kensington-cam2-philadelphia-pa
+    videoId: "EVIhbrLvUO4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-tiger-cam-of-animal-adventure-bao-min
+    videoId: "AtIzdc3un5s",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-ponce-inlet-boat-ramp-parking-lot-cam
+    videoId: "r5Y9tlij_TQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-downtown-woodward-oklahoma-live-camer
+    videoId: "6oCfzMLvmMI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream 7lwUN1E_uYk, 2026-11-02",
+  },
+  {
+    // us-live-view-of-main-street-from-tower-i
+    videoId: "B7TPT-LSeAQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-cat-dog-tv-bird-feeder-cardinals
+    videoId: "c2F2Q5MukAw",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-sfo-plane-spotting-real-time-air
+    videoId: "wdFQvKAlyA4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-port-miami-cruise-ship-terminals-bisc
+    videoId: "WpBTavYa7Fc",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-dune-allen-beach-florida-vue-on-30a
+    videoId: "xNZBPxx8ykg",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-right-now-global-webcams-24-7-se
+    videoId: "UVVGop6GGv8",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-okaloosa-island-beach-cam-crab-t
+    videoId: "n1k9iDluHHA",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-hubble-shocking-new-discovery-in-spac
+    videoId: "6wg4fd8FjVQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-planet-earth-view-from-space
+    videoId: "kSGWs_I7mMI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-trinidad-harbor-webcam-live-stream
+    videoId: "oAqv6M0JESY",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-lawai-beach-resort-live-cam
+    videoId: "3ATYHKN2hIg",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-oceanside-ca-harbor-live
+    videoId: "isQSAV9rJvQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-beautiful-destin-beach-cam-emera
+    videoId: "heFvIjq0O-Q",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-ac-boardwalk-live
+    videoId: "xdR31xv7il0",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-pineapple-willy-s-beach-cam
+    videoId: "-rSXsJuGQ3M",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-worcester-ma-railcam-railside-li
+    videoId: "b70NCE21Yws",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-east-greenwich-ri-railcam-railsi
+    videoId: "sFCofJMI4ew",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-port-huron-live-cam-showing-shipping
+    videoId: "dqrwY6i-Zz4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-kensington-cam3-philadelphia-pa
+    videoId: "cWd_niy8Rz8",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-24-7-sharky-s-waterfront-live-cam-at
+    videoId: "Dizx0Z2eDv8",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-vision-2025-construction
+    videoId: "Ngy39bGXjqs",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-islander-resort
+    videoId: "xmRR7LMDoXg",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-anacapa-ocean-channel-islands-nationa
+    videoId: "OAJF1Ie1m_Q",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-snow-king-mountain-lifts-seejh-com
+    videoId: "g4NgJXbRrBk",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-tobacco-river-dam-michigan-24-7-hd-li
+    videoId: "Pc-4Pk-wbeM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-new-york-city-walking-live-4k
+    videoId: "Le_-gbv_R18",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-mallory-square-4k-key-west
+    videoId: "f9pMVLoJfyE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-tehachapi-live-train-cams-at-west-cab
+    videoId: "Bzd0z0YqTEw",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-tehachapi-live-train-cams-at-the-teha
+    videoId: "pQHaVrBeZGc",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-tehachapi-live-train-cams-at-giumarra
+    videoId: "K0dU05muXdE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-seaside-heights-beach-cam-and-surf-re
+    videoId: "LJ5dbOYQw5A",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-lga-airport-live-24-7-laguardia-new-y
+    videoId: "OUBslrCqREs",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-big-boy-in-fostoria-ohio-live-from-ou
+    videoId: "Jil1EgWZndY",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-from-the-howell-wye-bi-tower-atl
+    videoId: "QRj1aojRv7o",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-tehachapi-live-train-cams-at-the-2
+    videoId: "yVfFVNmE0LE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-miami-river-camera
+    videoId: "7wHgYc_kN98",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-pacifica-pier-and-beach-pacifica-ca-4
+    videoId: "yLJCR5TlHoI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-stream-public-square-watertown-n
+    videoId: "vaDjY-5Ymxc",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream P5yjzzNBbhU, 2026-11-02",
+  },
+  {
+    // us-ih-35-wonder-world-drive
+    videoId: "4Uwmss-8J5I",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-village-of-tilton-5th-street
+    videoId: "czcqVgHG3y0",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-new-york-city-axis-q1808-le
+    videoId: "YBC4Hjhhs8k",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-crane-point-museum-nature-center
+    videoId: "b1wN6Ea49oc",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-crane-point-museum-nature-ce-2
+    videoId: "PhJxYJ9c0-s",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // vn-live-cat-tien-biodiversity-monitor-24
+    videoId: "rxfhYLouk3I",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // vn-truong-ly-tu-trong-huong-ks-song-han
+    videoId: "NeJGBQAY-bE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // vn-truong-tieu-hoc-ly-tu-trong-ptz
+    videoId: "1EamsYw_Xyo",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ar-camaras-ushuaia
+    videoId: "M21hM0Epa6M",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ar-camaras-tolhuin
+    videoId: "9nAmQgXzC2Y",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ar-camaras-rio-grande
+    videoId: "gRDLM93KZUE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ae-4k-dubai-travel-in-4k-burj-khalifa-lu
+    videoId: "WZsL0Gx3-Go",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-live-ao-vivo-porto-alegre-poa-guaiba
+    videoId: "yCeQueusZxs",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-ao-vivo-campo-grande-sbcg-tapio-2026
+    videoId: "FwbmvZ6vzrQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-ao-vivo-da-praia-de-xangri-la-litoral
+    videoId: "D5VLbXaqZfg",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-camera-ao-vivo-maracana-caicara-praia
+    videoId: "FL_YG6UBLdQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream BTalF3ZGU6A, 2026-11-02",
+  },
+  {
+    // br-ao-vivo-reconstrucao-da-ponte-baixa-p
+    videoId: "P3OWz_BML4M",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-ao-vivo-avenida-pedro-zapelini-tubara
+    videoId: "mZlT_81Gs7c",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ch-surveillancemap-live-matterhorn-zerma
+    videoId: "JcHYcrO4PRE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // cl-ledrium-tobalaba-mut-av-providencia-s
+    videoId: "g_yDUL2GjSI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // cn-live-giant-panda-cam-wolong-grove-exp
+    videoId: "UKkc40WQm0c",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // de-livecam-gedeonseck-boppard-filsen-und
+    videoId: "zLlwPU3Xtrk",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // de-live-abbruch-und-einhub-der-eisenbahn
+    videoId: "UG0hj4STDCI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // de-live-ruckbau-haltestellendach-ehinger
+    videoId: "n4fZV5Gwws0",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // de-solebad-werne
+    videoId: "NK98sgeJiXE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // de-spotlight-baltic-sea-24-7-live-webcam
+    videoId: "BnLcCs_NYUM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // es-webcam-naturaleza-en-vivo-en-la-l-2
+    videoId: "3tvoOi1_uPk",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // es-aves-del-humedal-directo-camara-6-pal
+    videoId: "ErmR39LAt14",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // es-directo-parque-nacional-de-donana-mar
+    videoId: "RHeNpnJBeHI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // es-directo-laguna-dulce-campillos-camara
+    videoId: "zY085rJhZsM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // es-nido-de-aguila-pescadora-p-n-archipie
+    videoId: "y2ahRNojjGw",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // fi-super-snow-storm-city-walk-24-7-winte
+    videoId: "9h42Y9gHqnI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // fo-surveillancemap-live-vagur-south-west
+    videoId: "otu_D2_TiLM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // fo-surveillancemap-live-vagur-south-east
+    videoId: "EHaOI3U5M_s",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-24-08-26-stornoway-harbour-ferry-crui
+    videoId: "jEkkDmG7NGo",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-wsr-crowcombe-stn-cam-1-west-somerset
+    videoId: "ptn6Fnc5u08",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-domar-cctv-4k-camera-live-stream-with
+    videoId: "7Nwi6hcL2qM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-wsr-crowcombe-cam2
+    videoId: "x-OipExeKQM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-ssen-alyth-substation-osprey-nest-cam
+    videoId: "6IJOKv3flwc",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-dorset-live-hobby-nest-camera-2026-07
+    videoId: "CUZpNsuflzQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This video is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-wsr-bishops-lydeard-west-somerset-rai
+    videoId: "hEa16bHxHMM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-otc-watersports-portland-harbour-uk-l
+    videoId: "YIo_pnH0LzY",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-ncd-new-car-park-webcam
+    videoId: "G3tppzAMmh4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // id-11-minutes-ago-the-heart-of-a-ukraini
+    videoId: "XpwMfiT3OYM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // id-live-view-kamera-cctv-perempatan-jemb
+    videoId: "U4XrKZJq428",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // id-live-view-kamera-cctv-pertigaan-barat
+    videoId: "LhKIazR69xQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // id-live-view-kamera-cctv-perempatan-masj
+    videoId: "UkKx7xXT2l4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // id-live-cctv-simpang-tugu-teratai-kabupa
+    videoId: "AkzsS0CNk5A",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // id-live-cctv-simpang-samsat-kabupaten-ke
+    videoId: "fIaykbCTcCE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // id-live-cctv-lalu-lintas-baranangsiang-b
+    videoId: "9GoI5vd8eGo",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // id-cctv-blabak
+    videoId: "8zi8Y1lUmrQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream Lu_Vl_SUxcw, 2026-11-02",
+  },
+  {
+    // id-cctv-blondo
+    videoId: "Xz8-7IiJF7U",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // id-cctv-depan-pasar-bantul
+    videoId: "w466KdN0Uy8",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // id-cctv-simpang-paseban-view-selatan-ban
+    videoId: "yLVnvT3hWAk",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // id-cctv-bundaran-srandakan-bantul
+    videoId: "2M5pleBbOnk",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // id-live-cctv-jalur-puncak-agrowisata-gun
+    videoId: "IZsy24Kp1Is",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // id-insane-railway-crossing-traffic-train
+    videoId: "mXEL2hZuCZ0",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // id-live-cctv-gapura-desa-sidomulyo-kec-w
+    videoId: "MaZG_yNimw8",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // id-live-cctv-jalur-puncak-agrowisata-2
+    videoId: "YSmclVZTkAs",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // id-cctv-kujon
+    videoId: "_nwNaAz22J4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // id-live-now-24-7-semeru-volcano-watch-mu
+    videoId: "EYYgrzyqgZM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream Hch0OAJKcjQ, 2026-11-02",
+  },
+  {
+    // id-cctv-sayangan
+    videoId: "eBH6o7E417k",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // id-2-minutes-ago-a-us-aircraft-carrier-c
+    videoId: "EvhuOI0UkF8",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // id-live-cctv-simpang-gadog-pantauan-lalu
+    videoId: "JJ3MWNYVCU4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // id-cctv-salaman
+    videoId: "yEZ1YS6EhS4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // id-live-cctv-simpang-borobudur-plaza-v-u
+    videoId: "FCuHGm6VMHs",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // il-live-middle-east-real-time-cameras-fr
+    videoId: "AkqGOcpDvZU",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // is-surveillancemap-live-djupivogur-harbo
+    videoId: "eAm6iAB1pQQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // it-morning-coffee-italian-music-scenic-c
+    videoId: "hOqrLWcs0iA",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // it-morning-coffee-in-italy-scenic-coasta
+    videoId: "DqTZSC0IonU",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // it-iis-leonardo-da-vinci-civitanova-marc
+    videoId: "hFzbr0a4uq0",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-24-tokyo-skytree-live
+    videoId: "HNpKxfWv0pk",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-zuishinin-temple-kyoto-live-came
+    videoId: "5Ica9fIP_Ng",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-tokyo-japan-train-live-camera
+    videoId: "ACcyj4wp7lk",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-mt-fuji-japan-sbs-news6
+    videoId: "e5fTf-gywY0",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-4k-sunset-live-cam-sea-of-japan-nishi
+    videoId: "WWkM7VPsWOQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-kagoshima-airport-by-kyt-live
+    videoId: "pJC3BThpdio",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-osaka-nipponbashi-livecamera
+    videoId: "Ttbg4hvcXec",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-jr-nakajo-station-live-camera-live-fh
+    videoId: "-Sqr6ZAJWZE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-ir-expo2025-osaka-kansai-osaka-b
+    videoId: "fufhSmDdbxA",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream GgE4oRYDo4Q, 2026-11-02",
+  },
+  {
+    // jp-beach-and-waves-2026
+    videoId: "FMf4XEP2ZY4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-mount-hakusan-live-camera-10-13-mro
+    videoId: "Getnw5E1ue8",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-osaka-dotonbori
+    videoId: "czJhGgFsp38",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-the-sea-of-japan-live-camera
+    videoId: "HoeuEIpyfNU",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-camera-at-aomori-station
+    videoId: "qMs_uynkM54",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-itm-sky-cam-osaka-airport-live-cam
+    videoId: "cRkzDz47vns",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-yubara-onsen-town-live-camera-ja
+    videoId: "SbFUGSSujeM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-live-camera-in-enoshima-island
+    videoId: "CZvqU0OqYro",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-stv-livecamera-hokkaido-japan
+    videoId: "c6Gqe6L_xZg",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-livecam-healing-nowon-seoul-korea-4k
+    videoId: "m1bDiKrTrAc",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-4k-seoul-ddp-live-camera-citypop
+    videoId: "jj5wczH-Jag",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-4k-live-cam-hongdae-seoul-korea
+    videoId: "DnqX7X6Pefg",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-cctv-1100-jeju-halla-mt-cctv
+    videoId: "UTHiHLuHsA0",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream xkuhskIE-hQ, 2026-11-02",
+  },
+  {
+    // kr-4k-live-korea-seoul-international-fir
+    videoId: "_1qU0DWP-Gk",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-live-4k-busan-live-cam-korea
+    videoId: "AzzpSKt9Bw4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // mx-trafico-en-vivo-blvd-b-quintana-plaza
+    videoId: "9t2w3iryJ1U",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // mx-trafico-en-vivo-zona-de-obra-s-n
+    videoId: "ICe_DXght4o",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // mx-trafico-en-vivo-blvd-b-quintana-obsid
+    videoId: "oSuwerF_QJY",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // mx-trafico-en-vivo-blvd-b-quintana-o-2
+    videoId: "v9KIo-7RDMo",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // mx-trafico-en-vivo-blvd-b-quintana-centr
+    videoId: "kvt2WBA1pcQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // mx-trafico-en-vivo-blvd-b-quintana-holid
+    videoId: "2fNUsH6Ajqs",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // mx-trafico-en-vivo-blvd-b-quintana-cales
+    videoId: "a7UV4LCyTs4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // mx-trafico-en-vivo-blvd-b-quintana-c-2
+    videoId: "nqoaNhb0t5U",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // mx-trafico-blvd-b-quintana-holiday-inn-s
+    videoId: "4z3KGP4HvII",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // nl-24-7-dutch-train-cab-rides-on-europe
+    videoId: "k5YxiCqDX4c",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // no-solheisen-hemsedal-live
+    videoId: "wFJzXxHqKVU",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ph-maria-s-cam-10-rosemary-street-agdao
+    videoId: "HozfwlxzwnU",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ph-timawa-iloilo-city
+    videoId: "sVD5eAGTzsQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ph-maria-s-cam-10a-rosemary-street-agdao
+    videoId: "GCoBhf_Hd-o",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ru-bakunina-33-bakunina-33
+    videoId: "Y4OUI_T-rwI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ru-respect
+    videoId: "kAMoUTefkpw",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ru-2
+    videoId: "ahCtXBkqI6M",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ru-friends
+    videoId: "4LNIhmRvAf4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ru-3
+    videoId: "7yXtHrJvkiM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ru-online-camera-vladivostok-center
+    videoId: "nBGguzu8aTc",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ru-amera-solikamsk-russia-with-ai-chatbo
+    videoId: "9ZyKdBaRQrs",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // sk-live-kamera-martin-slovakia-panoramat
+    videoId: "fdHkWHdnJd0",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // tw-4k-heping-island-park-live-camera
+    videoId: "g-T8NbF9xlQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ua-vencedor-do-premio-nobel-disse-este-n
+    videoId: "ljePvTogU7Q",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ua-combat-cam-real-war-footage-from-pokr
+    videoId: "5bp3k4X7dCo",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ua-o-telescopio-espacial-james-webb-dete
+    videoId: "OGU3I60zd6I",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-ultimate-maui-webcam-tour-ka-ana
+    videoId: "quk14OsTyAI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-now-ohio-backyard-wildlife-frenz
+    videoId: "ACT8r8r9b78",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-giraffe-deck-cam-animal-adventure-par
+    videoId: "sSBswg_K0SE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-ultimate-kauai-webcam-tour-poipu
+    videoId: "kqX0J3QGKn0",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-lujiigarden-bird-feeder-cam
+    videoId: "i59UQijZ4-Y",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-sharx-security-demo-live-cam-rotary-t
+    videoId: "dRVmzj3K2pw",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-southernmost-beach-resorts-pineapple
+    videoId: "nrlgx7A-MNs",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-perseid-meteors-from-dark-sky-ma
+    videoId: "Lz3UkI1RSzA",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-beachhouse-webcam-miramar-beach-fl
+    videoId: "K1PkxWM6QB4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-surveillancemap-live-above-the-sky-lo
+    videoId: "KuzVYn1Ucbg",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-southernmost-beach-resort-pool-cam
+    videoId: "sFeiuRohRwc",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-southernmost-beach-resort-shores-cam
+    videoId: "fRpwtzd3-H4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-nongame-wildlife-eagle-cam-habitat-ca
+    videoId: "uGVXnrdPp80",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-pixcams-com-pa-bird-feeder-1-live-str
+    videoId: "6--SErd7u4o",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-pixcams-com-wildlife-webcam-1-live-st
+    videoId: "pgMuZvyFw4k",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-pixcams-com-field-cam-live-stream
+    videoId: "JQWvjG5arhQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-academic-building-new-construction
+    videoId: "ID-yWIleGAM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-colonnade-falcon-cam
+    videoId: "hA6DNAC7tNM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-sdrc-mission-bay-camera
+    videoId: "2JxAeBCFLJ8",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-hopkins-charles-austin
+    videoId: "qRYILPnsOns",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // vn-camera-nut-giao-thong-tay-cau-rong-a
+    videoId: "oC8ttZHG50I",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // vn-live-cam005-cat-tien-national-park-vi
+    videoId: "Y5devoifJTI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-7
+    videoId: "0OBK4I7aRcE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-jr
+    videoId: "Ki93KKUVySA",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-5
+    videoId: "OEssseLG4TI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-14
+    videoId: "cscuZ9wbpO0",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-15
+    videoId: "7IygrRRgXYQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-20
+    videoId: "6UMh7x2RSdE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-21
+    videoId: "2v_bBrtolUM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-jr-2
+    videoId: "RJxnX65VDVo",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-camera-4-tanukikoji-shopping-str
+    videoId: "Bl_PyBh1L50",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream b2Ve2fudoHM, 2026-11-02",
+  },
+  {
+    // us-alexandria-bay-chamber-of-commerce-ri
+    videoId: "XfiHdsxawCY",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-daegu-gyeongbuk-live
+    videoId: "GwUjCIxgDNQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // id-live-cctv-simpang-kel-tengah-cam-2-ka
+    videoId: "te1poxeR53Y",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // mx-como-es-el-universo-de-las-estrellas
+    videoId: "sQo0hMynH3s",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-lincolnville-maine-harbor-cam
+    videoId: "BBayXL-zPC4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-live-cam-i-seoul-seokchon-lake-seoul
+    videoId: "_bQ-zPlmfx4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-8-25
+    videoId: "yoQqGE8Zhkw",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This video is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-amusement-park-24-7-live-cam-stream-c
+    videoId: "_73ygpjQIDQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // in-4k-live-wildlife-safari-wild-animals
+    videoId: "I8NtH7-zMAQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // fr-paris-live-walking-tour-4k-eiffel-tow
+    videoId: "nrulaI6I4jI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-sfo-night-action-archive-plane-spotti
+    videoId: "9EmmTigiEzs",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // in-iit-b2-ankit-awasthi-sir
+    videoId: "jwyTAxFvIBM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-big-island-hawai-i-webcam-tour-k
+    videoId: "PO04G-ukSZg",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-8-26
+    videoId: "2Ofn0yNBWV4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"Join this channel to get access to members-only content like…\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-live-cam-l-gwangandaegyo-bridge-busan
+    videoId: "TBOXgW5VV8s",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-live
+    videoId: "M6lq50Ptp1g",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // de-einbecker-morgenpost-webcam
+    videoId: "1KRAt-gjz0w",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // th-live-interactive-camera-control-reoli
+    videoId: "y368ae2_Y6U",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-3d-4k-24
+    videoId: "a58oJZrrtYM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-11
+    videoId: "NKox7HbFQGI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-4
+    videoId: "KvgGT_NuM_I",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ua-telescopul-james-webb-a-atins-margine
+    videoId: "TQkIHd_eqrA",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-sandcastles-2
+    videoId: "2GDRzKPSwK8",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-sandcastles-1
+    videoId: "M6lPntwR1F4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-korea-live-24-7-cam
+    videoId: "90OGQnofN8s",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-38
+    videoId: "4KKjVhACVAY",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ar-live-cozy-squirrel-bird-sanctuary-car
+    videoId: "n9ZcUp3ySos",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ph-inside-maria-s-living-room-24-7-phili
+    videoId: "eCe08tVSy3I",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-camera-of-mt-fuji
+    videoId: "-m7Q2ee7BEA",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-camera-of-fujisanparking
+    videoId: "XpB-RZd3_4E",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // se-live-camera-axis-p3827-pve-panoramic
+    videoId: "IaOCYP4q5jw",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-vol2-livecam-live-cam
+    videoId: "WP3eWB4YxYY",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-jr-live
+    videoId: "UXEA0kHRazU",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-12
+    videoId: "dvqM0l2C8dA",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-7
+    videoId: "rzX1emU7UFE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream d6UFp8yON_8, 2026-11-02",
+  },
+  {
+    // jp-42
+    videoId: "KBwgvcdA7Qo",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-43
+    videoId: "4R2Pjfldd04",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-44
+    videoId: "82uCs10qJCo",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream eUn5xFXMVsI, 2026-11-02",
+  },
+  {
+    // jp-45
+    videoId: "sPbNtqR1BcU",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream Prnejd5fJ9Q, 2026-11-02",
+  },
+  {
+    // kr-live-cam-i-gangmoon-beach-gangwondo-k
+    videoId: "n8mJCRXGoXc",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // sk-salamandra-resort-sportoviska
+    videoId: "75wJG5rUmv8",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-a260807
+    videoId: "LWbvYMFroVM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-andare-residences-live-stream
+    videoId: "I-Frs8VjSzM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-a260821-1355
+    videoId: "tt4KpMZWC-Q",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-8
+    videoId: "SR_LgY-yBFk",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-jr-2-8
+    videoId: "9YpQONYzX_A",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-live-3
+    videoId: "ge-dlQ0V2kA",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream e6TmYaqgVes, 2026-11-02",
+  },
+  {
+    // kr-cctv
+    videoId: "129k_gjGDhU",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream vA-ZlH9FHsQ, 2026-11-02",
+  },
+  {
+    // ru-live-chat-controlled-camera-perm-russ
+    videoId: "E4M-zK4r7ZY",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-24h-robo-house
+    videoId: "KeKN3VWK40g",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // th-live-reolink-e560p-e1-outdoor-poe-4k
+    videoId: "taD-29zfTK0",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-16
+    videoId: "L6KE12PAKYA",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-60
+    videoId: "z3sngsY_u4Y",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-1
+    videoId: "KKwavDUMlsQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-guinea-pig-live-stream
+    videoId: "KW7wtpsvdKI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream -nGL7_rpNv0, 2026-11-02",
+  },
+  {
+    // jp-71
+    videoId: "Arw1omQUnr4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-18-3
+    videoId: "YiUnKdAq424",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-75
+    videoId: "Yj4CHgedlVw",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // tw-360-4k-live-360-4k-360-formosa360-rog
+    videoId: "yvKEPw53CTs",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-livecamera-292-2
+    videoId: "WB4jllqVRCc",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-79
+    videoId: "5LvLwe6cqtY",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-80
+    videoId: "AD2S75lTwkc",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-81
+    videoId: "lK0pXrdkwK8",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-tokyo-kanda
+    videoId: "ftkM0BVLhtg",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-tokyo-live-camera
+    videoId: "jIBl1-avIc0",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-sapporo-japan-traffic-cam-cityscape-l
+    videoId: "zBaPnBEWQeg",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-kix-1-kansai-international-airpo
+    videoId: "tusny7uGPS8",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-osaka-japan-24-7-livestreaming-w
+    videoId: "KpAr98JS_aE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-yokohama-port-live-camera
+    videoId: "AEhdDHMR_vc",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-fukuoka-airport
+    videoId: "uuMhOREzUYA",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-97
+    videoId: "QzFmToex1Aw",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-8-26-live-ishigakijima-okinawa-japan
+    videoId: "0EeGabC__4E",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-hatoma-island-okinawa-japan-live
+    videoId: "Uh_od38Qtf4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-58-42x-ptz
+    videoId: "qcXFhfNRe5g",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-98
+    videoId: "MsUviESYH8s",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-rifu-japan-earthquake-live-stream
+    videoId: "gNmLky6Tc7Q",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-ukb-kobe-airport-hyogo-japan-new
+    videoId: "mHK35PWO7DE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-mount-fuji-live-from-fumotoppara-shiz
+    videoId: "hBaHx5WdnbQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-seoul-live-cam-24-7-han-river-real-ti
+    videoId: "HDblGb_WV5Y",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // tw-live-camera-taipei-neihu
+    videoId: "6zE8oh0OODY",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-4k-seoul-ddp-live-camera-lofi
+    videoId: "t5WpxyF8q5g",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // hk-live-hong-kong-s-only-24-7-live-camer
+    videoId: "KQMp39IV56Y",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // hk-live-cam-hong-kong-live-stream-lofi-h
+    videoId: "dCT-JPC9Ug4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // sg-singapore-port-4k-livestream-disney-c
+    videoId: "JKqqosMYcDI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // sg-singapore-cbd-live-stream-4k-with-lof
+    videoId: "Wmjfjc8QxkI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // id-bali-tropical-beach-live-24-7-ocean-s
+    videoId: "1avu7zP4dnU",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ph-live-ptz-camera-agdao-bus-stop-flyove
+    videoId: "15weHVdoNFs",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // vn-hanoi-live-camera-24-7-vinh-tuy-bridg
+    videoId: "DbOPyeg50bk",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // in-mumbai-sky-view-live-monsoon-skies
+    videoId: "0C-tW2uCrGs",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // in-news-24-live-tv-sugar-price-hike-genz
+    videoId: "hu20-r1oe2g",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // il-middle-east-poland-baltic-states-live
+    videoId: "FNccF1s7Wrw",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // tr-4k-istanbul-hagia-sophia-bosphorus-st
+    videoId: "bbVe5h7X3uw",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // il-live-hd-multi-cams-from-middle-east-r
+    videoId: "r5m_wedm-9E",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-london-rush-hour-live-real-time-traff
+    videoId: "0VV3JZhnlIo",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-london-bridge-river-thames-live-webca
+    videoId: "H3vVUBQYGHo",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream AoWlXqIXNZ8, 2026-11-02",
+  },
+  {
+    // gb-aberdour-live-streaming-weathercam-fi
+    videoId: "9eKzgA3Af7k",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // fr-webcam-palais-d-iena-conseil-economiq
+    videoId: "OzYp4NRZlwQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // de-hamburg-hafen-live-24-poller-hocken-s
+    videoId: "M66yEt1TZwY",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // es-live-360o-sky-camera-from-malaga-anda
+    videoId: "7QEMp9ozXFA",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // it-roma-five-suites-piazza-venezia-live
+    videoId: "yRTTjMYVCXY",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // hu-allatkert-budapest-sziveben-szavanna
+    videoId: "sBg8TC11i6k",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // gr-live-24-7-skiathos-bay-port-real-time
+    videoId: "k9_uTRCJy7Q",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // pt-i-love-lx-live-stream
+    videoId: "MTczfN3ANUM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // pt-livecam-costa-da-caparica-2-panoramic
+    videoId: "qhU5x83fUt8",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // is-live-aurora-from-reykjavik-iceland
+    videoId: "iqkZCpPVeJ0",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // is-live-24-7-iceland-earthquake-map-volc
+    videoId: "2qj5fiaShzY",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // fi-helsinki-night-walk-24-7-finland-nigh
+    videoId: "jOZ3zmgbWyk",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // fi-helsinki-summer-day-4k-walking-tour-2
+    videoId: "0BQf5sJcDUI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-castro-street-cam-1-live-stream
+    videoId: "-Cln1w-PSnA",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // fi-helsinki-finland-summer-walk-24-7-4k
+    videoId: "JQAuqeI3ES4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-port-miami-cruise-ship-terminals-live
+    videoId: "xsqwSMuz1oA",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-las-vegas-city-hall-roof-cam-live
+    videoId: "KtCweD6zjfA",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-ultimate-oahu-webcam-tour-waikik
+    videoId: "mLYWolyZxuM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-north-central-washington-tower-c
+    videoId: "uoELtsHI6Xg",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ca-bee-camera-livestream
+    videoId: "JLpRcd7OYsY",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ca-live-english-bay-vancouver-includes-e
+    videoId: "s0aC_c2qftk",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // mx-camara-en-vivo-cancun-vista-desde-hot
+    videoId: "ELgxvY636bo",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ca-live-english-bay-vancouver-20-views
+    videoId: "WDRtnRQE1Mc",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ca-cbc-news-live-toronto
+    videoId: "mM3kOpgjm98",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // mx-cancun-playa-hotel-presidente-en-vivo
+    videoId: "OS5Vpxp1zRM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream igG6mYJhA0I, 2026-11-02",
+  },
+  {
+    // ca-bc-place-vancouver-live-cam-0822-2026
+    videoId: "_ktdAH0_RmM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-live-aeroporto-santos-dumont-rio-de-j
+    videoId: "rAUdch_GyXs",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-ao-vivo-angra-dos-reis-agora
+    videoId: "CsQ1RRjk3qU",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-ao-vivo-arraial-do-cabo-agora-praia-e
+    videoId: "9uccePeQQK4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-trem-ao-vivo-embu-guacu-sp-brasil
+    videoId: "VahCvcV-9rk",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-trem-ao-vivo-barra-funda-sao-paulo-br
+    videoId: "6HF6sqHk_Fg",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ar-pinamar-playa-en-vivo-camaras-pinamar
+    videoId: "sQfqxlZvVDQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // za-cape-town-weather-cam-live-relaxing-m
+    videoId: "I8oZ9FII2vA",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // za-live-south-africa-bird-feeder-wildlif
+    videoId: "MrLVxFR1IbI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // au-melbourne-australia-weather-night-sky
+    videoId: "5n8odconoKU",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // au-box-camera-falconcam-project-live
+    videoId: "yv2RtoIMNzA",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // au-superbank-snapper-rocks-gold-coast-au
+    videoId: "VRyJri2iQVc",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // au-south-east-queensland-tmr-camera-netw
+    videoId: "I2mJLN0ATLo",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // nz-24-7-live-beach-haven-in-auckland-new
+    videoId: "FOuXD98JpK4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // za-live-africa-wildlife-magnificent-bird
+    videoId: "BVbFRP_vIIc",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-ao-vivo-santa-catarina-em-tempo-real
+    videoId: "4EEjIOeaL9c",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream 18QuN87r-fw, 2026-11-02",
+  },
+  {
+    // br-arroio-do-silva-camera-ao-vivo-monito
+    videoId: "VmySlU1qj4M",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-fort-myers-beach-live-webcam
+    videoId: "ocoHYjmUt1s",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ch-switzerland-in-full-bloom-4k-a-dreaml
+    videoId: "slsrciqocjw",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-kilauea-volcano-is-erupting-lava-eart
+    videoId: "Dfbj7tC29Cs",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-kilauea-volcano-eruption-live-24-7-li
+    videoId: "d93MlUgmk4s",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ch-livecam-berghotel-bischofalp-1650-m-u
+    videoId: "vSCViBmfQxE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-kilauea-volcano-erupting-now
+    videoId: "Wy1SB8bbjmM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-kilauea-episode-54-watch-next-er
+    videoId: "z1eaEX2Sk7o",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-99
+    videoId: "SiNdj5dEq_8",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-103
+    videoId: "UvSPftyU30U",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-24-7-soft-lofi-jazz-bgm
+    videoId: "xCpBwLhOvwQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-104
+    videoId: "e1UJO_F4CJ8",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-106
+    videoId: "0EzsqHx2AhU",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-110
+    videoId: "TsHfxgJI4FU",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-111
+    videoId: "32Azf9yJmRI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-mt-sakurajima-volcano-by-kyt-live
+    videoId: "c4o2HemaM68",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-tokyo-live-camera-4k
+    videoId: "Dq5VHiCebZg",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-tokyo-live-webcam-24-7-shinjuku-stree
+    videoId: "t2ppIAKnQNE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-live-24-7-planes-atc-cams-chill-music
+    videoId: "spcz9pIVCtQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // id-live-now-24-7-merapi-volcano-erupting
+    videoId: "SeyldmYkfDI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // in-live-darshan-shree-somnath-temple-jun
+    videoId: "J4z7CIrvsuw",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // in-aaj-tak-live-tv-nepal-flood-delhi-lax
+    videoId: "dEJ6H_DIhEg",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // tr-yalan-dunya-canl-izle
+    videoId: "Efh06uzzORM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-peregrine-networks-live-peregrine-fal
+    videoId: "BEHwTBqq3vM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // fr-webcam-houat
+    videoId: "u4z18aLOA3k",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // fr-live-cruise-ship-cams-around-the-worl
+    videoId: "8j3l1GfBLg0",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // fr-webcam-marseille-calanque-samena
+    videoId: "xsUGUMAFc-I",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // it-menaggio-piazza-garibaldi
+    videoId: "vyGnbPNlpsU",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // at-bergblick-live-aus-den-alpen
+    videoId: "0l_c9ANWCj8",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ch-webcam-adelboden-sonnen-panorama-7-24
+    videoId: "UbGnB3IQanA",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // pt-webcam-live-porto-di-vernazza-cinque
+    videoId: "bQ9VS-hM1D8",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // pl-gdansk-live-4k-wrzeszcz-city-webcam-2
+    videoId: "OIEIRS-5iO0",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // no-live-bigtrains-tv-cp10-csx-river-line
+    videoId: "GoFaRKaO4hM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // hr-webcam-bol-2-live-monitored-with-live
+    videoId: "6LbpnmSY_dg",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-abc15-arizona-latest-news-weathe
+    videoId: "AsHhodqzm7k",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-now-arizona-bird-feeder-cam-acor
+    videoId: "jaGPSAZ_uow",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-csx-chattanooga-sub-nashville-to-chat
+    videoId: "3bPatpTDUFI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-atlanta-history-center-live-goat-cam
+    videoId: "O25Ni73LtLE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-dolphin-live-webcam-key-largo-florida
+    videoId: "ghg9lhFDouM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ca-niagara-falls-live-cam
+    videoId: "UBTpYGj4cik",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ca-live-sky-cam-niagara-falls
+    videoId: "3KhQK5KG7VU",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ca-live-quebec-chateau-frontenac-harbor
+    videoId: "nJ1ChbhimjQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ca-diffusion-en-direct-de-saguenay
+    videoId: "ZGk4fkhBTvU",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ca-cbc-news-live-quebec
+    videoId: "WIgNWfoZQ4g",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // mx-lime-out-floating-taco-boat-live-webc
+    videoId: "zNvNY9xf9T4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // mx-zihuatanejo-en-vivo-playa-la-ropa
+    videoId: "e756N1tufY8",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-live-hora-certa-24-7-relogio-ao-vivo
+    videoId: "3wOHItqP_zU",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // za-southbroom-beach-webcam-from-riptide
+    videoId: "ZZeg7y7ET80",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // au-brisbane-weather-live
+    videoId: "o1LRcS28T2M",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // au-south-east-queensland-dashboard
+    videoId: "43beGFdRmW4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // nz-wellington-waterfront-webcam-geeks-on
+    videoId: "tnXoyr_hh7g",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-24-7-lake-powell-marina-cam-boat
+    videoId: "NEK2iTuyOX4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-ramsgate-royal-harbour-live-webcam-24
+    videoId: "6R_H9Ljp-Qs",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-ocean-city-boardwalk-pan-cam
+    videoId: "kBvlAcTHVlE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-east-summit-live-webcam
+    videoId: "CDeGOHHwsDg",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-socalmountains-com-goldmine-mountain
+    videoId: "GgQXgMJeHiA",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream wMD8OnO7nr4, 2026-11-02",
+  },
+  {
+    // us-upper-chisolm-live-webcam
+    videoId: "dyjqN3NezH0",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-ultimate-montana-webcam-tour-gla
+    videoId: "yiZ6nFZ8NRw",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-soothing-headache-migraine-pain-and-a
+    videoId: "kYissYTEjww",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-alum-bay-camera-scenic-the-needles-li
+    videoId: "EyMkSCRrTRI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-saint-louis-zoo-live-stream
+    videoId: "b8RCVeXUYMY",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-penguin-webcam-at-saint-louis-zoo
+    videoId: "hHLlZhianIQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // pl-weather-webcams-from-poland-pogoda-w
+    videoId: "B9oTl2vWU64",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // pl-white-storks-at-knepp
+    videoId: "s0liN8AzykQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // tw-4k-live-cam-lishan-sakuraen-hill
+    videoId: "nZr0Qymeol4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // vn-forest-live-stream-look-around-and-en
+    videoId: "YtnJ_CE8AGY",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // fr-olcott-ny-harborcam
+    videoId: "iJ5bRlGMyeY",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // de-kolner-dom-live-webcam-im-testbetrieb
+    videoId: "kodtgRure8Y",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-ao-vivo-cabo-frio-rj-praia-do-pero-po
+    videoId: "Zi8dZLSuw54",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // zw-en-vivo-episodios-completos-de-bluey
+    videoId: "4bbPfVFaSx8",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // mx-vista-panoramica-en-vivo-de-la-ciudad
+    videoId: "X2_e8oHny2s",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream 8JL0IyVP1vk, 2026-11-02",
+  },
+  {
+    // tr-kapikule-canli-ipsala-canli-hamzabeyl
+    videoId: "MQ_cvCiw3jQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // tr-2-p-narbeyli-koyu-canl-yay-n-7-24-tok
+    videoId: "jluROz4AC14",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ro-bran-vila-panorama-bucegi-mountain-vi
+    videoId: "ynUpKpsvtJw",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-north-carolina-bird-feeder-daily-live
+    videoId: "0zT458PYuB8",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-newport-harbor-hotel-marina-live-stre
+    videoId: "TpfJFjZyy0c",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-snow-stake-winter-park-resort
+    videoId: "_wOIgFEMypY",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-palisades-tahoe-ski-resort-alpine-lod
+    videoId: "xJjrP9DmA1k",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-aviary-cam-monterey-bay-aquarium
+    videoId: "cUoet3dmRU4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-emerald-cam-live-from-the-galveston-s
+    videoId: "gAdtr9_mBTk",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-panama-city-beach-live-cam-gulf-views
+    videoId: "a7_QEdjsgtE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-ldv-carillon-beach-live-webcam-panama
+    videoId: "7129nXp5fRo",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-sea-eaglecam4-live-stream
+    videoId: "nw4pdgy3-U0",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-bald-eagle-cam-glacier-gardens-j
+    videoId: "lUUcakg0YTA",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ca-enjoy-a-view-of-the-st-john-s-harbour
+    videoId: "y7FKz_y86Bo",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ca-lime-out-stt-floating-taco-boat-live
+    videoId: "nSJxrl07Gyg",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // mx-buccanos-beach-club-cozumel-mexico-li
+    videoId: "JX1O3DKjY-k",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // mx-zihuatanejo-en-vivo-playa-la-madera
+    videoId: "btSfGGIn_Eo",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // mx-playa-del-carmen-en-vivo-vista-panora
+    videoId: "nNEaRNxZ0Lg",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-ao-vivo-camera-de-rua-city-live-cam-o
+    videoId: "ZFjD0uxntWU",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ar-bariloche-en-vivo-ruta-40-lago-nahuel
+    videoId: "tfi0NRWIYoU",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ar-24-7-2-cd-acuna-mexico-live-cam-live
+    videoId: "09EPp9I-hIw",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-4k-niseko-annupuri-international-ski
+    videoId: "iCetfeKzJFs",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-hakuba-goryu-snow-resort-from-li
+    videoId: "TEC-hUC08oM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-camera-hakuba47-2026-03-09-09-44
+    videoId: "B6xMPiF22Vo",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-sapporo-in-summer-lofi-radio-24-hours
+    videoId: "X-vzOfg0yPk",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-shonan-beach-fm-78-9-sagami-bay-enosh
+    videoId: "fzQPDcFbzaA",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream IGIpSJcfRiQ, 2026-11-02",
+  },
+  {
+    // jp-shinhotakaropeway-livecamera
+    videoId: "qmqsvWrFfww",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-ishigaki-island-okinawa-japan-rb
+    videoId: "5jHCxMEGor0",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-beppu-bay-camera-hov
+    videoId: "0PEeZq9KE2o",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-25
+    videoId: "0UrgmAFFBEY",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-4k-taitung-fushan-area-live-camera
+    videoId: "Rsq95SQ26bY",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // tw-vandana-monastery-live-camera-hualien
+    videoId: "q-39iN_S7-E",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // tw-live-taiwan-hualien-ji-an-live-camera
+    videoId: "EsQOvbpEOPI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-cctv-jeju-island-in-south-korea-live
+    videoId: "I4a3moh62aM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream XfGo4w9yZgM, 2026-11-02",
+  },
+  {
+    // tw-live-24-hengchun-guanshan-live-camera
+    videoId: "POk4BTN3q3I",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // vn-kiet-tac-vi-cam-baroque-solo-nhac-co
+    videoId: "M2HhBFel6JU",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // za-table-mountain-cape-town-live
+    videoId: "myOiD4m3yAs",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // in-punjab-punjab-govt-election-update-cm
+    videoId: "2O42OtdYBc0",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-port-miami-cruise-ship-terminals
+    videoId: "ptyuseSJQCY",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-nakiska-ski-resort-mid-mountain-live
+    videoId: "MRl0nW5Gekk",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // fr-saint-tropez-live-french-riviera-cote
+    videoId: "fUMSP-HLWOY",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // fr-webcam-la-croix-valmer-lily-of-the-va
+    videoId: "-k63O5mK63w",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // fr-webcam-la-chalp-saint-veran
+    videoId: "e8u1GUObSJo",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // de-schluttsiel-harbour-webcam-live-north
+    videoId: "OVeePNGAbMQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-cold-lake-marina
+    videoId: "IvbrO52Gp-g",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-webcam-weston-super-mare-marine
+    videoId: "_Fmb_RsiwTU",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-schooner-wharf-bar-webcam-key-west-we
+    videoId: "Q2yLOnODXWo",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-aizu-higashiyama-spa-mukaitaki-l
+    videoId: "ISAqpsDLxy8",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-naha-airport-iata-oka-icao-roah-news
+    videoId: "a0ob2ey-zPg",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-24-3d-atc-hnd-rjtt
+    videoId: "qQoBmgDKZiI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-lake-tazawa-live-camera-semboku-city
+    videoId: "XkFBxz86Eoc",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-monitoramento-clima-em-boa-viagem-rec
+    videoId: "RjC3mz-qJII",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // fr-trevou-treguignec-en-direct-webcam-li
+    videoId: "XIU6nXVSHq4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // br-ao-vivo-laguna-sc-imagens-ao-vivo-24h
+    videoId: "qrWwvPrIxpM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // fr-saint-jouin-bruneval-en-direct-webcam
+    videoId: "yGrB7oCQ1TM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // gr-skiathos-island-live-camera-sporades
+    videoId: "_J1amHD_PvM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // hr-suncana-uvala-borik-mali-losinj-live
+    videoId: "BG9JTb-qLLg",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // gr-skiathos-live-camera-24-7-real-time-i
+    videoId: "gmb2JhecOEY",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ca-vancouver-rowing-club-live-stream
+    videoId: "Q4BuAWCHiao",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ca-chek-news-nanaimo-harbour-cam-24-7-li
+    videoId: "2iB-pHJQcak",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-by-hviewcam
+    videoId: "hxKBnoLH0uk",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-146
+    videoId: "R1Du85BPMpA",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-snow-king-mountain-base-seejh-ai
+    videoId: "SB45P6fZs9E",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-teton-village-wy-seejh-ai
+    videoId: "VCxmDnsK6yA",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // mx-vista-de-virtus-bodega-en-valladolid
+    videoId: "QPmBjjrUAZ8",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // mx-popocatepetl-noche-de-incandescencia
+    videoId: "9_c1L1KDJ9Y",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // mx-en-vivo-pluma-volcanica-del-popocatep
+    videoId: "BUvS0mDoXuQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-24-earthquake-alert-japan-live
+    videoId: "TVSCwRnsxy8",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream JdZSo4VdFAE, 2026-11-02",
+  },
+  {
+    // us-live-fort-lauderdale-beach-cam-elbo-r
+    videoId: "VzhdbBwCAK4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream hAYfk7YeAxU, 2026-11-02",
+  },
+  {
+    // us-day-drinkers-ad-free-24-7-elbo-room-s
+    videoId: "MhRM4fRz9Ow",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"Join this channel to get access to members-only content like…\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-watch-whale-sharks-live-georgia-aquar
+    videoId: "DtKB7dLOBk8",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ph-davao-philippines
+    videoId: "XHUaMlOwVsc",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ph-edge-babor-ph-edge-2-bbq-area-agdao-p
+    videoId: "R_xMH1DjpjU",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ph-edge-babor-ph-edge-4-jane-eatery-agda
+    videoId: "yhNqqnSW8pw",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ph-edge-babor-ph-edge-5-d-family-barbers
+    videoId: "nepz9aZkCcE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ph-jazbaz-philippines-5-soliman-street
+    videoId: "ui5S0ld_0po",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ru-lakhta-center-russia
+    videoId: "69VRD2HGheM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // th-house-of-sanskara-beach
+    videoId: "FBYUkqutqzE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // tr-istanbul-miniaturk
+    videoId: "pjdLnIXJf2g",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // tw-neihu-road
+    videoId: "SfPJLSMuCQE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-big-moose-mountain-usa
+    videoId: "McUEIgZLHxI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-eagle-nest-usa
+    videoId: "2jf6zs5oRLg",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-lee-vining-usa
+    videoId: "7AzazJDBnQU",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-lincoln-city-usa
+    videoId: "A7ib2rokOHg",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream ZKMeR94NHcI, 2026-11-02",
+  },
+  {
+    // us-pipeline-usa
+    videoId: "DY5RYp4sxYc",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-virginia-tech-burruss-hall-usa
+    videoId: "7TE5vU_ndPE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-miobydots-jr-minamoa-3f
+    videoId: "LRszS7dj6f0",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-tss-live-camera
+    videoId: "lf-RntqEthQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-167
+    videoId: "4C65kqdVmhI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-no-4-cc112
+    videoId: "hzJMyFceuGY",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-no-1-cc112
+    videoId: "zWORRn1aRRw",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-cctv-2
+    videoId: "x08xIIawl1o",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream 1dvP0S_o9Dw, 2026-11-02",
+  },
+  {
+    // kr-live-cam-i-seongsan-ilchulbong-jejudo
+    videoId: "pMaqsb26eSE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // tw-keelung-live-cam-4k-keelung-maritime
+    videoId: "colNBGSM1g8",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // tw-7
+    videoId: "L4hCgK8KG5M",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // cn-24h
+    videoId: "T53-fmKqm_0",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"Video unavailable\" on the watch page, 2026-11-02",
+  },
+  {
+    // kr-2-lineage2-2-pvp-pk
+    videoId: "XWnLUSb6pgg",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"Join this channel to get access to members-only content like…\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-jr-3-8
+    videoId: "G3_58aWKi_Q",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // tc-villa-renaissance-grace-bay-turks-and
+    videoId: "shNgEojhTK4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-lavallette-usa
+    videoId: "amB3Sbxqff0",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ro-fountain-of-manole-curtea-de-arges
+    videoId: "YJULVN8Otl0",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // vn-da-nang-vietnam
+    videoId: "L_eizGlcM9Q",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // vn-nha-trang-coastal-city-vietnam
+    videoId: "SCpZOgLKVfY",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // za-cape-town-south-africa
+    videoId: "khhdEM2Q_68",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // sn-live-cctv-simpang-kantor-bupati-kabup
+    videoId: "wQxdSWKumzc",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // sn-live-cctv-simpang-kantor-bupati-cam-3
+    videoId: "uHsGDVaV_sg",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // aq-construction-live-cam
+    videoId: "qcb0HiE0afM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-winlock-washington-live-railcam-winlo
+    videoId: "S3YTiO4jQtI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-members-only-santa-maria-santiag
+    videoId: "FwOhjdc6IGI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"Join this channel to get access to members-only content like…\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-members-only-popocatepetl-volcan
+    videoId: "a5VnMDnzGmQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"Join this channel to get access to members-only content like…\" on the watch page, 2026-11-02",
+  },
+  {
+    // id-live-pemantauan-cctv-lalulintas-area
+    videoId: "bcjSWZBmakE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // id-live-pemantauan-cctv-lalulintas-a-2
+    videoId: "UzsJMEqmDAg",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // id-live-pemantauan-cctv-pintu-masuk-utam
+    videoId: "B96LfyFCk64",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // za-live-from-jack-s-camp-kalahari-waterh
+    videoId: "jG0uYl5S44E",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-moosehead-lake-maine-live-cam
+    videoId: "EGh3HIea6v4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // za-moela-safari-lodge-live-zebra-migrati
+    videoId: "54Y7xlLrkuo",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-trains-ad-free-st-louis-missouri
+    videoId: "83zOF_E687I",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // mx-cdmx-lluvias-rayos-y-granizo-esta-tar
+    videoId: "3Y8_Xtz_92E",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream -VtOUUT1abs, 2026-11-02",
+  },
+  {
+    // in-live-flash-flood-wreaks-havoc-in-nepa
+    videoId: "aQ2VKJUaKW0",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // in-india-today-tv-live-nepal-flash-f-2
+    videoId: "eh_dalcjpfY",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // in-india-today-tv-live-nepal-flash-f-3
+    videoId: "26-N7obe23o",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // in-india-today-tv-live-indians-missing-i
+    videoId: "9z1FUkDriQY",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // za-live-at-the-waterhole-26-august-2-2
+    videoId: "3SMnfCsONaI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This video is available to this channel's members on level:…\" on the watch page, 2026-11-02",
+  },
+  {
+    // za-live-at-the-waterhole-24-august-2-2
+    videoId: "S8U7c_EQUsA",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"Join this channel to get access to members-only content like…\" on the watch page, 2026-11-02",
+  },
+  {
+    // za-elephant-sundowners-safarilive-su-2
+    videoId: "Od_-89eQGRE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This video is available to this channel's members on level:…\" on the watch page, 2026-11-02",
+  },
+  {
+    // za-live-at-the-waterhole-23-august-2026
+    videoId: "c7uRF1cxbrA",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"Join this channel to get access to members-only content like…\" on the watch page, 2026-11-02",
+  },
+  {
+    // za-breakfast-with-the-boys-safarilive-su
+    videoId: "E3iI7tKIwKk",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This video is available to this channel's members on level:…\" on the watch page, 2026-11-02",
+  },
+  {
+    // za-rosetted-reunion-safarilive-sunset-22
+    videoId: "hniyzTUiHU0",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This video is available to this channel's members on level:…\" on the watch page, 2026-11-02",
+  },
+  {
+    // za-live-at-the-waterhole-22-august-2026
+    videoId: "7liuUIRccls",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"Join this channel to get access to members-only content like…\" on the watch page, 2026-11-02",
+  },
+  {
+    // za-giants-meet-the-clan-safarilive-sunse
+    videoId: "awggIeRQpEE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This video is available to this channel's members on level:…\" on the watch page, 2026-11-02",
+  },
+  {
+    // za-live-at-the-waterhole-25-august-2-2
+    videoId: "i3w4d9g1JV4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"Join this channel to get access to members-only content like…\" on the watch page, 2026-11-02",
+  },
+  {
+    // za-wild-intentions-safarilive-sunrise-25
+    videoId: "EkWWfi4Rpa4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This video is available to this channel's members on level:…\" on the watch page, 2026-11-02",
+  },
+  {
+    // za-live-at-the-waterhole-21-august-2026
+    videoId: "cTJv-MXhpT8",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This video is available to this channel's members on level:…\" on the watch page, 2026-11-02",
+  },
+  {
+    // za-all-hail-the-leopard-queen-tlalamba-s
+    videoId: "ra1jIeqcLiM",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This video is available to this channel's members on level:…\" on the watch page, 2026-11-02",
+  },
+  {
+    // za-little-lions-big-curiosity-safari-2
+    videoId: "b7IU4UnPFqY",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This video is available to this channel's members on level:…\" on the watch page, 2026-11-02",
+  },
+  {
+    // za-a-day-of-little-ones-safarilive-sunse
+    videoId: "VZpqgJRI25s",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This video is available to this channel's members on level:…\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-walrus-cam-first-beach-view-roun
+    videoId: "zVsCxyi47Kk",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-anacapa-island-cove-lookout-cam
+    videoId: "fAS2TFePbQk",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-mount-washington-observatory-tow
+    videoId: "JuJVUhj9JBo",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-lake-fairlee-looncam
+    videoId: "mFSGKt0sV60",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-birds-squirrels-webcam-in-hokkaido-ja
+    videoId: "jl3e24fTbnY",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream dLfMXA4EOZU, 2026-11-02",
+  },
+  {
+    // us-live-key-largo-marina-live-webcam-key
+    videoId: "T7nRMTfWsIs",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-gasparilla-marina-live-stream-englewo
+    videoId: "6KJag1a8U3U",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-live-34
+    videoId: "GSO-cLay-x4",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // in-ujjain-mahakal-live-24x7-shreemahakal
+    videoId: "HEnbwbMfsZI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream lcbuqeTaiJM, 2026-11-02",
+  },
+  {
+    // pe-new-years-2027-countdown-all-timezone
+    videoId: "CaV0eBsikhc",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-loch-arkaig-osprey-camera-2
+    videoId: "iFzGp7mT_PY",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-tenby-south-beach-live-webcam-pembrok
+    videoId: "LUNS990R450",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-llandudno-north-parade-from-min-y-don
+    videoId: "P0jRqh_82uE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-tullochwood-lodges-live-stream-across
+    videoId: "st6Z0xFYsQI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // gb-north-wales-live-weather-hd-webcam
+    videoId: "aUw3mS_PW9g",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ie-portrush-live-surf-cam
+    videoId: "edrTjkN8UOA",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // co-columbia-sc-traffic-cam-police-scanne
+    videoId: "F14aJZOBLPg",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // se-risk-riksgransen-snowboard-och-skidkl
+    videoId: "Fx5ZDS0jKtU",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // nl-egmond-aan-zee-live-webcam-strand-zee
+    videoId: "9xa5IvsIMoE",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream JK4S4DzKiuM, 2026-11-02",
+  },
+  {
+    // nz-lyall-bay-surf-cam-by-lbslsc
+    videoId: "Wqkr-o1P9OQ",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // us-live-puffin-loafing-ledge-maine-seabi
+    videoId: "daFe_ygulPY",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // bg-live-bulgaria-webcams
+    videoId: "LKYcD-VAUjc",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // np-4k-live-wildlife-safari-animals-live
+    videoId: "7X-FPA3QuYU",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ch-live-penang-webcam-weather-georgetown
+    videoId: "JJ4pSHaYB5s",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // pl-philippines-live-camera-bankerohan-ma
+    videoId: "JklHtgXkQ2o",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // no-live-santa-claus-village
+    videoId: "e90mfzdBBb8",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // no-live-northern-lights-camera-from-utsj
+    videoId: "3HXRJ-4tOCw",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // no-nelson-tasman-live-camera-weather-and
+    videoId: "MPwMmEvl6F0",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // za-live-wildlife-camera-at-the-hide-hwan
+    videoId: "nXI-kWu6BLo",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // in-live
+    videoId: "Lb7tv3KNzlg",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // jp-livecamera-8
+    videoId: "yMm2Q3zLXKI",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // in-falcon-cam-hibbard-2
+    videoId: "IIBH_Zva4ms",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page, 2026-11-02",
+  },
+  {
+    // ua-24-7-live-cams-ukraine-russia-conflic
+    videoId: "CH8JsNKY3xo",
+    reason: "Finished live stream that cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page of its current stream awqoL8ZxbDI, 2026-11-02",
+  },
 ];
 
 export const EXCLUDED_VIDEO_IDS: ReadonlySet<string> = new Set(
