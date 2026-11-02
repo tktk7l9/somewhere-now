@@ -18973,12 +18973,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Silver Springs State Park, Florida; watch page: "the underwater world at Silver Springs State Park"
     id: "us-silver-springs-180-degree-underwater",
     name: { ja: "Silver Springs 180 Degree Underwater Manatee Cam powered by EXPLORE.org", en: "Silver Springs 180 Degree Underwater Manatee Cam powered by EXPLORE.org" },
-    lat: 32.071,
-    lng: -100.6826,
-    timeZone: "America/Chicago",
+    lat: 29.2002,
+    lng: -82.0381,
+    timeZone: "America/New_York",
     category: "animal",
     country: "US",
     source: {
@@ -18988,12 +18988,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Silver Springs State Park, Florida; watch page: "showing a part of Silver Springs State Park"
     id: "us-silver-springs-above-water-manatee-ca",
     name: { ja: "Silver Springs Above Water Manatee Camera powered by EXPLORE.org", en: "Silver Springs Above Water Manatee Camera powered by EXPLORE.org" },
-    lat: 32.071,
-    lng: -100.6826,
-    timeZone: "America/Chicago",
+    lat: 29.2002,
+    lng: -82.0381,
+    timeZone: "America/New_York",
     category: "animal",
     country: "US",
     source: {
@@ -19333,12 +19333,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Brooks Falls, Alaska; watch page: "fish for migrating salmon at Brooks Falls"
     id: "us-live-brooks-falls-brown-bears-low-exp",
     name: { ja: "LIVE Brooks Falls Brown Bears Low | explore.org", en: "LIVE Brooks Falls Brown Bears Low | explore.org" },
-    lat: 38.0612,
-    lng: -85.7097,
-    timeZone: "America/New_York",
+    lat: 58.555,
+    lng: -155.7915,
+    timeZone: "America/Anchorage",
     category: "animal",
     country: "US",
     source: {
@@ -19723,12 +19723,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Two Harbors, California; watch page: "This is an alternate nest the Two Harbors pair occasionally uses"
     id: "us-two-harbors-overlook-powered-by-explo",
     name: { ja: "Two Harbors Overlook powered by EXPLORE.org", en: "Two Harbors Overlook powered by EXPLORE.org" },
-    lat: 47.0227,
-    lng: -91.6707,
-    timeZone: "America/Chicago",
+    lat: 33.44,
+    lng: -118.4992,
+    timeZone: "America/Los_Angeles",
     category: "harbor",
     country: "US",
     source: {
@@ -19933,11 +19933,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Rowe Sanctuary, Nebraska; watch page: "along the Platte River in Nebraska. This vital five-mile stretch of river at Audubon’s Rowe Sanctuary"
     id: "us-live-sandhill-crane-migration-cam-aud",
     name: { ja: "LIVE Sandhill Crane Migration Cam: Audubon's Rowe Sanctuary | explore.org", en: "LIVE Sandhill Crane Migration Cam: Audubon's Rowe Sanctuary | explore.org" },
-    lat: 32.4876,
-    lng: -89.8804,
+    lat: 40.6698,
+    lng: -98.8864,
     timeZone: "America/Chicago",
     category: "animal",
     country: "US",
@@ -21898,11 +21898,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: 耿达镇, 四川省; watch page: "the Shenshuping Gengda Panda Center"
     id: "cn-live-giant-panda-cam-gengda-valley-ex",
     name: { ja: "LIVE Giant Panda Cam - Gengda Valley | explore.org", en: "LIVE Giant Panda Cam - Gengda Valley | explore.org" },
-    lat: 39.9344,
-    lng: 113.0072,
+    lat: 31.0916,
+    lng: 103.309,
     timeZone: "Asia/Shanghai",
     category: "animal",
     country: "CN",
@@ -27988,11 +27988,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Homosassa Springs, Florida; watch page: "This underwater camera dives into Homosassa Springs"
     id: "us-underwater-manatee-cam-at-homosassa-s",
     name: { ja: "Underwater Manatee Cam At Homosassa Springs | Fall in love with the beloved sea cows! | explore.org", en: "Underwater Manatee Cam At Homosassa Springs | Fall in love with the beloved sea cows! | explore.org" },
-    lat: 27.4964,
-    lng: -82.5395,
+    lat: 28.8036,
+    lng: -82.5759,
     timeZone: "America/New_York",
     category: "animal",
     country: "US",
@@ -36778,12 +36778,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Midway Atoll; watch page: "Welcome to the Kuaihelani (Midway Atoll) live cam"
     id: "us-midway-atoll-nwr-wildlife-live-camera",
     name: { ja: "Midway Atoll NWR Wildlife Live Camera", en: "Midway Atoll NWR Wildlife Live Camera" },
-    lat: 31.9974,
-    lng: -102.0779,
-    timeZone: "America/Chicago",
+    lat: 28.2337,
+    lng: -177.3679,
+    timeZone: "Pacific/Midway",
     category: "city",
     country: "US",
     source: {
@@ -36838,12 +36838,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Cracroft Point, British Columbia; watch page: "OrcaLab Base, Sea Lion Rock, Parson Island and Cracroft Point"
     id: "ca-live-orcalab-main-cams-orca-whale-loo",
     name: { ja: "LIVE OrcaLab Main Cams - Orca Whale Lookout | explore.org", en: "LIVE OrcaLab Main Cams - Orca Whale Lookout | explore.org" },
-    lat: 51.1834,
-    lng: -56.0148,
-    timeZone: "America/St_Johns",
+    lat: 50.5499,
+    lng: -126.6792,
+    timeZone: "America/Vancouver",
     category: "city",
     country: "CA",
     source: {
@@ -39838,12 +39838,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Turpentine Creek Wildlife Refuge, AR; watch page: "learn more about Turpentine Creek here"
     id: "us-jasmine-the-tiger-cam-at-turpentine-c",
     name: { ja: "Jasmine the Tiger Cam at Turpentine Creek powered by EXPLORE.org", en: "Jasmine the Tiger Cam at Turpentine Creek powered by EXPLORE.org" },
-    lat: 34.847,
-    lng: -83.4329,
-    timeZone: "America/New_York",
+    lat: 36.3115,
+    lng: -93.7546,
+    timeZone: "America/Chicago",
     category: "city",
     country: "US",
     source: {
@@ -40963,12 +40963,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Santa Cruz Island, California; watch page: "From the top of Mount Diablo on Santa Cruz Island"
     id: "us-mount-diablo-cam-powered-by-explore-o",
     name: { ja: "Mount Diablo Cam powered by EXPLORE.org", en: "Mount Diablo Cam powered by EXPLORE.org" },
-    lat: 39.6854,
-    lng: -74.6057,
-    timeZone: "America/New_York",
+    lat: 34.0185,
+    lng: -119.7751,
+    timeZone: "America/Los_Angeles",
     category: "city",
     country: "US",
     source: {
@@ -41218,11 +41218,11 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Turpentine Creek Wildlife Refuge, AR; watch page: "Learn more about Turpentine Creek here"
     id: "us-max-the-tiger-cam-at-turpentine-creek",
     name: { ja: "Max the Tiger Cam at Turpentine Creek powered by EXPLORE.org", en: "Max the Tiger Cam at Turpentine Creek powered by EXPLORE.org" },
-    lat: 47.8211,
-    lng: -101.2988,
+    lat: 36.3115,
+    lng: -93.7546,
     timeZone: "America/Chicago",
     category: "city",
     country: "US",
@@ -41263,12 +41263,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Aquarium of the Pacific, California; watch page: "Watch the coral predators at the Aquarium of the Pacific"
     id: "us-live-colorful-coral-and-fish-at-the-a",
     name: { ja: "LIVE Colorful Coral and Fish at the Aquarium of the Pacific | explore.org", en: "LIVE Colorful Coral and Fish at the Aquarium of the Pacific | explore.org" },
-    lat: 33.9987,
-    lng: -85.1408,
-    timeZone: "America/New_York",
+    lat: 33.762,
+    lng: -118.197,
+    timeZone: "America/Los_Angeles",
     category: "city",
     country: "US",
     source: {
@@ -41293,12 +41293,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Aquarium of the Pacific, California; watch page: "Watch the magical floating jellyfish at the Aquarium of the Pacific"
     id: "us-live-jellyfish-cam-at-the-aquarium-of",
     name: { ja: "LIVE Jellyfish Cam at the Aquarium of the Pacific | explore.org", en: "LIVE Jellyfish Cam at the Aquarium of the Pacific | explore.org" },
-    lat: 38.482,
-    lng: -90.7415,
-    timeZone: "America/Chicago",
+    lat: 33.762,
+    lng: -118.197,
+    timeZone: "America/Los_Angeles",
     category: "city",
     country: "US",
     source: {
@@ -43498,12 +43498,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Aquarium of the Pacific, California; watch page: "swimming around the Aquarium of the Pacific's shark lagoon"
     id: "us-live-shark-cam-at-the-aquarium-of-the",
     name: { ja: "LIVE Shark Cam at the Aquarium of the Pacific | explore.org", en: "LIVE Shark Cam at the Aquarium of the Pacific | explore.org" },
-    lat: 34.9951,
-    lng: -93.5149,
-    timeZone: "America/Chicago",
+    lat: 33.762,
+    lng: -118.197,
+    timeZone: "America/Los_Angeles",
     category: "city",
     country: "US",
     source: {
@@ -44083,12 +44083,12 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: set explicitly as a well-known landmark
+    // coords: Photon: Mendenhall Glacier, Alaska; watch page: "Camera viewers will see the Mendenhall Glacier and Mendenhall Lake"
     id: "us-mendenhall-glacier-and-mountain-goat",
     name: { ja: "Mendenhall Glacier and Mountain Goat Cam powered by EXPLORE.org", en: "Mendenhall Glacier and Mountain Goat Cam powered by EXPLORE.org" },
-    lat: 40.0323,
-    lng: -74.9574,
-    timeZone: "America/New_York",
+    lat: 58.5047,
+    lng: -134.5539,
+    timeZone: "America/Juneau",
     category: "city",
     country: "US",
     source: {
