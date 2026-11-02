@@ -73,7 +73,7 @@ function replaceKeepingFocus(row: HTMLElement, build: () => HTMLElement[]): void
 }
 
 /**
- * A label in two lengths. The full one is the accessible name and shows on wide screens; narrow
+ * A label in two lengths. The full one leads the accessible name and shows on wide screens; narrow
  * screens show the short one so the primary row keeps its 3 lines and the map does not shrink
  * when a chip appears (SHIG 85). CSS picks which span is visible (.chip__long / .chip__short).
  */
@@ -90,7 +90,9 @@ function setTwoLengthLabel(button: HTMLButtonElement, long: string, short: strin
   }
   longEl.textContent = long;
   shortEl.textContent = short;
-  button.setAttribute("aria-label", long);
+  // On a narrow screen only the short label shows. The name must contain it too, or voice
+  // control cannot reach the chip by what it shows ("EN" is not in "English"; WCAG 2.5.3, SHIG 94).
+  button.setAttribute("aria-label", long.includes(short) ? long : `${long} ${short}`);
 }
 
 function chip(

@@ -135,7 +135,19 @@ export function createMapView(
   // 5,720 cameras every time means discarding and creating over 20,000 in a single update.
   const requestRender = coalesced(() => render());
 
+  /** The camera whose pin has keyboard focus, so a rebuild can hand focus to its new pin. */
+  function focusedCamId(): string | undefined {
+    const active = document.activeElement;
+    if (active === null) return undefined;
+    for (const [id, marker] of markers) if (marker.getElement() === active) return id;
+    return undefined;
+  }
+
   function render(): void {
+    // Rebuilding swaps every pin element. Pressing Enter on a pin selects it and triggers this
+    // rebuild, which used to drop focus to <body> and send a keyboard user back to the top of
+    // the page (WCAG 2.4.3, SHIG 94).
+    const refocus = focusedCamId();
     cluster.clearLayers();
     markers.clear();
     // Calling addLayer one camera at a time rebuilds the clusters each time, which at 5,720 cameras
@@ -163,6 +175,7 @@ export function createMapView(
       batch.push(marker);
     }
     cluster.addLayers(batch);
+    if (refocus !== undefined) markers.get(refocus)?.getElement()?.focus({ preventScroll: true });
   }
 
   render();
@@ -225,7 +238,9 @@ export function createMapView(
     },
     focus(cam) {
       const zoom = Math.max(map.getZoom(), 6);
-      map.flyTo(aimAt(cam.lat, cam.lng, zoom), zoom, { duration: 0.8 });
+      // Same rule as goTo: no flight under prefers-reduced-motion.
+      if (matchMedia("(prefers-reduced-motion: reduce)").matches) map.setView(aimAt(cam.lat, cam.lng, zoom), zoom);
+      else map.flyTo(aimAt(cam.lat, cam.lng, zoom), zoom, { duration: 0.8 });
     },
     goTo(view) {
       const [lat, lng] = view.center;
