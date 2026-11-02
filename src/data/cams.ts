@@ -569,21 +569,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jackson-town-square",
-    name: { ja: "ジャクソン タウンスクエア", en: "Jackson Town Square" },
-    lat: 43.4799,
-    lng: -110.7624,
-    timeZone: "America/Denver",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "B_waF26In9o",
-      channelId: "UCEpDjqeFIGTqHwk-uULx72Q",
-      titleKey: "Jackson Town Square Live PTZ webcam - SeeJH.ai",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "grand-teton",
     name: { ja: "グランドティトン国立公園", en: "Grand Teton National Park" },
     lat: 43.7412,
@@ -1183,21 +1168,6 @@ export const CAMS: Cam[] = [
     },
   },
   {
-    // coords: Open-Meteo geocoding "St Ives", England
-    id: "st-ives-harbour",
-    name: { ja: "セント・アイヴス港", en: "St Ives Harbour" },
-    lat: 50.2086,
-    lng: -5.4875,
-    timeZone: "Europe/London",
-    category: "harbor",
-    country: "GB",
-    source: {
-      videoId: "T83mKGf_c3k",
-      channelId: "UC683QcyNqiaLGAB3OidWtBw",
-      titleKey: "Live webcam of St Ives Harbour in Cornwall, UK.",
-    },
-  },
-  {
     // coords: Open-Meteo geocoding "Dublin", Leinster
     id: "dublin-port",
     name: { ja: "ダブリン港", en: "Dublin Port" },
@@ -1696,8 +1666,8 @@ export const CAMS: Cam[] = [
     // coords: Open-Meteo geocoding "Daejeon", Daejeon
     id: "daejeon-expo",
     name: { ja: "大田 エキスポ科学公園", en: "Expo Science Park, Daejeon" },
-    lat: 36.3491,
-    lng: 127.3849,
+    lat: 36.3502,
+    lng: 127.3848,
     timeZone: "Asia/Seoul",
     category: "city",
     country: "KR",
@@ -2770,6 +2740,921 @@ export const CAMS: Cam[] = [
       videoId: "vK_d1lU0Up0",
       channelId: "UCiW5HaKJU6kwrs3G_LG0Geg",
       titleKey: "Northumberland Meteor Cam LIVE Stream (Embleton, UK)",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Baku", Baku City
+    id: "az-baku-jeyhun-salimov",
+    name: { ja: "バクー ジェイフン・サリモフ通り", en: "Baku, Jeyhun Salimov Street" },
+    lat: 40.3777,
+    lng: 49.892,
+    timeZone: "Asia/Baku",
+    category: "city",
+    country: "AZ",
+    source: {
+      videoId: "AYbpJxxIbrs",
+      channelId: "UC31Qm1T33OZioM_w8wWEaHQ",
+      titleKey: "Live stream  camera  Baku City Jeyhun Salimov street 7 Metro station 8 November Canlı yayım",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Gustavia"
+    id: "bl-saint-barth-airport-departures",
+    name: { ja: "サン・バルテルミー 離陸する飛行機", en: "Saint Barthélemy Airport Departures" },
+    lat: 17.8962,
+    lng: -62.8498,
+    timeZone: "America/St_Barthelemy",
+    category: "airport",
+    country: "BL",
+    source: {
+      videoId: "3PQNnVqrJEw",
+      channelId: "UC4nkl9OncDSVGZS9qdcRLxA",
+      titleKey: "Live Webcam - SBH Avions au décollage",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Ñuñoa", Santiago Metropolitan
+    id: "cl-santiago-nunoa-cordillera",
+    name: { ja: "サンティアゴ ニュニョアからの眺め", en: "Santiago from Ñuñoa" },
+    lat: -33.4474,
+    lng: -70.5828,
+    timeZone: "America/Santiago",
+    category: "city",
+    country: "CL",
+    source: {
+      videoId: "_Nrt155MExU",
+      channelId: "UCL9TwkqlJCYkgvVuZiV54-g",
+      titleKey: "Cámara en vivo y en directo - Live and direct camera desde Santiago Chile + música chill",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Providencia", Santiago Metropolitan
+    id: "cl-santiago-sanhattan-tobalaba",
+    name: { ja: "サンティアゴ サンハッタン(トバラバから)", en: "Sanhattan from Tobalaba, Santiago" },
+    lat: -33.4311,
+    lng: -70.6045,
+    timeZone: "America/Santiago",
+    category: "city",
+    country: "CL",
+    source: {
+      videoId: "UpHOS_enhjI",
+      channelId: "UCDMqTaUZsY3ElB4xWpO8tFA",
+      titleKey: "Ledrium - Costanera Center, Titanium, Sanhattan, Santiago, Chile, live cam, en vivo, en directo",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "La Parva", Santiago Metropolitan
+    id: "cl-la-parva",
+    name: { ja: "ラ・パルバ スキー場", en: "La Parva Ski Resort" },
+    lat: -33.3354,
+    lng: -70.2906,
+    timeZone: "America/Santiago",
+    category: "nature",
+    country: "CL",
+    source: {
+      videoId: "rV6JR-lvNQk",
+      channelId: "UCyDdSnWY0TWGyv7Qiol_WsQ",
+      titleKey: "La Parva - Placa Comercial en vivo",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Tallinn", Harju
+    id: "ee-tallinn-citycam-viru-hotel",
+    name: { ja: "タリン ヴィルホテル屋上", en: "Tallinn from the Viru Hotel Roof" },
+    lat: 59.437,
+    lng: 24.7535,
+    timeZone: "Europe/Tallinn",
+    category: "city",
+    country: "EE",
+    source: {
+      videoId: "VhVgZi2lGv0",
+      channelId: "UCQVre66peaZxhdvfIE1Ahxw",
+      titleKey: "24/7 Live Stream 4K - Digital.Tallinn CityCam",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Upernavik", Avannaata
+    id: "gl-upernavik-airport-north",
+    name: { ja: "ウペルナビク空港 北側", en: "Upernavik Airport North" },
+    lat: 72.7836,
+    lng: -56.1493,
+    timeZone: "America/Nuuk",
+    category: "airport",
+    country: "GL",
+    source: {
+      videoId: "wXEXB5NElxI",
+      channelId: "UCCDXX7QowpaqEBl2EzXlrXA",
+      titleKey: "Upernavik Airport North",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Malbun", Triesenberg
+    id: "li-malbun-eisturm-west",
+    name: { ja: "マルブン アイストゥルム西カメラ", en: "Eisturm Malbun, West Camera" },
+    lat: 47.1014,
+    lng: 9.6099,
+    timeZone: "Europe/Vaduz",
+    category: "nature",
+    country: "LI",
+    source: {
+      videoId: "C6NjQ1-qJB8",
+      channelId: "UCF1SCzx5snDV_aAht24QsBw",
+      titleKey: "Eisturm Malbun, Liechtenstein, Kamera West",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Lagún"
+    id: "cw-playa-lagun",
+    name: { ja: "プラヤ・ラグン", en: "Playa Lagun, Curaçao" },
+    lat: 12.3221,
+    lng: -69.1504,
+    timeZone: "America/Curacao",
+    category: "nature",
+    country: "CW",
+    source: {
+      videoId: "XHPX3vqxkCE",
+      channelId: "UCRjMuOBDCfSsCNIe2p0_tdg",
+      titleKey: "🐢 Playa Lagun LIVE Cam | Scuba Lodge Lagun Beach Hotel",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Half Way Tree", Saint Andrew Parish
+    id: "jm-half-way-tree-kingston",
+    name: { ja: "キングストン ハーフウェイツリー", en: "Half Way Tree, Kingston" },
+    lat: 18.0125,
+    lng: -76.7993,
+    timeZone: "America/Jamaica",
+    category: "city",
+    country: "JM",
+    source: {
+      videoId: "yHcnmIezKo4",
+      channelId: "UCfS5_X4LiZJV5vq6z7itypA",
+      titleKey: "🟢 Half Way Tree LIVE – Jamaica’s Busiest Transport Centre 24/7",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Cipolletti", Rio Negro
+    id: "ar-cipolletti-roundabout",
+    name: { ja: "シポレッティ 市のロータリー", en: "Cipolletti Roundabout" },
+    lat: -38.9339,
+    lng: -67.9903,
+    timeZone: "America/Argentina/Salta",
+    category: "city",
+    country: "AR",
+    source: {
+      videoId: "sJBDRvQBXYI",
+      channelId: "UCnJz20oDnvQJJaWfaJGqKTw",
+      titleKey: "Rotonda de la Ciudad de Cipolletti en VIVO",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Průhonice", Central Bohemia
+    id: "cz-pruhonice-park",
+    name: { ja: "プルーホニツェ公園", en: "Průhonice Park" },
+    lat: 49.9996,
+    lng: 14.5502,
+    timeZone: "Europe/Prague",
+    category: "nature",
+    country: "CZ",
+    source: {
+      videoId: "whltCQ8twRY",
+      channelId: "UClPmqxyaqa-W505MNI8Fqxg",
+      titleKey: "Průhonický park",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Lužná", Central Bohemia
+    id: "cz-luzna-u-rakovnika-station",
+    name: { ja: "ルジュナー・ウ・ラコヴニカ駅", en: "Lužná u Rakovníka Station" },
+    lat: 50.1238,
+    lng: 13.77,
+    timeZone: "Europe/Prague",
+    category: "railway",
+    country: "CZ",
+    source: {
+      videoId: "zeIuLrefeSA",
+      channelId: "UC3ewP9SczRIGGpDXDQvpPyQ",
+      titleKey: "🔴 LIVE: Lužná u Rakovníka Train Station | 24/7 Live Stream",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Hinterglemm", State of Salzburg
+    id: "at-saalbach-zwoelferkogel",
+    name: { ja: "ザールバッハ ツヴェルファーコーゲルの眺め", en: "Zwölferkogel, Saalbach Hinterglemm" },
+    lat: 47.3768,
+    lng: 12.5958,
+    timeZone: "Europe/Vienna",
+    category: "nature",
+    country: "AT",
+    source: {
+      videoId: "CjG8iZY4JK4",
+      channelId: "UCnE3aVwoqOABeJM0s8qta-g",
+      titleKey: "Live Webcam Saalbach Hinterglemm - Austria",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Līgatne", Cēsis Municipality
+    id: "lv-ligatne-river-fish-pass",
+    name: { ja: "リーガトネ川の魚道", en: "Līgatne River Fish Pass" },
+    lat: 57.2343,
+    lng: 25.0406,
+    timeZone: "Europe/Riga",
+    category: "animal",
+    country: "LV",
+    source: {
+      videoId: "HT2887NV0m4",
+      channelId: "UCIcQwgP2i-fEshMBclDJENw",
+      titleKey: "Lašveidīgās zivis Līgatnes upē pie atjaunotā zivju ceļa",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Panama City", Provincia de Panamá
+    id: "pa-panama-city-bay",
+    name: { ja: "パナマシティ", en: "Panama City" },
+    lat: 8.9936,
+    lng: -79.5197,
+    timeZone: "America/Panama",
+    category: "city",
+    country: "PA",
+    source: {
+      videoId: "bzfCbXAjk4s",
+      channelId: "UCgtAAzMRP9ok3Cv0ZyxtJPQ",
+      titleKey: "🔴 Panamá EN VIVO 24/7 · Panama City Live 24/7",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Muizenberg", Western Cape
+    id: "za-muizenberg-surf",
+    name: { ja: "ミューゼンバーグ サーフカメラ", en: "Muizenberg Surf Cam" },
+    lat: -34.097,
+    lng: 18.4797,
+    timeZone: "Africa/Johannesburg",
+    category: "nature",
+    country: "ZA",
+    source: {
+      videoId: "xQGZlljQlCM",
+      channelId: "UCf6fbt2V_PXTFtdg1fruTDA",
+      titleKey: "Muizenberg Wave Watchers: Surf Webcam",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Gisborne", Gisborne
+    id: "nz-gisborne-teal-motor-lodge",
+    name: { ja: "ギズボーン ティールモーターロッジ", en: "Gisborne, Teal Motor Lodge" },
+    lat: -38.6533,
+    lng: 178.0042,
+    timeZone: "Pacific/Auckland",
+    category: "city",
+    country: "NZ",
+    source: {
+      videoId: "TBWhP73uY6s",
+      channelId: "UC00yvkKCNAdJ9n5ZfGwlnbQ",
+      titleKey: "Gisborne Live Webcam | NZ Weather | Teal Motor Lodge",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "West Beach", South Australia
+    id: "au-adelaide-airport-runway-23",
+    name: { ja: "アデレード空港 滑走路23", en: "Adelaide Airport Runway 23" },
+    lat: -34.946,
+    lng: 138.5094,
+    timeZone: "Australia/Adelaide",
+    category: "airport",
+    country: "AU",
+    source: {
+      videoId: "H3W5vZbp0Yc",
+      channelId: "UC2CJ8N0oqrg_qnDoe99ktWQ",
+      titleKey: "Adelaide Airport Webcam: Runway 23",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Le Havre", Normandy
+    id: "fr-le-havre-bassin-du-commerce",
+    name: { ja: "ル・アーヴル コメルス船渠", en: "Le Havre, Bassin du Commerce" },
+    lat: 49.4935,
+    lng: 0.1079,
+    timeZone: "Europe/Paris",
+    category: "harbor",
+    country: "FR",
+    source: {
+      videoId: "1okru4J3zLE",
+      channelId: "UChjBK4brIsSd02wXYMrinJg",
+      titleKey: "⚓ LE HAVRE EN DIRECT – Webcam LIVE Bassin du Commerce, port & météo en Normandie",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Dieppe", Normandy
+    id: "fr-dieppe-port",
+    name: { ja: "ディエップ港", en: "Port of Dieppe" },
+    lat: 49.9216,
+    lng: 1.0777,
+    timeZone: "Europe/Paris",
+    category: "harbor",
+    country: "FR",
+    source: {
+      videoId: "uc6B5YWRM4A",
+      channelId: "UChjBK4brIsSd02wXYMrinJg",
+      titleKey: "Webcam du Port de Dieppe en direct",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Vlorë", Vlorë County
+    id: "al-vlora-bay",
+    name: { ja: "ヴロラ湾", en: "Vlora Bay" },
+    lat: 40.4696,
+    lng: 19.4838,
+    timeZone: "Europe/Tirane",
+    category: "nature",
+    country: "AL",
+    source: {
+      videoId: "d-7vUxJ0Y9E",
+      channelId: "UCKPyvPeJcrT8vAiifUbay1Q",
+      titleKey: "🔴 Vlora Bay Live 4K | Adriatic Sea, Albania",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Saint-Jean"
+    id: "bl-plaine-de-saint-jean",
+    name: { ja: "サン・ジャン平野", en: "Plaine de Saint-Jean, Saint Barthélemy" },
+    lat: 17.8987,
+    lng: -62.837,
+    timeZone: "America/St_Barthelemy",
+    category: "nature",
+    country: "BL",
+    source: {
+      videoId: "028GpBNaiJs",
+      channelId: "UC4nkl9OncDSVGZS9qdcRLxA",
+      titleKey: "Live Webcam - SBH Plaine de St-Jean",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Gustavia"
+    id: "bl-anse-de-flamands",
+    name: { ja: "フラマン湾", en: "Anse de Flamands, Saint Barthélemy" },
+    lat: 17.8962,
+    lng: -62.8498,
+    timeZone: "America/St_Barthelemy",
+    category: "nature",
+    country: "BL",
+    source: {
+      videoId: "DATTZ-F82Zk",
+      channelId: "UC4nkl9OncDSVGZS9qdcRLxA",
+      titleKey: "Live Webcam - SBH Anse de Flamands",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Gustavia"
+    id: "bl-baie-de-lorient",
+    name: { ja: "ロリアン湾", en: "Baie de Lorient, Saint Barthélemy" },
+    lat: 17.8962,
+    lng: -62.8498,
+    timeZone: "America/St_Barthelemy",
+    category: "nature",
+    country: "BL",
+    source: {
+      videoId: "IeeDy5VfSsg",
+      channelId: "UC4nkl9OncDSVGZS9qdcRLxA",
+      titleKey: "Live Webcam - SBH Baie de Lorient",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Saint-Jean"
+    id: "bl-baie-de-saint-jean",
+    name: { ja: "サン・ジャン湾", en: "Baie de Saint-Jean, Saint Barthélemy" },
+    lat: 17.8987,
+    lng: -62.837,
+    timeZone: "America/St_Barthelemy",
+    category: "nature",
+    country: "BL",
+    source: {
+      videoId: "hb_nPVSnNqw",
+      channelId: "UC4nkl9OncDSVGZS9qdcRLxA",
+      titleKey: "Live Webcam - SBH Baie de St-Jean",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Gustavia"
+    id: "bl-port-de-gustavia",
+    name: { ja: "グスタビア港", en: "Port de Gustavia" },
+    lat: 17.8962,
+    lng: -62.8498,
+    timeZone: "America/St_Barthelemy",
+    category: "harbor",
+    country: "BL",
+    source: {
+      videoId: "zaXzE6ZJAE8",
+      channelId: "UC4nkl9OncDSVGZS9qdcRLxA",
+      titleKey: "Live Webcam - SBH Port de Gustavia",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Huaraz", Ancash
+    id: "pe-huaraz-huascaran",
+    name: { ja: "ワラス ワスカラン山の眺め", en: "Huaraz and Huascarán" },
+    lat: -9.5261,
+    lng: -77.5287,
+    timeZone: "America/Lima",
+    category: "city",
+    country: "PE",
+    source: {
+      videoId: "QEluJDg_tG4",
+      channelId: "UCxx6TU_ev3fubchdb9mCeow",
+      titleKey: "Huaraz Live Webcam 🇵🇪 | Huascarán & Andes Mountains | Peru 24/7 | Lo-Fi Audio",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Mindo", Pichincha
+    id: "ec-mindo-sachatamia-hummingbirds",
+    name: { ja: "ミンド サチャタミア・ロッジのハチドリ", en: "Sachatamia Lodge Hummingbirds, Mindo" },
+    lat: -0.052,
+    lng: -78.7763,
+    timeZone: "America/Guayaquil",
+    category: "animal",
+    country: "EC",
+    source: {
+      videoId: "c3KfiiBTIvA",
+      channelId: "UCK9WO9hqKmaAccZqCgeOw4w",
+      titleKey: "Live Hummingbird Feeders at Sachatamia Lodge in Ecuador",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Kathmandu", Bagmati Province
+    id: "np-kathmandu-ptz",
+    name: { ja: "カトマンズ", en: "Kathmandu" },
+    lat: 27.7017,
+    lng: 85.3206,
+    timeZone: "Asia/Kathmandu",
+    category: "city",
+    country: "NP",
+    source: {
+      videoId: "eUAfX86SE2w",
+      channelId: "UCp8FhsgzNmYR6F1HxTDMTvw",
+      titleKey: "WEBCAM NEPAL LIVE - KATHMANDU PTZ",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Singapore"
+    id: "sg-cbd-webcam",
+    name: { ja: "シンガポール 中心業務地区", en: "Singapore CBD" },
+    lat: 1.2897,
+    lng: 103.8501,
+    timeZone: "Asia/Singapore",
+    category: "city",
+    country: "SG",
+    source: {
+      videoId: "7XNlABlz494",
+      channelId: "UCeh-xpdolXxtC7ey15ccW-g",
+      titleKey: "Singapore CBD Live Stream 4K Webcam with LoFi beats (Check the Haze)",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Singapore"
+    id: "sg-midtown-city-camera",
+    name: { ja: "シンガポール ミッドタウン", en: "Singapore Midtown" },
+    lat: 1.2897,
+    lng: 103.8501,
+    timeZone: "Asia/Singapore",
+    category: "city",
+    country: "SG",
+    source: {
+      videoId: "ZJjDve9SiYU",
+      channelId: "UCRoe77UVQ9FHHCS9IlX2WxQ",
+      titleKey: "🔴 Singapore City Live Camera | 4K UHD",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Montego Bay", Saint James Parish
+    id: "jm-montego-bay-sam-sharpe-square",
+    name: { ja: "モンテゴベイ サム・シャープ広場", en: "Sam Sharpe Square, Montego Bay" },
+    lat: 18.4712,
+    lng: -77.9188,
+    timeZone: "America/Jamaica",
+    category: "city",
+    country: "JM",
+    source: {
+      videoId: "ac0v_QwqYfw",
+      channelId: "UCfS5_X4LiZJV5vq6z7itypA",
+      titleKey: "🟢 Montego Bay Live 24/7 | Sam Sharpe Square, Jamaica | See Jamaica",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Santiago", Santiago Metropolitan
+    id: "cl-santiago-canal-san-carlos",
+    name: { ja: "サンティアゴ サン・カルロス運河", en: "Canal San Carlos, Santiago" },
+    lat: -33.4569,
+    lng: -70.6483,
+    timeZone: "America/Santiago",
+    category: "city",
+    country: "CL",
+    source: {
+      videoId: "FZnNn2VwSlc",
+      channelId: "UCDMqTaUZsY3ElB4xWpO8tFA",
+      titleKey: "Ledrium - Canal San Carlos, Santiago, Chile, live cam, en vivo, en directo",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Providencia", Santiago Metropolitan
+    id: "cl-santiago-los-leones",
+    name: { ja: "サンティアゴ ロス・レオネス", en: "Luis Thayer Ojeda and Los Leones, Santiago" },
+    lat: -33.4311,
+    lng: -70.6045,
+    timeZone: "America/Santiago",
+    category: "city",
+    country: "CL",
+    source: {
+      videoId: "vXKn4qUQFMA",
+      channelId: "UCDMqTaUZsY3ElB4xWpO8tFA",
+      titleKey: "Ledrium - Luis Thayer Ojeda, Los Leones, Santiago, Chile, Live cam, en vivo, en directo",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Ashdod", Southern District
+    id: "il-ashdod-marina-beach",
+    name: { ja: "アシュドッド マリーナの浜", en: "Ashdod Marina Beach" },
+    lat: 31.7921,
+    lng: 34.6497,
+    timeZone: "Asia/Jerusalem",
+    category: "nature",
+    country: "IL",
+    source: {
+      videoId: "S0b2PDWmeos",
+      channelId: "UClw5cvX6cyQqpn4FkoNO67Q",
+      titleKey: "אשדוד - חוף מרינה",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Ashdod", Southern District
+    id: "il-ashdod-yod-alef-beach",
+    name: { ja: "アシュドッド 11地区の浜", en: "Ashdod Yud-Alef Beach" },
+    lat: 31.7921,
+    lng: 34.6497,
+    timeZone: "Asia/Jerusalem",
+    category: "nature",
+    country: "IL",
+    source: {
+      videoId: "fcbaCxpUs9Y",
+      channelId: "UClw5cvX6cyQqpn4FkoNO67Q",
+      titleKey: "אשדוד - חוף יא'",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Budapest", Budapest
+    id: "hu-budapest-zoo-orangutans",
+    name: { ja: "ブダペスト動物園 オランウータン", en: "Budapest Zoo Orangutans" },
+    lat: 47.4984,
+    lng: 19.0404,
+    timeZone: "Europe/Budapest",
+    category: "animal",
+    country: "HU",
+    source: {
+      videoId: "6SZMHQr1CtM",
+      channelId: "UCzE4PjV4gHoDAsN6BXwsLQw",
+      titleKey: "Állatkert Budapest szívében - Orangután kifutó ÉLŐ",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Budapest", Budapest
+    id: "hu-budapest-zoo-seals",
+    name: { ja: "ブダペスト動物園 アザラシのプール", en: "Budapest Zoo Seal Pool" },
+    lat: 47.4984,
+    lng: 19.0404,
+    timeZone: "Europe/Budapest",
+    category: "animal",
+    country: "HU",
+    source: {
+      videoId: "ZXwT563tbf4",
+      channelId: "UCzE4PjV4gHoDAsN6BXwsLQw",
+      titleKey: "Állatkert Budapest szívében - Fóka medence ÉLŐ",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Tiszalök", Szabolcs-Szatmár-Bereg
+    id: "hu-tiszalok-little-owl-nest",
+    name: { ja: "ティサロク コキンメフクロウの巣", en: "Little Owl Nest, Tiszalök" },
+    lat: 48.0167,
+    lng: 21.3833,
+    timeZone: "Europe/Budapest",
+    category: "animal",
+    country: "HU",
+    source: {
+      videoId: "4igfY1_4lXo",
+      channelId: "UCU31-9qcY1RDuMad67dbuhw",
+      titleKey: "LIVE Little Owl Nest Cam (Tiszalök, Hungary)",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Tamási", Tolna County
+    id: "hu-tamasi-wildlife-feeder",
+    name: { ja: "タマーシ 野生動物の餌場", en: "Wildlife Feeder, Tamási" },
+    lat: 46.6333,
+    lng: 18.2833,
+    timeZone: "Europe/Budapest",
+    category: "animal",
+    country: "HU",
+    source: {
+      videoId: "pOP3szGiSFE",
+      channelId: "UCU31-9qcY1RDuMad67dbuhw",
+      titleKey: "LIVE Wildlife & Bird of Prey Feeder Cam #1 (Tamási, Hungary)",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Bol", Split-Dalmatia County
+    id: "hr-bol-brac",
+    name: { ja: "ブラチ島 ボル", en: "Bol, Brač" },
+    lat: 43.2619,
+    lng: 16.655,
+    timeZone: "Europe/Zagreb",
+    category: "harbor",
+    country: "HR",
+    source: {
+      videoId: "FuDjMuRcSFI",
+      channelId: "UCc2PVvLCwujfpdKg2dm080A",
+      titleKey: "WebCam Bol LIVE! (monitored with LiveStreamGuard.com)",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Vodnjan", Istria County
+    id: "hr-vodnjan",
+    name: { ja: "ヴォドニャン", en: "Vodnjan" },
+    lat: 44.9594,
+    lng: 13.8517,
+    timeZone: "Europe/Zagreb",
+    category: "city",
+    country: "HR",
+    source: {
+      videoId: "a2o6OL7SFgc",
+      channelId: "UCc2PVvLCwujfpdKg2dm080A",
+      titleKey: "WebCam Vodnjan LIVE! (monitored with LiveStreamGuard.com)",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Mali Lošinj", Primorje-Gorski Kotar County
+    id: "hr-mali-losinj-veli-zal",
+    name: { ja: "マリ・ロシニュ ヴェリ・ジャル", en: "Veli Žal, Mali Lošinj" },
+    lat: 44.5306,
+    lng: 14.4686,
+    timeZone: "Europe/Zagreb",
+    category: "nature",
+    country: "HR",
+    source: {
+      videoId: "r3AJVH8GT1E",
+      channelId: "UCFHFmA6nw4ZXQmUM2MZR04A",
+      titleKey: "Sunčana uvala, Veli Žal, Mali Lošinj [LIVE streaming]",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Donji Miholjac", County of Osijek-Baranja
+    id: "hr-donji-miholjac-mailath-manor",
+    name: { ja: "ドニィ・ミホリャツ マイラート城", en: "Mailáth Manor, Donji Miholjac" },
+    lat: 45.7608,
+    lng: 18.1672,
+    timeZone: "Europe/Zagreb",
+    category: "city",
+    country: "HR",
+    source: {
+      videoId: "zBr7TYNlTbo",
+      channelId: "UCc2PVvLCwujfpdKg2dm080A",
+      titleKey: "WebCam Donji Miholjac Dvorac Mailáth 1 LIVE! (monitored with LiveStreamGuard.com)",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Prague", Prague
+    id: "cz-prague-dvorecky-bridge",
+    name: { ja: "プラハ ドヴォレツキー橋", en: "Dvorecký Bridge, Prague" },
+    lat: 50.088,
+    lng: 14.4208,
+    timeZone: "Europe/Prague",
+    category: "city",
+    country: "CZ",
+    source: {
+      videoId: "wifkZ6ZVk08",
+      channelId: "UC3ewP9SczRIGGpDXDQvpPyQ",
+      titleKey: "🔴 Dvorecký most, Praha",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Poiana Brasov", Brașov County
+    id: "ro-poiana-brasov-bradul",
+    name: { ja: "ポヤナ・ブラショフ ブラドゥル斜面", en: "Bradul Slope, Poiana Brașov" },
+    lat: 45.597,
+    lng: 25.5525,
+    timeZone: "Europe/Bucharest",
+    category: "nature",
+    country: "RO",
+    source: {
+      videoId: "hz7kibvrQK0",
+      channelId: "UCAxEkcZK-6Mmm3UXWEuZEEQ",
+      titleKey: "Ka-Ma Sport 🔴 Poiana Brasov Live Webcam - Partia Bradul",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Târgu Secuiesc", Covasna County
+    id: "ro-targu-secuiesc-town-square",
+    name: { ja: "トゥルグ・セクイエスク 町の広場", en: "Târgu Secuiesc Town Square" },
+    lat: 46,
+    lng: 26.1333,
+    timeZone: "Europe/Bucharest",
+    category: "city",
+    country: "RO",
+    source: {
+      videoId: "j-G70Gl0eTU",
+      channelId: "UCAxEkcZK-6Mmm3UXWEuZEEQ",
+      titleKey: "Targu Secuiesc Town Square - Céhes Guesthouse - See Transylvania - 🔴 Live Webcam",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Hanoi", Hanoi
+    id: "vn-hanoi-vinh-tuy-bridge",
+    name: { ja: "ハノイ ヴィンチュイ橋", en: "Vinh Tuy Bridge, Hanoi" },
+    lat: 21.0245,
+    lng: 105.8412,
+    timeZone: "Asia/Bangkok",
+    category: "city",
+    country: "VN",
+    source: {
+      videoId: "LbvV4avTI5Q",
+      channelId: "UCBVNLnTUkBWfcQuUXvaSEUw",
+      titleKey: "🔴 Hanoi Live Camera 24/7 | Trực tiếp Cầu Vĩnh Tuy & Sông Hồng | Chill BGM 2K",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Minsk", Minsk City
+    id: "by-minsk-grushevsky-square",
+    name: { ja: "ミンスク グルシェフスキー広場", en: "Grushevsky Square, Minsk" },
+    lat: 53.9002,
+    lng: 27.5665,
+    timeZone: "Europe/Minsk",
+    category: "city",
+    country: "BY",
+    source: {
+      videoId: "TO7Us7GH0WI",
+      channelId: "UCqMpUK8Jhk_lSR_qIYhijGQ",
+      titleKey: "Minsk, Belarus, Grushevsky Square | Минск, Беларусь, Грушевский сквер.",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Warsaw", Mazovia
+    id: "pl-warsaw-panorama",
+    name: { ja: "ワルシャワ 国立競技場を望むパノラマ", en: "Warsaw Panorama and National Stadium" },
+    lat: 52.2298,
+    lng: 21.0118,
+    timeZone: "Europe/Warsaw",
+    category: "city",
+    country: "PL",
+    source: {
+      videoId: "vc7c83no5xQ",
+      channelId: "UCPQH7Qez-TIVJv5cmquVFyg",
+      titleKey: "Warszawa na żywo 🇵🇱 | Warsaw LIVE – panorama i Stadion Narodowy / City Skyline & National Stadium",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Sanok", Subcarpathia
+    id: "pl-sanok-kosciuszki-street",
+    name: { ja: "サノク コシチュシュコ通り", en: "Kościuszki Street, Sanok" },
+    lat: 49.5557,
+    lng: 22.2056,
+    timeZone: "Europe/Warsaw",
+    category: "city",
+    country: "PL",
+    source: {
+      videoId: "5V0co-hVvVA",
+      channelId: "UCY8asVL_dFu1fYmbS6Osfjg",
+      titleKey: "Sanok ul. Kościuszki",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Lensk", Sakha
+    id: "ru-lensk-lena-river",
+    name: { ja: "レンスク レナ川", en: "Lena River, Lensk" },
+    lat: 60.7238,
+    lng: 114.9345,
+    timeZone: "Asia/Yakutsk",
+    category: "nature",
+    country: "RU",
+    source: {
+      videoId: "B1r1sD5yKSQ",
+      channelId: "UCY39Lx-P1fvkAcO65gD-ocQ",
+      titleKey: "Ленск камера PTZ. Вид на реку Лена",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Patitiri", Thessaly
+    id: "gr-alonissos-lithos",
+    name: { ja: "アロニソス島 リソス", en: "Lithos, Alonissos" },
+    lat: 39.1466,
+    lng: 23.8649,
+    timeZone: "Europe/Athens",
+    category: "nature",
+    country: "GR",
+    source: {
+      videoId: "30LblSZfKV8",
+      channelId: "UCJuc0yMOh7AysestOsbn1Ww",
+      titleKey: "Alonissos_Live_Lithos_Stream",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Rathmines", Leinster
+    id: "ie-dublin-rathmines",
+    name: { ja: "ダブリン ラスマインズ", en: "Rathmines, Dublin" },
+    lat: 53.3203,
+    lng: -6.2633,
+    timeZone: "Europe/Dublin",
+    category: "city",
+    country: "IE",
+    source: {
+      videoId: "hIlYtjhRK_0",
+      channelId: "UCXtzCdsTkuBWIrOSuMNvANQ",
+      titleKey: "Rathmines Dublin Live Webcam.",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Aberdeen", Southern District
+    id: "hk-aberdeen-harbour",
+    name: { ja: "香港 アバディーン港", en: "Aberdeen Harbour, Hong Kong" },
+    lat: 22.248,
+    lng: 114.1529,
+    timeZone: "Asia/Hong_Kong",
+    category: "harbor",
+    country: "HK",
+    source: {
+      videoId: "KTaGQ7--iSc",
+      channelId: "UCBDx32JFg9vk9VHtQppv5tg",
+      titleKey: "✨【🎵 LOFI】Hong Kong Aberdeen Harbour Live Camera - 香港市景即時影像 香港仔海峽✨",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Kowloon"
+    id: "hk-east-kowloon-victoria-harbour",
+    name: { ja: "香港 東九龍のビクトリア湾", en: "East Kowloon, Victoria Harbour" },
+    lat: 22.3167,
+    lng: 114.1833,
+    timeZone: "Asia/Hong_Kong",
+    category: "harbor",
+    country: "HK",
+    source: {
+      videoId: "XN-ArdUrqtc",
+      channelId: "UC7DDCAQ65_KJeYJQ3fCmWUA",
+      titleKey: "【香港直播】實時東九龍維港 hk live camera , hong kong live stream, Country & Folk bgm, 輕鬆音樂",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Tarangire National Park", Manyara
+    id: "tz-nimali-tarangire-waterhole",
+    name: { ja: "ニマリ・タランギーレの水場", en: "Nimali Tarangire Waterhole" },
+    lat: -4,
+    lng: 36,
+    timeZone: "Africa/Dar_es_Salaam",
+    category: "animal",
+    country: "TZ",
+    source: {
+      videoId: "EbdnE0I_Aoo",
+      channelId: "UCuoNAKa3P0QR1Lw9QdpmoVg",
+      titleKey: "Live Wildlife Camera at Nimali Tarangire | Private Conservancy, Tanzania",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Kasane", Chobe District
+    id: "bw-senyati-waterhole",
+    name: { ja: "セニャティ・サファリキャンプの水場", en: "Senyati Safari Camp Waterhole" },
+    lat: -17.8016,
+    lng: 25.1602,
+    timeZone: "Africa/Gaborone",
+    category: "animal",
+    country: "BW",
+    source: {
+      videoId: "EdDdTrahHjI",
+      channelId: "UCuoNAKa3P0QR1Lw9QdpmoVg",
+      titleKey: "Senyati LIVE 24/7 Waterhole Cam | Chobe, Botswana - Elephants & Wildlife",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Kimana", Kajiado County
+    id: "ke-angama-amboseli",
+    name: { ja: "アンガマ・アンボセリ", en: "Angama Amboseli" },
+    lat: -2.7988,
+    lng: 37.5371,
+    timeZone: "Africa/Nairobi",
+    category: "animal",
+    country: "KE",
+    source: {
+      videoId: "i12eS_2YV-s",
+      channelId: "UCuoNAKa3P0QR1Lw9QdpmoVg",
+      titleKey: "LIVE From Angama Amboseli | Wildlife Beneath Kilimanjaro",
+    },
+  },
+  {
+    // coords: Open-Meteo geocoding "Gordon’s Bay", Western Cape
+    id: "za-gordons-bay-harbour",
+    name: { ja: "ゴードンズベイ港", en: "Gordon’s Bay Harbour" },
+    lat: -34.1556,
+    lng: 18.8768,
+    timeZone: "Africa/Johannesburg",
+    category: "harbor",
+    country: "ZA",
+    source: {
+      videoId: "1QH44L9PsAo",
+      channelId: "UCLwTi-vM5zaadH1ytPo-rTg",
+      titleKey: "LIVE Patrolling Webcam: Bikini Beach, GBYC & Gordon’s Bay Harbour (Cape Town, South Africa)",
     },
   },
   {
@@ -19439,36 +20324,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "np-m7-8-earthquake-collapses-buildings-i",
-    name: { ja: "M7.8 Earthquake collapses buildings in Gorkha, Nepal", en: "M7.8 Earthquake collapses buildings in Gorkha, Nepal" },
-    lat: 28.0024,
-    lng: 84.6201,
-    timeZone: "Asia/Kathmandu",
-    category: "city",
-    country: "NP",
-    source: {
-      videoId: "xiMmF99u4Y0",
-      channelId: "UCLun91ra3QNeFnCcZhK0wAw",
-      titleKey: "M7.8 Earthquake collapses buildings in Gorkha, Nepal",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "np-m7-8-earthquake-damages-buildings-in",
-    name: { ja: "M7.8 Earthquake damages buildings in Gorkha, Nepal", en: "M7.8 Earthquake damages buildings in Gorkha, Nepal" },
-    lat: 28.0024,
-    lng: 84.6201,
-    timeZone: "Asia/Kathmandu",
-    category: "city",
-    country: "NP",
-    source: {
-      videoId: "D8IcF4LsPB0",
-      channelId: "UCLun91ra3QNeFnCcZhK0wAw",
-      titleKey: "M7.8 Earthquake damages buildings in Gorkha, Nepal",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "nz-christchurch-live-airport-stream",
     name: { ja: "Christchurch Live Airport Stream", en: "Christchurch Live Airport Stream" },
     lat: -43.5333,
@@ -21599,21 +22454,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-security-camera-footage-of-beavis-and",
-    name: { ja: "Security camera footage of \"Beavis and Butthead Bandits\" from Summit Store in Los Altos", en: "Security camera footage of \"Beavis and Butthead Bandits\" from Summit Store in Los Altos" },
-    lat: 31.5343,
-    lng: -91.8165,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "WhxBDer5-Lw",
-      channelId: "UCKpv0aXnKBkiU5uiEWAdpgg",
-      titleKey: "Security camera footage of \"Beavis and Butthead Bandits\" from Summit Store in Los Altos",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-gorgeous-day-in-myrtle-beach-live-loo",
     name: { ja: "Gorgeous day in Myrtle Beach! Live look from Crown Reef Beach Resort and Waterpark!", en: "Gorgeous day in Myrtle Beach! Live look from Crown Reef Beach Resort and Waterpark!" },
     lat: 33.6891,
@@ -22724,21 +23564,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-family-enters-cellar-just-before-torn",
-    name: { ja: "Family Enters Cellar Just Before Tornado Hits || ViralHog", en: "Family Enters Cellar Just Before Tornado Hits || ViralHog" },
-    lat: 28.1055,
-    lng: -82.2224,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "l-SFUzTBgkA",
-      channelId: "UC3339WgBDKIcxTfywuSmG8w",
-      titleKey: "Family Enters Cellar Just Before Tornado Hits || ViralHog",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-tower-55-in-fort-worth-texas-usa-live",
     name: { ja: "Tower 55 in Fort Worth, Texas, USA | LIVE Train Camera (PTZ)", en: "Tower 55 in Fort Worth, Texas, USA | LIVE Train Camera (PTZ)" },
     lat: 32.7254,
@@ -23050,21 +23875,6 @@ export const CAMS: Cam[] = [
       videoId: "vio6cp536gQ",
       channelId: "UCJId-kbfsO5K4kU9cKE_TqA",
       titleKey: "City of Alma Live Railcam - Alma, WI",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-raw-video-robbery-in-hospital-parking",
-    name: { ja: "RAW VIDEO: Robbery in hospital parking lot caught on camera", en: "RAW VIDEO: Robbery in hospital parking lot caught on camera" },
-    lat: 37.6498,
-    lng: -82.2196,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "NaMNxMUwZUE",
-      channelId: "UCW3Vc0gEOccJrQC-a25nGdg",
-      titleKey: "RAW VIDEO: Robbery in hospital parking lot caught on camera",
     },
   },
   {
@@ -23890,21 +24700,6 @@ export const CAMS: Cam[] = [
       videoId: "7rJBDm1Am_I",
       channelId: "UCPLjrMiMW2zSIMNZjjSRjQw",
       titleKey: "Bandit Park-a-Palooza",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-west-mobile-tornado-captured-on-home",
-    name: { ja: "West Mobile tornado captured on home surveillance cameras - 1079603-1", en: "West Mobile tornado captured on home surveillance cameras - 1079603-1" },
-    lat: 31.8024,
-    lng: -97.0917,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "_qx9Ssm5TDc",
-      channelId: "UCdAeRRjq6vjnAkxatZVxxxg",
-      titleKey: "West Mobile tornado captured on home surveillance cameras - 1079603-1",
     },
   },
   {
@@ -29189,21 +29984,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-north-american-car-crash-compilat-2",
-    name: { ja: "North American Car Crash Compilation - 905| Driving Fails | Dash Cam USA", en: "North American Car Crash Compilation - 905| Driving Fails | Dash Cam USA" },
-    lat: 40.8486,
-    lng: -111.9069,
-    timeZone: "America/Denver",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "UQbsMwGOHEo",
-      channelId: "UCKIrZr7WuPFgFy7OfkAuHOw",
-      titleKey: "North American Car Crash Compilation - 905| Driving Fails | Dash Cam USA",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-best-of-car-crashes-compilation-u-3",
     name: { ja: "BEST OF CAR CRASHES COMPILATION | USA & CANADA - 48", en: "BEST OF CAR CRASHES COMPILATION | USA & CANADA - 48" },
     lat: 35.3438,
@@ -29519,141 +30299,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "ve-cctv-captures-m7-5-earthquake-trashin",
-    name: { ja: "CCTV captures M7.5 earthquake trashing a store in Caracas, Venezuela", en: "CCTV captures M7.5 earthquake trashing a store in Caracas, Venezuela" },
-    lat: 10.488,
-    lng: -66.8792,
-    timeZone: "America/Caracas",
-    category: "city",
-    country: "VE",
-    source: {
-      videoId: "DJ8VPTD3s7g",
-      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
-      titleKey: "CCTV captures M7.5 earthquake trashing a store in Caracas, Venezuela",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ve-m7-5-earthquake-shakes-a-house-in-car",
-    name: { ja: "M7.5 Earthquake shakes a house in Caracas, Venezuela", en: "M7.5 Earthquake shakes a house in Caracas, Venezuela" },
-    lat: 10.488,
-    lng: -66.8792,
-    timeZone: "America/Caracas",
-    category: "city",
-    country: "VE",
-    source: {
-      videoId: "dHAFWKPfHwM",
-      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
-      titleKey: "M7.5 Earthquake shakes a house in Caracas, Venezuela",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ve-cctv-captures-m7-5-earthquake-shaking",
-    name: { ja: "CCTV captures M7.5 earthquake shaking a room in Maracay, Aragua, Venezuela", en: "CCTV captures M7.5 earthquake shaking a room in Maracay, Aragua, Venezuela" },
-    lat: 10.2497,
-    lng: -67.5948,
-    timeZone: "America/Caracas",
-    category: "city",
-    country: "VE",
-    source: {
-      videoId: "1HUa9WBUpe0",
-      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
-      titleKey: "CCTV captures M7.5 earthquake shaking a room in Maracay, Aragua, Venezuela",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ve-cctv-captures-m7-5-earthquake-sha-2",
-    name: { ja: "CCTV captures M7.5 earthquake shaking a parking in Caracas, Venezuela", en: "CCTV captures M7.5 earthquake shaking a parking in Caracas, Venezuela" },
-    lat: 10.488,
-    lng: -66.8792,
-    timeZone: "America/Caracas",
-    category: "city",
-    country: "VE",
-    source: {
-      videoId: "L2EvRFGLvhE",
-      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
-      titleKey: "CCTV captures M7.5 earthquake shaking a parking in Caracas, Venezuela",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ve-cctv-footage-of-m7-5-earthquake-in-a",
-    name: { ja: "CCTV footage of M7.5 earthquake in a sports shop in Caracas, Venezuela", en: "CCTV footage of M7.5 earthquake in a sports shop in Caracas, Venezuela" },
-    lat: 10.488,
-    lng: -66.8792,
-    timeZone: "America/Caracas",
-    category: "city",
-    country: "VE",
-    source: {
-      videoId: "mus2Y_uwd7s",
-      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
-      titleKey: "CCTV footage of M7.5 earthquake in a sports shop in Caracas, Venezuela",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ve-cctv-footage-of-m7-5-earthquake-damag",
-    name: { ja: "CCTV footage of M7.5 earthquake damaging a house in Caracas, Venezuela", en: "CCTV footage of M7.5 earthquake damaging a house in Caracas, Venezuela" },
-    lat: 10.488,
-    lng: -66.8792,
-    timeZone: "America/Caracas",
-    category: "city",
-    country: "VE",
-    source: {
-      videoId: "KNzXkV26Stk",
-      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
-      titleKey: "CCTV footage of M7.5 earthquake damaging a house in Caracas, Venezuela",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ve-cctv-captures-m7-5-earthquake-in-a-ta",
-    name: { ja: "CCTV captures M7.5 earthquake in a tattoo studio in Caracas, Venezuela", en: "CCTV captures M7.5 earthquake in a tattoo studio in Caracas, Venezuela" },
-    lat: 10.488,
-    lng: -66.8792,
-    timeZone: "America/Caracas",
-    category: "city",
-    country: "VE",
-    source: {
-      videoId: "E6FB080Siww",
-      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
-      titleKey: "CCTV captures M7.5 earthquake in a tattoo studio in Caracas, Venezuela",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ve-cctv-footage-of-m7-5-earthquake-hitti",
-    name: { ja: "CCTV footage of M7.5 earthquake hitting a room in Caracas, Venezuela", en: "CCTV footage of M7.5 earthquake hitting a room in Caracas, Venezuela" },
-    lat: 10.488,
-    lng: -66.8792,
-    timeZone: "America/Caracas",
-    category: "city",
-    country: "VE",
-    source: {
-      videoId: "hTf3xrrYNas",
-      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
-      titleKey: "CCTV footage of M7.5 earthquake hitting a room in Caracas, Venezuela",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ve-cctv-footage-of-m7-5-earthquake-in-lo",
-    name: { ja: "CCTV footage of M7.5 earthquake in Los Dos Caminos, Chacao, Miranda, Venezuela", en: "CCTV footage of M7.5 earthquake in Los Dos Caminos, Chacao, Miranda, Venezuela" },
-    lat: 10.4939,
-    lng: -66.8286,
-    timeZone: "America/Caracas",
-    category: "city",
-    country: "VE",
-    source: {
-      videoId: "WyQAKGHCMzQ",
-      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
-      titleKey: "CCTV footage of M7.5 earthquake in Los Dos Caminos, Chacao, Miranda, Venezuela",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "vn-the-best-italian-music-italian-vibes",
     name: { ja: "The Best 🇮🇹 Italian Music Italian Vibes 2+ Hour Scenic Amalfi Coast & Lake Como Serenity 4K", en: "The Best 🇮🇹 Italian Music Italian Vibes 2+ Hour Scenic Amalfi Coast & Lake Como Serenity 4K" },
     lat: 11.4167,
@@ -29665,21 +30310,6 @@ export const CAMS: Cam[] = [
       videoId: "agApYsQN0L4",
       channelId: "UC91mKscrL8JcZRJyAGKWCHg",
       titleKey: "The Best 🇮🇹 Italian Music🎶 Italian Vibes 🎶 2+ Hour Scenic Amalfi Coast & Lake Como Serenity 4K",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ve-traffic-camera-captures-m7-5-earthqua",
-    name: { ja: "Traffic camera captures M7.5 earthquake at a highway in Caracas, Venezuela", en: "Traffic camera captures M7.5 earthquake at a highway in Caracas, Venezuela" },
-    lat: 10.488,
-    lng: -66.8792,
-    timeZone: "America/Caracas",
-    category: "city",
-    country: "VE",
-    source: {
-      videoId: "NxqxqR41fxk",
-      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
-      titleKey: "Traffic camera captures M7.5 earthquake at a highway in Caracas, Venezuela",
     },
   },
   {
@@ -32230,21 +32860,6 @@ export const CAMS: Cam[] = [
       videoId: "7Nwi6hcL2qM",
       channelId: "UCSVUtsSw9XVrvh-pLu597Vg",
       titleKey: "DOMAR CCTV 4K Camera Live Stream with Zxtech",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "gb-cctv-footage-shows-farmer-jailed-for",
-    name: { ja: "CCTV footage shows farmer JAILED for LIFE for MURDERING man and HIDING body in barrel", en: "CCTV footage shows farmer JAILED for LIFE for MURDERING man and HIDING body in barrel" },
-    lat: 52.1517,
-    lng: -0.9667,
-    timeZone: "Europe/London",
-    category: "city",
-    country: "GB",
-    source: {
-      videoId: "cOG4OYIKdRA",
-      channelId: "UCoNQiV6DYBWMP2kggpzc87A",
-      titleKey: "CCTV footage shows farmer JAILED for LIFE for MURDERING man and HIDING body in barrel",
     },
   },
   {
@@ -35095,21 +35710,6 @@ export const CAMS: Cam[] = [
       videoId: "Eo9DOutWK3c",
       channelId: "UCpBSj4JvnkOP1TJ-eIxaFKw",
       titleKey: "24時間LIVE｜湯原温泉 砂湯入口・湯原ダム♨️  Yubara Onsen Live Camera",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-cctv-cameras-capture-devastating-mome",
-    name: { ja: "CCTV Cameras Capture Devastating Moment 7.1 Magnitude Earthquake Shakes Japan", en: "CCTV Cameras Capture Devastating Moment 7.1 Magnitude Earthquake Shakes Japan" },
-    lat: 35.6854,
-    lng: 139.7531,
-    timeZone: "Asia/Tokyo",
-    category: "nature",
-    country: "JP",
-    source: {
-      videoId: "6Unx8BW-GpU",
-      channelId: "UCrvhNP_lWuPIP6QZzJmM-bw",
-      titleKey: "CCTV Cameras Capture Devastating Moment 7.1 Magnitude Earthquake Shakes Japan",
     },
   },
   {
@@ -38294,66 +38894,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "np-m7-8-earthquake-shakes-gorkha-nepal",
-    name: { ja: "M7.8 Earthquake shakes Gorkha, Nepal", en: "M7.8 Earthquake shakes Gorkha, Nepal" },
-    lat: 28.0024,
-    lng: 84.6201,
-    timeZone: "Asia/Kathmandu",
-    category: "city",
-    country: "NP",
-    source: {
-      videoId: "UWgJgS689dk",
-      channelId: "UCLun91ra3QNeFnCcZhK0wAw",
-      titleKey: "M7.8 Earthquake shakes Gorkha, Nepal",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "np-m7-8-earthquake-collapses-tudikhel-ga",
-    name: { ja: "M7.8 Earthquake Collapses Tudikhel Gate, Kathmandu, Nepal", en: "M7.8 Earthquake Collapses Tudikhel Gate, Kathmandu, Nepal" },
-    lat: 27.2222,
-    lng: 87.7317,
-    timeZone: "Asia/Kathmandu",
-    category: "city",
-    country: "NP",
-    source: {
-      videoId: "IWU8SPX1YBQ",
-      channelId: "UCLun91ra3QNeFnCcZhK0wAw",
-      titleKey: "M7.8 Earthquake Collapses Tudikhel Gate, Kathmandu, Nepal",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "np-m7-8-earthquake-slides-office-kathman",
-    name: { ja: "M7.8 Earthquake Slides Office, Kathmandu, Nepal", en: "M7.8 Earthquake Slides Office, Kathmandu, Nepal" },
-    lat: 27.7017,
-    lng: 85.3206,
-    timeZone: "Asia/Kathmandu",
-    category: "city",
-    country: "NP",
-    source: {
-      videoId: "VPyXMD5VmS8",
-      channelId: "UCLun91ra3QNeFnCcZhK0wAw",
-      titleKey: "M7.8 Earthquake Slides Office, Kathmandu, Nepal",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "np-m7-8-earthquake-strikes-market-and-sw",
-    name: { ja: "M7.8 Earthquake Strikes Market And Sways Crowds, Kathmandu, Nepal", en: "M7.8 Earthquake Strikes Market And Sways Crowds, Kathmandu, Nepal" },
-    lat: 28.5171,
-    lng: 81.579,
-    timeZone: "Asia/Kathmandu",
-    category: "city",
-    country: "NP",
-    source: {
-      videoId: "9UBhXvnOVso",
-      channelId: "UCLun91ra3QNeFnCcZhK0wAw",
-      titleKey: "M7.8 Earthquake Strikes Market And Sways Crowds, Kathmandu, Nepal",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "nz-live-planespotting-at-christchurch-ai",
     name: { ja: "LIVE - Planespotting at Christchurch Airport - 14 Jul 2026 ️", en: "LIVE - Planespotting at Christchurch Airport - 14 Jul 2026 ️" },
     lat: -43.5333,
@@ -38365,36 +38905,6 @@ export const CAMS: Cam[] = [
       videoId: "Q0VQ0TBt0bo",
       channelId: "UCMDlkAPAN7X_ZZgmCAWHzpQ",
       titleKey: "🔴 LIVE - Planespotting at Christchurch Airport - 14 Jul 2026 ✈️",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "np-m7-8-earthquake-shakes-roundabout-kat",
-    name: { ja: "M7.8 Earthquake Shakes Roundabout, Kathmandu, Nepal", en: "M7.8 Earthquake Shakes Roundabout, Kathmandu, Nepal" },
-    lat: 27.7017,
-    lng: 85.3206,
-    timeZone: "Asia/Kathmandu",
-    category: "city",
-    country: "NP",
-    source: {
-      videoId: "KQ_iT1Dy-js",
-      channelId: "UCLun91ra3QNeFnCcZhK0wAw",
-      titleKey: "M7.8 Earthquake Shakes Roundabout, Kathmandu, Nepal",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "np-traffic-camera-captures-visible-later",
-    name: { ja: "Traffic Camera Captures Visible Lateral Movement, M7.8 Earthquake, Kathmandu, Nepal", en: "Traffic Camera Captures Visible Lateral Movement, M7.8 Earthquake, Kathmandu, Nepal" },
-    lat: 27.7017,
-    lng: 85.3206,
-    timeZone: "Asia/Kathmandu",
-    category: "city",
-    country: "NP",
-    source: {
-      videoId: "97TBkOyc6jk",
-      channelId: "UCLun91ra3QNeFnCcZhK0wAw",
-      titleKey: "Traffic Camera Captures Visible Lateral Movement, M7.8 Earthquake, Kathmandu, Nepal",
     },
   },
   {
@@ -40109,21 +40619,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "ug-cctv-footage-of-boda-boda-criminal-ga",
-    name: { ja: "CCTV FOOTAGE OF BODA BODA CRIMINAL GANG", en: "CCTV FOOTAGE OF BODA BODA CRIMINAL GANG" },
-    lat: 0.7,
-    lng: 32.3167,
-    timeZone: "Africa/Kampala",
-    category: "city",
-    country: "UG",
-    source: {
-      videoId: "lTWjOB9cy0g",
-      channelId: "UC-UDIXdQ8rybKhTpjqrM-_A",
-      titleKey: "CCTV FOOTAGE OF BODA BODA CRIMINAL GANG",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-live-ultimate-maui-webcam-tour-ka-ana",
     name: { ja: "LIVE: Ultimate Maui Webcam Tour Ka'anapali, Wailea, Whale Watch & Haleakalā | NOW!", en: "LIVE: Ultimate Maui Webcam Tour Ka'anapali, Wailea, Whale Watch & Haleakalā | NOW!" },
     lat: 20.7702,
@@ -40870,21 +41365,6 @@ export const CAMS: Cam[] = [
       videoId: "wNxk-XC8Z5s",
       channelId: "UCkuFk0kYYrst1pewv5uCeQw",
       titleKey: "Lopstick - First Connecticut Lake LIVE",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-robbery-by-force-in-a-parking-lot-cct",
-    name: { ja: "Robbery by force in a parking lot | CCTV security cameras la", en: "Robbery by force in a parking lot | CCTV security cameras la" },
-    lat: 41.2578,
-    lng: -78.5011,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "CKmw7_h9R-Y",
-      channelId: "UCEVj9RyLMWjvQUbzeTvvL2w",
-      titleKey: "Robbery by force in a parking lot | CCTV security cameras la",
     },
   },
   {
@@ -41654,21 +42134,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-terrifying-dash-cam-tornado-footage-f",
-    name: { ja: "Terrifying Dash Cam Tornado Footage From Lincoln, Nebraska", en: "Terrifying Dash Cam Tornado Footage From Lincoln, Nebraska" },
-    lat: 37.499,
-    lng: -76.9422,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "dw2RB9WhIq4",
-      channelId: "UCuYqi3hOfz6-3Hdp6tEJjAg",
-      titleKey: "Terrifying Dash Cam Tornado Footage From Lincoln, Nebraska",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-pixcams-com-pa-bird-feeder-3-close-up",
     name: { ja: "PixCams.com PA Bird Feeder 3 - Close-up View!", en: "PixCams.com PA Bird Feeder 3 - Close-up View!" },
     lat: 30.4744,
@@ -41875,21 +42340,6 @@ export const CAMS: Cam[] = [
       videoId: "0LvcJ78lFnM",
       channelId: "UC7whQa7kJf7AlZ40YHS8csA",
       titleKey: "Hikvision Viewstar increíble panoramic camera. 4K resolution, strobe light and siren for burglars.",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-debbie-collier-raw-surveillance-foota",
-    name: { ja: "Debbie Collier Raw Surveillance Footage 4K - Parking Lot Family Dollar", en: "Debbie Collier Raw Surveillance Footage 4K - Parking Lot Family Dollar" },
-    lat: 33.0471,
-    lng: -84.0169,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "q9311L8X2KM",
-      channelId: "UCn896xjjlOv5Uvk02FVHUKw",
-      titleKey: "Debbie Collier Raw Surveillance Footage  4K - Parking Lot Family Dollar",
     },
   },
   {
@@ -42509,21 +42959,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-driver-s-blind-lane-change-leads-to-a",
-    name: { ja: "DRIVER'S BLIND LANE CHANGE LEADS TO A CRASH - 1013 | Driving Fails", en: "DRIVER'S BLIND LANE CHANGE LEADS TO A CRASH - 1013 | Driving Fails" },
-    lat: 41.2451,
-    lng: -75.9308,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "N6pInUU4fO4",
-      channelId: "UCKIrZr7WuPFgFy7OfkAuHOw",
-      titleKey: "DRIVER'S BLIND LANE CHANGE LEADS TO A CRASH - 1013 | Driving Fails",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-treating-roads-as-personal-playground",
     name: { ja: "TREATING ROADS AS PERSONAL PLAYGROUND?! Bad Driving, Car Crashes, Dashcam Video 907", en: "TREATING ROADS AS PERSONAL PLAYGROUND?! Bad Driving, Car Crashes, Dashcam Video 907" },
     lat: 39.4667,
@@ -42730,51 +43165,6 @@ export const CAMS: Cam[] = [
       videoId: "G_G8A6JU_LI",
       channelId: "UCr5Z4Oi3UFwkM6sLPFDC6QA",
       titleKey: "Camera PTZ Trang Phục biểu diễn Phương Trần Đà Nẵng",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ve-m7-5-earthquake-street-in-caracas-zsc",
-    name: { ja: "M7.5 earthquake - street in Caracas - ZSC2aw3dd", en: "M7.5 earthquake - street in Caracas - ZSC2aw3dd" },
-    lat: 10.488,
-    lng: -66.8792,
-    timeZone: "America/Caracas",
-    category: "city",
-    country: "VE",
-    source: {
-      videoId: "8GXKx2OtSdA",
-      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
-      titleKey: "M7.5 earthquake - street in Caracas - ZSC2aw3dd",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ve-cctv-footage-of-m7-5-earthquake-in-an",
-    name: { ja: "CCTV footage of M7.5 earthquake in an indoor market in Catia district, Caracas, Venezuela", en: "CCTV footage of M7.5 earthquake in an indoor market in Catia district, Caracas, Venezuela" },
-    lat: 10.5157,
-    lng: -66.9454,
-    timeZone: "America/Caracas",
-    category: "city",
-    country: "VE",
-    source: {
-      videoId: "Wablx1rZLVo",
-      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
-      titleKey: "CCTV footage of M7.5 earthquake in an indoor market in Catia district, Caracas, Venezuela",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ve-cctv-footage-of-m7-5-earthquake-shaki",
-    name: { ja: "CCTV footage of M7.5 earthquake shaking downtown Caracas, Venezuela", en: "CCTV footage of M7.5 earthquake shaking downtown Caracas, Venezuela" },
-    lat: 10.488,
-    lng: -66.8792,
-    timeZone: "America/Caracas",
-    category: "city",
-    country: "VE",
-    source: {
-      videoId: "gGlsCpW2ye8",
-      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
-      titleKey: "CCTV footage of M7.5 earthquake shaking downtown Caracas, Venezuela",
     },
   },
   {
@@ -45104,21 +45494,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "lk-pettah-bus-stand-40-army-cctv-footage",
-    name: { ja: "Pettah Bus Stand-இல் 40 செக்கனில் பிடிபட்ட திருடன் | Army CCTV Footage | Shakthi FM", en: "Pettah Bus Stand-இல் 40 செக்கனில் பிடிபட்ட திருடன் | Army CCTV Footage | Shakthi FM" },
-    lat: 6.0733,
-    lng: 80.1577,
-    timeZone: "Asia/Colombo",
-    category: "city",
-    country: "LK",
-    source: {
-      videoId: "3sIngyPnsa4",
-      channelId: "UCKkzOyGRuPyea04qr7aC1NQ",
-      titleKey: "Pettah Bus Stand-இல் 40 செக்கனில் பிடிபட்ட திருடன் | Army CCTV Footage | Shakthi FM",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-lincolnville-maine-harbor-cam",
     name: { ja: "Lincolnville, Maine - Harbor Cam", en: "Lincolnville, Maine - Harbor Cam" },
     lat: 44.2812,
@@ -45355,21 +45730,6 @@ export const CAMS: Cam[] = [
       videoId: "9EmmTigiEzs",
       channelId: "UCUbhwy4N1HXGvPqz2yqMTRQ",
       titleKey: "🌙 SFO NIGHT ACTION Archive ✈️ Plane Spotting at San Francisco Airport After Dark - ATC Radio",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-security-cameras-capture-moment-torna",
-    name: { ja: "Security cameras capture moment tornado rips through bank", en: "Security cameras capture moment tornado rips through bank" },
-    lat: 34.6876,
-    lng: -84.2146,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "hQmbN51_Pog",
-      channelId: "UCAKK8dbcSmckr2sWJhv5ezA",
-      titleKey: "Security cameras capture moment tornado rips through bank",
     },
   },
   {
@@ -46255,21 +46615,6 @@ export const CAMS: Cam[] = [
       videoId: "NKox7HbFQGI",
       channelId: "UC7OxrzcNuusCuR0x4JB5TBw",
       titleKey: "ミニ尾瀬公園LIVEカメラ",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-2026",
-    name: { ja: "2026年熊本地震 断層表出の動画（住民提供）", en: "2026年熊本地震 断層表出の動画（住民提供）" },
-    lat: 32.7817,
-    lng: 130.6978,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "BiZAXXOgRGk",
-      channelId: "UCO3zcuyQeD2x6Pr-gKhfMCQ",
-      titleKey: "2026年熊本地震　断層表出の動画（住民提供）",
     },
   },
   {
@@ -73724,21 +74069,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "jp-169",
-    name: { ja: "熊本地震による地割れ、隆起の瞬間を防犯カメラが記録", en: "熊本地震による地割れ、隆起の瞬間を防犯カメラが記録" },
-    lat: 34.8359,
-    lng: 134.6924,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "ncyCiv8f4rY",
-      channelId: "UCdcEhhmXDVrKTukbKqnC5bw",
-      titleKey: "熊本地震による地割れ、隆起の瞬間を防犯カメラが記録",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "jp-2026-07-20",
     name: { ja: "【2026/07/20 月曜日】西武線ライブカメラ 西武池袋線保谷駅付近の踏切からライブ配信 #ライブカメラ", en: "【2026/07/20 月曜日】西武線ライブカメラ 西武池袋線保谷駅付近の踏切からライブ配信 #ライブカメラ" },
     lat: 39.7172,
@@ -73855,21 +74185,6 @@ export const CAMS: Cam[] = [
       videoId: "Zi-bjm-9K_E",
       channelId: "UCxZk6JM2ceaSCOtkVinIKCQ",
       titleKey: "【ねこにう】 ねこ広場2 『にゃんこたちが間近に見えるカメラです～🌸🍑』",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "jp-2026-7-28",
-    name: { ja: "2026年7/28 熊本地震発生時の防犯カメラ映像", en: "2026年7/28 熊本地震発生時の防犯カメラ映像" },
-    lat: 35.5684,
-    lng: 139.396,
-    timeZone: "Asia/Tokyo",
-    category: "city",
-    country: "JP",
-    source: {
-      videoId: "-1okSPg-WZE",
-      channelId: "UCh70TZ4rjj4eYFY0QVjXoMg",
-      titleKey: "2026年7/28 熊本地震発生時の防犯カメラ映像",
     },
   },
   {
@@ -75134,21 +75449,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-inside-of-ef3-tornado-in-st-louis-mis",
-    name: { ja: "Inside of EF3 Tornado in St. Louis, Missouri - May 16, 2025 CCTV", en: "Inside of EF3 Tornado in St. Louis, Missouri - May 16, 2025 CCTV" },
-    lat: 38.6273,
-    lng: -90.1979,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "14j7Ns052WY",
-      channelId: "UCVXN_e7Tl3ptD8S7LU-vfUw",
-      titleKey: "Inside of EF3 Tornado in St. Louis, Missouri - May 16, 2025 CCTV",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "id-license-plate-detection-test",
     name: { ja: "License Plate Detection Test", en: "License Plate Detection Test" },
     lat: -6.1053,
@@ -75160,66 +75460,6 @@ export const CAMS: Cam[] = [
       videoId: "FsGPxhidwGg",
       channelId: "UCTFofNIyqQIE8AnwF5EfCZA",
       titleKey: "License Plate Detection Test",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ng-cctv-footage-of-m7-5-earthquake-from",
-    name: { ja: "CCTV footage of M7.5 Earthquake from a garage in Caracas, Venezuela", en: "CCTV footage of M7.5 Earthquake from a garage in Caracas, Venezuela" },
-    lat: 8.5804,
-    lng: 8.8037,
-    timeZone: "Africa/Lagos",
-    category: "city",
-    country: "NG",
-    source: {
-      videoId: "RlnZegmkZJk",
-      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
-      titleKey: "CCTV footage of M7.5 Earthquake from a garage in Caracas, Venezuela",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ve-cctv-footage-of-m7-2-and-m7-5-earthqu",
-    name: { ja: "CCTV footage of M7.2 and M7.5 Earthquakes in a shop in Duaca, Lara, Venezuela", en: "CCTV footage of M7.2 and M7.5 Earthquakes in a shop in Duaca, Lara, Venezuela" },
-    lat: 10.2855,
-    lng: -69.1624,
-    timeZone: "America/Caracas",
-    category: "city",
-    country: "VE",
-    source: {
-      videoId: "oQ-z9yeVdII",
-      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
-      titleKey: "CCTV footage of M7.2 and M7.5 Earthquakes in a shop in Duaca, Lara, Venezuela",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ee-cctv-captures-m7-5-earthquake-shaking",
-    name: { ja: "CCTV captures M7.5 Earthquake shaking a room in Caracas, Venezuela", en: "CCTV captures M7.5 Earthquake shaking a room in Caracas, Venezuela" },
-    lat: 58.3875,
-    lng: 26.8044,
-    timeZone: "Europe/Tallinn",
-    category: "city",
-    country: "EE",
-    source: {
-      videoId: "Nf_w82ToDVw",
-      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
-      titleKey: "CCTV captures M7.5 Earthquake shaking a room in Caracas, Venezuela",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "br-m7-5-earthquake-trashes-apartment-in",
-    name: { ja: "M7.5 Earthquake Trashes Apartment in Caraballeda, La Guaira, Venezuela", en: "M7.5 Earthquake Trashes Apartment in Caraballeda, La Guaira, Venezuela" },
-    lat: -20.3183,
-    lng: -48.3106,
-    timeZone: "America/Sao_Paulo",
-    category: "city",
-    country: "BR",
-    source: {
-      videoId: "-j_OgBvpec0",
-      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
-      titleKey: "M7.5 Earthquake Trashes Apartment in Caraballeda, La Guaira, Venezuela",
     },
   },
   {
@@ -75239,51 +75479,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "br-cctv-footage-of-m7-5-earthquake-in-el",
-    name: { ja: "CCTV footage of M7.5 Earthquake in El Junquito, La Guaira, Venezuela", en: "CCTV footage of M7.5 Earthquake in El Junquito, La Guaira, Venezuela" },
-    lat: -20.3183,
-    lng: -48.3106,
-    timeZone: "America/Sao_Paulo",
-    category: "city",
-    country: "BR",
-    source: {
-      videoId: "xio8U81JFcU",
-      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
-      titleKey: "CCTV footage of M7.5 Earthquake in El Junquito, La Guaira, Venezuela",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ee-cctv-footage-of-m7-5-earthquake-in-a",
-    name: { ja: "CCTV footage of M7.5 Earthquake in a room in Caracas, Venezuela", en: "CCTV footage of M7.5 Earthquake in a room in Caracas, Venezuela" },
-    lat: 58.3875,
-    lng: 26.8044,
-    timeZone: "Europe/Tallinn",
-    category: "city",
-    country: "EE",
-    source: {
-      videoId: "EJRRuKBCLy8",
-      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
-      titleKey: "CCTV footage of M7.5 Earthquake in a room in Caracas, Venezuela",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-watch-seismic-waves-from-twin-venezue",
-    name: { ja: "Watch Seismic Waves from Twin Venezuela 7.2 & 7.5 Earthquakes hit a House in Catia la Mar (Analysis)", en: "Watch Seismic Waves from Twin Venezuela 7.2 & 7.5 Earthquakes hit a House in Catia la Mar (Analysis)" },
-    lat: 34.0056,
-    lng: -87.8566,
-    timeZone: "America/Chicago",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "OX2P-J8BDtM",
-      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
-      titleKey: "Watch Seismic Waves from Twin Venezuela 7.2 & 7.5 Earthquakes hit a House in Catia la Mar (Analysis)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-reolink-4k-811a-cameras-viewing-a-lic",
     name: { ja: "Reolink 4K, 811A cameras- viewing a license plate at 40+ feet distance from a moving car", en: "Reolink 4K, 811A cameras- viewing a license plate at 40+ feet distance from a moving car" },
     lat: 46.8606,
@@ -75295,51 +75490,6 @@ export const CAMS: Cam[] = [
       videoId: "hcAsIiM3bHw",
       channelId: "UCIx-trK0kO9PU8-YBdyyIxw",
       titleKey: "Reolink 4K, 811A cameras- viewing a license plate at 40+ feet distance from a moving car",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ve-cctv-captures-m7-5-earthquake-sha-3",
-    name: { ja: "CCTV captures M7.5 Earthquake shaking a building in Caracas, Venezuela", en: "CCTV captures M7.5 Earthquake shaking a building in Caracas, Venezuela" },
-    lat: 10.488,
-    lng: -66.8792,
-    timeZone: "America/Caracas",
-    category: "city",
-    country: "VE",
-    source: {
-      videoId: "Z6-RdVc4dIc",
-      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
-      titleKey: "CCTV captures M7.5 Earthquake shaking a building in Caracas, Venezuela",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ve-cctv-captures-m7-5-earthquake-sha-4",
-    name: { ja: "CCTV captures M7.5 Earthquake shaking buildings in Caracas, Venezuela", en: "CCTV captures M7.5 Earthquake shaking buildings in Caracas, Venezuela" },
-    lat: 10.488,
-    lng: -66.8792,
-    timeZone: "America/Caracas",
-    category: "city",
-    country: "VE",
-    source: {
-      videoId: "zuzeie_GfqE",
-      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
-      titleKey: "CCTV captures M7.5 Earthquake shaking buildings in Caracas, Venezuela",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-cctv-captures-m7-5-earthquake-shakes",
-    name: { ja: "CCTV captures M7.5 Earthquake shakes a tattoo store in Chacao, Miranda, Venezuela", en: "CCTV captures M7.5 Earthquake shakes a tattoo store in Chacao, Miranda, Venezuela" },
-    lat: 36.6095,
-    lng: -82.139,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "OLslI4kQkAA",
-      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
-      titleKey: "CCTV captures M7.5 Earthquake shakes a tattoo store in Chacao, Miranda, Venezuela",
     },
   },
   {
@@ -75404,21 +75554,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "ve-m7-5-earthquake-destroys-apartment-in",
-    name: { ja: "M7.5 Earthquake destroys apartment in Caracas, Venezuela", en: "M7.5 Earthquake destroys apartment in Caracas, Venezuela" },
-    lat: 10.488,
-    lng: -66.8792,
-    timeZone: "America/Caracas",
-    category: "city",
-    country: "VE",
-    source: {
-      videoId: "z6O45Q99_p0",
-      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
-      titleKey: "M7.5 Earthquake destroys apartment in Caracas, Venezuela",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "tz-4k-hd-camera-image",
     name: { ja: "4K HD camera image", en: "4K HD camera image" },
     lat: -7.4656,
@@ -75449,21 +75584,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-cctv-footage-of-m7-5-earthquake-from",
-    name: { ja: "CCTV footage of M7.5 Earthquake from a street in El Haltillo, Miranda, Venezuela", en: "CCTV footage of M7.5 Earthquake from a street in El Haltillo, Miranda, Venezuela" },
-    lat: 39.669,
-    lng: -76.3794,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "2_X9wKwhgGs",
-      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
-      titleKey: "CCTV footage of M7.5 Earthquake from a street in El Haltillo, Miranda, Venezuela",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "br-4k-video-of-highway-traffic",
     name: { ja: "4K Video of Highway Traffic!", en: "4K Video of Highway Traffic!" },
     lat: -4.7138,
@@ -75479,36 +75599,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "be-m7-5-earthquake-and-aftermath-at-a-sh",
-    name: { ja: "M7.5 Earthquake and Aftermath at a shopping mall in Maracay, Venezuela", en: "M7.5 Earthquake and Aftermath at a shopping mall in Maracay, Venezuela" },
-    lat: 50.7687,
-    lng: 5.5197,
-    timeZone: "Europe/Brussels",
-    category: "city",
-    country: "BE",
-    source: {
-      videoId: "n3yISJbOTrs",
-      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
-      titleKey: "M7.5 Earthquake and Aftermath at a shopping mall in Maracay, Venezuela",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ee-cctv-footage-of-m7-5-earthquake-damag",
-    name: { ja: "CCTV footage of M7.5 earthquake damaging a room in Caracas, Venezuela", en: "CCTV footage of M7.5 earthquake damaging a room in Caracas, Venezuela" },
-    lat: 58.3875,
-    lng: 26.8044,
-    timeZone: "Europe/Tallinn",
-    category: "city",
-    country: "EE",
-    source: {
-      videoId: "ZG8fX7wlKkM",
-      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
-      titleKey: "CCTV footage of M7.5 earthquake damaging a room in Caracas, Venezuela",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "de-rain-storm-in-4k",
     name: { ja: "Rain Storm in 4K!!", en: "Rain Storm in 4K!!" },
     lat: 48.905,
@@ -75520,36 +75610,6 @@ export const CAMS: Cam[] = [
       videoId: "gnU1kieEiK4",
       channelId: "UCg0MW1Scn_Y3HcMt4DoUbOg",
       titleKey: "Rain Storm in 4K!!",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "si-m7-5-earthquake-damages-liquor-store",
-    name: { ja: "M7.5 Earthquake Damages Liquor Store in Baruta, Caracas, Venezuela", en: "M7.5 Earthquake Damages Liquor Store in Baruta, Caracas, Venezuela" },
-    lat: 46.2208,
-    lng: 15.3139,
-    timeZone: "Europe/Ljubljana",
-    category: "city",
-    country: "SI",
-    source: {
-      videoId: "TqjIeqmGYwY",
-      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
-      titleKey: "M7.5 Earthquake Damages Liquor Store in Baruta, Caracas, Venezuela",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "si-m7-5-earthquake-shakes-electronics-st",
-    name: { ja: "M7.5 Earthquake Shakes Electronics Store in Valencia, Carabobo, Venezuela", en: "M7.5 Earthquake Shakes Electronics Store in Valencia, Carabobo, Venezuela" },
-    lat: 46.2208,
-    lng: 15.3139,
-    timeZone: "Europe/Ljubljana",
-    category: "city",
-    country: "SI",
-    source: {
-      videoId: "HX399hDUs28",
-      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
-      titleKey: "M7.5 Earthquake Shakes Electronics Store in Valencia, Carabobo, Venezuela",
     },
   },
   {
@@ -75614,36 +75674,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-m7-5-earthquake-violently-destroys-ca",
-    name: { ja: "M7.5 Earthquake violently destroys Caraballeda, Venezuela (New Angle)", en: "M7.5 Earthquake violently destroys Caraballeda, Venezuela (New Angle)" },
-    lat: 37.6663,
-    lng: -118.9999,
-    timeZone: "America/Los_Angeles",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "MVEOPjGWFws",
-      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
-      titleKey: "M7.5 Earthquake violently destroys Caraballeda, Venezuela (New Angle)",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-m7-5-earthquake-strikes-and-collapses",
-    name: { ja: "M7.5 Earthquake strikes and collapses buildings, Av. La Atlántida, Catia La Mar, Venezuela", en: "M7.5 Earthquake strikes and collapses buildings, Av. La Atlántida, Catia La Mar, Venezuela" },
-    lat: 37.6663,
-    lng: -118.9999,
-    timeZone: "America/Los_Angeles",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "OVDbp9_5_A4",
-      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
-      titleKey: "M7.5 Earthquake strikes and collapses buildings, Av. La Atlántida, Catia La Mar, Venezuela",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "de-lbc-global-vision-center-construction",
     name: { ja: "LBC Global Vision Center Construction - Live Stream", en: "LBC Global Vision Center Construction - Live Stream" },
     lat: 53.8689,
@@ -75670,21 +75700,6 @@ export const CAMS: Cam[] = [
       videoId: "jEbv-gc0ezM",
       channelId: "UCiAcjP15_JqJrUOvdEAaZ2A",
       titleKey: "The CCTV People Demo 1",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "us-3-children-caught-shoplifting-on-cctv",
-    name: { ja: "3 Children Caught Shoplifting on CCTV | Live Security Camera Footage", en: "3 Children Caught Shoplifting on CCTV | Live Security Camera Footage" },
-    lat: 41.0812,
-    lng: -81.544,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "Mt_5uUjgjx0",
-      channelId: "UC-Krl7LBDzLRF3oCpy08KBw",
-      titleKey: "3 Children Caught Shoplifting on CCTV | Live Security Camera Footage",
     },
   },
   {
@@ -75869,51 +75884,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-cctv-footage-of-m7-5-earthquake-f-2",
-    name: { ja: "CCTV footage of M7.5 Earthquake from a street in San Agustin del Sur, Caracas, Venezuela", en: "CCTV footage of M7.5 Earthquake from a street in San Agustin del Sur, Caracas, Venezuela" },
-    lat: 39.669,
-    lng: -76.3794,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "KuKCwMyWZGY",
-      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
-      titleKey: "CCTV footage of M7.5 Earthquake from a street in San Agustin del Sur, Caracas, Venezuela",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "pk-extreme-pulse-like-ground-motion-caus",
-    name: { ja: "Extreme pulse-like ground motion causes destruction Caraballeda, Venezuela during M7.5 Earthquake", en: "Extreme pulse-like ground motion causes destruction Caraballeda, Venezuela during M7.5 Earthquake" },
-    lat: 30.038,
-    lng: 71.0696,
-    timeZone: "Asia/Karachi",
-    category: "city",
-    country: "PK",
-    source: {
-      videoId: "jCZgv7fLJmY",
-      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
-      titleKey: "Extreme pulse-like ground motion causes destruction Caraballeda, Venezuela during M7.5 Earthquake",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ve-cctv-captures-m7-5-earthquake-tra-2",
-    name: { ja: "CCTV captures M7.5 Earthquake trashing a perfume shop in Chacao, Miranda, Venezuela", en: "CCTV captures M7.5 Earthquake trashing a perfume shop in Chacao, Miranda, Venezuela" },
-    lat: 10.4958,
-    lng: -66.8537,
-    timeZone: "America/Caracas",
-    category: "city",
-    country: "VE",
-    source: {
-      videoId: "7SV6CLEW52o",
-      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
-      titleKey: "CCTV captures M7.5 Earthquake trashing a perfume shop in Chacao, Miranda, Venezuela",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "at-truck-breaking-in-ring-camera",
     name: { ja: "Truck Breaking in Ring Camera", en: "Truck Breaking in Ring Camera" },
     lat: 47.2869,
@@ -75925,21 +75895,6 @@ export const CAMS: Cam[] = [
       videoId: "tJLo8oq_EV8",
       channelId: "UCIx-trK0kO9PU8-YBdyyIxw",
       titleKey: "Truck Breaking in Ring Camera",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "au-m7-5-earthquake-trashes-office-in-mac",
-    name: { ja: "M7.5 Earthquake trashes office in Macuto, La Guaira, Venezuela", en: "M7.5 Earthquake trashes office in Macuto, La Guaira, Venezuela" },
-    lat: -38.0592,
-    lng: 145.4095,
-    timeZone: "Australia/Melbourne",
-    category: "city",
-    country: "AU",
-    source: {
-      videoId: "KDtKtr6e9PU",
-      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
-      titleKey: "M7.5 Earthquake trashes office in Macuto, La Guaira, Venezuela",
     },
   },
   {
@@ -76004,36 +75959,6 @@ export const CAMS: Cam[] = [
   },
   {
     // coords: set explicitly as a well-known landmark
-    id: "us-cctv-footage-of-m4-8-aftershock-jolti",
-    name: { ja: "CCTV footage of M4.8 Aftershock jolting a grocery store in Ocumare de la Costa, Aragua, Venezuela", en: "CCTV footage of M4.8 Aftershock jolting a grocery store in Ocumare de la Costa, Aragua, Venezuela" },
-    lat: 25.9523,
-    lng: -81.6159,
-    timeZone: "America/New_York",
-    category: "city",
-    country: "US",
-    source: {
-      videoId: "DOU8OSPa7iU",
-      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
-      titleKey: "CCTV footage of M4.8 Aftershock jolting a grocery store in Ocumare de la Costa, Aragua, Venezuela",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "mp-cctv-captures-m7-5-earthquake-damagin",
-    name: { ja: "CCTV captures M7.5 Earthquake damaging an apartment in La Rinconada, Caracas, Venezuela", en: "CCTV captures M7.5 Earthquake damaging an apartment in La Rinconada, Caracas, Venezuela" },
-    lat: 16.024,
-    lng: 146.0615,
-    timeZone: "Pacific/Saipan",
-    category: "city",
-    country: "MP",
-    source: {
-      videoId: "15c4XgRLbnM",
-      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
-      titleKey: "CCTV captures M7.5 Earthquake damaging an apartment in La Rinconada, Caracas, Venezuela",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
     id: "us-top-view-pedestrian-dataset-sample-1",
     name: { ja: "Top View Pedestrian Dataset Sample 1", en: "Top View Pedestrian Dataset Sample 1" },
     lat: 39.0483,
@@ -76060,21 +75985,6 @@ export const CAMS: Cam[] = [
       videoId: "5OZ2MXY1-GY",
       channelId: "UCnetiRHPnIMBCm-yY4m69qA",
       titleKey: "BEST OF CONVENIENT COP 2025 | Drivers Busted by Police and Instant Karma | PART 9",
-    },
-  },
-  {
-    // coords: set explicitly as a well-known landmark
-    id: "ge-cctv-footage-of-m7-5-earthquake-from",
-    name: { ja: "CCTV footage of M7.5 Earthquake from a bus station in Caracas, Venezuela", en: "CCTV footage of M7.5 Earthquake from a bus station in Caracas, Venezuela" },
-    lat: 41.6408,
-    lng: 41.6306,
-    timeZone: "Asia/Tbilisi",
-    category: "city",
-    country: "GE",
-    source: {
-      videoId: "f7BQzE0AKKY",
-      channelId: "UCp_pWEnXcVtHF08lV7xAM9g",
-      titleKey: "CCTV footage of M7.5 Earthquake from a bus station in Caracas, Venezuela",
     },
   },
   {

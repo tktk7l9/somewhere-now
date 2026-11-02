@@ -10,6 +10,12 @@ export interface CamExclusion {
 
 export const CAM_EXCLUSIONS: CamExclusion[] = [
   {
+    // nagoya-station (curated). Absent from the master since 9bc06df; a private stream reads as
+    // "unknown", which build-cams.ts keeps, so without this entry a rebuild would restore it.
+    videoId: "pI_u966ixNk",
+    reason: "Private video: playabilityStatus LOGIN_REQUIRED on the watch page, 2026-11-02",
+  },
+  {
     // us-security-camera-footage-of-beavis-and
     videoId: "WhxBDer5-Lw",
     reason: "Upload, never a live stream: isLiveContent false on the watch page, 2026-11-02 (crime or victim footage)",

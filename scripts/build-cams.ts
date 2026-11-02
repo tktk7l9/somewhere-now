@@ -44,6 +44,15 @@ const UA = "somewhere-now-cam-build (+https://github.com/tktk7l9/somewhere-now)"
  */
 type Embeddability = "allowed" | "forbidden" | "unknown";
 
+/** Why a stream read as "unknown", in the watch page's own words, for the build report. */
+const unknownReasons = new Map<string, string>();
+
+function playabilityOf(html: string): string {
+  const match = /"playabilityStatus":\{"status":"([A-Z_]+)"(?:,"reason":"([^"]*)")?/.exec(html);
+  if (match === null) return "no playabilityStatus on the page";
+  return match[2] === undefined ? match[1]! : `${match[1]}: ${match[2]}`;
+}
+
 /**
  * Thrown when YouTube is rate limiting this machine. Every answer after that point would read
  * as "unknown", which keeps cameras a previous build dropped as forbidden, so the build stops
@@ -59,12 +68,20 @@ async function embeddabilityOf(videoId: string): Promise<Embeddability> {
     if (res.status === 429 || res.url.includes("/sorry/")) {
       throw new RateLimitedError(`YouTube is rate limiting this machine (at ${videoId})`);
     }
-    if (!res.ok) return "unknown";
-    const match = /"playableInEmbed":(true|false)/.exec(await res.text());
-    if (match === null) return "unknown";
+    if (!res.ok) {
+      unknownReasons.set(videoId, `HTTP ${res.status}`);
+      return "unknown";
+    }
+    const html = await res.text();
+    const match = /"playableInEmbed":(true|false)/.exec(html);
+    if (match === null) {
+      unknownReasons.set(videoId, playabilityOf(html));
+      return "unknown";
+    }
     return match[1] === "true" ? "allowed" : "forbidden";
   } catch (error) {
     if (error instanceof RateLimitedError) throw error;
+    unknownReasons.set(videoId, String(error));
     return "unknown";
   }
 }
@@ -160,7 +177,7 @@ async function resolvePlace(
   }
   const warning =
     embeddability === "unknown"
-      ? `[${place.id}] the recorded stream is gone. The camera is kept, so rediscovery looks for the next stream`
+      ? `[${place.id}] the recorded stream is gone (${unknownReasons.get(place.videoId) ?? "no reason recorded"}). The camera is kept, so rediscovery looks for the next stream`
       : undefined;
 
   if (place.at !== undefined) {
