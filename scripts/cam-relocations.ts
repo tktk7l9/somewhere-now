@@ -599,4 +599,12 @@ export const CAM_RELOCATIONS: CamRelocation[] = [
   { id: "us-live-shark-cam-at-the-aquarium-of-the", at: { lat: 33.762, lng: -118.197, timeZone: "America/Los_Angeles", country: "US" }, from: "Photon: Aquarium of the Pacific, California; watch page: \"swimming around the Aquarium of the Pacific's shark lagoon\"" },
   { id: "us-mendenhall-glacier-and-mountain-goat", at: { lat: 58.5047, lng: -134.5539, timeZone: "America/Juneau", country: "US" }, from: "Photon: Mendenhall Glacier, Alaska; watch page: \"Camera viewers will see the Mendenhall Glacier and Mendenhall Lake\"" },
   { id: "ca-live-orcalab-main-cams-orca-whale-loo", at: { lat: 50.5499, lng: -126.6792, timeZone: "America/Vancouver", country: "CA" }, from: "Photon: Cracroft Point, British Columbia; watch page: \"OrcaLab Base, Sea Lion Rock, Parson Island and Cracroft Point\"" },
+  // 2026-11-03: country mix-ups left over from #87. Each target was looked up in Open-Meteo (with
+  // admin1) and Photon; both agree within 1 km.
+  { id: "ca-buffalo-toronto-public-media-roof-cam", place: { name: "Buffalo", countryCode: "US", admin1: "New York" }, from: "watch page: \"our live view of downtown Buffalo, NY from the headquarters of Buffalo Toronto Public Media\"; Photon hit: Buffalo, New York" },
+  { id: "gb-live-new-london-ct-railcam-railside-l", place: { name: "New London", countryCode: "US", admin1: "Connecticut" }, from: "title: New London, CT; Photon hit: New London, Connecticut" },
+  { id: "gb-manchester-ia-hawk-camera-live-from-j", place: { name: "Manchester", countryCode: "US", admin1: "Iowa" }, from: "title: Manchester, IA; Photon hit: Manchester, Iowa" },
+  { id: "us-cabo-san-lucas-baja-california-sur-en", place: { name: "Cabo San Lucas", countryCode: "MX", admin1: "Baja California Sur" }, from: "title: Cabo San Lucas, Baja California Sur; Photon hit: Cabo San Lucas, Baja California Sur" },
+  { id: "no-webcam-bergen-aan-zee-live-streaming", place: { name: "Bergen aan Zee", countryCode: "NL", admin1: "North Holland" }, from: "title: Bergen aan Zee; Photon hit: Bergen aan Zee, Noord-Holland" },
+  { id: "pt-marina-di-chiavari-live-cam-porto-tur", place: { name: "Chiavari", countryCode: "IT", admin1: "Liguria" }, from: "title: Marina di Chiavari, Mar Ligure; Photon hit: Chiavari Marina, Liguria" },
 ];

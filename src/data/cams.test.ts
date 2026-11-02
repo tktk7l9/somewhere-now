@@ -21,9 +21,13 @@ describe("camera master data", () => {
    *
    * 2026-11-02 (third pass): lowered to 3,800 under the same decision. 353 offline cameras whose
    * stream is private, deleted or unavailable were dropped; the catalogue is now 3,810.
+   *
+   * 2026-11-03: lowered to 3,600. The owner decided to drop what is not a camera of one place:
+   * 208 news, TV, radio, music, clock and pre-recorded streams and multi-place compilations were
+   * excluded on title, channel and watch-page evidence. The catalogue is now 3,602.
    */
-  it("has 3800 or more entries", () => {
-    expect(CAMS.length).toBeGreaterThanOrEqual(3800);
+  it("has 3600 or more entries", () => {
+    expect(CAMS.length).toBeGreaterThanOrEqual(3600);
   });
 
   /**

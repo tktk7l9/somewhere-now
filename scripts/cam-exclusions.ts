@@ -9823,6 +9823,1057 @@ export const CAM_EXCLUSIONS: CamExclusion[] = [
     videoId: "GwYD_WoV9KI",
     reason: "Stream cannot be played: playabilityStatus UNPLAYABLE \"This live stream recording is not available.\" on the watch page; its current stream QctiA8bz3bA too (LOGI…\"Private video\"), 2026-11-02",
   },
+  // ── 2026-11-03: streams that are not a camera of one place (owner's decision: exclude them).
+  // Found from the title and channel; unclear ones were confirmed on the watch page, one page at a
+  // time with the repository-URL User-Agent. A single real camera that carries news audio or music
+  // stays in; nature-sound ambience stays behind the broadcast filter (src/domain/broadcast.ts).
+  // News and TV channels.
+  {
+    // in-news18-marathi-live-tv-maharashtra-po
+    videoId: "L-tPyWhPpzg",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // in-india-today-tv-live-nepal-flash-flood
+    videoId: "sYZtOFzM78M",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // in-cnn-news18-live-tv-nepal-flash-floods
+    videoId: "rfDx1HMvXbQ",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // in-tv9-telugu-news-live
+    videoId: "II_m28Bm-iM",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // in-live-asianet-suvarna-news-24x7-kannad
+    videoId: "F1m0ciwMs8c",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // in-sakshi-tv-telugu-news-live-latest-tel
+    videoId: "ocy5UgWokKQ",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // in-tv5-news-telugu-live-tv5-live
+    videoId: "NdmSb1MnSR0",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // in-ntv-telugu-news-live
+    videoId: "L0RktSIM980",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // in-v6-telugu-news-live-telangana-live-tv
+    videoId: "28IZl9iM-EE",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // in-nepal-flash-flood-live-kolkata-news-a
+    videoId: "6Ec7bnQVO44",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // in-abn-telugu-news-live-telugu-news-live
+    videoId: "HoYsWagMFfE",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // in-news18-punjab-live-cm-mann-punjab-str
+    videoId: "AYJde7JQ1ok",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // in-news18-punjab-live-tv-punjab-strike-n
+    videoId: "KMWcefrAKLg",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // in-tv9-bharatvarsh-live-iran-us-war-patn
+    videoId: "nSpwwcHVp80",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // in-live-nepal-swallowed-by-flash-flood-b
+    videoId: "GZ7PndmLinQ",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // in-nepal-flash-flood-updates-live-indian
+    videoId: "fWfbJZmqRCI",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // in-india-today-karnataka-roundtable-live
+    videoId: "vd14SSn4wdM",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // in-nepal-flash-flood-live-up-bihar-on-hi
+    videoId: "G5Dtg047TUw",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // in-live-india-paksitan-tensions-operatio
+    videoId: "4Mo7MQmd8v0",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // in-samajwadi-party-pc-live-akhilesh-yada
+    videoId: "YqSxK4Z7pqI",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // in-delhi-h1n1-surge-live-h1n1-alarm-amid
+    videoId: "eTsk765DLIc",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // in-live-tamil-nadu-cm-vijay-inaugurates
+    videoId: "IXbOfsheOwA",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // in-tvc-news-nigeria-livestream
+    videoId: "b-Yzp0l8cAM",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // in-channels-television-live
+    videoId: "W8nThq62Vb4",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // in-channels-television-live-stream
+    videoId: "d4zDorDl5UE",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // in-live-dunya-news-24-7-non-stop-coverag
+    videoId: "e2XVSUYh4S0",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // br-a24-en-vivo-noticias-de-argentina-y-e
+    videoId: "ArKbAx1K-2U",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // cn-24-mnews-taiwan-news-24h-live-24
+    videoId: "5n0y6b0Q25o",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // kr-2-tv-yonhapnewstv
+    videoId: "IrB8sFK8cXo",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // kr-24-tv-yonhapnewstv
+    videoId: "6QZ_qc75ihU",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // tr-cnn-turk-canl-yay-n-hd-canl-tv-izle-h
+    videoId: "6N8_r2uwLEc",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // tr-ntv-canl-yay-n-full-hd-izle
+    videoId: "pqq5c6k70kk",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // tr-treasury-and-finance-minister-mehmet
+    videoId: "9YfgHvaWWqs",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // tr-breaking-news-clashes-in-front-of-the
+    videoId: "7bI6wenvj0k",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // tr-son-dakika-haberleri-haber-global-tv
+    videoId: "EqoCJ8BPxtE",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // au-watch-abc-news-australia-live-abc-new
+    videoId: "vOTiJkg1voo",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // id-live-streaming-24-jam-kompastv
+    videoId: "DOOrIxw5xOw",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // pl-relacja-na-zywo-ogladaj-telewizja-rep
+    videoId: "dzntyCTgJMQ",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // br-tv-aparecida-ao-vivo
+    videoId: "4CAmwaFJo6k",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // br-tv-novo-tempo-ao-vivo-24-horas
+    videoId: "l2_O7pDT0Fg",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // br-canal-siete-en-vivo
+    videoId: "Vh8xmLBJtR8",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // au-kairali-news-live-malayalam-news-live
+    videoId: "yiiqRHY1Bl8",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // my-awani-live-24-7
+    videoId: "mkVyNaGee8A",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // ae-al-jazeera-english-live
+    videoId: "gCNeDWCI0vo",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // vn-suprememastertv-live-1080p-1-119-200
+    videoId: "ZzWBpGwKoaI",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // il-tvp-info-ogladaj-na-zywo
+    videoId: "3jKb-uThfrg",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // us-watch-fox-weather-channel-live-stream
+    videoId: "wt6SIE7BXS8",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // za-france-24-english-live-international
+    videoId: "HvZt-nh9sGg",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // tw-live-54-24-taiwan-set-news-24h-live-s
+    videoId: "yeYC0mbSIOo",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // jp-24-news24-japan-news-live
+    videoId: "coYw-eVU0Ks",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // sg-24-globalnewstv-24h-live-news-24
+    videoId: "6IquAgfvYmc",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // jp-24h-live-tbs-news-dig
+    videoId: "Anr15FA9OCI",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // ro-live-euronews-romania
+    videoId: "XNcx7TFm6zg",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // bg-euronews-english-live
+    videoId: "pykpO5kQJ98",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // ua-free-om-live
+    videoId: "zJUdf5y-BH0",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // ua-1-1
+    videoId: "WY8sDvZdWEA",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // ca-cbc-news-live-calgary
+    videoId: "GXan5ROsd08",
+    reason: "News or TV channel, not a camera: watch page (\"CBC News Calgary delivers news you need when you need it.\"), 2026-11-03",
+  },
+  {
+    // ca-cbc-news-live-nova-scotia
+    videoId: "Utk7BN9X1Dk",
+    reason: "News or TV channel, not a camera: watch page (\"CBC News Nova Scotia delivers news you need when you need it.\"), 2026-11-03",
+  },
+  {
+    // ca-cbc-news-live-newfoundland-and-labrad
+    videoId: "KJb3pSYYkTQ",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // us-live-news-fox-local-los-angeles-24-7
+    videoId: "8u8pQ_uLGjo",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // us-live-news-fox-local-san-francisco-24
+    videoId: "rM8rkzxKZRs",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // us-live-news-fox-local-chicago-24-7-live
+    videoId: "E2gGh3BEhEA",
+    reason: "News or TV channel, not a camera: watch page (\"Watch FOX LOCAL Chicago live for breaking news, investigations, politics\"), 2026-11-03",
+  },
+  {
+    // us-live-news-fox-local-seattle-24-7-live
+    videoId: "BZ2eIuu0m_k",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // us-live-news-fox-local-dallas-24-7-live
+    videoId: "HkfKsRa9qnE",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // us-live-news-fox-local-phoenix-24-7-live
+    videoId: "qilQmQW8Dqg",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // us-live-news-fox-local-atlanta-24-7-live
+    videoId: "egVaFAi74cI",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // us-live-abc7-news
+    videoId: "YUJl2vWNsWU",
+    reason: "News or TV channel, not a camera: watch page (\"Watch ABC7 for live updates on news happening in your community\"), 2026-11-03",
+  },
+  {
+    // us-live-abc7-eyewitness-news
+    videoId: "s3iVFJoxrYc",
+    reason: "News or TV channel, not a camera: watch page (\"Watch ABC7 for live updates on news happening in your community\"), 2026-11-03",
+  },
+  {
+    // us-live-updates-music-legend-dolly-parto
+    videoId: "sj2cWegO1OU",
+    reason: "News or TV channel, not a camera: watch page (ABC 7 Chicago, now \"LIVE UPDATES after deadly Florida plane crash\"), 2026-11-03",
+  },
+  {
+    // za-africanews-english-live
+    videoId: "NQjabLGdP5g",
+    reason: "News or TV channel, not a camera: watch page (\"a daily dose of news, produced by Africans for Africans\"), 2026-11-03",
+  },
+  {
+    // mx-n-noticias-guadalajara-en-vivo
+    videoId: "xPkfTHjxL7Q",
+    reason: "News or TV channel, not a camera: watch page (\"Sigue las noticias de N+ Guadalajara En Vivo\"), 2026-11-03",
+  },
+  {
+    // ua-live-24-7-key-news-from-ukraine-world
+    videoId: "uK7u5Cu4xh0",
+    reason: "News or TV channel, not a camera: watch page (\"Stay updated with breaking news, live reports\"), 2026-11-03",
+  },
+  {
+    // jp-nagoyatv-news-live-24-most-recent-new
+    videoId: "-C6FE2m7kX8",
+    reason: "News or TV channel, not a camera: watch page (\"日々のニュース動画を24時間配信中\"), 2026-11-03",
+  },
+  {
+    // jp-24-htb-live-24
+    videoId: "tvgbZZYS4Nk",
+    reason: "News or TV channel, not a camera: watch page (\"日々のニュース動画を24時間配信中\"), 2026-11-03",
+  },
+  {
+    // jp-2026-8-26-18-live
+    videoId: "RKTfcpUkteA",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // jp-2026-8-26-live
+    videoId: "htz9A1JMrr8",
+    reason: "News or TV channel, not a camera: watch page (\"日々の天気予報や最新気象ニュースをウェザーニュースキャスターと気象予報士がわかりやすく解説\"), 2026-11-03",
+  },
+  {
+    // jp-2026-8-26-21-30-live
+    videoId: "tp4IdcjXtqo",
+    reason: "News or TV channel, not a camera: stream title and channel, 2026-11-03",
+  },
+  // One-off news programmes (press conferences, event coverage).
+  {
+    // kr-live-2-mbn-news
+    videoId: "ToE1yFej__c",
+    reason: "News programme (press conference or event coverage), not a camera: watch page (MBN News coverage of a ministers' meeting), 2026-11-03",
+  },
+  {
+    // it-vatican-live-pope-leo-presides-over-h
+    videoId: "A2JBODj1vio",
+    reason: "News programme (press conference or event coverage), not a camera: watch page (CNBC-TV18 coverage of a Mass), 2026-11-03",
+  },
+  {
+    // cn-live-2026-8-25-ann
+    videoId: "p1E5b0H_hVk",
+    reason: "News programme (press conference or event coverage), not a camera: watch page (\"北京で開かれている世界人型ロボット運動会の様子をライブで配信します\"), 2026-11-03",
+  },
+  {
+    // jp-icc-live-2026-8-26-ann
+    videoId: "SNBBD6CamPs",
+    reason: "News programme (press conference or event coverage), not a camera: watch page (\"赤根所長の会見の模様をライブで配信します\"), 2026-11-03",
+  },
+  {
+    // jp-icc-2026-8-26-5-live-tbs-news-dig
+    videoId: "-JYakLd9n00",
+    reason: "News programme (press conference or event coverage), not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // jp-9-11-3-live-2026-8-25-ann
+    videoId: "OqPX7-DwZJE",
+    reason: "News programme (press conference or event coverage), not a camera: watch page (\"気象庁の9月から11月の3カ月予報をライブで配信します\"), 2026-11-03",
+  },
+  {
+    // jp-170-live-2026-8-25-ann
+    videoId: "xga-c2Dw9Qw",
+    reason: "News programme (press conference or event coverage), not a camera: watch page (\"高市総理のコメントの様子をライブで配信します\"), 2026-11-03",
+  },
+  {
+    // jp-live-first-execution-under-the-takaic
+    videoId: "nUxt7fHFQYo",
+    reason: "News programme (press conference or event coverage), not a camera: watch page (\"平口法務大臣の臨時会見をライブ配信します\"), 2026-11-03",
+  },
+  // TV programmes, cartoons and shows.
+  {
+    // tr-yaprak-dokumu-canl-yay-n
+    videoId: "crwxJBQKWj4",
+    reason: "TV programme or show, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // tr-alt-ustu-istanbul-tum-bolumler-canl-i
+    videoId: "6pU7QDkeVr8",
+    reason: "TV programme or show, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // tr-tasacak-bu-deniz-tum-bolumler-canl-ya
+    videoId: "MVjIaSmOs3g",
+    reason: "TV programme or show, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // tr-ask-memnu-canl-izle
+    videoId: "JpP13Wp1ke0",
+    reason: "TV programme or show, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // tr-bizimkiler-tum-bolumler-canl-yay-n-no
+    videoId: "jvC6-s5exnI",
+    reason: "TV programme or show, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // za-live-big-city-greens-full-episodes-me
+    videoId: "B_5RPAixkG4",
+    reason: "TV programme or show, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // ch-the-amazing-world-of-gumball-live-non
+    videoId: "nIyaCRNwxhU",
+    reason: "TV programme or show, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // ch-live-phineas-and-ferb-season-1-full-e
+    videoId: "_HviSyC7zSU",
+    reason: "TV programme or show, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // kr-triton-poker-series-cash-game-invitat
+    videoId: "nU5ClZZQ4kg",
+    reason: "TV programme or show, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // in-robot-pacman-vs-lava-monster-vs-ms-pa
+    videoId: "Qb_HeHiie4E",
+    reason: "TV programme or show, not a camera: watch page (animated \"Films in Real Life\" video), 2026-11-03",
+  },
+  {
+    // hk-live-amc-gme-hymc-wed-aug-26-2026-1-o
+    videoId: "UXAPxz-wLHQ",
+    reason: "TV programme or show, not a camera: watch page (\"ALL DAY CHART & CHAT\"), 2026-11-03",
+  },
+  // Clocks and monitoring boards.
+  {
+    // br-ao-vivo-relogio-hora-atual-em-brasili
+    videoId: "inTIu0bmtrE",
+    reason: "Clock or monitoring board (numbers or a map, not a place), not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // br-live-hora-certa-24-7-relogio-ao-v-2
+    videoId: "kPAL45DqaAM",
+    reason: "Clock or monitoring board (numbers or a map, not a place), not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // mx-en-vivo-reloj-hora-actual-en-ciudad-d
+    videoId: "I6WIn3sLFLw",
+    reason: "Clock or monitoring board (numbers or a map, not a place), not a camera: watch page (\"Esta transmisión en vivo es para el huso horario de Ciudad de México\"), 2026-11-03",
+  },
+  {
+    // au-live-clock-current-time-in-australia
+    videoId: "bMmJVgByfKM",
+    reason: "Clock or monitoring board (numbers or a map, not a place), not a camera: watch page (\"This livestream is for the Australian Eastern Standard Time (AEST) timezone\"), 2026-11-03",
+  },
+  {
+    // mx-live-clock-cst-current-time
+    videoId: "nyw30BF_i6Y",
+    reason: "Clock or monitoring board (numbers or a map, not a place), not a camera: watch page (\"This livestream is for the Central Standard Time (CST) timezone\"), 2026-11-03",
+  },
+  {
+    // us-live-clock-time-in-new-york-now-live
+    videoId: "OQCwp8o5L8o",
+    reason: "Clock or monitoring board (numbers or a map, not a place), not a camera: watch page (\"This livestream is for the Eastern Time Zone (EST) timezone\"), 2026-11-03",
+  },
+  {
+    // jp-the-real-time-earthquake-alert-channe
+    videoId: "I5_vUnu1GN4",
+    reason: "Clock or monitoring board (numbers or a map, not a place), not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // gr-live-earthquake-monitoring-globalquak
+    videoId: "rvtygG4n6ew",
+    reason: "Clock or monitoring board (numbers or a map, not a place), not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // id-live-earthquake-map-tsunami-monitor-2
+    videoId: "MRR5Ex4W4_Q",
+    reason: "Clock or monitoring board (numbers or a map, not a place), not a camera: watch page (\"follow our 24/7 global earthquake tracker powered by official data from USGS and EMSC\"), 2026-11-03",
+  },
+  {
+    // ua-24-7-25
+    videoId: "A8JwEeRp81o",
+    reason: "Clock or monitoring board (numbers or a map, not a place), not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // ua-live
+    videoId: "96LgCn_73tM",
+    reason: "Clock or monitoring board (numbers or a map, not a place), not a camera: stream title and channel, 2026-11-03",
+  },
+  // Radio and music streams.
+  {
+    // it-morning-in-italy-mediterranean-music
+    videoId: "25M3rw1lP68",
+    reason: "Radio or music stream, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // us-tropical-summer-bossa-nova-beach-cafe
+    videoId: "w4_V8fa3Rt4",
+    reason: "Radio or music stream, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // tr-cafe-de-anatolia-24-7-live-radio-ethn
+    videoId: "Gsxr_Jqv_I8",
+    reason: "Radio or music stream, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // tr-kral-akustik-radyo-canl-radyo-dinle-o
+    videoId: "6He9sFxFv8Y",
+    reason: "Radio or music stream, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // tr-psychedelic-anatolian-rock-canl-yay-n
+    videoId: "JRQGif7Y7Kg",
+    reason: "Radio or music stream, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // fr-night-paris-jazz-slow-saxophone-relax
+    videoId: "M4CoRnQPBxQ",
+    reason: "Radio or music stream, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // id-living-coffee-smooth-jazz-radio-relax
+    videoId: "SORD03t7nlo",
+    reason: "Radio or music stream, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // es-luxury-chillout-lounge-2026-cafe-del
+    videoId: "p4lRkYtSwg8",
+    reason: "Radio or music stream, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // pl-deep-techno-24-7-live-stream
+    videoId: "G-u5OhIeln4",
+    reason: "Radio or music stream, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // gr-greek-hits-livestream-non-stop-mix-24
+    videoId: "TUU9RrFYiuc",
+    reason: "Radio or music stream, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // vn-12-hours-of-calming-music-for-dogsmus
+    videoId: "Ciqva0oZ3HY",
+    reason: "Radio or music stream, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // vn-luxury-hotel-lounge-music-relaxing-ja
+    videoId: "I_2sAr9hIuc",
+    reason: "Radio or music stream, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // gr-chillout-2026-24-7-live-radio-summer
+    videoId: "sgEJ4sOwboM",
+    reason: "Radio or music stream, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // jp-relaxing-zen-music-24-7-healing-music
+    videoId: "5_1OOKcawd8",
+    reason: "Radio or music stream, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // jp-hawaiian-cafe-hawaiian-ukulele-with-o
+    videoId: "HdiKqg23D0o",
+    reason: "Radio or music stream, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // jp-soft-lofi-room-chill-vibes-for-peacef
+    videoId: "yf5NOyy1SXU",
+    reason: "Radio or music stream, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // jp-relaxing-jazz-piano-radio-slow-jazz-m
+    videoId: "Dx5qFachd3A",
+    reason: "Radio or music stream, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // tw-24-7-soft-classical-piano-relaxing-mu
+    videoId: "DcJCvEyjWqU",
+    reason: "Radio or music stream, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // gb-live-talksport-24-7
+    videoId: "uLWEssCrXYc",
+    reason: "Radio or music stream, not a camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // kr-live-arirang-radio-all-things-k-k-pop
+    videoId: "P1fX2GGdVS0",
+    reason: "Radio or music stream, not a camera: watch page (\"Korea's first all-English broadcasting radio station\"), 2026-11-03",
+  },
+  {
+    // it-live-piano-music-live-24-7-focus-musi
+    videoId: "I6o7UWEaSbw",
+    reason: "Radio or music stream, not a camera: watch page (\"Classic Piano Music 24/7 Live Streaming\"), 2026-11-03",
+  },
+  {
+    // jp-shakuhachi-flute-music-traditional-ja
+    videoId: "7UQJucoEwj4",
+    reason: "Radio or music stream, not a camera: watch page (channel Sakura Ambient Japan, meditation music), 2026-11-03",
+  },
+  {
+    // es-seven-beats-music-ibiza-chillout-24-7
+    videoId: "BCCr3pv0bRQ",
+    reason: "Radio or music stream, not a camera: watch page (\"Welcome to the Seven Beats 24/7 Ibiza Chillout Stream!\"), 2026-11-03",
+  },
+  {
+    // jp-shibuya-nights-chill-lofi-beats-smoot
+    videoId: "5OOn_XQRYJs",
+    reason: "Radio or music stream, not a camera: watch page (channel TOKYO TONES, \"chill lofi beats + smooth jazz\"), 2026-11-03",
+  },
+  {
+    // es-live-ibiza-golden-hour-club-del-mar-d
+    videoId: "y8BL5kEC4dM",
+    reason: "Radio or music stream, not a camera: watch page (channel RITUALS DEEP MUSIC, \"a smooth deep house journey\"), 2026-11-03",
+  },
+  {
+    // au-live-ibiza-golden-hour-club-del-mar-d
+    videoId: "-mkakxbwpy0",
+    reason: "Radio or music stream, not a camera: watch page (channel RITUALS DEEP MUSIC, \"a smooth deep house flow\"), 2026-11-03",
+  },
+  {
+    // es-ibiza-chill-mix-2026-24-7-4k-live-str
+    videoId: "whZHMbZqRFk",
+    reason: "Radio or music stream, not a camera: watch page (\"House Mix by Lilly Era\"), 2026-11-03",
+  },
+  {
+    // us-calm-cafe-jazz-radio-cozy-summer-coff
+    videoId: "LTFEmIIOvNQ",
+    reason: "Radio or music stream, not a camera: watch page (\"the Official Calm Cafe jazz radio\"), 2026-11-03",
+  },
+  {
+    // jp-peaceful-lofi-coffee-in-90-s-tokyo-st
+    videoId: "4Q9jq-tdOoE",
+    reason: "Radio or music stream, not a camera: watch page (channel Lofi on the Rooftop, \"Rainy Lofi Hip Hop Mix\"), 2026-11-03",
+  },
+  {
+    // jp-elegant-bossa-nova-jazz-music-ocean-w
+    videoId: "nOa1kTGU5pU",
+    reason: "Radio or music stream, not a camera: watch page (channel Bossa Nova Jazz, Spotify playlist), 2026-11-03",
+  },
+  {
+    // br-caribbean-beach-jazz-24-7relaxing-tro
+    videoId: "qGGQkoB0EE4",
+    reason: "Radio or music stream, not a camera: watch page (channel Coffee Shop Ambience Jazz), 2026-11-03",
+  },
+  {
+    // ch-switzerland-24-7-calming-nature-piano
+    videoId: "WsmWSuqNAGU",
+    reason: "Radio or music stream, not a camera: watch page (\"Soothing piano music blends with cinematic views\"), 2026-11-03",
+  },
+  {
+    // it-24-7-mediterranean-coastal-lounge-rel
+    videoId: "jbKq6xFzJVQ",
+    reason: "Radio or music stream, not a camera: watch page (channel Bella Notte Vibes, \"Relax with soothing It[alian music]\"), 2026-11-03",
+  },
+  {
+    // es-cafe-del-mar-24-7-chillout-lounge-dee
+    videoId: "zphxFs6Sa60",
+    reason: "Radio or music stream, not a camera: watch page (channel Dream Chill Café, \"Chillout Lounge & Deep House Live Stream\"), 2026-11-03",
+  },
+  {
+    // de-prague-castle-night-jazz-romantic-bal
+    videoId: "DgBUQE0ZhYM",
+    reason: "Radio or music stream, not a camera: watch page (channel Sweet Jazz Music), 2026-11-03",
+  },
+  {
+    // my-sleep-and-chill-with-calm-jazz-music
+    videoId: "_hYFoAYqOY8",
+    reason: "Radio or music stream, not a camera: watch page (channel Cozy Jazz Apartment, Spotify playlist), 2026-11-03",
+  },
+  {
+    // vn-tranquil-seaside-cafe-jazz-escape-wit
+    videoId: "fYlE4P7esPo",
+    reason: "Radio or music stream, not a camera: watch page (channel Coffee Music), 2026-11-03",
+  },
+  {
+    // it-relax-with-italian-coffee-and-jazz-mu
+    videoId: "mXpEQs0CrQE",
+    reason: "Radio or music stream, not a camera: watch page (channel Outdoor Coffee Shop, Spotify playlist), 2026-11-03",
+  },
+  {
+    // it-amalfi-coast-summer-live-relaxing-ita
+    videoId: "cdvoGkY2NFE",
+    reason: "Radio or music stream, not a camera: watch page (\"Enjoy relaxing Italian instrumental music\"), 2026-11-03",
+  },
+  // Pre-recorded footage presented as a live stream.
+  {
+    // mv-maldives-4k-aerial-overwater-villas-c
+    videoId: "ubdBRHR9uCA",
+    reason: "Pre-recorded footage, not a live camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // mv-maldives-4k-aerial-overwater-vill-2
+    videoId: "GYOUJZ5Sp9c",
+    reason: "Pre-recorded footage, not a live camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // mv-maldives-4k-aerial-overwater-vill-3
+    videoId: "9GMK1OG2Mks",
+    reason: "Pre-recorded footage, not a live camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // it-bora-bora-8k-aerial-overwater-bungalo
+    videoId: "O1oR_Z0m7hY",
+    reason: "Pre-recorded footage, not a live camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // us-miami-8k-virtual-tour-brickell-skylin
+    videoId: "JELaF9xTQNk",
+    reason: "Pre-recorded footage, not a live camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // us-the-best-4k-aquarium-dive-into-the-me
+    videoId: "xCLTpcx9aO8",
+    reason: "Pre-recorded footage, not a live camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // br-the-deep-ocean-4k-tv-ultra-hd-full-do
+    videoId: "THnF0IQ8JJM",
+    reason: "Pre-recorded footage, not a live camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // fj-flying-over-fiji-4k-relaxing-music-al
+    videoId: "Q71lMAsx1Pc",
+    reason: "Pre-recorded footage, not a live camera: watch page (\"Relaxing Music Along With Beautiful Tropical Paradise Nature Videos\"), 2026-11-03",
+  },
+  {
+    // no-winter-in-norway-4k-uhd-norway-s-ench
+    videoId: "GF4MCEqu1zI",
+    reason: "Pre-recorded footage, not a live camera: watch page (channel Beautiful Places 4K, scenery with relaxing music), 2026-11-03",
+  },
+  {
+    // us-4k-african-wildlife-discovery-incredi
+    videoId: "sH-HOPe6tio",
+    reason: "Pre-recorded footage, not a live camera: watch page (\"Scenic Wildlife Film African With Calm Music\"), 2026-11-03",
+  },
+  {
+    // ch-switzerland-4k-winter-wonderland-on-s
+    videoId: "ZAcfrblTABs",
+    reason: "Pre-recorded footage, not a live camera: watch page (channel World Scenery 4K, \"Scenic Train Journeys Through the Alps - Relaxing Music\"), 2026-11-03",
+  },
+  {
+    // gr-greece-sky-journey-live-4k-relaxing-d
+    videoId: "OIIdQCmHNs0",
+    reason: "Pre-recorded footage, not a live camera: watch page (\"an endless aerial escape across one of the world's most breathtaking destinations\"), 2026-11-03",
+  },
+  {
+    // us-universal-studios-live-24-7-rides-sho
+    videoId: "v99dNIuFBKo",
+    reason: "Pre-recorded footage, not a live camera: watch page (\"There are no live streaming cams at Universal Studios Hollywood ... Although prerecorded\"), 2026-11-03",
+  },
+  {
+    // fr-disneyland-paris-disney-adventure-wor
+    videoId: "4_cquOvbErQ",
+    reason: "Pre-recorded footage, not a live camera: watch page (\"There are no live streaming cams in the Disneyland Paris Resort theme parks ... Although prerecorded\"), 2026-11-03",
+  },
+  {
+    // sg-universal-studios-live-worldwide-virt
+    videoId: "6fdFZUqi0oU",
+    reason: "Pre-recorded footage, not a live camera: stream title and channel, 2026-11-03",
+  },
+  {
+    // gb-london-underground-first-person-journ
+    videoId: "gzV7uUxwgwI",
+    reason: "Pre-recorded footage, not a live camera: watch page (\"Kick back and relax on a virtual Tube journey\"), 2026-11-03",
+  },
+  {
+    // kr-top10-korean-food-street-real-time-it
+    videoId: "pvrjsRb4GLU",
+    reason: "Pre-recorded footage, not a live camera: watch page (\"on a recorded night walking tour\"), 2026-11-03",
+  },
+  {
+    // vn-live-bac-ha-market-real-life-in-vietn
+    videoId: "WnebXNDmBN0",
+    reason: "Pre-recorded footage, not a live camera: stream title and channel, 2026-11-03",
+  },
+  // Compilations of several places that cannot be pinned to one point.
+  {
+    // us-steel-highway-pacific-northwest-multi
+    videoId: "XD8QtMY88GE",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: stream title and channel, 2026-11-03",
+  },
+  {
+    // us-steel-highway-iowa-bnsf-cpkc-cn-multi
+    videoId: "PFWaX7PCwQI",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: stream title and channel, 2026-11-03",
+  },
+  {
+    // us-steel-highway-iowa-up-iais-multi-stre
+    videoId: "Exa4xEN873A",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: stream title and channel, 2026-11-03",
+  },
+  {
+    // us-steel-highway-missouri-nebraska-multi
+    videoId: "eiROW5titOQ",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: stream title and channel, 2026-11-03",
+  },
+  {
+    // us-steel-highway-wisconsin-illinois-mult
+    videoId: "Iys6kbOOo6s",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: stream title and channel, 2026-11-03",
+  },
+  {
+    // us-steel-highway-illinois-indiana-michig
+    videoId: "sIFRzKjCtrA",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: stream title and channel, 2026-11-03",
+  },
+  {
+    // us-live-scenic-cameras-florida-bahamas-c
+    videoId: "y0XPkjM9-P4",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: stream title and channel, 2026-11-03",
+  },
+  {
+    // us-live-24-7-webcams-around-the-world-fo
+    videoId: "ShuBcJKNbl4",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: stream title and channel, 2026-11-03",
+  },
+  {
+    // us-4k-24-7-big-waves-tahiti-and-hawaii-a
+    videoId: "6N8jzXAstuk",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: stream title and channel, 2026-11-03",
+  },
+  {
+    // mx-24-7-live-tropical-paradise-aruba-bah
+    videoId: "i3rdcRdr8Xk",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: stream title and channel, 2026-11-03",
+  },
+  {
+    // it-top-live-cams-usa-uk-canada-with-rela
+    videoId: "_eS7q-G9Zqs",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: stream title and channel, 2026-11-03",
+  },
+  {
+    // de-railcam-uk-sampler-stream
+    videoId: "ZC7HiaMkmlU",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: stream title and channel, 2026-11-03",
+  },
+  {
+    // tr-50-najpiekniejszych-plaz-w-polsce-ogl
+    videoId: "uxC7Gf0_MwM",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: stream title and channel, 2026-11-03",
+  },
+  {
+    // at-slovakia-24-7-live-stream-webcams
+    videoId: "6V39eDpTyas",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: watch page (\"Hohe & Niedere Tatra im Blick: 24/7 Panorama-Bilder\"), 2026-11-03",
+  },
+  {
+    // at-wetter-panorama-24-7-live-stream-webc
+    videoId: "NIuO6hrFTrg",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: watch page (\"aus ganz Österreich: von Innsbruck bis Wien\"), 2026-11-03",
+  },
+  {
+    // de-destination-deutschland-24-7-live-str
+    videoId: "Li3Dvqlo5uE",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: watch page (\"Von der Nordsee bis zu den Alpen\"), 2026-11-03",
+  },
+  {
+    // de-spotlight-germany-24-7-live-webcams-s
+    videoId: "aYtgGjMDagw",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: watch page (\"Echtzeitbilder aus ganz Deutschland\"), 2026-11-03",
+  },
+  {
+    // it-dolomiten-panorama-24-7-live-stream-w
+    videoId: "Y1qp-EVF_oU",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: watch page (\"Von den Dolomiten über Südtirol bis in die Lombardei\"), 2026-11-03",
+  },
+  {
+    // gb-schweiz-panorama-24-7-live-stream-web
+    videoId: "enYFXf8u7Lc",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: watch page (\"Alpen, Seen und Städte im Blick ... aus der Schweiz\"), 2026-11-03",
+  },
+  {
+    // ch-wetterpanorama-webcams-von-panocloud
+    videoId: "F2-hJqSTaUk",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: watch page (\"aus Österreich, Deutschland, Italien, Schweiz\"), 2026-11-03",
+  },
+  {
+    // fi-live-webcams-finnish-ski-resorts-ruka
+    videoId: "RbPKkXif03U",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: watch page (\"our live webcam collection of Ruka and Pyhä\"), 2026-11-03",
+  },
+  {
+    // ua-live-real-time-ukraine-cameras
+    videoId: "lUIOBYWfHgw",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: watch page (\"live CCTV footage from across the country\"), 2026-11-03",
+  },
+  {
+    // ua-ukraine-live-24-7-multiple-live-camer
+    videoId: "AbBuSNMWBlQ",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: stream title and channel, 2026-11-03",
+  },
+  {
+    // ua-live-ukraine-real-time-skyline-camera
+    videoId: "IcZ-7sFi1HM",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: stream title and channel, 2026-11-03",
+  },
+  {
+    // ua-live-ukraine-live-hd-camera-feeds-fro
+    videoId: "mTEqaZj2aho",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: stream title and channel, 2026-11-03",
+  },
+  {
+    // il-live-middle-east-live-hd-camera-feeds
+    videoId: "fn_ZWTr0Tb8",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: watch page (\"live feeds from Israel, Iran, Qatar, Lebanon\"), 2026-11-03",
+  },
+  {
+    // us-surfline-tv-live-surf-cams-24-7
+    videoId: "hm9iAviOZ20",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: watch page (\"Surfline TV rotates through our global camera network\"), 2026-11-03",
+  },
+  {
+    // gb-new-england-summer-is-live-webcams-we
+    videoId: "x_ruIH2UmjQ",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: watch page (\"Vermont covered bridge, Mount Katahdin, Maine, Acadia National Park, Boston, Newport, RI and Hartford, CT\"), 2026-11-03",
+  },
+  {
+    // us-alabama-weather-network-coastal-skyca
+    videoId: "3Rp_9FUKH4I",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: watch page (\"Gulf Shores, Orange Beach, Pointe Clear, Fairhope, Spanish Fort, Mobile, Dauphin Island, Biloxi\"), 2026-11-03",
+  },
+  {
+    // jp-3-4
+    videoId: "ElmLqemMkng",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: watch page (\"東海３県の情報カメラの映像をお送りします\"), 2026-11-03",
+  },
+  {
+    // tw-3-love-song-24-7-365-24h-music-englis
+    videoId: "oFaEmwo1utI",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: watch page (cameras along National Freeway 3), 2026-11-03",
+  },
+  {
+    // tw-1-24-7-365-24h-music-e-02-ls204
+    videoId: "4MA7hTv7TTs",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: stream title and channel, 2026-11-03",
+  },
+  {
+    // us-live-disney-world-dashboard-disney-ca
+    videoId: "Ufgx0F2Zjo8",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: watch page (\"Disney Springs, Epcot, Port Canaveral, and more\"), 2026-11-03",
+  },
+  {
+    // us-the-world-live-original-version-earth
+    videoId: "HfgIFGbdGJ0",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: stream title and channel, 2026-11-03",
+  },
+  {
+    // us-today-for-iga-istanbul-airport-screen
+    videoId: "IukqoWQTeXc",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: stream title and channel, 2026-11-03",
+  },
+  {
+    // us-today-for-fox-weather-television-chan
+    videoId: "lQNQ5J6o_Hg",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: stream title and channel, 2026-11-03",
+  },
+  {
+    // it-live-cam-around-the-world-rolling-cam
+    videoId: "i10aOLMK76k",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: watch page (\"transported to every corner of the planet\"), 2026-11-03",
+  },
+  {
+    // us-live-airports-around-the-world-plane
+    videoId: "FNtr2igI7e8",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: watch page (\"Airports around the world\"), 2026-11-03",
+  },
+  {
+    // au-live-beaches-around-the-world-live-be
+    videoId: "H7Up7A4g1R0",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: watch page (\"Beaches around the world\"), 2026-11-03",
+  },
+  {
+    // in-live-cameras-around-the-world-music-t
+    videoId: "AiNCbGzabVo",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: stream title and channel, 2026-11-03",
+  },
+  {
+    // jp-live-cameras-around-japan-let-s-armch
+    videoId: "rVLCmSXhXtg",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: stream title and channel, 2026-11-03",
+  },
+  {
+    // es-200-top-live-cams-from-spain-with-mus
+    videoId: "kUfuwa8mDrA",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: stream title and channel, 2026-11-03",
+  },
+  {
+    // us-live-24-7-global-volcano-monitoring-m
+    videoId: "eGWaJYQgYIE",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: watch page (\"Watch live volcano cameras from around the world\"), 2026-11-03",
+  },
+  {
+    // th-live-bangkok-tour-walking-tour-bangko
+    videoId: "OkQ0utdxwBY",
+    reason: "Compilation of cameras in several places, cannot be pinned to one point: watch page (\"Bangkok night walking ... Pattaya walking street\"), 2026-11-03",
+  },
 ];
 
 export const EXCLUDED_VIDEO_IDS: ReadonlySet<string> = new Set(
