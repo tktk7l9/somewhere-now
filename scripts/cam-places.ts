@@ -414,7 +414,7 @@ export const CAM_PLACES_CURATED: CamPlace[] = [
     category: "nature",
     handle: "ANNnewsCH",
     channelId: "UCGCZAYq5Xxojl_tSXcVJhiQ",
-    videoId: "zAZ6S9pv0jA",
+    videoId: "cIjZxotXPdM",
     titleKey: "【LIVE】癒しの熱帯 アマゾンのジャングルから配信　夜明けの空を横切るインコの群れ　夜の川に響くカエルと昆虫の声　#ネグロ川 #ブラジル【ライブ】ANN/テレ朝",
     place: { name: "Manaus", countryCode: "BR" },
   },
